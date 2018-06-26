@@ -66,7 +66,7 @@ SIGNED | Endpoint requires sending a valid API-Key and signature.
 # SIGNED  Endpoint security
 * `SIGNED` endpoints require an additional header, `Signature`, to be sent.
 * Endpoints use `HMAC SHA256` signatures. The `HMAC SHA256 signature` is a keyed `HMAC SHA256` operation.
-  Use your `secretKey` as the key and `totalParams` as the value for the HMAC operation.
+  Use your `secretKey` as the key and `uri?totalParams` as the value for the HMAC operation.
 * The `signature` is **not case sensitive**.
 * `totalParams` is defined as the `query string` concatenated with the `request body`.
 
@@ -94,8 +94,8 @@ secret |  YYYYYY
 * **HMAC SHA256 signature:**
 
     ```
-    [linux]$ echo -n "type=binance&name=binance_account&api_key=XXXXXX&secret=YYYYYY" | openssl dgst -sha256 -hmac "NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j"
-    (stdin)= abef12e5bdd94281dc83313280800209098b560b57c080e5e420ac394d0582db
+    [linux]$ echo -n "/public/api/ver1/accounts/new?type=binance&name=binance_account&api_key=XXXXXX&secret=YYYYYY" | openssl dgst -sha256 -hmac "NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j"
+    (stdin)= 30f678a157230290e00475cfffccbc92ae3659d94c145a2c0e9d0fa28f41c11a
     ```
 
 
@@ -103,7 +103,7 @@ secret |  YYYYYY
 
     ```
     (HMAC SHA256)
-    [linux]$ curl -H "APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -H "Signature: abef12e5bdd94281dc83313280800209098b560b57c080e5e420ac394d0582db" -X POST 'https://3commas.io/public/api/ver1/accounts/new?type=binance&name=binance_account&api_key=XXXXXX&secret=YYYYYY'
+    [linux]$ curl -H "APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -H "Signature: 30f678a157230290e00475cfffccbc92ae3659d94c145a2c0e9d0fa28f41c11a" -X POST 'https://3commas.io/public/api/ver1/accounts/new?type=binance&name=binance_account&api_key=XXXXXX&secret=YYYYYY'
     ```
 
 ### Example 2: As a request body
@@ -111,8 +111,8 @@ secret |  YYYYYY
 * **HMAC SHA256 signature:**
 
     ```
-    [linux]$ echo -n "type=binance&name=binance_account&api_key=XXXXXX&secret=YYYYYY" | openssl dgst -sha256 -hmac "NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j"
-    (stdin)= abef12e5bdd94281dc83313280800209098b560b57c080e5e420ac394d0582db
+    [linux]$ echo -n "/public/api/ver1/accounts/new?type=binance&name=binance_account&api_key=XXXXXX&secret=YYYYYY" | openssl dgst -sha256 -hmac "NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j"
+    (stdin)= 30f678a157230290e00475cfffccbc92ae3659d94c145a2c0e9d0fa28f41c11a
     ```
 
 
@@ -120,7 +120,7 @@ secret |  YYYYYY
 
     ```
     (HMAC SHA256)
-    [linux]$ curl -H "APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -H "Signature: abef12e5bdd94281dc83313280800209098b560b57c080e5e420ac394d0582db" -X POST 'https://3commas.io/public/api/ver1/accounts/new' -d type=binance&name=binance_account&api_key=XXXXXX&secret=YYYYYY' 
+    [linux]$ curl -H "APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -H "Signature: 30f678a157230290e00475cfffccbc92ae3659d94c145a2c0e9d0fa28f41c11a" -X POST 'https://3commas.io/public/api/ver1/accounts/new' -d type=binance&name=binance_account&api_key=XXXXXX&secret=YYYYYY' 
     ```
 
 
