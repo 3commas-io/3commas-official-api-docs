@@ -1,11 +1,11 @@
 {
     "info": {
-        "title": "3commas public api",
+        "title": "API title",
         "version": "0.0.1"
     },
     "swagger": "2.0",
     "produces": ["application/json"],
-    "host": "3commas.io",
+    "host": "localhost:3000",
     "basePath": "/public/api",
     "tags": [{
         "name": "deals",
@@ -60,7 +60,7 @@
                 }, {
                     "in": "query",
                     "name": "scope",
-                    "description": "active - active deals, finished - finished deals, any other value or null (default) - all deals",
+                    "description": "active - active deals, finished - finished deals, completed - successfully completed, any other value or null (default) - all deals",
                     "type": "string",
                     "required": false
                 }],
@@ -399,6 +399,18 @@
                 "produces": ["application/json"],
                 "consumes": ["application/json"],
                 "parameters": [{
+                    "in": "formData",
+                    "name": "pair",
+                    "description": "Can be omited for simple bot",
+                    "type": "string",
+                    "required": false
+                }, {
+                    "in": "formData",
+                    "name": "skip_signal_checks",
+                    "description": "If false or not specified then all paramaters like signals or volume filters will be checked. If true - those checks will be skipped",
+                    "type": "boolean",
+                    "required": false
+                }, {
                     "in": "path",
                     "name": "bot_id",
                     "type": "integer",
