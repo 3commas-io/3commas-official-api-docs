@@ -7,7 +7,7 @@
    "produces":[
       "application/json"
    ],
-   "host":"localhost:3000",
+   "host":"3commas.io",
    "basePath":"/public/api",
    "tags":[
       {
