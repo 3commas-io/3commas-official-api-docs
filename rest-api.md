@@ -242,10 +242,7 @@ pump_limit | number | YES |
 btc_price_limit | number | YES | 
 safety_order_step_percentage | number | YES | Price deviation to open safety trades(percentage)
 take_profit_type | string | YES | Percentage: base – from base trade, total – from total volume
-strategy_list | array | YES | For manual signals: [{"strategy":"nonstop"}] or []<br>
-                                                        For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>
-                                                        QFL: {"options"=>{"type"=>"original"}, "strategy"=>"qfl"}] <br>
-                                                        TradingView: [{"options"=>{"time"=>"5m", "type"=>"buy_or_strong_buy"}, "strategy"=>"trading_view"} 
+strategy_list | array | YES | For manual signals: [{"strategy":"nonstop"}] or []                                                          For non-stop(1 pair only): [{"strategy":"nonstop"}]                                                          QFL: {"options"=>{"type"=>"original"}, "strategy"=>"qfl"}]                                                           TradingView: [{"options"=>{"time"=>"5m", "type"=>"buy_or_strong_buy"}, "strategy"=>"trading_view"} 
 ### Get bot stats (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/bots/stats
