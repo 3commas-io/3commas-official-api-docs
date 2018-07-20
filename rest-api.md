@@ -227,8 +227,8 @@ Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
 name | string | YES | 
 account_id | integer | YES | id from GET /ver1/accounts
-pairs | array | NO | 
-max_active_deals | integer | NO | Required if composite bot
+pairs | array | YES | 
+max_active_deals | integer | NO | 
 base_order_volume | number | YES | Base trade size
 take_profit | number | YES | Target profit(percentage)
 safety_order_volume | number | YES | Safety trade size
@@ -242,7 +242,7 @@ pump_limit | number | YES |
 btc_price_limit | number | YES | 
 safety_order_step_percentage | number | YES | Price deviation to open safety trades(percentage)
 take_profit_type | string | YES | Percentage: base – from base trade, total – from total volume
-strategy_list | array | YES | For manual signals: [{"strategy":"nonstop"}] or []                                                          For non-stop(1 pair only): [{"strategy":"nonstop"}]                                                          QFL: {"options"=>{"type"=>"original"}, "strategy"=>"qfl"}]                                                           TradingView: [{"options"=>{"time"=>"5m", "type"=>"buy_or_strong_buy"}, "strategy"=>"trading_view"} 
+strategy_list | array | YES | For manual signals: [{"strategy":"nonstop"}] or []<br>                                                        For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>                                                        QFL: {"options"=>{"type"=>"original"}, "strategy"=>"qfl"}] <br>                                                        TradingView: [{"options"=>{"time"=>"5m", "type"=>"buy_or_strong_buy"}, "strategy"=>"trading_view"} 
 ### Get bot stats (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/bots/stats
