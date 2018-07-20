@@ -1,4 +1,4 @@
-# Public Rest API for 3commas.io (2018-07-14)
+# Public Rest API for 3commas.io (2018-07-20)
 # General API Information
 * The base endpoint is: **https://3commas.io/public/api**
 * All endpoints return either a JSON object or array.
@@ -175,12 +175,12 @@ Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
 limit | integer | NO | Limit records. Default: 50
 offset | integer | NO | Offset records
-account_id | integer | NO | Account to show bots on. Return all if not specified
+account_id | integer | NO | Account to show bots on. Return all if not specified. Gather this from GET /ver1/accounts
 bot_id | integer | NO | Bot show deals on. Return all if not specified
 scope | string | NO | active - active deals, finished - finished deals, completed - successfully completed, any other value or null (default) - all deals
-### Info about specific deal (Permission: BOTS_READ, Security: SIGNED)
+### Panic sell deal (Permission: BOTS_WRITE, Security: SIGNED)
 ```
-GET /ver1/deals/{deal_id}/show
+POST /ver1/deals/{deal_id}/panic_sell
 ```
 **Weight:**
 1
@@ -202,9 +202,9 @@ POST /ver1/deals/{deal_id}/cancel
 Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
 deal_id | integer | YES | 
-### Panic sell deal (Permission: BOTS_WRITE, Security: SIGNED)
+### Info about specific deal (Permission: BOTS_READ, Security: SIGNED)
 ```
-POST /ver1/deals/{deal_id}/panic_sell
+GET /ver1/deals/{deal_id}/show
 ```
 **Weight:**
 1
@@ -214,28 +214,6 @@ POST /ver1/deals/{deal_id}/panic_sell
 Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
 deal_id | integer | YES | 
-### User bots (Permission: BOTS_READ, Security: SIGNED)
-```
-GET /ver1/bots
-```
-**Weight:**
-1
-
-**Parameters:**
-NONE
-### Get bot stats (Permission: BOTS_READ, Security: SIGNED)
-```
-GET /ver1/bots/stats
-```
-**Weight:**
-1
-
-**Parameters:**
-
-Name | Type | Mandatory | Description
------------- | ------------ | ------------ | ------------
-account_id | integer | NO | Account to show on. Null - show for all
-bot_id | integer | NO | Bots to show on. Null - show for all
 ### Create bot (Permission: BOTS_WRITE, Security: SIGNED)
 ```
 POST /ver1/bots/create_bot
@@ -248,8 +226,8 @@ POST /ver1/bots/create_bot
 Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
 name | string | YES | 
-account_id | integer | YES | 
-pair | string | NO | Required if simple bot
+account_id | integer | YES | id from GET /ver1/accounts
+pairs | array | NO | 
 max_active_deals | integer | NO | Required if composite bot
 base_order_volume | number | YES | Base trade size
 take_profit | number | YES | Target profit(percentage)
@@ -264,21 +242,13 @@ pump_limit | number | YES |
 btc_price_limit | number | YES | 
 safety_order_step_percentage | number | YES | Price deviation to open safety trades(percentage)
 take_profit_type | string | YES | Percentage: base – from base trade, total – from total volume
-### Bot info (Permission: BOTS_READ, Security: SIGNED)
+strategy_list | array | YES | For manual signals: [{"strategy":"nonstop"}] or []<br>
+                                                        For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>
+                                                        QFL: {"options"=>{"type"=>"original"}, "strategy"=>"qfl"}] <br>
+                                                        TradingView: [{"options"=>{"time"=>"5m", "type"=>"buy_or_strong_buy"}, "strategy"=>"trading_view"} 
+### Get bot stats (Permission: BOTS_READ, Security: SIGNED)
 ```
-GET /ver1/bots/{bot_id}/show
-```
-**Weight:**
-1
-
-**Parameters:**
-
-Name | Type | Mandatory | Description
------------- | ------------ | ------------ | ------------
-bot_id | integer | YES | 
-### Cancel all bot deals (Permission: BOTS_WRITE, Security: SIGNED)
-```
-POST /ver1/bots/{bot_id}/cancel_all_deals
+GET /ver1/bots/stats
 ```
 **Weight:**
 1
@@ -287,69 +257,17 @@ POST /ver1/bots/{bot_id}/cancel_all_deals
 
 Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
-bot_id | integer | YES | 
-### Panic sell all bot deals (Permission: BOTS_WRITE, Security: SIGNED)
+account_id | integer | NO | Account to show on. Null - show for all. Gather this from GET /ver1/accounts
+bot_id | integer | NO | Bots to show on. Null - show for all
+### User bots (Permission: BOTS_READ, Security: SIGNED)
 ```
-POST /ver1/bots/{bot_id}/panic_sell_all_deals
-```
-**Weight:**
-1
-
-**Parameters:**
-
-Name | Type | Mandatory | Description
------------- | ------------ | ------------ | ------------
-bot_id | integer | YES | 
-### Delete bot (Permission: BOTS_WRITE, Security: SIGNED)
-```
-POST /ver1/bots/{bot_id}/delete
+GET /ver1/bots
 ```
 **Weight:**
 1
 
 **Parameters:**
-
-Name | Type | Mandatory | Description
------------- | ------------ | ------------ | ------------
-bot_id | integer | YES | 
-### Start new deal asap (Permission: BOTS_WRITE, Security: SIGNED)
-```
-POST /ver1/bots/{bot_id}/start_new_deal
-```
-**Weight:**
-1
-
-**Parameters:**
-
-Name | Type | Mandatory | Description
------------- | ------------ | ------------ | ------------
-pair | string | NO | Can be omited for simple bot
-skip_signal_checks | boolean | NO | If false or not specified then all paramaters like signals or volume filters will be checked. If true - those checks will be skipped
-bot_id | integer | YES | 
-### Enable bot (Permission: BOTS_WRITE, Security: SIGNED)
-```
-POST /ver1/bots/{bot_id}/enable
-```
-**Weight:**
-1
-
-**Parameters:**
-
-Name | Type | Mandatory | Description
------------- | ------------ | ------------ | ------------
-bot_id | integer | YES | 
-### Disable bot (Permission: BOTS_WRITE, Security: SIGNED)
-```
-POST /ver1/bots/{bot_id}/disable
-```
-**Weight:**
-1
-
-**Parameters:**
-
-Name | Type | Mandatory | Description
------------- | ------------ | ------------ | ------------
-bot_id | integer | YES | 
+NONE
 ### Edit bot (Permission: BOTS_WRITE, Security: SIGNED)
 ```
 PATCH /ver1/bots/{bot_id}/update
@@ -378,24 +296,92 @@ pump_limit | number | YES |
 btc_price_limit | number | YES | 
 safety_order_step_percentage | number | YES | Price deviation to open safety trades(percentage)
 take_profit_type | string | YES | Percentage: base – from base trade, total – from total volume
-### Supported markets list (Permission: NONE, Security: NONE)
+### Disable bot (Permission: BOTS_WRITE, Security: SIGNED)
 ```
-GET /ver1/accounts/market_list
-```
-**Weight:**
-1
-
-**Parameters:**
-NONE
-### User connected exchanges list (Permission: ACCOUNTS_READ, Security: SIGNED)
-```
-GET /ver1/accounts
+POST /ver1/bots/{bot_id}/disable
 ```
 **Weight:**
 1
 
 **Parameters:**
-NONE
+
+Name | Type | Mandatory | Description
+------------ | ------------ | ------------ | ------------
+bot_id | integer | YES | 
+### Enable bot (Permission: BOTS_WRITE, Security: SIGNED)
+```
+POST /ver1/bots/{bot_id}/enable
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Description
+------------ | ------------ | ------------ | ------------
+bot_id | integer | YES | 
+### Start new deal asap (Permission: BOTS_WRITE, Security: SIGNED)
+```
+POST /ver1/bots/{bot_id}/start_new_deal
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Description
+------------ | ------------ | ------------ | ------------
+pair | string | NO | Can be omited for simple bot
+skip_signal_checks | boolean | NO | If false or not specified then all paramaters like signals or volume filters will be checked. If true - those checks will be skipped
+bot_id | integer | YES | 
+### Delete bot (Permission: BOTS_WRITE, Security: SIGNED)
+```
+POST /ver1/bots/{bot_id}/delete
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Description
+------------ | ------------ | ------------ | ------------
+bot_id | integer | YES | 
+### Panic sell all bot deals (Permission: BOTS_WRITE, Security: SIGNED)
+```
+POST /ver1/bots/{bot_id}/panic_sell_all_deals
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Description
+------------ | ------------ | ------------ | ------------
+bot_id | integer | YES | 
+### Cancel all bot deals (Permission: BOTS_WRITE, Security: SIGNED)
+```
+POST /ver1/bots/{bot_id}/cancel_all_deals
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Description
+------------ | ------------ | ------------ | ------------
+bot_id | integer | YES | 
+### Bot info (Permission: BOTS_READ, Security: SIGNED)
+```
+GET /ver1/bots/{bot_id}/show
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Description
+------------ | ------------ | ------------ | ------------
+bot_id | integer | YES | 
 ### Add exchange account  (Permission: ACCOUNTS_WRITE, Security: SIGNED)
 ```
 POST /ver1/accounts/new
@@ -413,9 +399,52 @@ api_key | string | YES |
 secret | string | YES | 
 customer_id | string | NO | For Bitstamp
 passphrase | string | NO | For Coinbase Pro (GDAX)
-### Remove exchange connection  (Permission: ACCOUNTS_WRITE, Security: SIGNED)
+### User connected exchanges list (Permission: ACCOUNTS_READ, Security: SIGNED)
 ```
-POST /ver1/accounts/{account_id}/remove
+GET /ver1/accounts
+```
+**Weight:**
+1
+
+**Parameters:**
+NONE
+### Supported markets list (Permission: NONE, Security: NONE)
+```
+GET /ver1/accounts/market_list
+```
+**Weight:**
+1
+
+**Parameters:**
+NONE
+### Load balances for specified exchange  (Permission: ACCOUNTS_READ, Security: SIGNED)
+```
+POST /ver1/accounts/{account_id}/load_balances
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Description
+------------ | ------------ | ------------ | ------------
+account_id | integer | YES | 
+### Rename exchange connection  (Permission: ACCOUNTS_WRITE, Security: SIGNED)
+```
+POST /ver1/accounts/{account_id}/rename
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Description
+------------ | ------------ | ------------ | ------------
+account_id | integer | YES | Account id
+name | string | YES | 
+### Information aboutl all user balances on specified exchange in pretty for pie chart format (Permission: ACCOUNTS_READ, Security: SIGNED)
+```
+POST /ver1/accounts/{account_id}/pie_chart_data
 ```
 **Weight:**
 1
@@ -437,21 +466,9 @@ POST /ver1/accounts/{account_id}/account_table_data
 Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
 account_id | integer | YES | Account id
-### Information aboutl all user balances on specified exchange in pretty for pie chart format (Permission: ACCOUNTS_READ, Security: SIGNED)
+### Remove exchange connection  (Permission: ACCOUNTS_WRITE, Security: SIGNED)
 ```
-POST /ver1/accounts/{account_id}/pie_chart_data
-```
-**Weight:**
-1
-
-**Parameters:**
-
-Name | Type | Mandatory | Description
------------- | ------------ | ------------ | ------------
-account_id | integer | YES | Account id
-### Rename exchange connection  (Permission: ACCOUNTS_WRITE, Security: SIGNED)
-```
-POST /ver1/accounts/{account_id}/rename
+POST /ver1/accounts/{account_id}/remove
 ```
 **Weight:**
 1
@@ -461,19 +478,6 @@ POST /ver1/accounts/{account_id}/rename
 Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
 account_id | integer | YES | Account id
-name | string | YES | 
-### Load balances for specified exchange  (Permission: ACCOUNTS_READ, Security: SIGNED)
-```
-POST /ver1/accounts/{account_id}/load_balances
-```
-**Weight:**
-1
-
-**Parameters:**
-
-Name | Type | Mandatory | Description
------------- | ------------ | ------------ | ------------
-account_id | integer | YES | 
 ### Test connectivity to the Rest API (Permission: NONE, Security: NONE)
 ```
 GET /ver1/ping
