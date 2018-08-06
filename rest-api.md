@@ -1,4 +1,4 @@
-# Public Rest API for 3commas.io (2018-07-20)
+# Public Rest API for 3commas.io (2018-08-05)
 # General API Information
 * The base endpoint is: **https://3commas.io/public/api**
 * All endpoints return either a JSON object or array.
@@ -239,6 +239,7 @@ active_safety_orders_count | integer | YES | Max active safety trades count
 stop_loss_percentage | number | NO | 
 cooldown | number | NO | 
 btc_price_limit | number | NO | 
+strategy | string | NO | 
 safety_order_step_percentage | number | YES | Price deviation to open safety trades(percentage)
 take_profit_type | string | YES | Percentage: base – from base trade, total – from total volume
 strategy_list | array | YES | For manual signals: [{"strategy":"nonstop"}] or []<br>                                                        For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>                                                        QFL: {"options"=>{"type"=>"original"}, "strategy"=>"qfl"}] <br>                                                        TradingView: [{"options"=>{"time"=>"5m", "type"=>"buy_or_strong_buy"}, "strategy"=>"trading_view"} 
