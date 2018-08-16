@@ -1,4 +1,4 @@
-# Public Rest API for 3commas.io (2018-08-05)
+# Public Rest API for 3commas.io (2018-08-16)
 # General API Information
 * The base endpoint is: **https://3commas.io/public/api**
 * All endpoints return either a JSON object or array.
@@ -178,6 +178,19 @@ offset | integer | NO | Offset records
 account_id | integer | NO | Account to show bots on. Return all if not specified. Gather this from GET /ver1/accounts
 bot_id | integer | NO | Bot show deals on. Return all if not specified
 scope | string | NO | active - active deals, finished - finished deals, completed - successfully completed, any other value or null (default) - all deals
+### Update max safety orders (Permission: BOTS_WRITE, Security: SIGNED)
+```
+POST /ver1/deals/{deal_id}/update_max_safety_orders
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Description
+------------ | ------------ | ------------ | ------------
+max_safety_orders | integer | YES | New maximum safety orders value
+deal_id | integer | YES | 
 ### Panic sell deal (Permission: BOTS_WRITE, Security: SIGNED)
 ```
 POST /ver1/deals/{deal_id}/panic_sell
