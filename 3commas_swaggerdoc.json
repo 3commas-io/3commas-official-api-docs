@@ -1,849 +1,2186 @@
 {
-    "info": {
-        "title": "API title",
-        "version": "0.0.1"
+  "info": {
+    "title": "3commas API",
+    "version": "0.0.1"
+  },
+  "swagger": "2.0",
+  "produces": [
+    "application/json"
+  ],
+  "host": "3commas.io",
+  "basePath": "/public/api",
+  "tags": [
+    {
+      "name": "deals",
+      "description": "Operations about deals"
     },
-    "swagger": "2.0",
-    "produces": ["application/json"],
-    "host": "3commas.io",
-    "basePath": "/public/api",
-    "tags": [{
-        "name": "deals",
-        "description": "Operations about deals"
-    }, {
-        "name": "bots",
-        "description": "Operations about bots"
-    }, {
-        "name": "accounts",
-        "description": "Operations about accounts"
-    }, {
-        "name": "ping",
-        "description": "Operations about pings"
-    }, {
-        "name": "time",
-        "description": "Operations about times"
-    }],
-    "paths": {
-        "/ver1/deals": {
-            "get": {
-                "description": "User deals (Permission: BOTS_READ, Security: SIGNED)",
-                "produces": ["application/json"],
-                "parameters": [{
-                    "in": "query",
-                    "name": "limit",
-                    "description": "Limit records. Default: 50",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": false
-                }, {
-                    "in": "query",
-                    "name": "offset",
-                    "description": "Offset records",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": false
-                }, {
-                    "in": "query",
-                    "name": "account_id",
-                    "description": "Account to show bots on. Return all if not specified. Gather this from GET /ver1/accounts",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": false
-                }, {
-                    "in": "query",
-                    "name": "bot_id",
-                    "description": "Bot show deals on. Return all if not specified",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": false
-                }, {
-                    "in": "query",
-                    "name": "scope",
-                    "description": "active - active deals, finished - finished deals, completed - successfully completed, any other value or null (default) - all deals",
-                    "type": "string",
-                    "required": false
-                }],
-                "responses": {
-                    "200": {
-                        "description": "User deals (Permission: BOTS_READ, Security: SIGNED)"
-                    }
-                },
-                "tags": ["deals"],
-                "operationId": "getVer1Deals"
-            }
-        },
-        "/ver1/deals/{deal_id}/update_max_safety_orders": {
-            "post": {
-                "description": "Update max safety orders (Permission: BOTS_WRITE, Security: SIGNED)",
-                "produces": ["application/json"],
-                "consumes": ["application/json"],
-                "parameters": [{
-                    "in": "formData",
-                    "name": "max_safety_orders",
-                    "description": "New maximum safety orders value",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": true
-                }, {
-                    "in": "path",
-                    "name": "deal_id",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": true
-                }],
-                "responses": {
-                    "201": {
-                        "description": "Update max safety orders (Permission: BOTS_WRITE, Security: SIGNED)"
-                    }
-                },
-                "tags": ["deals"],
-                "operationId": "postVer1DealsDealIdUpdateMaxSafetyOrders"
-            }
-        },
-        "/ver1/deals/{deal_id}/panic_sell": {
-            "post": {
-                "description": "Panic sell deal (Permission: BOTS_WRITE, Security: SIGNED)",
-                "produces": ["application/json"],
-                "consumes": ["application/json"],
-                "parameters": [{
-                    "in": "path",
-                    "name": "deal_id",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": true
-                }],
-                "responses": {
-                    "201": {
-                        "description": "Panic sell deal (Permission: BOTS_WRITE, Security: SIGNED)"
-                    }
-                },
-                "tags": ["deals"],
-                "operationId": "postVer1DealsDealIdPanicSell"
-            }
-        },
-        "/ver1/deals/{deal_id}/cancel": {
-            "post": {
-                "description": "Cancel deal (Permission: BOTS_WRITE, Security: SIGNED)",
-                "produces": ["application/json"],
-                "consumes": ["application/json"],
-                "parameters": [{
-                    "in": "path",
-                    "name": "deal_id",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": true
-                }],
-                "responses": {
-                    "201": {
-                        "description": "Cancel deal (Permission: BOTS_WRITE, Security: SIGNED)"
-                    }
-                },
-                "tags": ["deals"],
-                "operationId": "postVer1DealsDealIdCancel"
-            }
-        },
-        "/ver1/deals/{deal_id}/show": {
-            "get": {
-                "description": "Info about specific deal (Permission: BOTS_READ, Security: SIGNED)",
-                "produces": ["application/json"],
-                "parameters": [{
-                    "in": "path",
-                    "name": "deal_id",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": true
-                }],
-                "responses": {
-                    "200": {
-                        "description": "Info about specific deal (Permission: BOTS_READ, Security: SIGNED)"
-                    }
-                },
-                "tags": ["deals"],
-                "operationId": "getVer1DealsDealIdShow"
-            }
-        },
-        "/ver1/bots/create_bot": {
-            "post": {
-                "description": "Create bot (Permission: BOTS_WRITE, Security: SIGNED)",
-                "produces": ["application/json"],
-                "consumes": ["application/json"],
-                "parameters": [{
-                    "in": "formData",
-                    "name": "name",
-                    "type": "string",
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "account_id",
-                    "description": "id from GET /ver1/accounts",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "pairs",
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "max_active_deals",
-                    "type": "integer",
-                    "format": "int32",
-                    "default": 1,
-                    "required": false
-                }, {
-                    "in": "formData",
-                    "name": "base_order_volume",
-                    "description": "Base trade size",
-                    "type": "number",
-                    "format": "double",
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "take_profit",
-                    "description": "Target profit(percentage)",
-                    "type": "number",
-                    "format": "double",
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "safety_order_volume",
-                    "description": "Safety trade size",
-                    "type": "number",
-                    "format": "double",
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "martingale_volume_coefficient",
-                    "type": "number",
-                    "format": "double",
-                    "default": 1,
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "martingale_step_coefficient",
-                    "type": "number",
-                    "format": "double",
-                    "default": 1,
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "max_safety_orders",
-                    "description": "Max safety trades count",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "active_safety_orders_count",
-                    "description": "Max active safety trades count",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "stop_loss_percentage",
-                    "type": "number",
-                    "format": "double",
-                    "required": false
-                }, {
-                    "in": "formData",
-                    "name": "cooldown",
-                    "type": "number",
-                    "format": "double",
-                    "required": false
-                }, {
-                    "in": "formData",
-                    "name": "btc_price_limit",
-                    "type": "number",
-                    "format": "double",
-                    "required": false
-                }, {
-                    "in": "formData",
-                    "name": "strategy",
-                    "description": "long or short",
-                    "type": "string",
-                    "default": "long",
-                    "enum": ["short", "long"],
-                    "required": false
-                }, {
-                    "in": "formData",
-                    "name": "safety_order_step_percentage",
-                    "description": "Price deviation to open safety trades(percentage)",
-                    "type": "number",
-                    "format": "double",
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "take_profit_type",
-                    "description": "Percentage: base – from base trade, total – from total volume",
-                    "type": "string",
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "strategy_list",
-                    "description": "For manual signals: [{\"strategy\":\"nonstop\"}] or []\u003cbr\u003e\n                                                        For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]\u003cbr\u003e\n                                                        QFL: {\"options\"=\u003e{\"type\"=\u003e\"original\"}, \"strategy\"=\u003e\"qfl\"}] \u003cbr\u003e\n                                                        TradingView: [{\"options\"=\u003e{\"time\"=\u003e\"5m\", \"type\"=\u003e\"buy_or_strong_buy\"}, \"strategy\"=\u003e\"trading_view\"} ",
-                    "type": "array",
-                    "items": {
-                        "type": "json"
-                    },
-                    "required": true
-                }],
-                "responses": {
-                    "201": {
-                        "description": "Create bot (Permission: BOTS_WRITE, Security: SIGNED)"
-                    }
-                },
-                "tags": ["bots"],
-                "operationId": "postVer1BotsCreateBot"
-            }
-        },
-        "/ver1/bots/stats": {
-            "get": {
-                "description": "Get bot stats (Permission: BOTS_READ, Security: SIGNED)",
-                "produces": ["application/json"],
-                "parameters": [{
-                    "in": "query",
-                    "name": "account_id",
-                    "description": "Account to show on. Null - show for all. Gather this from GET /ver1/accounts",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": false
-                }, {
-                    "in": "query",
-                    "name": "bot_id",
-                    "description": "Bots to show on. Null - show for all",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": false
-                }],
-                "responses": {
-                    "200": {
-                        "description": "Get bot stats (Permission: BOTS_READ, Security: SIGNED)"
-                    }
-                },
-                "tags": ["bots"],
-                "operationId": "getVer1BotsStats"
-            }
-        },
-        "/ver1/bots": {
-            "get": {
-                "description": "User bots (Permission: BOTS_READ, Security: SIGNED)",
-                "produces": ["application/json"],
-                "responses": {
-                    "200": {
-                        "description": "User bots (Permission: BOTS_READ, Security: SIGNED)"
-                    }
-                },
-                "tags": ["bots"],
-                "operationId": "getVer1Bots"
-            }
-        },
-        "/ver1/bots/{bot_id}/update": {
-            "patch": {
-                "description": "Edit bot (Permission: BOTS_WRITE, Security: SIGNED)",
-                "produces": ["application/json"],
-                "consumes": ["application/json"],
-                "parameters": [{
-                    "in": "formData",
-                    "name": "name",
-                    "type": "string",
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "pairs",
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "max_active_deals",
-                    "type": "integer",
-                    "format": "int32",
-                    "default": 1,
-                    "required": false
-                }, {
-                    "in": "formData",
-                    "name": "base_order_volume",
-                    "description": "Base trade size",
-                    "type": "number",
-                    "format": "double",
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "take_profit",
-                    "description": "Target profit(percentage)",
-                    "type": "number",
-                    "format": "double",
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "safety_order_volume",
-                    "description": "Safety trade size",
-                    "type": "number",
-                    "format": "double",
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "martingale_volume_coefficient",
-                    "type": "number",
-                    "format": "double",
-                    "default": 1,
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "martingale_step_coefficient",
-                    "type": "number",
-                    "format": "double",
-                    "default": 1,
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "max_safety_orders",
-                    "description": "Max safety trades count",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "active_safety_orders_count",
-                    "description": "Max active safety trades count",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "stop_loss_percentage",
-                    "type": "number",
-                    "format": "double",
-                    "required": false
-                }, {
-                    "in": "formData",
-                    "name": "cooldown",
-                    "type": "number",
-                    "format": "double",
-                    "required": false
-                }, {
-                    "in": "formData",
-                    "name": "btc_price_limit",
-                    "type": "number",
-                    "format": "double",
-                    "required": false
-                }, {
-                    "in": "formData",
-                    "name": "safety_order_step_percentage",
-                    "description": "Price deviation to open safety trades(percentage)",
-                    "type": "number",
-                    "format": "double",
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "take_profit_type",
-                    "description": "Percentage: base – from base trade, total – from total volume",
-                    "type": "string",
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "strategy_list",
-                    "description": "For manual signals: [{\"strategy\":\"nonstop\"}] or []\u003cbr\u003e\n                                                          For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]\u003cbr\u003e\n                                                          QFL: {\"options\"=\u003e{\"type\"=\u003e\"original\"}, \"strategy\"=\u003e\"qfl\"}] \u003cbr\u003e\n                                                          TradingView: [{\"options\"=\u003e{\"time\"=\u003e\"5m\", \"type\"=\u003e\"buy_or_strong_buy\"}, \"strategy\"=\u003e\"trading_view\"} ",
-                    "type": "array",
-                    "items": {
-                        "type": "json"
-                    },
-                    "required": true
-                }, {
-                    "in": "path",
-                    "name": "bot_id",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": true
-                }],
-                "responses": {
-                    "200": {
-                        "description": "Edit bot (Permission: BOTS_WRITE, Security: SIGNED)"
-                    }
-                },
-                "tags": ["bots"],
-                "operationId": "patchVer1BotsBotIdUpdate"
-            }
-        },
-        "/ver1/bots/{bot_id}/disable": {
-            "post": {
-                "description": "Disable bot (Permission: BOTS_WRITE, Security: SIGNED)",
-                "produces": ["application/json"],
-                "consumes": ["application/json"],
-                "parameters": [{
-                    "in": "path",
-                    "name": "bot_id",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": true
-                }],
-                "responses": {
-                    "201": {
-                        "description": "Disable bot (Permission: BOTS_WRITE, Security: SIGNED)"
-                    }
-                },
-                "tags": ["bots"],
-                "operationId": "postVer1BotsBotIdDisable"
-            }
-        },
-        "/ver1/bots/{bot_id}/enable": {
-            "post": {
-                "description": "Enable bot (Permission: BOTS_WRITE, Security: SIGNED)",
-                "produces": ["application/json"],
-                "consumes": ["application/json"],
-                "parameters": [{
-                    "in": "path",
-                    "name": "bot_id",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": true
-                }],
-                "responses": {
-                    "201": {
-                        "description": "Enable bot (Permission: BOTS_WRITE, Security: SIGNED)"
-                    }
-                },
-                "tags": ["bots"],
-                "operationId": "postVer1BotsBotIdEnable"
-            }
-        },
-        "/ver1/bots/{bot_id}/start_new_deal": {
-            "post": {
-                "description": "Start new deal asap (Permission: BOTS_WRITE, Security: SIGNED)",
-                "produces": ["application/json"],
-                "consumes": ["application/json"],
-                "parameters": [{
-                    "in": "formData",
-                    "name": "pair",
-                    "description": "Can be omited for simple bot",
-                    "type": "string",
-                    "required": false
-                }, {
-                    "in": "formData",
-                    "name": "skip_signal_checks",
-                    "description": "If false or not specified then all paramaters like signals or volume filters will be checked. If true - those checks will be skipped",
-                    "type": "boolean",
-                    "required": false
-                }, {
-                    "in": "path",
-                    "name": "bot_id",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": true
-                }],
-                "responses": {
-                    "201": {
-                        "description": "Start new deal asap (Permission: BOTS_WRITE, Security: SIGNED)"
-                    }
-                },
-                "tags": ["bots"],
-                "operationId": "postVer1BotsBotIdStartNewDeal"
-            }
-        },
-        "/ver1/bots/{bot_id}/delete": {
-            "post": {
-                "description": "Delete bot (Permission: BOTS_WRITE, Security: SIGNED)",
-                "produces": ["application/json"],
-                "consumes": ["application/json"],
-                "parameters": [{
-                    "in": "path",
-                    "name": "bot_id",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": true
-                }],
-                "responses": {
-                    "201": {
-                        "description": "Delete bot (Permission: BOTS_WRITE, Security: SIGNED)"
-                    }
-                },
-                "tags": ["bots"],
-                "operationId": "postVer1BotsBotIdDelete"
-            }
-        },
-        "/ver1/bots/{bot_id}/panic_sell_all_deals": {
-            "post": {
-                "description": "Panic sell all bot deals (Permission: BOTS_WRITE, Security: SIGNED)",
-                "produces": ["application/json"],
-                "consumes": ["application/json"],
-                "parameters": [{
-                    "in": "path",
-                    "name": "bot_id",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": true
-                }],
-                "responses": {
-                    "201": {
-                        "description": "Panic sell all bot deals (Permission: BOTS_WRITE, Security: SIGNED)"
-                    }
-                },
-                "tags": ["bots"],
-                "operationId": "postVer1BotsBotIdPanicSellAllDeals"
-            }
-        },
-        "/ver1/bots/{bot_id}/cancel_all_deals": {
-            "post": {
-                "description": "Cancel all bot deals (Permission: BOTS_WRITE, Security: SIGNED)",
-                "produces": ["application/json"],
-                "consumes": ["application/json"],
-                "parameters": [{
-                    "in": "path",
-                    "name": "bot_id",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": true
-                }],
-                "responses": {
-                    "201": {
-                        "description": "Cancel all bot deals (Permission: BOTS_WRITE, Security: SIGNED)"
-                    }
-                },
-                "tags": ["bots"],
-                "operationId": "postVer1BotsBotIdCancelAllDeals"
-            }
-        },
-        "/ver1/bots/{bot_id}/show": {
-            "get": {
-                "description": "Bot info (Permission: BOTS_READ, Security: SIGNED)",
-                "produces": ["application/json"],
-                "parameters": [{
-                    "in": "path",
-                    "name": "bot_id",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": true
-                }],
-                "responses": {
-                    "200": {
-                        "description": "Bot info (Permission: BOTS_READ, Security: SIGNED)"
-                    }
-                },
-                "tags": ["bots"],
-                "operationId": "getVer1BotsBotIdShow"
-            }
-        },
-        "/ver1/accounts/new": {
-            "post": {
-                "description": "Add exchange account  (Permission: ACCOUNTS_WRITE, Security: SIGNED)",
-                "produces": ["application/json"],
-                "consumes": ["application/json"],
-                "parameters": [{
-                    "in": "formData",
-                    "name": "type",
-                    "description": "check market_name in market_list method. For example Poloniex, Bittrex",
-                    "type": "string",
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "name",
-                    "description": "Account name (any string)",
-                    "type": "string",
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "api_key",
-                    "type": "string",
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "secret",
-                    "type": "string",
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "customer_id",
-                    "description": "For Bitstamp",
-                    "type": "string",
-                    "required": false
-                }, {
-                    "in": "formData",
-                    "name": "passphrase",
-                    "description": "For Coinbase Pro (GDAX)",
-                    "type": "string",
-                    "required": false
-                }],
-                "responses": {
-                    "201": {
-                        "description": "Add exchange account  (Permission: ACCOUNTS_WRITE, Security: SIGNED)"
-                    }
-                },
-                "tags": ["accounts"],
-                "operationId": "postVer1AccountsNew"
-            }
-        },
-        "/ver1/accounts": {
-            "get": {
-                "description": "User connected exchanges list (Permission: ACCOUNTS_READ, Security: SIGNED)",
-                "produces": ["application/json"],
-                "responses": {
-                    "200": {
-                        "description": "User connected exchanges list (Permission: ACCOUNTS_READ, Security: SIGNED)"
-                    }
-                },
-                "tags": ["accounts"],
-                "operationId": "getVer1Accounts"
-            }
-        },
-        "/ver1/accounts/market_list": {
-            "get": {
-                "description": "Supported markets list (Permission: NONE, Security: NONE)",
-                "produces": ["application/json"],
-                "responses": {
-                    "200": {
-                        "description": "Supported markets list (Permission: NONE, Security: NONE)"
-                    }
-                },
-                "tags": ["accounts"],
-                "operationId": "getVer1AccountsMarketList"
-            }
-        },
-        "/ver1/accounts/{account_id}/load_balances": {
-            "post": {
-                "description": "Load balances for specified exchange  (Permission: ACCOUNTS_READ, Security: SIGNED)",
-                "produces": ["application/json"],
-                "consumes": ["application/json"],
-                "parameters": [{
-                    "in": "path",
-                    "name": "account_id",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": true
-                }],
-                "responses": {
-                    "201": {
-                        "description": "Load balances for specified exchange  (Permission: ACCOUNTS_READ, Security: SIGNED)"
-                    }
-                },
-                "tags": ["accounts"],
-                "operationId": "postVer1AccountsAccountIdLoadBalances"
-            }
-        },
-        "/ver1/accounts/{account_id}/rename": {
-            "post": {
-                "description": "Rename exchange connection  (Permission: ACCOUNTS_WRITE, Security: SIGNED)",
-                "produces": ["application/json"],
-                "consumes": ["application/json"],
-                "parameters": [{
-                    "in": "path",
-                    "name": "account_id",
-                    "description": "Account id",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": true
-                }, {
-                    "in": "formData",
-                    "name": "name",
-                    "type": "string",
-                    "required": true
-                }],
-                "responses": {
-                    "201": {
-                        "description": "Rename exchange connection  (Permission: ACCOUNTS_WRITE, Security: SIGNED)"
-                    }
-                },
-                "tags": ["accounts"],
-                "operationId": "postVer1AccountsAccountIdRename"
-            }
-        },
-        "/ver1/accounts/{account_id}/pie_chart_data": {
-            "post": {
-                "description": "Information aboutl all user balances on specified exchange in pretty for pie chart format (Permission: ACCOUNTS_READ, Security: SIGNED)",
-                "produces": ["application/json"],
-                "consumes": ["application/json"],
-                "parameters": [{
-                    "in": "path",
-                    "name": "account_id",
-                    "description": "Account id",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": true
-                }],
-                "responses": {
-                    "201": {
-                        "description": "Information aboutl all user balances on specified exchange in pretty for pie chart format (Permission: ACCOUNTS_READ, Security: SIGNED)"
-                    }
-                },
-                "tags": ["accounts"],
-                "operationId": "postVer1AccountsAccountIdPieChartData"
-            }
-        },
-        "/ver1/accounts/{account_id}/account_table_data": {
-            "post": {
-                "description": "Information about all user balances on specified exchange  (Permission: ACCOUNTS_READ, Security: SIGNED)",
-                "produces": ["application/json"],
-                "consumes": ["application/json"],
-                "parameters": [{
-                    "in": "path",
-                    "name": "account_id",
-                    "description": "Account id",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": true
-                }],
-                "responses": {
-                    "201": {
-                        "description": "Information about all user balances on specified exchange  (Permission: ACCOUNTS_READ, Security: SIGNED)"
-                    }
-                },
-                "tags": ["accounts"],
-                "operationId": "postVer1AccountsAccountIdAccountTableData"
-            }
-        },
-        "/ver1/accounts/{account_id}/remove": {
-            "post": {
-                "description": "Remove exchange connection  (Permission: ACCOUNTS_WRITE, Security: SIGNED)",
-                "produces": ["application/json"],
-                "consumes": ["application/json"],
-                "parameters": [{
-                    "in": "path",
-                    "name": "account_id",
-                    "description": "Account id",
-                    "type": "integer",
-                    "format": "int32",
-                    "required": true
-                }],
-                "responses": {
-                    "201": {
-                        "description": "Remove exchange connection  (Permission: ACCOUNTS_WRITE, Security: SIGNED)"
-                    }
-                },
-                "tags": ["accounts"],
-                "operationId": "postVer1AccountsAccountIdRemove"
-            }
-        },
-        "/ver1/ping": {
-            "get": {
-                "description": "Test connectivity to the Rest API (Permission: NONE, Security: NONE)",
-                "produces": ["application/json"],
-                "responses": {
-                    "200": {
-                        "description": "Test connectivity to the Rest API (Permission: NONE, Security: NONE)"
-                    }
-                },
-                "tags": ["ping"],
-                "operationId": "getVer1Ping"
-            }
-        },
-        "/ver1/time": {
-            "get": {
-                "description": "Test connectivity to the Rest API and get the current server time (Permission: NONE, Security: NONE)",
-                "produces": ["application/json"],
-                "responses": {
-                    "200": {
-                        "description": "Test connectivity to the Rest API and get the current server time (Permission: NONE, Security: NONE)"
-                    }
-                },
-                "tags": ["time"],
-                "operationId": "getVer1Time"
-            }
-        }
+    {
+      "name": "bots",
+      "description": "Operations about bots"
+    },
+    {
+      "name": "accounts",
+      "description": "Operations about accounts"
+    },
+    {
+      "name": "smart_trades",
+      "description": "Operations about smart_trades"
+    },
+    {
+      "name": "ping",
+      "description": "Operations about pings"
+    },
+    {
+      "name": "time",
+      "description": "Operations about times"
     }
+  ],
+  "paths": {
+    "/ver1/deals": {
+      "get": {
+        "description": "User deals (Permission: BOTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Limit records",
+            "type": "integer",
+            "format": "int32",
+            "default": 50,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Offset records",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "account_id",
+            "description": "Account to show bots on. Return all if not specified. Gather this from GET /ver1/accounts",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "bot_id",
+            "description": "Bot show deals on. Return all if not specified",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "scope",
+            "description": "active - active deals, finished - finished deals, completed - successfully completed, any other value or null (default) - all deals",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User deals (Permission: BOTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "deals"
+        ],
+        "operationId": "getVer1Deals"
+      }
+    },
+    "/ver1/deals/{deal_id}/update_max_safety_orders": {
+      "post": {
+        "description": "Update max safety orders (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "max_safety_orders",
+            "description": "New maximum safety orders value",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "deal_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Update max safety orders (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "deals"
+        ],
+        "operationId": "postVer1DealsDealIdUpdateMaxSafetyOrders"
+      }
+    },
+    "/ver1/deals/{deal_id}/panic_sell": {
+      "post": {
+        "description": "Panic sell deal (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "deal_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Panic sell deal (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "deals"
+        ],
+        "operationId": "postVer1DealsDealIdPanicSell"
+      }
+    },
+    "/ver1/deals/{deal_id}/cancel": {
+      "post": {
+        "description": "Cancel deal (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "deal_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Cancel deal (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "deals"
+        ],
+        "operationId": "postVer1DealsDealIdCancel"
+      }
+    },
+    "/ver1/deals/{deal_id}/update_tp": {
+      "post": {
+        "description": "Update take profit condition. Deal status should be bought (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "new_take_profit_percentage",
+            "description": "New take profit value",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "deal_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Update take profit condition. Deal status should be bought (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "deals"
+        ],
+        "operationId": "postVer1DealsDealIdUpdateTp"
+      }
+    },
+    "/ver1/deals/{deal_id}/show": {
+      "get": {
+        "description": "Info about specific deal (Permission: BOTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "deal_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Info about specific deal (Permission: BOTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "deals"
+        ],
+        "operationId": "getVer1DealsDealIdShow"
+      }
+    },
+    "/ver1/bots/pairs_black_list": {
+      "get": {
+        "description": "Black List for bot pairs (Permission: BOTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Black List for bot pairs (Permission: BOTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "bots"
+        ],
+        "operationId": "getVer1BotsPairsBlackList"
+      }
+    },
+    "/ver1/bots/update_pairs_black_list": {
+      "post": {
+        "description": "Create or Update pairs BlackList for bots (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "pairs",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create or Update pairs BlackList for bots (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "bots"
+        ],
+        "operationId": "postVer1BotsUpdatePairsBlackList"
+      }
+    },
+    "/ver1/bots/create_bot": {
+      "post": {
+        "description": "Create bot (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "name",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "account_id",
+            "description": "id from GET /ver1/accounts",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "pairs",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "max_active_deals",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "base_order_volume",
+            "description": "Base trade size",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "base_order_volume_type",
+            "description": "base order volume currency",
+            "type": "string",
+            "enum": [
+              "quote_currency",
+              "base_currency",
+              "percent",
+              "xbt"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "take_profit",
+            "description": "Target profit(percentage)",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "safety_order_volume",
+            "description": "Safety trade size",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "safety_order_volume_type",
+            "description": "safety order volume currency",
+            "type": "string",
+            "enum": [
+              "quote_currency",
+              "base_currency",
+              "percent",
+              "xbt"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "martingale_volume_coefficient",
+            "type": "number",
+            "format": "double",
+            "default": 1,
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "martingale_step_coefficient",
+            "type": "number",
+            "format": "double",
+            "default": 1,
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "max_safety_orders",
+            "description": "Max safety trades count",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "active_safety_orders_count",
+            "description": "Max active safety trades count",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_percentage",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "cooldown",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "btc_price_limit",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "strategy",
+            "type": "string",
+            "default": "long",
+            "enum": [
+              "short",
+              "long"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "safety_order_step_percentage",
+            "description": "Price deviation to open safety trades(percentage)",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_type",
+            "description": "Percentage: base – from base trade, total – from total volume",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "strategy_list",
+            "description": "For manual signals: [{\"strategy\":\"nonstop\"}] or []<br>\n                                                        For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]<br>\n                                                        QFL: {\"options\"=>{\"type\"=>\"original\"}, \"strategy\"=>\"qfl\"}] <br>\n                                                        TradingView: [{\"options\"=>{\"time\"=>\"5m\", \"type\"=>\"buy_or_strong_buy\"}, \"strategy\"=>\"trading_view\"} ",
+            "type": "array",
+            "items": {
+              "type": "json"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create bot (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "bots"
+        ],
+        "operationId": "postVer1BotsCreateBot"
+      }
+    },
+    "/ver1/bots/stats": {
+      "get": {
+        "description": "Get bot stats (Permission: BOTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "account_id",
+            "description": "Account to show on. Null - show for all. Gather this from GET /ver1/accounts",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "bot_id",
+            "description": "Bots to show on. Null - show for all",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get bot stats (Permission: BOTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "bots"
+        ],
+        "operationId": "getVer1BotsStats"
+      }
+    },
+    "/ver1/bots": {
+      "get": {
+        "description": "User bots (Permission: BOTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "User bots (Permission: BOTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "bots"
+        ],
+        "operationId": "getVer1Bots"
+      }
+    },
+    "/ver1/bots/{bot_id}/update": {
+      "patch": {
+        "description": "Edit bot (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "name",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "pairs",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "max_active_deals",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "base_order_volume",
+            "description": "Base trade size",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "base_order_volume_type",
+            "description": "base order volume currency",
+            "type": "string",
+            "enum": [
+              "quote_currency",
+              "base_currency",
+              "percent",
+              "xbt"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "take_profit",
+            "description": "Target profit(percentage)",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "safety_order_volume",
+            "description": "Safety trade size",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "safety_order_volume_type",
+            "description": "safety order volume currency",
+            "type": "string",
+            "enum": [
+              "quote_currency",
+              "base_currency",
+              "percent",
+              "xbt"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "martingale_volume_coefficient",
+            "type": "number",
+            "format": "double",
+            "default": 1,
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "martingale_step_coefficient",
+            "type": "number",
+            "format": "double",
+            "default": 1,
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "max_safety_orders",
+            "description": "Max safety trades count",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "active_safety_orders_count",
+            "description": "Max active safety trades count",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_percentage",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "cooldown",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "btc_price_limit",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "safety_order_step_percentage",
+            "description": "Price deviation to open safety trades(percentage)",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_type",
+            "description": "Percentage: base – from base trade, total – from total volume",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "strategy_list",
+            "description": "For manual signals: [{\"strategy\":\"nonstop\"}] or []<br>\n                                                          For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]<br>\n                                                          QFL: {\"options\"=>{\"type\"=>\"original\"}, \"strategy\"=>\"qfl\"}] <br>\n                                                          TradingView: [{\"options\"=>{\"time\"=>\"5m\", \"type\"=>\"buy_or_strong_buy\"}, \"strategy\"=>\"trading_view\"} ",
+            "type": "array",
+            "items": {
+              "type": "json"
+            },
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "bot_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Edit bot (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "bots"
+        ],
+        "operationId": "patchVer1BotsBotIdUpdate"
+      }
+    },
+    "/ver1/bots/{bot_id}/disable": {
+      "post": {
+        "description": "Disable bot (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "bot_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Disable bot (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "bots"
+        ],
+        "operationId": "postVer1BotsBotIdDisable"
+      }
+    },
+    "/ver1/bots/{bot_id}/enable": {
+      "post": {
+        "description": "Enable bot (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "bot_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Enable bot (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "bots"
+        ],
+        "operationId": "postVer1BotsBotIdEnable"
+      }
+    },
+    "/ver1/bots/{bot_id}/start_new_deal": {
+      "post": {
+        "description": "Start new deal asap (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "pair",
+            "description": "Can be omited for simple bot",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "skip_signal_checks",
+            "description": "If false or not specified then all paramaters like signals or volume filters will be checked. If true - those checks will be skipped",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "skip_open_deals_checks",
+            "description": "If true then you will be allowed to open more then one deal per pair in composite bot",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "bot_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Start new deal asap (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "bots"
+        ],
+        "operationId": "postVer1BotsBotIdStartNewDeal"
+      }
+    },
+    "/ver1/bots/{bot_id}/delete": {
+      "post": {
+        "description": "Delete bot (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "bot_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Delete bot (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "bots"
+        ],
+        "operationId": "postVer1BotsBotIdDelete"
+      }
+    },
+    "/ver1/bots/{bot_id}/panic_sell_all_deals": {
+      "post": {
+        "description": "Panic sell all bot deals (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "bot_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Panic sell all bot deals (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "bots"
+        ],
+        "operationId": "postVer1BotsBotIdPanicSellAllDeals"
+      }
+    },
+    "/ver1/bots/{bot_id}/cancel_all_deals": {
+      "post": {
+        "description": "Cancel all bot deals (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "bot_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Cancel all bot deals (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "bots"
+        ],
+        "operationId": "postVer1BotsBotIdCancelAllDeals"
+      }
+    },
+    "/ver1/bots/{bot_id}/show": {
+      "get": {
+        "description": "Bot info (Permission: BOTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "bot_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Bot info (Permission: BOTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "bots"
+        ],
+        "operationId": "getVer1BotsBotIdShow"
+      }
+    },
+    "/ver1/accounts/new": {
+      "post": {
+        "description": "Add exchange account  (Permission: ACCOUNTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "type",
+            "description": "check market_name in market_list method. For example Poloniex, Bittrex",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "name",
+            "description": "Account name (any string)",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "api_key",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "secret",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "customer_id",
+            "description": "For Bitstamp",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "passphrase",
+            "description": "For Coinbase Pro (GDAX)",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Add exchange account  (Permission: ACCOUNTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "postVer1AccountsNew"
+      }
+    },
+    "/ver1/accounts": {
+      "get": {
+        "description": "User connected exchanges(and EthereumWallet) list (Permission: ACCOUNTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "User connected exchanges(and EthereumWallet) list (Permission: ACCOUNTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "getVer1Accounts"
+      }
+    },
+    "/ver1/accounts/market_list": {
+      "get": {
+        "description": "Supported markets list (Permission: NONE, Security: NONE)",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Supported markets list (Permission: NONE, Security: NONE)"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "getVer1AccountsMarketList"
+      }
+    },
+    "/ver1/accounts/{account_id}/load_balances": {
+      "post": {
+        "description": "Load balances for specified exchange  (Permission: ACCOUNTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "account_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Load balances for specified exchange  (Permission: ACCOUNTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "postVer1AccountsAccountIdLoadBalances"
+      }
+    },
+    "/ver1/accounts/{account_id}/rename": {
+      "post": {
+        "description": "Rename exchange connection  (Permission: ACCOUNTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "account_id",
+            "description": "Account id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "name",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Rename exchange connection  (Permission: ACCOUNTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "postVer1AccountsAccountIdRename"
+      }
+    },
+    "/ver1/accounts/{account_id}/pie_chart_data": {
+      "post": {
+        "description": "Information aboutl all user balances on specified exchange in pretty for pie chart format (Permission: ACCOUNTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "account_id",
+            "description": "Account id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Information aboutl all user balances on specified exchange in pretty for pie chart format (Permission: ACCOUNTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "postVer1AccountsAccountIdPieChartData"
+      }
+    },
+    "/ver1/accounts/{account_id}/account_table_data": {
+      "post": {
+        "description": "Information about all user balances on specified exchange  (Permission: ACCOUNTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "account_id",
+            "description": "Account id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Information about all user balances on specified exchange  (Permission: ACCOUNTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "postVer1AccountsAccountIdAccountTableData"
+      }
+    },
+    "/ver1/accounts/{account_id}/remove": {
+      "post": {
+        "description": "Remove exchange connection  (Permission: ACCOUNTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "account_id",
+            "description": "Account id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Remove exchange connection  (Permission: ACCOUNTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "postVer1AccountsAccountIdRemove"
+      }
+    },
+    "/ver1/smart_trades/cancel": {
+      "post": {
+        "description": "Cancel SmartTrade (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "smart_trade_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Cancel SmartTrade (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades"
+        ],
+        "operationId": "postVer1SmartTradesCancel"
+      }
+    },
+    "/ver1/smart_trades/panic_sell": {
+      "post": {
+        "description": "Sell currency immediately (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "smart_trade_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Sell currency immediately (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades"
+        ],
+        "operationId": "postVer1SmartTradesPanicSell"
+      }
+    },
+    "/ver1/smart_trades": {
+      "get": {
+        "description": "Get SmartTrade history (Permission: SMART_TRADE_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Limit records",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Offset records",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "account_id",
+            "description": "Account to show smart_trades on. Pass null (default) - show all",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "scope",
+            "description": "active - show only active trades, finished - history of closed trades, any other value or null (default) - all trades",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "description": "SmartTrade::SmartSale , SmartTrade::Classic , SmartTrade::ConditionalBuy",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get SmartTrade history (Permission: SMART_TRADE_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades"
+        ],
+        "operationId": "getVer1SmartTrades"
+      }
+    },
+    "/ver1/smart_trades/create_smart_sell": {
+      "post": {
+        "description": "Create SmartSale (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "account_id",
+            "description": "id from GET /ver1/accounts",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "pair",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "units_to_buy",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "average_buy_price",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_enabled",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_type",
+            "description": "classic - common take profit, step_sell - step sell take profit",
+            "type": "string",
+            "default": "classic",
+            "enum": [
+              "classic",
+              "step_sell"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_price_condition",
+            "description": "Required if take_profit_type = classic",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_step_orders",
+            "description": "Required if take_profit_type = step_sell. 4 steps max. Format: [{percent: 50, price: 100, price_method: bid,ask,last}, ...]",
+            "type": "array",
+            "items": {
+              "type": "json"
+            },
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_step_orders[percent]",
+            "description": "Required if take_profit_step_orders",
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_step_orders[price]",
+            "description": "Required if take_profit_step_orders",
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "double"
+            },
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_step_orders[price_method]",
+            "description": "Required if take_profit_step_orders",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "bid",
+                "ask",
+                "last"
+              ],
+              "default": "bid"
+            },
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_price_method",
+            "description": "Price type for take profit(bid,asl,last)",
+            "type": "string",
+            "default": "bid",
+            "enum": [
+              "bid",
+              "ask",
+              "last"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_sell_method",
+            "type": "string",
+            "default": "market",
+            "enum": [
+              "market",
+              "limit"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_sell_order_price",
+            "description": "Required if limit",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "trailing_take_profit",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trailing_take_profit_step",
+            "description": "require if trailing_take_profit",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_enabled",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_price_condition",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_price_method",
+            "description": "Price type for stop loss",
+            "type": "string",
+            "default": "bid",
+            "enum": [
+              "bid",
+              "ask",
+              "last"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_sell_method",
+            "type": "string",
+            "default": "market",
+            "enum": [
+              "market",
+              "limit"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_sell_order_price",
+            "description": "Required if limit",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "trailing_stop_loss",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_timeout_enabled",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_timeout_seconds",
+            "description": "Timeout in seconds",
+            "type": "integer",
+            "format": "int32",
+            "default": 300,
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "note",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create SmartSale (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades"
+        ],
+        "operationId": "postVer1SmartTradesCreateSmartSell"
+      }
+    },
+    "/ver1/smart_trades/create_smart_trade": {
+      "post": {
+        "description": "Create SmartTrade (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "account_id",
+            "description": "id from GET /ver1/accounts",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "pair",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "units_to_buy",
+            "description": "Amount of units to buy",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "buy_price",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "buy_method",
+            "description": "limit, market, conditional",
+            "type": "string",
+            "default": "limit",
+            "enum": [
+              "limit",
+              "market",
+              "conditional"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trailing_buy_enabled",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trailing_buy_step",
+            "description": "Required if trailing_buy_enabled",
+            "type": "number",
+            "format": "float",
+            "default": 5.0,
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_enabled",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_type",
+            "description": "classic - common take profit, step_sell - step sell take profit",
+            "type": "string",
+            "enum": [
+              "classic",
+              "step_sell"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_price_condition",
+            "description": "Required if take_profit_type = classic",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_step_orders",
+            "description": "Required if take_profit_type = step_sell. 4 steps max. Format: [{percent: 50, price: 100, price_method: bid,ask,last}, ...]",
+            "type": "array",
+            "items": {
+              "type": "json"
+            },
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_step_orders[percent]",
+            "description": "Required if take_profit_step_orders",
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_step_orders[price]",
+            "description": "Required if take_profit_step_orders",
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "double"
+            },
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_step_orders[price_method]",
+            "description": "Required if take_profit_step_orders",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "bid",
+                "ask",
+                "last"
+              ],
+              "default": "bid"
+            },
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_price_method",
+            "description": "Price type for take profit",
+            "type": "string",
+            "default": "bid",
+            "enum": [
+              "bid",
+              "ask",
+              "last"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_sell_method",
+            "type": "string",
+            "default": "market",
+            "enum": [
+              "market",
+              "limit"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_sell_order_price",
+            "description": "Required if limit",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "trailing_take_profit",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trailing_take_profit_step",
+            "description": "require if trailing_take_profit",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_enabled",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_price_condition",
+            "description": "Required if stop_loss_enabled",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_price_method",
+            "description": "Price type for stop loss",
+            "type": "string",
+            "default": "bid",
+            "enum": [
+              "bid",
+              "ask",
+              "last"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_sell_method",
+            "type": "string",
+            "default": "market",
+            "enum": [
+              "market",
+              "limit"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_sell_order_price",
+            "description": "Required if limit",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "trailing_stop_loss",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_timeout_enabled",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_timeout_seconds",
+            "description": "timeout in seconds",
+            "type": "integer",
+            "format": "int32",
+            "default": 300,
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "note",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create SmartTrade (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades"
+        ],
+        "operationId": "postVer1SmartTradesCreateSmartTrade"
+      }
+    },
+    "/ver1/smart_trades/{smart_trade_id}/force_process": {
+      "post": {
+        "description": "Refresh SmartTrade state (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "smart_trade_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Refresh SmartTrade state (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades"
+        ],
+        "operationId": "postVer1SmartTradesSmartTradeIdForceProcess"
+      }
+    },
+    "/ver1/smart_trades/{smart_trade_id}/update": {
+      "patch": {
+        "description": "Edit SmartTrade/SmartSale (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "buy_price",
+            "description": "Available if Conditional SmartTrade",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "average_buy_price",
+            "description": "Available if SmartSale",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trailing_buy_enabled",
+            "description": "Available if Conditional SmartTrade",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trailing_buy_step",
+            "description": "Available if trailing_buy_enabled",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_enabled",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_type",
+            "description": "classic - common take profit, step_sell - step sell take profit",
+            "type": "string",
+            "enum": [
+              "classic",
+              "step_sell"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_price_condition",
+            "description": "Available if take_profit_type classic",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_step_orders",
+            "description": "Available if take_profit_type = classic.\\n If null - steps won't be changed.\\n\n                                                    In order to apply changes - send a new set of steps, which contains new and previous steps that were not edited.",
+            "type": "array",
+            "items": {
+              "type": "json"
+            },
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_step_orders[percent]",
+            "description": "Required if take_profit_step_orders",
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_step_orders[price]",
+            "description": "Required if take_profit_step_orders",
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "double"
+            },
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_step_orders[price_method]",
+            "description": "Required if take_profit_step_orders",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "bid",
+                "ask",
+                "last"
+              ]
+            },
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_step_orders[position]",
+            "description": "Required if take_profit_step_orders. Must be unique(for new and previous steps in SmartTrade scope) and greater then 0",
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_price_method",
+            "description": "Price type for take profit",
+            "type": "string",
+            "enum": [
+              "bid",
+              "ask",
+              "last"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_sell_method",
+            "type": "string",
+            "enum": [
+              "market",
+              "limit"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_sell_order_price",
+            "description": "Available if take_profit_sell_method = limit",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trailing_take_profit",
+            "description": "Available if take_profit_sell_method = market",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trailing_take_profit_step",
+            "description": "Available if trailing_take_profit",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_enabled",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_price_condition",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_price_method",
+            "description": "Price type for stop loss",
+            "type": "string",
+            "enum": [
+              "bid",
+              "ask",
+              "last"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_sell_method",
+            "type": "string",
+            "enum": [
+              "market",
+              "limit"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_sell_order_price",
+            "description": "Available if stop_loss_sell_method = limit",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trailing_stop_loss",
+            "description": "Available if stop_loss_sell_method = market",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_timeout_enabled",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_timeout_seconds",
+            "description": "Available if stop_loss_timeout_enabled",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "note",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "smart_trade_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Edit SmartTrade/SmartSale (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades"
+        ],
+        "operationId": "patchVer1SmartTradesSmartTradeIdUpdate"
+      }
+    },
+    "/ver1/smart_trades/{smart_trade_id}/step_panic_sell": {
+      "post": {
+        "description": "Step panic sell (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "step_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "smart_trade_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Step panic sell (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades"
+        ],
+        "operationId": "postVer1SmartTradesSmartTradeIdStepPanicSell"
+      }
+    },
+    "/ver1/ping": {
+      "get": {
+        "description": "Test connectivity to the Rest API (Permission: NONE, Security: NONE)",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Test connectivity to the Rest API (Permission: NONE, Security: NONE)"
+          }
+        },
+        "tags": [
+          "ping"
+        ],
+        "operationId": "getVer1Ping"
+      }
+    },
+    "/ver1/time": {
+      "get": {
+        "description": "Test connectivity to the Rest API and get the current server time (Permission: NONE, Security: NONE)",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Test connectivity to the Rest API and get the current server time (Permission: NONE, Security: NONE)"
+          }
+        },
+        "tags": [
+          "time"
+        ],
+        "operationId": "getVer1Time"
+      }
+    }
+  }
 }
