@@ -3,6 +3,7 @@
 * The base endpoint is: **https://3commas.io/public/api**
 * All endpoints return either a JSON object or array.
 * Data is returned in **ascending** order. Oldest first, newest last.
+* PAIR format is **QUOTE_BASE** (for example USDT_BTC) for all exchanges (no matter what format the exchange is using).
 * All time and timestamp related fields are in seconds.
 * HTTP `4XX` return codes are used for malformed requests; the issue is on the sender's side.
 * HTTP `429` return code is used when breaking a request rate limit.
