@@ -1,4 +1,4 @@
-# Public Rest API for 3commas.io (2018-09-13)
+# Public Rest API for 3commas.io (2018-10-19)
 # General API Information
 * The base endpoint is: **https://3commas.io/public/api**
 * All endpoints return either a JSON object or array.
