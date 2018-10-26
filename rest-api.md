@@ -1,9 +1,9 @@
-# Public Rest API for 3commas.io (2018-10-19)
+# Public Rest API for 3commas.io (2018-10-26)
 # General API Information
 * The base endpoint is: **https://3commas.io/public/api**
 * All endpoints return either a JSON object or array.
-* Data is returned in **ascending** order. Oldest first, newest last.
 * PAIR format is **QUOTE_BASE** (for example USDT_BTC) for all exchanges (no matter what format the exchange is using).
+* Data is returned in **ascending** order. Oldest first, newest last.
 * All time and timestamp related fields are in seconds.
 * HTTP `4XX` return codes are used for malformed requests; the issue is on the sender's side.
 * HTTP `429` return code is used when breaking a request rate limit.
@@ -174,7 +174,7 @@ GET /ver1/deals
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-limit | integer | NO |  (50) | Limit records
+limit | integer | NO |  (50) | Limit records. Max: 10_000
 offset | integer | NO |   | Offset records
 account_id | integer | NO |   | Account to show bots on. Return all if not specified. Gather this from GET /ver1/accounts
 bot_id | integer | NO |   | Bot show deals on. Return all if not specified
@@ -342,7 +342,7 @@ stop_loss_percentage | number | NO |   |
 cooldown | number | NO |   | 
 btc_price_limit | number | NO |   | 
 safety_order_step_percentage | number | YES |   | Price deviation to open safety trades(percentage)
-take_profit_type | string | YES |   | Percentage: base – from base trade, total – from total volume
+take_profit_type | string | YES | total, base (total) | Percentage: base – from base trade, total – from total volume
 strategy_list | array | YES |   | For manual signals: [{"strategy":"nonstop"}] or []<br>                                                          For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>                                                          QFL: {"options"=>{"type"=>"original"}, "strategy"=>"qfl"}] <br>                                                          TradingView: [{"options"=>{"time"=>"5m", "type"=>"buy_or_strong_buy"}, "strategy"=>"trading_view"} 
 bot_id | integer | YES |   | 
 ### Disable bot (Permission: BOTS_WRITE, Security: SIGNED)
@@ -528,30 +528,6 @@ POST /ver1/accounts/{account_id}/remove
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 account_id | integer | YES |   | Account id
-### Cancel SmartTrade (Permission: SMART_TRADE_WRITE, Security: SIGNED)
-```
-POST /ver1/smart_trades/cancel
-```
-**Weight:**
-1
-
-**Parameters:**
-
-Name | Type | Mandatory | Values(default) | Description
------------- | ------------ | ------------ | ------------ | ------------
-smart_trade_id | integer | YES |   | 
-### Sell currency immediately (Permission: SMART_TRADE_WRITE, Security: SIGNED)
-```
-POST /ver1/smart_trades/panic_sell
-```
-**Weight:**
-1
-
-**Parameters:**
-
-Name | Type | Mandatory | Values(default) | Description
------------- | ------------ | ------------ | ------------ | ------------
-smart_trade_id | integer | YES |   | 
 ### Get SmartTrade history (Permission: SMART_TRADE_READ, Security: SIGNED)
 ```
 GET /ver1/smart_trades
@@ -643,6 +619,30 @@ trailing_stop_loss | boolean | NO |   |
 stop_loss_timeout_enabled | boolean | NO |   | 
 stop_loss_timeout_seconds | integer | NO |  (300) | timeout in seconds
 note | string | NO |   | 
+### Cancel SmartTrade (Permission: SMART_TRADE_WRITE, Security: SIGNED)
+```
+POST /ver1/smart_trades/{smart_trade_id}/cancel
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+smart_trade_id | integer | YES |   | 
+### Sell currency immediately (Permission: SMART_TRADE_WRITE, Security: SIGNED)
+```
+POST /ver1/smart_trades/{smart_trade_id}/panic_sell
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+smart_trade_id | integer | YES |   | 
 ### Refresh SmartTrade state (Permission: SMART_TRADE_WRITE, Security: SIGNED)
 ```
 POST /ver1/smart_trades/{smart_trade_id}/force_process
