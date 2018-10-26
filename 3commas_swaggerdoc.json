@@ -1,6 +1,6 @@
 {
   "info": {
-    "title": "3commas API",
+    "title": "API title",
     "version": "0.0.1"
   },
   "swagger": "2.0",
@@ -46,7 +46,7 @@
           {
             "in": "query",
             "name": "limit",
-            "description": "Limit records",
+            "description": "Limit records. Max: 10_000",
             "type": "integer",
             "format": "int32",
             "default": 50,
@@ -694,6 +694,11 @@
             "name": "take_profit_type",
             "description": "Percentage: base – from base trade, total – from total volume",
             "type": "string",
+            "default": "total",
+            "enum": [
+              "total",
+              "base"
+            ],
             "required": true
           },
           {
@@ -1195,64 +1200,6 @@
           "accounts"
         ],
         "operationId": "postVer1AccountsAccountIdRemove"
-      }
-    },
-    "/ver1/smart_trades/cancel": {
-      "post": {
-        "description": "Cancel SmartTrade (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "formData",
-            "name": "smart_trade_id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Cancel SmartTrade (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
-          }
-        },
-        "tags": [
-          "smart_trades"
-        ],
-        "operationId": "postVer1SmartTradesCancel"
-      }
-    },
-    "/ver1/smart_trades/panic_sell": {
-      "post": {
-        "description": "Sell currency immediately (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "formData",
-            "name": "smart_trade_id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Sell currency immediately (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
-          }
-        },
-        "tags": [
-          "smart_trades"
-        ],
-        "operationId": "postVer1SmartTradesPanicSell"
       }
     },
     "/ver1/smart_trades": {
@@ -1823,6 +1770,64 @@
           "smart_trades"
         ],
         "operationId": "postVer1SmartTradesCreateSmartTrade"
+      }
+    },
+    "/ver1/smart_trades/{smart_trade_id}/cancel": {
+      "post": {
+        "description": "Cancel SmartTrade (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "smart_trade_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Cancel SmartTrade (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades"
+        ],
+        "operationId": "postVer1SmartTradesSmartTradeIdCancel"
+      }
+    },
+    "/ver1/smart_trades/{smart_trade_id}/panic_sell": {
+      "post": {
+        "description": "Sell currency immediately (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "smart_trade_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Sell currency immediately (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades"
+        ],
+        "operationId": "postVer1SmartTradesSmartTradeIdPanicSell"
       }
     },
     "/ver1/smart_trades/{smart_trade_id}/force_process": {
