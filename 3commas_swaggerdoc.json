@@ -223,6 +223,21 @@
           },
           {
             "in": "formData",
+            "name": "trailing_enabled",
+            "description": "Enable trailing take profit. Binance only.",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trailing_deviation",
+            "description": "required if trailing_enabled",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
             "name": "btc_price_limit",
             "type": "number",
             "format": "double",
@@ -453,6 +468,21 @@
           {
             "in": "formData",
             "name": "cooldown",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trailing_enabled",
+            "description": "Enable trailing take profit. Binance only.",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trailing_deviation",
+            "description": "required if trailing_enabled",
             "type": "number",
             "format": "double",
             "required": false
@@ -779,6 +809,17 @@
             "name": "scope",
             "description": "active - active deals, finished - finished deals, completed - successfully completed, any other value or null (default) - all deals",
             "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "type": "string",
+            "default": "created_at",
+            "enum": [
+              "created_at",
+              "closed_at"
+            ],
             "required": false
           }
         ],
@@ -1467,8 +1508,9 @@
           {
             "in": "formData",
             "name": "take_profit_type",
-            "description": "classic - common take profit, step_sell - step sell take profit",
+            "description": "Required if take_profit_enabled. classic - common take profit, step_sell - step sell take profit",
             "type": "string",
+            "default": "classic",
             "enum": [
               "classic",
               "step_sell"
@@ -1486,7 +1528,7 @@
           {
             "in": "formData",
             "name": "take_profit_percentage_condition",
-            "description": "Required if take_profit_type = classic AND trailing_buy_enabled",
+            "description": "Required if take_profit_type = classic AND trailing_buy_enabled. Must be positive",
             "type": "number",
             "format": "double",
             "required": false
@@ -1542,7 +1584,7 @@
           {
             "in": "formData",
             "name": "take_profit_step_orders[price_percentage]",
-            "description": "Required if take_profit_step_orders AND trailing_buy_enabled",
+            "description": "Required if take_profit_step_orders AND trailing_buy_enabled. Must be positive",
             "type": "array",
             "items": {
               "type": "number",
@@ -1613,7 +1655,7 @@
           {
             "in": "formData",
             "name": "stop_loss_percentage_condition",
-            "description": "Required if stop_loss_enabled AND trailing_buy_enabled",
+            "description": "Required if stop_loss_enabled AND trailing_buy_enabled. Must be negative",
             "type": "number",
             "format": "double",
             "required": false
@@ -1764,8 +1806,9 @@
           {
             "in": "formData",
             "name": "take_profit_type",
-            "description": "classic - common take profit, step_sell - step sell take profit",
+            "description": "Required if take_profit_enabled. classic - common take profit, step_sell - step sell take profit",
             "type": "string",
+            "default": "classic",
             "enum": [
               "classic",
               "step_sell"
@@ -1783,7 +1826,7 @@
           {
             "in": "formData",
             "name": "take_profit_percentage_condition",
-            "description": "Required if take_profit_type = classic AND trailing_buy_enabled",
+            "description": "Required if take_profit_type = classic AND trailing_buy_enabled. Must be negative",
             "type": "number",
             "format": "double",
             "required": false
@@ -1839,7 +1882,7 @@
           {
             "in": "formData",
             "name": "take_profit_step_orders[price_percentage]",
-            "description": "Required if take_profit_step_orders AND trailing_buy_enabled",
+            "description": "Required if take_profit_step_orders AND trailing_buy_enabled. Must be negative",
             "type": "array",
             "items": {
               "type": "number",
@@ -1910,7 +1953,7 @@
           {
             "in": "formData",
             "name": "stop_loss_percentage_condition",
-            "description": "Required if stop_loss_enabled AND trailing_buy_enabled",
+            "description": "Required if stop_loss_enabled AND trailing_buy_enabled. Must Be positive",
             "type": "number",
             "format": "double",
             "required": false
@@ -2061,8 +2104,9 @@
           {
             "in": "formData",
             "name": "take_profit_type",
-            "description": "classic - common take profit, step_sell - step sell take profit",
+            "description": "Required if take_profit_enabled. classic - common take profit, step_sell - step sell take profit",
             "type": "string",
+            "default": "classic",
             "enum": [
               "classic",
               "step_sell"
@@ -2080,7 +2124,7 @@
           {
             "in": "formData",
             "name": "take_profit_percentage_condition",
-            "description": "Required if take_profit_type = classic AND trailing_buy_enabled",
+            "description": "Required if take_profit_type = classic AND trailing_buy_enabled. Must be positive",
             "type": "number",
             "format": "double",
             "required": false
@@ -2136,7 +2180,7 @@
           {
             "in": "formData",
             "name": "take_profit_step_orders[price_percentage]",
-            "description": "Required if take_profit_step_orders AND trailing_buy_enabled",
+            "description": "Required if take_profit_step_orders AND trailing_buy_enabled. Must be positive",
             "type": "array",
             "items": {
               "type": "number",
@@ -2207,7 +2251,7 @@
           {
             "in": "formData",
             "name": "stop_loss_percentage_condition",
-            "description": "Required if stop_loss_enabled AND trailing_buy_enabled",
+            "description": "Required if stop_loss_enabled AND trailing_buy_enabled. Must be negative",
             "type": "number",
             "format": "double",
             "required": false
@@ -2456,8 +2500,9 @@
           {
             "in": "formData",
             "name": "take_profit_type",
-            "description": "classic - common take profit, step_sell - step sell take profit",
+            "description": "Required if take_profit_enabled. classic - common take profit, step_sell - step sell take profit",
             "type": "string",
+            "default": "classic",
             "enum": [
               "classic",
               "step_sell"
@@ -2764,6 +2809,10 @@
           "format": "int32",
           "example": "1"
         },
+        "type": {
+          "type": "string",
+          "example": "Deal::ShortDeal"
+        },
         "bot_id": {
           "type": "integer",
           "format": "int32",
@@ -2820,6 +2869,12 @@
           "format": "int32",
           "example": 1
         },
+        "current_active_safety_orders": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1,
+          "description": "DEPRECATED"
+        },
         "completed_safety_orders_count": {
           "type": "integer",
           "format": "int32",
@@ -2831,6 +2886,10 @@
         "panic_sellable?": {
           "type": "boolean"
         },
+        "trailing_enabled": {
+          "type": "boolean",
+          "example": true
+        },
         "pair": {
           "type": "string",
           "example": "'BTC_ADA'",
@@ -2839,7 +2898,7 @@
         "status": {
           "type": "string",
           "example": "'failed'",
-          "description": "Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit"
+          "description": "Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit, ttp_activated, ttp_order_placed"
         },
         "take_profit": {
           "type": "string",
@@ -2965,6 +3024,15 @@
         "reserved_second_coin": {
           "type": "string",
           "example": "0.1412454"
+        },
+        "trailing_deviation": {
+          "type": "string",
+          "example": "0.14"
+        },
+        "trailing_max_price": {
+          "type": "string",
+          "example": "0.1412454",
+          "description": "Highest price met in case of long deal, lowest price otherwise"
         }
       }
     },
@@ -3025,6 +3093,10 @@
         "updated_at": {
           "type": "string",
           "example": "2018-08-10 10:10:10"
+        },
+        "trailing_enabled": {
+          "type": "boolean",
+          "example": true
         },
         "name": {
           "type": "string",
@@ -3109,6 +3181,10 @@
         "account_name": {
           "type": "string",
           "example": "'My account'"
+        },
+        "trailing_deviation": {
+          "type": "string",
+          "example": "0.14"
         }
       }
     },
@@ -3563,6 +3639,11 @@
         },
         "trailing_last_pirce_updated_at": {
           "type": "string",
+          "example": "2018-10-10 10:12:12",
+          "description": "DEPRECATED"
+        },
+        "trailing_last_price_updated_at": {
+          "type": "string",
           "example": "2018-10-10 10:12:12"
         },
         "type": {
@@ -3588,6 +3669,11 @@
           "description": "bid, ask ,last"
         },
         "trailing_last_pirce": {
+          "type": "string",
+          "example": "'103.4'",
+          "description": "DEPRECATED"
+        },
+        "trailing_last_price": {
           "type": "string",
           "example": "'103.4'"
         },

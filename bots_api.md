@@ -47,6 +47,8 @@ max_safety_orders | integer | YES |   | Max safety trades count
 active_safety_orders_count | integer | YES |   | Max active safety trades count
 stop_loss_percentage | number | NO |   | 
 cooldown | number | NO |   | 
+trailing_enabled | boolean | NO |   | Enable trailing take profit. Binance only.
+trailing_deviation | number | NO |   | required if trailing_enabled
 btc_price_limit | number | NO |   | 
 strategy | string | NO | short, long (long) | 
 safety_order_step_percentage | number | YES |   | Price deviation to open safety trades(percentage)
@@ -99,6 +101,8 @@ max_safety_orders | integer | YES |   | Max safety trades count
 active_safety_orders_count | integer | YES |   | Max active safety trades count
 stop_loss_percentage | number | NO |   | 
 cooldown | number | NO |   | 
+trailing_enabled | boolean | NO |   | Enable trailing take profit. Binance only.
+trailing_deviation | number | NO |   | required if trailing_enabled
 btc_price_limit | number | NO |   | 
 safety_order_step_percentage | number | YES |   | Price deviation to open safety trades(percentage)
 take_profit_type | string | YES | total, base (total) | Percentage: base – from base trade, total – from total volume
@@ -207,6 +211,7 @@ active_deals_count: 2
 deletable?: true                          
 created_at: 2018-08-08 08:08:08           
 updated_at: 2018-08-10 10:10:10           
+trailing_enabled: true                    
 name: 'Test Bot'                          
 take_profit: '1.5'                       'Percentage' 
 base_order_volume: '0.002'                
@@ -226,5 +231,6 @@ max_price: '0.0123'
 safety_order_volume_type: 'base_currency'Values: quote_currency, base_currency, percent, xbt 
 base_order_volume_type: 'percent'        Values: quote_currency, base_currency, percent, xbt 
 account_name: 'My account'                
+trailing_deviation: 0.14                  
 } 
  ``` 

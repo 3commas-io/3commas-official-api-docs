@@ -16,6 +16,7 @@ offset | integer | NO |   | Offset records
 account_id | integer | NO |   | Account to show bots on. Return all if not specified. Gather this from GET /ver1/accounts
 bot_id | integer | NO |   | Bot show deals on. Return all if not specified
 scope | string | NO |   | active - active deals, finished - finished deals, completed - successfully completed, any other value or null (default) - all deals
+order | string | NO | created_at, closed_at (created_at) | 
 ### Update max safety orders (Permission: BOTS_WRITE, Security: SIGNED)
 ```
 POST /ver1/deals/{deal_id}/update_max_safety_orders
@@ -83,6 +84,7 @@ deal_id | integer | YES |   |
  ``` 
  {
 id: 1                                     
+type: Deal::ShortDeal                     
 bot_id: 111                               
 max_safety_orders: 2                      
 deal_has_error: true                      
@@ -95,11 +97,13 @@ updated_at: 2018-09-09 09:09:09
 closed_at: 2018-10-10 10:10:10            
 finished?:                                
 current_active_safety_orders_count: 1     
+current_active_safety_orders: 1          DEPRECATED 
 completed_safety_orders_count: 2          
 cancellable?:                             
 panic_sellable?:                          
+trailing_enabled: true                    
 pair: 'BTC_ADA'                          Format: QUOTE_BASE 
-status: 'failed'                         Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit 
+status: 'failed'                         Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit, ttp_activated, ttp_order_placed 
 take_profit: '1.23'                      Percentage 
 base_order_volume: '0.001'                
 safety_order_volume: '0.0015'             
@@ -130,5 +134,7 @@ actual_usd_profit: '0.0023'
 failed_message: Failed                    
 reserved_base_coin: 1.3423523             
 reserved_second_coin: 0.1412454           
+trailing_deviation: 0.14                  
+trailing_max_price: 0.1412454            Highest price met in case of long deal, lowest price otherwise 
 } 
  ``` 
