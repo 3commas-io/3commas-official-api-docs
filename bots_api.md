@@ -47,11 +47,17 @@ max_safety_orders | integer | YES |   | Max safety trades count
 active_safety_orders_count | integer | YES |   | Max active safety trades count
 stop_loss_percentage | number | NO |   | 
 cooldown | number | NO |   | 
+trailing_enabled | boolean | NO |   | Enable trailing take profit. Binance only.
+trailing_deviation | number | NO |   | required if trailing_enabled
 btc_price_limit | number | NO |   | 
 strategy | string | NO | short, long (long) | 
 safety_order_step_percentage | number | YES |   | Price deviation to open safety trades(percentage)
 take_profit_type | string | YES |   | Percentage: base – from base trade, total – from total volume
-strategy_list | array[json] | YES |   | For manual signals: [{"strategy":"nonstop"}] or []<br>                                                        For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>                                                        QFL: {"options"=>{"type"=>"original"}, "strategy"=>"qfl"}] <br>                                                        TradingView: [{"options"=>{"time"=>"5m", "type"=>"buy_or_strong_buy"}, "strategy"=>"trading_view"} 
+strategy_list | array[json] | YES |   | For manual signals: [{"strategy":"manual"}] or []<br>                                                        For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>                                                        QFL: {"options"=>{"type"=>"original"}, "strategy"=>"qfl"}] <br>                                                        TradingView: [{"options"=>{"time"=>"5m", "type"=>"buy_or_strong_buy"}, "strategy"=>"trading_view"} 
+leverage_type | string | NO | custom, cross, not_specified (not_specified) | Used for Bitmex bots only
+leverage_custom_value | number | NO |   | required if leverage_type is custom
+min_price | number | NO |   | minimum price to open deal
+max_price | number | NO |   | maximum price to open deal
 ### User bots (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/bots
@@ -60,7 +66,14 @@ GET /ver1/bots
 1
 
 **Parameters:**
-NONE
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+limit | integer | NO |  (50) | Limit records. Max: 100
+offset | integer | NO |   | Offset records
+account_id | integer | NO |   | Account to show bots on. Return all if not specified. Gather this from GET /ver1/accounts
+scope | string | NO | enabled, disabled  | 
+strategy | string | NO | long, short  | 
 ### Get bot stats (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/bots/stats
@@ -99,10 +112,16 @@ max_safety_orders | integer | YES |   | Max safety trades count
 active_safety_orders_count | integer | YES |   | Max active safety trades count
 stop_loss_percentage | number | NO |   | 
 cooldown | number | NO |   | 
+trailing_enabled | boolean | NO |   | Enable trailing take profit. Binance only.
+trailing_deviation | number | NO |   | required if trailing_enabled
 btc_price_limit | number | NO |   | 
 safety_order_step_percentage | number | YES |   | Price deviation to open safety trades(percentage)
 take_profit_type | string | YES | total, base (total) | Percentage: base – from base trade, total – from total volume
 strategy_list | array[json] | YES |   | For manual signals: [{"strategy":"nonstop"}] or []<br>                                                          For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>                                                          QFL: {"options"=>{"type"=>"original"}, "strategy"=>"qfl"}] <br>                                                          TradingView: [{"options"=>{"time"=>"5m", "type"=>"buy_or_strong_buy"}, "strategy"=>"trading_view"} 
+leverage_type | string | NO | custom, cross, not_specified (not_specified) | Used for Bitmex bots only
+leverage_custom_value | number | NO |   | required if leverage_type is custom
+min_price | number | NO |   | minimum price to open deal
+max_price | number | NO |   | maximum price to open deal
 bot_id | integer | YES |   | 
 ### Disable bot (Permission: BOTS_WRITE, Security: SIGNED)
 ```
@@ -207,13 +226,14 @@ active_deals_count: 2
 deletable?: true                          
 created_at: 2018-08-08 08:08:08           
 updated_at: 2018-08-10 10:10:10           
+trailing_enabled: true                    
 name: 'Test Bot'                          
 take_profit: '1.5'                       'Percentage' 
 base_order_volume: '0.002'                
 safety_order_volume: '0.0015'             
 safety_order_step_percentage: '1.1'       
 take_profit_type: 'base_order_volume'    Values: base_order_volume, total_bought_volume 
-type: 'Bot::SingleBot'                   Values: ["Bot::MultiBot", "Bot::SingleBot", "Bot::SwitchBot", "Bot::BitmexBot"] 
+type: 'Bot::SingleBot'                   Values: ["Bot::MultiBot", "Bot::SingleBot", "Bot::SwitchBot"] 
 martingale_volume_coefficient: '1.3'      
 martingale_step_coefficient: '0.9'        
 stop_loss_percentage: '5.5'               
@@ -226,5 +246,10 @@ max_price: '0.0123'
 safety_order_volume_type: 'base_currency'Values: quote_currency, base_currency, percent, xbt 
 base_order_volume_type: 'percent'        Values: quote_currency, base_currency, percent, xbt 
 account_name: 'My account'                
+trailing_deviation: 0.14                  
+finished_deals_profit_usd: 12.14          
+finished_deals_count: 252.1               
+leverage_type: 'not_specified'           Values: custom, cross, not_specified 
+leverage_custom_value: '1'                
 } 
  ``` 

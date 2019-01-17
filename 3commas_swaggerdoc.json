@@ -223,6 +223,21 @@
           },
           {
             "in": "formData",
+            "name": "trailing_enabled",
+            "description": "Enable trailing take profit. Binance only.",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trailing_deviation",
+            "description": "required if trailing_enabled",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
             "name": "btc_price_limit",
             "type": "number",
             "format": "double",
@@ -257,12 +272,49 @@
           {
             "in": "formData",
             "name": "strategy_list",
-            "description": "For manual signals: [{\"strategy\":\"nonstop\"}] or []<br>\n                                                        For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]<br>\n                                                        QFL: {\"options\"=>{\"type\"=>\"original\"}, \"strategy\"=>\"qfl\"}] <br>\n                                                        TradingView: [{\"options\"=>{\"time\"=>\"5m\", \"type\"=>\"buy_or_strong_buy\"}, \"strategy\"=>\"trading_view\"} ",
+            "description": "For manual signals: [{\"strategy\":\"manual\"}] or []<br>\n                                                        For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]<br>\n                                                        QFL: {\"options\"=>{\"type\"=>\"original\"}, \"strategy\"=>\"qfl\"}] <br>\n                                                        TradingView: [{\"options\"=>{\"time\"=>\"5m\", \"type\"=>\"buy_or_strong_buy\"}, \"strategy\"=>\"trading_view\"} ",
             "type": "array",
             "items": {
               "type": "json"
             },
             "required": true
+          },
+          {
+            "in": "formData",
+            "name": "leverage_type",
+            "description": "Used for Bitmex bots only",
+            "type": "string",
+            "default": "not_specified",
+            "enum": [
+              "custom",
+              "cross",
+              "not_specified"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "leverage_custom_value",
+            "description": "required if leverage_type is custom",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "min_price",
+            "description": "minimum price to open deal",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "max_price",
+            "description": "maximum price to open deal",
+            "type": "number",
+            "format": "double",
+            "required": false
           }
         ],
         "responses": {
@@ -281,6 +333,53 @@
         "description": "User bots (Permission: BOTS_READ, Security: SIGNED)",
         "produces": [
           "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Limit records. Max: 100",
+            "type": "integer",
+            "format": "int32",
+            "default": 50,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Offset records",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "account_id",
+            "description": "Account to show bots on. Return all if not specified. Gather this from GET /ver1/accounts",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "scope",
+            "type": "string",
+            "enum": [
+              "enabled",
+              "disabled"
+            ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "strategy",
+            "type": "string",
+            "enum": [
+              "long",
+              "short"
+            ],
+            "required": false
+          }
         ],
         "responses": {
           "200": {
@@ -459,6 +558,21 @@
           },
           {
             "in": "formData",
+            "name": "trailing_enabled",
+            "description": "Enable trailing take profit. Binance only.",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trailing_deviation",
+            "description": "required if trailing_enabled",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
             "name": "btc_price_limit",
             "type": "number",
             "format": "double",
@@ -493,6 +607,43 @@
               "type": "json"
             },
             "required": true
+          },
+          {
+            "in": "formData",
+            "name": "leverage_type",
+            "description": "Used for Bitmex bots only",
+            "type": "string",
+            "default": "not_specified",
+            "enum": [
+              "custom",
+              "cross",
+              "not_specified"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "leverage_custom_value",
+            "description": "required if leverage_type is custom",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "min_price",
+            "description": "minimum price to open deal",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "max_price",
+            "description": "maximum price to open deal",
+            "type": "number",
+            "format": "double",
+            "required": false
           },
           {
             "in": "path",
@@ -777,8 +928,19 @@
           {
             "in": "query",
             "name": "scope",
-            "description": "active - active deals, finished - finished deals, completed - successfully completed, any other value or null (default) - all deals",
+            "description": "active - active deals, finished - finished deals, completed - successfully completed, cancelled - cancelled deals, failed - failed deals, any other value or null (default) - all deals",
             "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "type": "string",
+            "default": "created_at",
+            "enum": [
+              "created_at",
+              "closed_at"
+            ],
             "required": false
           }
         ],
@@ -1080,6 +1242,66 @@
         "operationId": "getVer1AccountsCurrencyRates"
       }
     },
+    "/ver1/accounts/{account_id}/sell_all_to_usd": {
+      "post": {
+        "description": "Sell all to USD  (Permission: ACCOUNTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "account_id",
+            "description": "Account id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Sell all to USD  (Permission: ACCOUNTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "postVer1AccountsAccountIdSellAllToUsd"
+      }
+    },
+    "/ver1/accounts/{account_id}/sell_all_to_btc": {
+      "post": {
+        "description": "Sell all to BTC  (Permission: ACCOUNTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "account_id",
+            "description": "Account id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Sell all to BTC  (Permission: ACCOUNTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "postVer1AccountsAccountIdSellAllToBtc"
+      }
+    },
     "/ver1/accounts/{account_id}/load_balances": {
       "post": {
         "description": "Load balances for specified exchange  (Permission: ACCOUNTS_READ, Security: SIGNED)",
@@ -1233,63 +1455,6 @@
           "accounts"
         ],
         "operationId": "postVer1AccountsAccountIdRemove"
-      }
-    },
-    "/ver1/smart_trades": {
-      "get": {
-        "description": "Get SmartTrade history (Permission: SMART_TRADE_READ, Security: SIGNED)",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "limit",
-            "description": "Limit records",
-            "type": "integer",
-            "format": "int32",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "offset",
-            "description": "Offset records",
-            "type": "integer",
-            "format": "int32",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "account_id",
-            "description": "Account to show smart_trades on. Pass null (default) - show all",
-            "type": "integer",
-            "format": "int32",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "scope",
-            "description": "active - show only active trades, finished - history of closed trades, any other value or null (default) - all trades",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "type",
-            "description": "SmartTrade::SmartSale , SmartTrade::Classic , SmartTrade::ConditionalBuy",
-            "type": "string",
-            "required": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get SmartTrade history (Permission: SMART_TRADE_READ, Security: SIGNED)"
-          }
-        },
-        "tags": [
-          "smart_trades"
-        ],
-        "operationId": "getVer1SmartTrades"
       }
     },
     "/ver1/smart_trades/create_simple_sell": {
@@ -1467,8 +1632,9 @@
           {
             "in": "formData",
             "name": "take_profit_type",
-            "description": "classic - common take profit, step_sell - step sell take profit",
+            "description": "Required if take_profit_enabled. classic - common take profit, step_sell - step sell take profit",
             "type": "string",
+            "default": "classic",
             "enum": [
               "classic",
               "step_sell"
@@ -1486,7 +1652,7 @@
           {
             "in": "formData",
             "name": "take_profit_percentage_condition",
-            "description": "Required if take_profit_type = classic AND trailing_buy_enabled",
+            "description": "Required if take_profit_type = classic AND trailing_buy_enabled. Must be positive",
             "type": "number",
             "format": "double",
             "required": false
@@ -1542,7 +1708,7 @@
           {
             "in": "formData",
             "name": "take_profit_step_orders[price_percentage]",
-            "description": "Required if take_profit_step_orders AND trailing_buy_enabled",
+            "description": "Required if take_profit_step_orders AND trailing_buy_enabled. Must be positive",
             "type": "array",
             "items": {
               "type": "number",
@@ -1613,7 +1779,7 @@
           {
             "in": "formData",
             "name": "stop_loss_percentage_condition",
-            "description": "Required if stop_loss_enabled AND trailing_buy_enabled",
+            "description": "Required if stop_loss_enabled AND trailing_buy_enabled. Must be negative",
             "type": "number",
             "format": "double",
             "required": false
@@ -1764,8 +1930,9 @@
           {
             "in": "formData",
             "name": "take_profit_type",
-            "description": "classic - common take profit, step_sell - step sell take profit",
+            "description": "Required if take_profit_enabled. classic - common take profit, step_sell - step sell take profit",
             "type": "string",
+            "default": "classic",
             "enum": [
               "classic",
               "step_sell"
@@ -1783,7 +1950,7 @@
           {
             "in": "formData",
             "name": "take_profit_percentage_condition",
-            "description": "Required if take_profit_type = classic AND trailing_buy_enabled",
+            "description": "Required if take_profit_type = classic AND trailing_buy_enabled. Must be negative",
             "type": "number",
             "format": "double",
             "required": false
@@ -1839,7 +2006,7 @@
           {
             "in": "formData",
             "name": "take_profit_step_orders[price_percentage]",
-            "description": "Required if take_profit_step_orders AND trailing_buy_enabled",
+            "description": "Required if take_profit_step_orders AND trailing_buy_enabled. Must be negative",
             "type": "array",
             "items": {
               "type": "number",
@@ -1910,7 +2077,7 @@
           {
             "in": "formData",
             "name": "stop_loss_percentage_condition",
-            "description": "Required if stop_loss_enabled AND trailing_buy_enabled",
+            "description": "Required if stop_loss_enabled AND trailing_buy_enabled. Must Be positive",
             "type": "number",
             "format": "double",
             "required": false
@@ -2061,8 +2228,9 @@
           {
             "in": "formData",
             "name": "take_profit_type",
-            "description": "classic - common take profit, step_sell - step sell take profit",
+            "description": "Required if take_profit_enabled. classic - common take profit, step_sell - step sell take profit",
             "type": "string",
+            "default": "classic",
             "enum": [
               "classic",
               "step_sell"
@@ -2080,7 +2248,7 @@
           {
             "in": "formData",
             "name": "take_profit_percentage_condition",
-            "description": "Required if take_profit_type = classic AND trailing_buy_enabled",
+            "description": "Required if take_profit_type = classic AND trailing_buy_enabled. Must be positive",
             "type": "number",
             "format": "double",
             "required": false
@@ -2136,7 +2304,7 @@
           {
             "in": "formData",
             "name": "take_profit_step_orders[price_percentage]",
-            "description": "Required if take_profit_step_orders AND trailing_buy_enabled",
+            "description": "Required if take_profit_step_orders AND trailing_buy_enabled. Must be positive",
             "type": "array",
             "items": {
               "type": "number",
@@ -2207,7 +2375,7 @@
           {
             "in": "formData",
             "name": "stop_loss_percentage_condition",
-            "description": "Required if stop_loss_enabled AND trailing_buy_enabled",
+            "description": "Required if stop_loss_enabled AND trailing_buy_enabled. Must be negative",
             "type": "number",
             "format": "double",
             "required": false
@@ -2283,91 +2451,61 @@
         "operationId": "postVer1SmartTradesCreateSmartTrade"
       }
     },
-    "/ver1/smart_trades/{smart_trade_id}/cancel": {
-      "post": {
-        "description": "Cancel SmartTrade (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+    "/ver1/smart_trades": {
+      "get": {
+        "description": "Get SmartTrade history (Permission: SMART_TRADE_READ, Security: SIGNED)",
         "produces": [
-          "application/json"
-        ],
-        "consumes": [
           "application/json"
         ],
         "parameters": [
           {
-            "in": "path",
-            "name": "smart_trade_id",
+            "in": "query",
+            "name": "limit",
+            "description": "Limit records",
             "type": "integer",
             "format": "int32",
-            "required": true
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Offset records",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "account_id",
+            "description": "Account to show smart_trades on. Pass null (default) - show all",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "scope",
+            "description": "active - show only active trades, finished - history of closed trades, cancelled - cancelled trades, failed - failed trades, any other value or null (default) - all trades",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "description": "SmartTrade::SmartSale , SmartTrade::Classic , SmartTrade::ConditionalBuy",
+            "type": "string",
+            "required": false
           }
         ],
         "responses": {
-          "201": {
-            "description": "Cancel SmartTrade (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          "200": {
+            "description": "Get SmartTrade history (Permission: SMART_TRADE_READ, Security: SIGNED)"
           }
         },
         "tags": [
           "smart_trades"
         ],
-        "operationId": "postVer1SmartTradesSmartTradeIdCancel"
-      }
-    },
-    "/ver1/smart_trades/{smart_trade_id}/panic_sell": {
-      "post": {
-        "description": "Sell currency immediately (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "smart_trade_id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Sell currency immediately (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
-          }
-        },
-        "tags": [
-          "smart_trades"
-        ],
-        "operationId": "postVer1SmartTradesSmartTradeIdPanicSell"
-      }
-    },
-    "/ver1/smart_trades/{smart_trade_id}/force_process": {
-      "post": {
-        "description": "Refresh SmartTrade state (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "smart_trade_id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Refresh SmartTrade state (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
-          }
-        },
-        "tags": [
-          "smart_trades"
-        ],
-        "operationId": "postVer1SmartTradesSmartTradeIdForceProcess"
+        "operationId": "getVer1SmartTrades"
       }
     },
     "/ver1/smart_trades/{smart_trade_id}/step_panic_sell": {
@@ -2456,8 +2594,9 @@
           {
             "in": "formData",
             "name": "take_profit_type",
-            "description": "classic - common take profit, step_sell - step sell take profit",
+            "description": "Required if take_profit_enabled. classic - common take profit, step_sell - step sell take profit",
             "type": "string",
+            "default": "classic",
             "enum": [
               "classic",
               "step_sell"
@@ -2696,6 +2835,93 @@
         "operationId": "patchVer1SmartTradesSmartTradeIdUpdate"
       }
     },
+    "/ver1/smart_trades/{smart_trade_id}/cancel": {
+      "post": {
+        "description": "Cancel SmartTrade (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "smart_trade_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Cancel SmartTrade (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades"
+        ],
+        "operationId": "postVer1SmartTradesSmartTradeIdCancel"
+      }
+    },
+    "/ver1/smart_trades/{smart_trade_id}/panic_sell": {
+      "post": {
+        "description": "Sell currency immediately (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "smart_trade_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Sell currency immediately (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades"
+        ],
+        "operationId": "postVer1SmartTradesSmartTradeIdPanicSell"
+      }
+    },
+    "/ver1/smart_trades/{smart_trade_id}/force_process": {
+      "post": {
+        "description": "Refresh SmartTrade state (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "smart_trade_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Refresh SmartTrade state (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades"
+        ],
+        "operationId": "postVer1SmartTradesSmartTradeIdForceProcess"
+      }
+    },
     "/ver1/ping": {
       "get": {
         "description": "Test connectivity to the Rest API (Permission: NONE, Security: NONE)",
@@ -2764,6 +2990,10 @@
           "format": "int32",
           "example": "1"
         },
+        "type": {
+          "type": "string",
+          "example": "Deal::ShortDeal"
+        },
         "bot_id": {
           "type": "integer",
           "format": "int32",
@@ -2820,6 +3050,12 @@
           "format": "int32",
           "example": 1
         },
+        "current_active_safety_orders": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1,
+          "description": "DEPRECATED"
+        },
         "completed_safety_orders_count": {
           "type": "integer",
           "format": "int32",
@@ -2831,6 +3067,10 @@
         "panic_sellable?": {
           "type": "boolean"
         },
+        "trailing_enabled": {
+          "type": "boolean",
+          "example": true
+        },
         "pair": {
           "type": "string",
           "example": "'BTC_ADA'",
@@ -2839,7 +3079,7 @@
         "status": {
           "type": "string",
           "example": "'failed'",
-          "description": "Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit"
+          "description": "Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit, ttp_activated, ttp_order_placed, liquidated"
         },
         "take_profit": {
           "type": "string",
@@ -2965,6 +3205,15 @@
         "reserved_second_coin": {
           "type": "string",
           "example": "0.1412454"
+        },
+        "trailing_deviation": {
+          "type": "string",
+          "example": "0.14"
+        },
+        "trailing_max_price": {
+          "type": "string",
+          "example": "0.1412454",
+          "description": "Highest price met in case of long deal, lowest price otherwise"
         }
       }
     },
@@ -3026,6 +3275,10 @@
           "type": "string",
           "example": "2018-08-10 10:10:10"
         },
+        "trailing_enabled": {
+          "type": "boolean",
+          "example": true
+        },
         "name": {
           "type": "string",
           "example": "'Test Bot'"
@@ -3055,7 +3308,7 @@
         "type": {
           "type": "string",
           "example": "'Bot::SingleBot'",
-          "description": "Values: [\"Bot::MultiBot\", \"Bot::SingleBot\", \"Bot::SwitchBot\", \"Bot::BitmexBot\"]"
+          "description": "Values: [\"Bot::MultiBot\", \"Bot::SingleBot\", \"Bot::SwitchBot\"]"
         },
         "martingale_volume_coefficient": {
           "type": "string",
@@ -3109,6 +3362,27 @@
         "account_name": {
           "type": "string",
           "example": "'My account'"
+        },
+        "trailing_deviation": {
+          "type": "string",
+          "example": "0.14"
+        },
+        "finished_deals_profit_usd": {
+          "type": "string",
+          "example": "12.14"
+        },
+        "finished_deals_count": {
+          "type": "string",
+          "example": "252.1"
+        },
+        "leverage_type": {
+          "type": "string",
+          "example": "'not_specified'",
+          "description": "Values: custom, cross, not_specified"
+        },
+        "leverage_custom_value": {
+          "type": "string",
+          "example": "'1'"
         }
       }
     },
@@ -3439,7 +3713,7 @@
         "buy_method": {
           "type": "string",
           "example": "'market'",
-          "description": "Values: classic, market"
+          "description": "Values: [\"limit\", \"market\", \"conditional\"]"
         },
         "take_profit_type": {
           "type": "string",
@@ -3518,6 +3792,15 @@
         },
         "smart_trade_steps": {
           "$ref": "#/definitions/SmartTradeStepEntity"
+        },
+        "take_profit_steps": {
+          "$ref": "#/definitions/SmartTradeStepEntity"
+        },
+        "stop_loss_steps": {
+          "$ref": "#/definitions/SmartTradeStepEntity"
+        },
+        "buy_steps": {
+          "$ref": "#/definitions/SmartTradeStepEntity"
         }
       }
     },
@@ -3563,12 +3846,17 @@
         },
         "trailing_last_pirce_updated_at": {
           "type": "string",
+          "example": "2018-10-10 10:12:12",
+          "description": "DEPRECATED"
+        },
+        "trailing_last_price_updated_at": {
+          "type": "string",
           "example": "2018-10-10 10:12:12"
         },
         "type": {
           "type": "string",
           "example": "'SmartTradeStep::TakeProfitStep'",
-          "description": "SmartTradeStep::TakeProfitStep, SmartTradeStep::TrailingTakeProfitStep, SmartTradeStep::TrailingStopLossStep, SmartTradeStep::StopLossStep, SmartTradeStep::TakeProfitBuyStep, SmartTradeStep::TrailingTakeProfitBuyStep, SmartTradeStep::TrailingStopLossBuyStep, SmartTradeStep::StopLossBuyStep"
+          "description": "SmartTradeStep::TrailingStopLossStep, SmartTradeStep::StopLossStep, SmartTradeStep::TrailingStopLossBuyStep, SmartTradeStep::StopLossBuyStep, SmartTradeStep::TakeProfitStep, SmartTradeStep::TrailingTakeProfitStep, SmartTradeStep::TakeProfitBuyStep, SmartTradeStep::TrailingTakeProfitBuyStep"
         },
         "price": {
           "type": "string",
@@ -3588,6 +3876,11 @@
           "description": "bid, ask ,last"
         },
         "trailing_last_pirce": {
+          "type": "string",
+          "example": "'103.4'",
+          "description": "DEPRECATED"
+        },
+        "trailing_last_price": {
           "type": "string",
           "example": "'103.4'"
         },

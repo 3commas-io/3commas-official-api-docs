@@ -48,6 +48,30 @@ Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 pretty_display_type | string | YES |   | pretty_display_type from account model
 pair | string | YES |   | Pair
+### Sell all to USD  (Permission: ACCOUNTS_WRITE, Security: SIGNED)
+```
+POST /ver1/accounts/{account_id}/sell_all_to_usd
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+account_id | integer | YES |   | Account id
+### Sell all to BTC  (Permission: ACCOUNTS_WRITE, Security: SIGNED)
+```
+POST /ver1/accounts/{account_id}/sell_all_to_btc
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+account_id | integer | YES |   | Account id
 ### Load balances for specified exchange  (Permission: ACCOUNTS_READ, Security: SIGNED)
 ```
 POST /ver1/accounts/{account_id}/load_balances
