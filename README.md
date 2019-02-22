@@ -45,6 +45,9 @@
 * If a parameter sent in both the `query string` and `request body`, the
   `query string` parameter will be used.
 
+# Third-party implementations
+* https://www.npmjs.com/package/3commas-api-node
+
 # LIMITS
 * A 429 will be returned when either rather limit is violated.
 * Each route has a `weight` which determines for the number of requests each endpoint counts for. Heavier endpoints and endpoints that do operations on multiple symbols will have a heavier `weight`.
