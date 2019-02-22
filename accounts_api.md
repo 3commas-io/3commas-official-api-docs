@@ -144,7 +144,7 @@ auto_balance_currency_change_limit: 5
 autobalance_enabled: true                 
 is_locked: true                           
 smart_trading_supported: true             
-smart_selling_supported: true             
+smart_selling_supported: true            DEPRECATED. use smart_trading_supported instead 
 available_for_trading: true               
 stats_supported: true                     
 trading_supported: true                   

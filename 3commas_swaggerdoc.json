@@ -7,7 +7,7 @@
   "produces": [
     "application/json"
   ],
-  "host": "3commas.io",
+  "host": "api.3commas.io",
   "basePath": "/public/api",
   "tags": [
     {
@@ -1634,7 +1634,6 @@
             "name": "take_profit_type",
             "description": "Required if take_profit_enabled. classic - common take profit, step_sell - step sell take profit",
             "type": "string",
-            "default": "classic",
             "enum": [
               "classic",
               "step_sell"
@@ -1932,7 +1931,6 @@
             "name": "take_profit_type",
             "description": "Required if take_profit_enabled. classic - common take profit, step_sell - step sell take profit",
             "type": "string",
-            "default": "classic",
             "enum": [
               "classic",
               "step_sell"
@@ -2230,7 +2228,6 @@
             "name": "take_profit_type",
             "description": "Required if take_profit_enabled. classic - common take profit, step_sell - step sell take profit",
             "type": "string",
-            "default": "classic",
             "enum": [
               "classic",
               "step_sell"
@@ -2596,7 +2593,6 @@
             "name": "take_profit_type",
             "description": "Required if take_profit_enabled. classic - common take profit, step_sell - step sell take profit",
             "type": "string",
-            "default": "classic",
             "enum": [
               "classic",
               "step_sell"
@@ -3423,7 +3419,8 @@
         },
         "smart_selling_supported": {
           "type": "boolean",
-          "example": true
+          "example": true,
+          "description": "DEPRECATED. use smart_trading_supported instead"
         },
         "available_for_trading": {
           "type": "boolean",

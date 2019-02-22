@@ -48,7 +48,7 @@ pair | string | YES |   |
 units_to_buy | number | YES |   | Bought amount
 average_buy_price | number | YES |   | Bought price
 take_profit_enabled | boolean | YES |   | 
-take_profit_type | string | NO | classic, step_sell (classic) | Required if take_profit_enabled. classic - common take profit, step_sell - step sell take profit
+take_profit_type | string | NO | classic, step_sell  | Required if take_profit_enabled. classic - common take profit, step_sell - step sell take profit
 take_profit_price_condition | number | NO |   | Required if take_profit_type = classic
 take_profit_percentage_condition | number | NO |   | Required if take_profit_type = classic AND trailing_buy_enabled. Must be positive
 take_profit_step_orders[{<br>percent => number <br>price => number <br>price_method => string <br>price_percentage => number <br>},<br> ...] | array[json] | YES |   | Required if take_profit_type = step_sell. 4 steps max. Format: [{percent: 50, price: 100(or price_percentage = 20), price_method: bid,ask,last}, ...]
@@ -86,7 +86,7 @@ buy_method | string | NO | limit, market, conditional (limit) |
 trailing_buy_enabled | boolean | NO |   | 
 trailing_buy_step | number | NO |  (5.0) | Required if trailing_buy_enabled
 take_profit_enabled | boolean | YES |   | 
-take_profit_type | string | NO | classic, step_sell (classic) | Required if take_profit_enabled. classic - common take profit, step_sell - step sell take profit
+take_profit_type | string | NO | classic, step_sell  | Required if take_profit_enabled. classic - common take profit, step_sell - step sell take profit
 take_profit_price_condition | number | NO |   | Required if take_profit_type = classic
 take_profit_percentage_condition | number | NO |   | Required if take_profit_type = classic AND trailing_buy_enabled. Must be negative
 take_profit_step_orders[{<br>percent => number <br>price => number <br>price_method => string <br>price_percentage => number <br>},<br> ...] | array[json] | YES |   | Required if take_profit_type = step_sell. 4 steps max. Format: [{percent: 50, price: 100(or price_percentage = 20), price_method: bid,ask,last}, ...]
@@ -124,7 +124,7 @@ buy_method | string | NO | limit, market, conditional (limit) |
 trailing_buy_enabled | boolean | NO |   | 
 trailing_buy_step | number | NO |  (5.0) | Required if trailing_buy_enabled
 take_profit_enabled | boolean | YES |   | 
-take_profit_type | string | NO | classic, step_sell (classic) | Required if take_profit_enabled. classic - common take profit, step_sell - step sell take profit
+take_profit_type | string | NO | classic, step_sell  | Required if take_profit_enabled. classic - common take profit, step_sell - step sell take profit
 take_profit_price_condition | number | NO |   | Required if take_profit_type = classic
 take_profit_percentage_condition | number | NO |   | Required if take_profit_type = classic AND trailing_buy_enabled. Must be positive
 take_profit_step_orders[{<br>percent => number <br>price => number <br>price_method => string <br>price_percentage => number <br>},<br> ...] | array[json] | YES |   | Required if take_profit_type = step_sell. 4 steps max. Format: [{percent: 50, price: 100(or price_percentage = 20), price_method: bid,ask,last}, ...]
@@ -188,7 +188,7 @@ average_buy_price | number | NO |   | Available if SmartSale
 trailing_buy_enabled | boolean | NO |   | Available if Conditional SmartTrade
 trailing_buy_step | number | NO |   | Available if trailing_buy_enabled
 take_profit_enabled | boolean | YES |   | 
-take_profit_type | string | NO | classic, step_sell (classic) | Required if take_profit_enabled. classic - common take profit, step_sell - step sell take profit
+take_profit_type | string | NO | classic, step_sell  | Required if take_profit_enabled. classic - common take profit, step_sell - step sell take profit
 take_profit_price_condition | number | NO |   | Required if take_profit_type = classic
 take_profit_percentage_condition | number | NO |   | Required if take_profit_type = classic AND trailing_buy_enabled
 take_profit_step_orders[{<br>percent => number <br>price => number <br>position => integer <br>price_method => string <br>price_percentage => number <br>},<br> ...] | array[json] | YES |   | Available if take_profit_type = step_sell. If null - steps won't be changed.                                                    In order to apply changes - send a new set of steps, which contains new and previous steps that were not edited.                                                    Position must be unique(for new and previous steps in SmartTrade scope) and greater then 0
