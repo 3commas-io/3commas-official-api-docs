@@ -47,6 +47,7 @@
 
 # Third-party implementations
 * https://www.npmjs.com/package/3commas-api-node
+* https://github.com/TheKimono/3Commas.Net
 
 # LIMITS
 * A 429 will be returned when either rather limit is violated.
