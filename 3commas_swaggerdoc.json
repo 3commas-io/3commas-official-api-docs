@@ -957,7 +957,7 @@
     },
     "/ver1/deals/{deal_id}/update_max_safety_orders": {
       "post": {
-        "description": "Update max safety orders (Permission: BOTS_WRITE, Security: SIGNED)",
+        "description": "DEPRECATED, Update max safety orders (Permission: BOTS_WRITE, Security: SIGNED)",
         "produces": [
           "application/json"
         ],
@@ -983,7 +983,7 @@
         ],
         "responses": {
           "201": {
-            "description": "Update max safety orders (Permission: BOTS_WRITE, Security: SIGNED)"
+            "description": "DEPRECATED, Update max safety orders (Permission: BOTS_WRITE, Security: SIGNED)"
           }
         },
         "tags": [
@@ -1050,9 +1050,104 @@
         "operationId": "postVer1DealsDealIdCancel"
       }
     },
+    "/ver1/deals/{deal_id}/update_deal": {
+      "patch": {
+        "description": "Update deal (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "take_profit",
+            "description": "New take profit value",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "profit_currency",
+            "type": "string",
+            "enum": [
+              "quote_currency",
+              "base_currency"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_type",
+            "type": "string",
+            "enum": [
+              "base_order_volume",
+              "total_bought_volume"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trailing_enabled",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trailing_deviation",
+            "description": "New trailing deviation value",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_percentage",
+            "description": "New stop loss percentage value",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "max_safety_orders",
+            "description": "New max safety orders value",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "active_safety_orders_count",
+            "description": "New active safety orders count value",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "deal_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update deal (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "deals"
+        ],
+        "operationId": "patchVer1DealsDealIdUpdateDeal"
+      }
+    },
     "/ver1/deals/{deal_id}/update_tp": {
       "post": {
-        "description": "Update take profit condition. Deal status should be bought (Permission: BOTS_WRITE, Security: SIGNED)",
+        "description": "DEPRECATED, Update take profit condition. Deal status should be bought (Permission: BOTS_WRITE, Security: SIGNED)",
         "produces": [
           "application/json"
         ],
@@ -1078,7 +1173,7 @@
         ],
         "responses": {
           "201": {
-            "description": "Update take profit condition. Deal status should be bought (Permission: BOTS_WRITE, Security: SIGNED)"
+            "description": "DEPRECATED, Update take profit condition. Deal status should be bought (Permission: BOTS_WRITE, Security: SIGNED)"
           }
         },
         "tags": [
@@ -1813,7 +1908,7 @@
             "description": "Required if limit",
             "type": "number",
             "format": "double",
-            "required": true
+            "required": false
           },
           {
             "in": "formData",
@@ -2492,6 +2587,17 @@
             "description": "SmartTrade::SmartSale , SmartTrade::Classic , SmartTrade::ConditionalBuy",
             "type": "string",
             "required": false
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "type": "string",
+            "default": "created_at",
+            "enum": [
+              "created_at",
+              "closed_at"
+            ],
+            "required": false
           }
         ],
         "responses": {
@@ -2783,7 +2889,7 @@
             "description": "Required if limit",
             "type": "number",
             "format": "double",
-            "required": true
+            "required": false
           },
           {
             "in": "formData",

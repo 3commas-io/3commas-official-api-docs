@@ -62,7 +62,7 @@ stop_loss_price_condition | number | NO |   | Required if stop_loss_enabled
 stop_loss_percentage_condition | number | NO |   | Required if stop_loss_enabled AND trailing_buy_enabled. Must be negative
 stop_loss_price_method | string | NO | bid, ask, last (bid) | Price type for stop loss
 stop_loss_sell_method | string | NO | market, limit (market) | 
-stop_loss_sell_order_price | number | YES |   | Required if limit
+stop_loss_sell_order_price | number | NO |   | Required if limit
 trailing_stop_loss | boolean | NO |   | 
 stop_loss_timeout_enabled | boolean | NO |   | 
 stop_loss_timeout_seconds | integer | NO |  (300) | Timeout in seconds
@@ -159,6 +159,7 @@ offset | integer | NO |   | Offset records
 account_id | integer | NO |   | Account to show smart_trades on. Pass null (default) - show all
 scope | string | NO |   | active - show only active trades, finished - history of closed trades, cancelled - cancelled trades, failed - failed trades, any other value or null (default) - all trades
 type | string | NO |   | SmartTrade::SmartSale , SmartTrade::Classic , SmartTrade::ConditionalBuy
+order | string | NO | created_at, closed_at (created_at) | 
 ### Step panic sell (Permission: SMART_TRADE_WRITE, Security: SIGNED)
 ```
 POST /ver1/smart_trades/{smart_trade_id}/step_panic_sell
@@ -202,7 +203,7 @@ stop_loss_price_condition | number | NO |   | Required if stop_loss_enabled
 stop_loss_percentage_condition | number | NO |   | Required if stop_loss_enabled AND trailing_buy_enabled
 stop_loss_price_method | string | NO | bid, ask, last (bid) | Price type for stop loss
 stop_loss_sell_method | string | NO | market, limit (market) | 
-stop_loss_sell_order_price | number | YES |   | Required if limit
+stop_loss_sell_order_price | number | NO |   | Required if limit
 trailing_stop_loss | boolean | NO |   | 
 stop_loss_timeout_enabled | boolean | NO |   | 
 stop_loss_timeout_seconds | integer | NO |  (300) | Timeout in seconds

@@ -17,7 +17,7 @@ account_id | integer | NO |   | Account to show bots on. Return all if not speci
 bot_id | integer | NO |   | Bot show deals on. Return all if not specified
 scope | string | NO |   | active - active deals, finished - finished deals, completed - successfully completed, cancelled - cancelled deals, failed - failed deals, any other value or null (default) - all deals
 order | string | NO | created_at, closed_at (created_at) | 
-### Update max safety orders (Permission: BOTS_WRITE, Security: SIGNED)
+### DEPRECATED, Update max safety orders (Permission: BOTS_WRITE, Security: SIGNED)
 ```
 POST /ver1/deals/{deal_id}/update_max_safety_orders
 ```
@@ -54,7 +54,27 @@ POST /ver1/deals/{deal_id}/cancel
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 deal_id | integer | YES |   | 
-### Update take profit condition. Deal status should be bought (Permission: BOTS_WRITE, Security: SIGNED)
+### Update deal (Permission: BOTS_WRITE, Security: SIGNED)
+```
+PATCH /ver1/deals/{deal_id}/update_deal
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+take_profit | number | NO |   | New take profit value
+profit_currency | string | NO | quote_currency, base_currency  | 
+take_profit_type | string | NO | base_order_volume, total_bought_volume  | 
+trailing_enabled | boolean | NO |   | 
+trailing_deviation | number | NO |   | New trailing deviation value
+stop_loss_percentage | number | NO |   | New stop loss percentage value
+max_safety_orders | integer | NO |   | New max safety orders value
+active_safety_orders_count | integer | NO |   | New active safety orders count value
+deal_id | integer | YES |   | 
+### DEPRECATED, Update take profit condition. Deal status should be bought (Permission: BOTS_WRITE, Security: SIGNED)
 ```
 POST /ver1/deals/{deal_id}/update_tp
 ```
