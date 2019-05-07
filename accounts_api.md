@@ -11,7 +11,7 @@ POST /ver1/accounts/new
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-type | string | YES |   | check market_name in market_list method. For example Poloniex, Bittrex
+type | string | YES |   | check market_code in market_list method
 name | string | YES |   | Account name (any string)
 api_key | string | YES |   | 
 secret | string | YES |   | 
@@ -149,8 +149,11 @@ available_for_trading: true
 stats_supported: true                     
 trading_supported: true                   
 market_buy_supported: true                
+market_sell_supported: true               
 conditional_buy_supported: true           
 bots_allowed: false                       
+bots_ttp_allowed: false                   
+multi_bots_allowed: false                 
 created_at: 2018-08-08 08:08:08           
 updated_at: 2018-08-22 02:25:08           
 last_auto_balance: 2018-08-21 08:08:08    

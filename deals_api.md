@@ -73,6 +73,8 @@ trailing_deviation | number | NO |   | New trailing deviation value
 stop_loss_percentage | number | NO |   | New stop loss percentage value
 max_safety_orders | integer | NO |   | New max safety orders value
 active_safety_orders_count | integer | NO |   | New active safety orders count value
+stop_loss_timeout_enabled | boolean | NO |   | 
+stop_loss_timeout_in_seconds | integer | NO |   | StopLoss timeout in seconds if StopLoss timeout enabled
 deal_id | integer | YES |   | 
 ### DEPRECATED, Update take profit condition. Deal status should be bought (Permission: BOTS_WRITE, Security: SIGNED)
 ```
@@ -90,6 +92,58 @@ deal_id | integer | YES |   |
 ### Info about specific deal (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/deals/{deal_id}/show
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+deal_id | integer | YES |   | 
+### cancel manual safety orders (Permission: BOTS_WRITE, Security: SIGNED)
+```
+POST /ver1/deals/{deal_id}/cancel_order
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+order_id | string | YES |   | manual safety order id
+deal_id | integer | YES |   | 
+### deal safety orders (Permission: BOTS_READ, Security: SIGNED)
+```
+GET /ver1/deals/{deal_id}/market_orders
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+deal_id | integer | YES |   | 
+### adding manual safety order (Permission: BOTS_WRITE, Security: SIGNED)
+```
+POST /ver1/deals/{deal_id}/add_funds
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+quantity | number | YES |   | safety order quantity
+is_market | boolean | YES |   | true - use MARKET order, false - use LIMIT order
+rate | number | YES |   | safety order rate. Required if LIMIT order used
+deal_id | integer | YES |   | 
+### Info required to add funds correctly: available amounts, exchange limitations etc  (Permission: BOTS_READ, Security: SIGNED)
+```
+GET /ver1/deals/{deal_id}/data_for_adding_funds
 ```
 **Weight:**
 1
@@ -122,8 +176,11 @@ completed_safety_orders_count: 2
 cancellable?:                             
 panic_sellable?:                          
 trailing_enabled: true                    
+tsl_enabled: true                         
+stop_loss_timeout_enabled: true           
+stop_loss_timeout_in_seconds: 2           
 pair: 'BTC_ADA'                          Format: QUOTE_BASE 
-status: 'failed'                         Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit, ttp_activated, ttp_order_placed, liquidated 
+status: 'failed'                         Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit, ttp_activated, ttp_order_placed, liquidated, bought_safety_pending, bought_take_profit_pending 
 take_profit: '1.23'                      Percentage 
 base_order_volume: '0.001'                
 safety_order_volume: '0.0015'             
@@ -156,5 +213,6 @@ reserved_base_coin: 1.3423523
 reserved_second_coin: 0.1412454           
 trailing_deviation: 0.14                  
 trailing_max_price: 0.1412454            Highest price met in case of long deal, lowest price otherwise 
+tsl_max_price: 0.1412454                 Highest price met in TSL in case of long deal, lowest price otherwise 
 } 
  ``` 

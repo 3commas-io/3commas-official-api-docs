@@ -256,6 +256,7 @@ from_currency_id: 10
 trailing_stop_loss_condition_percentage: 2 
 trailing_take_profit: true                
 stop_loss_enabled: true                   
+panic_sell_market_order_id: 756           
 take_profit_enabled: true                 
 trailing_buy_enabled: true                
 stop_loss_timeout_seconds: 300            

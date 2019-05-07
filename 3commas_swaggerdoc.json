@@ -36,6 +36,53 @@
     }
   ],
   "paths": {
+    "/ver1/bots/strategy_list": {
+      "get": {
+        "description": "Available strategy list for bot (Permission: BOTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "account_id",
+            "description": "id from GET /ver1/accounts",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "type": "string",
+            "enum": [
+              "simple",
+              "composite"
+            ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "strategy",
+            "type": "string",
+            "enum": [
+              "long",
+              "short"
+            ],
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Available strategy list for bot (Permission: BOTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "bots"
+        ],
+        "operationId": "getVer1BotsStrategyList"
+      }
+    },
     "/ver1/bots/pairs_black_list": {
       "get": {
         "description": "Black List for bot pairs (Permission: BOTS_READ, Security: SIGNED)",
@@ -128,7 +175,7 @@
           {
             "in": "formData",
             "name": "base_order_volume",
-            "description": "Base trade size",
+            "description": "Base order size",
             "type": "number",
             "format": "double",
             "required": true
@@ -265,7 +312,7 @@
           {
             "in": "formData",
             "name": "take_profit_type",
-            "description": "Percentage: base – from base trade, total – from total volume",
+            "description": "Percentage: base – from base order, total – from total volume",
             "type": "string",
             "required": true
           },
@@ -314,6 +361,34 @@
             "description": "maximum price to open deal",
             "type": "number",
             "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_timeout_enabled",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_timeout_in_seconds",
+            "description": "StopLoss timeout in seconds if StopLoss timeout enabled",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "min_volume_btc_24h",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "tsl_enabled",
+            "description": "Enable trailing stop loss. Bitmex only.",
+            "type": "boolean",
             "required": false
           }
         ],
@@ -463,7 +538,7 @@
           {
             "in": "formData",
             "name": "base_order_volume",
-            "description": "Base trade size",
+            "description": "Base order size",
             "type": "number",
             "format": "double",
             "required": true
@@ -589,7 +664,7 @@
           {
             "in": "formData",
             "name": "take_profit_type",
-            "description": "Percentage: base – from base trade, total – from total volume",
+            "description": "Percentage: base – from base order, total – from total volume",
             "type": "string",
             "default": "total",
             "enum": [
@@ -643,6 +718,34 @@
             "description": "maximum price to open deal",
             "type": "number",
             "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_timeout_enabled",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_timeout_in_seconds",
+            "description": "StopLoss timeout in seconds if StopLoss timeout enabled",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "min_volume_btc_24h",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "tsl_enabled",
+            "description": "Enable trailing stop loss. Bitmex only.",
+            "type": "boolean",
             "required": false
           },
           {
@@ -1127,6 +1230,20 @@
             "required": false
           },
           {
+            "in": "formData",
+            "name": "stop_loss_timeout_enabled",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_timeout_in_seconds",
+            "description": "StopLoss timeout in seconds if StopLoss timeout enabled",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
             "in": "path",
             "name": "deal_id",
             "type": "integer",
@@ -1208,6 +1325,146 @@
         "operationId": "getVer1DealsDealIdShow"
       }
     },
+    "/ver1/deals/{deal_id}/cancel_order": {
+      "post": {
+        "description": "cancel manual safety orders (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "order_id",
+            "description": "manual safety order id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "deal_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "cancel manual safety orders (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "deals"
+        ],
+        "operationId": "postVer1DealsDealIdCancelOrder"
+      }
+    },
+    "/ver1/deals/{deal_id}/market_orders": {
+      "get": {
+        "description": "deal safety orders (Permission: BOTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "deal_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "deal safety orders (Permission: BOTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "deals"
+        ],
+        "operationId": "getVer1DealsDealIdMarketOrders"
+      }
+    },
+    "/ver1/deals/{deal_id}/add_funds": {
+      "post": {
+        "description": "adding manual safety order (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "quantity",
+            "description": "safety order quantity",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "is_market",
+            "description": "true - use MARKET order, false - use LIMIT order",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "rate",
+            "description": "safety order rate. Required if LIMIT order used",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "deal_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "adding manual safety order (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "deals"
+        ],
+        "operationId": "postVer1DealsDealIdAddFunds"
+      }
+    },
+    "/ver1/deals/{deal_id}/data_for_adding_funds": {
+      "get": {
+        "description": "Info required to add funds correctly: available amounts, exchange limitations etc  (Permission: BOTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "deal_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Info required to add funds correctly: available amounts, exchange limitations etc  (Permission: BOTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "deals"
+        ],
+        "operationId": "getVer1DealsDealIdDataForAddingFunds"
+      }
+    },
     "/ver1/accounts/new": {
       "post": {
         "description": "Add exchange account  (Permission: ACCOUNTS_WRITE, Security: SIGNED)",
@@ -1221,7 +1478,7 @@
           {
             "in": "formData",
             "name": "type",
-            "description": "check market_name in market_list method. For example Poloniex, Bittrex",
+            "description": "check market_code in market_list method",
             "type": "string",
             "required": true
           },
@@ -3173,6 +3430,19 @@
           "type": "boolean",
           "example": true
         },
+        "tsl_enabled": {
+          "type": "boolean",
+          "example": true
+        },
+        "stop_loss_timeout_enabled": {
+          "type": "boolean",
+          "example": true
+        },
+        "stop_loss_timeout_in_seconds": {
+          "type": "integer",
+          "format": "int32",
+          "example": 2
+        },
         "pair": {
           "type": "string",
           "example": "'BTC_ADA'",
@@ -3181,7 +3451,7 @@
         "status": {
           "type": "string",
           "example": "'failed'",
-          "description": "Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit, ttp_activated, ttp_order_placed, liquidated"
+          "description": "Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit, ttp_activated, ttp_order_placed, liquidated, bought_safety_pending, bought_take_profit_pending"
         },
         "take_profit": {
           "type": "string",
@@ -3316,6 +3586,11 @@
           "type": "string",
           "example": "0.1412454",
           "description": "Highest price met in case of long deal, lowest price otherwise"
+        },
+        "tsl_max_price": {
+          "type": "string",
+          "example": "0.1412454",
+          "description": "Highest price met in TSL in case of long deal, lowest price otherwise"
         }
       }
     },
@@ -3378,6 +3653,10 @@
           "example": "2018-08-10 10:10:10"
         },
         "trailing_enabled": {
+          "type": "boolean",
+          "example": true
+        },
+        "tsl_enabled": {
           "type": "boolean",
           "example": true
         },
@@ -3485,6 +3764,15 @@
         "leverage_custom_value": {
           "type": "string",
           "example": "'1'"
+        },
+        "stop_loss_timeout_enabled": {
+          "type": "boolean",
+          "example": true
+        },
+        "stop_loss_timeout_in_seconds": {
+          "type": "integer",
+          "format": "int32",
+          "example": 2
         }
       }
     },
@@ -3544,11 +3832,23 @@
           "type": "boolean",
           "example": true
         },
+        "market_sell_supported": {
+          "type": "boolean",
+          "example": true
+        },
         "conditional_buy_supported": {
           "type": "boolean",
           "example": true
         },
         "bots_allowed": {
+          "type": "boolean",
+          "example": "false"
+        },
+        "bots_ttp_allowed": {
+          "type": "boolean",
+          "example": "false"
+        },
+        "multi_bots_allowed": {
           "type": "boolean",
           "example": "false"
         },
@@ -3682,6 +3982,11 @@
         "stop_loss_enabled": {
           "type": "boolean",
           "example": true
+        },
+        "panic_sell_market_order_id": {
+          "type": "integer",
+          "format": "int32",
+          "example": 756
         },
         "take_profit_enabled": {
           "type": "boolean",
