@@ -67,7 +67,7 @@ Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 take_profit | number | NO |   | New take profit value
 profit_currency | string | NO | quote_currency, base_currency  | 
-take_profit_type | string | NO | base_order_volume, total_bought_volume  | 
+take_profit_type | string | NO |   | base – from base order, total – from total volume
 trailing_enabled | boolean | NO |   | 
 trailing_deviation | number | NO |   | New trailing deviation value
 stop_loss_percentage | number | NO |   | New stop loss percentage value
@@ -75,6 +75,7 @@ max_safety_orders | integer | NO |   | New max safety orders value
 active_safety_orders_count | integer | NO |   | New active safety orders count value
 stop_loss_timeout_enabled | boolean | NO |   | 
 stop_loss_timeout_in_seconds | integer | NO |   | StopLoss timeout in seconds if StopLoss timeout enabled
+tsl_enabled | boolean | NO |   | Trailing stop loss enabled
 deal_id | integer | YES |   | 
 ### DEPRECATED, Update take profit condition. Deal status should be bought (Permission: BOTS_WRITE, Security: SIGNED)
 ```
@@ -172,7 +173,8 @@ closed_at: 2018-10-10 10:10:10
 finished?:                                
 current_active_safety_orders_count: 1     
 current_active_safety_orders: 1          DEPRECATED 
-completed_safety_orders_count: 2          
+completed_safety_orders_count: 2         completed safeties (not including manual) 
+completed_manual_safety_orders_count: 2  completed manual safeties 
 cancellable?:                             
 panic_sellable?:                          
 trailing_enabled: true                    
@@ -180,7 +182,7 @@ tsl_enabled: true
 stop_loss_timeout_enabled: true           
 stop_loss_timeout_in_seconds: 2           
 pair: 'BTC_ADA'                          Format: QUOTE_BASE 
-status: 'failed'                         Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit, ttp_activated, ttp_order_placed, liquidated, bought_safety_pending, bought_take_profit_pending 
+status: 'failed'                         Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit, ttp_activated, ttp_order_placed, liquidated, bought_safety_pending, bought_take_profit_pending, settled 
 take_profit: '1.23'                      Percentage 
 base_order_volume: '0.001'                
 safety_order_volume: '0.0015'             
@@ -191,10 +193,13 @@ bought_average_price: '100'
 sold_amount: '1.5'                        
 sold_volume: '150'                        
 sold_average_price: '100'                 
-take_profit_type: 'base_order_volume'    Values: base_order_volume, total_bought_volume 
+take_profit_type: 'base'                 Values: base, total 
 final_profit: '-0.00051'                  
 martingale_coefficient: '1.2'            Percentage 
+stop_loss_percentage: '3.6'               
 error_message: 'Error placing base order' 
+profit_currency: 'quote_currency'        Values: quote_currency, base_currency 
+stop_loss_type: 'stop_loss'              Values: stop_loss, stop_loss_and_disable_bot 
 safety_order_volume_type: 'quote_currency'Values: quote_currency, base_currency, percent, xbt 
 base_order_volume_type: 'base_currency,' Values: quote_currency, base_currency, percent, xbt 
 from_currency: 'BTC'                      
@@ -214,5 +219,6 @@ reserved_second_coin: 0.1412454
 trailing_deviation: 0.14                  
 trailing_max_price: 0.1412454            Highest price met in case of long deal, lowest price otherwise 
 tsl_max_price: 0.1412454                 Highest price met in TSL in case of long deal, lowest price otherwise 
+strategy: 'short'                        short or long 
 } 
  ``` 

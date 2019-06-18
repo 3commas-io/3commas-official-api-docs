@@ -390,6 +390,61 @@
             "description": "Enable trailing stop loss. Bitmex only.",
             "type": "boolean",
             "required": false
+          },
+          {
+            "in": "formData",
+            "name": "deal_start_delay_seconds",
+            "description": "Deal start delay in seconds",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "profit_currency",
+            "description": "Take profit currency",
+            "type": "string",
+            "enum": [
+              "quote_currency",
+              "base_currency"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "start_order_type",
+            "type": "string",
+            "enum": [
+              "limit",
+              "market"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_type",
+            "type": "string",
+            "enum": [
+              "stop_loss",
+              "stop_loss_and_disable_bot"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "disable_after_deals_count",
+            "description": "Bot will be disabled after opening this number of deals",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "allowed_deals_on_same_pair",
+            "description": "Allow specific number of deals on the same pair. Multibot only.",
+            "type": "integer",
+            "format": "int32",
+            "required": false
           }
         ],
         "responses": {
@@ -746,6 +801,61 @@
             "name": "tsl_enabled",
             "description": "Enable trailing stop loss. Bitmex only.",
             "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "deal_start_delay_seconds",
+            "description": "Deal start delay in seconds",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "profit_currency",
+            "description": "Take profit currency",
+            "type": "string",
+            "enum": [
+              "quote_currency",
+              "base_currency"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "start_order_type",
+            "type": "string",
+            "enum": [
+              "limit",
+              "market"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss_type",
+            "type": "string",
+            "enum": [
+              "stop_loss",
+              "stop_loss_and_disable_bot"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "disable_after_deals_count",
+            "description": "Bot will be disabled after opening this number of deals",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "allowed_deals_on_same_pair",
+            "description": "Allow specific number of deals on the same pair. Multibot only.",
+            "type": "integer",
+            "format": "int32",
             "required": false
           },
           {
@@ -1184,11 +1294,8 @@
           {
             "in": "formData",
             "name": "take_profit_type",
+            "description": "base – from base order, total – from total volume",
             "type": "string",
-            "enum": [
-              "base_order_volume",
-              "total_bought_volume"
-            ],
             "required": false
           },
           {
@@ -1241,6 +1348,13 @@
             "description": "StopLoss timeout in seconds if StopLoss timeout enabled",
             "type": "integer",
             "format": "int32",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "tsl_enabled",
+            "description": "Trailing stop loss enabled",
+            "type": "boolean",
             "required": false
           },
           {
@@ -1525,6 +1639,68 @@
           "accounts"
         ],
         "operationId": "postVer1AccountsNew"
+      }
+    },
+    "/ver1/accounts/update": {
+      "post": {
+        "description": "Edit exchange account",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "account_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "name",
+            "description": "Account name (any string)",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "api_key",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "secret",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "customer_id",
+            "description": "For Bitstamp",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "passphrase",
+            "description": "For Coinbase Pro (GDAX)",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Edit exchange account"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "postVer1AccountsUpdate"
       }
     },
     "/ver1/accounts": {
@@ -3418,7 +3594,14 @@
         "completed_safety_orders_count": {
           "type": "integer",
           "format": "int32",
-          "example": 2
+          "example": 2,
+          "description": "completed safeties (not including manual)"
+        },
+        "completed_manual_safety_orders_count": {
+          "type": "integer",
+          "format": "int32",
+          "example": 2,
+          "description": "completed manual safeties"
         },
         "cancellable?": {
           "type": "boolean"
@@ -3451,7 +3634,7 @@
         "status": {
           "type": "string",
           "example": "'failed'",
-          "description": "Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit, ttp_activated, ttp_order_placed, liquidated, bought_safety_pending, bought_take_profit_pending"
+          "description": "Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit, ttp_activated, ttp_order_placed, liquidated, bought_safety_pending, bought_take_profit_pending, settled"
         },
         "take_profit": {
           "type": "string",
@@ -3496,8 +3679,8 @@
         },
         "take_profit_type": {
           "type": "string",
-          "example": "'base_order_volume'",
-          "description": "Values: base_order_volume, total_bought_volume"
+          "example": "'base'",
+          "description": "Values: base, total"
         },
         "final_profit": {
           "type": "string",
@@ -3508,9 +3691,23 @@
           "example": "'1.2'",
           "description": "Percentage"
         },
+        "stop_loss_percentage": {
+          "type": "string",
+          "example": "'3.6'"
+        },
         "error_message": {
           "type": "string",
           "example": "'Error placing base order'"
+        },
+        "profit_currency": {
+          "type": "string",
+          "example": "'quote_currency'",
+          "description": "Values: quote_currency, base_currency"
+        },
+        "stop_loss_type": {
+          "type": "string",
+          "example": "'stop_loss'",
+          "description": "Values: stop_loss, stop_loss_and_disable_bot"
         },
         "safety_order_volume_type": {
           "type": "string",
@@ -3591,6 +3788,11 @@
           "type": "string",
           "example": "0.1412454",
           "description": "Highest price met in TSL in case of long deal, lowest price otherwise"
+        },
+        "strategy": {
+          "type": "string",
+          "example": "'short'",
+          "description": "short or long"
         }
       }
     },
@@ -3660,6 +3862,36 @@
           "type": "boolean",
           "example": true
         },
+        "deal_start_delay_seconds": {
+          "type": "integer",
+          "format": "int32",
+          "example": 60,
+          "description": "Deal start delay in seconds"
+        },
+        "stop_loss_timeout_enabled": {
+          "type": "boolean",
+          "example": true
+        },
+        "stop_loss_timeout_in_seconds": {
+          "type": "integer",
+          "format": "int32",
+          "example": 2
+        },
+        "disable_after_deals_count": {
+          "type": "integer",
+          "format": "int32",
+          "example": 2
+        },
+        "deals_counter": {
+          "type": "integer",
+          "format": "int32",
+          "example": 2
+        },
+        "allowed_deals_on_same_pair": {
+          "type": "integer",
+          "format": "int32",
+          "example": 2
+        },
         "name": {
           "type": "string",
           "example": "'Test Bot'"
@@ -3683,8 +3915,8 @@
         },
         "take_profit_type": {
           "type": "string",
-          "example": "'base_order_volume'",
-          "description": "Values: base_order_volume, total_bought_volume"
+          "example": "'base'",
+          "description": "Values: base, total"
         },
         "type": {
           "type": "string",
@@ -3730,6 +3962,11 @@
           "type": "string",
           "example": "'0.0123'"
         },
+        "stop_loss_type": {
+          "type": "string",
+          "example": "'stop_loss'",
+          "description": "Values: stop_loss, stop_loss_and_disable_bot"
+        },
         "safety_order_volume_type": {
           "type": "string",
           "example": "'base_currency'",
@@ -3765,14 +4002,10 @@
           "type": "string",
           "example": "'1'"
         },
-        "stop_loss_timeout_enabled": {
-          "type": "boolean",
-          "example": true
-        },
-        "stop_loss_timeout_in_seconds": {
-          "type": "integer",
-          "format": "int32",
-          "example": 2
+        "start_order_type": {
+          "type": "string",
+          "example": "'limit'",
+          "description": "Values: limit, market"
         }
       }
     },
@@ -3845,6 +4078,10 @@
           "example": "false"
         },
         "bots_ttp_allowed": {
+          "type": "boolean",
+          "example": "false"
+        },
+        "bots_tsl_allowed": {
           "type": "boolean",
           "example": "false"
         },
@@ -4129,20 +4366,17 @@
           "description": "Values: classic, step_sell"
         },
         "stop_loss_type": {
-          "type": "integer",
-          "format": "int32",
+          "type": "string",
           "example": "'classic'",
           "description": "Values: classic, step_sell"
         },
         "stop_loss_sell_method": {
-          "type": "integer",
-          "format": "int32",
+          "type": "string",
           "example": "'limit'",
           "description": "Values: market, limit"
         },
         "take_profit_sell_method": {
-          "type": "integer",
-          "format": "int32",
+          "type": "string",
           "example": "'market'",
           "description": "Values: market, limit"
         },
@@ -4197,6 +4431,10 @@
         "to_currency_display_name": {
           "type": "string",
           "example": "'Bitcoin (BTC)'"
+        },
+        "usd_profit": {
+          "type": "string",
+          "example": "'-0.5'"
         },
         "smart_trade_steps": {
           "$ref": "#/definitions/SmartTradeStepEntity"

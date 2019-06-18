@@ -17,6 +17,23 @@ api_key | string | YES |   |
 secret | string | YES |   | 
 customer_id | string | NO |   | For Bitstamp
 passphrase | string | NO |   | For Coinbase Pro (GDAX)
+### Edit exchange account
+```
+POST /ver1/accounts/update
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+account_id | integer | YES |   | 
+name | string | NO |   | Account name (any string)
+api_key | string | NO |   | 
+secret | string | NO |   | 
+customer_id | string | NO |   | For Bitstamp
+passphrase | string | NO |   | For Coinbase Pro (GDAX)
 ### User connected exchanges(and EthereumWallet) list (Permission: ACCOUNTS_READ, Security: SIGNED)
 ```
 GET /ver1/accounts
@@ -153,6 +170,7 @@ market_sell_supported: true
 conditional_buy_supported: true           
 bots_allowed: false                       
 bots_ttp_allowed: false                   
+bots_tsl_allowed: false                   
 multi_bots_allowed: false                 
 created_at: 2018-08-08 08:08:08           
 updated_at: 2018-08-22 02:25:08           

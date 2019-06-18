@@ -76,6 +76,12 @@ stop_loss_timeout_enabled | boolean | NO |   |
 stop_loss_timeout_in_seconds | integer | NO |   | StopLoss timeout in seconds if StopLoss timeout enabled
 min_volume_btc_24h | number | NO |   | 
 tsl_enabled | boolean | NO |   | Enable trailing stop loss. Bitmex only.
+deal_start_delay_seconds | integer | NO |   | Deal start delay in seconds
+profit_currency | string | NO | quote_currency, base_currency  | Take profit currency
+start_order_type | string | NO | limit, market  | 
+stop_loss_type | string | NO | stop_loss, stop_loss_and_disable_bot  | 
+disable_after_deals_count | integer | NO |   | Bot will be disabled after opening this number of deals
+allowed_deals_on_same_pair | integer | NO |   | Allow specific number of deals on the same pair. Multibot only.
 ### User bots (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/bots
@@ -144,6 +150,12 @@ stop_loss_timeout_enabled | boolean | NO |   |
 stop_loss_timeout_in_seconds | integer | NO |   | StopLoss timeout in seconds if StopLoss timeout enabled
 min_volume_btc_24h | number | NO |   | 
 tsl_enabled | boolean | NO |   | Enable trailing stop loss. Bitmex only.
+deal_start_delay_seconds | integer | NO |   | Deal start delay in seconds
+profit_currency | string | NO | quote_currency, base_currency  | Take profit currency
+start_order_type | string | NO | limit, market  | 
+stop_loss_type | string | NO | stop_loss, stop_loss_and_disable_bot  | 
+disable_after_deals_count | integer | NO |   | Bot will be disabled after opening this number of deals
+allowed_deals_on_same_pair | integer | NO |   | Allow specific number of deals on the same pair. Multibot only.
 bot_id | integer | YES |   | 
 ### Disable bot (Permission: BOTS_WRITE, Security: SIGNED)
 ```
@@ -250,12 +262,18 @@ created_at: 2018-08-08 08:08:08
 updated_at: 2018-08-10 10:10:10           
 trailing_enabled: true                    
 tsl_enabled: true                         
+deal_start_delay_seconds: 60             Deal start delay in seconds 
+stop_loss_timeout_enabled: true           
+stop_loss_timeout_in_seconds: 2           
+disable_after_deals_count: 2              
+deals_counter: 2                          
+allowed_deals_on_same_pair: 2             
 name: 'Test Bot'                          
 take_profit: '1.5'                       'Percentage' 
 base_order_volume: '0.002'                
 safety_order_volume: '0.0015'             
 safety_order_step_percentage: '1.1'       
-take_profit_type: 'base_order_volume'    Values: base_order_volume, total_bought_volume 
+take_profit_type: 'base'                 Values: base, total 
 type: 'Bot::SingleBot'                   Values: ["Bot::MultiBot", "Bot::SingleBot", "Bot::SwitchBot"] 
 martingale_volume_coefficient: '1.3'      
 martingale_step_coefficient: '0.9'        
@@ -266,6 +284,7 @@ min_volume_btc_24h: '500.5'
 profit_currency: 'quote_currency'        Values: quote_currency, base_currency 
 min_price: '0.0245'                       
 max_price: '0.0123'                       
+stop_loss_type: 'stop_loss'              Values: stop_loss, stop_loss_and_disable_bot 
 safety_order_volume_type: 'base_currency'Values: quote_currency, base_currency, percent, xbt 
 base_order_volume_type: 'percent'        Values: quote_currency, base_currency, percent, xbt 
 account_name: 'My account'                
@@ -274,7 +293,6 @@ finished_deals_profit_usd: 12.14
 finished_deals_count: 252.1               
 leverage_type: 'not_specified'           Values: custom, cross, not_specified 
 leverage_custom_value: '1'                
-stop_loss_timeout_enabled: true           
-stop_loss_timeout_in_seconds: 2           
+start_order_type: 'limit'                Values: limit, market 
 } 
  ``` 

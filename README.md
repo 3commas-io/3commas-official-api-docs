@@ -1,4 +1,4 @@
-# Public Rest API for 3commas.io (2019-05-07)
+# Public Rest API for 3commas.io (2019-06-18)
 # General API Information
 * Official Announcements regarding changes, downtime, etc. to the API will be reported here: **https://t.me/commas**
 * We have telegram group where you can discuss any issues with API **https://t.me/xcommas_api**

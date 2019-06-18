@@ -306,6 +306,7 @@ from_currency_display_name: 'Ethereum (ETH)'
 to_currency_code: 'BTC'                   
 to_currency_name: 'Bitcoin'               
 to_currency_display_name: 'Bitcoin (BTC)' 
+usd_profit: '-0.5'                        
 smart_trade_steps: SmartTradeStepEntity    
 take_profit_steps: SmartTradeStepEntity    
 stop_loss_steps: SmartTradeStepEntity    
