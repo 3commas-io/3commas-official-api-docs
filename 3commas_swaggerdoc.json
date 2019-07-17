@@ -1358,6 +1358,16 @@
             "required": false
           },
           {
+            "in": "formData",
+            "name": "stop_loss_type",
+            "type": "string",
+            "enum": [
+              "stop_loss",
+              "stop_loss_and_disable_bot"
+            ],
+            "required": false
+          },
+          {
             "in": "path",
             "name": "deal_id",
             "type": "integer",
@@ -1525,6 +1535,18 @@
             "description": "true - use MARKET order, false - use LIMIT order",
             "type": "boolean",
             "required": true
+          },
+          {
+            "in": "formData",
+            "name": "response_type",
+            "type": "string",
+            "default": "empty",
+            "enum": [
+              "empty",
+              "deal",
+              "market_order"
+            ],
+            "required": false
           },
           {
             "in": "formData",
@@ -1735,6 +1757,32 @@
           "accounts"
         ],
         "operationId": "getVer1AccountsMarketList"
+      }
+    },
+    "/ver1/accounts/market_pairs": {
+      "get": {
+        "description": "All market pairs",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "pretty_display_type",
+            "description": "pretty_display_type from account model",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All market pairs"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "getVer1AccountsMarketPairs"
       }
     },
     "/ver1/accounts/currency_rates": {
@@ -2026,6 +2074,14 @@
           },
           {
             "in": "formData",
+            "name": "conditional_limit_price",
+            "description": "Order price for conditional SimpleSell with limit order",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
             "name": "buy_method",
             "type": "string",
             "default": "limit",
@@ -2086,6 +2142,14 @@
             "type": "number",
             "format": "double",
             "required": true
+          },
+          {
+            "in": "formData",
+            "name": "conditional_limit_price",
+            "description": "Order price for conditional SimpleBuy with limit order",
+            "type": "number",
+            "format": "double",
+            "required": false
           },
           {
             "in": "formData",
@@ -2423,6 +2487,14 @@
           },
           {
             "in": "formData",
+            "name": "conditional_limit_price",
+            "description": "Order price for conditional SmartCover with limit order",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
             "name": "buy_method",
             "type": "string",
             "default": "limit",
@@ -2717,6 +2789,14 @@
             "type": "number",
             "format": "double",
             "required": true
+          },
+          {
+            "in": "formData",
+            "name": "conditional_limit_price",
+            "description": "Order price for conditional SmartTrade with limit order",
+            "type": "number",
+            "format": "double",
+            "required": false
           },
           {
             "in": "formData",
@@ -3044,6 +3124,107 @@
         "operationId": "getVer1SmartTrades"
       }
     },
+    "/ver1/smart_trades/{smart_trade_id}/cancel_order": {
+      "post": {
+        "description": "Manual cancel order (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "step_id",
+            "description": "SmartTrade step id to cancel",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "smart_trade_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Manual cancel order (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades"
+        ],
+        "operationId": "postVer1SmartTradesSmartTradeIdCancelOrder"
+      }
+    },
+    "/ver1/smart_trades/{smart_trade_id}/add_funds": {
+      "post": {
+        "description": "Smart Trade add funds (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "quantity",
+            "description": "buy order quantity",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "rate",
+            "description": "buy order rate",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "is_market",
+            "description": "true - use MARKET order, false - use LIMIT order",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "response_type",
+            "type": "string",
+            "default": "empty",
+            "enum": [
+              "smart_trade",
+              "empty",
+              "order",
+              "step"
+            ],
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "smart_trade_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Smart Trade add funds (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades"
+        ],
+        "operationId": "postVer1SmartTradesSmartTradeIdAddFunds"
+      }
+    },
     "/ver1/smart_trades/{smart_trade_id}/step_panic_sell": {
       "post": {
         "description": "Step panic sell (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
@@ -3094,6 +3275,13 @@
             "in": "formData",
             "name": "buy_price",
             "description": "Available if Conditional SmartTrade",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "conditional_limit_price",
             "type": "number",
             "format": "double",
             "required": false
@@ -3626,6 +3814,11 @@
           "format": "int32",
           "example": 2
         },
+        "active_manual_safety_orders": {
+          "type": "integer",
+          "format": "int32",
+          "example": 2
+        },
         "pair": {
           "type": "string",
           "example": "'BTC_ADA'",
@@ -3689,6 +3882,16 @@
         "martingale_coefficient": {
           "type": "string",
           "example": "'1.2'",
+          "description": "Percentage"
+        },
+        "martingale_volume_coefficient": {
+          "type": "string",
+          "example": "'1.0'",
+          "description": "Percentage"
+        },
+        "martingale_step_coefficient": {
+          "type": "string",
+          "example": "'1.0'",
           "description": "Percentage"
         },
         "stop_loss_percentage": {

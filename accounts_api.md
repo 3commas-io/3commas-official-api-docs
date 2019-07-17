@@ -52,6 +52,18 @@ GET /ver1/accounts/market_list
 
 **Parameters:**
 NONE
+### All market pairs
+```
+GET /ver1/accounts/market_pairs
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+pretty_display_type | string | YES |   | pretty_display_type from account model
 ### Currency rates and limits (Permission: NONE, Security: NONE)
 ```
 GET /ver1/accounts/currency_rates

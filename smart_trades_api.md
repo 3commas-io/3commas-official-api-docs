@@ -15,6 +15,7 @@ account_id | integer | YES |   | id from GET /ver1/accounts
 pair | string | YES |   | 
 units_to_buy | number | YES |   | Amount of units to buy
 buy_price | number | YES |   | 
+conditional_limit_price | number | NO |   | Order price for conditional SimpleSell with limit order
 buy_method | string | YES | limit, market, conditional (limit) | 
 ### Create SimpleBuy (Permission: SMART_TRADE_WRITE, Security: SIGNED)
 ```
@@ -31,6 +32,7 @@ account_id | integer | YES |   | id from GET /ver1/accounts
 pair | string | YES |   | 
 units_to_buy | number | YES |   | Amount of units to buy
 buy_price | number | YES |   | 
+conditional_limit_price | number | NO |   | Order price for conditional SimpleBuy with limit order
 buy_method | string | YES | limit, market, conditional (limit) | 
 ### Create SmartSale (Permission: SMART_TRADE_WRITE, Security: SIGNED)
 ```
@@ -82,6 +84,7 @@ account_id | integer | YES |   | id from GET /ver1/accounts
 pair | string | YES |   | 
 units_to_buy | number | YES |   | Amount of units to buy
 buy_price | number | YES |   | 
+conditional_limit_price | number | NO |   | Order price for conditional SmartCover with limit order
 buy_method | string | NO | limit, market, conditional (limit) | 
 trailing_buy_enabled | boolean | NO |   | 
 trailing_buy_step | number | NO |  (5.0) | Required if trailing_buy_enabled
@@ -120,6 +123,7 @@ account_id | integer | YES |   | id from GET /ver1/accounts
 pair | string | YES |   | 
 units_to_buy | number | YES |   | Amount of units to buy
 buy_price | number | YES |   | 
+conditional_limit_price | number | NO |   | Order price for conditional SmartTrade with limit order
 buy_method | string | NO | limit, market, conditional (limit) | 
 trailing_buy_enabled | boolean | NO |   | 
 trailing_buy_step | number | NO |  (5.0) | Required if trailing_buy_enabled
@@ -160,6 +164,35 @@ account_id | integer | NO |   | Account to show smart_trades on. Pass null (defa
 scope | string | NO |   | active - show only active trades, finished - history of closed trades, cancelled - cancelled trades, failed - failed trades, any other value or null (default) - all trades
 type | string | NO |   | SmartTrade::SmartSale , SmartTrade::Classic , SmartTrade::ConditionalBuy
 order | string | NO | created_at, closed_at (created_at) | 
+### Manual cancel order (Permission: SMART_TRADE_WRITE, Security: SIGNED)
+```
+POST /ver1/smart_trades/{smart_trade_id}/cancel_order
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+step_id | string | YES |   | SmartTrade step id to cancel
+smart_trade_id | integer | YES |   | 
+### Smart Trade add funds (Permission: SMART_TRADE_WRITE, Security: SIGNED)
+```
+POST /ver1/smart_trades/{smart_trade_id}/add_funds
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+quantity | number | YES |   | buy order quantity
+rate | number | YES |   | buy order rate
+is_market | boolean | YES |   | true - use MARKET order, false - use LIMIT order
+response_type | string | NO | smart_trade, empty, order, step (empty) | 
+smart_trade_id | integer | YES |   | 
 ### Step panic sell (Permission: SMART_TRADE_WRITE, Security: SIGNED)
 ```
 POST /ver1/smart_trades/{smart_trade_id}/step_panic_sell
@@ -185,6 +218,7 @@ PATCH /ver1/smart_trades/{smart_trade_id}/update
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 buy_price | number | NO |   | Available if Conditional SmartTrade
+conditional_limit_price | number | NO |   | 
 average_buy_price | number | NO |   | Available if SmartSale
 trailing_buy_enabled | boolean | NO |   | Available if Conditional SmartTrade
 trailing_buy_step | number | NO |   | Available if trailing_buy_enabled

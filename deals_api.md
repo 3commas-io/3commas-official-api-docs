@@ -76,6 +76,7 @@ active_safety_orders_count | integer | NO |   | New active safety orders count v
 stop_loss_timeout_enabled | boolean | NO |   | 
 stop_loss_timeout_in_seconds | integer | NO |   | StopLoss timeout in seconds if StopLoss timeout enabled
 tsl_enabled | boolean | NO |   | Trailing stop loss enabled
+stop_loss_type | string | NO | stop_loss, stop_loss_and_disable_bot  | 
 deal_id | integer | YES |   | 
 ### DEPRECATED, Update take profit condition. Deal status should be bought (Permission: BOTS_WRITE, Security: SIGNED)
 ```
@@ -140,6 +141,7 @@ Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 quantity | number | YES |   | safety order quantity
 is_market | boolean | YES |   | true - use MARKET order, false - use LIMIT order
+response_type | string | NO | empty, deal, market_order (empty) | 
 rate | number | YES |   | safety order rate. Required if LIMIT order used
 deal_id | integer | YES |   | 
 ### Info required to add funds correctly: available amounts, exchange limitations etc  (Permission: BOTS_READ, Security: SIGNED)
@@ -181,6 +183,7 @@ trailing_enabled: true
 tsl_enabled: true                         
 stop_loss_timeout_enabled: true           
 stop_loss_timeout_in_seconds: 2           
+active_manual_safety_orders: 2            
 pair: 'BTC_ADA'                          Format: QUOTE_BASE 
 status: 'failed'                         Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit, ttp_activated, ttp_order_placed, liquidated, bought_safety_pending, bought_take_profit_pending, settled 
 take_profit: '1.23'                      Percentage 
@@ -196,6 +199,8 @@ sold_average_price: '100'
 take_profit_type: 'base'                 Values: base, total 
 final_profit: '-0.00051'                  
 martingale_coefficient: '1.2'            Percentage 
+martingale_volume_coefficient: '1.0'     Percentage 
+martingale_step_coefficient: '1.0'       Percentage 
 stop_loss_percentage: '3.6'               
 error_message: 'Error placing base order' 
 profit_currency: 'quote_currency'        Values: quote_currency, base_currency 
