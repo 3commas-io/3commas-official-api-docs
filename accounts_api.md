@@ -13,10 +13,14 @@ Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 type | string | YES |   | check market_code in market_list method
 name | string | YES |   | Account name (any string)
-api_key | string | YES |   | 
-secret | string | YES |   | 
+api_key | string | NO |   | Requires unless type = binance_dex
+secret | string | NO |   | Requires unless type = binance_dex
 customer_id | string | NO |   | For Bitstamp
 passphrase | string | NO |   | For Coinbase Pro (GDAX)
+how_connect | string | NO | mnemonic_phrase, keystore  | 
+keystore | json | NO |   | keystore file content. Requires if type = binance_dex and how_connect = keystore
+wallet_password | string | NO |   | Requires if type = binance_dex and how_connect = keystore
+mnemonic_phrase | string | NO |   | Requires if type = binance_dex and how_connect = mnemonic_phrase
 ### Edit exchange account
 ```
 POST /ver1/accounts/update

@@ -189,9 +189,9 @@ POST /ver1/smart_trades/{smart_trade_id}/add_funds
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 quantity | number | YES |   | buy order quantity
-rate | number | YES |   | buy order rate
 is_market | boolean | YES |   | true - use MARKET order, false - use LIMIT order
 response_type | string | NO | smart_trade, empty, order, step (empty) | 
+rate | number | YES |   | buy order rate. Required if LIMIT order used
 smart_trade_id | integer | YES |   | 
 ### Step panic sell (Permission: SMART_TRADE_WRITE, Security: SIGNED)
 ```

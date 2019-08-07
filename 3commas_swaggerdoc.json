@@ -1628,14 +1628,16 @@
           {
             "in": "formData",
             "name": "api_key",
+            "description": "Requires unless type = binance_dex",
             "type": "string",
-            "required": true
+            "required": false
           },
           {
             "in": "formData",
             "name": "secret",
+            "description": "Requires unless type = binance_dex",
             "type": "string",
-            "required": true
+            "required": false
           },
           {
             "in": "formData",
@@ -1648,6 +1650,37 @@
             "in": "formData",
             "name": "passphrase",
             "description": "For Coinbase Pro (GDAX)",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "how_connect",
+            "type": "string",
+            "enum": [
+              "mnemonic_phrase",
+              "keystore"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "keystore",
+            "description": "keystore file content. Requires if type = binance_dex and how_connect = keystore",
+            "type": "json",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "wallet_password",
+            "description": "Requires if type = binance_dex and how_connect = keystore",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "mnemonic_phrase",
+            "description": "Requires if type = binance_dex and how_connect = mnemonic_phrase",
             "type": "string",
             "required": false
           }
@@ -3180,14 +3213,6 @@
           },
           {
             "in": "formData",
-            "name": "rate",
-            "description": "buy order rate",
-            "type": "number",
-            "format": "double",
-            "required": true
-          },
-          {
-            "in": "formData",
             "name": "is_market",
             "description": "true - use MARKET order, false - use LIMIT order",
             "type": "boolean",
@@ -3205,6 +3230,14 @@
               "step"
             ],
             "required": false
+          },
+          {
+            "in": "formData",
+            "name": "rate",
+            "description": "buy order rate. Required if LIMIT order used",
+            "type": "number",
+            "format": "double",
+            "required": true
           },
           {
             "in": "path",
