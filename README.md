@@ -1,4 +1,4 @@
-# Public Rest API for 3commas.io (2019-08-07)
+# Public Rest API for 3commas.io (2019-08-08)
 # General API Information
 * Official Announcements regarding changes, downtime, etc. to the API will be reported here: **https://t.me/commas**
 * We have telegram group where you can discuss any issues with API **https://t.me/xcommas_api**
@@ -112,7 +112,7 @@ secret |  YYYYYY
 
     ```
     (HMAC SHA256)
-    [linux]$ curl -H "APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -H "Signature: 30f678a157230290e00475cfffccbc92ae3659d94c145a2c0e9d0fa28f41c11a" -X POST 'https://3commas.io/public/api/ver1/accounts/new?type=binance&name=binance_account&api_key=XXXXXX&secret=YYYYYY'
+    [linux]$ curl -H "APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -H "Signature: 30f678a157230290e00475cfffccbc92ae3659d94c145a2c0e9d0fa28f41c11a" -X POST 'https://api.3commas.io/public/api/ver1/accounts/new?type=binance&name=binance_account&api_key=XXXXXX&secret=YYYYYY'
     ```
 
 ### Example 2: As a request body
@@ -129,7 +129,7 @@ secret |  YYYYYY
 
     ```
     (HMAC SHA256)
-    [linux]$ curl -H "APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -H "Signature: 30f678a157230290e00475cfffccbc92ae3659d94c145a2c0e9d0fa28f41c11a" -X POST 'https://3commas.io/public/api/ver1/accounts/new' -d 'type=binance&name=binance_account&api_key=XXXXXX&secret=YYYYYY' 
+    [linux]$ curl -H "APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -H "Signature: 30f678a157230290e00475cfffccbc92ae3659d94c145a2c0e9d0fa28f41c11a" -X POST 'https://api.3commas.io/public/api/ver1/accounts/new' -d 'type=binance&name=binance_account&api_key=XXXXXX&secret=YYYYYY' 
     ```
 
 
