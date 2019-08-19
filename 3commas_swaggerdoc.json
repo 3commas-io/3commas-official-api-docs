@@ -27,6 +27,10 @@
       "description": "Operations about smart_trades"
     },
     {
+      "name": "marketplace",
+      "description": "Operations about marketplaces"
+    },
+    {
       "name": "ping",
       "description": "Operations about pings"
     },
@@ -3676,6 +3680,166 @@
           "smart_trades"
         ],
         "operationId": "postVer1SmartTradesSmartTradeIdForceProcess"
+      }
+    },
+    "/ver1/marketplace/items": {
+      "get": {
+        "description": "All marketplace items (Permission: NONE, Security: NONE)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Limit records. Max: 1_000",
+            "type": "integer",
+            "format": "int32",
+            "default": 50,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Offset records",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "scope",
+            "description": "paid - show only paid signal providers. free - show only free signal providers",
+            "type": "string",
+            "default": "all",
+            "enum": [
+              "all",
+              "paid",
+              "free"
+            ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "type": "string",
+            "default": "newest",
+            "enum": [
+              "subscribers",
+              "name",
+              "newest"
+            ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "locale",
+            "type": "string",
+            "default": "en",
+            "enum": [
+              "en",
+              "ru",
+              "zh",
+              "zh-CN",
+              "cn",
+              "es",
+              "pt"
+            ],
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All marketplace items (Permission: NONE, Security: NONE)"
+          }
+        },
+        "tags": [
+          "marketplace"
+        ],
+        "operationId": "getVer1MarketplaceItems"
+      }
+    },
+    "/ver1/marketplace/{item_id}/signals": {
+      "get": {
+        "description": "Marketplace Item Signals (Permission: NONE, Security: NONE)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Limit records. Max: 1_000",
+            "type": "integer",
+            "format": "int32",
+            "default": 50,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Offset records",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "type": "string",
+            "default": "date",
+            "enum": [
+              "pair",
+              "exchange",
+              "signal_type",
+              "date"
+            ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "order_direction",
+            "type": "string",
+            "default": "desc",
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "locale",
+            "type": "string",
+            "default": "en",
+            "enum": [
+              "en",
+              "ru",
+              "zh",
+              "zh-CN",
+              "cn",
+              "es",
+              "pt"
+            ],
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "item_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Marketplace Item Signals (Permission: NONE, Security: NONE)"
+          }
+        },
+        "tags": [
+          "marketplace"
+        ],
+        "operationId": "getVer1MarketplaceItemIdSignals"
       }
     },
     "/ver1/ping": {
