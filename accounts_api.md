@@ -1,4 +1,4 @@
-# Accounts Api
+# Accounts Api 
 #### _Please read General API Information first_
 ### Add exchange account  (Permission: ACCOUNTS_WRITE, Security: SIGNED)
 ```
@@ -81,6 +81,18 @@ Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 pretty_display_type | string | YES |   | pretty_display_type from account model
 pair | string | YES |   | Pair
+### Active trade entities (Permission: ACCOUNTS_READ, Security: SIGNED)
+```
+GET /ver1/accounts/{account_id}/active_trading_entities
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+account_id | integer | YES |   | 
 ### Sell all to USD  (Permission: ACCOUNTS_WRITE, Security: SIGNED)
 ```
 POST /ver1/accounts/{account_id}/sell_all_to_usd
@@ -92,7 +104,7 @@ POST /ver1/accounts/{account_id}/sell_all_to_usd
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-account_id | integer | YES |   | Account id
+account_id | integer | YES |   | 
 ### Sell all to BTC  (Permission: ACCOUNTS_WRITE, Security: SIGNED)
 ```
 POST /ver1/accounts/{account_id}/sell_all_to_btc
@@ -104,7 +116,21 @@ POST /ver1/accounts/{account_id}/sell_all_to_btc
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-account_id | integer | YES |   | Account id
+account_id | integer | YES |   | 
+### balance history data (Permission: ACCOUNTS_READ, Security: SIGNED)
+```
+GET /ver1/accounts/{account_id}/balance_chart_data
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+date_from | string | YES |   | 
+date_to | string | NO |   | 
+account_id | integer | YES |   | 
 ### Load balances for specified exchange  (Permission: ACCOUNTS_READ, Security: SIGNED)
 ```
 POST /ver1/accounts/{account_id}/load_balances
@@ -191,6 +217,8 @@ multi_bots_allowed: false
 created_at: 2018-08-08 08:08:08           
 updated_at: 2018-08-22 02:25:08           
 last_auto_balance: 2018-08-21 08:08:08    
+fast_convert_available: true             Sell all to USD/BTC possibility 
+grid_bots_allowed: true                   
 api_key: ''                               
 name: 'Binance 2 '                        
 auto_balance_method: 'time'              Values: time, currency_change 
@@ -208,7 +236,7 @@ usd_profit_percentage: '6.25'            Month period
 btc_profit_percentage: '2.36'            Month period 
 total_btc_profit: '0.0012456'             
 total_usd_profit: '6.123181'              
-pretty_display_type: 'BittresxAccount'    
+pretty_display_type: 'BittrexAccount'     
 address: '0xe00000dded00bbb08725d77777777ff070aa7aa7' 
 } 
  ``` 

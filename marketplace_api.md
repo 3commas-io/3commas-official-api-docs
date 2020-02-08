@@ -1,4 +1,4 @@
-# Marketplace Api
+# Marketplace Api 
 #### _Please read General API Information first_
 ### All marketplace items (Permission: NONE, Security: NONE)
 ```

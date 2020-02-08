@@ -1,4 +1,4 @@
-# SmartTrades Api
+# SmartTrades Api 
 #### _Please read General API Information first_
 ### Create SimpleSell (Permission: SMART_TRADE_WRITE, Security: SIGNED)
 ```
@@ -163,7 +163,8 @@ offset | integer | NO |   | Offset records
 account_id | integer | NO |   | Account to show smart_trades on. Pass null (default) - show all
 scope | string | NO |   | active - show only active trades, finished - history of closed trades, cancelled - cancelled trades, failed - failed trades, any other value or null (default) - all trades
 type | string | NO |   | SmartTrade::SmartSale , SmartTrade::Classic , SmartTrade::ConditionalBuy
-order | string | NO | created_at, closed_at (created_at) | 
+order | string | NO | created_at, closed_at, updated_at (created_at) | 
+pairs | array[string] | NO |   | Array of pairs
 ### Manual cancel order (Permission: SMART_TRADE_WRITE, Security: SIGNED)
 ```
 POST /ver1/smart_trades/{smart_trade_id}/cancel_order

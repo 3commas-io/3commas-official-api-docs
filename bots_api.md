@@ -1,4 +1,4 @@
-# Bots Api
+# Bots Api 
 #### _Please read General API Information first_
 ### Available strategy list for bot (Permission: BOTS_READ, Security: SIGNED)
 ```
@@ -48,7 +48,7 @@ Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 name | string | YES |   | 
 account_id | integer | YES |   | id from GET /ver1/accounts
-pairs | array[string] | YES |   | 
+pairs | array[string] | YES |   | Pass single pair to create SingleBot or any other number of pairs to create MultiBot
 max_active_deals | integer | NO |  (1) | 
 base_order_volume | number | YES |   | Base order size
 base_order_volume_type | string | NO | quote_currency, base_currency, percent, xbt  | base order volume currency
@@ -66,7 +66,7 @@ trailing_deviation | number | NO |   | required if trailing_enabled
 btc_price_limit | number | NO |   | 
 strategy | string | NO | short, long (long) | 
 safety_order_step_percentage | number | YES |   | Price deviation to open safety trades(percentage)
-take_profit_type | string | YES |   | Percentage: base – from base order, total – from total volume
+take_profit_type | string | YES | base, total (base) | Percentage: base – from base order, total – from total volume
 strategy_list | array[json] | YES |   | For manual signals: [{"strategy":"manual"}] or []<br>                                                        For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>                                                        QFL: {"options"=>{"type"=>"original"}, "strategy"=>"qfl"}] <br>                                                        TradingView: [{"options"=>{"time"=>"5m", "type"=>"buy_or_strong_buy"}, "strategy"=>"trading_view"} 
 leverage_type | string | NO | custom, cross, not_specified (not_specified) | Used for Bitmex bots only
 leverage_custom_value | number | NO |   | required if leverage_type is custom
@@ -268,6 +268,7 @@ stop_loss_timeout_in_seconds: 2
 disable_after_deals_count: 2              
 deals_counter: 2                          
 allowed_deals_on_same_pair: 2             
+easy_form_supported: true                 
 name: 'Test Bot'                          
 take_profit: '1.5'                       'Percentage' 
 base_order_volume: '0.002'                

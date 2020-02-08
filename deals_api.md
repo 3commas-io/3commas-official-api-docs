@@ -1,4 +1,4 @@
-# Deals Api
+# Deals Api 
 #### _Please read General API Information first_
 ### User deals (Permission: BOTS_READ, Security: SIGNED)
 ```
