@@ -227,7 +227,7 @@ take_profit_enabled | boolean | YES |   |
 take_profit_type | string | NO | classic, step_sell  | Required if take_profit_enabled. classic - common take profit, step_sell - step sell take profit
 take_profit_price_condition | number | NO |   | Required if take_profit_type = classic
 take_profit_percentage_condition | number | NO |   | Required if take_profit_type = classic AND trailing_buy_enabled
-take_profit_step_orders[{<br>percent => number <br>price => number <br>position => integer <br>price_method => string <br>price_percentage => number <br>},<br> ...] | array[json] | YES |   | Available if take_profit_type = step_sell. If null - steps won't be changed.                                                    In order to apply changes - send a new set of steps, which contains new and previous steps that were not edited.                                                    Position must be unique(for new and previous steps in SmartTrade scope) and greater then 0
+take_profit_step_orders[{<br>percent => number <br>price => number <br>position => integer <br>price_method => string <br>price_percentage => number <br>},<br> ...] | array[json] | YES |   | Available if take_profit_type = step_sell.                                                    In order to apply changes - send a new set of steps, which contains new and previous steps that were not edited.                                                    Position must be unique(for new and previous steps in SmartTrade scope) and greater then 0
 take_profit_price_method | string | NO | bid, ask, last (bid) | Price type for take profit(bid,asl,last)
 take_profit_sell_method | string | NO | market, limit (market) | 
 take_profit_sell_order_price | number | NO |   | Required if limit

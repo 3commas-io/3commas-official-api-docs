@@ -211,6 +211,7 @@ from_currency: 'BTC'
 to_currency: 'ADA'                        
 current_price: '102'                      
 take_profit_price: '105'                  
+stop_loss_price: '95.3'                   
 final_profit_percentage: '4.2'            
 actual_profit_percentage: '3.4'           
 bot_name: My bot                          

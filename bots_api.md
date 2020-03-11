@@ -243,6 +243,7 @@ GET /ver1/bots/{bot_id}/show
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
+include_events | boolean | NO |   | 
 bot_id | integer | YES |   | 
 # Response Entities 
 ### BotEntity

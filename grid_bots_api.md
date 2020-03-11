@@ -61,6 +61,20 @@ account_types | array[string] | NO |   | Filter by account type
 state | string | NO | enabled, disabled  | Filter by bot state
 sort_by | string | NO | current_profit, bot_id, pair  | Sort column
 sort_direction | string | NO | desc, asc  | Sort direction
+limit | integer | NO |  (10) | 
+offset | integer | NO |  (0) | 
+### Grid Bot Market Orders (Permission: BOTS_READ, Security: SIGNED)
+```
+GET /ver1/grid_bots/{id}/market_orders
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+id | integer | YES |   | 
 ### Grid Bot Profits (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/grid_bots/{id}/profits
@@ -73,7 +87,7 @@ GET /ver1/grid_bots/{id}/profits
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 id | integer | YES |   | 
-### Show Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)
+### Show Grid Bot (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/grid_bots/{id}
 ```
@@ -121,25 +135,39 @@ POST /ver1/grid_bots/{id}/enable
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 id | integer | YES |   | 
+### Get required balances to start bot(Permission: BOTS_READ, Security: SIGNED)
+```
+GET /ver1/grid_bots/{id}/required_balances
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+id | integer | YES |   | 
 # Response Entities 
 ### GridBotEntity
  ``` 
  {
 id: 5                                     
 account_id: 10                            
+account_name: 'My account'                
 is_enabled: true                          
 grids_quantity: '20'                      
+created_at: 2018-08-08 08:08:08           
+updated_at: 2018-08-10 10:10:10           
 lower_price: '8000'                       
 upper_price: '10000'                      
 quantity_per_grid: '100'                  
 name: 'GridBot1'                          
 pair: 'BTC_ETH'                           
 start_price: '9000'                       
-created_at: 2018-08-08 08:08:08           
-updated_at: 2018-08-10 10:10:10           
 grid_price_step: '100'                    
 current_profit: 100                       
 profit_percentage: 0.1                    
+current_price: 100.1                      
 investment_base_currency: 100             
 investment_quote_currency: 100            
 grid_lines: GridLineEntity    

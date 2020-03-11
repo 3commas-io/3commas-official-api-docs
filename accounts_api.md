@@ -1,5 +1,44 @@
 # Accounts Api 
 #### _Please read General API Information first_
+### Transfer coins between accounts (Permission: ACCOUNTS_WRITE, Security: SIGNED)
+```
+POST /ver1/accounts/transfer
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+currency | string | YES |   | Currency code(example: USDT)
+amount | number | YES |   | 
+to_account_id | integer | YES |   | Recipient account ID (possible values in /transfer_data)
+from_account_id | integer | YES |   | Sender account ID (possible values in /transfer_data)
+### Transfers history (Permission: ACCOUNTS_READ, Security: SIGNED)
+```
+GET /ver1/accounts/transfer_history
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+account_id | integer | YES |   | Sender or Recipient account ID (possible values in /transfer_data)
+currency | string | YES |   | Currency code(example: USDT)
+page | integer | NO |  (1) | Page number
+per_page | integer | NO |  (10) | Elements per page
+### Data for transfer between accounts (Permission: ACCOUNTS_READ, Security: SIGNED)
+```
+GET /ver1/accounts/transfer_data
+```
+**Weight:**
+1
+
+**Parameters:**
+NONE
 ### Add exchange account  (Permission: ACCOUNTS_WRITE, Security: SIGNED)
 ```
 POST /ver1/accounts/new
@@ -167,7 +206,7 @@ POST /ver1/accounts/{account_id}/pie_chart_data
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-account_id | integer | YES |   | Account id
+account_id | integer | YES |   | 
 ### Information about all user balances on specified exchange  (Permission: ACCOUNTS_READ, Security: SIGNED)
 ```
 POST /ver1/accounts/{account_id}/account_table_data
@@ -179,7 +218,7 @@ POST /ver1/accounts/{account_id}/account_table_data
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-account_id | integer | YES |   | Account id
+account_id | integer | YES |   | 
 ### Remove exchange connection  (Permission: ACCOUNTS_WRITE, Security: SIGNED)
 ```
 POST /ver1/accounts/{account_id}/remove

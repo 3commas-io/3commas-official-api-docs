@@ -31,6 +31,10 @@
       "description": "Operations about marketplaces"
     },
     {
+      "name": "grid_bots",
+      "description": "Operations about grid_bots"
+    },
+    {
       "name": "ping",
       "description": "Operations about pings"
     },
@@ -162,6 +166,7 @@
           {
             "in": "formData",
             "name": "pairs",
+            "description": "Pass single pair to create SingleBot or any other number of pairs to create MultiBot",
             "type": "array",
             "items": {
               "type": "string"
@@ -318,6 +323,11 @@
             "name": "take_profit_type",
             "description": "Percentage: base – from base order, total – from total volume",
             "type": "string",
+            "default": "base",
+            "enum": [
+              "base",
+              "total"
+            ],
             "required": true
           },
           {
@@ -1084,6 +1094,12 @@
         ],
         "parameters": [
           {
+            "in": "query",
+            "name": "include_events",
+            "type": "boolean",
+            "required": false
+          },
+          {
             "in": "path",
             "name": "bot_id",
             "type": "integer",
@@ -1605,6 +1621,127 @@
         "operationId": "getVer1DealsDealIdDataForAddingFunds"
       }
     },
+    "/ver1/accounts/transfer": {
+      "post": {
+        "description": "Transfer coins between accounts (Permission: ACCOUNTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "currency",
+            "description": "Currency code(example: USDT)",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "amount",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "to_account_id",
+            "description": "Recipient account ID (possible values in /transfer_data)",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "from_account_id",
+            "description": "Sender account ID (possible values in /transfer_data)",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Transfer coins between accounts (Permission: ACCOUNTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "postVer1AccountsTransfer"
+      }
+    },
+    "/ver1/accounts/transfer_history": {
+      "get": {
+        "description": "Transfers history (Permission: ACCOUNTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "account_id",
+            "description": "Sender or Recipient account ID (possible values in /transfer_data)",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "currency",
+            "description": "Currency code(example: USDT)",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "description": "Page number",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "description": "Elements per page",
+            "type": "integer",
+            "format": "int32",
+            "default": 10,
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Transfers history (Permission: ACCOUNTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "getVer1AccountsTransferHistory"
+      }
+    },
+    "/ver1/accounts/transfer_data": {
+      "get": {
+        "description": "Data for transfer between accounts (Permission: ACCOUNTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Data for transfer between accounts (Permission: ACCOUNTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "getVer1AccountsTransferData"
+      }
+    },
     "/ver1/accounts/new": {
       "post": {
         "description": "Add exchange account  (Permission: ACCOUNTS_WRITE, Security: SIGNED)",
@@ -1855,6 +1992,32 @@
         "operationId": "getVer1AccountsCurrencyRates"
       }
     },
+    "/ver1/accounts/{account_id}/active_trading_entities": {
+      "get": {
+        "description": "Active trade entities (Permission: ACCOUNTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "account_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Active trade entities (Permission: ACCOUNTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "getVer1AccountsAccountIdActiveTradingEntities"
+      }
+    },
     "/ver1/accounts/{account_id}/sell_all_to_usd": {
       "post": {
         "description": "Sell all to USD  (Permission: ACCOUNTS_WRITE, Security: SIGNED)",
@@ -1868,7 +2031,6 @@
           {
             "in": "path",
             "name": "account_id",
-            "description": "Account id",
             "type": "integer",
             "format": "int32",
             "required": true
@@ -1898,7 +2060,6 @@
           {
             "in": "path",
             "name": "account_id",
-            "description": "Account id",
             "type": "integer",
             "format": "int32",
             "required": true
@@ -1913,6 +2074,46 @@
           "accounts"
         ],
         "operationId": "postVer1AccountsAccountIdSellAllToBtc"
+      }
+    },
+    "/ver1/accounts/{account_id}/balance_chart_data": {
+      "get": {
+        "description": "balance history data (Permission: ACCOUNTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "date_from",
+            "type": "string",
+            "format": "date-time",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "date_to",
+            "type": "string",
+            "format": "date-time",
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "account_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "balance history data (Permission: ACCOUNTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "getVer1AccountsAccountIdBalanceChartData"
       }
     },
     "/ver1/accounts/{account_id}/load_balances": {
@@ -1993,7 +2194,6 @@
           {
             "in": "path",
             "name": "account_id",
-            "description": "Account id",
             "type": "integer",
             "format": "int32",
             "required": true
@@ -2023,7 +2223,6 @@
           {
             "in": "path",
             "name": "account_id",
-            "description": "Account id",
             "type": "integer",
             "format": "int32",
             "required": true
@@ -3145,8 +3344,19 @@
             "default": "created_at",
             "enum": [
               "created_at",
-              "closed_at"
+              "closed_at",
+              "updated_at"
             ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "pairs",
+            "description": "Array of pairs",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
             "required": false
           }
         ],
@@ -3382,7 +3592,7 @@
           {
             "in": "formData",
             "name": "take_profit_step_orders",
-            "description": "Available if take_profit_type = step_sell. If null - steps won't be changed.\n                                                    In order to apply changes - send a new set of steps, which contains new and previous steps that were not edited.\n                                                    Position must be unique(for new and previous steps in SmartTrade scope) and greater then 0",
+            "description": "Available if take_profit_type = step_sell.\n                                                    In order to apply changes - send a new set of steps, which contains new and previous steps that were not edited.\n                                                    Position must be unique(for new and previous steps in SmartTrade scope) and greater then 0",
             "type": "array",
             "items": {
               "type": "json"
@@ -3743,7 +3953,10 @@
               "zh-CN",
               "cn",
               "es",
-              "pt"
+              "pt",
+              "ko",
+              "fr",
+              "cs"
             ],
             "required": false
           }
@@ -3819,7 +4032,10 @@
               "zh-CN",
               "cn",
               "es",
-              "pt"
+              "pt",
+              "ko",
+              "fr",
+              "cs"
             ],
             "required": false
           },
@@ -3840,6 +4056,429 @@
           "marketplace"
         ],
         "operationId": "getVer1MarketplaceItemIdSignals"
+      }
+    },
+    "/ver1/grid_bots/ai": {
+      "post": {
+        "description": "Create AI Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "account_id",
+            "description": "id from GET /ver1/accounts",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "pair",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "total_quantity",
+            "type": "number",
+            "format": "double",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create AI Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "grid_bots"
+        ],
+        "operationId": "postVer1GridBotsAi"
+      }
+    },
+    "/ver1/grid_bots/manual": {
+      "post": {
+        "description": "Create Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "account_id",
+            "description": "id from GET /ver1/accounts",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "pair",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "upper_price",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "lower_price",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "quantity_per_grid",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "grids_quantity",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "is_enabled",
+            "description": "Turn on or off grid_bot after creation",
+            "type": "boolean",
+            "default": true,
+            "required": false
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "grid_bots"
+        ],
+        "operationId": "postVer1GridBotsManual"
+      }
+    },
+    "/ver1/grid_bots/ai_settings": {
+      "get": {
+        "description": "Get AI settings (Permission: BOTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "pair",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "market_code",
+            "description": "Market code from /accounts/market_list",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get AI settings (Permission: BOTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "grid_bots"
+        ],
+        "operationId": "getVer1GridBotsAiSettings"
+      }
+    },
+    "/ver1/grid_bots": {
+      "get": {
+        "description": "Grid bits list (Permission: BOTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "account_ids",
+            "description": "Filter by account id",
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "account_types",
+            "description": "Filter by account type",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "state",
+            "description": "Filter by bot state",
+            "type": "string",
+            "enum": [
+              "enabled",
+              "disabled"
+            ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "sort_by",
+            "description": "Sort column",
+            "type": "string",
+            "enum": [
+              "current_profit",
+              "bot_id",
+              "pair"
+            ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "sort_direction",
+            "description": "Sort direction",
+            "type": "string",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "format": "int32",
+            "default": 10,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Grid bits list (Permission: BOTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "grid_bots"
+        ],
+        "operationId": "getVer1GridBots"
+      }
+    },
+    "/ver1/grid_bots/{id}/market_orders": {
+      "get": {
+        "description": "Grid Bot Market Orders (Permission: BOTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Grid Bot Market Orders (Permission: BOTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "grid_bots"
+        ],
+        "operationId": "getVer1GridBotsIdMarketOrders"
+      }
+    },
+    "/ver1/grid_bots/{id}/profits": {
+      "get": {
+        "description": "Grid Bot Profits (Permission: BOTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Grid Bot Profits (Permission: BOTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "grid_bots"
+        ],
+        "operationId": "getVer1GridBotsIdProfits"
+      }
+    },
+    "/ver1/grid_bots/{id}": {
+      "get": {
+        "description": "Show Grid Bot (Permission: BOTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Show Grid Bot (Permission: BOTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "grid_bots"
+        ],
+        "operationId": "getVer1GridBotsId"
+      },
+      "delete": {
+        "description": "Delete Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Delete Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "grid_bots"
+        ],
+        "operationId": "deleteVer1GridBotsId"
+      }
+    },
+    "/ver1/grid_bots/{id}/disable": {
+      "post": {
+        "description": "Disable Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Disable Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "grid_bots"
+        ],
+        "operationId": "postVer1GridBotsIdDisable"
+      }
+    },
+    "/ver1/grid_bots/{id}/enable": {
+      "post": {
+        "description": "Enable Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Enable Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "grid_bots"
+        ],
+        "operationId": "postVer1GridBotsIdEnable"
+      }
+    },
+    "/ver1/grid_bots/{id}/required_balances": {
+      "get": {
+        "description": "Get required balances to start bot(Permission: BOTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get required balances to start bot(Permission: BOTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "grid_bots"
+        ],
+        "operationId": "getVer1GridBotsIdRequiredBalances"
       }
     },
     "/ver1/ping": {
@@ -4135,6 +4774,10 @@
           "type": "string",
           "example": "'105'"
         },
+        "stop_loss_price": {
+          "type": "string",
+          "example": "'95.3'"
+        },
         "final_profit_percentage": {
           "type": "string",
           "example": "'4.2'"
@@ -4292,6 +4935,10 @@
           "format": "int32",
           "example": 2
         },
+        "easy_form_supported": {
+          "type": "boolean",
+          "example": true
+        },
         "name": {
           "type": "string",
           "example": "'Test Bot'"
@@ -4340,8 +4987,7 @@
           "example": "'200'"
         },
         "strategy": {
-          "type": "integer",
-          "format": "int32",
+          "type": "string",
           "example": "'long'",
           "description": "Values: long, short"
         },
@@ -4501,6 +5147,21 @@
           "type": "string",
           "example": "2018-08-21 08:08:08"
         },
+        "fast_convert_available": {
+          "type": "boolean",
+          "example": true,
+          "description": "Sell all to USD/BTC possibility"
+        },
+        "grid_bots_allowed": {
+          "type": "boolean",
+          "example": true
+        },
+        "nomics_id": {
+          "type": "hidden"
+        },
+        "market_icon": {
+          "type": "hidden"
+        },
         "api_key": {
           "type": "string",
           "example": "''"
@@ -4577,7 +5238,7 @@
         },
         "pretty_display_type": {
           "type": "string",
-          "example": "'BittresxAccount'"
+          "example": "'BittrexAccount'"
         },
         "address": {
           "type": "string",
@@ -4980,6 +5641,127 @@
         "price_percentage": {
           "type": "string",
           "example": "'10.2'"
+        }
+      }
+    },
+    "GridBotEntity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "example": 5
+        },
+        "account_id": {
+          "type": "integer",
+          "format": "int32",
+          "example": 10
+        },
+        "account_name": {
+          "type": "string",
+          "example": "'My account'"
+        },
+        "is_enabled": {
+          "type": "boolean",
+          "example": true
+        },
+        "grids_quantity": {
+          "type": "string",
+          "example": "'20'"
+        },
+        "created_at": {
+          "type": "string",
+          "example": "2018-08-08 08:08:08"
+        },
+        "updated_at": {
+          "type": "string",
+          "example": "2018-08-10 10:10:10"
+        },
+        "lower_price": {
+          "type": "string",
+          "example": "'8000'"
+        },
+        "upper_price": {
+          "type": "string",
+          "example": "'10000'"
+        },
+        "quantity_per_grid": {
+          "type": "string",
+          "example": "'100'"
+        },
+        "name": {
+          "type": "string",
+          "example": "'GridBot1'"
+        },
+        "pair": {
+          "type": "string",
+          "example": "'BTC_ETH'"
+        },
+        "start_price": {
+          "type": "string",
+          "example": "'9000'"
+        },
+        "grid_price_step": {
+          "type": "string",
+          "example": "'100'"
+        },
+        "current_profit": {
+          "type": "string",
+          "example": "100"
+        },
+        "profit_percentage": {
+          "type": "string",
+          "example": "0.1"
+        },
+        "current_price": {
+          "type": "string",
+          "example": "100.1"
+        },
+        "investment_base_currency": {
+          "type": "string",
+          "example": "100"
+        },
+        "investment_quote_currency": {
+          "type": "string",
+          "example": "100"
+        },
+        "grid_lines": {
+          "$ref": "#/definitions/GridLineEntity"
+        }
+      }
+    },
+    "GridLineEntity": {
+      "type": "object",
+      "properties": {
+        "price": {
+          "type": "string",
+          "example": "'8000'"
+        },
+        "side": {
+          "type": "string",
+          "example": "'SELL'"
+        }
+      }
+    },
+    "GridBotProfitsEntity": {
+      "type": "object",
+      "properties": {
+        "grid_line_id": {
+          "type": "integer",
+          "format": "int32",
+          "example": "'8000'"
+        },
+        "profit": {
+          "type": "string",
+          "example": "'0.01'"
+        },
+        "usd_profit": {
+          "type": "string",
+          "example": "'100'"
+        },
+        "created_at": {
+          "type": "string",
+          "example": "2018-08-08 08:08:08"
         }
       }
     }
