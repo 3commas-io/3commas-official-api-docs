@@ -103,7 +103,7 @@ GET /ver1/deals/{deal_id}/show
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 deal_id | integer | YES |   | 
-### cancel manual safety orders (Permission: BOTS_WRITE, Security: SIGNED)
+### Cancel manual safety orders (Permission: BOTS_WRITE, Security: SIGNED)
 ```
 POST /ver1/deals/{deal_id}/cancel_order
 ```
@@ -116,7 +116,7 @@ Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 order_id | string | YES |   | manual safety order id
 deal_id | integer | YES |   | 
-### deal safety orders (Permission: BOTS_READ, Security: SIGNED)
+### Deal safety orders (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/deals/{deal_id}/market_orders
 ```
@@ -128,7 +128,7 @@ GET /ver1/deals/{deal_id}/market_orders
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 deal_id | integer | YES |   | 
-### adding manual safety order (Permission: BOTS_WRITE, Security: SIGNED)
+### Adding manual safety order (Permission: BOTS_WRITE, Security: SIGNED)
 ```
 POST /ver1/deals/{deal_id}/add_funds
 ```

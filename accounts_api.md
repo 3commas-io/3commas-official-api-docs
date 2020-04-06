@@ -95,7 +95,7 @@ GET /ver1/accounts/market_list
 
 **Parameters:**
 NONE
-### All market pairs
+### All market pairs (Permission: NONE, Security: NONE)
 ```
 GET /ver1/accounts/market_pairs
 ```
@@ -106,7 +106,8 @@ GET /ver1/accounts/market_pairs
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-pretty_display_type | string | YES |   | pretty_display_type from account model
+pretty_display_type | string | NO |   | deprecated. use market_code instead
+market_code | string | NO |   | market_code from account model
 ### Currency rates and limits (Permission: NONE, Security: NONE)
 ```
 GET /ver1/accounts/currency_rates
@@ -118,7 +119,8 @@ GET /ver1/accounts/currency_rates
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-pretty_display_type | string | YES |   | pretty_display_type from account model
+pretty_display_type | string | NO |   | deprecated. use market_code instead
+market_code | string | NO |   | market_code from account model
 pair | string | YES |   | Pair
 ### Active trade entities (Permission: ACCOUNTS_READ, Security: SIGNED)
 ```
@@ -193,9 +195,9 @@ POST /ver1/accounts/{account_id}/rename
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-account_id | integer | YES |   | Account id
 name | string | YES |   | 
-### Information aboutl all user balances on specified exchange in pretty for pie chart format (Permission: ACCOUNTS_READ, Security: SIGNED)
+account_id | integer | YES |   | 
+### Information about all user balances on specified exchange in pretty for pie chart format (Permission: ACCOUNTS_READ, Security: SIGNED)
 ```
 POST /ver1/accounts/{account_id}/pie_chart_data
 ```
@@ -230,7 +232,7 @@ POST /ver1/accounts/{account_id}/remove
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-account_id | integer | YES |   | Account id
+account_id | integer | YES |   | 
 # Response Entities 
 ### AccountEntity
  ``` 
@@ -276,6 +278,8 @@ btc_profit_percentage: '2.36'            Month period
 total_btc_profit: '0.0012456'             
 total_usd_profit: '6.123181'              
 pretty_display_type: 'BittrexAccount'     
+exchange_name: 'Binance Futures'          
+market_code: 'deribit_testnet'            
 address: '0xe00000dded00bbb08725d77777777ff070aa7aa7' 
 } 
  ``` 

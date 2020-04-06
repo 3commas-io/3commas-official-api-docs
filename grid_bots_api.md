@@ -166,6 +166,9 @@ pair: 'BTC_ETH'
 start_price: '9000'                       
 grid_price_step: '100'                    
 current_profit: 100                       
+current_profit_usd: 1000                  
+bought_volume: 1000                       
+sold_volume: 1000                         
 profit_percentage: 0.1                    
 current_price: 100.1                      
 investment_base_currency: 100             
