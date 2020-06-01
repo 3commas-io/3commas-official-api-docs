@@ -19,6 +19,10 @@
       "description": "Operations about deals"
     },
     {
+      "name": "users",
+      "description": "Operations about users"
+    },
+    {
       "name": "accounts",
       "description": "Operations about accounts"
     },
@@ -1471,7 +1475,7 @@
     },
     "/ver1/deals/{deal_id}/cancel_order": {
       "post": {
-        "description": "cancel manual safety orders (Permission: BOTS_WRITE, Security: SIGNED)",
+        "description": "Cancel manual safety orders (Permission: BOTS_WRITE, Security: SIGNED)",
         "produces": [
           "application/json"
         ],
@@ -1496,7 +1500,7 @@
         ],
         "responses": {
           "201": {
-            "description": "cancel manual safety orders (Permission: BOTS_WRITE, Security: SIGNED)"
+            "description": "Cancel manual safety orders (Permission: BOTS_WRITE, Security: SIGNED)"
           }
         },
         "tags": [
@@ -1507,7 +1511,7 @@
     },
     "/ver1/deals/{deal_id}/market_orders": {
       "get": {
-        "description": "deal safety orders (Permission: BOTS_READ, Security: SIGNED)",
+        "description": "Deal safety orders (Permission: BOTS_READ, Security: SIGNED)",
         "produces": [
           "application/json"
         ],
@@ -1522,7 +1526,7 @@
         ],
         "responses": {
           "200": {
-            "description": "deal safety orders (Permission: BOTS_READ, Security: SIGNED)"
+            "description": "Deal safety orders (Permission: BOTS_READ, Security: SIGNED)"
           }
         },
         "tags": [
@@ -1533,7 +1537,7 @@
     },
     "/ver1/deals/{deal_id}/add_funds": {
       "post": {
-        "description": "adding manual safety order (Permission: BOTS_WRITE, Security: SIGNED)",
+        "description": "Adding manual safety order (Permission: BOTS_WRITE, Security: SIGNED)",
         "produces": [
           "application/json"
         ],
@@ -1586,7 +1590,7 @@
         ],
         "responses": {
           "201": {
-            "description": "adding manual safety order (Permission: BOTS_WRITE, Security: SIGNED)"
+            "description": "Adding manual safety order (Permission: BOTS_WRITE, Security: SIGNED)"
           }
         },
         "tags": [
@@ -1619,6 +1623,38 @@
           "deals"
         ],
         "operationId": "getVer1DealsDealIdDataForAddingFunds"
+      }
+    },
+    "/ver1/users/change_mode": {
+      "post": {
+        "description": "Change User Mode(Paper or Real) (Permission: ACCOUNTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "mode",
+            "type": "string",
+            "enum": [
+              "paper",
+              "real"
+            ],
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Change User Mode(Paper or Real) (Permission: ACCOUNTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "operationId": "postVer1UsersChangeMode"
       }
     },
     "/ver1/accounts/transfer": {
@@ -1935,7 +1971,7 @@
     },
     "/ver1/accounts/market_pairs": {
       "get": {
-        "description": "All market pairs",
+        "description": "All market pairs (Permission: NONE, Security: NONE)",
         "produces": [
           "application/json"
         ],
@@ -1943,14 +1979,21 @@
           {
             "in": "query",
             "name": "pretty_display_type",
-            "description": "pretty_display_type from account model",
+            "description": "deprecated. use market_code instead",
             "type": "string",
-            "required": true
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "market_code",
+            "description": "market_code from account model",
+            "type": "string",
+            "required": false
           }
         ],
         "responses": {
           "200": {
-            "description": "All market pairs"
+            "description": "All market pairs (Permission: NONE, Security: NONE)"
           }
         },
         "tags": [
@@ -1969,9 +2012,16 @@
           {
             "in": "query",
             "name": "pretty_display_type",
-            "description": "pretty_display_type from account model",
+            "description": "deprecated. use market_code instead",
             "type": "string",
-            "required": true
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "market_code",
+            "description": "market_code from account model",
+            "type": "string",
+            "required": false
           },
           {
             "in": "query",
@@ -2156,17 +2206,16 @@
         ],
         "parameters": [
           {
-            "in": "path",
-            "name": "account_id",
-            "description": "Account id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          },
-          {
             "in": "formData",
             "name": "name",
             "type": "string",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "account_id",
+            "type": "integer",
+            "format": "int32",
             "required": true
           }
         ],
@@ -2183,7 +2232,7 @@
     },
     "/ver1/accounts/{account_id}/pie_chart_data": {
       "post": {
-        "description": "Information aboutl all user balances on specified exchange in pretty for pie chart format (Permission: ACCOUNTS_READ, Security: SIGNED)",
+        "description": "Information about all user balances on specified exchange in pretty for pie chart format (Permission: ACCOUNTS_READ, Security: SIGNED)",
         "produces": [
           "application/json"
         ],
@@ -2201,7 +2250,7 @@
         ],
         "responses": {
           "201": {
-            "description": "Information aboutl all user balances on specified exchange in pretty for pie chart format (Permission: ACCOUNTS_READ, Security: SIGNED)"
+            "description": "Information about all user balances on specified exchange in pretty for pie chart format (Permission: ACCOUNTS_READ, Security: SIGNED)"
           }
         },
         "tags": [
@@ -2252,7 +2301,6 @@
           {
             "in": "path",
             "name": "account_id",
-            "description": "Account id",
             "type": "integer",
             "format": "int32",
             "required": true
@@ -3863,6 +3911,35 @@
         "operationId": "postVer1SmartTradesSmartTradeIdPanicSell"
       }
     },
+    "/ver1/smart_trades/{smart_trade_id}/force_start": {
+      "post": {
+        "description": "Process BuyStep immediately  (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "smart_trade_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Process BuyStep immediately  (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades"
+        ],
+        "operationId": "postVer1SmartTradesSmartTradeIdForceStart"
+      }
+    },
     "/ver1/smart_trades/{smart_trade_id}/force_process": {
       "post": {
         "description": "Refresh SmartTrade state (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
@@ -4088,6 +4165,27 @@
             "type": "number",
             "format": "double",
             "required": true
+          },
+          {
+            "in": "formData",
+            "name": "leverage_type",
+            "description": "Leverage type for futures accounts",
+            "type": "string",
+            "default": "not_specified",
+            "enum": [
+              "custom",
+              "cross",
+              "not_specified"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "leverage_custom_value",
+            "description": "Required if leverage_type = 'custom'",
+            "type": "number",
+            "format": "double",
+            "required": false
           }
         ],
         "responses": {
@@ -4152,6 +4250,27 @@
             "type": "number",
             "format": "double",
             "required": true
+          },
+          {
+            "in": "formData",
+            "name": "leverage_type",
+            "description": "Leverage type for futures accounts",
+            "type": "string",
+            "default": "not_specified",
+            "enum": [
+              "custom",
+              "cross",
+              "not_specified"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "leverage_custom_value",
+            "description": "Required if leverage_type = 'custom'",
+            "type": "number",
+            "format": "double",
+            "required": false
           },
           {
             "in": "formData",
@@ -5131,6 +5250,10 @@
           "type": "boolean",
           "example": "false"
         },
+        "gordon_bots_available": {
+          "type": "boolean",
+          "example": "false"
+        },
         "multi_bots_allowed": {
           "type": "boolean",
           "example": "false"
@@ -5239,6 +5362,14 @@
         "pretty_display_type": {
           "type": "string",
           "example": "'BittrexAccount'"
+        },
+        "exchange_name": {
+          "type": "string",
+          "example": "'Binance Futures'"
+        },
+        "market_code": {
+          "type": "string",
+          "example": "'deribit_testnet'"
         },
         "address": {
           "type": "string",
@@ -5689,6 +5820,14 @@
           "type": "string",
           "example": "'100'"
         },
+        "leverage_type": {
+          "type": "string",
+          "example": "'custom'"
+        },
+        "leverage_custom_value": {
+          "type": "string",
+          "example": "'20.1'"
+        },
         "name": {
           "type": "string",
           "example": "'GridBot1'"
@@ -5708,6 +5847,18 @@
         "current_profit": {
           "type": "string",
           "example": "100"
+        },
+        "current_profit_usd": {
+          "type": "string",
+          "example": "1000"
+        },
+        "bought_volume": {
+          "type": "string",
+          "example": "1000"
+        },
+        "sold_volume": {
+          "type": "string",
+          "example": "1000"
         },
         "profit_percentage": {
           "type": "string",

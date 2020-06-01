@@ -14,6 +14,8 @@ Name | Type | Mandatory | Values(default) | Description
 account_id | integer | YES |   | id from GET /ver1/accounts
 pair | string | YES |   | 
 total_quantity | number | YES |   | 
+leverage_type | string | NO | custom, cross, not_specified (not_specified) | Leverage type for futures accounts
+leverage_custom_value | number | NO |   | Required if leverage_type = 'custom'
 ### Create Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)
 ```
 POST /ver1/grid_bots/manual
@@ -31,6 +33,8 @@ upper_price | number | YES |   |
 lower_price | number | YES |   | 
 quantity_per_grid | number | YES |   | 
 grids_quantity | number | YES |   | 
+leverage_type | string | NO | custom, cross, not_specified (not_specified) | Leverage type for futures accounts
+leverage_custom_value | number | NO |   | Required if leverage_type = 'custom'
 is_enabled | boolean | NO |  (true) | Turn on or off grid_bot after creation
 ### Get AI settings (Permission: BOTS_READ, Security: SIGNED)
 ```
@@ -161,6 +165,8 @@ updated_at: 2018-08-10 10:10:10
 lower_price: '8000'                       
 upper_price: '10000'                      
 quantity_per_grid: '100'                  
+leverage_type: 'custom'                   
+leverage_custom_value: '20.1'             
 name: 'GridBot1'                          
 pair: 'BTC_ETH'                           
 start_price: '9000'                       

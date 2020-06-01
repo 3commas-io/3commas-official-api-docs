@@ -254,6 +254,7 @@ conditional_buy_supported: true
 bots_allowed: false                       
 bots_ttp_allowed: false                   
 bots_tsl_allowed: false                   
+gordon_bots_available: false              
 multi_bots_allowed: false                 
 created_at: 2018-08-08 08:08:08           
 updated_at: 2018-08-22 02:25:08           

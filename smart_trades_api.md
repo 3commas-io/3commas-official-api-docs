@@ -268,6 +268,18 @@ POST /ver1/smart_trades/{smart_trade_id}/panic_sell
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 smart_trade_id | integer | YES |   | 
+### Process BuyStep immediately  (Permission: SMART_TRADE_WRITE, Security: SIGNED)
+```
+POST /ver1/smart_trades/{smart_trade_id}/force_start
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+smart_trade_id | integer | YES |   | 
 ### Refresh SmartTrade state (Permission: SMART_TRADE_WRITE, Security: SIGNED)
 ```
 POST /ver1/smart_trades/{smart_trade_id}/force_process
