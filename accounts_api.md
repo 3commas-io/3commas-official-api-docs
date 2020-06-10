@@ -233,6 +233,19 @@ POST /ver1/accounts/{account_id}/remove
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 account_id | integer | YES |   | 
+### Single Account Info (Permission: ACCOUNTS_READ, Security: SIGNED)
+You can send 'summary' instead of {account_id} to get summary account info
+```
+GET /ver1/accounts/{account_id}
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+account_id | integer | YES |   | 
 # Response Entities 
 ### AccountEntity
  ``` 

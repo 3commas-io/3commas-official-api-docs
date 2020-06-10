@@ -2317,6 +2317,32 @@
         "operationId": "postVer1AccountsAccountIdRemove"
       }
     },
+    "/ver1/accounts/{account_id}": {
+      "get": {
+        "description": "Single Account Info (Permission: ACCOUNTS_READ, Security: SIGNED)\nYou can send 'summary' instead of {account_id} to get summary account info",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "account_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Single Account Info (Permission: ACCOUNTS_READ, Security: SIGNED)\nYou can send 'summary' instead of {account_id} to get summary account info"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "getVer1AccountsAccountId"
+      }
+    },
     "/ver1/smart_trades/create_simple_sell": {
       "post": {
         "description": "Create SimpleSell (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
