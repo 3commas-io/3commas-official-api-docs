@@ -4672,7 +4672,8 @@
       "type": "object",
       "properties": {
         "pong": {
-          "type": "'pong'"
+          "type": "string",
+          "example": "'pong'"
         }
       },
       "description": "Test connectivity to the Rest API (Permission: NONE, Security: NONE)"
@@ -4681,7 +4682,10 @@
       "type": "object",
       "properties": {
         "server_time": {
-          "type": "1525533222"
+          "type": "integer",
+          "format": "int32",
+          "example": "1592769067",
+          "description": "UNIX timestamp"
         }
       },
       "description": "Test connectivity to the Rest API and get the current server time (Permission: NONE, Security: NONE)"
@@ -5304,12 +5308,6 @@
         "grid_bots_allowed": {
           "type": "boolean",
           "example": true
-        },
-        "nomics_id": {
-          "type": "hidden"
-        },
-        "market_icon": {
-          "type": "hidden"
         },
         "api_key": {
           "type": "string",
