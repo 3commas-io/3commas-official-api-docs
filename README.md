@@ -1,6 +1,6 @@
 # Public Rest API for 3commas.io (2020-06-10)
 # General API Information
-* Official Announcements regarding changes, downtime, etc. to the API will be reported here: **https://t.me/commas**
+* Official Announcements regarding changes, downtime, etc. to the API will be reported here: **https://t.me/commas_API**
 * We have telegram group where you can discuss any issues with API **https://t.me/xcommas_api**
 * Streams, endpoints, parameters, payloads, etc. decscribed in the documents in this repository are considered **official** and **supported**.
 * The use of any other streams, endpoints, parameters, or payloads, etc. is **not supported**; **use them at your own risk and with no guarantees.**
