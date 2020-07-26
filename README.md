@@ -47,6 +47,7 @@
 
 # Third-party implementations
 * https://www.npmjs.com/package/3commas-api-node
+* https://www.npmjs.com/package/3commas-typescript
 * https://github.com/TheKimono/3Commas.Net
 * https://github.com/bogdanteodoru/py3cw (Python 3.x implementation)
 
