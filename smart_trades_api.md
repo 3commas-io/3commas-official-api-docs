@@ -58,7 +58,7 @@ take_profit_price_method | string | NO | bid, ask, last (bid) | Price type for t
 take_profit_sell_method | string | NO | market, limit (market) | 
 take_profit_sell_order_price | number | NO |   | Required if limit
 trailing_take_profit | boolean | NO |   | 
-trailing_take_profit_step | number | NO |   | require if trailing_take_profit
+trailing_take_profit_step | number | NO |   | Required if trailing_take_profit
 stop_loss_enabled | boolean | YES |   | 
 stop_loss_price_condition | number | NO |   | Required if stop_loss_enabled
 stop_loss_percentage_condition | number | NO |   | Required if stop_loss_enabled AND trailing_buy_enabled. Must be negative
