@@ -91,6 +91,41 @@ GET /ver1/grid_bots/{id}/profits
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 id | integer | YES |   | 
+### Edit Grid Bot (AI) (Permission: BOTS_WRITE, Security: SIGNED)
+```
+PATCH /ver1/grid_bots/{id}/ai
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+pair | string | YES |   | 
+total_quantity | number | YES |   | 
+leverage_type | string | NO | custom, cross, not_specified (not_specified) | Leverage type for futures accounts
+leverage_custom_value | number | NO |   | Required if leverage_type = 'custom'
+id | integer | YES |   | 
+### Edit Grid Bot (Manual) (Permission: BOTS_WRITE, Security: SIGNED)
+```
+PATCH /ver1/grid_bots/{id}/manual
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+pair | string | YES |   | 
+upper_price | number | YES |   | 
+lower_price | number | YES |   | 
+quantity_per_grid | number | YES |   | 
+grids_quantity | number | YES |   | 
+leverage_type | string | NO | custom, cross, not_specified (not_specified) | Leverage type for futures accounts
+leverage_custom_value | number | NO |   | Required if leverage_type = 'custom'
+id | integer | YES |   | 
 ### Show Grid Bot (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/grid_bots/{id}

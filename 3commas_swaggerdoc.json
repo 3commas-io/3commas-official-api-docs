@@ -2317,6 +2317,38 @@
         "operationId": "postVer1AccountsAccountIdRemove"
       }
     },
+    "/ver1/accounts/{account_id}/leverage_data": {
+      "get": {
+        "description": "Information about account leverage (Permission: ACCOUNTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "pair",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "account_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Information about account leverage (Permission: ACCOUNTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "getVer1AccountsAccountIdLeverageData"
+      }
+    },
     "/ver1/accounts/{account_id}": {
       "get": {
         "description": "Single Account Info (Permission: ACCOUNTS_READ, Security: SIGNED)\nYou can send 'summary' instead of {account_id} to get summary account info",
@@ -3995,6 +4027,31 @@
         "operationId": "postVer1SmartTradesSmartTradeIdForceProcess"
       }
     },
+    "/ver1/smart_trades/{smart_trade_id}/show": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "smart_trade_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "get Show(s)"
+          }
+        },
+        "tags": [
+          "smart_trades"
+        ],
+        "operationId": "getVer1SmartTradesSmartTradeIdShow"
+      }
+    },
     "/ver1/marketplace/items": {
       "get": {
         "description": "All marketplace items (Permission: NONE, Security: NONE)",
@@ -4490,6 +4547,153 @@
           "grid_bots"
         ],
         "operationId": "getVer1GridBotsIdProfits"
+      }
+    },
+    "/ver1/grid_bots/{id}/ai": {
+      "patch": {
+        "description": "Edit Grid Bot (AI) (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "pair",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "total_quantity",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "leverage_type",
+            "description": "Leverage type for futures accounts",
+            "type": "string",
+            "default": "not_specified",
+            "enum": [
+              "custom",
+              "cross",
+              "not_specified"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "leverage_custom_value",
+            "description": "Required if leverage_type = 'custom'",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Edit Grid Bot (AI) (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "grid_bots"
+        ],
+        "operationId": "patchVer1GridBotsIdAi"
+      }
+    },
+    "/ver1/grid_bots/{id}/manual": {
+      "patch": {
+        "description": "Edit Grid Bot (Manual) (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "pair",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "upper_price",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "lower_price",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "quantity_per_grid",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "grids_quantity",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "leverage_type",
+            "description": "Leverage type for futures accounts",
+            "type": "string",
+            "default": "not_specified",
+            "enum": [
+              "custom",
+              "cross",
+              "not_specified"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "leverage_custom_value",
+            "description": "Required if leverage_type = 'custom'",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Edit Grid Bot (Manual) (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "grid_bots"
+        ],
+        "operationId": "patchVer1GridBotsIdManual"
       }
     },
     "/ver1/grid_bots/{id}": {
@@ -5308,6 +5512,9 @@
         "grid_bots_allowed": {
           "type": "boolean",
           "example": true
+        },
+        "supported_market_types": {
+          "type": "string"
         },
         "api_key": {
           "type": "string",
