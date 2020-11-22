@@ -49,7 +49,7 @@ Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 pair | string | YES |   | 
 market_code | string | YES |   | Market code from /accounts/market_list
-### Grid bits list (Permission: BOTS_READ, Security: SIGNED)
+### Grid bots list (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/grid_bots
 ```
