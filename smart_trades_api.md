@@ -292,6 +292,18 @@ POST /ver1/smart_trades/{smart_trade_id}/force_process
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 smart_trade_id | integer | YES |   | 
+### summary_missing
+```
+GET /ver1/smart_trades/{smart_trade_id}/show
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+smart_trade_id | integer | YES |   | 
 # Response Entities 
 ### SmartTradeEntity
  ``` 

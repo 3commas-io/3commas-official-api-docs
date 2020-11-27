@@ -233,6 +233,19 @@ POST /ver1/accounts/{account_id}/remove
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 account_id | integer | YES |   | 
+### Information about account leverage (Permission: ACCOUNTS_READ, Security: SIGNED)
+```
+GET /ver1/accounts/{account_id}/leverage_data
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+pair | string | YES |   | 
+account_id | integer | YES |   | 
 ### Single Account Info (Permission: ACCOUNTS_READ, Security: SIGNED)
 You can send 'summary' instead of {account_id} to get summary account info
 ```
@@ -274,6 +287,7 @@ updated_at: 2018-08-22 02:25:08
 last_auto_balance: 2018-08-21 08:08:08    
 fast_convert_available: true             Sell all to USD/BTC possibility 
 grid_bots_allowed: true                   
+supported_market_types:                   
 api_key: ''                               
 name: 'Binance 2 '                        
 auto_balance_method: 'time'              Values: time, currency_change 

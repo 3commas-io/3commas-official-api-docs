@@ -33,7 +33,8 @@ Name | Type | Mandatory | Values(default) | Description
 account_id | integer | YES |   | id from GET /ver1/accounts
 pair | string | YES |   | 
 instant | boolean | NO |   | true for Simple Buy and Simple Sell
-skip_enter_step | boolean | NO |   | true only for Smart Sell
+skip_enter_step | boolean | NO |   | true for Smart Buy and Smart Sell
+note | string | NO |   | note for Smart Trade
 leverage[enabled] | boolean | YES |   | 
 leverage[type] | string | NO | custom, cross  | 
 leverage[value] | integer | NO |   | Cross leverage value
