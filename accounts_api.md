@@ -120,7 +120,7 @@ GET /ver1/accounts/currency_rates
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 pretty_display_type | string | NO |   | deprecated. use market_code instead
-market_code | string | NO |   | market_code from account model
+market_code | string | YES |   | market_code from account model
 pair | string | YES |   | Pair
 ### Active trade entities (Permission: ACCOUNTS_READ, Security: SIGNED)
 ```
