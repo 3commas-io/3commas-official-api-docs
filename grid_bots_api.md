@@ -31,7 +31,7 @@ account_id | integer | YES |   | id from GET /ver1/accounts
 pair | string | YES |   | 
 upper_price | number | YES |   | 
 lower_price | number | YES |   | 
-quantity_per_grid | number | YES |   | 
+quantity_per_grid | integer | YES |   | 
 grids_quantity | number | YES |   | 
 leverage_type | string | NO | custom, cross, not_specified (not_specified) | Leverage type for futures accounts
 leverage_custom_value | number | NO |   | Required if leverage_type = 'custom'
@@ -121,7 +121,7 @@ Name | Type | Mandatory | Values(default) | Description
 pair | string | YES |   | 
 upper_price | number | YES |   | 
 lower_price | number | YES |   | 
-quantity_per_grid | number | YES |   | 
+quantity_per_grid | integer | YES |   | 
 grids_quantity | number | YES |   | 
 leverage_type | string | NO | custom, cross, not_specified (not_specified) | Leverage type for futures accounts
 leverage_custom_value | number | NO |   | Required if leverage_type = 'custom'
