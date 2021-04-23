@@ -54,6 +54,7 @@ type | string | YES |   | check market_code in market_list method
 name | string | YES |   | Account name (any string)
 api_key | string | NO |   | Requires unless type = binance_dex
 secret | string | NO |   | Requires unless type = binance_dex
+address | string | NO |   | Requires if type = ethereumwallet
 customer_id | string | NO |   | For Bitstamp
 passphrase | string | NO |   | For Coinbase Pro (GDAX)
 how_connect | string | NO | mnemonic_phrase, keystore  | 
@@ -120,8 +121,48 @@ GET /ver1/accounts/currency_rates
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 pretty_display_type | string | NO |   | deprecated. use market_code instead
-market_code | string | YES |   | market_code from account model
+market_code | string | NO |   | market_code from account model
 pair | string | YES |   | Pair
+### User Deposit Data (Permission: ACCOUNTS_READ, Security: SIGNED)
+```
+GET /ver1/accounts/{account_id}/deposit_data
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+currency | string | YES |   | 
+network | string | YES |   | 
+account_id | integer | YES |   | 
+### Deposit/withdraw networks info (Permission: ACCOUNTS_READ, Security: SIGNED)
+```
+GET /ver1/accounts/{account_id}/networks_info
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+purpose | string | NO | deposit, withdraw  | Filter currencies with deposit/withdraw enabled
+account_id | integer | YES |   | 
+### Convert dust coins to BNB (Permission: ACCOUNTS_WRITE, Security: SIGNED)
+```
+POST /ver1/accounts/{account_id}/convert_dust_to_bnb
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+codes | array[string] | NO |   | Array of currency codes
+account_id | integer | YES |   | 
 ### Active trade entities (Permission: ACCOUNTS_READ, Security: SIGNED)
 ```
 GET /ver1/accounts/{account_id}/active_trading_entities
@@ -287,6 +328,7 @@ updated_at: 2018-08-22 02:25:08
 last_auto_balance: 2018-08-21 08:08:08    
 fast_convert_available: true             Sell all to USD/BTC possibility 
 grid_bots_allowed: true                   
+api_key_invalid: true                     
 supported_market_types:                   
 api_key: ''                               
 name: 'Binance 2 '                        

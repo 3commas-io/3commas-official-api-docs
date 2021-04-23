@@ -68,7 +68,7 @@ strategy | string | NO | short, long (long) |
 safety_order_step_percentage | number | YES |   | Price deviation to open safety trades(percentage)
 take_profit_type | string | YES | base, total (base) | Percentage: base – from base order, total – from total volume
 strategy_list | array[json] | YES |   | For manual signals: [{"strategy":"manual"}] or []<br>                                                        For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>                                                        QFL: {"options"=>{"type"=>"original"}, "strategy"=>"qfl"}] <br>                                                        TradingView: [{"options"=>{"time"=>"5m", "type"=>"buy_or_strong_buy"}, "strategy"=>"trading_view"} 
-leverage_type | string | NO | custom, cross, not_specified (not_specified) | Used for Bitmex bots only
+leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Used for Bitmex bots only
 leverage_custom_value | number | NO |   | required if leverage_type is custom
 min_price | number | NO |   | minimum price to open deal
 max_price | number | NO |   | maximum price to open deal
@@ -98,6 +98,9 @@ offset | integer | NO |   | Offset records
 account_id | integer | NO |   | Account to show bots on. Return all if not specified. Gather this from GET /ver1/accounts
 scope | string | NO | enabled, disabled  | 
 strategy | string | NO | long, short  | 
+sort_by | string | NO | profit, created_at, updated_at (created_at) | 
+sort_direction | string | NO | asc, desc (desc) | 
+quote | string | NO |   | Quote currency
 ### Get bot stats (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/bots/stats
@@ -142,7 +145,7 @@ btc_price_limit | number | NO |   |
 safety_order_step_percentage | number | YES |   | Price deviation to open safety trades(percentage)
 take_profit_type | string | YES | total, base (total) | Percentage: base – from base order, total – from total volume
 strategy_list | array[json] | YES |   | For manual signals: [{"strategy":"nonstop"}] or []<br>                                                          For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>                                                          QFL: {"options"=>{"type"=>"original"}, "strategy"=>"qfl"}] <br>                                                          TradingView: [{"options"=>{"time"=>"5m", "type"=>"buy_or_strong_buy"}, "strategy"=>"trading_view"} 
-leverage_type | string | NO | custom, cross, not_specified (not_specified) | Used for Bitmex bots only
+leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Used for Bitmex bots only
 leverage_custom_value | number | NO |   | required if leverage_type is custom
 min_price | number | NO |   | minimum price to open deal
 max_price | number | NO |   | maximum price to open deal
@@ -293,7 +296,7 @@ account_name: 'My account'
 trailing_deviation: 0.14                  
 finished_deals_profit_usd: 12.14          
 finished_deals_count: 252.1               
-leverage_type: 'not_specified'           Values: custom, cross, not_specified 
+leverage_type: 'not_specified'           Values: custom, cross, not_specified, isolated 
 leverage_custom_value: '1'                
 start_order_type: 'limit'                Values: limit, market 
 } 

@@ -14,7 +14,7 @@ Name | Type | Mandatory | Values(default) | Description
 account_id | integer | YES |   | id from GET /ver1/accounts
 pair | string | YES |   | 
 total_quantity | number | YES |   | 
-leverage_type | string | NO | custom, cross, not_specified (not_specified) | Leverage type for futures accounts
+leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Leverage type for futures accounts
 leverage_custom_value | number | NO |   | Required if leverage_type = 'custom'
 ### Create Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)
 ```
@@ -33,7 +33,7 @@ upper_price | number | YES |   |
 lower_price | number | YES |   | 
 quantity_per_grid | number | YES |   | 
 grids_quantity | number | YES |   | 
-leverage_type | string | NO | custom, cross, not_specified (not_specified) | Leverage type for futures accounts
+leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Leverage type for futures accounts
 leverage_custom_value | number | NO |   | Required if leverage_type = 'custom'
 is_enabled | boolean | NO |  (true) | Turn on or off grid_bot after creation
 ### Get AI settings (Permission: BOTS_READ, Security: SIGNED)
@@ -63,10 +63,12 @@ Name | Type | Mandatory | Values(default) | Description
 account_ids | array[integer] | NO |   | Filter by account id
 account_types | array[string] | NO |   | Filter by account type
 state | string | NO | enabled, disabled  | Filter by bot state
-sort_by | string | NO | current_profit, bot_id, pair  | Sort column
+sort_by | string | NO | current_profit, profit, bot_id, pair, created_at, updated_at  | Sort column
 sort_direction | string | NO | desc, asc  | Sort direction
 limit | integer | NO |  (10) | 
 offset | integer | NO |  (0) | 
+base | string | NO |   | Base currency
+quote | string | NO |   | Quote currency
 ### Grid Bot Market Orders (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/grid_bots/{id}/market_orders
@@ -104,7 +106,7 @@ Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 pair | string | YES |   | 
 total_quantity | number | YES |   | 
-leverage_type | string | NO | custom, cross, not_specified (not_specified) | Leverage type for futures accounts
+leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Leverage type for futures accounts
 leverage_custom_value | number | NO |   | Required if leverage_type = 'custom'
 id | integer | YES |   | 
 ### Edit Grid Bot (Manual) (Permission: BOTS_WRITE, Security: SIGNED)
@@ -123,7 +125,7 @@ upper_price | number | YES |   |
 lower_price | number | YES |   | 
 quantity_per_grid | number | YES |   | 
 grids_quantity | number | YES |   | 
-leverage_type | string | NO | custom, cross, not_specified (not_specified) | Leverage type for futures accounts
+leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Leverage type for futures accounts
 leverage_custom_value | number | NO |   | Required if leverage_type = 'custom'
 id | integer | YES |   | 
 ### Show Grid Bot (Permission: BOTS_READ, Security: SIGNED)

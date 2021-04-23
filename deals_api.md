@@ -16,7 +16,10 @@ offset | integer | NO |   | Offset records
 account_id | integer | NO |   | Account to show bots on. Return all if not specified. Gather this from GET /ver1/accounts
 bot_id | integer | NO |   | Bot show deals on. Return all if not specified
 scope | string | NO |   | active - active deals, finished - finished deals, completed - successfully completed, cancelled - cancelled deals, failed - failed deals, any other value or null (default) - all deals
-order | string | NO | created_at, closed_at (created_at) | 
+order | string | NO | created_at, updated_at, closed_at, profit, profit_percentage (created_at) | 
+order_direction | string | NO | asc, desc (desc) | 
+base | string | NO |   | Base currency
+quote | string | NO |   | Quote currency
 ### DEPRECATED, Update max safety orders (Permission: BOTS_WRITE, Security: SIGNED)
 ```
 POST /ver1/deals/{deal_id}/update_max_safety_orders
@@ -190,6 +193,8 @@ take_profit: '1.23'                      Percentage
 base_order_volume: '0.001'                
 safety_order_volume: '0.0015'             
 safety_order_step_percentage: '1.11'      
+leverage_type: 'custom'                   
+leverage_custom_value: '20.1'             
 bought_amount: '1.5'                      
 bought_volume: '150'                      
 bought_average_price: '100'               
