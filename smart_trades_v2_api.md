@@ -16,7 +16,7 @@ pair | string | NO |   |
 type | string | NO | simple_buy, simple_sell, smart_sell, smart_trade, smart_cover  | 
 page | integer | NO |  (1) | 
 per_page | integer | NO |  (10) | 
-status | string | NO | all, active, finished, cancelled, failed  | 
+status | string | NO | all, active, finished, successfully_finished, cancelled, failed  | 
 order_by | string | NO | created_at, updated_at, closed_at, status (status) | 
 order_direction | string | NO | asc, desc (desc) | 
 ### Create smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)
