@@ -148,7 +148,7 @@ Use a HMAC SHA256 generator tool.
 
 "" | ""
 ------------ | ------------
-Input value | /public/api/ver1/bots/4519427/show?include_events=true
+Input value | /public/api/ver1/bots/84512/show?include_events=true
 Secret Key | Use your secret API key from 3commas
 Hashed Output | Signature result to be used in Step 3
 
