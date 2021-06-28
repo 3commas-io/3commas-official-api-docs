@@ -82,6 +82,7 @@ start_order_type | string | NO | limit, market  |
 stop_loss_type | string | NO | stop_loss, stop_loss_and_disable_bot  | 
 disable_after_deals_count | integer | NO |   | Bot will be disabled after opening this number of deals
 allowed_deals_on_same_pair | integer | NO |   | Allow specific number of deals on the same pair. Multibot only.
+close_deals_timeout | integer | NO |   | Close bot deals after given number of seconds. Must be greater than 60.
 ### User bots (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/bots
@@ -95,6 +96,7 @@ Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 limit | integer | NO |  (50) | Limit records. Max: 100
 offset | integer | NO |   | Offset records
+from | string | NO |   | From date
 account_id | integer | NO |   | Account to show bots on. Return all if not specified. Gather this from GET /ver1/accounts
 scope | string | NO | enabled, disabled  | 
 strategy | string | NO | long, short  | 

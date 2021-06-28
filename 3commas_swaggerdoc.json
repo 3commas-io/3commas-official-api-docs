@@ -463,6 +463,14 @@
             "type": "integer",
             "format": "int32",
             "required": false
+          },
+          {
+            "in": "formData",
+            "name": "close_deals_timeout",
+            "description": "Close bot deals after given number of seconds. Must be greater than 60.",
+            "type": "integer",
+            "format": "int32",
+            "required": false
           }
         ],
         "responses": {
@@ -502,6 +510,13 @@
           },
           {
             "in": "query",
+            "name": "from",
+            "description": "From date",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
             "name": "account_id",
             "description": "Account to show bots on. Return all if not specified. Gather this from GET /ver1/accounts",
             "type": "integer",
@@ -526,6 +541,36 @@
               "long",
               "short"
             ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "sort_by",
+            "type": "string",
+            "default": "created_at",
+            "enum": [
+              "profit",
+              "created_at",
+              "updated_at"
+            ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "sort_direction",
+            "type": "string",
+            "default": "desc",
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "quote",
+            "description": "Quote currency",
+            "type": "string",
             "required": false
           }
         ],
@@ -1148,6 +1193,13 @@
           },
           {
             "in": "query",
+            "name": "from",
+            "description": "From date",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
             "name": "account_id",
             "description": "Account to show bots on. Return all if not specified. Gather this from GET /ver1/accounts",
             "type": "integer",
@@ -1176,8 +1228,36 @@
             "default": "created_at",
             "enum": [
               "created_at",
-              "closed_at"
+              "updated_at",
+              "closed_at",
+              "profit",
+              "profit_percentage"
             ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "order_direction",
+            "type": "string",
+            "default": "desc",
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "base",
+            "description": "Base currency",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "quote",
+            "description": "Quote currency",
+            "type": "string",
             "required": false
           }
         ],
@@ -1389,6 +1469,14 @@
               "stop_loss",
               "stop_loss_and_disable_bot"
             ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "close_timeout",
+            "description": "Close deal after given number of seconds. Must be greater than 60.",
+            "type": "integer",
+            "format": "int32",
             "required": false
           },
           {
@@ -1625,9 +1713,26 @@
         "operationId": "getVer1DealsDealIdDataForAddingFunds"
       }
     },
+    "/ver1/users/current_mode": {
+      "get": {
+        "description": "Current User Mode (Paper or Real) (Permission: ACCOUNTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Current User Mode (Paper or Real) (Permission: ACCOUNTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "operationId": "getVer1UsersCurrentMode"
+      }
+    },
     "/ver1/users/change_mode": {
       "post": {
-        "description": "Change User Mode(Paper or Real) (Permission: ACCOUNTS_WRITE, Security: SIGNED)",
+        "description": "Change User Mode (Paper or Real) (Permission: ACCOUNTS_WRITE, Security: SIGNED)",
         "produces": [
           "application/json"
         ],
@@ -1648,7 +1753,7 @@
         ],
         "responses": {
           "201": {
-            "description": "Change User Mode(Paper or Real) (Permission: ACCOUNTS_WRITE, Security: SIGNED)"
+            "description": "Change User Mode (Paper or Real) (Permission: ACCOUNTS_WRITE, Security: SIGNED)"
           }
         },
         "tags": [
@@ -1813,6 +1918,13 @@
             "in": "formData",
             "name": "secret",
             "description": "Requires unless type = binance_dex",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "address",
+            "description": "Requires if type = ethereumwallet",
             "type": "string",
             "required": false
           },
@@ -2040,6 +2152,120 @@
           "accounts"
         ],
         "operationId": "getVer1AccountsCurrencyRates"
+      }
+    },
+    "/ver1/accounts/{account_id}/deposit_data": {
+      "get": {
+        "description": "User Deposit Data (Permission: ACCOUNTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "currency",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "network",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "account_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User Deposit Data (Permission: ACCOUNTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "getVer1AccountsAccountIdDepositData"
+      }
+    },
+    "/ver1/accounts/{account_id}/networks_info": {
+      "get": {
+        "description": "Deposit/withdraw networks info (Permission: ACCOUNTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "purpose",
+            "description": "Filter currencies with deposit/withdraw enabled",
+            "type": "string",
+            "enum": [
+              "deposit",
+              "withdraw"
+            ],
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "account_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deposit/withdraw networks info (Permission: ACCOUNTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "getVer1AccountsAccountIdNetworksInfo"
+      }
+    },
+    "/ver1/accounts/{account_id}/convert_dust_to_bnb": {
+      "post": {
+        "description": "Convert dust coins to BNB (Permission: ACCOUNTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "codes",
+            "description": "Array of currency codes",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "account_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Convert dust coins to BNB (Permission: ACCOUNTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "postVer1AccountsAccountIdConvertDustToBnb"
       }
     },
     "/ver1/accounts/{account_id}/active_trading_entities": {
@@ -2592,62 +2818,52 @@
           },
           {
             "in": "formData",
-            "name": "take_profit_step_orders",
-            "description": "Required if take_profit_type = step_sell. 4 steps max. Format: [{percent: 50, price: 100(or price_percentage = 20), price_method: bid,ask,last}, ...]",
-            "type": "array",
-            "items": {
-              "type": "json"
-            },
-            "required": true
-          },
-          {
-            "in": "formData",
             "name": "take_profit_step_orders[percent]",
             "description": "Required if take_profit_step_orders",
             "type": "array",
+            "required": true,
             "items": {
               "type": "number",
               "format": "float"
-            },
-            "required": true
+            }
           },
           {
             "in": "formData",
             "name": "take_profit_step_orders[price]",
             "description": "Required if take_profit_step_orders",
             "type": "array",
+            "required": false,
             "items": {
               "type": "number",
               "format": "double"
-            },
-            "required": false
+            }
           },
           {
             "in": "formData",
             "name": "take_profit_step_orders[price_method]",
             "description": "Required if take_profit_step_orders",
             "type": "array",
+            "default": "bid",
+            "required": true,
             "items": {
               "type": "string",
               "enum": [
                 "bid",
                 "ask",
                 "last"
-              ],
-              "default": "bid"
-            },
-            "required": true
+              ]
+            }
           },
           {
             "in": "formData",
             "name": "take_profit_step_orders[price_percentage]",
             "description": "Required if take_profit_step_orders AND trailing_buy_enabled. Must be positive",
             "type": "array",
+            "required": false,
             "items": {
               "type": "number",
               "format": "float"
-            },
-            "required": false
+            }
           },
           {
             "in": "formData",
@@ -2690,7 +2906,7 @@
           {
             "in": "formData",
             "name": "trailing_take_profit_step",
-            "description": "require if trailing_take_profit",
+            "description": "Required if trailing_take_profit",
             "type": "number",
             "format": "double",
             "required": false
@@ -2897,62 +3113,52 @@
           },
           {
             "in": "formData",
-            "name": "take_profit_step_orders",
-            "description": "Required if take_profit_type = step_sell. 4 steps max. Format: [{percent: 50, price: 100(or price_percentage = 20), price_method: bid,ask,last}, ...]",
-            "type": "array",
-            "items": {
-              "type": "json"
-            },
-            "required": true
-          },
-          {
-            "in": "formData",
             "name": "take_profit_step_orders[percent]",
             "description": "Required if take_profit_step_orders",
             "type": "array",
+            "required": true,
             "items": {
               "type": "number",
               "format": "float"
-            },
-            "required": true
+            }
           },
           {
             "in": "formData",
             "name": "take_profit_step_orders[price]",
             "description": "Required if take_profit_step_orders",
             "type": "array",
+            "required": false,
             "items": {
               "type": "number",
               "format": "double"
-            },
-            "required": false
+            }
           },
           {
             "in": "formData",
             "name": "take_profit_step_orders[price_method]",
             "description": "Required if take_profit_step_orders",
             "type": "array",
+            "default": "bid",
+            "required": true,
             "items": {
               "type": "string",
               "enum": [
                 "bid",
                 "ask",
                 "last"
-              ],
-              "default": "bid"
-            },
-            "required": true
+              ]
+            }
           },
           {
             "in": "formData",
             "name": "take_profit_step_orders[price_percentage]",
             "description": "Required if take_profit_step_orders AND trailing_buy_enabled. Must be negative",
             "type": "array",
+            "required": false,
             "items": {
               "type": "number",
               "format": "float"
-            },
-            "required": false
+            }
           },
           {
             "in": "formData",
@@ -2995,7 +3201,7 @@
           {
             "in": "formData",
             "name": "trailing_take_profit_step",
-            "description": "require if trailing_take_profit",
+            "description": "Required if trailing_take_profit",
             "type": "number",
             "format": "double",
             "required": false
@@ -3202,62 +3408,52 @@
           },
           {
             "in": "formData",
-            "name": "take_profit_step_orders",
-            "description": "Required if take_profit_type = step_sell. 4 steps max. Format: [{percent: 50, price: 100(or price_percentage = 20), price_method: bid,ask,last}, ...]",
-            "type": "array",
-            "items": {
-              "type": "json"
-            },
-            "required": true
-          },
-          {
-            "in": "formData",
             "name": "take_profit_step_orders[percent]",
             "description": "Required if take_profit_step_orders",
             "type": "array",
+            "required": true,
             "items": {
               "type": "number",
               "format": "float"
-            },
-            "required": true
+            }
           },
           {
             "in": "formData",
             "name": "take_profit_step_orders[price]",
             "description": "Required if take_profit_step_orders",
             "type": "array",
+            "required": false,
             "items": {
               "type": "number",
               "format": "double"
-            },
-            "required": false
+            }
           },
           {
             "in": "formData",
             "name": "take_profit_step_orders[price_method]",
             "description": "Required if take_profit_step_orders",
             "type": "array",
+            "default": "bid",
+            "required": true,
             "items": {
               "type": "string",
               "enum": [
                 "bid",
                 "ask",
                 "last"
-              ],
-              "default": "bid"
-            },
-            "required": true
+              ]
+            }
           },
           {
             "in": "formData",
             "name": "take_profit_step_orders[price_percentage]",
             "description": "Required if take_profit_step_orders AND trailing_buy_enabled. Must be positive",
             "type": "array",
+            "required": false,
             "items": {
               "type": "number",
               "format": "float"
-            },
-            "required": false
+            }
           },
           {
             "in": "formData",
@@ -3300,7 +3496,7 @@
           {
             "in": "formData",
             "name": "trailing_take_profit_step",
-            "description": "require if trailing_take_profit",
+            "description": "Required if trailing_take_profit",
             "type": "number",
             "format": "double",
             "required": false
@@ -3697,73 +3893,63 @@
           },
           {
             "in": "formData",
-            "name": "take_profit_step_orders",
-            "description": "Available if take_profit_type = step_sell.\n                                                    In order to apply changes - send a new set of steps, which contains new and previous steps that were not edited.\n                                                    Position must be unique(for new and previous steps in SmartTrade scope) and greater then 0",
-            "type": "array",
-            "items": {
-              "type": "json"
-            },
-            "required": true
-          },
-          {
-            "in": "formData",
             "name": "take_profit_step_orders[percent]",
             "description": "Required if take_profit_step_orders",
             "type": "array",
+            "required": true,
             "items": {
               "type": "number",
               "format": "float"
-            },
-            "required": true
+            }
           },
           {
             "in": "formData",
             "name": "take_profit_step_orders[price]",
             "description": "Required if take_profit_step_orders",
             "type": "array",
+            "required": false,
             "items": {
               "type": "number",
               "format": "double"
-            },
-            "required": false
+            }
           },
           {
             "in": "formData",
             "name": "take_profit_step_orders[position]",
             "description": "Required if take_profit_step_orders",
             "type": "array",
+            "required": true,
             "items": {
               "type": "integer",
               "format": "int32"
-            },
-            "required": true
+            }
           },
           {
             "in": "formData",
             "name": "take_profit_step_orders[price_method]",
             "description": "Required if take_profit_step_orders",
             "type": "array",
+            "default": "bid",
+            "required": true,
             "items": {
               "type": "string",
               "enum": [
                 "bid",
                 "ask",
                 "last"
-              ],
-              "default": "bid"
-            },
-            "required": true
+              ]
+            }
           },
           {
             "in": "formData",
             "name": "take_profit_step_orders[price_percentage]",
             "description": "Required if take_profit_step_orders AND trailing_buy_enabled",
             "type": "array",
+            "required": false,
             "items": {
               "type": "number",
               "format": "float"
-            },
-            "required": false
+            }
           },
           {
             "in": "formData",
@@ -3806,7 +3992,7 @@
           {
             "in": "formData",
             "name": "trailing_take_profit_step",
-            "description": "require if trailing_take_profit",
+            "description": "Required if trailing_take_profit",
             "type": "number",
             "format": "double",
             "required": false
@@ -4111,7 +4297,6 @@
               "ru",
               "zh",
               "zh-CN",
-              "cn",
               "es",
               "pt",
               "ko",
@@ -4190,7 +4375,6 @@
               "ru",
               "zh",
               "zh-CN",
-              "cn",
               "es",
               "pt",
               "ko",
@@ -4409,7 +4593,7 @@
     },
     "/ver1/grid_bots": {
       "get": {
-        "description": "Grid bits list (Permission: BOTS_READ, Security: SIGNED)",
+        "description": "Grid bots list (Permission: BOTS_READ, Security: SIGNED)",
         "produces": [
           "application/json"
         ],
@@ -4453,8 +4637,11 @@
             "type": "string",
             "enum": [
               "current_profit",
+              "profit",
               "bot_id",
-              "pair"
+              "pair",
+              "created_at",
+              "updated_at"
             ],
             "required": false
           },
@@ -4484,11 +4671,32 @@
             "format": "int32",
             "default": 0,
             "required": false
+          },
+          {
+            "in": "query",
+            "name": "from",
+            "description": "From date",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "base",
+            "description": "Base currency",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "quote",
+            "description": "Quote currency",
+            "type": "string",
+            "required": false
           }
         ],
         "responses": {
           "200": {
-            "description": "Grid bits list (Permission: BOTS_READ, Security: SIGNED)"
+            "description": "Grid bots list (Permission: BOTS_READ, Security: SIGNED)"
           }
         },
         "tags": [
@@ -5018,6 +5226,9 @@
           "example": "'failed'",
           "description": "Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit, ttp_activated, ttp_order_placed, liquidated, bought_safety_pending, bought_take_profit_pending, settled"
         },
+        "localized_status": {
+          "type": "string"
+        },
         "take_profit": {
           "type": "string",
           "example": "'1.23'",
@@ -5035,6 +5246,14 @@
           "type": "string",
           "example": "'1.11'"
         },
+        "leverage_type": {
+          "type": "string",
+          "example": "'custom'"
+        },
+        "leverage_custom_value": {
+          "type": "string",
+          "example": "'20.1'"
+        },
         "bought_amount": {
           "type": "string",
           "example": "'1.5'"
@@ -5044,6 +5263,10 @@
           "example": "'150'"
         },
         "bought_average_price": {
+          "type": "string",
+          "example": "'100'"
+        },
+        "base_order_average_price": {
           "type": "string",
           "example": "'100'"
         },
@@ -5510,6 +5733,10 @@
           "description": "Sell all to USD/BTC possibility"
         },
         "grid_bots_allowed": {
+          "type": "boolean",
+          "example": true
+        },
+        "api_key_invalid": {
           "type": "boolean",
           "example": true
         },

@@ -13,6 +13,7 @@ Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 limit | integer | NO |  (50) | Limit records. Max: 1_000
 offset | integer | NO |   | Offset records
+from | string | NO |   | From date
 account_id | integer | NO |   | Account to show bots on. Return all if not specified. Gather this from GET /ver1/accounts
 bot_id | integer | NO |   | Bot show deals on. Return all if not specified
 scope | string | NO |   | active - active deals, finished - finished deals, completed - successfully completed, cancelled - cancelled deals, failed - failed deals, any other value or null (default) - all deals
@@ -80,6 +81,7 @@ stop_loss_timeout_enabled | boolean | NO |   |
 stop_loss_timeout_in_seconds | integer | NO |   | StopLoss timeout in seconds if StopLoss timeout enabled
 tsl_enabled | boolean | NO |   | Trailing stop loss enabled
 stop_loss_type | string | NO | stop_loss, stop_loss_and_disable_bot  | 
+close_timeout | integer | NO |   | Close deal after given number of seconds. Must be greater than 60.
 deal_id | integer | YES |   | 
 ### DEPRECATED, Update take profit condition. Deal status should be bought (Permission: BOTS_WRITE, Security: SIGNED)
 ```
@@ -189,6 +191,7 @@ stop_loss_timeout_in_seconds: 2
 active_manual_safety_orders: 2            
 pair: 'BTC_ADA'                          Format: QUOTE_BASE 
 status: 'failed'                         Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit, ttp_activated, ttp_order_placed, liquidated, bought_safety_pending, bought_take_profit_pending, settled 
+localized_status:                         
 take_profit: '1.23'                      Percentage 
 base_order_volume: '0.001'                
 safety_order_volume: '0.0015'             
@@ -198,6 +201,7 @@ leverage_custom_value: '20.1'
 bought_amount: '1.5'                      
 bought_volume: '150'                      
 bought_average_price: '100'               
+base_order_average_price: '100'           
 sold_amount: '1.5'                        
 sold_volume: '150'                        
 sold_average_price: '100'                 
