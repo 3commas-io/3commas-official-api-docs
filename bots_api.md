@@ -82,6 +82,7 @@ start_order_type | string | NO | limit, market  |
 stop_loss_type | string | NO | stop_loss, stop_loss_and_disable_bot  | 
 disable_after_deals_count | integer | NO |   | Bot will be disabled after opening this number of deals
 allowed_deals_on_same_pair | integer | NO |   | Allow specific number of deals on the same pair. Multibot only.
+close_deals_timeout | integer | NO |   | Close bot deals after given number of seconds. Must be greater than 60.
 ### User bots (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/bots
@@ -95,6 +96,7 @@ Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 limit | integer | NO |  (50) | Limit records. Max: 100
 offset | integer | NO |   | Offset records
+from | string | NO |   | Param for a filter by created date
 account_id | integer | NO |   | Account to show bots on. Return all if not specified. Gather this from GET /ver1/accounts
 scope | string | NO | enabled, disabled  | 
 strategy | string | NO | long, short  | 
@@ -273,6 +275,7 @@ disable_after_deals_count: 2
 deals_counter: 2                          
 allowed_deals_on_same_pair: 2             
 easy_form_supported: true                 
+close_deals_timeout: 70                  Close bot deals after given number of seconds 
 name: 'Test Bot'                          
 take_profit: '1.5'                       'Percentage' 
 base_order_volume: '0.002'                
@@ -299,5 +302,6 @@ finished_deals_count: 252.1
 leverage_type: 'not_specified'           Values: custom, cross, not_specified, isolated 
 leverage_custom_value: '1'                
 start_order_type: 'limit'                Values: limit, market 
+active_deals_usd_profit: 200.21          Sum of active deals profits 
 } 
  ``` 

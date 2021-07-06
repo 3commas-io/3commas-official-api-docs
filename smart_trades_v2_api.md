@@ -13,12 +13,15 @@ Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 account_id | integer | NO |   | 
 pair | string | NO |   | 
-type | string | NO | simple_buy, simple_sell, smart_sell, smart_trade, smart_cover  | 
+type | string | NO | simple_buy, simple_sell, smart_sell, smart_trade, smart_cover, smart_buy  | 
 page | integer | NO |  (1) | 
 per_page | integer | NO |  (10) | 
 status | string | NO | all, active, finished, successfully_finished, cancelled, failed  | 
-order_by | string | NO | created_at, updated_at, closed_at, status (status) | 
+order_by | string | NO | created_at, updated_at, closed_at, status, profit, profit_percentage (status) | 
 order_direction | string | NO | asc, desc (desc) | 
+from | string | NO |   | Param for a filter by created date
+base | string | NO |   | Base currency
+quote | string | NO |   | Quote currency
 ### Create smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)
 ```
 POST /v2/smart_trades
@@ -33,10 +36,10 @@ Name | Type | Mandatory | Values(default) | Description
 account_id | integer | YES |   | id from GET /ver1/accounts
 pair | string | YES |   | 
 instant | boolean | NO |   | true for Simple Buy and Simple Sell
-skip_enter_step | boolean | NO |   | true for Smart Buy and Smart Sell
-note | string | NO |   | note for Smart Trade
+skip_enter_step | boolean | NO |   | true only for Smart Sell
+note | string | NO |   | 
 leverage[enabled] | boolean | YES |   | 
-leverage[type] | string | NO | custom, cross  | 
+leverage[type] | string | NO | custom, cross, isolated  | 
 leverage[value] | integer | NO |   | Cross leverage value
 position[type] | string | YES | buy, sell  | 
 position[order_type] | string | YES | market, limit, conditional  | 
@@ -46,7 +49,7 @@ position[conditional][price][value] | number | YES |   | Conditional trigger pri
 position[conditional][price][type] | string | NO | bid, ask, last  | By default ask for long, bid for short
 position[conditional][order_type] | string | YES | market, limit  | 
 position[conditional][trailing][enabled] | boolean | YES |   | 
-position[conditional][trailing][percent] | number | YES | 0-100  | Should be 100% in the sum of all steps
+position[conditional][trailing][percent] | number | YES |   | Should be 100% in the sum of all steps
 take_profit[enabled] | boolean | YES |   | 
 take_profit[steps][][position] | number | NO |  | position number
 take_profit[steps][][order_type] | string | YES | market, limit |
@@ -63,7 +66,6 @@ stop_loss[conditional][price][type] | string | YES | bid, ask, last  |
 stop_loss[conditional][price][value] | number | NO |   | if position has no trailing or position trailing is finished
 stop_loss[conditional][price][percent] | number | NO |   | only if position has trailing and position trailing is not finished
 stop_loss[conditional][trailing][enabled] | boolean | YES |   | 
-stop_loss[conditional][trailing][percent] | number | YES |   | 
 stop_loss[timeout][enabled] | boolean | YES |   | 
 stop_loss[timeout][value] | integer | YES |   | 
 
@@ -883,7 +885,7 @@ PATCH /v2/smart_trades/{id}
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 leverage[enabled] | boolean | YES |   | 
-leverage[type] | string | NO | custom, cross  | 
+leverage[type] | string | NO | custom, cross, isolated  | 
 leverage[value] | integer | NO |   | Cross leverage value
 position[units][value] | number | YES |   | Amount of units to buy
 position[price][value] | number | YES |   | Price for limit order
@@ -908,7 +910,6 @@ stop_loss[conditional][price][type] | string | YES | bid, ask, last  |
 stop_loss[conditional][price][value] | number | NO |   | Trigger price
 stop_loss[conditional][price][percent] | number | NO |   | 
 stop_loss[conditional][trailing][enabled] | boolean | YES |   | 
-stop_loss[conditional][trailing][percent] | number | YES |   | 
 stop_loss[timeout][enabled] | boolean | YES |   | 
 stop_loss[timeout][value] | integer | YES |   | 
 id | integer | YES |   | 
@@ -1014,3 +1015,4 @@ Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 smart_trade_id | integer | YES |   | 
 id | integer | YES |   | 
+# Response Entities 

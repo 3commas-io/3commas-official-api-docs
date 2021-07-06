@@ -1,4 +1,4 @@
-# Public Rest API for 3commas.io (2021-04-23)
+# Public Rest API for 3commas.io (2021-07-06)
 # General API Information
 * Official Announcements regarding changes, downtime, etc. to the API will be reported here: **https://t.me/commas_API**
 * We have telegram group where you can discuss any issues with API **https://t.me/xcommas_api**
@@ -164,6 +164,14 @@ These 2 key/value pairs can be entered in Postman under Headers (which is locate
 ### Step 4: Receive JSON object:
 If you have followed these steps you should now receive a status 200 OK with your JSON data.
 
+
+# API modes(real or paper)
+
+By default, API mode(real or paper) synchronized with mode in web/app.
+
+You can set a forced mode for public API through the request header "Forced-Mode" with values "real" or "paper".
+
+
 # Public API Endpoints
 
 **Deal status:**
@@ -232,3 +240,91 @@ NONE
 server_time: integer 
   } 
  ``` 
+# General Streams Information
+* The base websocket endpoint is **wss://ws.3commas.io/websocket**
+* Note that **identifier** is a JSON string
+
+# SmartTrades Streams
+## (Permission: SMART_TRADES_READ, Security: SIGNED)
+* connect to the base websocket endpoint
+* create valid signature:
+  ```
+    [linux]$ echo -n "/smart_trades" | openssl dgst -sha256 -hmac "NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j"
+    (stdin)= 8b30fb42a82e4dcfb4d0273d2910c7ae0add2b32938b19c27c44e306c56c20bc
+    ```
+* build identifier(ruby Hash for example)
+  ```ruby
+    identifier = {
+      channel: 'SmartTradesChannel',
+      users: [
+        {
+          api_key: 'vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8Asma',
+          signature: '8b30fb42a82e4dcfb4d0273d2910c7ae0add2b32938b19c27c44e306c56c20bc'
+        }
+      ],
+    }
+  ```
+* build valid message for websocket protocol
+  ```ruby
+    {
+      "identifier": identifier.to_json,
+      "command": "subscribe"
+    }
+  ```
+* send message to subscribe stream
+  * the message will look like this:
+    ```
+      {
+        "identifier":"{
+        \"channel\":\"SmartTradesChannel\",
+        \"users\":
+          [
+            {\"api_key\":\"vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8Asma\",\"signature\":\"8b30fb42a82e4dcfb4d0273d2910c7ae0add2b32938b19c27c44e306c56c20bc\"}
+          ]}",
+        "command": "subscribe"
+      }
+    ```
+
+* you will receive **confirm_subscription** message and then you will receive all of updates of users smart trades
+
+# Deals Streams
+## (Permission: BOTS_READ, Security: SIGNED)
+* connect to the base websocket endpoint
+* create valid signature:
+  ```
+    [linux]$ echo -n "/deals" | openssl dgst -sha256 -hmac "NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j"
+    (stdin)= 92cbefb3a2f2a8e94479470c7b5eb7cce43037947461c665e9b7f8b05a81a936
+    ```
+* build identifier(ruby Hash for example)
+  ```ruby
+    identifier = {
+      channel: 'DealsChannel',
+      users: [
+        {
+          api_key: 'vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8Asma',
+          signature: '92cbefb3a2f2a8e94479470c7b5eb7cce43037947461c665e9b7f8b05a81a936'
+        }
+      ],
+    }
+  ```
+* build valid message for websocket protocol
+  ```ruby
+    {
+      "identifier": identifier.to_json,
+      "command": "subscribe"
+    }
+  ```
+* send message to subscribe stream
+  * the message will look like this:
+    ```
+      {
+        "identifier":"{
+        \"channel\":\"DealsChannel\",
+        \"users\":
+          [
+            {\"api_key\":\"vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8Asma\",\"signature\":\"92cbefb3a2f2a8e94479470c7b5eb7cce43037947461c665e9b7f8b05a81a936\"}
+          ]}",
+        "command": "subscribe"
+      }
+    ```
+* you will receive **confirm_subscription** message and then you will receive all created or updated users deals
