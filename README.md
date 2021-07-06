@@ -133,12 +133,44 @@ secret |  YYYYYY
     (HMAC SHA256)
     [linux]$ curl -H "APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -H "Signature: 30f678a157230290e00475cfffccbc92ae3659d94c145a2c0e9d0fa28f41c11a" -X POST 'https://api.3commas.io/public/api/ver1/accounts/new' -d 'type=binance&name=binance_account&api_key=XXXXXX&secret=YYYYYY' 
     ```
+## SIGNED Endpoint Examples for GET /public/api/ver1/bots/{bot_id}/show
+Here is a step-by-step example of how to test your endpoint through postman.
+
+Once Postman works with the values, you can implement it in code.
+
+### Step 1: Set up GET url:
+* **With include_events:** https://api.3commas.io/public/api/ver1/bots/EnterBotIdHere/show?include_events=true
+
+By using include_events in the query string, in Postman, your Params field will be automaticly filled in
+
+### Step 2: Calculate your Signature:
+Use a HMAC SHA256 generator tool.
+
+"" | ""
+------------ | ------------
+Input value | /public/api/ver1/bots/84512/show?include_events=true
+Secret Key | Use your secret API key from 3commas
+Hashed Output | Signature result to be used in Step 3
+
+
+### Step 3: Set up Headers:
+Key | Value
+------------ | ------------
+APIKEY | 3commas API key goes here
+Signature | Calculated Signature from Step 2 goes here
+
+These 2 key/value pairs can be entered in Postman under Headers (which is located under the GET url field)
+
+### Step 4: Receive JSON object:
+If you have followed these steps you should now receive a status 200 OK with your JSON data.
+
 
 # API modes(real or paper)
 
 By default, API mode(real or paper) synchronized with mode in web/app.
 
 You can set a forced mode for public API through the request header "Forced-Mode" with values "real" or "paper".
+
 
 # Public API Endpoints
 
