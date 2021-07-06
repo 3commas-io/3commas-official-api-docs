@@ -45,6 +45,10 @@
     {
       "name": "time",
       "description": "Operations about times"
+    },
+    {
+      "name": "smart_trades_v2",
+      "description": "Operations about smart_trades_v2s"
     }
   ],
   "paths": {
@@ -353,7 +357,8 @@
             "enum": [
               "custom",
               "cross",
-              "not_specified"
+              "not_specified",
+              "isolated"
             ],
             "required": false
           },
@@ -511,7 +516,7 @@
           {
             "in": "query",
             "name": "from",
-            "description": "From date",
+            "description": "Param for a filter by created date",
             "type": "string",
             "required": false
           },
@@ -810,7 +815,8 @@
             "enum": [
               "custom",
               "cross",
-              "not_specified"
+              "not_specified",
+              "isolated"
             ],
             "required": false
           },
@@ -1194,7 +1200,7 @@
           {
             "in": "query",
             "name": "from",
-            "description": "From date",
+            "description": "Param for a filter by created date",
             "type": "string",
             "required": false
           },
@@ -1274,7 +1280,7 @@
     },
     "/ver1/deals/{deal_id}/update_max_safety_orders": {
       "post": {
-        "description": "DEPRECATED, Update max safety orders (Permission: BOTS_WRITE, Security: SIGNED)",
+        "description": "Update max safety orders (Permission: BOTS_WRITE, Security: SIGNED)",
         "produces": [
           "application/json"
         ],
@@ -1300,7 +1306,7 @@
         ],
         "responses": {
           "201": {
-            "description": "DEPRECATED, Update max safety orders (Permission: BOTS_WRITE, Security: SIGNED)"
+            "description": "Update max safety orders (Permission: BOTS_WRITE, Security: SIGNED)"
           }
         },
         "tags": [
@@ -4442,7 +4448,8 @@
             "enum": [
               "custom",
               "cross",
-              "not_specified"
+              "not_specified",
+              "isolated"
             ],
             "required": false
           },
@@ -4527,7 +4534,8 @@
             "enum": [
               "custom",
               "cross",
-              "not_specified"
+              "not_specified",
+              "isolated"
             ],
             "required": false
           },
@@ -4675,7 +4683,7 @@
           {
             "in": "query",
             "name": "from",
-            "description": "From date",
+            "description": "Param for a filter by created date",
             "type": "string",
             "required": false
           },
@@ -4789,7 +4797,8 @@
             "enum": [
               "custom",
               "cross",
-              "not_specified"
+              "not_specified",
+              "isolated"
             ],
             "required": false
           },
@@ -4873,7 +4882,8 @@
             "enum": [
               "custom",
               "cross",
-              "not_specified"
+              "not_specified",
+              "isolated"
             ],
             "required": false
           },
@@ -5077,6 +5087,1015 @@
         ],
         "operationId": "getVer1Time"
       }
+    },
+    "/v2/smart_trades": {
+      "get": {
+        "description": "Get smart trade history (Permission: SMART_TRADE_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "account_id",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "pair",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "type": "string",
+            "enum": [
+              "simple_buy",
+              "simple_sell",
+              "smart_sell",
+              "smart_trade",
+              "smart_cover",
+              "smart_buy"
+            ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "type": "integer",
+            "format": "int32",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 100,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "type": "string",
+            "enum": [
+              "all",
+              "active",
+              "finished",
+              "successfully_finished",
+              "cancelled",
+              "failed"
+            ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "order_by",
+            "type": "string",
+            "default": "status",
+            "enum": [
+              "created_at",
+              "updated_at",
+              "closed_at",
+              "status",
+              "profit",
+              "profit_percentage"
+            ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "order_direction",
+            "type": "string",
+            "default": "desc",
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "from",
+            "description": "Param for a filter by created date",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "base",
+            "description": "Base currency",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "quote",
+            "description": "Quote currency",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get smart trade history (Permission: SMART_TRADE_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades_v2"
+        ],
+        "operationId": "getV2SmartTrades"
+      },
+      "post": {
+        "description": "Create smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "account_id",
+            "description": "id from GET /ver1/accounts",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "pair",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "instant",
+            "description": "true for Simple Buy and Simple Sell",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "skip_enter_step",
+            "description": "true only for Smart Sell",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "note",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "leverage[enabled]",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "leverage[type]",
+            "type": "string",
+            "enum": [
+              "custom",
+              "cross",
+              "isolated"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "leverage[value]",
+            "description": "Cross leverage value",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "position[type]",
+            "type": "string",
+            "enum": [
+              "buy",
+              "sell"
+            ],
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "position[order_type]",
+            "type": "string",
+            "enum": [
+              "market",
+              "limit",
+              "conditional"
+            ],
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "position[units][value]",
+            "description": "Amount of units to buy",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "position[price][value]",
+            "description": "Price for limit order",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "position[conditional][price][value]",
+            "description": "Conditional trigger price",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "position[conditional][price][type]",
+            "description": "By default ask for long, bid for short",
+            "type": "string",
+            "enum": [
+              "bid",
+              "ask",
+              "last"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "position[conditional][order_type]",
+            "type": "string",
+            "enum": [
+              "market",
+              "limit"
+            ],
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "position[conditional][trailing][enabled]",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "position[conditional][trailing][percent]",
+            "description": "Should be 100% in the sum of all steps",
+            "type": "number",
+            "format": "float",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit[enabled]",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit[steps][][order_type]",
+            "description": "market, limit",
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "string",
+              "enum": [
+                "market",
+                "limit"
+              ]
+            }
+          },
+          {
+            "in": "formData",
+            "name": "take_profit[steps][][volume]",
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "take_profit[steps][][price][type]",
+            "description": "bid, ask, last",
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "take_profit[steps][][price][value]",
+            "description": "only if position has no trailing or position trailing is finished",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "take_profit[steps][][price][percent]",
+            "description": "only if position has trailing and position trailing is not finished",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "take_profit[steps][][trailing][enabled]",
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "take_profit[steps][][trailing][percent]",
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss[enabled]",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss[order_type]",
+            "type": "string",
+            "enum": [
+              "market",
+              "limit"
+            ],
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss[price][value]",
+            "description": "Price for limit order",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss[conditional][price][type]",
+            "type": "string",
+            "enum": [
+              "bid",
+              "ask",
+              "last"
+            ],
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss[conditional][price][value]",
+            "description": "if position has no trailing or position trailing is finished",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss[conditional][price][percent]",
+            "description": "only if position has trailing and position trailing is not finished",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss[conditional][trailing][enabled]",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss[timeout][enabled]",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss[timeout][value]",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades_v2"
+        ],
+        "operationId": "postV2SmartTrades"
+      }
+    },
+    "/v2/smart_trades/{id}": {
+      "get": {
+        "description": "Get smart trade v2 by id (Permission: SMART_TRADE_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get smart trade v2 by id (Permission: SMART_TRADE_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades_v2"
+        ],
+        "operationId": "getV2SmartTradesId"
+      },
+      "delete": {
+        "description": "Cancel smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Cancel smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades_v2"
+        ],
+        "operationId": "deleteV2SmartTradesId"
+      },
+      "patch": {
+        "description": "Update smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "leverage[enabled]",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "leverage[type]",
+            "type": "string",
+            "enum": [
+              "custom",
+              "cross",
+              "isolated"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "leverage[value]",
+            "description": "Cross leverage value",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "position[units][value]",
+            "description": "Amount of units to buy",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "position[price][value]",
+            "description": "Price for limit order",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "position[conditional][price][value]",
+            "description": "Conditional trigger price",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "position[conditional][price][type]",
+            "description": "By default ask for long, bid for short",
+            "type": "string",
+            "enum": [
+              "bid",
+              "ask",
+              "last"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "position[conditional][order_type]",
+            "type": "string",
+            "enum": [
+              "market",
+              "limit"
+            ],
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "position[conditional][trailing][enabled]",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "position[conditional][trailing][percent]",
+            "type": "number",
+            "format": "float",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit[enabled]",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "take_profit[steps][][order_type]",
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "string",
+              "enum": [
+                "market",
+                "limit"
+              ]
+            }
+          },
+          {
+            "in": "formData",
+            "name": "take_profit[steps][][volume]",
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "take_profit[steps][][price][type]",
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "take_profit[steps][][price][value]",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "take_profit[steps][][price][percent]",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "take_profit[steps][][trailing][enabled]",
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "take_profit[steps][][trailing][percent]",
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss[enabled]",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss[order_type]",
+            "type": "string",
+            "enum": [
+              "market",
+              "limit"
+            ],
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss[price][value]",
+            "description": "Price for limit order",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss[conditional][price][type]",
+            "type": "string",
+            "enum": [
+              "bid",
+              "ask",
+              "last"
+            ],
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss[conditional][price][value]",
+            "description": "Trigger price",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss[conditional][price][percent]",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss[conditional][trailing][enabled]",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss[timeout][enabled]",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "stop_loss[timeout][value]",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades_v2"
+        ],
+        "operationId": "patchV2SmartTradesId"
+      }
+    },
+    "/v2/smart_trades/{id}/add_funds": {
+      "post": {
+        "description": "Average for smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "order_type",
+            "type": "string",
+            "enum": [
+              "market",
+              "limit"
+            ],
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "units[value]",
+            "description": "Amount of units to buy",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "price[value]",
+            "description": "Price for limit order",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Average for smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades_v2"
+        ],
+        "operationId": "postV2SmartTradesIdAddFunds"
+      }
+    },
+    "/v2/smart_trades/{id}/close_by_market": {
+      "post": {
+        "description": "Close by market smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Close by market smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades_v2"
+        ],
+        "operationId": "postV2SmartTradesIdCloseByMarket"
+      }
+    },
+    "/v2/smart_trades/{id}/force_start": {
+      "post": {
+        "description": "Force start smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Force start smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades_v2"
+        ],
+        "operationId": "postV2SmartTradesIdForceStart"
+      }
+    },
+    "/v2/smart_trades/{id}/force_process": {
+      "post": {
+        "description": "Process smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Process smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades_v2"
+        ],
+        "operationId": "postV2SmartTradesIdForceProcess"
+      }
+    },
+    "/v2/smart_trades/{id}/set_note": {
+      "post": {
+        "description": "Set note to smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "note",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Set note to smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades_v2"
+        ],
+        "operationId": "postV2SmartTradesIdSetNote"
+      }
+    },
+    "/v2/smart_trades/{smart_trade_id}/trades": {
+      "get": {
+        "description": "Get smart trade v2 trades (Permission: SMART_TRADE_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "smart_trade_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get smart trade v2 trades (Permission: SMART_TRADE_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades_v2"
+        ],
+        "operationId": "getV2SmartTradesSmartTradeIdTrades"
+      }
+    },
+    "/v2/smart_trades/{smart_trade_id}/trades/{id}/close_by_market": {
+      "post": {
+        "description": "Panic close trade by market (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "smart_trade_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Panic close trade by market (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades_v2"
+        ],
+        "operationId": "postV2SmartTradesSmartTradeIdTradesIdCloseByMarket"
+      }
+    },
+    "/v2/smart_trades/{smart_trade_id}/trades/{id}": {
+      "delete": {
+        "description": "Cancel trade (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "smart_trade_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Cancel trade (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades_v2"
+        ],
+        "operationId": "deleteV2SmartTradesSmartTradeIdTradesId"
+      }
     }
   },
   "definitions": {
@@ -5101,319 +6120,6 @@
         }
       },
       "description": "Test connectivity to the Rest API and get the current server time (Permission: NONE, Security: NONE)"
-    },
-    "DealEntity": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int32",
-          "example": "1"
-        },
-        "type": {
-          "type": "string",
-          "example": "Deal::ShortDeal"
-        },
-        "bot_id": {
-          "type": "integer",
-          "format": "int32",
-          "example": "111"
-        },
-        "max_safety_orders": {
-          "type": "integer",
-          "format": "int32",
-          "example": 2
-        },
-        "deal_has_error": {
-          "type": "boolean",
-          "example": true
-        },
-        "from_currency_id": {
-          "type": "integer",
-          "format": "int32",
-          "example": 5,
-          "description": "DEPRECATED"
-        },
-        "to_currency_id": {
-          "type": "integer",
-          "format": "int32",
-          "example": 10,
-          "description": "DEPRECATED"
-        },
-        "account_id": {
-          "type": "integer",
-          "format": "int32",
-          "example": 121
-        },
-        "active_safety_orders_count": {
-          "type": "integer",
-          "format": "int32",
-          "example": 1
-        },
-        "created_at": {
-          "type": "string",
-          "example": "2018-08-08 08:08:08"
-        },
-        "updated_at": {
-          "type": "string",
-          "example": "2018-09-09 09:09:09"
-        },
-        "closed_at": {
-          "type": "string",
-          "example": "2018-10-10 10:10:10"
-        },
-        "finished?": {
-          "type": "boolean"
-        },
-        "current_active_safety_orders_count": {
-          "type": "integer",
-          "format": "int32",
-          "example": 1
-        },
-        "current_active_safety_orders": {
-          "type": "integer",
-          "format": "int32",
-          "example": 1,
-          "description": "DEPRECATED"
-        },
-        "completed_safety_orders_count": {
-          "type": "integer",
-          "format": "int32",
-          "example": 2,
-          "description": "completed safeties (not including manual)"
-        },
-        "completed_manual_safety_orders_count": {
-          "type": "integer",
-          "format": "int32",
-          "example": 2,
-          "description": "completed manual safeties"
-        },
-        "cancellable?": {
-          "type": "boolean"
-        },
-        "panic_sellable?": {
-          "type": "boolean"
-        },
-        "trailing_enabled": {
-          "type": "boolean",
-          "example": true
-        },
-        "tsl_enabled": {
-          "type": "boolean",
-          "example": true
-        },
-        "stop_loss_timeout_enabled": {
-          "type": "boolean",
-          "example": true
-        },
-        "stop_loss_timeout_in_seconds": {
-          "type": "integer",
-          "format": "int32",
-          "example": 2
-        },
-        "active_manual_safety_orders": {
-          "type": "integer",
-          "format": "int32",
-          "example": 2
-        },
-        "pair": {
-          "type": "string",
-          "example": "'BTC_ADA'",
-          "description": "Format: QUOTE_BASE"
-        },
-        "status": {
-          "type": "string",
-          "example": "'failed'",
-          "description": "Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit, ttp_activated, ttp_order_placed, liquidated, bought_safety_pending, bought_take_profit_pending, settled"
-        },
-        "localized_status": {
-          "type": "string"
-        },
-        "take_profit": {
-          "type": "string",
-          "example": "'1.23'",
-          "description": "Percentage"
-        },
-        "base_order_volume": {
-          "type": "string",
-          "example": "'0.001'"
-        },
-        "safety_order_volume": {
-          "type": "string",
-          "example": "'0.0015'"
-        },
-        "safety_order_step_percentage": {
-          "type": "string",
-          "example": "'1.11'"
-        },
-        "leverage_type": {
-          "type": "string",
-          "example": "'custom'"
-        },
-        "leverage_custom_value": {
-          "type": "string",
-          "example": "'20.1'"
-        },
-        "bought_amount": {
-          "type": "string",
-          "example": "'1.5'"
-        },
-        "bought_volume": {
-          "type": "string",
-          "example": "'150'"
-        },
-        "bought_average_price": {
-          "type": "string",
-          "example": "'100'"
-        },
-        "base_order_average_price": {
-          "type": "string",
-          "example": "'100'"
-        },
-        "sold_amount": {
-          "type": "string",
-          "example": "'1.5'"
-        },
-        "sold_volume": {
-          "type": "string",
-          "example": "'150'"
-        },
-        "sold_average_price": {
-          "type": "string",
-          "example": "'100'"
-        },
-        "take_profit_type": {
-          "type": "string",
-          "example": "'base'",
-          "description": "Values: base, total"
-        },
-        "final_profit": {
-          "type": "string",
-          "example": "'-0.00051'"
-        },
-        "martingale_coefficient": {
-          "type": "string",
-          "example": "'1.2'",
-          "description": "Percentage"
-        },
-        "martingale_volume_coefficient": {
-          "type": "string",
-          "example": "'1.0'",
-          "description": "Percentage"
-        },
-        "martingale_step_coefficient": {
-          "type": "string",
-          "example": "'1.0'",
-          "description": "Percentage"
-        },
-        "stop_loss_percentage": {
-          "type": "string",
-          "example": "'3.6'"
-        },
-        "error_message": {
-          "type": "string",
-          "example": "'Error placing base order'"
-        },
-        "profit_currency": {
-          "type": "string",
-          "example": "'quote_currency'",
-          "description": "Values: quote_currency, base_currency"
-        },
-        "stop_loss_type": {
-          "type": "string",
-          "example": "'stop_loss'",
-          "description": "Values: stop_loss, stop_loss_and_disable_bot"
-        },
-        "safety_order_volume_type": {
-          "type": "string",
-          "example": "'quote_currency'",
-          "description": "Values: quote_currency, base_currency, percent, xbt"
-        },
-        "base_order_volume_type": {
-          "type": "string",
-          "example": "'base_currency,'",
-          "description": "Values: quote_currency, base_currency, percent, xbt"
-        },
-        "from_currency": {
-          "type": "string",
-          "example": "'BTC'"
-        },
-        "to_currency": {
-          "type": "string",
-          "example": "'ADA'"
-        },
-        "current_price": {
-          "type": "string",
-          "example": "'102'"
-        },
-        "take_profit_price": {
-          "type": "string",
-          "example": "'105'"
-        },
-        "stop_loss_price": {
-          "type": "string",
-          "example": "'95.3'"
-        },
-        "final_profit_percentage": {
-          "type": "string",
-          "example": "'4.2'"
-        },
-        "actual_profit_percentage": {
-          "type": "string",
-          "example": "'3.4'"
-        },
-        "bot_name": {
-          "type": "string",
-          "example": "My bot"
-        },
-        "account_name": {
-          "type": "string",
-          "example": "My Account"
-        },
-        "usd_final_profit": {
-          "type": "string",
-          "example": "'3.3523452'"
-        },
-        "actual_profit": {
-          "type": "string",
-          "example": "'0.0023'"
-        },
-        "actual_usd_profit": {
-          "type": "string",
-          "example": "'0.0023'"
-        },
-        "failed_message": {
-          "type": "string",
-          "example": "Failed"
-        },
-        "reserved_base_coin": {
-          "type": "string",
-          "example": "1.3423523"
-        },
-        "reserved_second_coin": {
-          "type": "string",
-          "example": "0.1412454"
-        },
-        "trailing_deviation": {
-          "type": "string",
-          "example": "0.14"
-        },
-        "trailing_max_price": {
-          "type": "string",
-          "example": "0.1412454",
-          "description": "Highest price met in case of long deal, lowest price otherwise"
-        },
-        "tsl_max_price": {
-          "type": "string",
-          "example": "0.1412454",
-          "description": "Highest price met in TSL in case of long deal, lowest price otherwise"
-        },
-        "strategy": {
-          "type": "string",
-          "example": "'short'",
-          "description": "short or long"
-        }
-      }
     },
     "BotEntity": {
       "type": "object",
@@ -5514,6 +6220,12 @@
         "easy_form_supported": {
           "type": "boolean",
           "example": true
+        },
+        "close_deals_timeout": {
+          "type": "integer",
+          "format": "int32",
+          "example": 70,
+          "description": "Close bot deals after given number of seconds"
         },
         "name": {
           "type": "string",
@@ -5618,7 +6330,7 @@
         "leverage_type": {
           "type": "string",
           "example": "'not_specified'",
-          "description": "Values: custom, cross, not_specified"
+          "description": "Values: custom, cross, not_specified, isolated"
         },
         "leverage_custom_value": {
           "type": "string",
@@ -5628,6 +6340,11 @@
           "type": "string",
           "example": "'limit'",
           "description": "Values: limit, market"
+        },
+        "active_deals_usd_profit": {
+          "type": "string",
+          "example": "200.21",
+          "description": "Sum of active deals profits"
         }
       }
     },
@@ -5835,404 +6552,6 @@
         }
       }
     },
-    "SmartTradeEntity": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int32",
-          "example": 1
-        },
-        "account_id": {
-          "type": "integer",
-          "format": "int32",
-          "example": 68
-        },
-        "trailing_stop_loss": {
-          "type": "boolean",
-          "example": true
-        },
-        "from_currency_id": {
-          "type": "integer",
-          "format": "int32",
-          "example": 10
-        },
-        "trailing_stop_loss_condition_percentage": {
-          "type": "integer",
-          "format": "int32",
-          "example": 2
-        },
-        "trailing_take_profit": {
-          "type": "boolean",
-          "example": true
-        },
-        "stop_loss_enabled": {
-          "type": "boolean",
-          "example": true
-        },
-        "panic_sell_market_order_id": {
-          "type": "integer",
-          "format": "int32",
-          "example": 756
-        },
-        "take_profit_enabled": {
-          "type": "boolean",
-          "example": true
-        },
-        "trailing_buy_enabled": {
-          "type": "boolean",
-          "example": true
-        },
-        "stop_loss_timeout_seconds": {
-          "type": "integer",
-          "format": "int32",
-          "example": 300
-        },
-        "stop_loss_timeout_enabled": {
-          "type": "boolean",
-          "example": true
-        },
-        "panic_sellable": {
-          "type": "boolean",
-          "example": "false"
-        },
-        "editable": {
-          "type": "boolean",
-          "example": true
-        },
-        "finished": {
-          "type": "boolean",
-          "example": "false"
-        },
-        "cancellable": {
-          "type": "boolean",
-          "example": "false"
-        },
-        "created_at": {
-          "type": "string",
-          "example": "2018-08-08 08:08:08"
-        },
-        "updated_at": {
-          "type": "string",
-          "example": "2018-09-09 09:09:09"
-        },
-        "trailing_stop_loss_last_price_updated_at": {
-          "type": "string",
-          "example": "2018-09-09 09:09:09"
-        },
-        "trailing_take_profit_last_price_updated_at": {
-          "type": "string",
-          "example": "2018-09-09 09:09:09"
-        },
-        "closed_at": {
-          "type": "string",
-          "example": "2018-10-10 10:10:10"
-        },
-        "status": {
-          "type": "string",
-          "example": "'bought'",
-          "description": "Values: buy_order_placed, bought, stop_loss_order_placed, take_profit_order_placed, stop_loss_finished, take_profit_finished, cancelled, failed, panic_sell_order_placed, panic_sell_finished, trailing_take_profit_activated, conditional_order_waiting_price, trailing_buy_activated, simple_trade_finished"
-        },
-        "take_profit_price_condition": {
-          "type": "string",
-          "example": "'105.125'"
-        },
-        "take_profit_price_order": {
-          "type": "string",
-          "example": "'106.01'"
-        },
-        "stop_loss_price_condition": {
-          "type": "string",
-          "example": "'95.84'"
-        },
-        "stop_loss_price_order": {
-          "type": "string",
-          "example": "'94.88'"
-        },
-        "units_to_buy": {
-          "type": "string",
-          "example": "'1.0525'"
-        },
-        "buy_price": {
-          "type": "string",
-          "example": "'101.12'"
-        },
-        "total": {
-          "type": "string",
-          "example": "'106.4288'"
-        },
-        "average_buy_price": {
-          "type": "string",
-          "example": "'100.3'"
-        },
-        "average_sell_price": {
-          "type": "string",
-          "example": "'105.5'"
-        },
-        "error_message": {
-          "type": "string",
-          "example": "'order cancelled'"
-        },
-        "trailing_take_profit_step": {
-          "type": "string",
-          "example": "'2.3'",
-          "description": "Percentage"
-        },
-        "type": {
-          "type": "string",
-          "example": "'SmartTrade::Classic'",
-          "description": "Values: SmartTrade::Classic, SmartTrade::ConditionalBuy, SmartTrade::SmartSale, SmartTrade::SellBuyBack, SmartTrade::ConditionalSell, SmartTrade::SimpleBuy, SmartTrade::ConditionalSimpleBuy, SmartTrade::ConditionalSimpleSell, SmartTrade::SimpleSell"
-        },
-        "stop_loss_price_method": {
-          "type": "string",
-          "example": "'bid'",
-          "description": "Values: bid, ask, last"
-        },
-        "take_profit_price_method": {
-          "type": "string",
-          "example": "'ask'",
-          "description": "Values: bid, ask, last"
-        },
-        "trailing_stop_loss_last_price": {
-          "type": "string",
-          "example": "'94.545'"
-        },
-        "trailing_take_profit_last_price": {
-          "type": "string",
-          "example": "'106.242'"
-        },
-        "note": {
-          "type": "string",
-          "example": "'Best pair'"
-        },
-        "buy_method": {
-          "type": "string",
-          "example": "'market'",
-          "description": "Values: [\"limit\", \"market\", \"conditional\"]"
-        },
-        "take_profit_type": {
-          "type": "string",
-          "example": "'step_sell'",
-          "description": "Values: classic, step_sell"
-        },
-        "stop_loss_type": {
-          "type": "string",
-          "example": "'classic'",
-          "description": "Values: classic, step_sell"
-        },
-        "stop_loss_sell_method": {
-          "type": "string",
-          "example": "'limit'",
-          "description": "Values: market, limit"
-        },
-        "take_profit_sell_method": {
-          "type": "string",
-          "example": "'market'",
-          "description": "Values: market, limit"
-        },
-        "take_profit_sell_order_price": {
-          "type": "string",
-          "example": "'105.12'"
-        },
-        "stop_loss_sell_order_price": {
-          "type": "string",
-          "example": "'96.12'"
-        },
-        "trailing_buy_step": {
-          "type": "string",
-          "example": "'1.5'"
-        },
-        "profit_percentage": {
-          "type": "string",
-          "example": "'15.26'"
-        },
-        "current_price": {
-          "type": "string",
-          "example": "'103.26'"
-        },
-        "account_market": {
-          "type": "string",
-          "example": "'BinanceMarket'"
-        },
-        "account_name": {
-          "type": "string",
-          "example": "'my acc'"
-        },
-        "from_currency_code": {
-          "type": "string",
-          "example": "'ETH'"
-        },
-        "from_currency_name": {
-          "type": "string",
-          "example": "'Ethereum'"
-        },
-        "from_currency_display_name": {
-          "type": "string",
-          "example": "'Ethereum (ETH)'"
-        },
-        "to_currency_code": {
-          "type": "string",
-          "example": "'BTC'"
-        },
-        "to_currency_name": {
-          "type": "string",
-          "example": "'Bitcoin'"
-        },
-        "to_currency_display_name": {
-          "type": "string",
-          "example": "'Bitcoin (BTC)'"
-        },
-        "usd_profit": {
-          "type": "string",
-          "example": "'-0.5'"
-        },
-        "smart_trade_steps": {
-          "$ref": "#/definitions/SmartTradeStepEntity"
-        },
-        "take_profit_steps": {
-          "$ref": "#/definitions/SmartTradeStepEntity"
-        },
-        "stop_loss_steps": {
-          "$ref": "#/definitions/SmartTradeStepEntity"
-        },
-        "buy_steps": {
-          "$ref": "#/definitions/SmartTradeStepEntity"
-        }
-      }
-    },
-    "SmartTradeStepEntity": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int32",
-          "example": 1
-        },
-        "editable": {
-          "type": "boolean",
-          "example": true
-        },
-        "position": {
-          "type": "integer",
-          "format": "int32",
-          "example": 1,
-          "description": "For TP type = step_sell"
-        },
-        "order_id": {
-          "type": "integer",
-          "format": "int32",
-          "example": 128
-        },
-        "smart_trade_id": {
-          "type": "integer",
-          "format": "int32",
-          "example": 505
-        },
-        "is_panic_sell": {
-          "type": "boolean",
-          "example": "false"
-        },
-        "created_at": {
-          "type": "string",
-          "example": "2018-09-09 09:09:09"
-        },
-        "updated_at": {
-          "type": "string",
-          "example": "2018-10-10 10:11:12"
-        },
-        "trailing_last_pirce_updated_at": {
-          "type": "string",
-          "example": "2018-10-10 10:12:12",
-          "description": "DEPRECATED"
-        },
-        "trailing_last_price_updated_at": {
-          "type": "string",
-          "example": "2018-10-10 10:12:12"
-        },
-        "type": {
-          "type": "string",
-          "example": "'SmartTradeStep::TakeProfitStep'",
-          "description": "SmartTradeStep::TrailingStopLossStep, SmartTradeStep::StopLossStep, SmartTradeStep::TrailingStopLossBuyStep, SmartTradeStep::StopLossBuyStep, SmartTradeStep::TakeProfitStep, SmartTradeStep::TrailingTakeProfitStep, SmartTradeStep::TakeProfitBuyStep, SmartTradeStep::TrailingTakeProfitBuyStep"
-        },
-        "price": {
-          "type": "string",
-          "example": "'102.15'"
-        },
-        "average_result_price": {
-          "type": "string",
-          "example": "'103.1'"
-        },
-        "deviation_condition": {
-          "type": "string",
-          "example": "'1.4'"
-        },
-        "price_method": {
-          "type": "string",
-          "example": "'bid'",
-          "description": "bid, ask ,last"
-        },
-        "trailing_last_pirce": {
-          "type": "string",
-          "example": "'103.4'",
-          "description": "DEPRECATED"
-        },
-        "trailing_last_price": {
-          "type": "string",
-          "example": "'103.4'"
-        },
-        "sell_method": {
-          "type": "string",
-          "example": "'market'",
-          "description": "Values: market, limit"
-        },
-        "sell_order_price": {
-          "type": "string",
-          "example": "'103.5'"
-        },
-        "percent": {
-          "type": "string",
-          "example": "'25.6'"
-        },
-        "pair": {
-          "type": "string",
-          "example": "'BTC_LTC'",
-          "description": "QUOTE_BASE"
-        },
-        "initial_amount": {
-          "type": "string",
-          "example": "'50'"
-        },
-        "initial_total": {
-          "type": "string",
-          "example": "'5107.5'"
-        },
-        "actual_amount": {
-          "type": "string",
-          "example": "'48'"
-        },
-        "actual_total": {
-          "type": "string",
-          "example": "'4903.2'"
-        },
-        "status": {
-          "type": "string",
-          "example": "'enqueued'",
-          "description": "Values: idle, enqueued, need_check, processed, skipped, failed, cancelled, panic_sold"
-        },
-        "market_order_id": {
-          "type": "string",
-          "example": 606
-        },
-        "market_class": {
-          "type": "string",
-          "example": "'BinanceMarket'"
-        },
-        "price_percentage": {
-          "type": "string",
-          "example": "'10.2'"
-        }
-      }
-    },
     "GridBotEntity": {
       "type": "object",
       "properties": {
@@ -6373,6 +6692,704 @@
           "example": "2018-08-08 08:08:08"
         }
       }
+    },
+    "DealEntity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": 1
+        },
+        "type": {
+          "type": "string",
+          "example": "Deal::ShortDeal",
+          "nullable": true
+        },
+        "bot_id": {
+          "type": "integer",
+          "example": 111
+        },
+        "max_safety_orders": {
+          "type": "integer",
+          "example": 2
+        },
+        "deal_has_error": {
+          "type": "boolean",
+          "example": true
+        },
+        "from_currency_id": {
+          "type": "integer",
+          "description": "DEPRECATED",
+          "example": 5
+        },
+        "to_currency_id": {
+          "type": "integer",
+          "description": "DEPRECATED",
+          "example": 10
+        },
+        "account_id": {
+          "type": "integer",
+          "example": 121
+        },
+        "active_safety_orders_count": {
+          "type": "integer",
+          "example": 1
+        },
+        "created_at": {
+          "type": "string",
+          "example": "2018-08-08 08:08:08"
+        },
+        "updated_at": {
+          "type": "string",
+          "example": "2018-09-09 09:09:09"
+        },
+        "closed_at": {
+          "type": "string",
+          "example": "2018-10-10 10:10:10",
+          "nullable": true
+        },
+        "finished?": {
+          "type": "boolean"
+        },
+        "current_active_safety_orders_count": {
+          "type": "integer",
+          "example": 1
+        },
+        "current_active_safety_orders": {
+          "type": "integer",
+          "description": "DEPRECATED",
+          "example": 1
+        },
+        "completed_safety_orders_count": {
+          "type": "integer",
+          "description": "completed safeties (not including manual)",
+          "example": 2
+        },
+        "completed_manual_safety_orders_count": {
+          "type": "integer",
+          "description": "completed manual safeties",
+          "example": 2
+        },
+        "cancellable?": {
+          "type": "boolean"
+        },
+        "panic_sellable?": {
+          "type": "boolean"
+        },
+        "trailing_enabled": {
+          "type": "boolean",
+          "example": true,
+          "nullable": true
+        },
+        "tsl_enabled": {
+          "type": "boolean",
+          "example": true
+        },
+        "stop_loss_timeout_enabled": {
+          "type": "boolean",
+          "example": true
+        },
+        "stop_loss_timeout_in_seconds": {
+          "type": "integer",
+          "example": 2
+        },
+        "active_manual_safety_orders": {
+          "type": "integer",
+          "example": 2
+        },
+        "pair": {
+          "type": "string",
+          "description": "Format: QUOTE_BASE",
+          "example": "'BTC_ADA'"
+        },
+        "status": {
+          "type": "string",
+          "description": "Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit, ttp_activated, ttp_order_placed, liquidated, bought_safety_pending, bought_take_profit_pending, settled",
+          "example": "'failed'"
+        },
+        "localized_status": {
+          "type": "string"
+        },
+        "take_profit": {
+          "type": "string",
+          "description": "Percentage",
+          "example": "'1.23'",
+          "nullable": true
+        },
+        "base_order_volume": {
+          "type": "string",
+          "example": "'0.001'",
+          "nullable": true
+        },
+        "safety_order_volume": {
+          "type": "string",
+          "example": "'0.0015'",
+          "nullable": true
+        },
+        "safety_order_step_percentage": {
+          "type": "string",
+          "example": "'1.11'"
+        },
+        "leverage_type": {
+          "type": "string",
+          "example": "'custom'"
+        },
+        "leverage_custom_value": {
+          "type": "string",
+          "example": "'20.1'",
+          "nullable": true
+        },
+        "bought_amount": {
+          "type": "string",
+          "example": "'1.5'",
+          "nullable": true
+        },
+        "bought_volume": {
+          "type": "string",
+          "example": "'150'",
+          "nullable": true
+        },
+        "bought_average_price": {
+          "type": "string",
+          "example": "'100'"
+        },
+        "base_order_average_price": {
+          "type": "string",
+          "example": "'100'",
+          "nullable": true
+        },
+        "sold_amount": {
+          "type": "string",
+          "example": "'1.5'",
+          "nullable": true
+        },
+        "sold_volume": {
+          "type": "string",
+          "example": "'150'",
+          "nullable": true
+        },
+        "sold_average_price": {
+          "type": "string",
+          "example": "'100'",
+          "nullable": true
+        },
+        "take_profit_type": {
+          "type": "string",
+          "description": "Values: base, total",
+          "example": "'base'"
+        },
+        "final_profit": {
+          "type": "string",
+          "example": "'-0.00051'"
+        },
+        "martingale_coefficient": {
+          "type": "string",
+          "description": "Percentage",
+          "example": "'1.2'"
+        },
+        "martingale_volume_coefficient": {
+          "type": "string",
+          "description": "Percentage",
+          "example": "'1.0'"
+        },
+        "martingale_step_coefficient": {
+          "type": "string",
+          "description": "Percentage",
+          "example": "'1.0'"
+        },
+        "stop_loss_percentage": {
+          "type": "string",
+          "example": "'3.6'",
+          "nullable": true
+        },
+        "error_message": {
+          "type": "string",
+          "example": "'Error placing base order'",
+          "nullable": true
+        },
+        "profit_currency": {
+          "type": "string",
+          "description": "Values: quote_currency, base_currency",
+          "example": "'quote_currency'"
+        },
+        "stop_loss_type": {
+          "type": "string",
+          "description": "Values: stop_loss, stop_loss_and_disable_bot",
+          "example": "'stop_loss'"
+        },
+        "safety_order_volume_type": {
+          "type": "string",
+          "description": "Values: quote_currency, base_currency, percent, xbt",
+          "example": "'quote_currency'"
+        },
+        "base_order_volume_type": {
+          "type": "string",
+          "description": "Values: quote_currency, base_currency, percent, xbt",
+          "example": "'base_currency,'"
+        },
+        "from_currency": {
+          "type": "string",
+          "example": "'BTC'"
+        },
+        "to_currency": {
+          "type": "string",
+          "example": "'ADA'"
+        },
+        "current_price": {
+          "type": "string",
+          "example": "'102'"
+        },
+        "take_profit_price": {
+          "type": "string",
+          "example": "'105'"
+        },
+        "stop_loss_price": {
+          "type": "string",
+          "example": "'95.3'",
+          "nullable": true
+        },
+        "final_profit_percentage": {
+          "type": "string",
+          "example": "'4.2'"
+        },
+        "actual_profit_percentage": {
+          "type": "string",
+          "example": "'3.4'"
+        },
+        "bot_name": {
+          "type": "string",
+          "example": "My bot"
+        },
+        "account_name": {
+          "type": "string",
+          "example": "My Account"
+        },
+        "usd_final_profit": {
+          "type": "string",
+          "example": "'3.3523452'"
+        },
+        "actual_profit": {
+          "type": "string",
+          "example": "'0.0023'"
+        },
+        "actual_usd_profit": {
+          "type": "string",
+          "example": "'0.0023'"
+        },
+        "failed_message": {
+          "type": "string",
+          "example": "Failed",
+          "nullable": true
+        },
+        "reserved_base_coin": {
+          "type": "string",
+          "example": "1.3423523"
+        },
+        "reserved_second_coin": {
+          "type": "string",
+          "example": "0.1412454"
+        },
+        "trailing_deviation": {
+          "type": "string",
+          "example": "0.14",
+          "nullable": true
+        },
+        "trailing_max_price": {
+          "type": "string",
+          "description": "Highest price met in case of long deal, lowest price otherwise",
+          "example": "0.1412454",
+          "nullable": true
+        },
+        "tsl_max_price": {
+          "type": "string",
+          "description": "Highest price met in TSL in case of long deal, lowest price otherwise",
+          "example": "0.1412454",
+          "nullable": true
+        },
+        "strategy": {
+          "type": "string",
+          "description": "short or long",
+          "example": "'short'"
+        },
+        "reserved_quote_funds": {
+          "type": "number",
+          "description": "Sum of reserved in active deals funds in QUOTE",
+          "nullable": true
+        },
+        "reserved_base_funds": {
+          "type": "number",
+          "description": "Sum of reserved in active deals funds in BASE",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "SmartTradeV2Entity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "version": {
+          "type": "integer"
+        },
+        "account": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "market": {
+              "type": "string"
+            },
+            "link": {
+              "type": "string"
+            }
+          }
+        },
+        "pair": {
+          "type": "string"
+        },
+        "instant": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          }
+        },
+        "leverage": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "type": {
+              "type": "string"
+            },
+            "value": {
+              "type": "integer"
+            }
+          }
+        },
+        "position": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "editable": {
+              "type": "boolean"
+            },
+            "units": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "example": 1231.11,
+                  "nullable": true
+                },
+                "editable": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "price": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "number",
+                  "example": 1223.32,
+                  "nullable": true
+                },
+                "value_without_commission": {
+                  "type": "number",
+                  "example": 500.2,
+                  "nullable": true
+                },
+                "editable": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "total": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "number",
+                  "example": 100.2,
+                  "nullable": true
+                }
+              }
+            },
+            "order_type": {
+              "type": "string"
+            },
+            "status": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "take_profit": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "steps": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/TakeProfitStep"
+              }
+            }
+          }
+        },
+        "stop_loss": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            }
+          }
+        },
+        "note": {
+          "type": "string"
+        },
+        "skip_enter_step": {
+          "type": "boolean"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "editable": {
+              "type": "boolean"
+            },
+            "current_price": {
+              "type": "object",
+              "properties": {
+                "quote_volume": {
+                  "type": "string"
+                },
+                "last": {
+                  "type": "string"
+                }
+              }
+            },
+            "target_price_type": {
+              "type": "string"
+            },
+            "base_order_finished": {
+              "type": "boolean"
+            },
+            "missing_funds_to_close": {
+              "type": "number"
+            },
+            "liquidation_price": {
+              "type": "number",
+              "example": 1000.22,
+              "nullable": true
+            },
+            "average_enter_price": {
+              "type": "number",
+              "example": 60.2,
+              "nullable": true
+            },
+            "average_close_price": {
+              "type": "number",
+              "example": 60.2,
+              "nullable": true
+            },
+            "average_enter_price_without_commission": {
+              "type": "number",
+              "example": 100.3,
+              "nullable": true
+            },
+            "average_close_price_without_commission": {
+              "type": "number",
+              "example": 40.2,
+              "nullable": true
+            },
+            "panic_sell_available": {
+              "type": "boolean"
+            },
+            "add_funds_available": {
+              "type": "boolean"
+            },
+            "force_start_available": {
+              "type": "boolean"
+            },
+            "force_process_available": {
+              "type": "boolean"
+            },
+            "cancel_available": {
+              "type": "boolean"
+            },
+            "finished": {
+              "type": "boolean"
+            },
+            "base_position_step_finished": {
+              "type": "boolean"
+            },
+            "created_at": {
+              "type": "string",
+              "example": "2018-08-08 08:08:08"
+            },
+            "updated_at": {
+              "type": "string",
+              "example": "2018-08-08 08:08:08"
+            },
+            "closed_at": {
+              "type": "string",
+              "example": "2018-08-08 08:08:08"
+            },
+            "type": {
+              "type": "string",
+              "example": "smart_sell"
+            }
+          }
+        },
+        "profit": {
+          "type": "object",
+          "properties": {
+            "volume": {
+              "type": "number",
+              "example": 14,
+              "nullable": true
+            },
+            "usd": {
+              "type": "number",
+              "example": 12.22,
+              "nullable": true
+            },
+            "percent": {
+              "type": "number",
+              "example": 12
+            },
+            "roe": {
+              "type": "number",
+              "nullable": true
+            }
+          }
+        },
+        "margin": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "example": 100.2,
+              "nullable": true
+            },
+            "total": {
+              "type": "number",
+              "example": 700.2,
+              "nullable": true
+            }
+          }
+        },
+        "is_position_not_filled": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "TakeProfitStep": {
+      "type": "object",
+      "properties": {
+        "position": {
+          "type": "number"
+        },
+        "order_type": {
+          "type": "string"
+        },
+        "editable": {
+          "type": "boolean"
+        },
+        "units": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "number"
+            }
+          }
+        },
+        "volume": {
+          "type": "number"
+        },
+        "total": {
+          "type": "number"
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "error": {
+              "type": "string"
+            }
+          }
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "cancelable": {
+              "type": "boolean"
+            },
+            "panic_sell_available": {
+              "type": "boolean"
+            }
+          }
+        },
+        "price": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "value": {
+              "type": "number"
+            },
+            "percent": {
+              "type": "number"
+            }
+          }
+        },
+        "trailing": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "percent": {
+              "type": "number"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
     }
   }
 }

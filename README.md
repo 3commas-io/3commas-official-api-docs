@@ -1,4 +1,4 @@
-# Public Rest API for 3commas.io (2021-06-22)
+# Public Rest API for 3commas.io (2021-07-06)
 # General API Information
 * Official Announcements regarding changes, downtime, etc. to the API will be reported here: **https://t.me/commas_API**
 * We have telegram group where you can discuss any issues with API **https://t.me/xcommas_api**
@@ -134,6 +134,11 @@ secret |  YYYYYY
     [linux]$ curl -H "APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -H "Signature: 30f678a157230290e00475cfffccbc92ae3659d94c145a2c0e9d0fa28f41c11a" -X POST 'https://api.3commas.io/public/api/ver1/accounts/new' -d 'type=binance&name=binance_account&api_key=XXXXXX&secret=YYYYYY' 
     ```
 
+# API modes(real or paper)
+
+By default, API mode(real or paper) synchronized with mode in web/app.
+
+You can set a forced mode for public API through the request header "Forced-Mode" with values "real" or "paper".
 
 # Public API Endpoints
 

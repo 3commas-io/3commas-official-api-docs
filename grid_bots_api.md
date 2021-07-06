@@ -67,7 +67,7 @@ sort_by | string | NO | current_profit, profit, bot_id, pair, created_at, update
 sort_direction | string | NO | desc, asc  | Sort direction
 limit | integer | NO |  (10) | 
 offset | integer | NO |  (0) | 
-from | string | NO |   | From date
+from | string | NO |   | Param for a filter by created date
 base | string | NO |   | Base currency
 quote | string | NO |   | Quote currency
 ### Grid Bot Market Orders (Permission: BOTS_READ, Security: SIGNED)

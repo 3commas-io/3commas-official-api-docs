@@ -13,7 +13,7 @@ Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 limit | integer | NO |  (50) | Limit records. Max: 1_000
 offset | integer | NO |   | Offset records
-from | string | NO |   | From date
+from | string | NO |   | Param for a filter by created date
 account_id | integer | NO |   | Account to show bots on. Return all if not specified. Gather this from GET /ver1/accounts
 bot_id | integer | NO |   | Bot show deals on. Return all if not specified
 scope | string | NO |   | active - active deals, finished - finished deals, completed - successfully completed, cancelled - cancelled deals, failed - failed deals, any other value or null (default) - all deals
@@ -21,7 +21,7 @@ order | string | NO | created_at, updated_at, closed_at, profit, profit_percenta
 order_direction | string | NO | asc, desc (desc) | 
 base | string | NO |   | Base currency
 quote | string | NO |   | Quote currency
-### DEPRECATED, Update max safety orders (Permission: BOTS_WRITE, Security: SIGNED)
+### Update max safety orders (Permission: BOTS_WRITE, Security: SIGNED)
 ```
 POST /ver1/deals/{deal_id}/update_max_safety_orders
 ```
@@ -235,5 +235,7 @@ trailing_deviation: 0.14
 trailing_max_price: 0.1412454            Highest price met in case of long deal, lowest price otherwise 
 tsl_max_price: 0.1412454                 Highest price met in TSL in case of long deal, lowest price otherwise 
 strategy: 'short'                        short or long 
+reserved_quote_funds:                    Sum of reserved in active deals funds in QUOTE 
+reserved_base_funds:                     Sum of reserved in active deals funds in BASE 
 } 
  ``` 
