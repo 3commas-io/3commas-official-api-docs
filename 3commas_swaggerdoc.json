@@ -2120,6 +2120,39 @@
         "operationId": "getVer1AccountsMarketPairs"
       }
     },
+    "/ver1/accounts/currency_rates_with_leverage_data": {
+      "get": {
+        "description": "Currency rates and limits with leverage data (Permission: NONE, Security: NONE)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "market_code",
+            "description": "market_code from account model",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "pair",
+            "description": "Pair",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Currency rates and limits with leverage data (Permission: NONE, Security: NONE)"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "getVer1AccountsCurrencyRatesWithLeverageData"
+      }
+    },
     "/ver1/accounts/currency_rates": {
       "get": {
         "description": "Currency rates and limits (Permission: NONE, Security: NONE)",
