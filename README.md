@@ -1,4 +1,4 @@
-# Public Rest API for 3commas.io (2021-07-06)
+# Public Rest API for 3commas.io (2021-07-09)
 # General API Information
 * Official Announcements regarding changes, downtime, etc. to the API will be reported here: **https://t.me/commas_API**
 * We have telegram group where you can discuss any issues with API **https://t.me/xcommas_api**
@@ -170,7 +170,6 @@ If you have followed these steps you should now receive a status 200 OK with you
 By default, API mode(real or paper) synchronized with mode in web/app.
 
 You can set a forced mode for public API through the request header "Forced-Mode" with values "real" or "paper".
-
 
 # Public API Endpoints
 
