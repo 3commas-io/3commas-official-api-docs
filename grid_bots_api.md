@@ -200,6 +200,7 @@ is_enabled: true
 grids_quantity: '20'                      
 created_at: 2018-08-08 08:08:08           
 updated_at: 2018-08-10 10:10:10           
+strategy_type: 'manual'                   
 lower_price: '8000'                       
 upper_price: '10000'                      
 quantity_per_grid: '100'                  

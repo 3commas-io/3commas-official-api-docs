@@ -6585,6 +6585,10 @@
           "type": "string",
           "example": "2018-08-10 10:10:10"
         },
+        "strategy_type": {
+          "type": "string",
+          "example": "'manual'"
+        },
         "lower_price": {
           "type": "string",
           "example": "'8000'"
@@ -6668,6 +6672,10 @@
         "side": {
           "type": "string",
           "example": "'SELL'"
+        },
+        "order_placed": {
+          "type": "boolean",
+          "example": true
         }
       }
     },
