@@ -1,4 +1,4 @@
-# Public Rest API for 3commas.io (2021-07-06)
+# Public Rest API for 3commas.io (2021-07-13)
 # General API Information
 * Official Announcements regarding changes, downtime, etc. to the API will be reported here: **https://t.me/commas_API**
 * We have telegram group where you can discuss any issues with API **https://t.me/xcommas_api**
@@ -171,6 +171,20 @@ By default, API mode(real or paper) synchronized with mode in web/app.
 
 You can set a forced mode for public API through the request header "Forced-Mode" with values "real" or "paper".
 
+# Supported Leverage Types
+> Previously API supported `custom` value for `leverage_type`. 
+> Now it is **DEPRECATED** and needs to be changed to `isolated`. 
+> If you pass `custom` value as `leverage[type]` 3commas saves it as `isolated` **anyway**.
+> 
+> Supported leverage types depend on the market you use:
+
+Market | Supported Leverage Types
+-----|-----
+FTX Futures | cross
+Bybit | isolated, cross
+Binance Futures COIN-M | isolated, cross
+Bitmex | isolated, cross
+Binance Futures | isolated, cross
 
 # Public API Endpoints
 

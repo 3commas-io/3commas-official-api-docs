@@ -51,14 +51,13 @@ position[conditional][order_type] | string | YES | market, limit  |
 position[conditional][trailing][enabled] | boolean | YES |   | 
 position[conditional][trailing][percent] | number | YES |   | Should be 100% in the sum of all steps
 take_profit[enabled] | boolean | YES |   | 
-take_profit[steps][][position] | number | NO |  | position number
-take_profit[steps][][order_type] | string | YES | market, limit |
-take_profit[steps][][volume] | number | YES |  | 
-take_profit[steps][][price][type] | string | YES | bid, ask, last  | 
-take_profit[steps][][price][value] | number | NO |   | only if position has no trailing or position trailing is finished
-take_profit[steps][][price][percent] | number | NO |   | only if position has trailing and position trailing is not finished
-take_profit[steps][][trailing][enabled] | boolean | YES |   | 
-take_profit[steps][][trailing][percent] | number | YES |   |
+take_profit[steps][][order_type] | string | YES |   | market, limit
+take_profit[steps][][volume] | number | YES |   | 
+take_profit[steps][][price][type] | string | YES |   | bid, ask, last
+take_profit[steps][][price][value] | string | NO |   | only if position has no trailing or position trailing is finished
+take_profit[steps][][price][percent] | string | NO |   | only if position has trailing and position trailing is not finished
+take_profit[steps][][trailing][enabled] | string | YES |   | 
+take_profit[steps][][trailing][percent] | string | YES |   | 
 stop_loss[enabled] | boolean | YES |   | 
 stop_loss[order_type] | string | YES | market, limit  | 
 stop_loss[price][value] | number | YES |   | Price for limit order
@@ -895,14 +894,13 @@ position[conditional][order_type] | string | YES | market, limit  |
 position[conditional][trailing][enabled] | boolean | YES |   | 
 position[conditional][trailing][percent] | number | YES |   | 
 take_profit[enabled] | boolean | YES |   | 
-take_profit[steps][][position] | number | NO |  | position number
-take_profit[steps][][order_type] | string | YES | market, limit |
-take_profit[steps][][volume] | number | YES |  | 
-take_profit[steps][][price][type] | string | YES | bid, ask, last  | 
-take_profit[steps][][price][value] | number | NO |   | only if position has no trailing or position trailing is finished
-take_profit[steps][][price][percent] | number | NO |   | only if position has trailing and position trailing is not finished
-take_profit[steps][][trailing][enabled] | boolean | YES |   | 
-take_profit[steps][][trailing][percent] | number | YES |   |
+take_profit[steps][][order_type] | string | YES |   | 
+take_profit[steps][][volume] | number | YES |   | 
+take_profit[steps][][price][type] | string | YES |   | 
+take_profit[steps][][price][value] | string | NO |   | 
+take_profit[steps][][price][percent] | string | NO |   | 
+take_profit[steps][][trailing][enabled] | string | YES |   | 
+take_profit[steps][][trailing][percent] | string | YES |   | 
 stop_loss[enabled] | boolean | YES |   | 
 stop_loss[order_type] | string | YES | market, limit  | 
 stop_loss[price][value] | number | YES |   | Price for limit order

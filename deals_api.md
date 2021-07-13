@@ -196,7 +196,7 @@ take_profit: '1.23'                      Percentage
 base_order_volume: '0.001'                
 safety_order_volume: '0.0015'             
 safety_order_step_percentage: '1.11'      
-leverage_type: 'custom'                   
+leverage_type: 'isolated'                 
 leverage_custom_value: '20.1'             
 bought_amount: '1.5'                      
 bought_volume: '150'                      

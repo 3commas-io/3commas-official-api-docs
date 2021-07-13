@@ -15,7 +15,7 @@ account_id | integer | YES |   | id from GET /ver1/accounts
 pair | string | YES |   | 
 total_quantity | number | YES |   | 
 leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Leverage type for futures accounts
-leverage_custom_value | number | NO |   | Required if leverage_type = 'custom'
+leverage_custom_value | number | NO |   | Required if leverage_type = 'isolated'
 ### Create Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)
 ```
 POST /ver1/grid_bots/manual
@@ -34,7 +34,7 @@ lower_price | number | YES |   |
 quantity_per_grid | number | YES |   | 
 grids_quantity | number | YES |   | 
 leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Leverage type for futures accounts
-leverage_custom_value | number | NO |   | Required if leverage_type = 'custom'
+leverage_custom_value | number | NO |   | Required if leverage_type = 'isolated'
 is_enabled | boolean | NO |  (true) | Turn on or off grid_bot after creation
 ### Get AI settings (Permission: BOTS_READ, Security: SIGNED)
 ```
@@ -94,6 +94,14 @@ GET /ver1/grid_bots/{id}/profits
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 id | integer | YES |   | 
+### Profit
+ ``` 
+ {
+period: string 
+  amount: number 
+  chart_data: array 
+  } 
+ ``` 
 ### Edit Grid Bot (AI) (Permission: BOTS_WRITE, Security: SIGNED)
 ```
 PATCH /ver1/grid_bots/{id}/ai
@@ -108,7 +116,7 @@ Name | Type | Mandatory | Values(default) | Description
 pair | string | YES |   | 
 total_quantity | number | YES |   | 
 leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Leverage type for futures accounts
-leverage_custom_value | number | NO |   | Required if leverage_type = 'custom'
+leverage_custom_value | number | NO |   | Required if leverage_type = 'isolated'
 id | integer | YES |   | 
 ### Edit Grid Bot (Manual) (Permission: BOTS_WRITE, Security: SIGNED)
 ```
@@ -127,7 +135,7 @@ lower_price | number | YES |   |
 quantity_per_grid | number | YES |   | 
 grids_quantity | number | YES |   | 
 leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Leverage type for futures accounts
-leverage_custom_value | number | NO |   | Required if leverage_type = 'custom'
+leverage_custom_value | number | NO |   | Required if leverage_type = 'isolated'
 id | integer | YES |   | 
 ### Show Grid Bot (Permission: BOTS_READ, Security: SIGNED)
 ```
@@ -200,10 +208,11 @@ is_enabled: true
 grids_quantity: '20'                      
 created_at: 2018-08-08 08:08:08           
 updated_at: 2018-08-10 10:10:10           
+strategy_type: 'manual'                   
 lower_price: '8000'                       
 upper_price: '10000'                      
 quantity_per_grid: '100'                  
-leverage_type: 'custom'                   
+leverage_type: 'isolated'                 
 leverage_custom_value: '20.1'             
 name: 'GridBot1'                          
 pair: 'BTC_ETH'                           

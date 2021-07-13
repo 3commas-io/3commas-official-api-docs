@@ -69,7 +69,7 @@ safety_order_step_percentage | number | YES |   | Price deviation to open safety
 take_profit_type | string | YES | base, total (base) | Percentage: base – from base order, total – from total volume
 strategy_list | array[json] | YES |   | For manual signals: [{"strategy":"manual"}] or []<br>                                                        For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>                                                        QFL: {"options"=>{"type"=>"original"}, "strategy"=>"qfl"}] <br>                                                        TradingView: [{"options"=>{"time"=>"5m", "type"=>"buy_or_strong_buy"}, "strategy"=>"trading_view"} 
 leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Used for Bitmex bots only
-leverage_custom_value | number | NO |   | required if leverage_type is custom
+leverage_custom_value | number | NO |   | required if leverage_type is isolated
 min_price | number | NO |   | minimum price to open deal
 max_price | number | NO |   | maximum price to open deal
 stop_loss_timeout_enabled | boolean | NO |   | 
@@ -116,6 +116,21 @@ Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 account_id | integer | NO |   | Account to show on. Null - show for all. Gather this from GET /ver1/accounts
 bot_id | integer | NO |   | Bots to show on. Null - show for all
+### POST /bots/:id/copy_and_create. Permission: BOTS_WRITE, Security: SIGNED
+```
+POST /ver1/bots/{bot_id}/copy_and_create
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+name | string | YES |   | 
+secret | string | YES |   | 
+amount | number | NO |   | Max amount for bot usage (Based on current rate)
+bot_id | integer | YES |   | 
 ### Edit bot (Permission: BOTS_WRITE, Security: SIGNED)
 ```
 PATCH /ver1/bots/{bot_id}/update
@@ -146,9 +161,9 @@ trailing_deviation | number | NO |   | required if trailing_enabled
 btc_price_limit | number | NO |   | 
 safety_order_step_percentage | number | YES |   | Price deviation to open safety trades(percentage)
 take_profit_type | string | YES | total, base (total) | Percentage: base – from base order, total – from total volume
-strategy_list | array[json] | YES |   | For manual signals: [{"strategy":"nonstop"}] or []<br>                                                          For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>                                                          QFL: {"options"=>{"type"=>"original"}, "strategy"=>"qfl"}] <br>                                                          TradingView: [{"options"=>{"time"=>"5m", "type"=>"buy_or_strong_buy"}, "strategy"=>"trading_view"} 
+strategy_list | array[json] | YES |   | For manual signals: [{"strategy":"manual"}] or []<br>                                                          For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>                                                          QFL: {"options"=>{"type"=>"original"}, "strategy"=>"qfl"}] <br>                                                          TradingView: [{"options"=>{"time"=>"5m", "type"=>"buy_or_strong_buy"}, "strategy"=>"trading_view"} 
 leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Used for Bitmex bots only
-leverage_custom_value | number | NO |   | required if leverage_type is custom
+leverage_custom_value | number | NO |   | required if leverage_type is isolated
 min_price | number | NO |   | minimum price to open deal
 max_price | number | NO |   | maximum price to open deal
 stop_loss_timeout_enabled | boolean | NO |   | 
@@ -276,6 +291,7 @@ deals_counter: 2
 allowed_deals_on_same_pair: 2             
 easy_form_supported: true                 
 close_deals_timeout: 70                  Close bot deals after given number of seconds 
+url_secret:                               
 name: 'Test Bot'                          
 take_profit: '1.5'                       'Percentage' 
 base_order_volume: '0.002'                
@@ -287,6 +303,7 @@ martingale_volume_coefficient: '1.3'
 martingale_step_coefficient: '0.9'        
 stop_loss_percentage: '5.5'               
 cooldown: '200'                           
+btc_price_limit: '30.15'                  
 strategy: 'long'                         Values: long, short 
 min_volume_btc_24h: '500.5'               
 profit_currency: 'quote_currency'        Values: quote_currency, base_currency 
@@ -299,7 +316,7 @@ account_name: 'My account'
 trailing_deviation: 0.14                  
 finished_deals_profit_usd: 12.14          
 finished_deals_count: 252.1               
-leverage_type: 'not_specified'           Values: custom, cross, not_specified, isolated 
+leverage_type: 'not_specified'           Values: cross, not_specified, isolated 
 leverage_custom_value: '1'                
 start_order_type: 'limit'                Values: limit, market 
 active_deals_usd_profit: 200.21          Sum of active deals profits 
