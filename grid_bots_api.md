@@ -11,6 +11,7 @@ POST /ver1/grid_bots/ai
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
+name | string | NO | GridBot
 account_id | integer | YES |   | id from GET /ver1/accounts
 pair | string | YES |   | 
 total_quantity | number | YES |   | 
@@ -27,6 +28,7 @@ POST /ver1/grid_bots/manual
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
+name | string | NO | GridBot
 account_id | integer | YES |   | id from GET /ver1/accounts
 pair | string | YES |   | 
 upper_price | number | YES |   | 
@@ -113,6 +115,7 @@ PATCH /ver1/grid_bots/{id}/ai
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
+name | string | NO | GridBot
 pair | string | YES |   | 
 total_quantity | number | YES |   | 
 leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Leverage type for futures accounts
@@ -129,6 +132,7 @@ PATCH /ver1/grid_bots/{id}/manual
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
+name | string | NO | GridBot
 pair | string | YES |   | 
 upper_price | number | YES |   | 
 lower_price | number | YES |   | 
