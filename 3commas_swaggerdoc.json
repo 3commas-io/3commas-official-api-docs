@@ -4348,6 +4348,20 @@
             "required": false
           },
           {
+            "in": "query",
+            "name": "profit_per_month_from",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "profit_per_month_to",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
             "in": "formData",
             "name": "account_types",
             "type": "array",
@@ -4363,6 +4377,12 @@
             "items": {
               "type": "string"
             },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "with_all_market_pairs",
+            "type": "boolean",
             "required": false
           },
           {
@@ -4637,6 +4657,14 @@
         "parameters": [
           {
             "in": "formData",
+            "name": "name",
+            "description": "Grid Bot's name",
+            "type": "string",
+            "default": "GridBot",
+            "required": false
+          },
+          {
+            "in": "formData",
             "name": "account_id",
             "description": "id from GET /ver1/accounts",
             "type": "integer",
@@ -4700,6 +4728,14 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "in": "formData",
+            "name": "name",
+            "description": "Grid Bot's name",
+            "type": "string",
+            "default": "GridBot",
+            "required": false
+          },
           {
             "in": "formData",
             "name": "account_id",
@@ -4997,6 +5033,14 @@
         "parameters": [
           {
             "in": "formData",
+            "name": "name",
+            "description": "Grid Bot's name",
+            "type": "string",
+            "default": "GridBot",
+            "required": false
+          },
+          {
+            "in": "formData",
             "name": "pair",
             "type": "string",
             "required": true
@@ -5059,6 +5103,14 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "in": "formData",
+            "name": "name",
+            "description": "Grid Bot's name",
+            "type": "string",
+            "default": "GridBot",
+            "required": false
+          },
           {
             "in": "formData",
             "name": "pair",
@@ -6955,6 +7007,10 @@
         "current_profit_usd": {
           "type": "string",
           "example": "1000"
+        },
+        "total_profits_count": {
+          "type": "string",
+          "example": "10"
         },
         "bought_volume": {
           "type": "string",
