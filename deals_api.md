@@ -21,6 +21,19 @@ order | string | NO | created_at, updated_at, closed_at, profit, profit_percenta
 order_direction | string | NO | asc, desc (desc) | 
 base | string | NO |   | Base currency
 quote | string | NO |   | Quote currency
+### Convert to smart trade (Permission: SMART_TRADE_WRITE, Security: SIGNED)
+```
+POST /ver1/deals/{deal_id}/convert_to_smart_trade
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+stop_bot | boolean | NO |   | 
+deal_id | integer | YES |   | 
 ### Update max safety orders (Permission: BOTS_WRITE, Security: SIGNED)
 ```
 POST /ver1/deals/{deal_id}/update_max_safety_orders

@@ -141,7 +141,6 @@ grids_quantity | number | YES |   |
 leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Leverage type for futures accounts
 leverage_custom_value | number | NO |   | Required if leverage_type = 'isolated'
 id | integer | YES |   | 
-name | string | YES |   | 
 ### Show Grid Bot (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/grid_bots/{id}

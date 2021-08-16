@@ -1327,6 +1327,41 @@
         "operationId": "getVer1Deals"
       }
     },
+    "/ver1/deals/{deal_id}/convert_to_smart_trade": {
+      "post": {
+        "description": "Convert to smart trade (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "stop_bot",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "deal_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Convert to smart trade (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "deals"
+        ],
+        "operationId": "postVer1DealsDealIdConvertToSmartTrade"
+      }
+    },
     "/ver1/deals/{deal_id}/update_max_safety_orders": {
       "post": {
         "description": "Update max safety orders (Permission: BOTS_WRITE, Security: SIGNED)",

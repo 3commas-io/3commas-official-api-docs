@@ -13,8 +13,11 @@ Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 profit_per_day_from | number | NO |   | 
 profit_per_day_to | number | NO |   | 
+profit_per_month_from | number | NO |   | 
+profit_per_month_to | number | NO |   | 
 account_types | array[string] | NO |   | 
 markets | array[string] | NO |   | 
+with_all_market_pairs | boolean | NO |   | 
 pairs | array[string] | NO |   | 
 days_running_from | integer | NO |   | 
 days_running_to | integer | NO |   | 
