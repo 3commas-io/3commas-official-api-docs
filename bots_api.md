@@ -252,6 +252,18 @@ POST /ver1/bots/{bot_id}/cancel_all_deals
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 bot_id | integer | YES |   | 
+### Bot deals stats (Permission: BOTS_READ, Security: SIGNED)
+```
+GET /ver1/bots/{bot_id}/deals_stats
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+bot_id | integer | YES |   | 
 ### Bot info (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/bots/{bot_id}/show

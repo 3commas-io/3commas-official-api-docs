@@ -78,6 +78,11 @@ api_key | string | NO |   |
 secret | string | NO |   | 
 customer_id | string | NO |   | For Bitstamp
 passphrase | string | NO |   | For Coinbase Pro (GDAX)
+address | string | NO |   | For accounts with type = ethereumwallet
+how_connect | string | NO | mnemonic_phrase, keystore  | 
+keystore | json | NO |   | 
+wallet_password | string | NO |   | 
+mnemonic_phrase | string | NO |   | 
 ### User connected exchanges(and EthereumWallet) list (Permission: ACCOUNTS_READ, Security: SIGNED)
 ```
 GET /ver1/accounts

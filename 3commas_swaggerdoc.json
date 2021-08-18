@@ -39,6 +39,10 @@
       "description": "Operations about grid_bots"
     },
     {
+      "name": "loose_accounts",
+      "description": "Operations about loose_accounts"
+    },
+    {
       "name": "ping",
       "description": "Operations about pings"
     },
@@ -1190,6 +1194,32 @@
         "operationId": "postVer1BotsBotIdCancelAllDeals"
       }
     },
+    "/ver1/bots/{bot_id}/deals_stats": {
+      "get": {
+        "description": "Bot deals stats (Permission: BOTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "bot_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Bot deals stats (Permission: BOTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "bots"
+        ],
+        "operationId": "getVer1BotsBotIdDealsStats"
+      }
+    },
     "/ver1/bots/{bot_id}/show": {
       "get": {
         "description": "Bot info (Permission: BOTS_READ, Security: SIGNED)",
@@ -2122,6 +2152,41 @@
             "in": "formData",
             "name": "passphrase",
             "description": "For Coinbase Pro (GDAX)",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "address",
+            "description": "For accounts with type = ethereumwallet",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "how_connect",
+            "type": "string",
+            "enum": [
+              "mnemonic_phrase",
+              "keystore"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "keystore",
+            "type": "json",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "wallet_password",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "mnemonic_phrase",
             "type": "string",
             "required": false
           }
@@ -5355,6 +5420,146 @@
         "operationId": "getVer1GridBotsIdRequiredBalances"
       }
     },
+    "/ver1/loose_accounts": {
+      "post": {
+        "description": "Create Loose Account (Permission: ACCOUNTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "name",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "tokens[code]",
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "tokens[amount]",
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "number",
+              "format": "double"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create Loose Account (Permission: ACCOUNTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "loose_accounts"
+        ],
+        "operationId": "postVer1LooseAccounts"
+      }
+    },
+    "/ver1/loose_accounts/available_currencies": {
+      "get": {
+        "description": "Get all available currencies for Loose Account",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "contains",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get all available currencies for Loose Account"
+          }
+        },
+        "tags": [
+          "loose_accounts"
+        ],
+        "operationId": "getVer1LooseAccountsAvailableCurrencies"
+      }
+    },
+    "/ver1/loose_accounts/{account_id}": {
+      "put": {
+        "description": "Update Loose Account (Permission: ACCOUNTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "tokens[code]",
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "tokens[amount]",
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "in": "path",
+            "name": "account_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update Loose Account (Permission: ACCOUNTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "loose_accounts"
+        ],
+        "operationId": "putVer1LooseAccountsAccountId"
+      }
+    },
     "/ver1/ping": {
       "get": {
         "description": "Test connectivity to the Rest API (Permission: NONE, Security: NONE)",
@@ -7737,28 +7942,37 @@
     "TakeProfitStep": {
       "type": "object",
       "properties": {
-        "position": {
-          "type": "number"
+        "id": {
+          "type": "integer"
         },
-        "order_type": {
-          "type": "string"
+        "version": {
+          "type": "integer"
         },
-        "editable": {
-          "type": "boolean"
-        },
-        "units": {
+        "account": {
           "type": "object",
           "properties": {
-            "value": {
-              "type": "number"
+            "id": {
+              "type": "integer"
+            },
+            "type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "market": {
+              "type": "string"
+            },
+            "link": {
+              "type": "string"
             }
           }
         },
-        "volume": {
-          "type": "number"
+        "pair": {
+          "type": "string"
         },
-        "total": {
-          "type": "number"
+        "instant": {
+          "type": "boolean"
         },
         "status": {
           "type": "object",
@@ -7768,47 +7982,319 @@
             },
             "title": {
               "type": "string"
-            },
-            "error": {
-              "type": "string"
             }
           }
         },
-        "data": {
-          "type": "object",
-          "properties": {
-            "cancelable": {
-              "type": "boolean"
-            },
-            "panic_sell_available": {
-              "type": "boolean"
-            }
-          }
-        },
-        "price": {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "string"
-            },
-            "value": {
-              "type": "number"
-            },
-            "percent": {
-              "type": "number"
-            }
-          }
-        },
-        "trailing": {
+        "leverage": {
           "type": "object",
           "properties": {
             "enabled": {
               "type": "boolean"
             },
-            "percent": {
-              "type": "number"
+            "type": {
+              "type": "string"
+            },
+            "value": {
+              "type": "integer"
             }
           }
+        },
+        "position": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "editable": {
+              "type": "boolean"
+            },
+            "units": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "example": 1231.11,
+                  "nullable": true
+                },
+                "editable": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "price": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "number",
+                  "example": 1223.32,
+                  "nullable": true
+                },
+                "value_without_commission": {
+                  "type": "number",
+                  "example": 500.2,
+                  "nullable": true
+                },
+                "editable": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "total": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "number",
+                  "example": 100.2,
+                  "nullable": true
+                }
+              }
+            },
+            "order_type": {
+              "type": "string"
+            },
+            "status": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "take_profit": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "steps": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/TakeProfitStep"
+              }
+            }
+          }
+        },
+        "stop_loss": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            }
+          }
+        },
+        "note": {
+          "type": "string"
+        },
+        "skip_enter_step": {
+          "type": "boolean"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "editable": {
+              "type": "boolean"
+            },
+            "current_price": {
+              "type": "object",
+              "properties": {
+                "quote_volume": {
+                  "type": "string"
+                },
+                "last": {
+                  "type": "string"
+                }
+              }
+            },
+            "target_price_type": {
+              "type": "string"
+            },
+            "base_order_finished": {
+              "type": "boolean"
+            },
+            "missing_funds_to_close": {
+              "type": "number"
+            },
+            "liquidation_price": {
+              "type": "number",
+              "example": 1000.22,
+              "nullable": true
+            },
+            "average_enter_price": {
+              "type": "number",
+              "example": 60.2,
+              "nullable": true
+            },
+            "average_close_price": {
+              "type": "number",
+              "example": 60.2,
+              "nullable": true
+            },
+            "average_enter_price_without_commission": {
+              "type": "number",
+              "example": 100.3,
+              "nullable": true
+            },
+            "average_close_price_without_commission": {
+              "type": "number",
+              "example": 40.2,
+              "nullable": true
+            },
+            "panic_sell_available": {
+              "type": "boolean"
+            },
+            "add_funds_available": {
+              "type": "boolean"
+            },
+            "force_start_available": {
+              "type": "boolean"
+            },
+            "force_process_available": {
+              "type": "boolean"
+            },
+            "cancel_available": {
+              "type": "boolean"
+            },
+            "finished": {
+              "type": "boolean"
+            },
+            "base_position_step_finished": {
+              "type": "boolean"
+            },
+            "created_at": {
+              "type": "string",
+              "example": "2018-08-08 08:08:08"
+            },
+            "updated_at": {
+              "type": "string",
+              "example": "2018-08-08 08:08:08"
+            },
+            "closed_at": {
+              "type": "string",
+              "example": "2018-08-08 08:08:08"
+            },
+            "type": {
+              "type": "string",
+              "example": "smart_sell"
+            }
+          }
+        },
+        "profit": {
+          "type": "object",
+          "properties": {
+            "volume": {
+              "type": "number",
+              "example": 14,
+              "nullable": true
+            },
+            "usd": {
+              "type": "number",
+              "example": 12.22,
+              "nullable": true
+            },
+            "percent": {
+              "type": "number",
+              "example": 12
+            },
+            "roe": {
+              "type": "number",
+              "nullable": true
+            }
+          }
+        },
+        "margin": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "example": 100.2,
+              "nullable": true
+            },
+            "total": {
+              "type": "number",
+              "example": 700.2,
+              "nullable": true
+            }
+          }
+        },
+        "is_position_not_filled": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "BotDealsStatsEntity": {
+      "type": "object",
+      "properties": {
+        "completed": {
+          "type": "integer",
+          "example": 0
+        },
+        "panic_sold": {
+          "type": "integer",
+          "example": 0
+        },
+        "active": {
+          "type": "integer",
+          "example": 0
+        },
+        "completed_deals_usd_profit": {
+          "type": "string",
+          "example": "5000.0"
+        },
+        "from_currency_is_dollars": {
+          "type": "boolean",
+          "example": false
+        },
+        "completed_deals_btc_profit": {
+          "type": "string",
+          "example": "0.5"
+        },
+        "active_deals_usd_profit": {
+          "type": "string",
+          "example": "0.0"
+        },
+        "active_deals_btc_profit": {
+          "type": "string",
+          "example": "0.0"
+        }
+      },
+      "additionalProperties": false
+    },
+    "LooseAccountEntity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "New Loose Account"
+        },
+        "created_at": {
+          "type": "string",
+          "example": "2021-07-08 08:08:08"
+        },
+        "updated_at": {
+          "type": "string",
+          "example": "2021-08-09 09:09:09"
+        },
+        "type": {
+          "type": "string",
+          "example": "Accounts::LooseAccount"
+        },
+        "is_deleted": {
+          "type": "boolean",
+          "example": false
+        },
+        "is_locked": {
+          "type": "boolean",
+          "example": false
         }
       },
       "additionalProperties": false
