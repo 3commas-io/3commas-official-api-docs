@@ -345,7 +345,7 @@
           {
             "in": "formData",
             "name": "strategy_list",
-            "description": "For manual signals: [{\"strategy\":\"manual\"}] or []<br>\n                                                        For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]<br>\n                                                        QFL: {\"options\"=>{\"type\"=>\"original\"}, \"strategy\"=>\"qfl\"}] <br>\n                                                        TradingView: [{\"options\"=>{\"time\"=>\"5m\", \"type\"=>\"buy_or_strong_buy\"}, \"strategy\"=>\"trading_view\"} ",
+            "description": "For manual signals: [{\"strategy\":\"manual\"}] or []<br>\n                                                        For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]<br>\n                                                        QFL: {\"options\": {\"type\": \"original\"}, {\"percent\": 3}, \"strategy\": \"qfl\"}] <br>\n                                                        TradingView: [{\"options\": {\"time\": \"5m\", \"type\": \"buy_or_strong_buy\"}, \"strategy\": \"trading_view\"} ",
             "type": "array",
             "items": {
               "type": "json"
@@ -852,7 +852,7 @@
           {
             "in": "formData",
             "name": "strategy_list",
-            "description": "For manual signals: [{\"strategy\":\"manual\"}] or []<br>\n                                                          For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]<br>\n                                                          QFL: {\"options\"=>{\"type\"=>\"original\"}, \"strategy\"=>\"qfl\"}] <br>\n                                                          TradingView: [{\"options\"=>{\"time\"=>\"5m\", \"type\"=>\"buy_or_strong_buy\"}, \"strategy\"=>\"trading_view\"} ",
+            "description": "For manual signals: [{\"strategy\":\"manual\"}] or []<br>\n                                                        For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]<br>\n                                                        QFL: {\"options\": {\"type\": \"original\"}, {\"percent\": 3}, \"strategy\": \"qfl\"}] <br>\n                                                        TradingView: [{\"options\": {\"time\": \"5m\", \"type\": \"buy_or_strong_buy\", \"strategy\": \"trading_view\"} ",
             "type": "array",
             "items": {
               "type": "json"
@@ -2246,7 +2246,7 @@
           {
             "in": "query",
             "name": "pretty_display_type",
-            "description": "deprecated. use market_code instead",
+            "description": "deprecated. mandatory use market_code instead",
             "type": "string",
             "required": false
           },
@@ -2281,7 +2281,7 @@
             "name": "market_code",
             "description": "market_code from account model",
             "type": "string",
-            "required": false
+            "required": true
           },
           {
             "in": "query",
@@ -2319,7 +2319,7 @@
           {
             "in": "query",
             "name": "market_code",
-            "description": "market_code from account model",
+            "description": "market_code from account model. If you are retrieving data for pairs, you must also include market_code",
             "type": "string",
             "required": false
           },
@@ -5469,7 +5469,7 @@
     },
     "/ver1/loose_accounts/available_currencies": {
       "get": {
-        "description": "Get all available currencies for Loose Account",
+        "description": "Available currencies (Permission: ACCOUNTS_READ, Security: SIGNED)",
         "produces": [
           "application/json"
         ],
@@ -5497,7 +5497,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Get all available currencies for Loose Account"
+            "description": "Available currencies (Permission: ACCOUNTS_READ, Security: SIGNED)"
           }
         },
         "tags": [
@@ -5959,6 +5959,12 @@
           },
           {
             "in": "formData",
+            "name": "stop_loss[breakeven]",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
             "name": "stop_loss[order_type]",
             "type": "string",
             "enum": [
@@ -6257,6 +6263,12 @@
           },
           {
             "in": "formData",
+            "name": "stop_loss[breakeven]",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
             "name": "stop_loss[order_type]",
             "type": "string",
             "enum": [
@@ -6335,6 +6347,61 @@
           "smart_trades_v2"
         ],
         "operationId": "patchV2SmartTradesId"
+      }
+    },
+    "/v2/smart_trades/{id}/reduce_funds": {
+      "post": {
+        "description": "Reduce funds for smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "order_type",
+            "type": "string",
+            "enum": [
+              "market",
+              "limit"
+            ],
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "units[value]",
+            "description": "Amount of units to buy",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "price[value]",
+            "description": "Price for limit order",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Reduce funds for smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades_v2"
+        ],
+        "operationId": "postV2SmartTradesIdReduceFunds"
       }
     },
     "/v2/smart_trades/{id}/add_funds": {
@@ -6990,6 +7057,12 @@
           "type": "boolean",
           "example": true
         },
+        "hedge_mode_available": {
+          "type": "boolean"
+        },
+        "hedge_mode_enabled": {
+          "type": "boolean"
+        },
         "is_locked": {
           "type": "boolean",
           "example": true
@@ -7072,6 +7145,10 @@
           "type": "boolean",
           "example": true
         },
+        "deposit_enabled": {
+          "type": "boolean",
+          "example": "false"
+        },
         "supported_market_types": {
           "type": "string"
         },
@@ -7092,6 +7169,12 @@
         "auto_balance_error": {
           "type": "string",
           "example": "'Failed to autobalance'"
+        },
+        "customer_id": {
+          "type": "string"
+        },
+        "subaccount_name": {
+          "type": "string"
         },
         "lock_reason": {
           "type": "string",
@@ -8253,6 +8336,14 @@
         "completed_deals_btc_profit": {
           "type": "string",
           "example": "0.5"
+        },
+        "funds_locked_in_active_deals": {
+          "type": "string",
+          "example": "0.0"
+        },
+        "btc_funds_locked_in_active_deals": {
+          "type": "string",
+          "example": "0.0"
         },
         "active_deals_usd_profit": {
           "type": "string",

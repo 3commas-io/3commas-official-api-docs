@@ -67,7 +67,7 @@ btc_price_limit | number | NO |   |
 strategy | string | NO | short, long (long) | 
 safety_order_step_percentage | number | YES |   | Price deviation to open safety trades(percentage)
 take_profit_type | string | YES | base, total (base) | Percentage: base – from base order, total – from total volume
-strategy_list | array[json] | YES |   | For manual signals: [{"strategy":"manual"}] or []<br>                                                        For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>                                                        QFL: {"options"=>{"type"=>"original"}, "strategy"=>"qfl"}] <br>                                                        TradingView: [{"options"=>{"time"=>"5m", "type"=>"buy_or_strong_buy"}, "strategy"=>"trading_view"} 
+strategy_list | array[json] | YES |   | For manual signals: [{"strategy":"manual"}] or []<br>                                                        For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>                                                        QFL: {"options": {"type": "original"}, {"percent": 3}, "strategy": "qfl"}] <br>                                                        TradingView: [{"options": {"time": "5m", "type": "buy_or_strong_buy"}, "strategy": "trading_view"} 
 leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Used for Bitmex bots only
 leverage_custom_value | number | NO |   | required if leverage_type is isolated
 min_price | number | NO |   | minimum price to open deal
@@ -161,7 +161,7 @@ trailing_deviation | number | NO |   | required if trailing_enabled
 btc_price_limit | number | NO |   | 
 safety_order_step_percentage | number | YES |   | Price deviation to open safety trades(percentage)
 take_profit_type | string | YES | total, base (total) | Percentage: base – from base order, total – from total volume
-strategy_list | array[json] | YES |   | For manual signals: [{"strategy":"manual"}] or []<br>                                                          For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>                                                          QFL: {"options"=>{"type"=>"original"}, "strategy"=>"qfl"}] <br>                                                          TradingView: [{"options"=>{"time"=>"5m", "type"=>"buy_or_strong_buy"}, "strategy"=>"trading_view"} 
+strategy_list | array[json] | YES |   | For manual signals: [{"strategy":"manual"}] or []<br>                                                        For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>                                                        QFL: {"options": {"type": "original"}, {"percent": 3}, "strategy": "qfl"}] <br>                                                        TradingView: [{"options": {"time": "5m", "type": "buy_or_strong_buy", "strategy": "trading_view"} 
 leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Used for Bitmex bots only
 leverage_custom_value | number | NO |   | required if leverage_type is isolated
 min_price | number | NO |   | minimum price to open deal

@@ -112,7 +112,7 @@ GET /ver1/accounts/market_pairs
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-pretty_display_type | string | NO |   | deprecated. use market_code instead
+pretty_display_type | string | NO |   | deprecated. mandatory use market_code instead
 market_code | string | NO |   | market_code from account model
 ### Currency rates and limits with leverage data (Permission: NONE, Security: NONE)
 ```
@@ -125,7 +125,7 @@ GET /ver1/accounts/currency_rates_with_leverage_data
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-market_code | string | NO |   | market_code from account model
+market_code | string | YES |   | market_code from account model
 pair | string | YES |   | Pair
 ### Currency rates and limits (Permission: NONE, Security: NONE)
 ```
@@ -139,7 +139,7 @@ GET /ver1/accounts/currency_rates
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 pretty_display_type | string | NO |   | deprecated. use market_code instead
-market_code | string | NO |   | market_code from account model
+market_code | string | NO |   | market_code from account model. If you are retrieving data for pairs, you must also include market_code
 pair | string | YES |   | Pair
 ### User Deposit Data (Permission: ACCOUNTS_READ, Security: SIGNED)
 ```
@@ -327,6 +327,8 @@ auto_balance_period: 12
 auto_balance_portfolio_id: 452            
 auto_balance_currency_change_limit: 5     
 autobalance_enabled: true                 
+hedge_mode_available:                     
+hedge_mode_enabled:                       
 is_locked: true                           
 smart_trading_supported: true             
 smart_selling_supported: true            DEPRECATED. use smart_trading_supported instead 
@@ -347,11 +349,14 @@ last_auto_balance: 2018-08-21 08:08:08
 fast_convert_available: true             Sell all to USD/BTC possibility 
 grid_bots_allowed: true                   
 api_key_invalid: true                     
+deposit_enabled: false                    
 supported_market_types:                   
 api_key: ''                               
 name: 'Binance 2 '                        
 auto_balance_method: 'time'              Values: time, currency_change 
 auto_balance_error: 'Failed to autobalance' 
+customer_id:                              
+subaccount_name:                          
 lock_reason: 'API key is invalid'         
 btc_amount: '0.01134219'                  
 usd_amount: '70.93146245'                 

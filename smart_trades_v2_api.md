@@ -59,6 +59,7 @@ take_profit[steps][][price][percent] | string | NO |   | only if position has tr
 take_profit[steps][][trailing][enabled] | string | YES |   | 
 take_profit[steps][][trailing][percent] | string | YES |   | 
 stop_loss[enabled] | boolean | YES |   | 
+stop_loss[breakeven] | boolean | NO |   | 
 stop_loss[order_type] | string | YES | market, limit  | 
 stop_loss[price][value] | number | YES |   | Price for limit order
 stop_loss[conditional][price][type] | string | YES | bid, ask, last  | 
@@ -125,6 +126,7 @@ stop_loss[timeout][value] | integer | YES |   |
     },
     "stop_loss": {                                  /*required only when instant is false */
         "enabled":"true|false",                     /*required*/
+        "breakeven":"true|false",                   /* optional. By default false */
         "order_type": "market|limit",               /*required*/
         "price": {                                  /*required only for limit order_type */
             "value":"0.1234"
@@ -848,6 +850,52 @@ stop_loss[timeout][value] | integer | YES |   |
 }
 ```
 
+#### Smart Trade Market Buy TP 2 Limit SL Market Breakeven
+```
+{
+  "account_id": 1,
+  "pair": "USDT_BTC",
+  "position": {
+    "type": "buy",
+    "units": {
+      "value": "0.01"
+    },
+    "order_type": "market"
+  },
+  "take_profit": {
+    "enabled": "true",
+    "steps": [
+      {
+        "order_type": "limit",
+        "price": {
+          "value": 10000,
+          "type": "bid"
+        },
+        "volume": 50
+      },
+      {
+        "order_type": "limit",
+        "price": {
+          "value": 10500,
+          "type": "bid"
+        },
+        "volume": 50
+      }
+    ]
+  },
+  "stop_loss": {
+    "enabled": "true",
+    "breakeven": "true",
+    "order_type": "market",
+    "conditional": {
+      "price": {
+        "value": 7500,
+        "type": "bid"
+      }
+    }
+  }
+}
+```
 ### Get smart trade v2 by id (Permission: SMART_TRADE_READ, Security: SIGNED)
 ```
 GET /v2/smart_trades/{id}
@@ -902,6 +950,7 @@ take_profit[steps][][price][percent] | string | NO |   |
 take_profit[steps][][trailing][enabled] | string | YES |   | 
 take_profit[steps][][trailing][percent] | string | YES |   | 
 stop_loss[enabled] | boolean | YES |   | 
+stop_loss[breakeven] | boolean | NO |   | 
 stop_loss[order_type] | string | YES | market, limit  | 
 stop_loss[price][value] | number | YES |   | Price for limit order
 stop_loss[conditional][price][type] | string | YES | bid, ask, last  | 
@@ -910,6 +959,21 @@ stop_loss[conditional][price][percent] | number | NO |   |
 stop_loss[conditional][trailing][enabled] | boolean | YES |   | 
 stop_loss[timeout][enabled] | boolean | YES |   | 
 stop_loss[timeout][value] | integer | YES |   | 
+id | integer | YES |   | 
+### Reduce funds for smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)
+```
+POST /v2/smart_trades/{id}/reduce_funds
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+order_type | string | YES | market, limit  | 
+units[value] | number | YES |   | Amount of units to buy
+price[value] | number | YES |   | Price for limit order
 id | integer | YES |   | 
 ### Average for smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)
 ```
