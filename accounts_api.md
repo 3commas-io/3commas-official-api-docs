@@ -113,7 +113,7 @@ GET /ver1/accounts/market_pairs
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 pretty_display_type | string | NO |   | deprecated. mandatory use market_code instead
-market_code | string | NO |   | market_code from account model
+market_code | string | YES |   | market_code from account model
 ### Currency rates and limits with leverage data (Permission: NONE, Security: NONE)
 ```
 GET /ver1/accounts/currency_rates_with_leverage_data
@@ -139,7 +139,7 @@ GET /ver1/accounts/currency_rates
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 pretty_display_type | string | NO |   | deprecated. use market_code instead
-market_code | string | NO |   | market_code from account model. If you are retrieving data for pairs, you must also include market_code
+market_code | string | YES |   | market_code from account model. If you are retrieving data for pairs, you must also include market_code
 pair | string | YES |   | Pair
 ### User Deposit Data (Permission: ACCOUNTS_READ, Security: SIGNED)
 ```
