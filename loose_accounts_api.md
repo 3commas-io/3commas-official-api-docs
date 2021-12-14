@@ -14,7 +14,7 @@ Name | Type | Mandatory | Values(default) | Description
 name | string | YES |   | 
 tokens[code] | array[string] | YES |   | 
 tokens[amount] | array[number] | YES |   | 
-### Get all available currencies for Loose Account
+### Available currencies (Permission: ACCOUNTS_READ, Security: SIGNED)
 ```
 GET /ver1/loose_accounts/available_currencies
 ```

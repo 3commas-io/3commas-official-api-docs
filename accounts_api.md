@@ -57,6 +57,7 @@ secret | string | NO |   | Requires unless type = binance_dex
 address | string | NO |   | Requires if type = ethereumwallet
 customer_id | string | NO |   | For Bitstamp
 passphrase | string | NO |   | For Coinbase Pro (GDAX)
+subaccount_name | string | NO |   | For FTX
 how_connect | string | NO | mnemonic_phrase, keystore  | 
 keystore | json | NO |   | keystore file content. Requires if type = binance_dex and how_connect = keystore
 wallet_password | string | NO |   | Requires if type = binance_dex and how_connect = keystore
@@ -78,6 +79,7 @@ api_key | string | NO |   |
 secret | string | NO |   | 
 customer_id | string | NO |   | For Bitstamp
 passphrase | string | NO |   | For Coinbase Pro (GDAX)
+subaccount_name | string | NO |   | For FTX
 address | string | NO |   | For accounts with type = ethereumwallet
 how_connect | string | NO | mnemonic_phrase, keystore  | 
 keystore | json | NO |   | 
@@ -91,7 +93,11 @@ GET /ver1/accounts
 1
 
 **Parameters:**
-NONE
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+page | integer | NO |   | 
+per_page | integer | NO |   | Page size, from 1 to 100
 ### Supported markets list (Permission: NONE, Security: NONE)
 ```
 GET /ver1/accounts/market_list
@@ -138,6 +144,7 @@ GET /ver1/accounts/currency_rates
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
+limit_type | string | NO |   | Type of limits - bot or smart_trade
 pretty_display_type | string | NO |   | deprecated. use market_code instead
 market_code | string | NO |   | market_code from account model. If you are retrieving data for pairs, you must also include market_code
 pair | string | YES |   | Pair
@@ -325,6 +332,7 @@ account_id | integer | YES |   |
 id: 12                                    
 auto_balance_period: 12                   
 auto_balance_portfolio_id: 452            
+auto_balance_portfolio: PortfolioEntity    
 auto_balance_currency_change_limit: 5     
 autobalance_enabled: true                 
 hedge_mode_available:                     

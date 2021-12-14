@@ -35,6 +35,12 @@ upper_price | number | YES |   |
 lower_price | number | YES |   | 
 quantity_per_grid | number | YES |   | 
 grids_quantity | number | YES |   | 
+upper_stop_loss_price | number | NO |   | 
+upper_stop_loss_enabled | boolean | NO |   | 
+upper_stop_loss_action | string | NO | stop_bot, stop_bot_and_buy, stop_bot_and_sell, stop_bot_and_close_position (stop_bot) | 
+lower_stop_loss_price | number | NO |   | 
+lower_stop_loss_enabled | boolean | NO |   | 
+lower_stop_loss_action | string | NO | stop_bot, stop_bot_and_buy, stop_bot_and_sell, stop_bot_and_close_position (stop_bot) | 
 leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Leverage type for futures accounts
 leverage_custom_value | number | NO |   | Required if leverage_type = 'isolated'
 is_enabled | boolean | NO |  (true) | Turn on or off grid_bot after creation
@@ -138,6 +144,12 @@ upper_price | number | YES |   |
 lower_price | number | YES |   | 
 quantity_per_grid | number | YES |   | 
 grids_quantity | number | YES |   | 
+upper_stop_loss_price | number | NO |   | 
+upper_stop_loss_enabled | boolean | NO |   | 
+upper_stop_loss_action | string | NO | stop_bot, stop_bot_and_buy, stop_bot_and_sell, stop_bot_and_close_position  | 
+lower_stop_loss_price | number | NO |   | 
+lower_stop_loss_enabled | boolean | NO |   | 
+lower_stop_loss_action | string | NO | stop_bot, stop_bot_and_buy, stop_bot_and_sell, stop_bot_and_close_position  | 
 leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Leverage type for futures accounts
 leverage_custom_value | number | NO |   | Required if leverage_type = 'isolated'
 id | integer | YES |   | 
@@ -213,8 +225,14 @@ grids_quantity: '20'
 created_at: 2018-08-08 08:08:08           
 updated_at: 2018-08-10 10:10:10           
 strategy_type: 'manual'                   
+upper_stop_loss_enabled: true             
+lower_stop_loss_enabled: true             
 lower_price: '8000'                       
+lower_stop_loss_price: '7500'             
+lower_stop_loss_action: 'stop_bot'        
 upper_price: '10000'                      
+upper_stop_loss_price: '12000'            
+upper_stop_loss_action: 'stop_bot'        
 quantity_per_grid: '100'                  
 leverage_type: 'isolated'                 
 leverage_custom_value: '20.1'             

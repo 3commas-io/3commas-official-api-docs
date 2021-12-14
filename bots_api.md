@@ -1,5 +1,29 @@
 # Bots Api 
 #### _Please read General API Information first_
+### summary_missing
+```
+GET /ver1/bots/account_trade_info_smart_sell
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+account_id | integer | YES |   | 
+### summary_missing
+```
+GET /ver1/bots/account_trade_info
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+account_id | integer | YES |   | 
 ### Available strategy list for bot (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/bots/strategy_list
