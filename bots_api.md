@@ -200,6 +200,7 @@ start_order_type | string | NO | limit, market  |
 stop_loss_type | string | NO | stop_loss, stop_loss_and_disable_bot  | 
 disable_after_deals_count | integer | NO |   | Bot will be disabled after opening this number of deals
 allowed_deals_on_same_pair | integer | NO |   | Allow specific number of deals on the same pair. Multibot only.
+close_deals_timeout | integer | NO |   | Close bot deals after given number of seconds. Must be greater than 60.
 bot_id | integer | YES |   | 
 ### Disable bot (Permission: BOTS_WRITE, Security: SIGNED)
 ```
