@@ -102,12 +102,13 @@ GET /ver1/grid_bots/{id}/profits
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 id | integer | YES |   | 
-### Profit
+### GridBotProfitsEntity
  ``` 
  {
-period: string 
-  amount: number 
-  chart_data: array 
+grid_line_id: integer 
+  profit: string 
+  usd_profit: string 
+  created_at: string 
   } 
  ``` 
 ### Edit Grid Bot (AI) (Permission: BOTS_WRITE, Security: SIGNED)
@@ -214,6 +215,15 @@ Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 id | integer | YES |   | 
 # Response Entities 
+### GridBotProfitsEntity
+ ``` 
+ {
+grid_line_id: '8000'                      
+profit: '0.01'                            
+usd_profit: '100'                         
+created_at: 2018-08-08 08:08:08           
+} 
+ ``` 
 ### GridBotEntity
  ``` 
  {
@@ -250,14 +260,5 @@ current_price: 100.1
 investment_base_currency: 100             
 investment_quote_currency: 100            
 grid_lines: GridLineEntity    
-} 
- ``` 
-### GridBotProfitsEntity
- ``` 
- {
-grid_line_id: '8000'                      
-profit: '0.01'                            
-usd_profit: '100'                         
-created_at: 2018-08-08 08:08:08           
 } 
  ``` 

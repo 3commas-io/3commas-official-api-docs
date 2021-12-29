@@ -1027,6 +1027,14 @@
             "required": false
           },
           {
+            "in": "formData",
+            "name": "close_deals_timeout",
+            "description": "Close bot deals after given number of seconds. Must be greater than 60.",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
             "in": "path",
             "name": "bot_id",
             "type": "integer",
@@ -3616,7 +3624,7 @@
           "200": {
             "description": "Grid Bot Profits (Permission: BOTS_READ, Security: SIGNED)",
             "schema": {
-              "$ref": "#/definitions/Profit"
+              "$ref": "#/definitions/GridBotProfitsEntity"
             }
           }
         },
@@ -5326,6 +5334,28 @@
             "format": "double"
           }
         }
+      }
+    },
+    "GridBotProfitsEntity": {
+      "type": "object",
+      "properties": {
+        "grid_line_id": {
+          "type": "integer",
+          "format": "int32",
+          "example": "'8000'"
+        },
+        "profit": {
+          "type": "string",
+          "example": "'0.01'"
+        },
+        "usd_profit": {
+          "type": "string",
+          "example": "'100'"
+        },
+        "created_at": {
+          "type": "string",
+          "example": "2018-08-08 08:08:08"
+        }
       },
       "description": "Grid Bot Profits (Permission: BOTS_READ, Security: SIGNED)"
     },
@@ -5988,28 +6018,6 @@
         "order_placed": {
           "type": "boolean",
           "example": true
-        }
-      }
-    },
-    "GridBotProfitsEntity": {
-      "type": "object",
-      "properties": {
-        "grid_line_id": {
-          "type": "integer",
-          "format": "int32",
-          "example": "'8000'"
-        },
-        "profit": {
-          "type": "string",
-          "example": "'0.01'"
-        },
-        "usd_profit": {
-          "type": "string",
-          "example": "'100'"
-        },
-        "created_at": {
-          "type": "string",
-          "example": "2018-08-08 08:08:08"
         }
       }
     },
