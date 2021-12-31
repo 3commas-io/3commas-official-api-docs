@@ -67,8 +67,7 @@ paths:
     get:
       tags:
         - bots
-      description:
-        'Available strategy list for bot (Permission: BOTS_READ, Security: SIGNED)'
+      description: 'Available strategy list for bot (Permission: BOTS_READ, Security: SIGNED)'
       operationId: getVer1BotsStrategyList
       parameters:
         - name: account_id
@@ -93,8 +92,7 @@ paths:
               - short
       responses:
         '200':
-          description:
-            'Available strategy list for bot (Permission: BOTS_READ, Security: SIGNED)'
+          description: 'Available strategy list for bot (Permission: BOTS_READ, Security: SIGNED)'
           content: {}
   /ver1/bots/pairs_black_list:
     get:
@@ -104,8 +102,7 @@ paths:
       operationId: getVer1BotsPairsBlackList
       responses:
         '200':
-          description:
-            'Black List for bot pairs (Permission: BOTS_READ, Security: SIGNED)'
+          description: 'Black List for bot pairs (Permission: BOTS_READ, Security: SIGNED)'
           content: {}
   /ver1/bots/update_pairs_black_list:
     post:
@@ -180,13 +177,7 @@ paths:
                   description: Base order size
                   format: double
                 base_order_volume_type:
-                  type: string
-                  description: base order volume currency
-                  enum:
-                    - quote_currency
-                    - base_currency
-                    - percent
-                    - xbt
+                  $ref: '#/components/schemas/OrderVolumeEnum'
                 take_profit:
                   type: number
                   description: Target profit(percentage)
@@ -196,13 +187,7 @@ paths:
                   description: Safety trade size
                   format: double
                 safety_order_volume_type:
-                  type: string
-                  description: safety order volume currency
-                  enum:
-                    - quote_currency
-                    - base_currency
-                    - percent
-                    - xbt
+                  $ref: '#/components/schemas/OrderVolumeEnum'
                 martingale_volume_coefficient:
                   type: number
                   format: double
@@ -247,8 +232,7 @@ paths:
                   format: double
                 take_profit_type:
                   type: string
-                  description:
-                    'Percentage: base – from base order, total – from total volume'
+                  description: 'Percentage: base – from base order, total – from total volume'
                   default: base
                   enum:
                     - base
@@ -266,14 +250,7 @@ paths:
                     : \"5m\", \"type\": \"buy_or_strong_buy\"}, \"strategy\": \"trading_view\"\
                     } "
                 leverage_type:
-                  type: string
-                  description: Used for Bitmex bots only
-                  default: not_specified
-                  enum:
-                    - custom
-                    - cross
-                    - not_specified
-                    - isolated
+                  $ref: '#/components/schemas/LeverageTypeBitmex'
                 leverage_custom_value:
                   type: number
                   description: required if leverage_type is isolated
@@ -303,36 +280,22 @@ paths:
                   description: Deal start delay in seconds
                   format: int32
                 profit_currency:
-                  type: string
-                  description: Take profit currency
-                  enum:
-                    - quote_currency
-                    - base_currency
+                  $ref: '#/components/schemas/ProfitCurrencyEnum'
                 start_order_type:
-                  type: string
-                  enum:
-                    - limit
-                    - market
+                  $ref: '#/components/schemas/OrderType'
                 stop_loss_type:
-                  type: string
-                  enum:
-                    - stop_loss
-                    - stop_loss_and_disable_bot
+                  $ref: '#/components/schemas/StopLossType'
                 disable_after_deals_count:
                   type: integer
                   description: Bot will be disabled after opening this number of deals
                   format: int32
                 allowed_deals_on_same_pair:
                   type: integer
-                  description:
-                    Allow specific number of deals on the same pair. Multibot
-                    only.
+                  description: Allow specific number of deals on the same pair. Multibot only.
                   format: int32
                 close_deals_timeout:
                   type: integer
-                  description:
-                    Close bot deals after given number of seconds. Must
-                    be greater than 60.
+                  description: Close bot deals after given number of seconds. Must be greater than 60.
                   format: int32
         required: true
       responses:
@@ -411,7 +374,12 @@ paths:
       responses:
         '200':
           description: 'User bots (Permission: BOTS_READ, Security: SIGNED)'
-          content: {}
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BotEntity'
   /ver1/bots/stats:
     get:
       tags:
@@ -521,13 +489,7 @@ paths:
                   description: Base order size
                   format: double
                 base_order_volume_type:
-                  type: string
-                  description: base order volume currency
-                  enum:
-                    - quote_currency
-                    - base_currency
-                    - percent
-                    - xbt
+                  $ref: '#/components/schemas/OrderVolumeEnum'
                 take_profit:
                   type: number
                   description: Target profit(percentage)
@@ -537,13 +499,7 @@ paths:
                   description: Safety trade size
                   format: double
                 safety_order_volume_type:
-                  type: string
-                  description: safety order volume currency
-                  enum:
-                    - quote_currency
-                    - base_currency
-                    - percent
-                    - xbt
+                  $ref: '#/components/schemas/OrderVolumeEnum'
                 martingale_volume_coefficient:
                   type: number
                   format: double
@@ -602,14 +558,7 @@ paths:
                     : \"5m\", \"type\": \"buy_or_strong_buy\", \"strategy\": \"trading_view\"\
                     } "
                 leverage_type:
-                  type: string
-                  description: Used for Bitmex bots only
-                  default: not_specified
-                  enum:
-                    - custom
-                    - cross
-                    - not_specified
-                    - isolated
+                  $ref: '#/components/schemas/LeverageTypeBitmex'
                 leverage_custom_value:
                   type: number
                   description: required if leverage_type is isolated
@@ -639,21 +588,11 @@ paths:
                   description: Deal start delay in seconds
                   format: int32
                 profit_currency:
-                  type: string
-                  description: Take profit currency
-                  enum:
-                    - quote_currency
-                    - base_currency
+                  $ref: '#/components/schemas/ProfitCurrencyEnum'
                 start_order_type:
-                  type: string
-                  enum:
-                    - limit
-                    - market
+                  $ref: '#/components/schemas/OrderType'
                 stop_loss_type:
-                  type: string
-                  enum:
-                    - stop_loss
-                    - stop_loss_and_disable_bot
+                  $ref: '#/components/schemas/StopLossType'
                 disable_after_deals_count:
                   type: integer
                   description: Bot will be disabled after opening this number of deals
@@ -777,8 +716,7 @@ paths:
             format: int32
       responses:
         '201':
-          description:
-            'Panic sell all bot deals (Permission: BOTS_WRITE, Security: SIGNED)'
+          description: 'Panic sell all bot deals (Permission: BOTS_WRITE, Security: SIGNED)'
           content: {}
   /ver1/bots/{bot_id}/cancel_all_deals:
     post:
@@ -924,8 +862,7 @@ paths:
     post:
       tags:
         - deals
-      description:
-        'Convert to smart trade (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
+      description: 'Convert to smart trade (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
       operationId: postVer1DealsDealIdConvertToSmartTrade
       parameters:
         - name: deal_id
@@ -943,8 +880,7 @@ paths:
                   type: boolean
       responses:
         '201':
-          description:
-            'Convert to smart trade (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
+          description: 'Convert to smart trade (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
           content: {}
   /ver1/deals/{deal_id}/update_max_safety_orders:
     post:
@@ -973,8 +909,7 @@ paths:
         required: true
       responses:
         '201':
-          description:
-            'Update max safety orders (Permission: BOTS_WRITE, Security: SIGNED)'
+          description: 'Update max safety orders (Permission: BOTS_WRITE, Security: SIGNED)'
           content: {}
   /ver1/deals/{deal_id}/panic_sell:
     post:
@@ -1033,10 +968,7 @@ paths:
                   description: New take profit value
                   format: double
                 profit_currency:
-                  type: string
-                  enum:
-                    - quote_currency
-                    - base_currency
+                  $ref: '#/components/schemas/ProfitCurrencyEnum'
                 take_profit_type:
                   type: string
                   description: base – from base order, total – from total volume
@@ -1068,10 +1000,7 @@ paths:
                   type: boolean
                   description: Trailing stop loss enabled
                 stop_loss_type:
-                  type: string
-                  enum:
-                    - stop_loss
-                    - stop_loss_and_disable_bot
+                  $ref: '#/components/schemas/StopLossType'
                 close_timeout:
                   type: integer
                   description:
@@ -1133,8 +1062,7 @@ paths:
             format: int32
       responses:
         '200':
-          description:
-            'Info about specific deal (Permission: BOTS_READ, Security: SIGNED)'
+          description: 'Info about specific deal (Permission: BOTS_READ, Security: SIGNED)'
           content:
             'application/json':
               schema:
@@ -1143,8 +1071,7 @@ paths:
     post:
       tags:
         - deals
-      description:
-        'Cancel manual safety orders (Permission: BOTS_WRITE, Security: SIGNED)'
+      description: 'Cancel manual safety orders (Permission: BOTS_WRITE, Security: SIGNED)'
       operationId: postVer1DealsDealIdCancelOrder
       parameters:
         - name: deal_id
@@ -1166,8 +1093,7 @@ paths:
         required: true
       responses:
         '201':
-          description:
-            'Cancel manual safety orders (Permission: BOTS_WRITE, Security: SIGNED)'
+          description: 'Cancel manual safety orders (Permission: BOTS_WRITE, Security: SIGNED)'
           content: {}
   /ver1/deals/{deal_id}/market_orders:
     get:
@@ -1190,8 +1116,7 @@ paths:
     post:
       tags:
         - deals
-      description:
-        'Adding manual safety order (Permission: BOTS_WRITE, Security: SIGNED)'
+      description: 'Adding manual safety order (Permission: BOTS_WRITE, Security: SIGNED)'
       operationId: postVer1DealsDealIdAddFunds
       parameters:
         - name: deal_id
@@ -1230,8 +1155,7 @@ paths:
         required: true
       responses:
         '201':
-          description:
-            'Adding manual safety order (Permission: BOTS_WRITE, Security: SIGNED)'
+          description: 'Adding manual safety order (Permission: BOTS_WRITE, Security: SIGNED)'
           content: {}
   /ver1/deals/{deal_id}/data_for_adding_funds:
     get:
@@ -1299,8 +1223,7 @@ paths:
     post:
       tags:
         - accounts
-      description:
-        'Transfer coins between accounts (Permission: ACCOUNTS_WRITE, Security: SIGNED)'
+      description: 'Transfer coins between accounts (Permission: ACCOUNTS_WRITE, Security: SIGNED)'
       operationId: postVer1AccountsTransfer
       requestBody:
         content:
@@ -1441,9 +1364,11 @@ paths:
         required: true
       responses:
         '201':
-          description:
-            'Add exchange account  (Permission: ACCOUNTS_WRITE, Security: SIGNED)'
-          content: {}
+          description: 'Add exchange account  (Permission: ACCOUNTS_WRITE, Security: SIGNED)'
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/AccountEntity'
   /ver1/accounts/update:
     post:
       tags:
@@ -1493,7 +1418,10 @@ paths:
       responses:
         '201':
           description: Edit exchange account
-          content: {}
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/AccountEntity'
   /ver1/accounts:
     get:
       tags:
@@ -1521,7 +1449,12 @@ paths:
           description:
             'User connected exchanges(and EthereumWallet) list (Permission:
             ACCOUNTS_READ, Security: SIGNED)'
-          content: {}
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AccountEntity'
   /ver1/accounts/market_list:
     get:
       tags:
@@ -1531,7 +1464,12 @@ paths:
       responses:
         '200':
           description: 'Supported markets list (Permission: NONE, Security: NONE)'
-          content: {}
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MarketListItem'
   /ver1/accounts/market_pairs:
     get:
       tags:
@@ -1552,7 +1490,13 @@ paths:
       responses:
         '200':
           description: 'All market pairs (Permission: NONE, Security: NONE)'
-          content: {}
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/QuoteBaseString'
+                example: [BTC_ETH, BTC_LTC, BTC_BNB, BTC_NEO, ETH_QTUM, ETH_EOS, ETH_SNT, ETH_BNT, BTC_GAS, ETH_BNB, USDT_BTC, USDT_ETH, BTC_WTC, BTC_LRC, ETH_LRC]
   /ver1/accounts/currency_rates_with_leverage_data:
     get:
       tags:
@@ -1645,8 +1589,7 @@ paths:
     get:
       tags:
         - accounts
-      description:
-        'Deposit/withdraw networks info (Permission: ACCOUNTS_READ, Security: SIGNED)'
+      description: 'Deposit/withdraw networks info (Permission: ACCOUNTS_READ, Security: SIGNED)'
       operationId: getVer1AccountsAccountIdNetworksInfo
       parameters:
         - name: purpose
@@ -1673,8 +1616,7 @@ paths:
     post:
       tags:
         - accounts
-      description:
-        'Convert dust coins to BNB (Permission: ACCOUNTS_WRITE, Security: SIGNED)'
+      description: 'Convert dust coins to BNB (Permission: ACCOUNTS_WRITE, Security: SIGNED)'
       operationId: postVer1AccountsAccountIdConvertDustToBnb
       parameters:
         - name: account_id
@@ -1695,8 +1637,7 @@ paths:
                     type: string
       responses:
         '201':
-          description:
-            'Convert dust coins to BNB (Permission: ACCOUNTS_WRITE, Security: SIGNED)'
+          description: 'Convert dust coins to BNB (Permission: ACCOUNTS_WRITE, Security: SIGNED)'
           content: {}
   /ver1/accounts/{account_id}/active_trading_entities:
     get:
@@ -1713,9 +1654,30 @@ paths:
             format: int32
       responses:
         '200':
-          description:
-            'Active trade entities (Permission: ACCOUNTS_READ, Security: SIGNED)'
-          content: {}
+          description: 'Active trade entities (Permission: ACCOUNTS_READ, Security: SIGNED)'
+          content:
+            'application/json':
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      active_bots_count:
+                        type: integer
+                      active_deals_count:
+                        type: integer
+                      active_smart_trades_count:
+                        type: integer
+                      active_grid_bots_count:
+                        type: integer
+                example:
+                  data:
+                    active_bots_count: 1
+                    active_deals_count: 199
+                    active_smart_trades_count: 172
+                    active_orders_count: 8
+                    active_grid_bots_count: 0
   /ver1/accounts/{account_id}/sell_all_to_usd:
     post:
       tags:
@@ -1776,8 +1738,7 @@ paths:
             format: int32
       responses:
         '200':
-          description:
-            'balance history data (Permission: ACCOUNTS_READ, Security: SIGNED)'
+          description: 'balance history data (Permission: ACCOUNTS_READ, Security: SIGNED)'
           content: {}
   /ver1/accounts/{account_id}/load_balances:
     post:
@@ -1804,8 +1765,7 @@ paths:
     post:
       tags:
         - accounts
-      description:
-        'Rename exchange connection  (Permission: ACCOUNTS_WRITE, Security: SIGNED)'
+      description: 'Rename exchange connection  (Permission: ACCOUNTS_WRITE, Security: SIGNED)'
       operationId: postVer1AccountsAccountIdRename
       parameters:
         - name: account_id
@@ -1826,8 +1786,7 @@ paths:
         required: true
       responses:
         '201':
-          description:
-            'Rename exchange connection  (Permission: ACCOUNTS_WRITE, Security: SIGNED)'
+          description: 'Rename exchange connection  (Permission: ACCOUNTS_WRITE, Security: SIGNED)'
           content: {}
   /ver1/accounts/{account_id}/pie_chart_data:
     post:
@@ -1875,8 +1834,7 @@ paths:
     post:
       tags:
         - accounts
-      description:
-        'Remove exchange connection  (Permission: ACCOUNTS_WRITE, Security: SIGNED)'
+      description: 'Remove exchange connection  (Permission: ACCOUNTS_WRITE, Security: SIGNED)'
       operationId: postVer1AccountsAccountIdRemove
       parameters:
         - name: account_id
@@ -1887,8 +1845,7 @@ paths:
             format: int32
       responses:
         '201':
-          description:
-            'Remove exchange connection  (Permission: ACCOUNTS_WRITE, Security: SIGNED)'
+          description: 'Remove exchange connection  (Permission: ACCOUNTS_WRITE, Security: SIGNED)'
           content: {}
   /ver1/accounts/{account_id}/leverage_data:
     get:
@@ -2212,7 +2169,12 @@ paths:
       responses:
         '201':
           description: 'Create AI Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)'
-          content: {}
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GridBotEntity'
   /ver1/grid_bots/manual:
     post:
       tags:
@@ -2572,8 +2534,7 @@ paths:
         required: true
       responses:
         '200':
-          description:
-            'Edit Grid Bot (Manual) (Permission: BOTS_WRITE, Security: SIGNED)'
+          description: 'Edit Grid Bot (Manual) (Permission: BOTS_WRITE, Security: SIGNED)'
           content: {}
   /ver1/grid_bots/{id}:
     get:
@@ -2646,8 +2607,7 @@ paths:
     get:
       tags:
         - grid_bots
-      description:
-        'Get required balances to start bot(Permission: BOTS_READ, Security: SIGNED)'
+      description: 'Get required balances to start bot(Permission: BOTS_READ, Security: SIGNED)'
       operationId: getVer1GridBotsIdRequiredBalances
       parameters:
         - name: id
@@ -2691,8 +2651,7 @@ paths:
         required: true
       responses:
         '201':
-          description:
-            'Create Loose Account (Permission: ACCOUNTS_WRITE, Security: SIGNED)'
+          description: 'Create Loose Account (Permission: ACCOUNTS_WRITE, Security: SIGNED)'
           content: {}
   /ver1/loose_accounts/available_currencies:
     get:
@@ -2717,8 +2676,7 @@ paths:
             format: int32
       responses:
         '200':
-          description:
-            'Available currencies (Permission: ACCOUNTS_READ, Security: SIGNED)'
+          description: 'Available currencies (Permission: ACCOUNTS_READ, Security: SIGNED)'
           content: {}
   /ver1/loose_accounts/{account_id}:
     put:
@@ -2755,8 +2713,7 @@ paths:
         required: true
       responses:
         '200':
-          description:
-            'Update Loose Account (Permission: ACCOUNTS_WRITE, Security: SIGNED)'
+          description: 'Update Loose Account (Permission: ACCOUNTS_WRITE, Security: SIGNED)'
           content: {}
   /ver1/ping:
     get:
@@ -2796,8 +2753,7 @@ paths:
     get:
       tags:
         - smart_trades_v2
-      description:
-        'Get smart trade history (Permission: SMART_TRADE_READ, Security: SIGNED)'
+      description: 'Get smart trade history (Permission: SMART_TRADE_READ, Security: SIGNED)'
       operationId: getV2SmartTrades
       parameters:
         - name: account_id
@@ -2882,14 +2838,17 @@ paths:
             type: string
       responses:
         '200':
-          description:
-            'Get smart trade history (Permission: SMART_TRADE_READ, Security: SIGNED)'
-          content: {}
+          description: 'Get smart trade history (Permission: SMART_TRADE_READ, Security: SIGNED)'
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SmartTradeV2Entity'
     post:
       tags:
         - smart_trades_v2
-      description:
-        'Create smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
+      description: 'Create smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
       operationId: postV2SmartTrades
       requestBody:
         content:
@@ -2978,10 +2937,7 @@ paths:
                     - ask
                     - last
                 position[conditional][order_type]:
-                  type: string
-                  enum:
-                    - market
-                    - limit
+                  $ref: '#/components/schemas/OrderType'
                 position[conditional][trailing][enabled]:
                   type: boolean
                 position[conditional][trailing][percent]:
@@ -2994,10 +2950,7 @@ paths:
                   type: array
                   description: market, limit
                   items:
-                    type: string
-                    enum:
-                      - market
-                      - limit
+                    $ref: '#/components/schemas/OrderType'
                 take_profit[steps][][volume]:
                   type: array
                   items:
@@ -3035,10 +2988,7 @@ paths:
                 stop_loss[breakeven]:
                   type: boolean
                 stop_loss[order_type]:
-                  type: string
-                  enum:
-                    - market
-                    - limit
+                  $ref: '#/components/schemas/OrderType'
                 stop_loss[price][value]:
                   type: number
                   description: Price for limit order
@@ -3071,15 +3021,13 @@ paths:
         required: true
       responses:
         '201':
-          description:
-            'Create smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
+          description: 'Create smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
           content: {}
   /v2/smart_trades/{id}:
     get:
       tags:
         - smart_trades_v2
-      description:
-        'Get smart trade v2 by id (Permission: SMART_TRADE_READ, Security: SIGNED)'
+      description: 'Get smart trade v2 by id (Permission: SMART_TRADE_READ, Security: SIGNED)'
       operationId: getV2SmartTradesId
       parameters:
         - name: id
@@ -3090,14 +3038,15 @@ paths:
             format: int32
       responses:
         '200':
-          description:
-            'Get smart trade v2 by id (Permission: SMART_TRADE_READ, Security: SIGNED)'
-          content: {}
+          description: 'Get smart trade v2 by id (Permission: SMART_TRADE_READ, Security: SIGNED)'
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/SmartTradeV2Entity'
     delete:
       tags:
         - smart_trades_v2
-      description:
-        'Cancel smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
+      description: 'Cancel smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
       operationId: deleteV2SmartTradesId
       parameters:
         - name: id
@@ -3108,14 +3057,12 @@ paths:
             format: int32
       responses:
         '204':
-          description:
-            'Cancel smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
+          description: 'Cancel smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
           content: {}
     patch:
       tags:
         - smart_trades_v2
-      description:
-        'Update smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
+      description: 'Update smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
       operationId: patchV2SmartTradesId
       parameters:
         - name: id
@@ -3182,10 +3129,7 @@ paths:
                     - ask
                     - last
                 position[conditional][order_type]:
-                  type: string
-                  enum:
-                    - market
-                    - limit
+                  $ref: '#/components/schemas/OrderType'
                 position[conditional][trailing][enabled]:
                   type: boolean
                 position[conditional][trailing][percent]:
@@ -3196,10 +3140,7 @@ paths:
                 take_profit[steps][][order_type]:
                   type: array
                   items:
-                    type: string
-                    enum:
-                      - market
-                      - limit
+                    $ref: '#/components/schemas/OrderType'
                 take_profit[steps][][volume]:
                   type: array
                   items:
@@ -3230,10 +3171,7 @@ paths:
                 stop_loss[breakeven]:
                   type: boolean
                 stop_loss[order_type]:
-                  type: string
-                  enum:
-                    - market
-                    - limit
+                  $ref: '#/components/schemas/OrderType'
                 stop_loss[price][value]:
                   type: number
                   description: Price for limit order
@@ -3261,9 +3199,11 @@ paths:
         required: true
       responses:
         '200':
-          description:
-            'Update smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
-          content: {}
+          description: 'Update smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/SmartTradeV2Entity'
   /v2/smart_trades/{id}/reduce_funds:
     post:
       tags:
@@ -3289,10 +3229,7 @@ paths:
                 - units[value]
               properties:
                 order_type:
-                  type: string
-                  enum:
-                    - market
-                    - limit
+                  $ref: '#/components/schemas/OrderType'
                 units[value]:
                   type: number
                   description: Amount of units to buy
@@ -3312,8 +3249,7 @@ paths:
     post:
       tags:
         - smart_trades_v2
-      description:
-        'Average for smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
+      description: 'Average for smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
       operationId: postV2SmartTradesIdAddFunds
       parameters:
         - name: id
@@ -3332,10 +3268,7 @@ paths:
                 - units[value]
               properties:
                 order_type:
-                  type: string
-                  enum:
-                    - market
-                    - limit
+                  $ref: '#/components/schemas/OrderType'
                 units[value]:
                   type: number
                   description: Amount of units to buy
@@ -3355,9 +3288,7 @@ paths:
     post:
       tags:
         - smart_trades_v2
-      description:
-        'Close by market smart trade v2 (Permission: SMART_TRADE_WRITE,
-        Security: SIGNED)'
+      description: 'Close by market smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
       operationId: postV2SmartTradesIdCloseByMarket
       parameters:
         - name: id
@@ -3368,16 +3299,13 @@ paths:
             format: int32
       responses:
         '201':
-          description:
-            'Close by market smart trade v2 (Permission: SMART_TRADE_WRITE,
-            Security: SIGNED)'
+          description: 'Close by market smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
           content: {}
   /v2/smart_trades/{id}/force_start:
     post:
       tags:
         - smart_trades_v2
-      description:
-        'Force start smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
+      description: 'Force start smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
       operationId: postV2SmartTradesIdForceStart
       parameters:
         - name: id
@@ -3396,8 +3324,7 @@ paths:
     post:
       tags:
         - smart_trades_v2
-      description:
-        'Process smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
+      description: 'Process smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
       operationId: postV2SmartTradesIdForceProcess
       parameters:
         - name: id
@@ -3408,15 +3335,13 @@ paths:
             format: int32
       responses:
         '201':
-          description:
-            'Process smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
+          description: 'Process smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
           content: {}
   /v2/smart_trades/{id}/set_note:
     post:
       tags:
         - smart_trades_v2
-      description:
-        'Set note to smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
+      description: 'Set note to smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
       operationId: postV2SmartTradesIdSetNote
       parameters:
         - name: id
@@ -3445,8 +3370,7 @@ paths:
     get:
       tags:
         - smart_trades_v2
-      description:
-        'Get smart trade v2 trades (Permission: SMART_TRADE_READ, Security: SIGNED)'
+      description: 'Get smart trade v2 trades (Permission: SMART_TRADE_READ, Security: SIGNED)'
       operationId: getV2SmartTradesSmartTradeIdTrades
       parameters:
         - name: smart_trade_id
@@ -3457,15 +3381,13 @@ paths:
             format: int32
       responses:
         '200':
-          description:
-            'Get smart trade v2 trades (Permission: SMART_TRADE_READ, Security: SIGNED)'
+          description: 'Get smart trade v2 trades (Permission: SMART_TRADE_READ, Security: SIGNED)'
           content: {}
   /v2/smart_trades/{smart_trade_id}/trades/{id}/close_by_market:
     post:
       tags:
         - smart_trades_v2
-      description:
-        'Panic close trade by market (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
+      description: 'Panic close trade by market (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
       operationId: postV2SmartTradesSmartTradeIdTradesIdCloseByMarket
       parameters:
         - name: smart_trade_id
@@ -3482,9 +3404,7 @@ paths:
             format: int32
       responses:
         '201':
-          description:
-            'Panic close trade by market (Permission: SMART_TRADE_WRITE,
-            Security: SIGNED)'
+          description: 'Panic close trade by market (Permission: SMART_TRADE_WRITE, Security: SIGNED)'
           content: {}
   /v2/smart_trades/{smart_trade_id}/trades/{id}:
     delete:
@@ -3511,6 +3431,29 @@ paths:
           content: {}
 components:
   schemas:
+    QuoteBaseString:
+      type: string
+      pattern: '^[A-Z]{3,}_[A-Z]{3,}$'
+      description: 'Format: QUOTE_BASE'
+      example: BUSD_FTT
+    SymbolString:
+      type: string
+      pattern: '^[A-Z]{3,}$'
+      example: USDT
+    StringFloatNegative:
+      type: string
+      pattern: '^(\-\d+|\d+)(.\d+|)$'
+      example: '-0.002'
+    StringFloatPositive:
+      type: string
+      pattern: '^\d+(.\d+|)$'
+      example: '0.05'
+    Percentage:
+      type: string
+      description: Percentage
+      pattern: '^(\-\d+|\d+)(.\d+|)$'
+      example: '1.25'
+
     DealStatusEnum:
       type: string
       description: 'Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit, ttp_activated, ttp_order_placed, liquidated, bought_safety_pending, bought_take_profit_pending, settled'
@@ -3546,6 +3489,65 @@ components:
         - base_currency
         - percent
         - xbt
+    ProfitCurrencyEnum:
+      type: string
+      description: 'Values: quote_currency, base_currency'
+      example: quote_currency
+      enum:
+        - quote_currency
+        - base_currency
+    TakeProfitType:
+      type: string
+      description: 'Values: base, total'
+      example: base
+      enum:
+        - base
+        - total
+    BotType:
+      type: string
+      description: 'Values: ["Bot::MultiBot", "Bot::SingleBot", "Bot::SwitchBot"]'
+      example: Bot::MultiBot
+      enum:
+        - Bot::MultiBot
+        - Bot::SingleBot
+        - Bot::SwitchBot
+    StrategyType:
+      type: string
+      description: short or long
+      example: long
+      enum:
+        - short
+        - long
+    StopLossType:
+      type: string
+      description: 'Values: stop_loss, stop_loss_and_disable_bot'
+      example: stop_loss
+      enum:
+        - stop_loss
+        - stop_loss_and_disable_bot
+    LeverageType:
+      type: string
+      description: 'Values: cross, not_specified, isolated'
+      example: not_specified
+      enum:
+        - cross
+        - not_specified
+        - isolated
+    LeverageTypeBitmex:
+      type: string
+      description: Used for Bitmex bots only
+      default: not_specified
+      enum:
+        - custom
+        - cross
+        - not_specified
+        - isolated
+    OrderType:
+      type: string
+      enum:
+        - market
+        - limit
+
     IndexEntity:
       type: object
       properties:
@@ -3619,23 +3621,24 @@ components:
           format: int32
         profit:
           type: string
-          example: "'0.01'"
+          pattern: '^(\-\d+|\d+)(.\d+|)$'
+          example: '0.01'
         usd_profit:
           type: string
-          example: "'100'"
+          pattern: '^(\-\d+|\d+)(.\d+|)$'
+          example: '100.01'
         created_at:
           type: string
-          example: 2018-08-08 08:08:08
+          format: date-time
+          example: 2018-08-08T08:08:08.123Z
       description: 'Grid Bot Profits (Permission: BOTS_READ, Security: SIGNED)'
     PongEntity:
       type: object
       properties:
         pong:
           type: string
-          example: "'pong'"
-      description:
-        'Test connectivity to the Rest API (Permission: NONE, Security:
-        NONE)'
+          example: pong
+      description: 'Test connectivity to the Rest API (Permission: NONE, Security: NONE)'
     TimeEntity:
       type: object
       properties:
@@ -3644,9 +3647,7 @@ components:
           description: UNIX timestamp
           format: int32
           example: 1592769067
-      description:
-        'Test connectivity to the Rest API and get the current server time
-        (Permission: NONE, Security: NONE)'
+      description: 'Test connectivity to the Rest API and get the current server time (Permission: NONE, Security: NONE)'
     BotEntity:
       type: object
       properties:
@@ -3670,9 +3671,13 @@ components:
           format: int32
           example: 2
         pairs:
-          type: string
-          description: 'Format: [QUOTE_BASE, ...]'
-          example: "['BTC_LTC', 'BTC_ETH', 'BTC_ADA']"
+          type: array
+          items:
+            $ref: '#/components/schemas/QuoteBaseString'
+          example:
+            - BTC_LTC
+            - BTC_ETH
+            - BTC_ADA
         strategy_list:
           type: string
           example: "[{'options'=>{'time'=>'5m', 'type'=>'buy_or_strong_buy'},
@@ -3690,10 +3695,12 @@ components:
           example: true
         created_at:
           type: string
-          example: 2018-08-08 08:08:08
+          format: date-time
+          example: 2021-12-18T15:24:07.153Z
         updated_at:
           type: string
-          example: 2018-08-10 10:10:10
+          format: date-time
+          example: 2021-12-31T11:17:34.777Z
         trailing_enabled:
           type: boolean
           example: true
@@ -3734,56 +3741,56 @@ components:
           example: 70
         url_secret:
           type: string
+          example: abc1234567
         name:
           type: string
-          example: "'Test Bot'"
+          example: Test Bot
         take_profit:
-          type: string
-          description: "'Percentage'"
-          example: "'1.5'"
+          $ref: '#/components/schemas/Percentage'
         base_order_volume:
           type: string
-          example: "'0.002'"
+          pattern: '^(\-\d+|\d+)(.\d+|)$'
+          example: '1.1'
         safety_order_volume:
           type: string
-          example: "'0.0015'"
+          pattern: '^(\-\d+|\d+)(.\d+|)$'
+          example: '0.0015'
         safety_order_step_percentage:
           type: string
-          example: "'1.1'"
+          pattern: '^(\-\d+|\d+)(.\d+|)$'
+          example: '1.1'
         take_profit_type:
-          type: string
-          description: 'Values: base, total'
-          example: "'base'"
+          $ref: '#/components/schemas/TakeProfitType'
         type:
-          type: string
-          description: 'Values: ["Bot::MultiBot", "Bot::SingleBot", "Bot::SwitchBot"]'
-          example: "'Bot::SingleBot'"
+          $ref: '#/components/schemas/BotType'
         martingale_volume_coefficient:
           type: string
-          example: "'1.3'"
+          pattern: '^(\-\d+|\d+)(.\d+|)$'
+          example: '1.3'
         martingale_step_coefficient:
           type: string
-          example: "'0.9'"
+          pattern: '^(\-\d+|\d+)(.\d+|)$'
+          example: '0.9'
         stop_loss_percentage:
           type: string
-          example: "'5.5'"
+          pattern: '^(\-\d+|\d+)(.\d+|)$'
+          example: '5.5'
         cooldown:
           type: string
-          example: "'200'"
+          pattern: '^\d+(.\d+|)$'
+          example: '200'
         btc_price_limit:
           type: string
-          example: "'30.15'"
+          pattern: '^(\-\d+|\d+)(.\d+|)$'
+          example: '30.15'
         strategy:
-          type: string
-          description: 'Values: long, short'
-          example: "'long'"
+          $ref: '#/components/schemas/StrategyType'
         min_volume_btc_24h:
           type: string
-          example: "'500.5'"
+          pattern: '^\d+(.\d+|)$'
+          example: '500.5'
         profit_currency:
-          type: string
-          description: 'Values: quote_currency, base_currency'
-          example: "'quote_currency'"
+          $ref: '#/components/schemas/ProfitCurrencyEnum'
         min_price:
           type: string
           example: "'0.0245'"
@@ -3791,20 +3798,14 @@ components:
           type: string
           example: "'0.0123'"
         stop_loss_type:
-          type: string
-          description: 'Values: stop_loss, stop_loss_and_disable_bot'
-          example: "'stop_loss'"
+          $ref: '#/components/schemas/StopLossType'
         safety_order_volume_type:
-          type: string
-          description: 'Values: quote_currency, base_currency, percent, xbt'
-          example: "'base_currency'"
+          $ref: '#/components/schemas/OrderVolumeEnum'
         base_order_volume_type:
-          type: string
-          description: 'Values: quote_currency, base_currency, percent, xbt'
-          example: "'percent'"
+          $ref: '#/components/schemas/OrderVolumeEnum'
         account_name:
           type: string
-          example: "'My account'"
+          example: My account
         trailing_deviation:
           type: string
           example: '0.14'
@@ -3815,9 +3816,7 @@ components:
           type: string
           example: '252.1'
         leverage_type:
-          type: string
-          description: 'Values: cross, not_specified, isolated'
-          example: "'not_specified'"
+          $ref: '#/components/schemas/LeverageType'
         leverage_custom_value:
           type: string
           example: "'1'"
@@ -3844,12 +3843,14 @@ components:
           type: integer
           format: int32
           example: 452
+          nullable: true
         auto_balance_portfolio:
           $ref: '#/components/schemas/PortfolioEntity'
         auto_balance_currency_change_limit:
           type: integer
           format: int32
           example: 5
+          nullable: true
         autobalance_enabled:
           type: boolean
           example: true
@@ -3868,8 +3869,9 @@ components:
           description: DEPRECATED. use smart_trading_supported instead
           example: true
         available_for_trading:
-          type: boolean
-          example: true
+          type: object
+          properties: {}
+          example: {}
         stats_supported:
           type: boolean
           example: true
@@ -3902,13 +3904,17 @@ components:
           example: false
         created_at:
           type: string
-          example: 2018-08-08 08:08:08
+          format: date-time
+          example: 2018-08-08T08:08:08.968Z
         updated_at:
           type: string
-          example: 2018-08-22 02:25:08
+          format: date-time
+          example: 2018-08-22T02:25:08.968Z
         last_auto_balance:
           type: string
-          example: 2018-08-21 08:08:08
+          format: date-time
+          example: 2018-08-21T08:28:08.968Z
+          nullable: true
         fast_convert_available:
           type: boolean
           description: Sell all to USD/BTC possibility
@@ -3923,79 +3929,152 @@ components:
           type: boolean
           example: false
         supported_market_types:
-          type: string
+          type: array
+          items:
+            type: string
         api_key:
           type: string
-          example: "''"
+          example: ''
         name:
           type: string
-          example: "'Binance 2 '"
+          example: Binance 2
         auto_balance_method:
           type: integer
           description: 'Values: time, currency_change'
           format: int32
+          nullable: true
         auto_balance_error:
           type: string
-          example: "'Failed to autobalance'"
+          example: Failed to autobalance
+          nullable: true
         customer_id:
           type: string
+          nullable: true
         subaccount_name:
           type: string
+          nullable: true
         lock_reason:
           type: string
-          example: "'API key is invalid'"
+          example: API key is invalid
+          nullable: true
         btc_amount:
           type: string
-          example: "'0.01134219'"
+          pattern: '^(\-\d+|\d+)(.\d+|)$'
+          example: '0.01134219'
         usd_amount:
           type: string
-          example: "'70.93146245'"
+          pattern: '^(\-\d+|\d+)(.\d+|)$'
+          example: '70.93146245'
         day_profit_btc:
           type: string
-          example: "'-0.00006'"
+          pattern: '^(\-\d+|\d+)(.\d+|)$'
+          example: '-0.00006'
         day_profit_usd:
           type: string
-          example: "'-0.02147'"
+          pattern: '^(\-\d+|\d+)(.\d+|)$'
+          example: '-0.02147'
         day_profit_btc_percentage:
           type: string
           example: "'-0.26'"
         day_profit_usd_percentage:
           type: string
-          example: "'-1.23'"
+          pattern: '^(\-\d+|\d+)(.\d+|)$'
+          example: '-1.23'
         btc_profit:
           type: string
           description: Month period
-          example: "'0.0001625'"
+          pattern: '^(\-\d+|\d+)(.\d+|)$'
+          example: '0.0001625'
         usd_profit:
           type: string
           description: Month period
-          example: "'5.05764787'"
+          pattern: '^(\-\d+|\d+)(.\d+|)$'
+          example: '5.05764787'
         usd_profit_percentage:
           type: string
           description: Month period
-          example: "'6.25'"
+          pattern: '^(\-\d+|\d+)(.\d+|)$'
+          example: '6.25'
         btc_profit_percentage:
           type: string
           description: Month period
-          example: "'2.36'"
+          pattern: '^(\-\d+|\d+)(.\d+|)$'
+          example: '2.36'
         total_btc_profit:
           type: string
-          example: "'0.0012456'"
+          pattern: '^(\-\d+|\d+)(.\d+|)$'
+          example: '0.0012456'
         total_usd_profit:
           type: string
-          example: "'6.123181'"
+          pattern: '^(\-\d+|\d+)(.\d+|)$'
+          example: '6.123181'
         pretty_display_type:
           type: string
-          example: "'BittrexAccount'"
+          example: BittrexAccount
         exchange_name:
           type: string
-          example: "'Binance Futures'"
+          example: Binance Futures
         market_code:
           type: string
-          example: "'deribit_testnet'"
+          example: binance
         address:
           type: string
           example: "'0xe00000dded00bbb08725d77777777ff070aa7aa7'"
+      example:
+        id: 1
+        auto_balance_period: 12
+        auto_balance_portfolio_id: null
+        auto_balance_currency_change_limit: null
+        autobalance_enabled: false
+        hedge_mode_available: false
+        hedge_mode_enabled: false
+        is_locked: false
+        smart_trading_supported: true
+        smart_selling_supported: true
+        available_for_trading: {}
+        stats_supported: true
+        trading_supported: true
+        market_buy_supported: true
+        market_sell_supported: true
+        conditional_buy_supported: true
+        bots_allowed: true
+        bots_ttp_allowed: true
+        bots_tsl_allowed: false
+        gordon_bots_available: true
+        multi_bots_allowed: true
+        created_at: 2021-12-18T14:39:08.303Z
+        updated_at: 2021-12-18T14:46:27.327Z
+        last_auto_balance: null
+        fast_convert_available: true
+        grid_bots_allowed: true
+        api_key_invalid: false
+        nomics_id: binance
+        market_icon: 'https://3commas.io/img/exchanges/binance.png'
+        deposit_enabled: true
+        supported_market_types:
+          - spot
+        api_key: 0GYA23ZyT7TDJ4kgjfK1TDA7fDct81JdldahrkbhcSFfULhojRBk0wg9CBh3Mt38
+        name: 'Binance'
+        auto_balance_method: null
+        auto_balance_error: null
+        customer_id: null
+        subaccount_name: null
+        lock_reason: null
+        btc_amount: '0.126177921984049949290816202950805646'
+        usd_amount: '1000.5201913628338043707141694048908008946'
+        day_profit_btc: '0.002467964064086325616965572997081701801048'
+        day_profit_usd: '148.7481983332456641686071171483773371998'
+        day_profit_btc_percentage: '0.58'
+        day_profit_usd_percentage: '0.91'
+        btc_profit: '0.369380801984049949290816202950805646'
+        usd_profit: '16507.0371552076338043707141694048908008946'
+        usd_profit_percentage: '508.15'
+        btc_profit_percentage: '650.35'
+        total_btc_profit: '0.37034792198405'
+        total_usd_profit: '16720.842578987584'
+        pretty_display_type: Binance
+        exchange_name: Binance
+        market_code: binance
     PortfolioEntity:
       type: object
       properties:
@@ -4005,6 +4084,8 @@ components:
           type: string
         created_at:
           type: string
+          format: date-time
+          example: 2021-08-21T08:28:08.968Z
         portfolio_entries:
           $ref: '#/components/schemas/PortfolioEntryEntity'
     PortfolioEntryEntity:
@@ -4027,19 +4108,21 @@ components:
           example: 10
         account_name:
           type: string
-          example: "'My account'"
+          example: My account
         is_enabled:
           type: boolean
           example: true
         grids_quantity:
           type: string
-          example: "'20'"
+          example: '20'
         created_at:
           type: string
-          example: 2018-08-08 08:08:08
+          format: date-time
+          example: 2018-08-08T08:24:07.153Z
         updated_at:
           type: string
-          example: 2018-08-10 10:10:10
+          format: date-time
+          example: 2018-08-09T08:08:08.153Z
         strategy_type:
           type: string
           example: "'manual'"
@@ -4051,43 +4134,42 @@ components:
           example: true
         lower_price:
           type: string
-          example: "'8000'"
+          example: '8000'
         lower_stop_loss_price:
           type: string
-          example: "'7500'"
+          example: '7500'
         lower_stop_loss_action:
           type: string
-          example: "'stop_bot'"
+          example: 'stop_bot'
         upper_price:
           type: string
-          example: "'10000'"
+          example: '10000'
         upper_stop_loss_price:
           type: string
-          example: "'12000'"
+          example: '12000'
         upper_stop_loss_action:
           type: string
-          example: "'stop_bot'"
+          example: 'stop_bot'
         quantity_per_grid:
           type: string
-          example: "'100'"
+          example: '100'
         leverage_type:
-          type: string
-          example: "'isolated'"
+          $ref: '#/components/schemas/LeverageType'
         leverage_custom_value:
           type: string
-          example: "'20.1'"
+          example: '20.1'
         name:
           type: string
-          example: "'GridBot1'"
+          example: 'GridBot1'
         pair:
           type: string
-          example: "'BTC_ETH'"
+          example: 'BTC_ETH'
         start_price:
           type: string
-          example: "'9000'"
+          example: '9000'
         grid_price_step:
           type: string
-          example: "'100'"
+          example: '100'
         current_profit:
           type: string
           example: '100'
@@ -4122,7 +4204,7 @@ components:
       properties:
         price:
           type: string
-          example: "'8000'"
+          example: '8000'
         side:
           type: string
           example: "'SELL'"
@@ -4166,16 +4248,16 @@ components:
           example: 1
         created_at:
           type: string
-          pattern: '^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$'
-          example: 2018-08-08 08:08:08
+          format: date-time
+          example: 2021-08-21T08:28:08.968Z
         updated_at:
           type: string
-          pattern: '^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$'
-          example: 2018-09-09 09:09:09
+          format: date-time
+          example: 2021-08-22T08:28:08.968Z
         closed_at:
           type: string
-          pattern: '^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$'
-          example: 2018-10-10 10:10:10
+          format: date-time
+          example: 2021-08-23T08:28:08.968Z
         finished?:
           type: boolean
         current_active_safety_orders_count:
@@ -4213,19 +4295,14 @@ components:
           type: integer
           example: 2
         pair:
-          type: string
-          description: 'Format: QUOTE_BASE'
-          example: BUSD_FTT
+          $ref: '#/components/schemas/QuoteBaseString'
         status:
           $ref: '#/components/schemas/DealStatusEnum'
         localized_status:
           type: string
           example: Created
         take_profit:
-          type: string
-          description: Percentage
-          pattern: '^(\-\d+|\d+)(.\d+|)$'
-          example: '1.23'
+          $ref: '#/components/schemas/Percentage'
         base_order_volume:
           type: string
           pattern: '^(\-\d+|\d+)(.\d+|)$'
@@ -4239,13 +4316,7 @@ components:
           pattern: '^(\-\d+|\d+)(.\d+|)$'
           example: '1.11'
         leverage_type:
-          type: string
-          enum:
-            - custom
-            - cross
-            - not_specified
-            - isolated
-          example: isolated
+          $ref: '#/components/schemas/LeverageTypeBitmex'
         leverage_custom_value:
           type: string
           pattern: '^(\-\d+|\d+)(.\d+|)$'
@@ -4268,69 +4339,39 @@ components:
           pattern: '^\d+(.\d+|)$'
           example: '1.5'
         sold_volume:
-          type: string
-          pattern: '^\d+(.\d+|)$'
-          example: '150'
+          $ref: '#/components/schemas/StringFloatPositive'
         sold_average_price:
-          type: string
-          example: "'100'"
+          $ref: '#/components/schemas/StringFloatNegative'
         take_profit_type:
-          type: string
-          description: 'Values: base, total'
-          example: base
-          enum:
-            - base
-            - total
+          $ref: '#/components/schemas/TakeProfitType'
         final_profit:
-          type: string
-          pattern: '^(\-\d+|\d+)(.\d+|)$'
-          example: '-0.00051'
+          $ref: '#/components/schemas/StringFloatNegative'
         martingale_coefficient:
           type: string
           description: Percentage
           pattern: '^(\-\d+|\d+)(.\d+|)$'
           example: '1.2'
         martingale_volume_coefficient:
-          type: string
-          description: Percentage
-          pattern: '^(\-\d+|\d+)(.\d+|)$'
-          example: '1.0'
+          $ref: '#/components/schemas/Percentage'
         martingale_step_coefficient:
-          type: string
-          description: Percentage
-          pattern: '^(\-\d+|\d+)(.\d+|)$'
-          example: '1.0'
+          $ref: '#/components/schemas/Percentage'
         stop_loss_percentage:
-          type: string
-          pattern: '^(\-\d+|\d+)(.\d+|)$'
-          example: '3.6'
+          $ref: '#/components/schemas/StringFloatNegative'
         error_message:
           type: string
           example: "'Error placing base order'"
         profit_currency:
-          type: string
-          description: 'Values: quote_currency, base_currency'
-          example: quote_currency
-          enum:
-            - quote_currency
-            - base_currency
+          $ref: '#/components/schemas/ProfitCurrencyEnum'
         stop_loss_type:
-          type: string
-          description: 'Values: stop_loss, stop_loss_and_disable_bot'
-          example: stop_loss
-          enum:
-            - stop_loss
-            - stop_loss_and_disable_bot
+          $ref: '#/components/schemas/StopLossType'
         safety_order_volume_type:
           $ref: '#/components/schemas/OrderVolumeEnum'
         base_order_volume_type:
           $ref: '#/components/schemas/OrderVolumeEnum'
         from_currency:
-          type: string
-          example: BUSD
+          $ref: '#/components/schemas/SymbolString'
         to_currency:
-          type: string
-          example: FTT
+          $ref: '#/components/schemas/SymbolString'
         current_price:
           type: string
           pattern: '^(\-\d+|\d+)(.\d+|)$'
@@ -4395,12 +4436,7 @@ components:
           pattern: '^(\-\d+|\d+)(.\d+|)$'
           example: '0.1412454'
         strategy:
-          type: string
-          description: short or long
-          example: short
-          enum:
-            - short
-            - long
+          $ref: '#/components/schemas/StrategyType'
         reserved_quote_funds:
           type: number
           description: Sum of reserved in active deals funds in QUOTE
@@ -4414,8 +4450,10 @@ components:
       properties:
         id:
           type: integer
+          example: 1
         version:
           type: integer
+          example: 2
         account:
           type: object
           properties:
@@ -4461,6 +4499,7 @@ components:
               properties:
                 value:
                   type: string
+                  pattern: '^\d+(.\d+|)$'
                   example: '1231.11'
                 editable:
                   type: boolean
@@ -4468,21 +4507,24 @@ components:
               type: object
               properties:
                 value:
-                  type: number
-                  example: 1223.32
+                  type: string
+                  pattern: '^\d+(.\d+|)$'
+                  example: '1223.32'
                 value_without_commission:
-                  type: number
-                  example: 500.2
+                  type: string
+                  pattern: '^\d+(.\d+|)$'
+                  example: '500.2'
                 editable:
                   type: boolean
             total:
               type: object
               properties:
                 value:
-                  type: number
-                  example: 100.2
+                  type: string
+                  pattern: '^\d+(.\d+|)$'
+                  example: '100.2'
             order_type:
-              type: string
+              $ref: '#/components/schemas/OrderType'
             status:
               type: object
               properties:
@@ -4580,20 +4622,30 @@ components:
             missing_funds_to_close:
               type: number
             liquidation_price:
-              type: number
-              example: 1000.22
+              type: string
+              pattern: '^(\-\d+|\d+)(.\d+|)$'
+              example: '1000.22'
+              nullable: true
             average_enter_price:
-              type: number
-              example: 60.2
+              type: string
+              pattern: '^(\-\d+|\d+)(.\d+|)$'
+              example: '60.2'
+              nullable: true
             average_close_price:
-              type: number
-              example: 60.2
+              type: string
+              pattern: '^(\-\d+|\d+)(.\d+|)$'
+              example: '60.2'
+              nullable: true
             average_enter_price_without_commission:
-              type: number
-              example: 100.3
+              type: string
+              pattern: '^(\-\d+|\d+)(.\d+|)$'
+              example: '100.3'
+              nullable: true
             average_close_price_without_commission:
-              type: number
-              example: 40.2
+              type: string
+              pattern: '^(\-\d+|\d+)(.\d+|)$'
+              example: '40.2'
+              nullable: true
             panic_sell_available:
               type: boolean
             add_funds_available:
@@ -4610,13 +4662,17 @@ components:
               type: boolean
             created_at:
               type: string
-              example: 2018-08-08 08:08:08
+              format: date-time
+              example: 2018-08-08T08:08:08.123Z
             updated_at:
               type: string
-              example: 2018-08-08 08:08:08
+              format: date-time
+              example: 2018-08-08T08:08:08.123Z
             closed_at:
               type: string
-              example: 2018-08-08 08:08:08
+              format: date-time
+              example: 2018-08-08T08:08:08.123Z
+              nullable: true
             type:
               type: string
               example: smart_sell
@@ -4624,27 +4680,142 @@ components:
           type: object
           properties:
             volume:
-              type: number
-              example: 14.0
+              type: string
+              pattern: '^(\-\d+|\d+)(.\d+|)$'
+              example: '14.0'
             usd:
-              type: number
-              example: 12.22
+              type: string
+              pattern: '^(\-\d+|\d+)(.\d+|)$'
+              example: '12.22'
             percent:
-              type: number
-              example: 12.0
+              type: string
+              pattern: '^(\-\d+|\d+)(.\d+|)$'
+              example: '12.0'
             roe:
               type: number
+              nullable: true
         margin:
           type: object
           properties:
             amount:
-              type: number
-              example: 100.2
+              type: string
+              pattern: '^(\-\d+|\d+)(.\d+|)$'
+              example: '100.2'
+              nullable: true
             total:
-              type: number
-              example: 700.2
+              type: string
+              pattern: '^(\-\d+|\d+)(.\d+|)$'
+              example: '700.2'
+              nullable: true
         is_position_not_filled:
           type: boolean
+      
+      example:
+          id: 1
+          version: 2
+          account: 
+            id: 2
+            type: binance
+            name: Binance
+            market: Binance
+            link: /accounts/2
+          pair: BUSD_XLM
+          instant: false
+          status: 
+            type: waiting_targets
+            basic_type: waiting_targets
+            title: Waiting Targets
+          leverage: 
+            enabled: false
+          position: 
+            type: buy
+            editable: true
+            units: 
+              value: '151.0'
+              editable: false
+            price: 
+              value: '0.3001'
+              value_without_commission: null
+              editable: true
+            total: 
+              value: '45.3151'
+            order_type: 'market'
+            status: 
+              type: 'smart_sell'
+              basic_type: 'smart_sell'
+              title: Own funds
+          take_profit: 
+            enabled: true
+            steps: 
+              - 
+                id: 1
+                order_type: market
+                editable: true
+                units: 
+                  value: '151.0'
+                price: 
+                  value: '0.302'
+                  type: 'bid'
+                  percent: null
+                volume: '100.0'
+                total: '45.602'
+                trailing: 
+                  enabled: true
+                  percent: '-0.15'
+                status: 
+                  type: 'to_process'
+                  basic_type: 'to_process'
+                  title: 'Pending'
+                data: 
+                  cancelable: true
+                  panic_sell_available: true
+                position: 1
+          stop_loss: 
+            enabled: false
+          reduce_funds: 
+            steps: []
+          market_close: {}
+          note: "Created from deal 1"
+          note_raw: "Created from deal 1"
+          skip_enter_step: true
+          data: 
+            editable: true
+            current_price: 
+              bid: '0.2665'
+              ask: '0.2668'
+              day_change_percent: '-0.633'
+              quote_volume: '2255481.0083'
+              last: '0.2668'
+            target_price_type: 'price'
+            base_order_finished: true
+            missing_funds_to_close: 0
+            liquidation_price: null
+            average_enter_price: null
+            average_close_price: null
+            average_enter_price_without_commission: null
+            average_close_price_without_commission: null
+            panic_sell_available: true
+            add_funds_available: true
+            reduce_funds_available: true
+            force_start_available: false
+            force_process_available: true
+            cancel_available: true
+            finished: false
+            base_position_step_finished: true
+            created_at: 2021-12-30T07:45:43.620Z
+            updated_at: 2021-12-30T07:45:43.620Z
+            type: smart_sell
+          profit: 
+            volume: '-5.1138415'
+            usd: '-5.11389667145974138736465583759227098'
+            percent: '-11.29'
+            roe: null
+          margin: 
+            amount: null
+            total: null
+          is_position_not_filled: false
+
+
     TakeProfitStep:
       type: object
       properties:
@@ -4938,3 +5109,50 @@ components:
               type: boolean
             panic_sell_available:
               type: boolean
+
+    FormFieldType:
+      type: object
+      properties:
+        field:
+          type: string
+        localized_name:
+          type: string
+      required: ['field', 'localized_name']
+      example:
+        field: 'api_key'
+        localized_name: 'API Key:'
+    MarketListItem:
+      type: object
+      properties:
+        market_name:
+          type: string
+          example: 'Binance'
+        market_url:
+          type: string
+          example: 'https://www.binance.com/en/futures/ref/108190303'
+        market_icon:
+          type: string
+          example: 'https://3commas.io/img/exchanges/binance.png'
+        help_link:
+          type: string
+          example: 'https://help.3commas.io/en/articles/3109051'
+        nomics_id:
+          type: string
+          example: 'binance'
+        market_code:
+          type: string
+          example: 'binance'
+        form_fields:
+          type: object
+          properties:
+            required:
+              type: array
+              items:
+                $ref: '#/components/schemas/FormFieldType'
+            optional:
+              type: array
+              items:
+                $ref: '#/components/schemas/FormFieldType'
+        connection_type:
+          type: string
+          example: 'fields'
