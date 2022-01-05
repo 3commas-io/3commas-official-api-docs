@@ -54,6 +54,7 @@
   "paths": {
     "/ver1/bots/account_trade_info_smart_sell": {
       "get": {
+        "description": "Smart Sell Account Table Info (Permission: NONE, Security: SIGNED)",
         "produces": [
           "application/json"
         ],
@@ -68,7 +69,7 @@
         ],
         "responses": {
           "200": {
-            "description": "get AccountTradeInfoSmartSell(s)"
+            "description": "Smart Sell Account Table Info (Permission: NONE, Security: SIGNED)"
           }
         },
         "tags": [
@@ -79,6 +80,7 @@
     },
     "/ver1/bots/account_trade_info": {
       "get": {
+        "description": "Account Trade Info (Permission: NONE, Security: SIGNED)",
         "produces": [
           "application/json"
         ],
@@ -93,7 +95,7 @@
         ],
         "responses": {
           "200": {
-            "description": "get AccountTradeInfo(s)"
+            "description": "Account Trade Info (Permission: NONE, Security: SIGNED)"
           }
         },
         "tags": [
@@ -5355,9 +5357,35 @@
         "created_at": {
           "type": "string",
           "example": "2018-08-08 08:08:08"
+        },
+        "grid_line": {
+          "$ref": "#/definitions/GridLineEntity"
         }
       },
       "description": "Grid Bot Profits (Permission: BOTS_READ, Security: SIGNED)"
+    },
+    "GridLineEntity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "example": 21,
+          "description": "Uniq id"
+        },
+        "price": {
+          "type": "string",
+          "example": "'8000'"
+        },
+        "side": {
+          "type": "string",
+          "example": "'SELL'"
+        },
+        "order_placed": {
+          "type": "boolean",
+          "example": true
+        }
+      }
     },
     "PongEntity": {
       "type": "object",
@@ -6001,23 +6029,6 @@
         },
         "grid_lines": {
           "$ref": "#/definitions/GridLineEntity"
-        }
-      }
-    },
-    "GridLineEntity": {
-      "type": "object",
-      "properties": {
-        "price": {
-          "type": "string",
-          "example": "'8000'"
-        },
-        "side": {
-          "type": "string",
-          "example": "'SELL'"
-        },
-        "order_placed": {
-          "type": "boolean",
-          "example": true
         }
       }
     },

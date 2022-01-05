@@ -109,6 +109,7 @@ grid_line_id: integer
   profit: string 
   usd_profit: string 
   created_at: string 
+  grid_line: GridLineEntity 
   } 
  ``` 
 ### Edit Grid Bot (AI) (Permission: BOTS_WRITE, Security: SIGNED)
@@ -222,6 +223,16 @@ grid_line_id: '8000'
 profit: '0.01'                            
 usd_profit: '100'                         
 created_at: 2018-08-08 08:08:08           
+grid_line: GridLineEntity    
+} 
+ ``` 
+### GridLineEntity
+ ``` 
+ {
+id: 21                                   Uniq id 
+price: '8000'                             
+side: 'SELL'                              
+order_placed: true                        
 } 
  ``` 
 ### GridBotEntity
