@@ -68,7 +68,7 @@ GET /ver1/grid_bots
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-account_ids | array[integer] | NO |   | Filter by account id
+account_id | array[integer] | NO |   | Filter by account id
 account_types | array[string] | NO |   | Filter by account type
 state | string | NO | enabled, disabled  | Filter by bot state
 sort_by | string | NO | current_profit, profit, bot_id, pair, created_at, updated_at  | Sort column
