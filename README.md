@@ -1,4 +1,4 @@
-# Public Rest API for 3commas.io (2022-02-24)
+# Public Rest API for 3commas.io (2022-03-16)
 # General API Information
 * Official Announcements regarding changes, downtime, etc. to the API will be reported here: **https://t.me/commas_API**
 * We have telegram group where you can discuss any issues with API **https://t.me/xcommas_api**
@@ -81,6 +81,7 @@ SIGNED | Endpoint requires sending a valid API-Key and signature.
 * The `signature` is **not case sensitive**.
 * `totalParams` is defined as the `query string` concatenated with the `request body`.
 
+### Look [here](https://3commas-io.github.io/public-api-signature-calculator-example/) for some examples  
 
 ## SIGNED Endpoint Examples for POST /public/api/ver1/accounts/new
 Here is a step-by-step example of how to send a valid signed payload from the
