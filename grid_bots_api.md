@@ -17,6 +17,7 @@ pair | string | YES |   |
 total_quantity | number | YES |   | 
 leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Leverage type for futures accounts
 leverage_custom_value | number | NO |   | Required if leverage_type = 'isolated'
+note | string | NO |   | 
 ### Create Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)
 ```
 POST /ver1/grid_bots/manual
@@ -44,6 +45,7 @@ lower_stop_loss_action | string | NO | stop_bot, stop_bot_and_buy, stop_bot_and_
 leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Leverage type for futures accounts
 leverage_custom_value | number | NO |   | Required if leverage_type = 'isolated'
 is_enabled | boolean | NO |  (true) | Turn on or off grid_bot after creation
+note | string | NO |   | 
 ### Get AI settings (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/grid_bots/ai_settings
@@ -68,16 +70,43 @@ GET /ver1/grid_bots
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-account_ids | array[integer] | NO |   | Filter by account id
-account_types | array[string] | NO |   | Filter by account type
+account_ids | string | NO |   | Filter by account id
+account_types | string | NO |   | Filter by account type
 state | string | NO | enabled, disabled  | Filter by bot state
-sort_by | string | NO | current_profit, profit, bot_id, pair, created_at, updated_at  | Sort column
+sort_by | string | NO | current_profit, profit, bot_id, pair, created_at, updated_at, name  | Sort column
 sort_direction | string | NO | desc, asc  | Sort direction
 limit | integer | NO |  (10) | 
 offset | integer | NO |  (0) | 
 from | string | NO |   | Param for a filter by created date
 base | string | NO |   | Base currency
 quote | string | NO |   | Quote currency
+### Grid Bot Note (Permission: BOTS_WRITE, Security: SIGNED)
+```
+POST /ver1/grid_bots/{id}/note
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+note | string | NO |   | 
+id | integer | YES |   | 
+### Grid Bot Events (Permission: BOTS_READ, Security: SIGNED)
+```
+GET /ver1/grid_bots/{id}/events
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+page | integer | YES |  (1) | 
+per_page | integer | YES |  (100) | 
+id | integer | YES |   | 
 ### Grid Bot Market Orders (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/grid_bots/{id}/market_orders
@@ -128,6 +157,7 @@ pair | string | YES |   |
 total_quantity | number | YES |   | 
 leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Leverage type for futures accounts
 leverage_custom_value | number | NO |   | Required if leverage_type = 'isolated'
+note | string | NO |   | 
 id | integer | YES |   | 
 ### Edit Grid Bot (Manual) (Permission: BOTS_WRITE, Security: SIGNED)
 ```
@@ -154,6 +184,7 @@ lower_stop_loss_enabled | boolean | NO |   |
 lower_stop_loss_action | string | NO | stop_bot, stop_bot_and_buy, stop_bot_and_sell, stop_bot_and_close_position  | 
 leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Leverage type for futures accounts
 leverage_custom_value | number | NO |   | Required if leverage_type = 'isolated'
+note | string | NO |   | 
 id | integer | YES |   | 
 ### Show Grid Bot (Permission: BOTS_READ, Security: SIGNED)
 ```
@@ -216,25 +247,6 @@ Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 id | integer | YES |   | 
 # Response Entities 
-### GridBotProfitsEntity
- ``` 
- {
-grid_line_id: '8000'                      
-profit: '0.01'                            
-usd_profit: '100'                         
-created_at: 2018-08-08 08:08:08           
-grid_line: GridLineEntity    
-} 
- ``` 
-### GridLineEntity
- ``` 
- {
-id: 21                                   Uniq id 
-price: '8000'                             
-side: 'SELL'                              
-order_placed: true                        
-} 
- ``` 
 ### GridBotEntity
  ``` 
  {
@@ -248,6 +260,7 @@ updated_at: 2018-08-10 10:10:10
 strategy_type: 'manual'                   
 upper_stop_loss_enabled: true             
 lower_stop_loss_enabled: true             
+note: Best pair                           
 lower_price: '8000'                       
 lower_stop_loss_price: '7500'             
 lower_stop_loss_action: 'stop_bot'        
@@ -271,5 +284,31 @@ current_price: 100.1
 investment_base_currency: 100             
 investment_quote_currency: 100            
 grid_lines: GridLineEntity    
+} 
+ ``` 
+### GridLineEntity
+ ``` 
+ {
+id: 21                                   Uniq id 
+price: '8000'                             
+side: 'SELL'                              
+order_placed: true                        
+} 
+ ``` 
+### GridBotProfitsEntity
+ ``` 
+ {
+grid_line_id: '8000'                      
+profit: '0.01'                            
+usd_profit: '100'                         
+created_at: 2018-08-08 08:08:08           
+grid_line: GridLineEntity    
+} 
+ ``` 
+### GridBotEvent
+ ``` 
+ {
+message: Bot Message                      
+created_at: 2021-07-08 08:08:08           
 } 
  ``` 

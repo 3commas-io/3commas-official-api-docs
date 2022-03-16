@@ -1,5 +1,17 @@
 # Users Api 
 #### _Please read General API Information first_
+### Change user locale (Security: SIGNED)
+```
+PUT /ver1/users/locale
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+locale | string | YES | ru, en, pt, zh, es, fr, tr, de  | 
 ### Current User Mode (Paper or Real) (Permission: ACCOUNTS_READ, Security: SIGNED)
 ```
 GET /ver1/users/current_mode

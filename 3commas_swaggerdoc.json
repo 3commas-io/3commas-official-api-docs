@@ -19,12 +19,12 @@
       "description": "Operations about deals"
     },
     {
-      "name": "users",
-      "description": "Operations about users"
-    },
-    {
       "name": "accounts",
       "description": "Operations about accounts"
+    },
+    {
+      "name": "users",
+      "description": "Operations about users"
     },
     {
       "name": "marketplace",
@@ -39,6 +39,10 @@
       "description": "Operations about loose_accounts"
     },
     {
+      "name": "mini_apps",
+      "description": "Operations about mini_apps"
+    },
+    {
       "name": "ping",
       "description": "Operations about pings"
     },
@@ -49,6 +53,10 @@
     {
       "name": "smart_trades_v2",
       "description": "Operations about smart_trades_v2s"
+    },
+    {
+      "name": "accounts",
+      "description": "Operations about accounts"
     }
   ],
   "paths": {
@@ -181,10 +189,7 @@
           {
             "in": "formData",
             "name": "pairs",
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
+            "type": "string",
             "required": true
           }
         ],
@@ -227,10 +232,7 @@
             "in": "formData",
             "name": "pairs",
             "description": "Pass single pair to create SingleBot or any other number of pairs to create MultiBot",
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
+            "type": "string",
             "required": true
           },
           {
@@ -584,6 +586,7 @@
             "in": "query",
             "name": "scope",
             "type": "string",
+            "default": null,
             "enum": [
               "enabled",
               "disabled"
@@ -594,6 +597,7 @@
             "in": "query",
             "name": "strategy",
             "type": "string",
+            "default": null,
             "enum": [
               "long",
               "short"
@@ -745,10 +749,7 @@
           {
             "in": "formData",
             "name": "pairs",
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
+            "type": "string",
             "required": true
           },
           {
@@ -1287,6 +1288,7 @@
             "in": "query",
             "name": "include_events",
             "type": "boolean",
+            "default": false,
             "required": false
           },
           {
@@ -1427,6 +1429,7 @@
             "in": "formData",
             "name": "stop_bot",
             "type": "boolean",
+            "default": false,
             "required": false
           },
           {
@@ -1887,55 +1890,6 @@
           "deals"
         ],
         "operationId": "getVer1DealsDealIdDataForAddingFunds"
-      }
-    },
-    "/ver1/users/current_mode": {
-      "get": {
-        "description": "Current User Mode (Paper or Real) (Permission: ACCOUNTS_READ, Security: SIGNED)",
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "Current User Mode (Paper or Real) (Permission: ACCOUNTS_READ, Security: SIGNED)"
-          }
-        },
-        "tags": [
-          "users"
-        ],
-        "operationId": "getVer1UsersCurrentMode"
-      }
-    },
-    "/ver1/users/change_mode": {
-      "post": {
-        "description": "Change User Mode (Paper or Real) (Permission: ACCOUNTS_WRITE, Security: SIGNED)",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "formData",
-            "name": "mode",
-            "type": "string",
-            "enum": [
-              "paper",
-              "real"
-            ],
-            "required": true
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Change User Mode (Paper or Real) (Permission: ACCOUNTS_WRITE, Security: SIGNED)"
-          }
-        },
-        "tags": [
-          "users"
-        ],
-        "operationId": "postVer1UsersChangeMode"
       }
     },
     "/ver1/accounts/transfer": {
@@ -2885,6 +2839,93 @@
         "operationId": "getVer1AccountsAccountId"
       }
     },
+    "/ver1/users/locale": {
+      "put": {
+        "description": "Change user locale (Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "locale",
+            "type": "string",
+            "enum": [
+              "ru",
+              "en",
+              "pt",
+              "zh",
+              "es",
+              "fr",
+              "tr",
+              "de"
+            ],
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Change user locale (Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "operationId": "putVer1UsersLocale"
+      }
+    },
+    "/ver1/users/current_mode": {
+      "get": {
+        "description": "Current User Mode (Paper or Real) (Permission: ACCOUNTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Current User Mode (Paper or Real) (Permission: ACCOUNTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "operationId": "getVer1UsersCurrentMode"
+      }
+    },
+    "/ver1/users/change_mode": {
+      "post": {
+        "description": "Change User Mode (Paper or Real) (Permission: ACCOUNTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "mode",
+            "type": "string",
+            "enum": [
+              "paper",
+              "real"
+            ],
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Change User Mode (Paper or Real) (Permission: ACCOUNTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "operationId": "postVer1UsersChangeMode"
+      }
+    },
     "/ver1/marketplace/presets": {
       "get": {
         "description": "Marketplace presets (Permission: NONE, Security: SIGNED)",
@@ -3030,7 +3071,7 @@
           "200": {
             "description": "Marketplace presets (Permission: NONE, Security: SIGNED)",
             "schema": {
-              "$ref": "#/definitions/IndexEntity"
+              "$ref": "#/definitions/MarketplacePresets_IndexEntity"
             }
           }
         },
@@ -3268,6 +3309,12 @@
             "type": "number",
             "format": "double",
             "required": false
+          },
+          {
+            "in": "formData",
+            "name": "note",
+            "type": "string",
+            "required": false
           }
         ],
         "responses": {
@@ -3352,6 +3399,7 @@
             "in": "formData",
             "name": "upper_stop_loss_enabled",
             "type": "boolean",
+            "default": false,
             "required": false
           },
           {
@@ -3378,6 +3426,7 @@
             "in": "formData",
             "name": "lower_stop_loss_enabled",
             "type": "boolean",
+            "default": false,
             "required": false
           },
           {
@@ -3421,6 +3470,12 @@
             "description": "Turn on or off grid_bot after creation",
             "type": "boolean",
             "default": true,
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "note",
+            "type": "string",
             "required": false
           }
         ],
@@ -3475,24 +3530,17 @@
         ],
         "parameters": [
           {
-            "in": "formData",
+            "in": "query",
             "name": "account_ids",
             "description": "Filter by account id",
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            },
+            "type": "string",
             "required": false
           },
           {
-            "in": "formData",
+            "in": "query",
             "name": "account_types",
             "description": "Filter by account type",
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
+            "type": "string",
             "required": false
           },
           {
@@ -3517,7 +3565,8 @@
               "bot_id",
               "pair",
               "created_at",
-              "updated_at"
+              "updated_at",
+              "name"
             ],
             "required": false
           },
@@ -3579,6 +3628,85 @@
           "grid_bots"
         ],
         "operationId": "getVer1GridBots"
+      }
+    },
+    "/ver1/grid_bots/{id}/note": {
+      "post": {
+        "description": "Grid Bot Note (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "note",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Grid Bot Note (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "grid_bots"
+        ],
+        "operationId": "postVer1GridBotsIdNote"
+      }
+    },
+    "/ver1/grid_bots/{id}/events": {
+      "get": {
+        "description": "Grid Bot Events (Permission: BOTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "type": "integer",
+            "format": "int32",
+            "default": 100,
+            "minimum": 1,
+            "maximum": 100,
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Grid Bot Events (Permission: BOTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "grid_bots"
+        ],
+        "operationId": "getVer1GridBotsIdEvents"
       }
     },
     "/ver1/grid_bots/{id}/market_orders": {
@@ -3687,6 +3815,12 @@
             "description": "Required if leverage_type = 'isolated'",
             "type": "number",
             "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "note",
+            "type": "string",
             "required": false
           },
           {
@@ -3830,6 +3964,12 @@
             "description": "Required if leverage_type = 'isolated'",
             "type": "number",
             "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "note",
+            "type": "string",
             "required": false
           },
           {
@@ -4125,6 +4265,63 @@
         "operationId": "putVer1LooseAccountsAccountId"
       }
     },
+    "/ver1/mini_apps/storage": {
+      "get": {
+        "description": "Fetch data from storage (Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "key",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fetch data from storage (Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "mini_apps"
+        ],
+        "operationId": "getVer1MiniAppsStorage"
+      },
+      "post": {
+        "description": "Write data into storage (Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "key",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "data",
+            "type": "json",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Write data into storage (Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "mini_apps"
+        ],
+        "operationId": "postVer1MiniAppsStorage"
+      }
+    },
     "/ver1/ping": {
       "get": {
         "description": "Test connectivity to the Rest API (Permission: NONE, Security: NONE)",
@@ -4317,6 +4514,7 @@
             "name": "instant",
             "description": "true for Simple Buy and Simple Sell",
             "type": "boolean",
+            "default": false,
             "required": false
           },
           {
@@ -4324,6 +4522,7 @@
             "name": "skip_enter_step",
             "description": "true only for Smart Sell",
             "type": "boolean",
+            "default": false,
             "required": false
           },
           {
@@ -4336,6 +4535,7 @@
             "in": "formData",
             "name": "leverage[enabled]",
             "type": "boolean",
+            "default": false,
             "required": true
           },
           {
@@ -4428,6 +4628,7 @@
             "in": "formData",
             "name": "position[conditional][trailing][enabled]",
             "type": "boolean",
+            "default": false,
             "required": true
           },
           {
@@ -4442,6 +4643,7 @@
             "in": "formData",
             "name": "take_profit[enabled]",
             "type": "boolean",
+            "default": false,
             "required": true
           },
           {
@@ -4475,7 +4677,12 @@
             "type": "array",
             "required": true,
             "items": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "bid",
+                "ask",
+                "last"
+              ]
             }
           },
           {
@@ -4485,7 +4692,8 @@
             "type": "array",
             "required": false,
             "items": {
-              "type": "string"
+              "type": "number",
+              "format": "double"
             }
           },
           {
@@ -4495,16 +4703,18 @@
             "type": "array",
             "required": false,
             "items": {
-              "type": "string"
+              "type": "number",
+              "format": "float"
             }
           },
           {
             "in": "formData",
             "name": "take_profit[steps][][trailing][enabled]",
             "type": "array",
+            "default": false,
             "required": true,
             "items": {
-              "type": "string"
+              "type": "boolean"
             }
           },
           {
@@ -4513,19 +4723,22 @@
             "type": "array",
             "required": true,
             "items": {
-              "type": "string"
+              "type": "number",
+              "format": "float"
             }
           },
           {
             "in": "formData",
             "name": "stop_loss[enabled]",
             "type": "boolean",
+            "default": false,
             "required": true
           },
           {
             "in": "formData",
             "name": "stop_loss[breakeven]",
             "type": "boolean",
+            "default": false,
             "required": false
           },
           {
@@ -4577,12 +4790,14 @@
             "in": "formData",
             "name": "stop_loss[conditional][trailing][enabled]",
             "type": "boolean",
+            "default": false,
             "required": true
           },
           {
             "in": "formData",
             "name": "stop_loss[timeout][enabled]",
             "type": "boolean",
+            "default": false,
             "required": true
           },
           {
@@ -4666,6 +4881,7 @@
             "in": "formData",
             "name": "leverage[enabled]",
             "type": "boolean",
+            "default": false,
             "required": true
           },
           {
@@ -4737,6 +4953,7 @@
             "in": "formData",
             "name": "position[conditional][trailing][enabled]",
             "type": "boolean",
+            "default": false,
             "required": true
           },
           {
@@ -4750,6 +4967,7 @@
             "in": "formData",
             "name": "take_profit[enabled]",
             "type": "boolean",
+            "default": false,
             "required": true
           },
           {
@@ -4781,7 +4999,12 @@
             "type": "array",
             "required": true,
             "items": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "bid",
+                "ask",
+                "last"
+              ]
             }
           },
           {
@@ -4790,7 +5013,8 @@
             "type": "array",
             "required": false,
             "items": {
-              "type": "string"
+              "type": "number",
+              "format": "double"
             }
           },
           {
@@ -4799,16 +5023,18 @@
             "type": "array",
             "required": false,
             "items": {
-              "type": "string"
+              "type": "number",
+              "format": "float"
             }
           },
           {
             "in": "formData",
             "name": "take_profit[steps][][trailing][enabled]",
             "type": "array",
+            "default": false,
             "required": true,
             "items": {
-              "type": "string"
+              "type": "boolean"
             }
           },
           {
@@ -4817,19 +5043,22 @@
             "type": "array",
             "required": true,
             "items": {
-              "type": "string"
+              "type": "number",
+              "format": "float"
             }
           },
           {
             "in": "formData",
             "name": "stop_loss[enabled]",
             "type": "boolean",
+            "default": false,
             "required": true
           },
           {
             "in": "formData",
             "name": "stop_loss[breakeven]",
             "type": "boolean",
+            "default": false,
             "required": false
           },
           {
@@ -4880,12 +5109,14 @@
             "in": "formData",
             "name": "stop_loss[conditional][trailing][enabled]",
             "type": "boolean",
+            "default": false,
             "required": true
           },
           {
             "in": "formData",
             "name": "stop_loss[timeout][enabled]",
             "type": "boolean",
+            "default": false,
             "required": true
           },
           {
@@ -5240,175 +5471,35 @@
         ],
         "operationId": "deleteV2SmartTradesSmartTradeIdTradesId"
       }
+    },
+    "/v2/accounts/market_pairs": {
+      "get": {
+        "description": "All market pairs (Permission: NONE, Security: NONE)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "market_code",
+            "description": "market_code from account model",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All market pairs (Permission: NONE, Security: NONE)"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "getV2AccountsMarketPairs"
+      }
     }
   },
   "definitions": {
-    "IndexEntity": {
-      "type": "object",
-      "properties": {
-        "bots": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/MarketplaceBotEntity"
-          }
-        },
-        "total": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "page": {
-          "type": "integer",
-          "format": "int32"
-        }
-      },
-      "description": "Marketplace presets (Permission: NONE, Security: SIGNED)"
-    },
-    "MarketplaceBotEntity": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "type": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "strategy": {
-          "type": "string"
-        },
-        "secret": {
-          "type": "string"
-        },
-        "marketplace_item": {
-          "$ref": "#/definitions/MarketplaceItem"
-        },
-        "profit": {
-          "$ref": "#/definitions/Profit"
-        },
-        "currencies": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "copies": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Bot's copies count"
-        },
-        "is_favorite": {
-          "type": "boolean"
-        }
-      }
-    },
-    "MarketplaceItem": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "name": {
-          "type": "string"
-        },
-        "icon_url": {
-          "type": "string"
-        }
-      }
-    },
-    "Profit": {
-      "type": "object",
-      "properties": {
-        "period": {
-          "type": "string"
-        },
-        "amount": {
-          "type": "number",
-          "format": "double"
-        },
-        "chart_data": {
-          "type": "array",
-          "items": {
-            "type": "number",
-            "format": "double"
-          }
-        }
-      }
-    },
-    "GridBotProfitsEntity": {
-      "type": "object",
-      "properties": {
-        "grid_line_id": {
-          "type": "integer",
-          "format": "int32",
-          "example": "'8000'"
-        },
-        "profit": {
-          "type": "string",
-          "example": "'0.01'"
-        },
-        "usd_profit": {
-          "type": "string",
-          "example": "'100'"
-        },
-        "created_at": {
-          "type": "string",
-          "example": "2018-08-08 08:08:08"
-        },
-        "grid_line": {
-          "$ref": "#/definitions/GridLineEntity"
-        }
-      },
-      "description": "Grid Bot Profits (Permission: BOTS_READ, Security: SIGNED)"
-    },
-    "GridLineEntity": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int32",
-          "example": 21,
-          "description": "Uniq id"
-        },
-        "price": {
-          "type": "string",
-          "example": "'8000'"
-        },
-        "side": {
-          "type": "string",
-          "example": "'SELL'"
-        },
-        "order_placed": {
-          "type": "boolean",
-          "example": true
-        }
-      }
-    },
-    "PongEntity": {
-      "type": "object",
-      "properties": {
-        "pong": {
-          "type": "string",
-          "example": "'pong'"
-        }
-      },
-      "description": "Test connectivity to the Rest API (Permission: NONE, Security: NONE)"
-    },
-    "TimeEntity": {
-      "type": "object",
-      "properties": {
-        "server_time": {
-          "type": "integer",
-          "format": "int32",
-          "example": "1592769067",
-          "description": "UNIX timestamp"
-        }
-      },
-      "description": "Test connectivity to the Rest API and get the current server time (Permission: NONE, Security: NONE)"
-    },
     "BotEntity": {
       "type": "object",
       "properties": {
@@ -5939,6 +6030,10 @@
           "type": "boolean",
           "example": true
         },
+        "note": {
+          "type": "string",
+          "example": "Best pair"
+        },
         "lower_price": {
           "type": "string",
           "example": "'8000'"
@@ -6031,6 +6126,172 @@
           "$ref": "#/definitions/GridLineEntity"
         }
       }
+    },
+    "GridLineEntity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "example": 21,
+          "description": "Uniq id"
+        },
+        "price": {
+          "type": "string",
+          "example": "'8000'"
+        },
+        "side": {
+          "type": "string",
+          "example": "'SELL'"
+        },
+        "order_placed": {
+          "type": "boolean",
+          "example": true
+        }
+      }
+    },
+    "GridBotProfitsEntity": {
+      "type": "object",
+      "properties": {
+        "grid_line_id": {
+          "type": "integer",
+          "format": "int32",
+          "example": "'8000'"
+        },
+        "profit": {
+          "type": "string",
+          "example": "'0.01'"
+        },
+        "usd_profit": {
+          "type": "string",
+          "example": "'100'"
+        },
+        "created_at": {
+          "type": "string",
+          "example": "2018-08-08 08:08:08"
+        },
+        "grid_line": {
+          "$ref": "#/definitions/GridLineEntity"
+        }
+      },
+      "description": "GridBotProfitsEntity model"
+    },
+    "MarketplacePresets_IndexEntity": {
+      "type": "object",
+      "properties": {
+        "bots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MarketplacePresets_IndexEntity_MarketplaceBotEntity"
+          }
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "description": "MarketplacePresets_IndexEntity model"
+    },
+    "MarketplacePresets_IndexEntity_MarketplaceBotEntity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "strategy": {
+          "type": "string"
+        },
+        "secret": {
+          "type": "string"
+        },
+        "marketplace_item": {
+          "$ref": "#/definitions/MarketplacePresets_IndexEntity_MarketplaceBotEntity_MarketplaceItem"
+        },
+        "profit": {
+          "$ref": "#/definitions/MarketplacePresets_IndexEntity_MarketplaceBotEntity_Profit"
+        },
+        "currencies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "copies": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Bot's copies count"
+        },
+        "is_favorite": {
+          "type": "boolean"
+        }
+      }
+    },
+    "MarketplacePresets_IndexEntity_MarketplaceBotEntity_MarketplaceItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "icon_url": {
+          "type": "string"
+        }
+      }
+    },
+    "MarketplacePresets_IndexEntity_MarketplaceBotEntity_Profit": {
+      "type": "object",
+      "properties": {
+        "period": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number",
+          "format": "double"
+        },
+        "chart_data": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      }
+    },
+    "PongEntity": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string",
+          "example": "'pong'"
+        }
+      },
+      "description": "PongEntity model"
+    },
+    "TimeEntity": {
+      "type": "object",
+      "properties": {
+        "server_time": {
+          "type": "integer",
+          "format": "int32",
+          "example": "1592769067",
+          "description": "UNIX timestamp"
+        }
+      },
+      "description": "TimeEntity model"
     },
     "DealEntity": {
       "type": "object",
@@ -7099,6 +7360,20 @@
         "is_locked": {
           "type": "boolean",
           "example": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "GridBotEvent": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "example": "Bot Message"
+        },
+        "created_at": {
+          "type": "string",
+          "example": "2021-07-08 08:08:08"
         }
       },
       "additionalProperties": false

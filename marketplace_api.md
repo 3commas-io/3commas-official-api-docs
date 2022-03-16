@@ -29,7 +29,7 @@ sort_by | string | NO |   |
 sort_direction | string | NO | asc, desc  | 
 page | integer | NO |  (1) | 
 per_page | integer | NO |   | 
-### IndexEntity
+### MarketplacePresets_IndexEntity
  ``` 
  {
 bots: array 
@@ -71,7 +71,7 @@ order_direction | string | NO | asc, desc (desc) |
 locale | string | NO | en, ru, zh, zh-CN, es, pt, ko, fr, cs, tr, de (en) | 
 item_id | integer | YES |   | 
 # Response Entities 
-### IndexEntity
+### MarketplacePresets_IndexEntity
  ``` 
  {
 bots:                                     
@@ -79,7 +79,7 @@ total:
 page:                                     
 } 
  ``` 
-### MarketplaceBotEntity
+### MarketplacePresets_IndexEntity_MarketplaceBotEntity
  ``` 
  {
 id:                                       
@@ -87,8 +87,8 @@ type:
 name:                                     
 strategy:                                 
 secret:                                   
-marketplace_item: MarketplaceItem    
-profit: Profit    
+marketplace_item: MarketplacePresets_IndexEntity_MarketplaceBotEntity_MarketplaceItem    
+profit: MarketplacePresets_IndexEntity_MarketplaceBotEntity_Profit    
 currencies:                               
 copies:                                  Bot's copies count 
 is_favorite:                              

@@ -1,6 +1,6 @@
 # Bots Api 
 #### _Please read General API Information first_
-### summary_missing
+### Smart Sell Account Table Info (Permission: NONE, Security: SIGNED)
 ```
 GET /ver1/bots/account_trade_info_smart_sell
 ```
@@ -12,7 +12,7 @@ GET /ver1/bots/account_trade_info_smart_sell
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 account_id | integer | YES |   | 
-### summary_missing
+### Account Trade Info (Permission: NONE, Security: SIGNED)
 ```
 GET /ver1/bots/account_trade_info
 ```
@@ -58,7 +58,7 @@ POST /ver1/bots/update_pairs_black_list
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-pairs | array[string] | YES |   | 
+pairs | string | YES |   | 
 ### Create bot (Permission: BOTS_WRITE, Security: SIGNED)
 ```
 POST /ver1/bots/create_bot
@@ -72,7 +72,7 @@ Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 name | string | YES |   | 
 account_id | integer | YES |   | id from GET /ver1/accounts
-pairs | array[string] | YES |   | Pass single pair to create SingleBot or any other number of pairs to create MultiBot
+pairs | string | YES |   | Pass single pair to create SingleBot or any other number of pairs to create MultiBot
 max_active_deals | integer | NO |  (1) | 
 base_order_volume | number | YES |   | Base order size
 base_order_volume_type | string | NO | quote_currency, base_currency, percent, xbt  | base order volume currency
@@ -167,7 +167,7 @@ PATCH /ver1/bots/{bot_id}/update
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 name | string | YES |   | 
-pairs | array[string] | YES |   | 
+pairs | string | YES |   | 
 max_active_deals | integer | NO |  (1) | 
 base_order_volume | number | YES |   | Base order size
 base_order_volume_type | string | NO | quote_currency, base_currency, percent, xbt  | base order volume currency

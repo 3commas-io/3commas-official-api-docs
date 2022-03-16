@@ -54,10 +54,10 @@ take_profit[enabled] | boolean | YES |   |
 take_profit[steps][][order_type] | string | YES |   | market, limit
 take_profit[steps][][volume] | number | YES |   | 
 take_profit[steps][][price][type] | string | YES |   | bid, ask, last
-take_profit[steps][][price][value] | string | NO |   | only if position has no trailing or position trailing is finished
-take_profit[steps][][price][percent] | string | NO |   | only if position has trailing and position trailing is not finished
-take_profit[steps][][trailing][enabled] | string | YES |   | 
-take_profit[steps][][trailing][percent] | string | YES |   | 
+take_profit[steps][][price][value] | number | NO |   | only if position has no trailing or position trailing is finished
+take_profit[steps][][price][percent] | number | NO |   | only if position has trailing and position trailing is not finished
+take_profit[steps][][trailing][enabled] | boolean | YES |   | 
+take_profit[steps][][trailing][percent] | number | YES |   | 
 stop_loss[enabled] | boolean | YES |   | 
 stop_loss[breakeven] | boolean | NO |   | 
 stop_loss[order_type] | string | YES | market, limit  | 
@@ -945,10 +945,10 @@ take_profit[enabled] | boolean | YES |   |
 take_profit[steps][][order_type] | string | YES |   | 
 take_profit[steps][][volume] | number | YES |   | 
 take_profit[steps][][price][type] | string | YES |   | 
-take_profit[steps][][price][value] | string | NO |   | 
-take_profit[steps][][price][percent] | string | NO |   | 
-take_profit[steps][][trailing][enabled] | string | YES |   | 
-take_profit[steps][][trailing][percent] | string | YES |   | 
+take_profit[steps][][price][value] | number | NO |   | 
+take_profit[steps][][price][percent] | number | NO |   | 
+take_profit[steps][][trailing][enabled] | boolean | YES |   | 
+take_profit[steps][][trailing][percent] | number | YES |   | 
 stop_loss[enabled] | boolean | YES |   | 
 stop_loss[breakeven] | boolean | NO |   | 
 stop_loss[order_type] | string | YES | market, limit  | 

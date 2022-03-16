@@ -325,6 +325,18 @@ GET /ver1/accounts/{account_id}
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 account_id | integer | YES |   | 
+### All market pairs (Permission: NONE, Security: NONE)
+```
+GET /v2/accounts/market_pairs
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+market_code | string | NO |   | market_code from account model
 # Response Entities 
 ### AccountEntity
  ``` 
