@@ -46,6 +46,9 @@ leverage_type | string | NO | custom, cross, not_specified, isolated (not_specif
 leverage_custom_value | number | NO |   | Required if leverage_type = 'isolated'
 is_enabled | boolean | NO |  (true) | Turn on or off grid_bot after creation
 note | string | NO |   | 
+max_active_buy_lines | integer | NO |   | 
+max_active_sell_lines | integer | NO |   | 
+order_currency_type | string | NO | base, quote (base) | Order currency type
 ### Get AI settings (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/grid_bots/ai_settings
@@ -59,6 +62,7 @@ Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 pair | string | YES |   | 
 market_code | string | YES |   | Market code from /accounts/market_list
+total_quantity | number | NO |   | Total amount for bot usage
 ### Grid bots list (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/grid_bots
@@ -171,7 +175,7 @@ PATCH /ver1/grid_bots/{id}/manual
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 name | string | NO |  (GridBot) | Grid Bot's name
-pair | string | YES |   | 
+pair | string | NO |   | Deprecated
 upper_price | number | YES |   | 
 lower_price | number | YES |   | 
 quantity_per_grid | number | YES |   | 
@@ -185,6 +189,8 @@ lower_stop_loss_action | string | NO | stop_bot, stop_bot_and_buy, stop_bot_and_
 leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Leverage type for futures accounts
 leverage_custom_value | number | NO |   | Required if leverage_type = 'isolated'
 note | string | NO |   | 
+max_active_buy_lines | integer | NO |   | 
+max_active_sell_lines | integer | NO |   | 
 id | integer | YES |   | 
 ### Show Grid Bot (Permission: BOTS_READ, Security: SIGNED)
 ```
@@ -281,6 +287,10 @@ bought_volume: 1000
 sold_volume: 1000                         
 profit_percentage: 0.1                    
 current_price: 100.1                      
+max_active_buy_lines: 10                  
+max_active_sell_lines: 10                 
+order_currency_type: base                 
+profit_currency_type: quote               
 investment_base_currency: 100             
 investment_quote_currency: 100            
 grid_lines: GridLineEntity    

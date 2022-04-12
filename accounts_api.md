@@ -85,6 +85,7 @@ how_connect | string | NO | mnemonic_phrase, keystore  |
 keystore | json | NO |   | 
 wallet_password | string | NO |   | 
 mnemonic_phrase | string | NO |   | 
+include_in_summary | boolean | NO |   | Should the account be included in the summary statistics?
 ### User connected exchanges(and EthereumWallet) list (Permission: ACCOUNTS_READ, Security: SIGNED)
 ```
 GET /ver1/accounts
@@ -370,6 +371,7 @@ fast_convert_available: true             Sell all to USD/BTC possibility
 grid_bots_allowed: true                   
 api_key_invalid: true                     
 deposit_enabled: false                    
+include_in_summary: false                Include the account in summary or not 
 supported_market_types:                   
 api_key: ''                               
 name: 'Binance 2 '                        
