@@ -1,4 +1,4 @@
-# SmartTradesV2 Api 
+# SmartTradesV2 Api
 #### _Please read General API Information first_
 ### Get smart trade history (Permission: SMART_TRADE_READ, Security: SIGNED)
 ```
@@ -11,14 +11,14 @@ GET /v2/smart_trades
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-account_id | integer | NO |   | 
-pair | string | NO |   | 
-type | string | NO | simple_buy, simple_sell, smart_sell, smart_trade, smart_cover, smart_buy  | 
-page | integer | NO |  (1) | 
-per_page | integer | NO |  (10) | 
-status | string | NO | all, active, finished, successfully_finished, cancelled, failed  | 
-order_by | string | NO | created_at, updated_at, closed_at, status, profit, profit_percentage (status) | 
-order_direction | string | NO | asc, desc (desc) | 
+account_id | integer | NO |   |
+pair | string | NO |   |
+type | string | NO | simple_buy, simple_sell, smart_sell, smart_trade, smart_cover, smart_buy  |
+page | integer | NO |  (1) |
+per_page | integer | NO |  (10) |
+status | string | NO | all, active, finished, successfully_finished, cancelled, failed  |
+order_by | string | NO | created_at, updated_at, closed_at, status, profit, profit_percentage (status) |
+order_direction | string | NO | asc, desc (desc) |
 from | string | NO |   | Param for a filter by created date
 base | string | NO |   | Base currency
 quote | string | NO |   | Quote currency
@@ -34,56 +34,56 @@ POST /v2/smart_trades
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 account_id | integer | YES |   | id from GET /ver1/accounts
-pair | string | YES |   | 
+pair | string | YES |   |
 instant | boolean | NO |   | true for Simple Buy and Simple Sell
 skip_enter_step | boolean | NO |   | true only for Smart Sell
-note | string | NO |   | 
-leverage[enabled] | boolean | YES |   | 
-leverage[type] | string | NO | custom, cross, isolated  | 
+note | string | NO |   |
+leverage[enabled] | boolean | YES |   |
+leverage[type] | string | NO | custom, cross, isolated  |
 leverage[value] | integer | NO |   | Cross leverage value
-position[type] | string | YES | buy, sell  | 
-position[order_type] | string | YES | market, limit, conditional  | 
+position[type] | string | YES | buy, sell  |
+position[order_type] | string | YES | market, limit, conditional  |
 position[units][value] | number | YES |   | Amount of units to buy
 position[price][value] | number | YES |   | Price for limit order
 position[conditional][price][value] | number | YES |   | Conditional trigger price
 position[conditional][price][type] | string | NO | bid, ask, last  | By default ask for long, bid for short
-position[conditional][order_type] | string | YES | market, limit  | 
-position[conditional][trailing][enabled] | boolean | YES |   | 
+position[conditional][order_type] | string | YES | market, limit  |
+position[conditional][trailing][enabled] | boolean | YES |   |
 position[conditional][trailing][percent] | number | YES |   | Should be 100% in the sum of all steps
-take_profit[enabled] | boolean | YES |   | 
+take_profit[enabled] | boolean | YES |   |
 take_profit[steps][][order_type] | string | YES |   | market, limit
-take_profit[steps][][volume] | number | YES |   | 
+take_profit[steps][][volume] | number | YES |   |
 take_profit[steps][][price][type] | string | YES |   | bid, ask, last
 take_profit[steps][][price][value] | number | NO |   | only if position has no trailing or position trailing is finished
 take_profit[steps][][price][percent] | number | NO |   | only if position has trailing and position trailing is not finished
-take_profit[steps][][trailing][enabled] | boolean | YES |   | 
-take_profit[steps][][trailing][percent] | number | YES |   | 
-stop_loss[enabled] | boolean | YES |   | 
-stop_loss[breakeven] | boolean | NO |   | 
-stop_loss[order_type] | string | YES | market, limit  | 
+take_profit[steps][][trailing][enabled] | boolean | YES |   |
+take_profit[steps][][trailing][percent] | number | YES |   |
+stop_loss[enabled] | boolean | YES |   |
+stop_loss[breakeven] | boolean | NO |   |
+stop_loss[order_type] | string | YES | market, limit  |
 stop_loss[price][value] | number | YES |   | Price for limit order
-stop_loss[conditional][price][type] | string | YES | bid, ask, last  | 
+stop_loss[conditional][price][type] | string | YES | bid, ask, last  |
 stop_loss[conditional][price][value] | number | NO |   | if position has no trailing or position trailing is finished
 stop_loss[conditional][price][percent] | number | NO |   | only if position has trailing and position trailing is not finished
-stop_loss[conditional][trailing][enabled] | boolean | YES |   | 
-stop_loss[timeout][enabled] | boolean | YES |   | 
-stop_loss[timeout][value] | integer | YES |   | 
+stop_loss[conditional][trailing][enabled] | boolean | YES |   |
+stop_loss[timeout][enabled] | boolean | YES |   |
+stop_loss[timeout][value] | integer | YES |   |
 
 > Another way to create smart trade v2 is send JSON body with the header
-> 
+>
 > Content-Type: application/json
 
-``` 
+```
 {
     "account_id": "1",                              /*required*/
     "pair":"USDT_BTC",                              /*required*/
     "instant":"true|false",                         /*optional. true for Simple Buy and Simple Sell*/
     "skip_enter_step": "true|false",                /*optional. true only for Smart Sell*/
-    "leverage": {                                   /*optional. uses only for contract exchanges*/ 
+    "leverage": {                                   /*optional. uses only for contract exchanges*/
         "enabled": "true|false",                    /*required*/
         "type": "custom|cross",                     /*required only if enabled */
         "value": "12"                               /*value of custom leverage*/
-    },    
+    },
     "position": {                                   /*required*/
         "type":"buy|sell",                          /*required*/
         "units": {                                  /*required*/
@@ -103,7 +103,7 @@ stop_loss[timeout][value] | integer | YES |   |
                 "enabled":"true|false",             /*required*/
                 "percent": "12.12"                  /*required if enabled*/
             }
-        }        
+        }
     },
     "take_profit": {                                /*required only when instant is false */
         "enabled":"true|false",                     /*required*/
@@ -114,7 +114,7 @@ stop_loss[timeout][value] | integer | YES |   |
                     "value":"0.123",                /*required only if position has no trailing or position trailing is finished */
                     "type":"bid|ask|last",          /*required*/
                     "percent":"10.5"                /*required only if position has trailing and position trailing is not finished */
-                },                
+                },
                 "volume": "25.0",                   /*required. should be 100% in the sum of all steps */
                 "trailing": {                       /*optional. Only for market orders */
                     "enabled":"true|false",         /*required*/
@@ -140,7 +140,7 @@ stop_loss[timeout][value] | integer | YES |   |
             "trailing": {                           /* optional. Only for market orders */
                 "enabled":"true|false",             /*required*/
                 "percent": "12.12"                  /*required if enabled*/
-            }            
+            }
         },
         "timeout": {                                /* optional. */
             "enabled":"true|false",                 /*required*/
@@ -148,7 +148,7 @@ stop_loss[timeout][value] | integer | YES |   |
         }
     }
 }
-``` 
+```
 
 ### Examples
 #### Simple Market Buy
@@ -907,7 +907,7 @@ GET /v2/smart_trades/{id}
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-id | integer | YES |   | 
+id | integer | YES |   |
 ### Cancel smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)
 ```
 DELETE /v2/smart_trades/{id}
@@ -919,7 +919,7 @@ DELETE /v2/smart_trades/{id}
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-id | integer | YES |   | 
+id | integer | YES |   |
 ### Update smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)
 ```
 PATCH /v2/smart_trades/{id}
@@ -931,35 +931,47 @@ PATCH /v2/smart_trades/{id}
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-leverage[enabled] | boolean | YES |   | 
-leverage[type] | string | NO | custom, cross, isolated  | 
+leverage[enabled] | boolean | YES |   |
+leverage[type] | string | NO | custom, cross, isolated  |
 leverage[value] | integer | NO |   | Cross leverage value
 position[units][value] | number | YES |   | Amount of units to buy
 position[price][value] | number | YES |   | Price for limit order
 position[conditional][price][value] | number | YES |   | Conditional trigger price
 position[conditional][price][type] | string | NO | bid, ask, last  | By default ask for long, bid for short
-position[conditional][order_type] | string | YES | market, limit  | 
-position[conditional][trailing][enabled] | boolean | YES |   | 
-position[conditional][trailing][percent] | number | YES |   | 
-take_profit[enabled] | boolean | YES |   | 
-take_profit[steps][][order_type] | string | YES |   | 
-take_profit[steps][][volume] | number | YES |   | 
-take_profit[steps][][price][type] | string | YES |   | 
-take_profit[steps][][price][value] | number | NO |   | 
-take_profit[steps][][price][percent] | number | NO |   | 
-take_profit[steps][][trailing][enabled] | boolean | YES |   | 
-take_profit[steps][][trailing][percent] | number | YES |   | 
-stop_loss[enabled] | boolean | YES |   | 
-stop_loss[breakeven] | boolean | NO |   | 
-stop_loss[order_type] | string | YES | market, limit  | 
+position[conditional][order_type] | string | YES | market, limit  |
+position[conditional][trailing][enabled] | boolean | YES |   |
+position[conditional][trailing][percent] | number | YES |   |
+take_profit[enabled] | boolean | YES |   |
+take_profit[steps][][order_type] | string | YES |   |
+take_profit[steps][][volume] | number | YES |   |
+take_profit[steps][][price][type] | string | YES |   |
+take_profit[steps][][price][value] | number | NO |   |
+take_profit[steps][][price][percent] | number | NO |   |
+take_profit[steps][][trailing][enabled] | boolean | YES |   |
+take_profit[steps][][trailing][percent] | number | YES |   |
+stop_loss[enabled] | boolean | YES |   |
+stop_loss[breakeven] | boolean | NO |   |
+stop_loss[order_type] | string | YES | market, limit  |
 stop_loss[price][value] | number | YES |   | Price for limit order
-stop_loss[conditional][price][type] | string | YES | bid, ask, last  | 
+stop_loss[conditional][price][type] | string | YES | bid, ask, last  |
 stop_loss[conditional][price][value] | number | NO |   | Trigger price
-stop_loss[conditional][price][percent] | number | NO |   | 
-stop_loss[conditional][trailing][enabled] | boolean | YES |   | 
-stop_loss[timeout][enabled] | boolean | YES |   | 
-stop_loss[timeout][value] | integer | YES |   | 
-id | integer | YES |   | 
+stop_loss[conditional][price][percent] | number | NO |   |
+stop_loss[conditional][trailing][enabled] | boolean | YES |   |
+stop_loss[timeout][enabled] | boolean | YES |   |
+stop_loss[timeout][value] | integer | YES |   |
+id | integer | YES |   |
+### Get reduce funds info for smart trade v2 (Permission: SMART_TRADE_READ, Security: SIGNED)
+```
+POST /v2/smart_trades/{id}/reduce_funds_info
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+id | integer | YES |   |
 ### Reduce funds for smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)
 ```
 POST /v2/smart_trades/{id}/reduce_funds
@@ -971,10 +983,10 @@ POST /v2/smart_trades/{id}/reduce_funds
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-order_type | string | YES | market, limit  | 
+order_type | string | YES | market, limit  |
 units[value] | number | YES |   | Amount of units to buy
 price[value] | number | YES |   | Price for limit order
-id | integer | YES |   | 
+id | integer | YES |   |
 ### Average for smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)
 ```
 POST /v2/smart_trades/{id}/add_funds
@@ -986,10 +998,10 @@ POST /v2/smart_trades/{id}/add_funds
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-order_type | string | YES | market, limit  | 
+order_type | string | YES | market, limit  |
 units[value] | number | YES |   | Amount of units to buy
 price[value] | number | YES |   | Price for limit order
-id | integer | YES |   | 
+id | integer | YES |   |
 ### Close by market smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)
 ```
 POST /v2/smart_trades/{id}/close_by_market
@@ -1001,7 +1013,7 @@ POST /v2/smart_trades/{id}/close_by_market
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-id | integer | YES |   | 
+id | integer | YES |   |
 ### Force start smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)
 ```
 POST /v2/smart_trades/{id}/force_start
@@ -1013,7 +1025,7 @@ POST /v2/smart_trades/{id}/force_start
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-id | integer | YES |   | 
+id | integer | YES |   |
 ### Process smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)
 ```
 POST /v2/smart_trades/{id}/force_process
@@ -1025,7 +1037,7 @@ POST /v2/smart_trades/{id}/force_process
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-id | integer | YES |   | 
+id | integer | YES |   |
 ### Set note to smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)
 ```
 POST /v2/smart_trades/{id}/set_note
@@ -1037,8 +1049,8 @@ POST /v2/smart_trades/{id}/set_note
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-note | string | YES |   | 
-id | integer | YES |   | 
+note | string | YES |   |
+id | integer | YES |   |
 ### Get smart trade v2 trades (Permission: SMART_TRADE_READ, Security: SIGNED)
 ```
 GET /v2/smart_trades/{smart_trade_id}/trades
@@ -1050,7 +1062,7 @@ GET /v2/smart_trades/{smart_trade_id}/trades
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-smart_trade_id | integer | YES |   | 
+smart_trade_id | integer | YES |   |
 ### Panic close trade by market (Permission: SMART_TRADE_WRITE, Security: SIGNED)
 ```
 POST /v2/smart_trades/{smart_trade_id}/trades/{id}/close_by_market
@@ -1062,8 +1074,8 @@ POST /v2/smart_trades/{smart_trade_id}/trades/{id}/close_by_market
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-smart_trade_id | integer | YES |   | 
-id | integer | YES |   | 
+smart_trade_id | integer | YES |   |
+id | integer | YES |   |
 ### Cancel trade (Permission: SMART_TRADE_WRITE, Security: SIGNED)
 ```
 DELETE /v2/smart_trades/{smart_trade_id}/trades/{id}
@@ -1075,6 +1087,6 @@ DELETE /v2/smart_trades/{smart_trade_id}/trades/{id}
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-smart_trade_id | integer | YES |   | 
-id | integer | YES |   | 
-# Response Entities 
+smart_trade_id | integer | YES |   |
+id | integer | YES |   |
+# Response Entities
