@@ -14,6 +14,7 @@ Name | Type | Mandatory | Values(default) | Description
 name | string | YES |   | 
 tokens[code] | array[string] | YES |   | 
 tokens[amount] | array[number] | YES |   | 
+include_in_summary | boolean | NO |  (true) | 
 ### Available currencies (Permission: ACCOUNTS_READ, Security: SIGNED)
 ```
 GET /ver1/loose_accounts/available_currencies
@@ -42,6 +43,7 @@ Name | Type | Mandatory | Values(default) | Description
 name | string | NO |   | 
 tokens[code] | array[string] | YES |   | 
 tokens[amount] | array[number] | YES |   | 
+include_in_summary | boolean | NO |   | 
 account_id | integer | YES |   | 
 # Response Entities 
 ### LooseAccountEntity

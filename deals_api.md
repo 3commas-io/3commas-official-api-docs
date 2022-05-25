@@ -14,6 +14,7 @@ Name | Type | Mandatory | Values(default) | Description
 limit | integer | NO |  (50) | Limit records. Max: 1_000
 offset | integer | NO |   | Offset records
 from | string | NO |   | Param for a filter by created date
+to | string | NO |   | Param for a filter by created date
 account_id | integer | NO |   | Account to show bots on. Return all if not specified. Gather this from GET /ver1/accounts
 bot_id | integer | NO |   | Bot show deals on. Return all if not specified
 scope | string | NO |   | active - active deals, finished - finished deals, completed - successfully completed, cancelled - cancelled deals, failed - failed deals, any other value or null (default) - all deals

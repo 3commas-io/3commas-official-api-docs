@@ -1,6 +1,6 @@
 {
   "info": {
-    "title": "3commas API",
+    "title": "API title",
     "version": "0.0.1"
   },
   "swagger": "2.0",
@@ -395,7 +395,7 @@
           {
             "in": "formData",
             "name": "strategy_list",
-            "description": "For manual signals: [{\"strategy\":\"manual\"}] or []<br>\n                                                        For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]<br>\n                                                        QFL: {\"options\": {\"type\": \"original\"}, {\"percent\": 3}, \"strategy\": \"qfl\"}] <br>\n                                                        TradingView: [{\"options\": {\"time\": \"5m\", \"type\": \"buy_or_strong_buy\"}, \"strategy\": \"trading_view\"} ",
+            "description": "For manual signals: [{\"strategy\":\"manual\"}] or []<br>\n                                                        For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]<br>\n                                                        QFL: {\"options\": {\"type\": \"original\"}, {\"percent\": 3}, \"strategy\": \"qfl\"}] <br>\n                                                        TradingView: [{\"options\": {\"time\": \"5m\", \"type\": \"buy_or_strong_buy\"}, \"strategy\": \"trading_view\"} <br>\n                                                        RSI: {\"options\": {\"time\": \"5m\", \"points\": 30, \"trigger_condition\": \"less\", \"time_period\": 7}, \"strategy\": \"rsi\"} ",
             "type": "array",
             "items": {
               "type": "json"
@@ -632,6 +632,17 @@
             "name": "quote",
             "description": "Quote currency",
             "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "form_type",
+            "description": "Param for a filter by bot form type (gordon/advanced)",
+            "type": "string",
+            "enum": [
+              "gordon",
+              "advanced"
+            ],
             "required": false
           }
         ],
@@ -901,7 +912,7 @@
           {
             "in": "formData",
             "name": "strategy_list",
-            "description": "For manual signals: [{\"strategy\":\"manual\"}] or []<br>\n                                                        For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]<br>\n                                                        QFL: {\"options\": {\"type\": \"original\"}, {\"percent\": 3}, \"strategy\": \"qfl\"}] <br>\n                                                        TradingView: [{\"options\": {\"time\": \"5m\", \"type\": \"buy_or_strong_buy\", \"strategy\": \"trading_view\"} ",
+            "description": "For manual signals: [{\"strategy\":\"manual\"}] or []<br>\n                                                        For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]<br>\n                                                        QFL: {\"options\": {\"type\": \"original\"}, {\"percent\": 3}, \"strategy\": \"qfl\"}] <br>\n                                                        TradingView: [{\"options\": {\"time\": \"5m\", \"type\": \"buy_or_strong_buy\", \"strategy\": \"trading_view\"} <br>\n                                                        RSI: {\"options\": {\"time\": \"5m\", \"points\": 30, \"trigger_condition\": \"less\", \"time_period\": 7}, \"strategy\": \"rsi\"} ",
             "type": "array",
             "items": {
               "type": "json"
@@ -1337,6 +1348,13 @@
           {
             "in": "query",
             "name": "from",
+            "description": "Param for a filter by created date",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "to",
             "description": "Param for a filter by created date",
             "type": "string",
             "required": false
@@ -2213,6 +2231,13 @@
             "name": "mnemonic_phrase",
             "type": "string",
             "required": false
+          },
+          {
+            "in": "formData",
+            "name": "include_in_summary",
+            "description": "Should the account be included in the summary statistics?",
+            "type": "boolean",
+            "required": false
           }
         ],
         "responses": {
@@ -2877,6 +2902,23 @@
         "operationId": "putVer1UsersLocale"
       }
     },
+    "/ver1/users/permissions_info": {
+      "get": {
+        "description": "Api Key Permissions (Permission: NONE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Api Key Permissions (Permission: NONE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "operationId": "getVer1UsersPermissionsInfo"
+      }
+    },
     "/ver1/users/current_mode": {
       "get": {
         "description": "Current User Mode (Paper or Real) (Permission: ACCOUNTS_READ, Security: SIGNED)",
@@ -3477,6 +3519,32 @@
             "name": "note",
             "type": "string",
             "required": false
+          },
+          {
+            "in": "formData",
+            "name": "max_active_buy_lines",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "max_active_sell_lines",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "order_currency_type",
+            "description": "Order currency type",
+            "type": "string",
+            "default": "base",
+            "enum": [
+              "base",
+              "quote"
+            ],
+            "required": false
           }
         ],
         "responses": {
@@ -3509,6 +3577,14 @@
             "description": "Market code from /accounts/market_list",
             "type": "string",
             "required": true
+          },
+          {
+            "in": "query",
+            "name": "total_quantity",
+            "description": "Total amount for bot usage",
+            "type": "number",
+            "format": "double",
+            "required": false
           }
         ],
         "responses": {
@@ -3717,6 +3793,24 @@
         ],
         "parameters": [
           {
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "format": "int32",
+            "default": 100,
+            "minimum": 1,
+            "maximum": 1000,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "required": false
+          },
+          {
             "in": "path",
             "name": "id",
             "type": "integer",
@@ -3742,6 +3836,22 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "in": "query",
+            "name": "from",
+            "description": "Param for a filter by created date",
+            "type": "string",
+            "format": "date-time",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "to",
+            "description": "Param for a filter by created date",
+            "type": "string",
+            "format": "date-time",
+            "required": false
+          },
           {
             "in": "path",
             "name": "id",
@@ -3863,8 +3973,9 @@
           {
             "in": "formData",
             "name": "pair",
+            "description": "Deprecated",
             "type": "string",
-            "required": true
+            "required": false
           },
           {
             "in": "formData",
@@ -3970,6 +4081,20 @@
             "in": "formData",
             "name": "note",
             "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "max_active_buy_lines",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "max_active_sell_lines",
+            "type": "integer",
+            "format": "int32",
             "required": false
           },
           {
@@ -4159,6 +4284,13 @@
               "type": "number",
               "format": "double"
             }
+          },
+          {
+            "in": "formData",
+            "name": "include_in_summary",
+            "type": "boolean",
+            "default": true,
+            "required": false
           }
         ],
         "responses": {
@@ -4245,6 +4377,12 @@
               "type": "number",
               "format": "double"
             }
+          },
+          {
+            "in": "formData",
+            "name": "include_in_summary",
+            "type": "boolean",
+            "required": false
           },
           {
             "in": "path",
@@ -4457,6 +4595,13 @@
           {
             "in": "query",
             "name": "from",
+            "description": "Param for a filter by created date",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "to",
             "description": "Param for a filter by created date",
             "type": "string",
             "required": false
@@ -5856,6 +6001,11 @@
           "type": "boolean",
           "example": "false"
         },
+        "include_in_summary": {
+          "type": "boolean",
+          "example": "false",
+          "description": "Include the account in summary or not"
+        },
         "supported_market_types": {
           "type": "string"
         },
@@ -6114,6 +6264,22 @@
           "type": "string",
           "example": "100.1"
         },
+        "max_active_buy_lines": {
+          "type": "string",
+          "example": "10"
+        },
+        "max_active_sell_lines": {
+          "type": "string",
+          "example": "10"
+        },
+        "order_currency_type": {
+          "type": "string",
+          "example": "base"
+        },
+        "profit_currency_type": {
+          "type": "string",
+          "example": "quote"
+        },
         "investment_base_currency": {
           "type": "string",
           "example": "100"
@@ -6121,6 +6287,10 @@
         "investment_quote_currency": {
           "type": "string",
           "example": "100"
+        },
+        "unrealized_profit_loss": {
+          "type": "string",
+          "example": "2500.0"
         },
         "grid_lines": {
           "$ref": "#/definitions/GridLineEntity"

@@ -20,6 +20,7 @@ status | string | NO | all, active, finished, successfully_finished, cancelled, 
 order_by | string | NO | created_at, updated_at, closed_at, status, profit, profit_percentage (status) | 
 order_direction | string | NO | asc, desc (desc) | 
 from | string | NO |   | Param for a filter by created date
+to | string | NO |   | Param for a filter by created date
 base | string | NO |   | Base currency
 quote | string | NO |   | Quote currency
 ### Create smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)

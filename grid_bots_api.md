@@ -122,6 +122,8 @@ GET /ver1/grid_bots/{id}/market_orders
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
+limit | integer | NO |  (100) | 
+offset | integer | NO |  (0) | 
 id | integer | YES |   | 
 ### Grid Bot Profits (Permission: BOTS_READ, Security: SIGNED)
 ```
@@ -134,6 +136,8 @@ GET /ver1/grid_bots/{id}/profits
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
+from | string | NO |   | Param for a filter by created date
+to | string | NO |   | Param for a filter by created date
 id | integer | YES |   | 
 ### GridBotProfitsEntity
  ``` 
@@ -293,6 +297,7 @@ order_currency_type: base
 profit_currency_type: quote               
 investment_base_currency: 100             
 investment_quote_currency: 100            
+unrealized_profit_loss: 2500.0            
 grid_lines: GridLineEntity    
 } 
  ``` 
