@@ -69,6 +69,18 @@ stop_loss[conditional][price][percent] | number | NO |   | only if position has 
 stop_loss[conditional][trailing][enabled] | boolean | YES |   | 
 stop_loss[timeout][enabled] | boolean | YES |   | 
 stop_loss[timeout][value] | integer | YES |   | 
+### Reduce funds for smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)
+```
+GET /v2/smart_trades/{id}/reduce_funds_info
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+id | integer | YES |   | 
 
 > Another way to create smart trade v2 is send JSON body with the header
 > 

@@ -163,7 +163,7 @@ is_market | boolean | YES |   | true - use MARKET order, false - use LIMIT order
 response_type | string | NO | empty, deal, market_order (empty) | 
 rate | number | YES |   | safety order rate. Required if LIMIT order used
 deal_id | integer | YES |   | 
-### Info required to add funds correctly: available amounts, exchange limitations etc  (Permission: BOTS_READ, Security: SIGNED)
+### Info required to add funds correctly: available amounts, exchange limitations etc (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/deals/{deal_id}/data_for_adding_funds
 ```

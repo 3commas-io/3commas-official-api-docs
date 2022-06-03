@@ -276,7 +276,7 @@ POST /ver1/accounts/{account_id}/pie_chart_data
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 account_id | integer | YES |   | 
-### Information about all user balances on specified exchange  (Permission: ACCOUNTS_READ, Security: SIGNED)
+### Information about all user balances on specified exchange (Permission: ACCOUNTS_READ, Security: SIGNED)
 ```
 POST /ver1/accounts/{account_id}/account_table_data
 ```
@@ -373,6 +373,12 @@ api_key_invalid: true
 deposit_enabled: false                    
 include_in_summary: false                Include the account in summary or not 
 supported_market_types:                   
+primary_display_currency_profit_percentage:  
+primary_display_currency_profit:          
+day_profit_primary_display_currency_percentage:  
+day_profit_primary_display_currency:      
+primary_display_currency_amount:          
+total_primary_display_currency_profit:    
 api_key: ''                               
 name: 'Binance 2 '                        
 auto_balance_method: 'time'              Values: time, currency_change 

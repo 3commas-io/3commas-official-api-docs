@@ -1,6 +1,6 @@
 {
   "info": {
-    "title": "API title",
+    "title": "3Commas Public API",
     "version": "0.0.1"
   },
   "swagger": "2.0",
@@ -395,7 +395,7 @@
           {
             "in": "formData",
             "name": "strategy_list",
-            "description": "For manual signals: [{\"strategy\":\"manual\"}] or []<br>\n                                                        For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]<br>\n                                                        QFL: {\"options\": {\"type\": \"original\"}, {\"percent\": 3}, \"strategy\": \"qfl\"}] <br>\n                                                        TradingView: [{\"options\": {\"time\": \"5m\", \"type\": \"buy_or_strong_buy\"}, \"strategy\": \"trading_view\"} <br>\n                                                        RSI: {\"options\": {\"time\": \"5m\", \"points\": 30, \"trigger_condition\": \"less\", \"time_period\": 7}, \"strategy\": \"rsi\"} ",
+            "description": "For manual signals: [{\"strategy\":\"manual\"}] or []<br>For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]<br>QFL: [{\"options\": {\"type\": \"original\"}, {\"percent\": 3}, \"strategy\": \"qfl\"}] <br>TradingView: [{\"options\": {\"time\": \"5m\", \"type\": \"buy_or_strong_buy\"}, \"strategy\": \"trading_view\"}] <br>RSI: [{\"options\": {\"time\": \"5m\", \"points\": 30, \"trigger_condition\": \"less\", \"time_period\": 7}, \"strategy\": \"rsi\"}]",
             "type": "array",
             "items": {
               "type": "json"
@@ -912,7 +912,7 @@
           {
             "in": "formData",
             "name": "strategy_list",
-            "description": "For manual signals: [{\"strategy\":\"manual\"}] or []<br>\n                                                        For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]<br>\n                                                        QFL: {\"options\": {\"type\": \"original\"}, {\"percent\": 3}, \"strategy\": \"qfl\"}] <br>\n                                                        TradingView: [{\"options\": {\"time\": \"5m\", \"type\": \"buy_or_strong_buy\", \"strategy\": \"trading_view\"} <br>\n                                                        RSI: {\"options\": {\"time\": \"5m\", \"points\": 30, \"trigger_condition\": \"less\", \"time_period\": 7}, \"strategy\": \"rsi\"} ",
+            "description": "For manual signals: [{\"strategy\":\"manual\"}] or []<br>For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]<br>QFL: [{\"options\": {\"type\": \"original\"}, {\"percent\": 3}, \"strategy\": \"qfl\"}] <br>TradingView: [{\"options\": {\"time\": \"5m\", \"type\": \"buy_or_strong_buy\"}, \"strategy\": \"trading_view\"}] <br>RSI: [{\"options\": {\"time\": \"5m\", \"points\": 30, \"trigger_condition\": \"less\", \"time_period\": 7}, \"strategy\": \"rsi\"}]",
             "type": "array",
             "items": {
               "type": "json"
@@ -1154,6 +1154,14 @@
             "name": "skip_open_deals_checks",
             "description": "If true then you will be allowed to open more then one deal per pair in composite bot",
             "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "only_for_enabled",
+            "description": "If set true and bot disabled will return error(422 code), if false and bot disabled then enable it",
+            "type": "boolean",
+            "default": false,
             "required": false
           },
           {
@@ -1886,7 +1894,7 @@
     },
     "/ver1/deals/{deal_id}/data_for_adding_funds": {
       "get": {
-        "description": "Info required to add funds correctly: available amounts, exchange limitations etc  (Permission: BOTS_READ, Security: SIGNED)",
+        "description": "Info required to add funds correctly: available amounts, exchange limitations etc (Permission: BOTS_READ, Security: SIGNED)",
         "produces": [
           "application/json"
         ],
@@ -1901,7 +1909,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Info required to add funds correctly: available amounts, exchange limitations etc  (Permission: BOTS_READ, Security: SIGNED)"
+            "description": "Info required to add funds correctly: available amounts, exchange limitations etc (Permission: BOTS_READ, Security: SIGNED)"
           }
         },
         "tags": [
@@ -2750,7 +2758,7 @@
     },
     "/ver1/accounts/{account_id}/account_table_data": {
       "post": {
-        "description": "Information about all user balances on specified exchange  (Permission: ACCOUNTS_READ, Security: SIGNED)",
+        "description": "Information about all user balances on specified exchange (Permission: ACCOUNTS_READ, Security: SIGNED)",
         "produces": [
           "application/json"
         ],
@@ -2768,7 +2776,7 @@
         ],
         "responses": {
           "201": {
-            "description": "Information about all user balances on specified exchange  (Permission: ACCOUNTS_READ, Security: SIGNED)"
+            "description": "Information about all user balances on specified exchange (Permission: ACCOUNTS_READ, Security: SIGNED)"
           }
         },
         "tags": [
@@ -4964,6 +4972,32 @@
         "operationId": "postV2SmartTrades"
       }
     },
+    "/v2/smart_trades/{id}/reduce_funds_info": {
+      "get": {
+        "description": "Reduce funds for smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Reduce funds for smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "smart_trades_v2"
+        ],
+        "operationId": "getV2SmartTradesIdReduceFundsInfo"
+      }
+    },
     "/v2/smart_trades/{id}": {
       "get": {
         "description": "Get smart trade v2 by id (Permission: SMART_TRADE_READ, Security: SIGNED)",
@@ -6007,6 +6041,24 @@
           "description": "Include the account in summary or not"
         },
         "supported_market_types": {
+          "type": "string"
+        },
+        "primary_display_currency_profit_percentage": {
+          "type": "string"
+        },
+        "primary_display_currency_profit": {
+          "type": "string"
+        },
+        "day_profit_primary_display_currency_percentage": {
+          "type": "string"
+        },
+        "day_profit_primary_display_currency": {
+          "type": "string"
+        },
+        "primary_display_currency_amount": {
+          "type": "string"
+        },
+        "total_primary_display_currency_profit": {
           "type": "string"
         },
         "api_key": {
