@@ -1,4 +1,4 @@
-# Public Rest API for 3commas.io (2022-05-25)
+# Public Rest API for 3commas.io (2022-07-04)
 # General API Information
 * Official Announcements regarding changes, downtime, etc. to the API will be reported here: **https://t.me/commas_API**
 * We have telegram group where you can discuss any issues with API **https://t.me/xcommas_api**
@@ -255,6 +255,15 @@ NONE
 server_time: integer 
   } 
  ``` 
+### Api credentials validity check (Permission: NONE, Security: SIGNED)
+```
+GET /ver1/validate
+```
+**Weight:**
+1
+
+**Parameters:**
+NONE
 # General Streams Information
 * The base websocket endpoint is **wss://ws.3commas.io/websocket**
 * Note that **identifier** is a JSON string

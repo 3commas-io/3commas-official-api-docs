@@ -11,7 +11,7 @@ PUT /ver1/users/locale
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-locale | string | YES | ru, en, pt, zh, es, fr, tr, de  | 
+locale | string | YES | ru, en, pt, zh, es, fr, tr, de, it  | 
 ### Api Key Permissions (Permission: NONE, Security: SIGNED)
 ```
 GET /ver1/users/permissions_info

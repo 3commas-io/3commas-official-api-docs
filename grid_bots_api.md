@@ -49,6 +49,7 @@ note | string | NO |   |
 max_active_buy_lines | integer | NO |   | 
 max_active_sell_lines | integer | NO |   | 
 order_currency_type | string | NO | base, quote (base) | Order currency type
+ignore_warnings | boolean | NO |   | Ignore any warnings and create grid bot
 ### Get AI settings (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/grid_bots/ai_settings
@@ -256,6 +257,31 @@ GET /ver1/grid_bots/{id}/required_balances
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 id | integer | YES |   | 
+### GridBots presets list (Permission: BOTS_READ, Security: SIGNED)
+```
+GET /ver1/grid_bots/presets
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+account_types | string | NO |   | 
+exchange_type | string | NO |   | 
+days_running_from | integer | NO |   | 
+days_running_to | integer | NO |   | 
+order_currency_type | string | NO | base, quote  | 
+order_currency_code | string | NO |   | 
+profit_currency_type | string | NO | base, quote  | 
+profit_currency_code | string | NO |   | 
+strategy_type | string | NO |   | 
+usd_amount_usage_from | number | NO |   | 
+usd_amount_usage_to | number | NO |   | 
+pairs | string | NO |   | 
+limit | integer | NO |   | Specify limit for transactions. Default for 10
+offset | integer | NO |   | Specify offset for transactions. Default for 0
 # Response Entities 
 ### GridBotEntity
  ``` 
@@ -298,6 +324,8 @@ profit_currency_type: quote
 investment_base_currency: 100             
 investment_quote_currency: 100            
 unrealized_profit_loss: 2500.0            
+current_profit_loss: 0.2284               
+current_profit_loss_percent: 2.007        
 grid_lines: GridLineEntity    
 } 
  ``` 

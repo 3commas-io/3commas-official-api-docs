@@ -43,12 +43,24 @@
       "description": "Operations about mini_apps"
     },
     {
+      "name": "payout_requests",
+      "description": "Operations about payout_requests"
+    },
+    {
+      "name": "portfolios",
+      "description": "Operations about portfolios"
+    },
+    {
       "name": "ping",
       "description": "Operations about pings"
     },
     {
       "name": "time",
       "description": "Operations about times"
+    },
+    {
+      "name": "general_validate",
+      "description": "Operations about general_validates"
     },
     {
       "name": "smart_trades_v2",
@@ -655,6 +667,46 @@
           "bots"
         ],
         "operationId": "getVer1Bots"
+      }
+    },
+    "/ver1/bots/stats_by_date": {
+      "get": {
+        "description": "Get bot stats by date (Permission: BOTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "date",
+            "type": "string",
+            "format": "date",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "account_id",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "bot_id",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get bot stats by date (Permission: BOTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "bots"
+        ],
+        "operationId": "getVer1BotsStatsByDate"
       }
     },
     "/ver1/bots/stats": {
@@ -2894,7 +2946,8 @@
               "es",
               "fr",
               "tr",
-              "de"
+              "de",
+              "it"
             ],
             "required": true
           }
@@ -3196,7 +3249,8 @@
               "fr",
               "cs",
               "tr",
-              "de"
+              "de",
+              "it"
             ],
             "required": false
           }
@@ -3276,7 +3330,8 @@
               "fr",
               "cs",
               "tr",
-              "de"
+              "de",
+              "it"
             ],
             "required": false
           },
@@ -3552,6 +3607,14 @@
               "base",
               "quote"
             ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "ignore_warnings",
+            "description": "Ignore any warnings and create grid bot",
+            "type": "boolean",
+            "default": false,
             "required": false
           }
         ],
@@ -4258,6 +4321,125 @@
         "operationId": "getVer1GridBotsIdRequiredBalances"
       }
     },
+    "/ver1/grid_bots/presets": {
+      "get": {
+        "description": "GridBots presets list (Permission: BOTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "account_types",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "exchange_type",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "days_running_from",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "days_running_to",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "order_currency_type",
+            "type": "string",
+            "enum": [
+              "base",
+              "quote"
+            ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "order_currency_code",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "profit_currency_type",
+            "type": "string",
+            "enum": [
+              "base",
+              "quote"
+            ],
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "profit_currency_code",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "strategy_type",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "usd_amount_usage_from",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "usd_amount_usage_to",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "pairs",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Specify limit for transactions. Default for 10",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Specify offset for transactions. Default for 0",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "GridBots presets list (Permission: BOTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "grid_bots"
+        ],
+        "operationId": "getVer1GridBotsPresets"
+      }
+    },
     "/ver1/loose_accounts": {
       "post": {
         "description": "Create Loose Account (Permission: ACCOUNTS_WRITE, Security: SIGNED)",
@@ -4411,6 +4593,31 @@
         "operationId": "putVer1LooseAccountsAccountId"
       }
     },
+    "/ver1/mini_apps/credentials": {
+      "get": {
+        "description": "Fetch API credentials by token",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "token",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fetch API credentials by token"
+          }
+        },
+        "tags": [
+          "mini_apps"
+        ],
+        "operationId": "getVer1MiniAppsCredentials"
+      }
+    },
     "/ver1/mini_apps/storage": {
       "get": {
         "description": "Fetch data from storage (Security: SIGNED)",
@@ -4468,6 +4675,145 @@
         "operationId": "postVer1MiniAppsStorage"
       }
     },
+    "/ver1/payout_requests/{id}/cancel": {
+      "post": {
+        "description": "Cancel payout request",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Cancel payout request"
+          }
+        },
+        "tags": [
+          "payout_requests"
+        ],
+        "operationId": "postVer1PayoutRequestsIdCancel"
+      }
+    },
+    "/ver1/payout_requests": {
+      "get": {
+        "description": "Get payout requests list",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "state",
+            "description": "Filter by state",
+            "type": "string",
+            "enum": [
+              "all",
+              "pending",
+              "in_progress",
+              "completed",
+              "canceled"
+            ],
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get payout requests list"
+          }
+        },
+        "tags": [
+          "payout_requests"
+        ],
+        "operationId": "getVer1PayoutRequests"
+      },
+      "post": {
+        "description": "Create Payout Request",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "amount",
+            "description": "Payout amount",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "address",
+            "description": "Recipient wallet address",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "comment",
+            "description": "Payout comment",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create Payout Request"
+          }
+        },
+        "tags": [
+          "payout_requests"
+        ],
+        "operationId": "postVer1PayoutRequests"
+      }
+    },
+    "/ver1/portfolios/portfolios": {
+      "get": {
+        "description": "Show portfolios",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "format": "int32",
+            "default": 10,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Show portfolios"
+          }
+        },
+        "tags": [
+          "portfolios"
+        ],
+        "operationId": "getVer1PortfoliosPortfolios"
+      }
+    },
     "/ver1/ping": {
       "get": {
         "description": "Test connectivity to the Rest API (Permission: NONE, Security: NONE)",
@@ -4506,6 +4852,23 @@
           "time"
         ],
         "operationId": "getVer1Time"
+      }
+    },
+    "/ver1/validate": {
+      "get": {
+        "description": "Api credentials validity check (Permission: NONE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Api credentials validity check (Permission: NONE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "general_validate"
+        ],
+        "operationId": "getVer1Validate"
       }
     },
     "/v2/smart_trades": {
@@ -6344,6 +6707,14 @@
           "type": "string",
           "example": "2500.0"
         },
+        "current_profit_loss": {
+          "type": "string",
+          "example": "0.2284"
+        },
+        "current_profit_loss_percent": {
+          "type": "string",
+          "example": "2.007"
+        },
         "grid_lines": {
           "$ref": "#/definitions/GridLineEntity"
         }
@@ -6834,13 +7205,15 @@
           "example": "'short'"
         },
         "reserved_quote_funds": {
-          "type": "number",
+          "type": "string",
           "description": "Sum of reserved in active deals funds in QUOTE",
+          "example": "11.1412454",
           "nullable": true
         },
         "reserved_base_funds": {
-          "type": "number",
+          "type": "string",
           "description": "Sum of reserved in active deals funds in BASE",
+          "example": "12.1412454",
           "nullable": true
         }
       },
@@ -7586,6 +7959,26 @@
       },
       "additionalProperties": false
     },
+    "422": {
+      "type": "object",
+      "required": [
+        "error"
+      ],
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "error_description": {
+          "type": "string"
+        },
+        "error_attributes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "GridBotEvent": {
       "type": "object",
       "properties": {
@@ -7680,6 +8073,59 @@
         }
       },
       "additionalProperties": false
+    },
+    "HodlBotV1": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "account_name": {
+          "type": "string"
+        },
+        "exchange_code": {
+          "type": "string"
+        },
+        "buy_interval_days": {
+          "type": "integer",
+          "min": 1,
+          "max": 30
+        },
+        "next_buy_date_timestamp": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "base_currency": {
+          "type": "string"
+        },
+        "quote_currency": {
+          "type": "string"
+        },
+        "volume": {
+          "type": "string"
+        },
+        "profit": {
+          "type": "string"
+        },
+        "profit_percentage": {
+          "type": "string"
+        },
+        "average_buy_price": {
+          "type": "string"
+        },
+        "bought_coin_market_value": {
+          "type": "string"
+        },
+        "is_enabled": {
+          "type": "boolean"
+        },
+        "warning": {
+          "type": "string",
+          "nullable": true
+        }
+      }
     }
   }
 }

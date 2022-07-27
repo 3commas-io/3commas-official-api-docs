@@ -128,6 +128,20 @@ sort_by | string | NO | profit, created_at, updated_at (created_at) |
 sort_direction | string | NO | asc, desc (desc) | 
 quote | string | NO |   | Quote currency
 form_type | string | NO | gordon, advanced  | Param for a filter by bot form type (gordon/advanced)
+### Get bot stats by date (Permission: BOTS_READ, Security: SIGNED)
+```
+GET /ver1/bots/stats_by_date
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+date | string | YES |   | 
+account_id | integer | NO |   | 
+bot_id | integer | NO |   | 
 ### Get bot stats (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/bots/stats
