@@ -43,10 +43,6 @@
       "description": "Operations about mini_apps"
     },
     {
-      "name": "payout_requests",
-      "description": "Operations about payout_requests"
-    },
-    {
       "name": "portfolios",
       "description": "Operations about portfolios"
     },
@@ -4675,110 +4671,6 @@
         "operationId": "postVer1MiniAppsStorage"
       }
     },
-    "/ver1/payout_requests/{id}/cancel": {
-      "post": {
-        "description": "Cancel payout request",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Cancel payout request"
-          }
-        },
-        "tags": [
-          "payout_requests"
-        ],
-        "operationId": "postVer1PayoutRequestsIdCancel"
-      }
-    },
-    "/ver1/payout_requests": {
-      "get": {
-        "description": "Get payout requests list",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "state",
-            "description": "Filter by state",
-            "type": "string",
-            "enum": [
-              "all",
-              "pending",
-              "in_progress",
-              "completed",
-              "canceled"
-            ],
-            "required": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get payout requests list"
-          }
-        },
-        "tags": [
-          "payout_requests"
-        ],
-        "operationId": "getVer1PayoutRequests"
-      },
-      "post": {
-        "description": "Create Payout Request",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "formData",
-            "name": "amount",
-            "description": "Payout amount",
-            "type": "number",
-            "format": "double",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "address",
-            "description": "Recipient wallet address",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "comment",
-            "description": "Payout comment",
-            "type": "string",
-            "required": false
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Create Payout Request"
-          }
-        },
-        "tags": [
-          "payout_requests"
-        ],
-        "operationId": "postVer1PayoutRequests"
-      }
-    },
     "/ver1/portfolios/portfolios": {
       "get": {
         "description": "Show portfolios",
@@ -7207,13 +7099,13 @@
         "reserved_quote_funds": {
           "type": "string",
           "description": "Sum of reserved in active deals funds in QUOTE",
-          "example": "11.1412454",
+          "example": "11.2342",
           "nullable": true
         },
         "reserved_base_funds": {
           "type": "string",
           "description": "Sum of reserved in active deals funds in BASE",
-          "example": "12.1412454",
+          "example": "13.6382",
           "nullable": true
         }
       },
@@ -7924,6 +7816,75 @@
         }
       },
       "additionalProperties": false
+    },
+    "SmartBotV1": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "source": {
+          "type": "string"
+        },
+        "enable_emergency_brake": {
+          "type": "boolean"
+        },
+        "enable_stop_loss": {
+          "type": "boolean"
+        },
+        "quote_currency": {
+          "type": "string"
+        },
+        "quote_volume": {
+          "type": "string"
+        },
+        "profit_quote": {
+          "type": "string"
+        },
+        "have_any_completed_trades": {
+          "type": "boolean"
+        },
+        "strategy": {
+          "type": "string"
+        },
+        "account": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "exchange_code": {
+              "type": "string"
+            },
+            "exchange_name": {
+              "type": "string"
+            }
+          }
+        },
+        "active_trades": {
+          "type": "object",
+          "properties": {
+            "quote_volume": {
+              "type": "string"
+            },
+            "profit_quote": {
+              "type": "string"
+            },
+            "profit_percent": {
+              "type": "string"
+            }
+          }
+        }
+      }
     },
     "LooseAccountEntity": {
       "type": "object",

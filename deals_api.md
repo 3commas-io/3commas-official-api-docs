@@ -249,7 +249,7 @@ trailing_deviation: 0.14
 trailing_max_price: 0.1412454            Highest price met in case of long deal, lowest price otherwise 
 tsl_max_price: 0.1412454                 Highest price met in TSL in case of long deal, lowest price otherwise 
 strategy: 'short'                        short or long 
-reserved_quote_funds:                    Sum of reserved in active deals funds in QUOTE 
-reserved_base_funds:                     Sum of reserved in active deals funds in BASE 
+reserved_quote_funds: 11.2342            Sum of reserved in active deals funds in QUOTE 
+reserved_base_funds: 13.6382             Sum of reserved in active deals funds in BASE 
 } 
  ``` 
