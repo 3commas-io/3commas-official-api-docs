@@ -1,4 +1,4 @@
-# Public Rest API for 3commas.io (2022-07-04)
+# Public Rest API for 3commas.io (2022-08-04)
 # General API Information
 * Official Announcements regarding changes, downtime, etc. to the API will be reported here: **https://t.me/commas_API**
 * We have telegram group where you can discuss any issues with API **https://t.me/xcommas_api**
@@ -39,7 +39,7 @@
 * For `GET` endpoints, parameters must be sent as a `query string`.
 * For `POST`, `PUT`, and `DELETE` endpoints, the parameters may be sent as a
   `query string` or in the `request body` with content type
-  `application/x-www-form-urlencoded`. You may mix parameters between both the
+  `application/x-www-form-urlencoded` or `application/json`. You may mix parameters between both the
   `query string` and `request body` if you wish to do so.
 * Parameters may be sent in any order.
 * If a parameter sent in both the `query string` and `request body`, the
@@ -60,7 +60,7 @@
 
 # Endpoint security type
 * Each endpoint has a security type that determines the how you will interact with it.
-* API-keys are passed into the Rest API via the `APIKEY` header.
+* API-keys are passed into the Rest API via the `Apikey` header.
 * API-keys and secret-keys **are case sensitive**.
 * API-keys can be configured to only access certain types of secure endpoints.
  For example, one API-key could be used for STATS only, while another API-key can access everything.
@@ -69,7 +69,6 @@
 Security Type | Description
 ------------ | ------------
 NONE | Endpoint can be accessed freely.
-APIKEY_ONLY | Endpoint requires sending a valid API-Key.
 SIGNED | Endpoint requires sending a valid API-Key and signature.
  
  
@@ -83,31 +82,28 @@ SIGNED | Endpoint requires sending a valid API-Key and signature.
 
 ### Look [here](https://3commas-io.github.io/public-api-signature-calculator-example/) for some examples
 
-## SIGNED Endpoint Examples for POST /public/api/ver1/accounts/new
+## SIGNED Endpoint Examples for POST /public/api/ver1/users/change_mode
 Here is a step-by-step example of how to send a valid signed payload from the
 Linux command line using `echo`, `openssl`, and `curl`.
 
 Key | Value
 ------------ | ------------
-apiKey | vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A
-secretKey | NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j
+api_key | vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A
+secret | NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j
 
 
 Parameter | Value
 ------------ | ------------
-type | binance
-name | binance_account
-api_key | XXXXXX
-secret |  YYYYYY
+mode | paper
 
 
 ### Example 1: As a query string
-* **queryString:** type=binance&name=binance_account&api_key=XXXXXX&secret=YYYYYY
+* **queryString:** mode=paper
 * **HMAC SHA256 signature:**
 
     ```
-    [linux]$ echo -n "/public/api/ver1/accounts/new?type=binance&name=binance_account&api_key=XXXXXX&secret=YYYYYY" | openssl dgst -sha256 -hmac "NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j"
-    (stdin)= 30f678a157230290e00475cfffccbc92ae3659d94c145a2c0e9d0fa28f41c11a
+    [linux]$ echo -n "/public/api/ver1/users/change_mode?mode=paper" | openssl dgst -sha256 -hmac "NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j"
+    (stdin)= bca8d8c10acfbe8e76c5335d3efbe0a550487170a8bb7aaea0a13efabab55316
     ```
 
 
@@ -115,16 +111,16 @@ secret |  YYYYYY
 
     ```
     (HMAC SHA256)
-    [linux]$ curl -H "APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -H "Signature: 30f678a157230290e00475cfffccbc92ae3659d94c145a2c0e9d0fa28f41c11a" -X POST 'https://api.3commas.io/public/api/ver1/accounts/new?type=binance&name=binance_account&api_key=XXXXXX&secret=YYYYYY'
+    [linux]$ curl -H "Apikey: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -H "Signature: bca8d8c10acfbe8e76c5335d3efbe0a550487170a8bb7aaea0a13efabab55316" -X POST 'https://api.3commas.io/public/api/ver1/users/change_mode?mode=paper'
     ```
 
 ### Example 2: As a request body
-* **requestBody:** type=binance&name=binance_account&api_key=XXXXXX&secret=YYYYYY
+* **requestBody:** mode=paper
 * **HMAC SHA256 signature:**
 
     ```
-    [linux]$ echo -n "/public/api/ver1/accounts/new?type=binance&name=binance_account&api_key=XXXXXX&secret=YYYYYY" | openssl dgst -sha256 -hmac "NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j"
-    (stdin)= 30f678a157230290e00475cfffccbc92ae3659d94c145a2c0e9d0fa28f41c11a
+    [linux]$ echo -n "/public/api/ver1/users/change_mode?mode=paper" | openssl dgst -sha256 -hmac "NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j"
+    (stdin)= bca8d8c10acfbe8e76c5335d3efbe0a550487170a8bb7aaea0a13efabab55316
     ```
 
 
@@ -132,8 +128,24 @@ secret |  YYYYYY
 
     ```
     (HMAC SHA256)
-    [linux]$ curl -H "APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -H "Signature: 30f678a157230290e00475cfffccbc92ae3659d94c145a2c0e9d0fa28f41c11a" -X POST 'https://api.3commas.io/public/api/ver1/accounts/new' -d 'type=binance&name=binance_account&api_key=XXXXXX&secret=YYYYYY' 
+    [linux]$ curl -H "Apikey: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -H "Signature: bca8d8c10acfbe8e76c5335d3efbe0a550487170a8bb7aaea0a13efabab55316" -X POST 'https://api.3commas.io/public/api/ver1/users/change_mode' -d 'mode=paper' 
     ```
+  
+### Example 3: As a raw json
+* **requestBody:** '{"mode": "paper"}'
+* **HMAC SHA256 signature:**
+    
+    ```
+    [linux]$ echo -n "/public/api/ver1/users/change_mode?{\"mode\": \"paper\"}" | openssl dgst -sha256 -hmac "NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j"
+    (stdin)= 0475b407ba6f2388d213134e478b330f74073388a232737837f79018694ae373
+    ```
+* **curl command:**
+
+    ```
+    (HMAC SHA256)
+    [linux]$ curl -H "Apikey: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -H "Signature: 0475b407ba6f2388d213134e478b330f74073388a232737837f79018694ae373" -H "Content-Type: application/json" -X POST 'https://api.3commas.io/public/api/ver1/users/change_mode' --data-raw '{"mode": "paper"}' 
+    ```
+
 ## SIGNED Endpoint Examples for GET /public/api/ver1/bots/{bot_id}/show
 Here is a step-by-step example of how to test your endpoint through postman.
 
@@ -142,7 +154,7 @@ Once Postman works with the values, you can implement it in code.
 ### Step 1: Set up GET url:
 * **With include_events:** https://api.3commas.io/public/api/ver1/bots/EnterBotIdHere/show?include_events=true
 
-By using include_events in the query string, in Postman, your Params field will be automaticly filled in
+By using include_events in the query string, in Postman, your Params field will be automatically filled in
 
 ### Step 2: Calculate your Signature:
 Use a HMAC SHA256 generator tool.
@@ -157,7 +169,7 @@ Hashed Output | Signature result to be used in Step 3
 ### Step 3: Set up Headers:
 Key | Value
 ------------ | ------------
-APIKEY | 3commas API key goes here
+Apikey | 3commas API key goes here
 Signature | Calculated Signature from Step 2 goes here
 
 These 2 key/value pairs can be entered in Postman under Headers (which is located under the GET url field)
