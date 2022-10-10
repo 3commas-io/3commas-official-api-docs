@@ -3607,10 +3607,42 @@
           },
           {
             "in": "formData",
+            "name": "profit_currency_type",
+            "description": "Profit currency type",
+            "type": "string",
+            "default": "quote",
+            "enum": [
+              "base",
+              "quote"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
             "name": "ignore_warnings",
             "description": "Ignore any warnings and create grid bot",
             "type": "boolean",
             "default": false,
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trailing_up_enabled",
+            "description": "Trailing up enabled. Works only with order currency type = quote",
+            "type": "boolean",
+            "default": false,
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "grid_type",
+            "description": "Grid Type",
+            "type": "string",
+            "default": "arithmetic",
+            "enum": [
+              "geometric",
+              "arithmetic"
+            ],
             "required": false
           }
         ],
@@ -4034,7 +4066,7 @@
             "name": "name",
             "description": "Grid Bot's name",
             "type": "string",
-            "default": "GridBot",
+            "default": "My GRID Bot",
             "required": false
           },
           {
@@ -4162,6 +4194,24 @@
             "name": "max_active_sell_lines",
             "type": "integer",
             "format": "int32",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trailing_up_enabled",
+            "description": "Trailing up enabled",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "grid_type",
+            "description": "Grid Type",
+            "type": "string",
+            "enum": [
+              "geometric",
+              "arithmetic"
+            ],
             "required": false
           },
           {
@@ -6586,6 +6636,14 @@
         "profit_currency_type": {
           "type": "string",
           "example": "quote"
+        },
+        "trailing_up_enabled": {
+          "type": "boolean",
+          "example": true
+        },
+        "grid_type": {
+          "type": "string",
+          "example": "arithmetic"
         },
         "investment_base_currency": {
           "type": "string",

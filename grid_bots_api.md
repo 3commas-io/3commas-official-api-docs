@@ -49,7 +49,10 @@ note | string | NO |   |
 max_active_buy_lines | integer | NO |   | 
 max_active_sell_lines | integer | NO |   | 
 order_currency_type | string | NO | base, quote (base) | Order currency type
+profit_currency_type | string | NO | base, quote (quote) | Profit currency type
 ignore_warnings | boolean | NO |   | Ignore any warnings and create grid bot
+trailing_up_enabled | boolean | NO |   | Trailing up enabled. Works only with order currency type = quote
+grid_type | string | NO | geometric, arithmetic (arithmetic) | Grid Type
 ### Get AI settings (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/grid_bots/ai_settings
@@ -179,7 +182,7 @@ PATCH /ver1/grid_bots/{id}/manual
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-name | string | NO |  (GridBot) | Grid Bot's name
+name | string | NO |  (My GRID Bot) | Grid Bot's name
 pair | string | NO |   | Deprecated
 upper_price | number | YES |   | 
 lower_price | number | YES |   | 
@@ -196,6 +199,8 @@ leverage_custom_value | number | NO |   | Required if leverage_type = 'isolated'
 note | string | NO |   | 
 max_active_buy_lines | integer | NO |   | 
 max_active_sell_lines | integer | NO |   | 
+trailing_up_enabled | boolean | NO |   | Trailing up enabled
+grid_type | string | NO | geometric, arithmetic  | Grid Type
 id | integer | YES |   | 
 ### Show Grid Bot (Permission: BOTS_READ, Security: SIGNED)
 ```
@@ -321,6 +326,8 @@ max_active_buy_lines: 10
 max_active_sell_lines: 10                 
 order_currency_type: base                 
 profit_currency_type: quote               
+trailing_up_enabled: true                 
+grid_type: arithmetic                     
 investment_base_currency: 100             
 investment_quote_currency: 100            
 unrealized_profit_loss: 2500.0            
