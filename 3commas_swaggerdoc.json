@@ -1966,6 +1966,53 @@
         "operationId": "getVer1DealsDealIdDataForAddingFunds"
       }
     },
+    "/ver1/accounts/types_to_connect": {
+      "get": {
+        "description": "Available market subtypes to connect",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "type",
+            "description": "check market_code in market_list method",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "Account name (any string)",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "api_key",
+            "description": "API key for binance/ftx/bybit/gateio account",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "secret",
+            "description": "Secret for binance/ftx/bybit/gateio account",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Available market subtypes to connect"
+          }
+        },
+        "tags": [
+          "accounts"
+        ],
+        "operationId": "getVer1AccountsTypesToConnect"
+      }
+    },
     "/ver1/accounts/transfer": {
       "post": {
         "description": "Transfer coins between accounts (Permission: ACCOUNTS_WRITE, Security: SIGNED)",
@@ -2114,14 +2161,12 @@
           {
             "in": "formData",
             "name": "api_key",
-            "description": "Requires unless type = binance_dex",
             "type": "string",
             "required": false
           },
           {
             "in": "formData",
             "name": "secret",
-            "description": "Requires unless type = binance_dex",
             "type": "string",
             "required": false
           },
@@ -2155,33 +2200,12 @@
           },
           {
             "in": "formData",
-            "name": "how_connect",
-            "type": "string",
-            "enum": [
-              "mnemonic_phrase",
-              "keystore"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "keystore",
-            "description": "keystore file content. Requires if type = binance_dex and how_connect = keystore",
-            "type": "json",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "wallet_password",
-            "description": "Requires if type = binance_dex and how_connect = keystore",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "mnemonic_phrase",
-            "description": "Requires if type = binance_dex and how_connect = mnemonic_phrase",
-            "type": "string",
+            "name": "types_to_create",
+            "description": "Array of related account types to be created. For example ['binance_margin']",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
             "required": false
           }
         ],
@@ -2262,34 +2286,6 @@
           },
           {
             "in": "formData",
-            "name": "how_connect",
-            "type": "string",
-            "enum": [
-              "mnemonic_phrase",
-              "keystore"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "keystore",
-            "type": "json",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "wallet_password",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "mnemonic_phrase",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
             "name": "include_in_summary",
             "description": "Should the account be included in the summary statistics?",
             "type": "boolean",
@@ -2314,6 +2310,13 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "in": "query",
+            "name": "api_key",
+            "description": "Filter by api key",
+            "type": "string",
+            "required": false
+          },
           {
             "in": "query",
             "name": "page",
@@ -7888,7 +7891,11 @@
           "type": "boolean"
         },
         "source": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "qfl",
+            "mlqfl"
+          ]
         },
         "enable_emergency_brake": {
           "type": "boolean"
@@ -7909,7 +7916,12 @@
           "type": "boolean"
         },
         "strategy": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "conservative",
+            "moderate",
+            "aggressive"
+          ]
         },
         "account": {
           "type": "object",
@@ -7927,6 +7939,9 @@
               "type": "string"
             }
           }
+        },
+        "warnings": {
+          "type": "array"
         },
         "active_trades": {
           "type": "object",

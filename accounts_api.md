@@ -1,5 +1,20 @@
 # Accounts Api 
 #### _Please read General API Information first_
+### Available market subtypes to connect
+```
+GET /ver1/accounts/types_to_connect
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+type | string | YES |   | check market_code in market_list method
+name | string | YES |   | Account name (any string)
+api_key | string | NO |   | API key for binance/ftx/bybit/gateio account
+secret | string | NO |   | Secret for binance/ftx/bybit/gateio account
 ### Transfer coins between accounts (Permission: ACCOUNTS_WRITE, Security: SIGNED)
 ```
 POST /ver1/accounts/transfer
@@ -52,16 +67,13 @@ Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 type | string | YES |   | check market_code in market_list method
 name | string | YES |   | Account name (any string)
-api_key | string | NO |   | Requires unless type = binance_dex
-secret | string | NO |   | Requires unless type = binance_dex
+api_key | string | NO |   | 
+secret | string | NO |   | 
 address | string | NO |   | Requires if type = ethereumwallet
 customer_id | string | NO |   | For Bitstamp
 passphrase | string | NO |   | For Coinbase Pro (GDAX)
 subaccount_name | string | NO |   | For FTX
-how_connect | string | NO | mnemonic_phrase, keystore  | 
-keystore | json | NO |   | keystore file content. Requires if type = binance_dex and how_connect = keystore
-wallet_password | string | NO |   | Requires if type = binance_dex and how_connect = keystore
-mnemonic_phrase | string | NO |   | Requires if type = binance_dex and how_connect = mnemonic_phrase
+types_to_create | array[string] | NO |   | Array of related account types to be created. For example ['binance_margin']
 ### Edit exchange account
 ```
 POST /ver1/accounts/update
@@ -81,10 +93,6 @@ customer_id | string | NO |   | For Bitstamp
 passphrase | string | NO |   | For Coinbase Pro (GDAX)
 subaccount_name | string | NO |   | For FTX
 address | string | NO |   | For accounts with type = ethereumwallet
-how_connect | string | NO | mnemonic_phrase, keystore  | 
-keystore | json | NO |   | 
-wallet_password | string | NO |   | 
-mnemonic_phrase | string | NO |   | 
 include_in_summary | boolean | NO |   | Should the account be included in the summary statistics?
 ### User connected exchanges(and EthereumWallet) list (Permission: ACCOUNTS_READ, Security: SIGNED)
 ```
@@ -97,6 +105,7 @@ GET /ver1/accounts
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
+api_key | string | NO |   | Filter by api key
 page | integer | NO |   | 
 per_page | integer | NO |   | Page size, from 1 to 100
 ### Supported markets list (Permission: NONE, Security: NONE)
