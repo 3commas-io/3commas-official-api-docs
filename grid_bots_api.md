@@ -44,7 +44,6 @@ lower_stop_loss_enabled | boolean | NO |   |
 lower_stop_loss_action | string | NO | stop_bot, stop_bot_and_buy, stop_bot_and_sell, stop_bot_and_close_position (stop_bot) | 
 leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Leverage type for futures accounts
 leverage_custom_value | number | NO |   | Required if leverage_type = 'isolated'
-is_enabled | boolean | NO |  (true) | Turn on or off grid_bot after creation
 note | string | NO |   | 
 max_active_buy_lines | integer | NO |   | 
 max_active_sell_lines | integer | NO |   | 

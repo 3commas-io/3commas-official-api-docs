@@ -43,6 +43,7 @@ Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 account_id | integer | YES |   | Sender or Recipient account ID (possible values in /transfer_data)
 currency | string | YES |   | Currency code(example: USDT)
+start_time | integer | NO |   | Start time timestamp (example: 1665560898)
 page | integer | NO |  (1) | Page number
 per_page | integer | NO |  (10) | Elements per page
 ### Data for transfer between accounts (Permission: ACCOUNTS_READ, Security: SIGNED)

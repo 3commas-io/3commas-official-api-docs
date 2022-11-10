@@ -1,6 +1,31 @@
 # Portfolios Api 
 #### _Please read General API Information first_
-### Show portfolios
+### Show portfolio info (Permission: NONE, Security: SIGNED)
+```
+GET /ver1/portfolios/{id}
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+id | integer | YES |   | 
+### Show portfolios list (Permission: NONE, Security: SIGNED)
+```
+GET /ver1/portfolios
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+page | integer | NO |   | Current page
+per_page | integer | NO |   | Records per page
+### Show portfolios, [DEPRECATED] Please, use GET /portfolios instead of portfolios/portfolios
 ```
 GET /ver1/portfolios/portfolios
 ```

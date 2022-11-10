@@ -740,6 +740,39 @@
         "operationId": "getVer1BotsStats"
       }
     },
+    "/ver1/bots/{id}/profit_by_day": {
+      "get": {
+        "description": "Get bot profits grouped by day (Permission: BOTS_READ, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "days",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get bot profits grouped by day (Permission: BOTS_READ, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "bots"
+        ],
+        "operationId": "getVer1BotsIdProfitByDay"
+      }
+    },
     "/ver1/bots/{bot_id}/copy_and_create": {
       "post": {
         "description": "POST /bots/:id/copy_and_create. Permission: BOTS_WRITE, Security: SIGNED",
@@ -2086,6 +2119,14 @@
             "description": "Currency code(example: USDT)",
             "type": "string",
             "required": true
+          },
+          {
+            "in": "query",
+            "name": "start_time",
+            "description": "Start time timestamp (example: 1665560898)",
+            "type": "integer",
+            "format": "int32",
+            "required": false
           },
           {
             "in": "query",
@@ -3570,14 +3611,6 @@
           },
           {
             "in": "formData",
-            "name": "is_enabled",
-            "description": "Turn on or off grid_bot after creation",
-            "type": "boolean",
-            "default": true,
-            "required": false
-          },
-          {
-            "in": "formData",
             "name": "note",
             "type": "string",
             "required": false
@@ -4724,9 +4757,70 @@
         "operationId": "postVer1MiniAppsStorage"
       }
     },
+    "/ver1/portfolios/{id}": {
+      "get": {
+        "description": "Show portfolio info (Permission: NONE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Show portfolio info (Permission: NONE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "portfolios"
+        ],
+        "operationId": "getVer1PortfoliosId"
+      }
+    },
+    "/ver1/portfolios": {
+      "get": {
+        "description": "Show portfolios list (Permission: NONE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "description": "Current page",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "description": "Records per page",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Show portfolios list (Permission: NONE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "portfolios"
+        ],
+        "operationId": "getVer1Portfolios"
+      }
+    },
     "/ver1/portfolios/portfolios": {
       "get": {
-        "description": "Show portfolios",
+        "description": "Show portfolios, [DEPRECATED] Please, use GET /portfolios instead of portfolios/portfolios",
         "produces": [
           "application/json"
         ],
@@ -4750,7 +4844,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Show portfolios"
+            "description": "Show portfolios, [DEPRECATED] Please, use GET /portfolios instead of portfolios/portfolios"
           }
         },
         "tags": [
@@ -6950,7 +7044,7 @@
         },
         "status": {
           "type": "string",
-          "description": "Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit, ttp_activated, ttp_order_placed, liquidated, bought_safety_pending, bought_take_profit_pending, settled",
+          "description": "Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit, ttp_activated, ttp_order_placed, liquidated, bought_safety_pending, bought_take_profit_pending, settled, close_strategy_activated",
           "example": "'failed'"
         },
         "localized_status": {
@@ -7878,6 +7972,22 @@
       },
       "additionalProperties": false
     },
+    "SystemSetting": {
+      "type": "object",
+      "properties": {
+        "new_referral_terms_start_date": {
+          "type": "string"
+        },
+        "new_referral_terms_end_date": {
+          "type": "string"
+        },
+        "required": [
+          "new_referral_terms_start_date",
+          "new_referral_terms_end_date"
+        ]
+      },
+      "additionalProperties": false
+    },
     "SmartBotV1": {
       "type": "object",
       "properties": {
@@ -7893,8 +8003,10 @@
         "source": {
           "type": "string",
           "enum": [
+            "mlqfl",
             "qfl",
-            "mlqfl"
+            "ml",
+            "algo"
           ]
         },
         "enable_emergency_brake": {
