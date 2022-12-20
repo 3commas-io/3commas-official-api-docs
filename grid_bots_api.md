@@ -11,7 +11,7 @@ POST /ver1/grid_bots/ai
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-name | string | NO |  (GridBot) | Grid Bot's name
+name | string | NO |   | Grid Bot's name
 account_id | integer | YES |   | id from GET /ver1/accounts
 pair | string | YES |   | 
 total_quantity | number | YES |   | 
@@ -29,7 +29,7 @@ POST /ver1/grid_bots/manual
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-name | string | NO |  (GridBot) | Grid Bot's name
+name | string | NO |   | Grid Bot's name
 account_id | integer | YES |   | id from GET /ver1/accounts
 pair | string | YES |   | 
 upper_price | number | YES |   | 
@@ -163,7 +163,7 @@ PATCH /ver1/grid_bots/{id}/ai
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-name | string | NO |  (GridBot) | Grid Bot's name
+name | string | NO |   | Grid Bot's name
 pair | string | YES |   | 
 total_quantity | number | YES |   | 
 leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Leverage type for futures accounts
@@ -181,7 +181,7 @@ PATCH /ver1/grid_bots/{id}/manual
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-name | string | NO |  (My GRID Bot) | Grid Bot's name
+name | string | NO |   | Grid Bot's name
 pair | string | NO |   | Deprecated
 upper_price | number | YES |   | 
 lower_price | number | YES |   | 
@@ -198,6 +198,7 @@ leverage_custom_value | number | NO |   | Required if leverage_type = 'isolated'
 note | string | NO |   | 
 max_active_buy_lines | integer | NO |   | 
 max_active_sell_lines | integer | NO |   | 
+ignore_warnings | boolean | NO |   | Ignore any warnings and create grid bot
 trailing_up_enabled | boolean | NO |   | Trailing up enabled
 grid_type | string | NO | geometric, arithmetic  | Grid Type
 id | integer | YES |   | 
@@ -261,31 +262,6 @@ GET /ver1/grid_bots/{id}/required_balances
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 id | integer | YES |   | 
-### GridBots presets list (Permission: BOTS_READ, Security: SIGNED)
-```
-GET /ver1/grid_bots/presets
-```
-**Weight:**
-1
-
-**Parameters:**
-
-Name | Type | Mandatory | Values(default) | Description
------------- | ------------ | ------------ | ------------ | ------------
-account_types | string | NO |   | 
-exchange_type | string | NO |   | 
-days_running_from | integer | NO |   | 
-days_running_to | integer | NO |   | 
-order_currency_type | string | NO | base, quote  | 
-order_currency_code | string | NO |   | 
-profit_currency_type | string | NO | base, quote  | 
-profit_currency_code | string | NO |   | 
-strategy_type | string | NO |   | 
-usd_amount_usage_from | number | NO |   | 
-usd_amount_usage_to | number | NO |   | 
-pairs | string | NO |   | 
-limit | integer | NO |   | Specify limit for transactions. Default for 10
-offset | integer | NO |   | Specify offset for transactions. Default for 0
 # Response Entities 
 ### GridBotEntity
  ``` 
@@ -332,6 +308,7 @@ investment_quote_currency: 100
 unrealized_profit_loss: 2500.0            
 current_profit_loss: 0.2284               
 current_profit_loss_percent: 2.007        
+orderbook_price_currency: USDT            
 grid_lines: GridLineEntity    
 } 
  ``` 

@@ -3409,7 +3409,6 @@
             "name": "name",
             "description": "Grid Bot's name",
             "type": "string",
-            "default": "GridBot",
             "required": false
           },
           {
@@ -3488,7 +3487,6 @@
             "name": "name",
             "description": "Grid Bot's name",
             "type": "string",
-            "default": "GridBot",
             "required": false
           },
           {
@@ -4024,7 +4022,6 @@
             "name": "name",
             "description": "Grid Bot's name",
             "type": "string",
-            "default": "GridBot",
             "required": false
           },
           {
@@ -4102,7 +4099,6 @@
             "name": "name",
             "description": "Grid Bot's name",
             "type": "string",
-            "default": "My GRID Bot",
             "required": false
           },
           {
@@ -4230,6 +4226,13 @@
             "name": "max_active_sell_lines",
             "type": "integer",
             "format": "int32",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "ignore_warnings",
+            "description": "Ignore any warnings and edit grid bot",
+            "type": "boolean",
             "required": false
           },
           {
@@ -4401,125 +4404,6 @@
           "grid_bots"
         ],
         "operationId": "getVer1GridBotsIdRequiredBalances"
-      }
-    },
-    "/ver1/grid_bots/presets": {
-      "get": {
-        "description": "GridBots presets list (Permission: BOTS_READ, Security: SIGNED)",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "account_types",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "exchange_type",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "days_running_from",
-            "type": "integer",
-            "format": "int32",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "days_running_to",
-            "type": "integer",
-            "format": "int32",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "order_currency_type",
-            "type": "string",
-            "enum": [
-              "base",
-              "quote"
-            ],
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "order_currency_code",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "profit_currency_type",
-            "type": "string",
-            "enum": [
-              "base",
-              "quote"
-            ],
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "profit_currency_code",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "strategy_type",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "usd_amount_usage_from",
-            "type": "number",
-            "format": "double",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "usd_amount_usage_to",
-            "type": "number",
-            "format": "double",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "pairs",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "limit",
-            "description": "Specify limit for transactions. Default for 10",
-            "type": "integer",
-            "format": "int32",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "offset",
-            "description": "Specify offset for transactions. Default for 0",
-            "type": "integer",
-            "format": "int32",
-            "required": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "GridBots presets list (Permission: BOTS_READ, Security: SIGNED)"
-          }
-        },
-        "tags": [
-          "grid_bots"
-        ],
-        "operationId": "getVer1GridBotsPresets"
       }
     },
     "/ver1/loose_accounts": {
@@ -6761,6 +6645,10 @@
         "current_profit_loss_percent": {
           "type": "string",
           "example": "2.007"
+        },
+        "orderbook_price_currency": {
+          "type": "string",
+          "example": "USDT"
         },
         "grid_lines": {
           "$ref": "#/definitions/GridLineEntity"
