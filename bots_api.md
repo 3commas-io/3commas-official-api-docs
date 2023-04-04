@@ -77,7 +77,6 @@ max_active_deals | integer | NO |  (1) |
 base_order_volume | number | YES |   | Base order size
 base_order_volume_type | string | NO | quote_currency, base_currency, percent, xbt  | base order volume currency
 take_profit | number | YES |   | Target profit(percentage)
-min_profit_percentage_profit | number | YES |   | Min profit(percentage)
 safety_order_volume | number | YES |   | Safety trade size
 safety_order_volume_type | string | NO | quote_currency, base_currency, percent, xbt  | safety order volume currency
 martingale_volume_coefficient | number | YES |  (1) |
@@ -92,9 +91,7 @@ btc_price_limit | number | NO |   |
 strategy | string | NO | short, long (long) |
 safety_order_step_percentage | number | YES |   | Price deviation to open safety trades(percentage)
 take_profit_type | string | YES | base, total (base) | Percentage: base – from base order, total – from total volume
-min_profit_type | string | YES | base_order_volume, total_bought_volume | Percentage: base_order_volume – from base order, total_bought_volume – from total volume
 strategy_list | array[json] | YES |   | For manual signals: [{"strategy":"manual"}] or []<br>For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>QFL: [{"options": {"type": "original"}, {"percent": 3}, "strategy": "qfl"}] <br>TradingView: [{"options": {"time": "5m", "type": "buy_or_strong_buy"}, "strategy": "trading_view"}] <br>RSI: [{"options": {"time": "5m", "points": 30, "trigger_condition": "less", "time_period": 7}, "strategy": "rsi"}]
-close_strategy_list | array[json] | YES |   | For manual signals: [{"strategy":"manual"}] or []<br>For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>QFL: [{"options": {"type": "original"}, {"percent": 3}, "strategy": "qfl"}] <br>TradingView: [{"options": {"time": "5m", "type": "buy_or_strong_buy"}, "strategy": "trading_view"}] <br>RSI: [{"options": {"time": "5m", "points": 30, "trigger_condition": "less", "time_period": 7}, "strategy": "rsi"}]
 leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Used for Bitmex bots only
 leverage_custom_value | number | NO |   | required if leverage_type is isolated
 min_price | number | NO |   | minimum price to open deal
@@ -110,6 +107,13 @@ stop_loss_type | string | NO | stop_loss, stop_loss_and_disable_bot  |
 disable_after_deals_count | integer | NO |   | Bot will be disabled after opening this number of deals
 allowed_deals_on_same_pair | integer | NO |   | Allow specific number of deals on the same pair. Multibot only.
 close_deals_timeout | integer | NO |   | Close bot deals after given number of seconds. Must be greater than 60.
+min_profit_percentage | number | NO |   | Min profit to activate close strategy
+min_profit_type | string | NO | base_order_volume, total_bought_volume  | Percentage: base_order_volume  – from base order, total_bought_volume – from total volume
+close_strategy_list | array[json] | NO |   | For manual signals: [{"strategy":"manual"}] or []<br>For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>QFL: [{"options": {"type": "original"}, {"percent": 3}, "strategy": "qfl"}] <br>TradingView: [{"options": {"time": "5m", "type": "buy_or_strong_buy"}, "strategy": "trading_view"}] <br>RSI: [{"options": {"time": "5m", "points": 30, "trigger_condition": "less", "time_period": 7}, "strategy": "rsi"}]
+risk_reduction_percentage | number | NO |   | Risk reduction percentage
+reinvesting_percentage | number | NO |   | Reinvesting percentage
+min_price_percentage | number | NO |   | Min price percent. Must be greater then -95 and lower then 1000
+max_price_percentage | number | NO |   | Max price percent. Must be greater then -95 and lower then 1000
 ### User bots (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/bots
@@ -203,7 +207,6 @@ max_active_deals | integer | NO |  (1) |
 base_order_volume | number | YES |   | Base order size
 base_order_volume_type | string | NO | quote_currency, base_currency, percent, xbt  | base order volume currency
 take_profit | number | YES |   | Target profit(percentage)
-min_profit_percentage | number | YES |   | Min profit(percentage)
 safety_order_volume | number | YES |   | Safety trade size
 safety_order_volume_type | string | NO | quote_currency, base_currency, percent, xbt  | safety order volume currency
 martingale_volume_coefficient | number | YES |  (1) |
@@ -217,9 +220,7 @@ trailing_deviation | number | NO |   | required if trailing_enabled
 btc_price_limit | number | NO |   |
 safety_order_step_percentage | number | YES |   | Price deviation to open safety trades(percentage)
 take_profit_type | string | YES | total, base (total) | Percentage: base – from base order, total – from total volume
-min_profit_type | string | YES | base_order_volume, total_bought_volume | Percentage: base_order_volume – from base order, total_bought_volume – from total volume
 strategy_list | array[json] | YES |   | For manual signals: [{"strategy":"manual"}] or []<br>For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>QFL: [{"options": {"type": "original"}, {"percent": 3}, "strategy": "qfl"}] <br>TradingView: [{"options": {"time": "5m", "type": "buy_or_strong_buy"}, "strategy": "trading_view"}] <br>RSI: [{"options": {"time": "5m", "points": 30, "trigger_condition": "less", "time_period": 7}, "strategy": "rsi"}]
-close_strategy_list | array[json] | YES |   | For manual signals: [{"strategy":"manual"}] or []<br>For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>QFL: [{"options": {"type": "original"}, {"percent": 3}, "strategy": "qfl"}] <br>TradingView: [{"options": {"time": "5m", "type": "buy_or_strong_buy"}, "strategy": "trading_view"}] <br>RSI: [{"options": {"time": "5m", "points": 30, "trigger_condition": "less", "time_period": 7}, "strategy": "rsi"}]
 leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Used for Bitmex bots only
 leverage_custom_value | number | NO |   | required if leverage_type is isolated
 min_price | number | NO |   | minimum price to open deal
@@ -235,6 +236,11 @@ stop_loss_type | string | NO | stop_loss, stop_loss_and_disable_bot  |
 disable_after_deals_count | integer | NO |   | Bot will be disabled after opening this number of deals
 allowed_deals_on_same_pair | integer | NO |   | Allow specific number of deals on the same pair. Multibot only.
 close_deals_timeout | integer | NO |   | Close bot deals after given number of seconds. Must be greater than 60.
+min_profit_percentage | integer | NO |   | Min profit to activate close strategy
+min_profit_type | string | NO | base_order_volume, total_bought_volume  | Percentage: base_order_volume  – from base order, total_bought_volume – from total volume
+close_strategy_list | array[json] | NO |   | For manual signals: [{"strategy":"manual"}] or []<br>For non-stop(1 pair only): [{"strategy":"nonstop"}]<br>QFL: [{"options": {"type": "original"}, {"percent": 3}, "strategy": "qfl"}] <br>TradingView: [{"options": {"time": "5m", "type": "buy_or_strong_buy"}, "strategy": "trading_view"}] <br>RSI: [{"options": {"time": "5m", "points": 30, "trigger_condition": "less", "time_period": 7}, "strategy": "rsi"}]
+risk_reduction_percentage | number | NO |   | Risk reduction percentage
+reinvesting_percentage | number | NO |   | Reinvesting percentage
 bot_id | integer | YES |   |
 ### Disable bot (Permission: BOTS_WRITE, Security: SIGNED)
 ```

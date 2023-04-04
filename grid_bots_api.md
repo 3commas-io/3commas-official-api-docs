@@ -52,6 +52,8 @@ profit_currency_type | string | NO | base, quote (quote) | Profit currency type
 ignore_warnings | boolean | NO |   | Ignore any warnings and create grid bot
 trailing_up_enabled | boolean | NO |   | Trailing up enabled. Works only with order currency type = quote
 grid_type | string | NO | geometric, arithmetic (arithmetic) | Grid Type
+expansion_down_enabled | boolean | NO |   | Trailing down enabled
+expansion_down_stop_price | number | YES |   | Trailing down stop price (mandatory if trailing down enabled)
 ### Get AI settings (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/grid_bots/ai_settings
@@ -201,7 +203,9 @@ max_active_sell_lines | integer | NO |   |
 ignore_warnings | boolean | NO |   | Ignore any warnings and create grid bot
 trailing_up_enabled | boolean | NO |   | Trailing up enabled
 grid_type | string | NO | geometric, arithmetic  | Grid Type
-id | integer | YES |   | 
+expansion_down_enabled | boolean | NO |   | Trailing down enabled
+expansion_down_stop_price | number | YES |   | Trailing down stop price (mandatory if trailing down enabled)
+id | integer | YES |   |
 ### Show Grid Bot (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/grid_bots/{id}
@@ -309,6 +313,8 @@ unrealized_profit_loss: 2500.0
 current_profit_loss: 0.2284               
 current_profit_loss_percent: 2.007        
 orderbook_price_currency: USDT            
+expansion_down_enabled:                   
+expansion_down_stop_price: 10500.0        
 grid_lines: GridLineEntity    
 } 
  ``` 

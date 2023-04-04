@@ -538,6 +538,67 @@
             "type": "integer",
             "format": "int32",
             "required": false
+upda          },
+          {
+            "in": "formData",
+            "name": "min_profit_percentage",
+            "description": "Min profit to activate close strategy",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "min_profit_type",
+            "description": "Percentage: base_order_volume  – from base order, total_bought_volume – from total volume",
+            "type": "string",
+            "enum": [
+              "base_order_volume",
+              "total_bought_volume"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "close_strategy_list",
+            "description": "For manual signals: [{\"strategy\":\"manual\"}] or []<br>For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]<br>QFL: [{\"options\": {\"type\": \"original\"}, {\"percent\": 3}, \"strategy\": \"qfl\"}] <br>TradingView: [{\"options\": {\"time\": \"5m\", \"type\": \"buy_or_strong_buy\"}, \"strategy\": \"trading_view\"}] <br>RSI: [{\"options\": {\"time\": \"5m\", \"points\": 30, \"trigger_condition\": \"less\", \"time_period\": 7}, \"strategy\": \"rsi\"}]",
+            "type": "array",
+            "items": {
+              "type": "json"
+            },
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "risk_reduction_percentage",
+            "description": "Risk reduction percentage",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "reinvesting_percentage",
+            "description": "Reinvesting percentage",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "min_price_percentage",
+            "description": "Min price percent. Must be greater then -95 and lower then 1000",
+            "type": "number",
+            "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "max_price_percentage",
+            "description": "Max price percent. Must be greater then -95 and lower then 1000",
+            "type": "number",
+            "format": "double",
+            "required": false
           }
         ],
         "responses": {
@@ -1130,6 +1191,51 @@
             "required": false
           },
           {
+            "in": "formData",
+            "name": "min_profit_percentage",
+            "description": "Min profit to activate close strategy",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "min_profit_type",
+            "description": "Percentage: base_order_volume  – from base order, total_bought_volume – from total volume",
+            "type": "string",
+            "enum": [
+              "base_order_volume",
+              "total_bought_volume"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "close_strategy_list",
+            "description": "For manual signals: [{\"strategy\":\"manual\"}] or []<br>For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]<br>QFL: [{\"options\": {\"type\": \"original\"}, {\"percent\": 3}, \"strategy\": \"qfl\"}] <br>TradingView: [{\"options\": {\"time\": \"5m\", \"type\": \"buy_or_strong_buy\"}, \"strategy\": \"trading_view\"}] <br>RSI: [{\"options\": {\"time\": \"5m\", \"points\": 30, \"trigger_condition\": \"less\", \"time_period\": 7}, \"strategy\": \"rsi\"}]",
+            "type": "array",
+            "items": {
+              "type": "json"
+            },
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "risk_reduction_percentage",
+            "description": "Risk reduction percentage",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "reinvesting_percentage",
+            "description": "Reinvesting percentage",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
             "in": "path",
             "name": "bot_id",
             "type": "integer",
@@ -1509,6 +1615,13 @@
             "description": "Quote currency",
             "type": "string",
             "required": false
+          },
+          {
+            "in": "query",
+            "name": "note",
+            "description": "Note",
+            "type": "string",
+            "required": false
           }
         ],
         "responses": {
@@ -1763,6 +1876,21 @@
             "description": "Close deal after given number of seconds. Must be greater than 60.",
             "type": "integer",
             "format": "int32",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "note",
+            "description": "Note",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "min_profit_percentage",
+            "description": "Minimum profit percentage",
+            "type": "number",
+            "format": "double",
             "required": false
           },
           {
@@ -3678,6 +3806,21 @@
               "arithmetic"
             ],
             "required": false
+          },
+          {
+            "in": "formData",
+            "name": "expansion_down_enabled",
+            "description": "Trailing down enabled",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "expansion_down_stop_price",
+            "description": "Trailing down stop price (mandatory if trailing down enabled)",
+            "type": "number",
+            "format": "double",
+            "required": true
           }
         ],
         "responses": {
@@ -4252,6 +4395,21 @@
               "arithmetic"
             ],
             "required": false
+          },
+          {
+            "in": "formData",
+            "name": "expansion_down_enabled",
+            "description": "Trailing down enabled",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "expansion_down_stop_price",
+            "description": "Trailing down stop price (mandatory if trailing down enabled)",
+            "type": "number",
+            "format": "double",
+            "required": true
           },
           {
             "in": "path",
@@ -5378,6 +5536,17 @@
           },
           {
             "in": "formData",
+            "name": "position[order_type]",
+            "type": "string",
+            "enum": [
+              "market",
+              "limit",
+              "conditional"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
             "name": "position[price][value]",
             "description": "Price for limit order",
             "type": "number",
@@ -6001,6 +6170,10 @@
           "type": "string",
           "example": "[{'options'=>{'time'=>'5m', 'type'=>'buy_or_strong_buy'}, 'strategy'=>'trading_view'}, ...]"
         },
+        "close_strategy_list": {
+          "type": "string",
+          "example": "[{'options'=>{'time'=>'5m', 'type'=>'buy_or_strong_buy'}, 'strategy'=>'trading_view'}, ...]"
+        },
         "max_active_deals": {
           "type": "integer",
           "format": "int32",
@@ -6083,6 +6256,11 @@
           "example": "'1.5'",
           "description": "'Percentage'"
         },
+        "min_profit_percentage": {
+          "type": "string",
+          "example": "'1.5'",
+          "description": "'Min Profit Percentage'"
+        },
         "base_order_volume": {
           "type": "string",
           "example": "'0.002'"
@@ -6099,6 +6277,11 @@
           "type": "string",
           "example": "'base'",
           "description": "Values: base, total"
+        },
+        "min_profit_type": {
+          "type": "string",
+          "example": "'total_bought_volume'",
+          "description": "Values: base_order_volume, total_bought_volume"
         },
         "type": {
           "type": "string",
@@ -6196,6 +6379,30 @@
           "type": "string",
           "example": "200.21",
           "description": "Sum of active deals profits"
+        },
+        "reinvesting_percentage": {
+          "type": "integer",
+          "format": "int32",
+          "example": 40.6,
+          "description": "Percent of reinvesting"
+        },
+        "risk_reduction_percentage": {
+          "type": "integer",
+          "format": "int32",
+          "example": 40.6,
+          "description": "Percent of risk reduction"
+        },
+        "reinvested_volume_usd": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "min_price_percentage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "max_price_percentage": {
+          "type": "integer",
+          "format": "int32"
         }
       }
     },
@@ -6347,6 +6554,10 @@
         "total_primary_display_currency_profit": {
           "type": "string"
         },
+        "available_include_in_summary": {
+          "type": "boolean",
+          "example": "false"
+        },
         "api_key": {
           "type": "string",
           "example": "''"
@@ -6442,6 +6653,11 @@
         "address": {
           "type": "string",
           "example": "'0xe00000dded00bbb08725d77777777ff070aa7aa7'"
+        },
+        "api_keys_state": {
+          "type": "string",
+          "example": "'expired'",
+          "description": "Values: ok, expired, expire_soon"
         }
       }
     },
@@ -6649,6 +6865,13 @@
         "orderbook_price_currency": {
           "type": "string",
           "example": "USDT"
+        },
+        "expansion_down_enabled": {
+          "type": "boolean"
+        },
+        "expansion_down_stop_price": {
+          "type": "string",
+          "example": "10500.0"
         },
         "grid_lines": {
           "$ref": "#/definitions/GridLineEntity"
