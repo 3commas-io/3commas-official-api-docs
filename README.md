@@ -177,6 +177,8 @@ These 2 key/value pairs can be entered in Postman under Headers (which is locate
 ### Step 4: Receive JSON object:
 If you have followed these steps you should now receive a status 200 OK with your JSON data.
 
+# SIGNED  Endpoint security (RSA)
+Look [here](signed_endpoints_rsa.md) for more information about RSA key pair and how to compute signature for signed API requests. 
 
 # API modes(real or paper)
 
