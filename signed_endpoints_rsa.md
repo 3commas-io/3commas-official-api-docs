@@ -9,7 +9,7 @@ Generate Private Key
 
 Run this command to generate a 4096-bit private key and output it to the private.pem file. If you like, you may change the key length and/or output file.
 ```
-openssl genrsa -out private.pem -numbits 4096
+openssl genrsa -out private.pem 4096
 ```
 Derive Public Key
 
