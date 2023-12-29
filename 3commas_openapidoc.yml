@@ -2124,57 +2124,6 @@ paths:
         '200':
           description: 'Marketplace Item Signals (Permission: NONE, Security: NONE)'
           content: {}
-  /ver1/grid_bots/ai:
-    post:
-      tags:
-        - grid_bots
-      description: 'Create AI Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)'
-      operationId: postVer1GridBotsAi
-      requestBody:
-        content:
-          application/json:
-            schema:
-              required:
-                - account_id
-                - pair
-                - total_quantity
-              properties:
-                name:
-                  type: string
-                  description: Grid Bot's name
-                  default: GridBot
-                account_id:
-                  type: integer
-                  description: id from GET /ver1/accounts
-                  format: int32
-                pair:
-                  type: string
-                total_quantity:
-                  type: number
-                  format: double
-                leverage_type:
-                  type: string
-                  description: Leverage type for futures accounts
-                  default: not_specified
-                  enum:
-                    - custom
-                    - cross
-                    - not_specified
-                    - isolated
-                leverage_custom_value:
-                  type: number
-                  description: Required if leverage_type = 'isolated'
-                  format: double
-        required: true
-      responses:
-        '201':
-          description: 'Create AI Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)'
-          content:
-            'application/json':
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/GridBotEntity'
   /ver1/grid_bots/manual:
     post:
       tags:
@@ -2262,28 +2211,6 @@ paths:
       responses:
         '201':
           description: 'Create Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)'
-          content: {}
-  /ver1/grid_bots/ai_settings:
-    get:
-      tags:
-        - grid_bots
-      description: 'Get AI settings (Permission: BOTS_READ, Security: SIGNED)'
-      operationId: getVer1GridBotsAiSettings
-      parameters:
-        - name: pair
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: market_code
-          in: query
-          description: Market code from /accounts/market_list
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: 'Get AI settings (Permission: BOTS_READ, Security: SIGNED)'
           content: {}
   /ver1/grid_bots:
     get:
@@ -2404,54 +2331,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GridBotProfitsEntity'
-  /ver1/grid_bots/{id}/ai:
-    patch:
-      tags:
-        - grid_bots
-      description: 'Edit Grid Bot (AI) (Permission: BOTS_WRITE, Security: SIGNED)'
-      operationId: patchVer1GridBotsIdAi
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int32
-      requestBody:
-        content:
-          application/json:
-            schema:
-              required:
-                - pair
-                - total_quantity
-              properties:
-                name:
-                  type: string
-                  description: Grid Bot's name
-                  default: GridBot
-                pair:
-                  type: string
-                total_quantity:
-                  type: number
-                  format: double
-                leverage_type:
-                  type: string
-                  description: Leverage type for futures accounts
-                  default: not_specified
-                  enum:
-                    - custom
-                    - cross
-                    - not_specified
-                    - isolated
-                leverage_custom_value:
-                  type: number
-                  description: Required if leverage_type = 'isolated'
-                  format: double
-        required: true
-      responses:
-        '200':
-          description: 'Edit Grid Bot (AI) (Permission: BOTS_WRITE, Security: SIGNED)'
-          content: {}
   /ver1/grid_bots/{id}/manual:
     patch:
       tags:

@@ -1,23 +1,5 @@
 # GridBots Api 
 #### _Please read General API Information first_
-### Create AI Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)
-```
-POST /ver1/grid_bots/ai
-```
-**Weight:**
-1
-
-**Parameters:**
-
-Name | Type | Mandatory | Values(default) | Description
------------- | ------------ | ------------ | ------------ | ------------
-name | string | NO |   | Grid Bot's name
-account_id | integer | YES |   | id from GET /ver1/accounts
-pair | string | YES |   | 
-total_quantity | number | YES |   | 
-leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Leverage type for futures accounts
-leverage_custom_value | number | NO |   | Required if leverage_type = 'isolated'
-note | string | NO |   | 
 ### Create Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)
 ```
 POST /ver1/grid_bots/manual
@@ -54,20 +36,6 @@ trailing_up_enabled | boolean | NO |   | Trailing up enabled. Works only with or
 grid_type | string | NO | geometric, arithmetic (arithmetic) | Grid Type
 expansion_down_enabled | boolean | NO |   | Trailing down enabled
 expansion_down_stop_price | number | YES |   | Trailing down stop price (mandatory if trailing down enabled)
-### Get AI settings (Permission: BOTS_READ, Security: SIGNED)
-```
-GET /ver1/grid_bots/ai_settings
-```
-**Weight:**
-1
-
-**Parameters:**
-
-Name | Type | Mandatory | Values(default) | Description
------------- | ------------ | ------------ | ------------ | ------------
-pair | string | YES |   | 
-market_code | string | YES |   | Market code from /accounts/market_list
-total_quantity | number | NO |   | Total amount for bot usage
 ### Grid bots list (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/grid_bots
@@ -153,25 +121,7 @@ grid_line_id: integer
   created_at: string 
   grid_line: GridLineEntity 
   } 
- ``` 
-### Edit Grid Bot (AI) (Permission: BOTS_WRITE, Security: SIGNED)
-```
-PATCH /ver1/grid_bots/{id}/ai
-```
-**Weight:**
-1
-
-**Parameters:**
-
-Name | Type | Mandatory | Values(default) | Description
------------- | ------------ | ------------ | ------------ | ------------
-name | string | NO |   | Grid Bot's name
-pair | string | YES |   | 
-total_quantity | number | YES |   | 
-leverage_type | string | NO | custom, cross, not_specified, isolated (not_specified) | Leverage type for futures accounts
-leverage_custom_value | number | NO |   | Required if leverage_type = 'isolated'
-note | string | NO |   | 
-id | integer | YES |   | 
+ ```
 ### Edit Grid Bot (Manual) (Permission: BOTS_WRITE, Security: SIGNED)
 ```
 PATCH /ver1/grid_bots/{id}/manual
