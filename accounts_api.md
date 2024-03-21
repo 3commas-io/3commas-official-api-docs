@@ -358,8 +358,8 @@ auto_balance_portfolio_id: 452
 auto_balance_portfolio: PortfolioEntity    
 auto_balance_currency_change_limit: 5     
 autobalance_enabled: true                 
-hedge_mode_available:                     
-hedge_mode_enabled:                       
+hedge_mode_available: false               
+hedge_mode_enabled: false                 
 is_locked: true                           
 smart_trading_supported: true             
 smart_selling_supported: true            DEPRECATED. use smart_trading_supported instead 
@@ -389,13 +389,14 @@ day_profit_primary_display_currency_percentage:
 day_profit_primary_display_currency:      
 primary_display_currency_amount:          
 total_primary_display_currency_profit:    
+available_include_in_summary: false       
 api_key: ''                               
 name: 'Binance 2 '                        
 auto_balance_method: 'time'              Values: time, currency_change 
 auto_balance_error: 'Failed to autobalance' 
 customer_id:                              
 subaccount_name:                          
-lock_reason: 'API key is invalid'         
+lock_reason: 'invalid_api_key'            
 btc_amount: '0.01134219'                  
 usd_amount: '70.93146245'                 
 day_profit_btc: '-0.00006'                
@@ -412,5 +413,6 @@ pretty_display_type: 'BittrexAccount'
 exchange_name: 'Binance Futures'          
 market_code: 'deribit_testnet'            
 address: '0xe00000dded00bbb08725d77777777ff070aa7aa7' 
+api_keys_state: 'expired'                Values: ok, expired, expire_soon 
 } 
  ``` 

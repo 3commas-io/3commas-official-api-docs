@@ -84,6 +84,7 @@ PATCH /ver1/deals/{deal_id}/update_deal
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 take_profit | number | NO |   | New take profit value
+take_profit_steps | array[json] | NO |   | Take profit steps <br>[{"id": 1, "amount_percentage": 10, "profit_percentage": 10}, <br>{"id": 2, "amount_percentage": 20, "profit_percentage": 15}, <br>{"id": 3, "amount_percentage": 30, "profit_percentage": 20}, <br>{"id": 4, "amount_percentage": 40, "profit_percentage": 23}]
 profit_currency | string | NO | quote_currency, base_currency  | 
 take_profit_type | string | NO |   | base – from base order, total – from total volume
 trailing_enabled | boolean | NO |   | 
@@ -96,6 +97,8 @@ stop_loss_timeout_in_seconds | integer | NO |   | StopLoss timeout in seconds if
 tsl_enabled | boolean | NO |   | Trailing stop loss enabled
 stop_loss_type | string | NO | stop_loss, stop_loss_and_disable_bot  | 
 close_timeout | integer | NO |   | Close deal after given number of seconds. Must be greater than 60.
+note | string | NO |   | Note
+min_profit_percentage | number | NO |   | Minimum profit percentage
 deal_id | integer | YES |   | 
 ### DEPRECATED, Update take profit condition. Deal status should be bought (Permission: BOTS_WRITE, Security: SIGNED)
 ```
@@ -204,7 +207,7 @@ stop_loss_timeout_enabled: true
 stop_loss_timeout_in_seconds: 2           
 active_manual_safety_orders: 2            
 pair: 'BTC_ADA'                          Format: QUOTE_BASE 
-status: 'failed'                         Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit, ttp_activated, ttp_order_placed, liquidated, bought_safety_pending, bought_take_profit_pending, settled 
+status: 'failed'                         Values: created, base_order_placed, bought, cancelled, completed, failed, panic_sell_pending, panic_sell_order_placed, panic_sold, cancel_pending, stop_loss_pending, stop_loss_finished, stop_loss_order_placed, switched, switched_take_profit, ttp_activated, ttp_order_placed, liquidated, bought_safety_pending, bought_take_profit_pending, settled, close_strategy_activated 
 localized_status:                         
 take_profit: '1.23'                      Percentage 
 base_order_volume: '0.001'                

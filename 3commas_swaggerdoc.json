@@ -282,6 +282,16 @@
           },
           {
             "in": "formData",
+            "name": "take_profit_steps",
+            "description": "Take profit steps <br>[{\"amount_percentage\": 10, \"profit_percentage\": 10}, <br>{\"amount_percentage\": 20, \"profit_percentage\": 15}, <br>{\"amount_percentage\": 30, \"profit_percentage\": 20}, <br>{\"amount_percentage\": 40, \"profit_percentage\": 23}]",
+            "type": "array",
+            "items": {
+              "type": "json"
+            },
+            "required": false
+          },
+          {
+            "in": "formData",
             "name": "safety_order_volume",
             "description": "Safety trade size",
             "type": "number",
@@ -403,7 +413,7 @@
           {
             "in": "formData",
             "name": "strategy_list",
-            "description": "For manual signals: [{\"strategy\":\"manual\"}] or []<br>For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]<br>QFL: [{\"options\": {\"type\": \"original\"}, {\"percent\": 3}, \"strategy\": \"qfl\"}] <br>TradingView: [{\"options\": {\"time\": \"5m\", \"type\": \"buy_or_strong_buy\"}, \"strategy\": \"trading_view\"}] <br>RSI: [{\"options\": {\"time\": \"5m\", \"points\": 30, \"trigger_condition\": \"less\", \"time_period\": 7}, \"strategy\": \"rsi\"}]",
+            "description": "For manual signals: [{\"strategy\":\"manual\"}] or []<br>For non-stop(1 pair only): [{\"strategy\":\"nonstop\", \"options\": {}]<br>QFL: [{\"options\": {\"type\": \"original\"}, {\"percent\": 3}, \"strategy\": \"qfl\"}] <br>TradingView: [{\"options\": {\"time\": \"5m\", \"type\": \"buy_or_strong_buy\"}, \"strategy\": \"trading_view\"}] <br>RSI: [{\"options\": {\"time\": \"5m\", \"points\": 30, \"trigger_condition\": \"less\", \"time_period\": 7}, \"strategy\": \"rsi\"}]",
             "type": "array",
             "items": {
               "type": "json"
@@ -538,7 +548,7 @@
             "type": "integer",
             "format": "int32",
             "required": false
-upda          },
+          },
           {
             "in": "formData",
             "name": "min_profit_percentage",
@@ -561,7 +571,7 @@ upda          },
           {
             "in": "formData",
             "name": "close_strategy_list",
-            "description": "For manual signals: [{\"strategy\":\"manual\"}] or []<br>For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]<br>QFL: [{\"options\": {\"type\": \"original\"}, {\"percent\": 3}, \"strategy\": \"qfl\"}] <br>TradingView: [{\"options\": {\"time\": \"5m\", \"type\": \"buy_or_strong_buy\"}, \"strategy\": \"trading_view\"}] <br>RSI: [{\"options\": {\"time\": \"5m\", \"points\": 30, \"trigger_condition\": \"less\", \"time_period\": 7}, \"strategy\": \"rsi\"}]",
+            "description": "For manual signals: [{\"strategy\":\"manual\"}] or []<br>For non-stop(1 pair only): [{\"strategy\":\"nonstop\", \"options\": {}]<br>QFL: [{\"options\": {\"type\": \"original\"}, {\"percent\": 3}, \"strategy\": \"qfl\"}] <br>TradingView: [{\"options\": {\"time\": \"5m\", \"type\": \"buy_or_strong_buy\"}, \"strategy\": \"trading_view\"}] <br>RSI: [{\"options\": {\"time\": \"5m\", \"points\": 30, \"trigger_condition\": \"less\", \"time_period\": 7}, \"strategy\": \"rsi\"}]",
             "type": "array",
             "items": {
               "type": "json"
@@ -944,6 +954,16 @@ upda          },
           },
           {
             "in": "formData",
+            "name": "take_profit_steps",
+            "description": "Take profit steps <br>[{\"amount_percentage\": 10, \"profit_percentage\": 10}, <br>{\"amount_percentage\": 20, \"profit_percentage\": 15}, <br>{\"amount_percentage\": 30, \"profit_percentage\": 20}, <br>{\"amount_percentage\": 40, \"profit_percentage\": 23}]",
+            "type": "array",
+            "items": {
+              "type": "json"
+            },
+            "required": false
+          },
+          {
+            "in": "formData",
             "name": "safety_order_volume",
             "description": "Safety trade size",
             "type": "number",
@@ -1054,7 +1074,7 @@ upda          },
           {
             "in": "formData",
             "name": "strategy_list",
-            "description": "For manual signals: [{\"strategy\":\"manual\"}] or []<br>For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]<br>QFL: [{\"options\": {\"type\": \"original\"}, {\"percent\": 3}, \"strategy\": \"qfl\"}] <br>TradingView: [{\"options\": {\"time\": \"5m\", \"type\": \"buy_or_strong_buy\"}, \"strategy\": \"trading_view\"}] <br>RSI: [{\"options\": {\"time\": \"5m\", \"points\": 30, \"trigger_condition\": \"less\", \"time_period\": 7}, \"strategy\": \"rsi\"}]",
+            "description": "For manual signals: [{\"strategy\":\"manual\"}] or []<br>For non-stop(1 pair only): [{\"strategy\":\"nonstop\", \"options\": {}}]<br>QFL: [{\"options\": {\"type\": \"original\"}, {\"percent\": 3}, \"strategy\": \"qfl\"}] <br>TradingView: [{\"options\": {\"time\": \"5m\", \"type\": \"buy_or_strong_buy\"}, \"strategy\": \"trading_view\"}] <br>RSI: [{\"options\": {\"time\": \"5m\", \"points\": 30, \"trigger_condition\": \"less\", \"time_period\": 7}, \"strategy\": \"rsi\"}]",
             "type": "array",
             "items": {
               "type": "json"
@@ -1212,7 +1232,7 @@ upda          },
           {
             "in": "formData",
             "name": "close_strategy_list",
-            "description": "For manual signals: [{\"strategy\":\"manual\"}] or []<br>For non-stop(1 pair only): [{\"strategy\":\"nonstop\"}]<br>QFL: [{\"options\": {\"type\": \"original\"}, {\"percent\": 3}, \"strategy\": \"qfl\"}] <br>TradingView: [{\"options\": {\"time\": \"5m\", \"type\": \"buy_or_strong_buy\"}, \"strategy\": \"trading_view\"}] <br>RSI: [{\"options\": {\"time\": \"5m\", \"points\": 30, \"trigger_condition\": \"less\", \"time_period\": 7}, \"strategy\": \"rsi\"}]",
+            "description": "For manual signals: [{\"strategy\":\"manual\"}] or []<br>For non-stop(1 pair only): [{\"strategy\":\"nonstop\", \"options\": {}}]<br>QFL: [{\"options\": {\"type\": \"original\"}, {\"percent\": 3}, \"strategy\": \"qfl\"}] <br>TradingView: [{\"options\": {\"time\": \"5m\", \"type\": \"buy_or_strong_buy\"}, \"strategy\": \"trading_view\"}] <br>RSI: [{\"options\": {\"time\": \"5m\", \"points\": 30, \"trigger_condition\": \"less\", \"time_period\": 7}, \"strategy\": \"rsi\"}]",
             "type": "array",
             "items": {
               "type": "json"
@@ -1782,6 +1802,16 @@ upda          },
             "description": "New take profit value",
             "type": "number",
             "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "take_profit_steps",
+            "description": "Take profit steps <br>[{\"id\": 1, \"amount_percentage\": 10, \"profit_percentage\": 10}, <br>{\"id\": 2, \"amount_percentage\": 20, \"profit_percentage\": 15}, <br>{\"id\": 3, \"amount_percentage\": 30, \"profit_percentage\": 20}, <br>{\"id\": 4, \"amount_percentage\": 40, \"profit_percentage\": 23}]",
+            "type": "array",
+            "items": {
+              "type": "json"
+            },
             "required": false
           },
           {
@@ -3712,7 +3742,15 @@ upda          },
           {
             "in": "formData",
             "name": "trailing_up_enabled",
-            "description": "Trailing up enabled. Works only with order currency type = quote",
+            "description": "Trailing up enabled",
+            "type": "boolean",
+            "default": false,
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trailing_down_enabled",
+            "description": "Trailing down enabled",
             "type": "boolean",
             "default": false,
             "required": false
@@ -3731,15 +3769,43 @@ upda          },
           },
           {
             "in": "formData",
+            "name": "mode",
+            "description": "Grid Mode (Futures only)",
+            "type": "string",
+            "default": null,
+            "enum": [
+              "reversal",
+              "long",
+              "short"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
             "name": "expansion_down_enabled",
-            "description": "Trailing down enabled",
+            "description": "Expansion down enabled",
             "type": "boolean",
             "required": false
           },
           {
             "in": "formData",
             "name": "expansion_down_stop_price",
-            "description": "Trailing down stop price (mandatory if trailing down enabled)",
+            "description": "Expansion down stop price (mandatory if Expansion down enabled)",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "expansion_up_enabled",
+            "description": "Expansion up enabled",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "expansion_up_stop_price",
+            "description": "Expansion up stop price (mandatory if Expansion up enabled)",
             "type": "number",
             "format": "double",
             "required": true
@@ -4192,6 +4258,13 @@ upda          },
           },
           {
             "in": "formData",
+            "name": "trailing_down_enabled",
+            "description": "Trailing down enabled",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
             "name": "grid_type",
             "description": "Grid Type",
             "type": "string",
@@ -4204,14 +4277,29 @@ upda          },
           {
             "in": "formData",
             "name": "expansion_down_enabled",
-            "description": "Trailing down enabled",
+            "description": "Expansion down enabled",
             "type": "boolean",
             "required": false
           },
           {
             "in": "formData",
             "name": "expansion_down_stop_price",
-            "description": "Trailing down stop price (mandatory if trailing down enabled)",
+            "description": "Expansion down stop price (mandatory if Expansion down enabled)",
+            "type": "number",
+            "format": "double",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "expansion_up_enabled",
+            "description": "Expansion up enabled",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "expansion_up_stop_price",
+            "description": "Expansion up stop price (mandatory if Expansion up enabled)",
             "type": "number",
             "format": "double",
             "required": true
@@ -6052,6 +6140,12 @@ upda          },
         "url_secret": {
           "type": "string"
         },
+        "take_profit_steps": {
+          "type": "array",
+          "items": {
+            "type": "json"
+          }
+        },
         "name": {
           "type": "string",
           "example": "'Test Bot'"
@@ -6242,10 +6336,12 @@ upda          },
           "example": true
         },
         "hedge_mode_available": {
-          "type": "boolean"
+          "type": "boolean",
+          "example": false
         },
         "hedge_mode_enabled": {
-          "type": "boolean"
+          "type": "boolean",
+          "example": false
         },
         "is_locked": {
           "type": "boolean",
@@ -6389,7 +6485,7 @@ upda          },
         },
         "lock_reason": {
           "type": "string",
-          "example": "'API key is invalid'"
+          "example": "'invalid_api_key'"
         },
         "btc_amount": {
           "type": "string",
@@ -6543,6 +6639,10 @@ upda          },
           "type": "string",
           "example": "Best pair"
         },
+        "editable": {
+          "type": "boolean",
+          "example": false
+        },
         "lower_price": {
           "type": "string",
           "example": "'8000'"
@@ -6672,7 +6772,8 @@ upda          },
           "example": "USDT"
         },
         "expansion_down_enabled": {
-          "type": "boolean"
+          "type": "boolean",
+          "example": false
         },
         "expansion_down_stop_price": {
           "type": "string",

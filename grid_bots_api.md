@@ -32,10 +32,14 @@ max_active_sell_lines | integer | NO |   |
 order_currency_type | string | NO | base, quote (base) | Order currency type
 profit_currency_type | string | NO | base, quote (quote) | Profit currency type
 ignore_warnings | boolean | NO |   | Ignore any warnings and create grid bot
-trailing_up_enabled | boolean | NO |   | Trailing up enabled. Works only with order currency type = quote
+trailing_up_enabled | boolean | NO |   | Trailing up enabled
+trailing_down_enabled | boolean | NO |   | Trailing down enabled
 grid_type | string | NO | geometric, arithmetic (arithmetic) | Grid Type
-expansion_down_enabled | boolean | NO |   | Trailing down enabled
-expansion_down_stop_price | number | YES |   | Trailing down stop price (mandatory if trailing down enabled)
+mode | string | NO | reversal, long, short  | Grid Mode (Futures only)
+expansion_down_enabled | boolean | NO |   | Expansion down enabled
+expansion_down_stop_price | number | YES |   | Expansion down stop price (mandatory if Expansion down enabled)
+expansion_up_enabled | boolean | NO |   | Expansion up enabled
+expansion_up_stop_price | number | YES |   | Expansion up stop price (mandatory if Expansion up enabled)
 ### Grid bots list (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/grid_bots
@@ -150,12 +154,15 @@ leverage_custom_value | number | NO |   | Required if leverage_type = 'isolated'
 note | string | NO |   | 
 max_active_buy_lines | integer | NO |   | 
 max_active_sell_lines | integer | NO |   | 
-ignore_warnings | boolean | NO |   | Ignore any warnings and create grid bot
+ignore_warnings | boolean | NO |   | Ignore any warnings and edit grid bot
 trailing_up_enabled | boolean | NO |   | Trailing up enabled
+trailing_down_enabled | boolean | NO |   | Trailing down enabled
 grid_type | string | NO | geometric, arithmetic  | Grid Type
-expansion_down_enabled | boolean | NO |   | Trailing down enabled
-expansion_down_stop_price | number | YES |   | Trailing down stop price (mandatory if trailing down enabled)
-id | integer | YES |   |
+expansion_down_enabled | boolean | NO |   | Expansion down enabled
+expansion_down_stop_price | number | YES |   | Expansion down stop price (mandatory if Expansion down enabled)
+expansion_up_enabled | boolean | NO |   | Expansion up enabled
+expansion_up_stop_price | number | YES |   | Expansion up stop price (mandatory if Expansion up enabled)
+id | integer | YES |   | 
 ### Show Grid Bot (Permission: BOTS_READ, Security: SIGNED)
 ```
 GET /ver1/grid_bots/{id}
@@ -231,6 +238,7 @@ strategy_type: 'manual'
 upper_stop_loss_enabled: true             
 lower_stop_loss_enabled: true             
 note: Best pair                           
+editable: false                           
 lower_price: '8000'                       
 lower_stop_loss_price: '7500'             
 lower_stop_loss_action: 'stop_bot'        
@@ -263,7 +271,7 @@ unrealized_profit_loss: 2500.0
 current_profit_loss: 0.2284               
 current_profit_loss_percent: 2.007        
 orderbook_price_currency: USDT            
-expansion_down_enabled:                   
+expansion_down_enabled: false             
 expansion_down_stop_price: 10500.0        
 grid_lines: GridLineEntity    
 } 
