@@ -174,8 +174,8 @@ GET /ver1/bots/{id}/profit_by_day
 
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
-days | integer | NO |   | 
-id | integer | YES |   | 
+days | integer | NO |  (30) |
+id | integer | YES |   |
 ### POST /bots/:id/copy_and_create. Permission: BOTS_WRITE, Security: SIGNED
 ```
 POST /ver1/bots/{bot_id}/copy_and_create

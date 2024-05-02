@@ -823,6 +823,7 @@
             "name": "days",
             "type": "integer",
             "format": "int32",
+            "default": 30,
             "required": false
           },
           {
@@ -1726,6 +1727,43 @@
           "deals"
         ],
         "operationId": "postVer1DealsDealIdUpdateMaxSafetyOrders"
+      }
+    },
+    "/ver1/deals/{deal_id}/panic_sell_step": {
+      "post": {
+        "description": "Panic sell one step in deal (Permission: BOTS_WRITE, Security: SIGNED)",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "trade_id",
+            "description": "ID of the trade that should be sold. Gather this from GET /ver1/deals/:id/show",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "deal_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Panic sell one step in deal (Permission: BOTS_WRITE, Security: SIGNED)"
+          }
+        },
+        "tags": [
+          "deals"
+        ],
+        "operationId": "postVer1DealsDealIdPanicSellStep"
       }
     },
     "/ver1/deals/{deal_id}/panic_sell": {

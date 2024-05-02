@@ -22,6 +22,7 @@ order | string | NO | created_at, updated_at, closed_at, profit, profit_percenta
 order_direction | string | NO | asc, desc (desc) | 
 base | string | NO |   | Base currency
 quote | string | NO |   | Quote currency
+note | string | NO |   | Note
 ### Convert to smart trade (Permission: SMART_TRADE_WRITE, Security: SIGNED)
 ```
 POST /ver1/deals/{deal_id}/convert_to_smart_trade
@@ -47,7 +48,20 @@ POST /ver1/deals/{deal_id}/update_max_safety_orders
 Name | Type | Mandatory | Values(default) | Description
 ------------ | ------------ | ------------ | ------------ | ------------
 max_safety_orders | integer | YES |   | New maximum safety orders value
-deal_id | integer | YES |   | 
+deal_id | integer | YES |   |
+### Panic sell one step in deal (Permission: BOTS_WRITE, Security: SIGNED)
+```
+POST /ver1/deals/{deal_id}/panic_sell_step
+```
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Values(default) | Description
+------------ | ------------ | ------------ | ------------ | ------------
+trade_id | integer | YES |   | ID of the trade that should be sold. Gather this from GET /ver1/deals/:id/show
+deal_id | integer | YES |   |
 ### Panic sell deal (Permission: BOTS_WRITE, Security: SIGNED)
 ```
 POST /ver1/deals/{deal_id}/panic_sell
