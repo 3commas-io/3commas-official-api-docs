@@ -1,3 +1,3 @@
-# 3Commas API docs
+# 3Commas Official API documentation
 
-This repo ...
+Hello world
