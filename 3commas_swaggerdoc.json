@@ -352,6 +352,20 @@
           },
           {
             "in": "formData",
+            "name": "sl_to_breakeven_enabled",
+            "description": "Enable/Disable Stop Loss to break even function",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "sl_to_breakeven_data",
+            "description": "Upper limit for Stop Loss to break evenThe upper limit to which the stop loss will move(0 - bouthg average price, 1 - TP1, 2 - TP2)Example:{upper_breakeven_limit: 1}",
+            "type": "json",
+            "required": false
+          },
+          {
+            "in": "formData",
             "name": "cooldown",
             "type": "number",
             "format": "double",
@@ -1021,6 +1035,20 @@
             "name": "stop_loss_percentage",
             "type": "number",
             "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "sl_to_breakeven_enabled",
+            "description": "Enable/Disable Stop Loss to break even function",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "sl_to_breakeven_data",
+            "description": "Upper limit for Stop Loss to break evenThe upper limit to which the stop loss will move(0 - bouthg average price, 1 - TP1, 2 - TP2)Example:{upper_breakeven_limit: 1}",
+            "type": "json",
             "required": false
           },
           {
@@ -1889,6 +1917,20 @@
             "description": "New stop loss percentage value",
             "type": "number",
             "format": "double",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "sl_to_breakeven_enabled",
+            "description": "Enable/Disable Stop Loss to break even function",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "sl_to_breakeven_data",
+            "description": "Upper limit for Stop Loss to break evenThe upper limit to which the stop loss will move(0 - bouthg average price, 1 - TP1, 2 - TP2)Example:{upper_breakeven_limit: 1}",
+            "type": "json",
             "required": false
           },
           {

@@ -84,8 +84,10 @@ martingale_volume_coefficient | number | YES |  (1) |
 martingale_step_coefficient | number | YES |  (1) | 
 max_safety_orders | integer | YES |   | Max safety trades count
 active_safety_orders_count | integer | YES |   | Max active safety trades count
-stop_loss_percentage | number | NO |   | 
-cooldown | number | NO |   | 
+stop_loss_percentage | number | NO |   |
+sl_to_breakeven_enabled | boolean | NO |   | Enable/Disable Stop Loss to break even function
+sl_to_breakeven_data | json | NO |   | Upper limit for Stop Loss to break evenThe upper limit to which the stop loss will move(0 - bouthg average price, 1 - TP1, 2 - TP2)Example:{upper_breakeven_limit: 1}
+cooldown | number | NO |   |
 trailing_enabled | boolean | NO |   | Enable trailing take profit. Binance only.
 trailing_deviation | number | NO |   | required if trailing_enabled
 btc_price_limit | number | NO |   | 
@@ -215,8 +217,10 @@ martingale_volume_coefficient | number | YES |  (1) |
 martingale_step_coefficient | number | YES |  (1) | 
 max_safety_orders | integer | YES |   | Max safety trades count
 active_safety_orders_count | integer | YES |   | Max active safety trades count
-stop_loss_percentage | number | NO |   | 
-cooldown | number | NO |   | 
+stop_loss_percentage | number | NO |   |
+sl_to_breakeven_enabled | boolean | NO |   | Enable/Disable Stop Loss to break even function
+sl_to_breakeven_data | json | NO |   | Upper limit for Stop Loss to break evenThe upper limit to which the stop loss will move(0 - bouthg average price, 1 - TP1, 2 - TP2)Example:{upper_breakeven_limit: 1}
+cooldown | number | NO |   |
 trailing_enabled | boolean | NO |   | Enable trailing take profit. Binance only.
 trailing_deviation | number | NO |   | required if trailing_enabled
 btc_price_limit | number | NO |   | 

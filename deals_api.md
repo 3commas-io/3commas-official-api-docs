@@ -104,6 +104,8 @@ take_profit_type | string | NO |   | base – from base order, total – from to
 trailing_enabled | boolean | NO |   | 
 trailing_deviation | number | NO |   | New trailing deviation value
 stop_loss_percentage | number | NO |   | New stop loss percentage value
+sl_to_breakeven_enabled | boolean | NO |   | Enable/Disable Stop Loss to break even function
+sl_to_breakeven_data | json | NO |   | Upper limit for Stop Loss to break evenThe upper limit to which the stop loss will move(0 - bouthg average price, 1 - TP1, 2 - TP2)Example:{upper_breakeven_limit: 1}
 max_safety_orders | integer | NO |   | New max safety orders value
 active_safety_orders_count | integer | NO |   | New active safety orders count value
 stop_loss_timeout_enabled | boolean | NO |   | 
