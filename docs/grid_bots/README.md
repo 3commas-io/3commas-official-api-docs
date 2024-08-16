@@ -1,3 +1,2 @@
 # GRID bots API
-
-foo bar qar zar var
+Here you find methods to create, update, or stop the Grid bot. Also how to get information about Grid bot. 
