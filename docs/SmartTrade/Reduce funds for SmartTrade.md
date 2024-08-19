@@ -20,14 +20,39 @@ Security: SIGNED
 
 `TBD`
 
-{% code title="index.js" overflow="wrap" lineNumbers="true" %}
+**Example Response and errors**
 
-```javascript
-‌import * as React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+<details>
 
-ReactDOM.render(<App />, window.document.getElementById('root'));
+<summary>Status: 200 OK</summary>
+
+```json
+{
+    "max_reduce_funds_amount": "28.819532219570405727923627685"
+}
+
 ```
+</details>
 
-{% endcode %}
+<details>
+
+<summary>Status: 400 Bad request</summary>
+
+```json
+{
+    "error": "Wrong param(s)",
+    "error_description": "Reduce funds is not allowed in the current status"
+}
+```
+</details>
+<details>
+
+<summary>Status: 404 Not found</summary>
+
+```json
+{
+    "error": "Not found",
+    "error_description": "Smart Trade not found"
+}
+```
+</details>
