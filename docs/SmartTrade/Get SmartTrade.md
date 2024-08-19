@@ -1,4 +1,4 @@
-##Get SmartTrade##
+## Get SmartTrade
 
 **Description:** Shows information about a specific SmartTrade using its ID.
 
@@ -20,12 +20,24 @@ Security: SIGNED
 |------|------|-----------|-----------------|------------|
 |`id`  | integer	| Yes | - | Unique 3Commas ID for this SmartTrade entity. |
 
+**Parameter response**
+
+`TBD`
+
+---------
+
 **Example request**
 ```json
 {{baseUrl}}/v2/smart_trades/12345678
 ```
 
-**Example request**
+**Example Response and errors**
+
+
+<details>
+
+<summary>Status: 200 OK</summary>
+
 ```json
 Status 200 Ok
 {
@@ -135,3 +147,16 @@ Status 200 Ok
 }
 ```
 
+</details>
+
+<details>
+
+<summary>Status: 400 Not found </summary>
+
+```json
+{
+    "error": "Not found",
+    "error_description": "Smart Trade not found"
+}
+```
+</details>
