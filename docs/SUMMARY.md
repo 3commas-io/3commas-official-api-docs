@@ -7,3 +7,9 @@
   * [Delete bot](dca_bots/deleted_bot.md)
 * [GRID bots](grid_bots/README.md)
   * [Create bot](grid_bots/create_bot.md)
+
+ * [SmartTrade](SmartTrade/README.md) 
+   * [Create SmartTrade](SmartTrade/create_smarttrade.md)
+   * [Update SmartTrade](SmartTrade/uodate smarttrade.md)
+   * 
+
