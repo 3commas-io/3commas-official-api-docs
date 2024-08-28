@@ -3,9 +3,9 @@
 **Description:** Creates a new Grid Bot
 
 
-> **POST**
+> <mark style="color:green;background-color:white" >**POST**
 >
-> **/ver1/grid_bots/manual**
+> <mark style="color:green;background-color:white" >**/ver1/grid_bots/manual**
 
 
 **Parameters request**
