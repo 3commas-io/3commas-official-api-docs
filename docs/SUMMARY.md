@@ -12,7 +12,7 @@
 
 
  * [SmartTrade](SmartTrade/README.md) 
-   * [Create SmartTrade](SmartTrade/create_smarttrade.md)
+   * [Create SmartTrade](SmartTrade/1.%20Create%20SmartTrade.md)
    * [Update SmartTrade](SmartTrade/update_SmartTrade.md)
    * [Get SmartTrade](SmartTrade/get_SmartTrade.md)
 
