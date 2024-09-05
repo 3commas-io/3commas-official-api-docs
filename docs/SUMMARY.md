@@ -6,6 +6,7 @@
   * [Add exchange account](2.Add%20exchange%20account.md)
   * [Get account info](3.Get%20account%20info)
   * [Get the list of active entities](Account/Get%20the%20list%20of%20active%20entities.md)
+  * [List of exchanges and wallets connected by the user](Account/List%20of%20exchanges%20and%20wallets%20by%20the%20user.md)
 
 * [DCA bots](dca_bots/README.md)
   * [Create bot](dca_bots/create_bot.md)
