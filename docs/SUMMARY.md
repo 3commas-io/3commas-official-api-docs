@@ -1,6 +1,13 @@
 # Summary
 
 * [Introduction](README.md)
+* [Market data](Market%20data/README.md)
+  * [Supported markets list](Market_data/1.Supported%20markets%20list.md)
+  * [All market pairs](Market_data/2.All%20market%20pairs.md)
+  * [Currency rates and limits](Market_data/3.Currency%20rates%20and%20limits.md)
+  * [Currency rates and limits with leverage data](Market_data/4.Currency%20rates%20and%20limits.md)
+  
+
 * [Account](account/README.md)
   * [Available market subtypes](1.Available%20market%20subtypes.md)
   * [Add exchange account](2.Add%20exchange%20account.md)
