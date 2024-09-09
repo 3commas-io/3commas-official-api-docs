@@ -2,10 +2,10 @@
 
 * [Introduction](README.md)
 * [Market data](Market%20data/README.md)
-  * [Supported markets list](Market_data/1.Supported%20markets%20list.md)
-  * [All market pairs](Market_data/2.All%20market%20pairs.md)
-  * [Currency rates and limits](Market_data/3.Currency%20rates%20and%20limits.md)
-  * [Currency rates and limits with leverage data](Market_data/4.Currency%20rates%20and%20limits.md)
+  * [Supported markets list](Market data/1.Supported%20markets%20list.md)
+  * [All market pairs](Market data/2.All%20market%20pairs.md)
+  * [Currency rates and limits](Market data/3.Currency%20rates%20and%20limits.md)
+  * [Currency rates and limits with leverage data](Market data/4.Currency%20rates%20and%20limits.md)
   
 
 * [Account](account/README.md)
