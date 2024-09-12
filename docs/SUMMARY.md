@@ -42,7 +42,7 @@
    * [Trades](SmartTrade/Trades/README.md)
       * [Get trades of SmartTrade](SmartTrade/Trades/Get%20trades%20of%20SmartTrade.md)
       * [Closes trade by market](SmartTrade/Trades/Closes%20trade%20by%20market.md)
-       * [Cancel trade](SmartTrade/Trades/Cancel%20trade.md)
+      * [Cancel trade](SmartTrade/Trades/Cancel%20trade.md)
       
 
 
