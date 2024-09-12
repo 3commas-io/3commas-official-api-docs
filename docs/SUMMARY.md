@@ -1,17 +1,18 @@
 # Summary
 
 * [Introduction](README.md)
+
 * [Market data](Market%20data/README.md)
-  * [Supported markets list](Market_data/1.Supported%20markets%20list.md)
-  * [All market pairs](Market_data/2.All%20market%20pairs.md)
-  * [Currency rates and limits](Market_data/3.Currency%20rates%20and%20limits.md)
-  * [Currency rates and limits with leverage data](Market_data/4.Currency%20rates%20and%20limits.md)
+  * [Supported markets list](Market%20data/1.Supported%20markets%20list.md)
+  * [All market pairs](Market%20data/2.All%20market%20pairs.md)
+  * [Currency rates and limits](Market%20data/3.Currency%20rates%20and%20limits.md)
+  * [Currency rates and limits with leverage data](Market%20data/4.Currency%20rates%20and%20limits%20with%20leverage%20data.md)
   
 
-* [Account](account/README.md)
-  * [Available market subtypes](1.Available%20market%20subtypes.md)
-  * [Add exchange account](2.Add%20exchange%20account.md)
-  * [Get account info](3.Get%20account%20info)
+* [Account](Account/README.md)
+  * [Available market subtypes](Account/1.Available%20market%20subtypes.md)
+  * [Add exchange account](Account/2.Add%20exchange%20account.md)
+  * [Get account info](Account/3.Get%20account%20info)
   * [Get the list of active entities](Account/Get%20the%20list%20of%20active%20entities.md)
   * [List of exchanges and wallets connected by the user](Account/List%20of%20exchanges%20and%20wallets%20by%20the%20user.md)
 
