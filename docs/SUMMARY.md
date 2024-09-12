@@ -35,7 +35,7 @@
    * [Get the list of SmartTrades](SmartTrade/4.%20Get%20the%20list%20of%20SmartTrades.md)
    * [Add funds for SmartTrade](SmartTrade/5.%20Add%20funds%20for%20SmartTrade.md)
    * [Available reduce funds](SmartTrade/6.%20Available%20reduce%20funds.md)
-   * [Get SmartTrade](SmartTrade/7.%20Reduce%20funds%20for%20SmartTrade.md)
+   * [Reduce funds for SmartTrade](SmartTrade/7.%20Reduce%20funds%20for%20SmartTrade.md)
    * [Close SmartTrade by market price](SmartTrade/8.%20Close%20SmartTrade%20by%20market%20price.md)
    * [Add a note to SmartTrade](SmartTrade/9.%20Add%20a%20note%20to%20SmartTrade.md)
    * [Cancel SmartTrade](SmartTrade/10.%20Cancel%20SmartTrade.md)
