@@ -1,31 +1,45 @@
-## Get trades of SmartTrade
+## Get trades of SmartTrade<br>
 
-**Description:** Shows trades of existing SmartTrade.
+**Description:** Shows trades of existing SmartTrade<br>
 
-Permission: SMART_TRADES_READ
-Security: SIGNED
+**Permission:** SMART_TRADES_READ<br>
+**Security:** SIGNED<br>
+<br>
 
-**GET**
+----------
 
-**/v2/smart_trades/{smart_trade_id}/trades**
+<mark style="color:blue;background-color:white" > **GET**
 
-**Path Parameters**
-| Name | Type |	Mandatory |	Values(default)	| Description|
+<mark style="color:blue;background-color:white" > **/v2/smart_trades/{smart_trade_id}/trades**
+
+----------
+
+<br>
+<br>
+
+
+**Path Parameters**<br>
+| Name | Type |	Mandatory |	Values| Description|
 |------|------|-----------|-----------------|------------|
-|`smart-trade_id` | integer	| Yes | - | Unique 3Commas ID for this SmartTrade entity. |
+|`smart-trade_id` | integer	| Yes | - | Unique 3Commas ID for this SmartTrade entity |
 
-**Response Parameters**
+<br>
+<br>
+
+**Response Parameters**<br>
 
 **TBD** 
 | Name | Type |	Description|
 |------|------|-----------|
 |`smart-trade_id` | integer	| Unique 3Commas ID for Trade entity |
 
+<br>
+<br>
 
 **Example Response and errors**
 
 <details>
-<summary>Status: 200 OK</summary>
+<summary>Status: 200 OK</summary><br>
 
 ```json
 [
@@ -102,7 +116,8 @@ Security: SIGNED
 </details>
 
 <details>
-<summary>Status: 404 OK</summary>
+<summary>Status: 404 </summary><br>
+
 ```json
 {
     "error": "Not found",

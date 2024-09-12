@@ -16,6 +16,7 @@
   * [Get the list of active entities](Account/Get%20the%20list%20of%20active%20entities.md)
   * [Information about account leverage](Account/6.Information%20about%20account%20leverage.md)
   * [List of exchanges and wallets connected by the user](Account/List%20of%20exchanges%20and%20wallets%20by%20the%20user.md)
+  * [Remove exchange connection](Account/7.Remove%20exchange%20connection.md)
 
 * [DCA bots](dca_bots/README.md)
   * [Create bot](dca_bots/create_bot.md)
