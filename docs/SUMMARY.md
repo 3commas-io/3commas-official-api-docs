@@ -14,7 +14,9 @@
   * [Add exchange account](Account/2.Add%20exchange%20account.md)
   * [Get account info](Account/3.Get%20account%20info)
   * [Get the list of active entities](Account/Get%20the%20list%20of%20active%20entities.md)
+  * [Information about account leverage](Account/6.Information%20about%20account%20leverage.md)
   * [List of exchanges and wallets connected by the user](Account/List%20of%20exchanges%20and%20wallets%20by%20the%20user.md)
+  * [Remove exchange connection](Account/7.Remove%20exchange%20connection.md)
 
 * [DCA bots](dca_bots/README.md)
   * [Create bot](dca_bots/create_bot.md)
@@ -34,10 +36,15 @@
    * [Get the list of SmartTrades](SmartTrade/4.%20Get%20the%20list%20of%20SmartTrades.md)
    * [Add funds for SmartTrade](SmartTrade/5.%20Add%20funds%20for%20SmartTrade.md)
    * [Available reduce funds](SmartTrade/6.%20Available%20reduce%20funds.md)
-   * [Get SmartTrade](SmartTrade/7.%20Reduce%20funds%20for%20SmartTrade.md)
+   * [Reduce funds for SmartTrade](SmartTrade/7.%20Reduce%20funds%20for%20SmartTrade.md)
    * [Close SmartTrade by market price](SmartTrade/8.%20Close%20SmartTrade%20by%20market%20price.md)
    * [Add a note to SmartTrade](SmartTrade/9.%20Add%20a%20note%20to%20SmartTrade.md)
    * [Cancel SmartTrade](SmartTrade/10.%20Cancel%20SmartTrade.md)
+   * [Trades](SmartTrade/Trades/README.md)
+      * [Get trades of SmartTrade](SmartTrade/Trades/Get%20trades%20of%20SmartTrade.md)
+      * [Closes trade by market](SmartTrade/Trades/Closes%20trade%20by%20market.md)
+      * [Cancel trade](SmartTrade/Trades/Cancel%20trade.md)
+      
 
 
 

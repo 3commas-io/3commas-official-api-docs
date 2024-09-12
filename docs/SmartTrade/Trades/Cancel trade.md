@@ -1,45 +1,63 @@
-## Cancel trade
+## Cancel trade<br>
 
-**Description:** Cancels a specific trade within a SmartTrade using its ID.
+**Description:** Cancels a specific trade within a SmartTrade using its ID<br>
+<br>
 
 {% hint style="warning" %}
 Keep in mind, to avoid canceling the SmartTrade, make sure to leave at least one step in the Take Profit trade and avoid deleting the Stop Loss trade.
 {% endhint %}
 
-Permission: SMART_TRADES_WRITE
-Security: SIGNED
+<br>
 
-**DELETE**
+**Permission:** SMART_TRADES_WRITE<br>
+**Security:** SIGNED<br>
+<br>
 
-**/v2/smart_trades/{smart_trade_id}/trades/{id}**
+----------
+
+<mark style="color:red;background-color:white" > **DELETE**
+
+<mark style="color:red;background-color:white" > **/v2/smart_trades/{smart_trade_id}/trades/{id}**
+
+----------
+
+<br>
 
 {% hint style="info" %}
 If successful, the response includes a copy of the updated SmartTrade entity.
 {% endhint %}
 
-**Path Parameters**
+
+**Path Parameters**<br>
 | Name | Type |	Mandatory |	Values(default)	| Description|
 |------|------|-----------|-----------------|------------|
 |`smart-trade_id` | integer	| Yes | - | Unique 3Commas ID for this SmartTrade entity. |
 |`id` | integer	| Yes | - | Unique 3Commas ID for Trade entity |
 
-**Response Parameters**
+<br>
+<br>
+
+**Response Parameters**<br>
 
 | Name | Type |	Description|
 |------|------|-----------|
-| | integer	| Unique 3Commas ID for Trade entity |
+| **`id`** | integer	| Unique 3Commas ID for Trade entity |
 
+<br>
+<br>
 
-**Example Request**
+**Example Request**<br>
 
 ```json
 
 ```
+<br>
+<br>
 
-**Example Response and errors**
+**Example Response and errors**<br>
 
 <details>
-<summary>Status: 200 OK</summary>
+<summary>Status: 200 OK</summary><br>
 
 ```json
 {
@@ -237,7 +255,9 @@ If successful, the response includes a copy of the updated SmartTrade entity.
 </details>
 
 <details>
-<summary>Status: </summary>
+<summary>Status: </summary><br>
+
 ```json
+
 ```
 </details>
