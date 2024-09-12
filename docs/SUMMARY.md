@@ -39,10 +39,10 @@
    * [Close SmartTrade by market price](SmartTrade/8.%20Close%20SmartTrade%20by%20market%20price.md)
    * [Add a note to SmartTrade](SmartTrade/9.%20Add%20a%20note%20to%20SmartTrade.md)
    * [Cancel SmartTrade](SmartTrade/10.%20Cancel%20SmartTrade.md)
-   * [Trades](Trades/README.md)
-      * [Get trades of SmartTrade](Trades/Get%20trades%20of%20SmartTrade.md)
-      * [Closes trade by market](Trades/Closes%20trade%20by%20market.md)
-       * [Cancel trade](Trades/Cancel%20trade.md)
+   * [Trades](SmartTrade/Trades/README.md)
+      * [Get trades of SmartTrade](SmartTrade/Trades/Get%20trades%20of%20SmartTrade.md)
+      * [Closes trade by market](SmartTrade/Trades/Closes%20trade%20by%20market.md)
+       * [Cancel trade](SmartTrade/Trades/Cancel%20trade.md)
       
 
 
