@@ -116,7 +116,7 @@
 </details>
 
 <details>
-<summary>Status: 404 </summary><br>
+<summary>Status: 404 Not Found</summary><br>
 
 ```json
 {
