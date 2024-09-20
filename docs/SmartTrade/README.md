@@ -29,26 +29,26 @@ A **SmartTrade** can include the following **trade** types:<br>
 
 <br>
 
-<strong>id</strong><span style="margin-left: 30px;"></span>integer<br>
+<strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;integer<br>
 Unique 3Commas ID for this SmartTrade entity<br>
 
-<strong>account</strong><span style="margin-left: 30px;"></span>object<br>Details about user account<br><br>
-<span style="margin-left: 40px;"><strong>id</strong><span style="margin-left: 30px;"></span>integer<br>
-<span style="margin-left: 40px;">Unique 3Commas ID for this exchange account entity<br>
-<span style="margin-left: 40px;"><strong>type</strong><span style="margin-left: 30px;"></span>string<br>
-<span style="margin-left: 40px;">Exchange types where this SmartTrade was created<br>
-<span style="margin-left: 40px;"><strong>name</strong><span style="margin-left: 30px;"></span>string<br> 
-<span style="margin-left: 40px;">Name of this exchange account<br>
-<span style="margin-left: 40px;"><strong>market</strong><span style="margin-left: 30px;"></span>string<br>
-<span style="margin-left: 40px;">[?]<br>
-<span style="margin-left: 40px;"><strong>link</strong><span style="margin-left: 30px;"></span>string<br>
-<span style="margin-left: 40px;">The URL of the account where this SmartTrade was created<br>
+<strong>account</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>object<br>Details about user account<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>id</strong>&nbsp;&nbsp;&nbsp;</span>integer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Unique 3Commas ID for this exchange account entity<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>type</strong><span style="margin-left: 30px;"></span>string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Exchange types where this SmartTrade was created<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>name</strong><span style="margin-left: 30px;"></span>string<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;Name of this exchange account<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>market</strong><span style="margin-left: 30px;"></span>string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[?]<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>link</strong><span style="margin-left: 30px;"></span>string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The URL of the account where this SmartTrade was created<br><br>
 <strong>pair</strong><span style="margin-left: 30px;"></span>string<br>
-Trading pair in 3Commas format<br>
-<strong>instant</strong><span style="margin-left: 30px;"></span>boolean<br>
+Trading pair in 3Commas format<br><br>
+<strong>instant</strong>&nbsp;&nbsp;&nbsp;&nbsp;</span>boolean<br>
 [?] <br>
 
-<strong>status</strong><span style="margin-left: 30px;"></span>object<br><br>
+<strong>status</strong>&nbsp;&nbsp;&nbsp;&nbsp;</span>object<br><br>
 <span style="margin-left: 40px;"><strong>type</strong><span style="margin-left: 30px;">string<br> 
 <span style="margin-left: 40px;">Web status for this SmartTrade<br>
 <span style="margin-left: 40px;"><strong>basic_type</strong><span style="margin-left: 30px;">string<br>
