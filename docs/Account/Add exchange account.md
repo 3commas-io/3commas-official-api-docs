@@ -36,10 +36,10 @@
 
 | Name | Type |Description |
 |------|------|------------|
-| **id** | ``integer`` | ID of the exchange account entity |
-| **name** | ``string``  | The name for the exchange account defined by the user |
-| **exchange_name** | ``string`` | Name of this exchange account |
-| **market_icon** | ``string`` | Icon of the exchange  |
+| **id** | `integer` | ID of the exchange account entity |
+| **name** | `string`  | The name for the exchange account defined by the user |
+| **exchange_name** | `string` | Name of this exchange account |
+| **market_icon** | `string` | Icon of the exchange  |
 | **market_code** | `string` |3Commas of exchange code entity |
 | **autobalance_enabled** | `boolean` | Indicates whether auto balance  mode is enabled for this account |
 | **auto_balance_period** | `integer` | TThe interval, in hours, at which automatic portfolio balancing occurs |
@@ -79,8 +79,8 @@
 | **day_profit_usd_percentage** | `number` | Daily profit percentage in USD |
 | **btc_profit** | `number` | Monthly profit in BTC |
 | **usd_profit**  | `number` | Monthly profit in USD  |
-| **btc_profit_percentage**  | `number` | Monthly profit percentage in BTC |
-| **usd_profit_percentage**  | `number` | Monthly profit percentage in USD |
+| **btc_profit_percentage** | `number` | Monthly profit percentage in BTC |
+| **usd_profit_percentage** | `number` | Monthly profit percentage in USD |
 | **total_btc_profit**  | `number` | Total profit in BTC |
 | **total_usd_profit** | `number` | Total profit in USD |
 | **created_at** | `string` | ISO 8601 datetime `string` of when this Account entity was created |
@@ -186,3 +186,6 @@
     "api_keys_state": "ok"
 }
 ```
+</details>
+
+
