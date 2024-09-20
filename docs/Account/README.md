@@ -14,9 +14,9 @@ Account entities hold information like:<br>
 ## Attributes<br>
 <br>
 <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`integer`<br>
-ID of the exchange account entity<br>
+ID of the exchange account entity<br><br>
 
-<strong>name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`string `<br>
+<strong>name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`string`<br>
 The name for the exchange account defined by the user<br>
 
 <strong>exchange_name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`string`<br>
