@@ -29,21 +29,21 @@ A **SmartTrade** can include the following **trade** types:<br>
 
 <br>
 
-<strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;integer<br>
+<strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integer<br>
 Unique 3Commas ID for this SmartTrade entity<br>
 
 <strong>account</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>object<br>Details about user account<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<strong>id</strong>&nbsp;&nbsp;&nbsp;</span>integer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>integer<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Unique 3Commas ID for this exchange account entity<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<strong>type</strong><span style="margin-left: 30px;"></span>string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>string<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Exchange types where this SmartTrade was created<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<strong>name</strong><span style="margin-left: 30px;"></span>string<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>string<br> 
 &nbsp;&nbsp;&nbsp;&nbsp;Name of this exchange account<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<strong>market</strong><span style="margin-left: 30px;"></span>string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>market</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>string<br>
 &nbsp;&nbsp;&nbsp;&nbsp;[?]<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<strong>link</strong><span style="margin-left: 30px;"></span>string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>link</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>string<br>
 &nbsp;&nbsp;&nbsp;&nbsp;The URL of the account where this SmartTrade was created<br><br>
-<strong>pair</strong><span style="margin-left: 30px;"></span>string<br>
+<strong>pair</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>string<br>
 Trading pair in 3Commas format<br><br>
 <strong>instant</strong>&nbsp;&nbsp;&nbsp;&nbsp;</span>boolean<br>
 [?] <br>
