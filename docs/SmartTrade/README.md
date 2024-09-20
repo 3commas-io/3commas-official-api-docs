@@ -30,46 +30,57 @@ A **SmartTrade** can include the following **trade** types:<br>
 <br>
 
 <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integer<br>
-Unique 3Commas ID for this SmartTrade entity<br>
+Unique 3Commas ID for this SmartTrade entity<br><br>
 
-<strong>account</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>object<br>Details about user account<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>integer<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Unique 3Commas ID for this exchange account entity<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<strong>type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>string<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Exchange types where this SmartTrade was created<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<strong>name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>string<br> 
-&nbsp;&nbsp;&nbsp;&nbsp;Name of this exchange account<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<strong>market</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>string<br>
-&nbsp;&nbsp;&nbsp;&nbsp;[?]<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<strong>link</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>string<br>
+<strong>account</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`object`<br>Details about user account<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`integer`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Unique 3Commas ID for this exchange account entity<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`string`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Exchange types where this SmartTrade was created<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`string`<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;Name of this exchange account<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>market</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`string`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[?]<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>link</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`string`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;The URL of the account where this SmartTrade was created<br><br>
-<strong>pair</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>string<br>
-Trading pair in 3Commas format<br><br>
-<strong>instant</strong>&nbsp;&nbsp;&nbsp;&nbsp;</span>boolean<br>
+
+<strong>pair</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string<br>
+Trading pair in 3Commas format<br>
+<br>
+<strong>instant</strong>&nbsp;&nbsp;&nbsp;&nbsp;`boolean`<br>
 [?] <br>
 
-<strong>status</strong>&nbsp;&nbsp;&nbsp;&nbsp;</span>object<br><br>
-<span style="margin-left: 40px;"><strong>type</strong><span style="margin-left: 30px;">string<br> 
-<span style="margin-left: 40px;">Web status for this SmartTrade<br>
-<span style="margin-left: 40px;"><strong>basic_type</strong><span style="margin-left: 30px;">string<br>
-<span style="margin-left: 40px;">3Commas status for this SmartTrade<br>
-<span style="margin-left: 40px;"><strong>title</strong><span style="margin-left: 30px;">string 
-<span style="margin-left: 40px;">Brief description of this status<br>
-<span style="margin-left: 40px;"><strong>error</strong><span style="margin-left: 30px;">string 
-<span style="margin-left: 40px;">Description of the error for this SmartTrade if it fails<br>
-<strong>leverage</strong><span style="margin-left: 30px;"></span>object<br>TBD: add a discription<br><br>
-<span style="margin-left: 40px;"><strong>enabled</strong><span style="margin-left: 30px;">boolean<br>
-<span style="margin-left: 40px;">Information about this leverage for a futures account<br>
-<span style="margin-left: 40px;">`false` if editing is not available<br>
-<span style="margin-left: 40px;"><strong>type</strong><span style="margin-left: 30px;">string<br> 
-<span style="margin-left: 40px;">Shows the leverage type that was set when creating a SmartTrade on a futures account<br>
-<span style="margin-left: 40px;"><strong>value</strong><span style="margin-left: 30px;">nuber<br> 
+<strong>status</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`object`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[?]<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`string`<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;Web status for this SmartTrade<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>basic_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`string`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3Commas status for this SmartTrade<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>title</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`string` 
+&nbsp;&nbsp;&nbsp;&nbsp;Brief description of this status<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>error</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`string` 
+&nbsp;&nbsp;&nbsp;&nbsp;Description of the error for this SmartTrade if it fails<br><br>
+
+<strong>leverage</strong><span style="margin-left: 30px;">object</span><br>TBD: add a discription<br><br>
+<span style="margin-left: 40px;"><strong>enabled</strong><span style="margin-left: 30px;">boolean</span><br>
+<span style="margin-left: 40px;">Information about this leverage for a futures account</span><br>
+<span style="margin-left: 40px;">`false` if editing is not available</span><br>
+<span style="margin-left: 40px;"><strong>type</strong><span style="margin-left: 30px;">string</span><br> 
+<span style="margin-left: 40px;">Shows the leverage type that was set when creating a SmartTrade on a futures account</span><br>
+<span style="margin-left: 40px;"><strong>value</strong><span style="margin-left: 30px;">nuber</span><br> 
 <span style="margin-left: 40px;">Shows the leverage value that was set when creating a SmartTrade on a futures account<br>
 <span style="margin-left: 40px;"><strong>type_editable</strong><span style="margin-left: 30px;">boolean<br> 
-<span style="margin-left: 40px;">Indicates whether the user can modify `leverage[type]` settings when editing a SmartTrade.<br>
-<span style="margin-left: 40px;">`true` if editing is available<br>
-<strong>position</strong><span style="margin-left: 30px;"></span>object<br>TBD: add a discription<br><br>
-<span style="margin-left: 40px;"><strong>editable</strong><span style="margin-left: 30px;">boolean<br>
+<span style="margin-left: 40px;">Indicates whether the user can modify `leverage[type]` settings when editing a SmartTrade</span><br>
+<span style="margin-left: 40px;">`true` if editing is available</span><br><br>
+<strong>position</strong><span style="margin-left: 30px;">object</span><br>TBD: add a discription<br><br>
+<span style="margin-left: 40px;"><strong>editable</strong><span style="margin-left: 30px;">boolean</span><br>
 <span style="margin-left: 40px;">Indicates whether the user can modify the settings of position when editing a SmartTrade.<br><span style="margin-left: 40px;">`true` if editing is available<br>
 <span style="margin-left: 40px;"><strong>type</strong><span style="margin-left: 30px;">string<br>
 <span style="margin-left: 40px;">[?]<br>
