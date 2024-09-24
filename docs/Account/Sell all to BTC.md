@@ -1,18 +1,31 @@
-## Get Account Info<br>
+## Sell all to BTC<br>
 
-**Description:** Shows information about a specific account using its ID<br>
+**Description:**  Sells all assets on the exchange account in BTC, creating orders on the exchange<br>
 
-**Permission:** ACCOUNTS_READ<br>
+**Permission:** ACCOUNTS_WRITE<br>
 **Security:** SIGNED<br>
+
+{% hint style="info" %}
+This endpoint works for the following exchanges: **Binance Spot**, **Binance Margin**, **Binance US**, **Coinbase Advanced Spot**, **Gemini Spot**, **Kraken Spot**, **Bybit Spot**, **GateIo**, **OKX Spot**, **Huobi Spot**, **Bitfinex Spot**, **Kucoin Spot**, **Bitstamp Spot**
+{% endhint %}
+
+<br>
 <br>
 
 ----------
 
-<mark style="color:blue;background-color:white" > **GET**
+<mark style="color:green;background-color:white"> **POST**
 
-<mark style="color:blue;background-color:white" > **/ver1/accounts/{account_id}**
+<mark style="color:green;background-color:white"> **/ver1/accounts/{account_id}/sell_all_to_btc**
 
 ----------
+
+<br>
+<br>
+
+{% hint style="warning" %}
+When executing this request, all trading entities (bots, SmartTrade, trades, deals, orders, exception Signal Bot) stop and close at the 3Commas and the exchange
+{% endhint %}
 
 <br>
 <br>
@@ -21,44 +34,37 @@
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
-|**`account_id`**  | <mark style="color:grey;background-color:white"> integer | Yes |  | Unique 3Commas ID for this exchange account entity |
+|**account_id**  | `integer`| Yes |  | Unique 3Commas ID for this exchange account entity |
 
 <br>
 <br>
 
 **Parameters response**<br>
-| Name | Type |	Description|
-|------|------|------------|
-|**`id`**| | |
-|**` `**| | |
-|**` `**| | |
-|**` `**| | |
-|**` `**| | |
-|**` `**| | |
+
+{% hint style="info" %}
+If successful, the response includes a copy of the updated [Account](Account/README.md) entity.
+{% endhint %}
 
 <br>
 <br>
 
 **Example request**<br>
-```json
-/ver1/accounts/12345678
+
+```
+/ver1/accounts/32833900/sell_all_to_usd
 ```
 <br>
 <br>
 
 **Example Response and errors**<br>
-
-
 <details>
-
-<summary>Status: 200 OK</summary>
+<summary>Status: 201 Created</summary><br>
 
 ```json
 {
-    "id": 12345678,
+    "id": 32402783,
     "auto_balance_period": 12,
     "auto_balance_portfolio_id": null,
-    "auto_balance_portfolio": null,
     "auto_balance_currency_change_limit": null,
     "autobalance_enabled": false,
     "hedge_mode_available": false,
@@ -91,27 +97,27 @@
     ],
     "primary_display_currency_profit_percentage": {
         "currency": "USD",
-        "amount": "-2.48"
+        "amount": "4.08"
     },
     "primary_display_currency_profit": {
         "currency": "USD",
-        "amount": "-0.695668291131228846704187732519297582723554246"
+        "amount": "1.1904074327111530753265032408092397310973795168"
     },
     "day_profit_primary_display_currency_percentage": {
         "currency": "USD",
-        "amount": "-1.5968"
+        "amount": "1.0106"
     },
     "day_profit_primary_display_currency": {
         "currency": "USD",
-        "amount": "-0.4441768299751186373103375288155938785363926290406"
+        "amount": "0.303798359197846162240938425994424916390118897162"
     },
     "primary_display_currency_amount": {
         "currency": "USD",
-        "amount": "27.371739251908771153295812267480702417276445754"
+        "amount": "30.3654836868311530753265032408092397310973795168"
     },
     "total_primary_display_currency_profit": {
         "currency": "USD",
-        "amount": 3.371739251908771
+        "amount": 6.365483686831153
     },
     "available_include_in_summary": true,
     "api_key": "yzNYzv8a0VEBwsrhc3MDpHZ7XMqa1vJqSqHzpfjjKpdFF9SbQsVQKRl3hKNyZU45",
@@ -121,33 +127,32 @@
     "customer_id": null,
     "subaccount_name": null,
     "lock_reason": null,
-    "btc_amount": "0.00048306876986613246844096791630894498302707",
-    "usd_amount": "27.371739251908771153295812267480702417276445754",
-    "day_profit_btc": "0.00000349955240609775369364264288301905710155484597542",
-    "day_profit_usd": "-0.4441768299751186373103375288155938785363926290406",
-    "day_profit_btc_percentage": "0.73",
-    "day_profit_usd_percentage": "-1.6",
-    "btc_profit": "-0.00003240253771427353155903208369105501697293",
-    "usd_profit": "-0.695668291131228846704187732519297582723554246",
-    "usd_profit_percentage": "-2.48",
-    "btc_profit_percentage": "-6.29",
-    "total_btc_profit": "-0.0003454699708792625",
-    "total_usd_profit": "3.371739251908771",
+    "btc_amount": "0.00048354921680019174575329053051358334806752",
+    "usd_amount": "30.3654836868311530753265032408092397310973795168",
+    "day_profit_btc": "0.000004484441392636909809798397735805570289805668147599",
+    "day_profit_usd": "0.303798359197846162240938425994424916390118897162",
+    "day_profit_btc_percentage": "0.94",
+    "day_profit_usd_percentage": "1.01",
+    "btc_profit": "-0.00000742390628421825424670946948641665193248",
+    "usd_profit": "1.1904074327111530753265032408092397310973795168",
+    "usd_profit_percentage": "4.08",
+    "btc_profit_percentage": "-1.51",
+    "total_btc_profit": "-0.0003449895239452033",
+    "total_usd_profit": "6.365483686831153",
     "pretty_display_type": "BinanceUs",
     "exchange_name": "Binance US Spot",
     "market_code": "binance_us",
     "api_keys_state": "ok"
 }
 ```
-</details>
 
-<details>
-<summary>Status: 404 Not Found</summary>
-
+Status: 403 Forbidden
 ```json
 {
-    "error": "not_found",
-    "error_description": "Not Found"
+    "error": "Forbidden. Unavailable for this account."
 }
 ```
-</details>
+
+
+
+

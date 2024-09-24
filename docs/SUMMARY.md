@@ -8,15 +8,21 @@
   * [Currency rates and limits](Market%20data/3.Currency%20rates%20and%20limits.md)
   * [Currency rates and limits with leverage data](Market%20data/4.Currency%20rates%20and%20limits%20with%20leverage%20data.md)
   
+<br>
 
 * [Account](Account/README.md)
-  * [Available market subtypes](Account/1.Available%20market%20subtypes.md)
-  * [Add exchange account](Account/2.Add%20exchange%20account.md)
-  * [Get account info](Account/3.Get%20account%20info)
-  * [Get the list of active entities](Account/Get%20the%20list%20of%20active%20entities.md)
-  * [Information about account leverage](Account/6.Information%20about%20account%20leverage.md)
+  * [Available market subtypes](Account/Available%20market%20subtypes.md)
+  * [Add exchange account](Account/Add%20exchange%20account.md)
+  * [Get account info](Account/Get%20account%20info)
   * [List of exchanges and wallets connected by the user](Account/List%20of%20exchanges%20and%20wallets%20by%20the%20user.md)
-  * [Remove exchange connection](Account/7.Remove%20exchange%20connection.md)
+  * [Get the list of active entities](Account/Get%20the%20list%20of%20active%20entities.md)
+  * [Edit exchange account](Account/Edit%20exchange%20account.md)
+  * [Sell all to BTC](Account/Sell%20all%20to%20BTC.md)
+  * [Sell all to USD](Account/Sell%20all%20to%20USD.md)
+  * [Information about account leverage](Account/Information%20about%20account%20leverage.md)
+  * [Remove exchange connection](Account/Remove%20exchange%20connection.md)
+
+<br>
 
 * [DCA bots](dca_bots/README.md)
   * [Create bot](dca_bots/create_bot.md)
