@@ -13,7 +13,7 @@
 * [Account](Account/README.md)
   * [Available market subtypes](Account/Available%20market%20subtypes.md)
   * [Add exchange account](Account/Add%20exchange%20account.md)
-  * [Get account info](Account/Get%20account%20info)
+  * [Get account info](Account/Get%20account%20info.md)
   * [List of exchanges and wallets connected by the user](Account/List%20of%20exchanges%20and%20wallets%20by%20the%20user.md)
   * [Get the list of active entities](Account/Get%20the%20list%20of%20active%20entities.md)
   * [Edit exchange account](Account/Edit%20exchange%20account.md)
