@@ -1,4 +1,4 @@
-# Account
+# Account<br>
 
 Account entities hold information about the cryptocurrency portfolio, theys balances and the set of tools that are available for this account.<br>
 
@@ -9,7 +9,7 @@ Account entities hold information like:<br>
 * Profit and currency information, such as the account's balance and daily and total profit;
 * Available trading features for this account.<br>
 
-3Commas provides a set of methods to create new exchange account connections and manage existing accounts.
+3Commas provides a set of methods to create new exchange account connections and manage existing accounts.<br><br>
 
 ## Attributes<br>
 <br>
