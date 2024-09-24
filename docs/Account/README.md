@@ -12,7 +12,6 @@ Account entities hold information like:<br>
 3Commas provides a set of methods to create new exchange account connections and manage existing accounts.<br><br>
 
 ## Attributes<br>
-<br>
 
 <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`integer`<br>
 ID of the exchange account entity<br>
