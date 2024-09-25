@@ -37,7 +37,7 @@ Keep in mind, to avoid canceling the SmartTrade, make sure to leave at least one
 **Response Parameters**<br>
 
 {% hint style="info" %}
-If successful response, the response includes a copy of the updated SmartTrade entity. You can find a total description of all attributes on the page about [SmartTrade](SmartTrade/README.md). 
+If successful response, the response includes a copy of the updated SmartTrade entity. You can find a total description of all attributes on the page about [SmartTrade](.SmartTrade/README.md). 
 {% endhint %}
 
 <br>
