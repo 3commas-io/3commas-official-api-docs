@@ -49,6 +49,7 @@
 **Example request**<br>
 
 ```json
+/ver1/accounts/32833910/leverage_data?pair=USDC_DOGE
 
 ```
 <br>

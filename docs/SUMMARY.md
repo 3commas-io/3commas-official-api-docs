@@ -17,6 +17,7 @@
   * [List of exchanges and wallets connected by the user](Account/List%20of%20exchanges%20and%20wallets%20by%20the%20user.md)
   * [Get the list of active entities](Account/Get%20the%20list%20of%20active%20entities.md)
   * [Edit exchange account](Account/Edit%20exchange%20account.md)
+  * [Load balances for specified exchange](Account/Load%20balances%20for%20specified%20exchange.md)
   * [Sell all to BTC](Account/Sell%20all%20to%20BTC.md)
   * [Sell all to USD](Account/Sell%20all%20to%20USD.md)
   * [Information about account leverage](Account/Information%20about%20account%20leverage.md)
