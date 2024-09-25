@@ -29,22 +29,22 @@ Icon of the exchange<br>
 3Commas of exchange code entity<br>
 
 <strong>autobalance_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`boolean`<br>
-Indicates whether auto balance  mode is enabled for this account<br>
+Indicates whether auto-balance  mode is enabled for this account<br>
 
 <strong>auto_balance_period</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`null` or `string`<br>
 The interval, in hours, at which automatic portfolio balancing occurs<br>
 
-<strong>auto_balance_portfolio_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`null` or `integer`<br>
+<strong>auto_balance_portfolio_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `integer` or `null`<br>
 ID of the portfolio for which automatic balancing has been initiated<br>
 
 <strong>autobalance_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`boolean`<br>
-Indicates whether auto balance  mode is enabled for this account<br>
+Indicates whether auto-balance  mode is enabled for this account<br>
 
-<strong>auto_balance_error</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`null` or `string`<br>
+<strong>auto_balance_error</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`string` or `null`<br>
 A description comes up to explain why auto-balance failed<br>
 
 <strong>last_auto_balance</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`null` or `string <date-time>`<br>
-ISO 8601 datetime `string ` of when this Auto balance was last time<br>
+ISO 8601 datetime `string ` of when this auto-balance was last time<br>
 
 <strong>hedge_mode_available</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`boolean`<br>
 Indicates whether hedge mode is available for this account<br>

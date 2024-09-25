@@ -24,26 +24,26 @@ This endpoint supports to create SmartTrade is available for accounts where the 
 <br>
 <br>
 
-**Query Parameters**
-<br>
+**Query Parameters**<br>
+
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
-|**`type`**  | <mark style="color:grey;background-color:white">string	| Yes |  | Name of the exchange in the 3Commas system |
-|**`name`**  | <mark style="color:grey;background-color:white">string	| Yes |  | Name for exchange account |
-|**`api_key`**  | <mark style="color:grey;background-color:white">string	| No |  | ID of the exchange account entity |
-|**`secret`**  | <mark style="color:grey;background-color:white">string	| No |  | ID of the exchange account entity |
+|**type**  | `string`| Yes |  | Name of the exchange in the 3Commas system |
+|**name**  | `string`	| Yes |  | Name for exchange account |
+|**api_key**  | `string`	| No |  | ID of the exchange account entity |
+|**secret**  | `string`	| No |  | ID of the exchange account entity |
 
 <br>
 <br>
 
-**Parameters response**
-<br>
+**Parameters response**<br>
+
 | Name | Type |	Description|
 |------|------|------------|
-|**`type`**| string | The exchange code available to connect |
-|**`connected`**| boolean| Returns status connect of exchange<br>`true` is if connected |
-|**`available`**| boolean| Shows the availability of connection to the exchange.<br>`true` is if the exchange connection is available |
-|**`unified`**| boolean| Shows the exchange supports a unified account. Using for Bybit exchange<br>`true` is if it supports<br>  |
+|**type** | `string` | The exchange code available to connect |
+|**connected**| `boolean`| Returns status connect of exchange<br>`true` is if connected |
+|**available**| `boolean`| Shows the availability of connection to the exchange.<br>`true` is if the exchange connection is available |
+|**unified**| `boolean`| Shows the exchange supports a unified account. Using for Bybit exchange<br>`true` is if it supports  |
 
 <br>
 <br>
