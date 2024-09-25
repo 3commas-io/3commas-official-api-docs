@@ -26,7 +26,7 @@ Keep in mind, that an exchange account can't delete if it has any active entitie
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
-|**`account_id`**  | <mark style="color:grey;background-color:white"> integer | Yes |  | Unique 3Commas ID for this exchange account entity |
+|**account_id**  | `integer` | Yes |  | Unique 3Commas ID for this exchange account entity |
 
 <br>
 <br>

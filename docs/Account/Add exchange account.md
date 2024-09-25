@@ -16,7 +16,7 @@
 <br>
 <br>
 
-**Parameters request**<br>
+### Parameters request<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
@@ -32,7 +32,7 @@
 <br>
 <br>
 
-**Parameters response**<br>
+### Parameters response<br>
 
 | Name | Type |Description |
 |------|------|------------|
@@ -89,7 +89,7 @@
 <br>
 <br>
 
-**Example Request**<br>
+### Example Request<br>
 
 ```json
 /v2/smart_trades/12345678
@@ -97,7 +97,7 @@
 <br>
 <br>
 
-**Example Response and errors**<br>
+### Example Response and errors<br>
 
 <details>
 <summary>Status: 200 OK</summary>

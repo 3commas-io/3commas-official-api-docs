@@ -16,22 +16,22 @@
 <br>
 <br>
 
-**Request Parameters**<br>
+### Request Parameters<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
-|**`api_key`**  | <mark style="color:grey;background-color:white">string	| No |  | ID of the exchange account entity |
-|**`page`**  | <mark style="color:grey;background-color:white">integer	| No |  | Page number for pagination. Default: `1`  |
-|**`per_page`**  | <mark style="color:grey;background-color:white">integer	| No | Minimum:`1` Maximum:`100` | Quantity of records on one page. Default: `100` |
+|**api_key** | `string`	| No |  | ID of the exchange account entity |
+|**page**  | `integer`	| No |  | Page number for pagination.<br>Default: `1`  |
+|**per_page**  |`integer` | No | Minimum:`1`<br>Maximum:`100` | Quantity of records on one page.<br>Default: `100` |
 
 <br>
 <br>
 
-**Parameters response**<br>
+### Parameters response<br>
 
 | Name | Type |	Description|
 |------|------|------------|
-|**`id`**| | |
+|**id**| | |
 |**` `**| | |
 |**` `**| | |
 |**` `**| | |
@@ -41,7 +41,7 @@
 <br>
 <br>
 
-**Example request**<br>
+### Example request<br>
 
 ```json
 
@@ -51,7 +51,7 @@
 <br>
 <br>
 
-**Example Response and errors**<br>
+### Example Response and errors<br>
 
 ```json
 [
