@@ -41,26 +41,27 @@
 | **order_type** | `string` | The type of trade used to open the position (e.g., `market`, `limit`, `conditional`) 
 | **pair** | `string` | Trading pair in 3Commas format for this trade |
 | **position_percentage** | `null` or `string`|Доля в процентах шага по TP. заполняется поле только в случае  "trade_purpose": "take_profit"|
-| **realised_amount** |  `string` or `null` | Реализованная по факту количество  |
-| **realised_total** | `string` or `null` | Реализованный объем |
+| **realised_amount** |  `string` or `null` | Indicates the realized amount from the trade |
+| **realised_total** | `string` or `null` | Indicates the total realized amount from the trade |
+| **realised_percentage** | `number`| Indicates the realized percentage of the total trade amount  |
+| **realised_price** | `number` or `null` | Indicates the realized price of the trade |
 | **status** | `string` | 3Commas status for this Trade | 
-| **take_profit_percentage**  | `string` or `null` | Значение профита в процентах |
+| **take_profit_percentage**  | `string` or `null` | The percentage price level for Take Profit for this Trade |
 | **trade_purpose** | `string`| The type of trade.<br><details> <summary>Show allowed values</summary>**position**<br> **take_profit** <br>**stop_loss** <br>**reduce_funds**<br></details><br> |
-| **trail_percentage** | `string` or `null` | Процент отклонение от цены  по этому трейду |
-| **trail_value** | `string` or `null` | Отклонение от цены [?] (сами высчитываем) по этому трейду |
+| **trail_percentage** | `string` or `null` | Indicates the percentage deviation from the price for this trade |
+| **trail_value** | `string` or `null` | Indicates the deviation from the price for this trade (сами высчитываем) по этому трейду |
 | **trailing_enabled** | `boolean`| Indicates whether the trailing settings for this trade can be edited |
-| **trailing_last_price** | `string` or `null` |  |
-| **trailing_last_price_updated_at** | `number` or `null` | |
-| **trigger_condition** | `number` or `null` | |
-| **trigger_price**| `string` or `null` |  |
-| **trigger_price_percentage** | `number` or `null` |  |
-| **trigger_type** | `string` |  |
+| **trailing_last_price** | `string` or `null` | Indicates the last price used for trailing |
+| **trailing_last_price_updated_at** | `number` or `null` |Indicates the timestamp of the last update to the trailing price |
+| **trigger_condition** | `number` or `null` | Indicates the condition under which the trigger is activated<br> <details><summary>Show allowed values</summary><br>* greater<br>-less<br>-greater_or_equal <br>-less_or_equal<br>
+</details><br> |
+| **trigger_price** | `string` or `null` | Indicates the price at which the trigger is activated |
+| **trigger_price_percentage** | `string` or `null` | Indicates the percentage for the trigger price |
+| **trigger_type** | `string` | Indicates the type of trigger for the trade |
 | **created_at**| `string <date-time>`| ISO 8601 datetime string of when this Trade entity was created |
 | **updated_at**| `string <date-time>`| ISO 8601 datetime string of when this Trade entity was updated |
-| **realised_percentage** | `number`|  |
-| **realised_price** | `number` or `null` |  |
 | **cancelable** | `boolean`| Indicates whether this trade can be canceled |
-| **force_processable** | `boolean`| |
+| **force_processable** | `boolean`| Indicates whether this Trade can be close by market (хорошо бы переназвать поле) |
 
 <br>
 <br>
