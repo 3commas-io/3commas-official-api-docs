@@ -21,20 +21,58 @@
 **Path Parameters**<br>
 | Name | Type |	Mandatory |	Values| Description|
 |------|------|-----------|-----------------|------------|
-|`smart-trade_id` | integer	| Yes | - | Unique 3Commas ID for this SmartTrade entity |
+|**smart-trade_id**| `integer` | Yes |  | Unique 3Commas ID for this SmartTrade entity |
 
 <br>
 <br>
 
 **Response Parameters**<br>
 
-**TBD** 
 | Name | Type |	Description|
-|------|------|-----------|
-|`smart-trade_id` | integer	| Unique 3Commas ID for Trade entity |
+|------|------|------------|
+| **id** | `integer`| ID of this trade entity |
+| **average_price** | `null` or `string` | The weighted average price at which the asset was bought or sold during the execution of the trades|
+| **follow_price_type** | `string`  | The type of price to follow for this trade (f.e. `bid`, `ask`, or `last`) |
+| **initial_amount** | `string`|The initial amount for this trade  |
+| **initial_total** | `string`| The initial total for this trade |
+| **initial_price** | `number`| The initial price for this trade |
+| **order_price** | `null` or `string` | The limit price for this trade |
+| **order_side**  | `string`  | The side of the order to be created by this trade |
+| **order_type** | `string` | The type of trade used to open the position (e.g., `market`, `limit`, `conditional`) 
+| **pair** | `string` | Trading pair in 3Commas format for this trade |
+| **position_percentage** | `null` or `string`|Доля в процентах шага по TP. заполняется поле только в случае  "trade_purpose": "take_profit"|
+| **realised_amount** |  `string` or `null` | Indicates the realized amount from the trade |
+| **realised_total** | `string` or `null` | Indicates the total realized amount from the trade |
+| **realised_percentage** | `number`| Indicates the realized percentage of the total trade amount  |
+| **realised_price** | `number` or `null` | Indicates the realized price of the trade |
+| **status** | `string` | 3Commas status for this Trade | 
+| **take_profit_percentage**  | `string` or `null` | The percentage price level for Take Profit for this Trade |
+| **trade_purpose** | `string`| The type of trade.<br><details> <summary>Show allowed values</summary>**position**<br> **take_profit** <br>**stop_loss** <br>**reduce_funds**<br></details><br> |
+| **trail_percentage** | `string` or `null` | Indicates the percentage deviation from the price for this trade |
+| **trail_value** | `string` or `null` | Indicates the deviation from the price for this trade (сами высчитываем) по этому трейду |
+| **trailing_enabled** | `boolean`| Indicates whether the trailing settings for this trade can be edited |
+| **trailing_last_price** | `string` or `null` | Indicates the last price used for trailing |
+| **trailing_last_price_updated_at** | `number` or `null` |Indicates the timestamp of the last update to the trailing price |
+| **trigger_condition** | `number` or `null` | Indicates the condition under which the trigger is activated<br> <details><summary>Show allowed values</summary><br>* greater<br>-less<br>-greater_or_equal <br>-less_or_equal<br>
+</details><br> |
+| **trigger_price** | `string` or `null` | Indicates the price at which the trigger is activated |
+| **trigger_price_percentage** | `string` or `null` | Indicates the percentage for the trigger price |
+| **trigger_type** | `string` | Indicates the type of trigger for the trade |
+| **created_at**| `string <date-time>`| ISO 8601 datetime string of when this Trade entity was created |
+| **updated_at**| `string <date-time>`| ISO 8601 datetime string of when this Trade entity was updated |
+| **cancelable** | `boolean`| Indicates whether this trade can be canceled |
+| **force_processable** | `boolean`| Indicates whether this Trade can be close by market (хорошо бы переназвать поле) |
 
 <br>
 <br>
+
+
+**Example Request**<br>
+
+```json
+/v2/smart_trades/30848974/trades
+
+```
 
 **Example Response and errors**
 

@@ -23,38 +23,35 @@ Keep in mind, to avoid canceling the SmartTrade, make sure to leave at least one
 
 <br>
 
-{% hint style="info" %}
-If successful, the response includes a copy of the updated SmartTrade entity.
-{% endhint %}
 
 
 **Path Parameters**<br>
 | Name | Type |	Mandatory |	Values(default)	| Description|
 |------|------|-----------|-----------------|------------|
-|`smart-trade_id` | integer	| Yes | - | Unique 3Commas ID for this SmartTrade entity. |
-|`id` | integer	| Yes | - | Unique 3Commas ID for Trade entity |
+| **smart-trade_id** | `integer` | Yes | - | Unique 3Commas ID for this SmartTrade entity. |
+|**id** | `integer`	| Yes | - | Unique 3Commas ID for Trade entity |
 
 <br>
 <br>
 
-**Response Parameters**<br>
+### Response Parameters<br>
 
-| Name | Type |	Description|
-|------|------|-----------|
-| **`id`** | integer	| Unique 3Commas ID for Trade entity |
+{% hint style="info" %}
+If successful response, the response includes a copy of the updated SmartTrade entity. You can find a total description of all attributes on the page about [SmartTrade](/SmartTrade/README.md).
+{% endhint %}
 
 <br>
 <br>
 
-**Example Request**<br>
+### Example Request<br>
 
 ```json
-
+/v2/smart_trades/30428625/trades/1008300673
 ```
 <br>
 <br>
 
-**Example Response and errors**<br>
+###  Example Response and errors<br>
 
 <details>
 <summary>Status: 200 OK</summary><br>

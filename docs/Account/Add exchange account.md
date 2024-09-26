@@ -16,12 +16,12 @@
 <br>
 <br>
 
-**Parameters request**<br>
+### Parameters request<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
 |**type** | `string` | Yes |  | 3Commas of exchange code entity |
-|**name** | `string` | Yes |  | Name of this exchange account. |
+|**name** | `string` | Yes |  | Name of this exchange account |
 |**api_key**  | `string` | Yes |  | API-key from this exchange account |
 |**secret**  | `string` | Yes |  | Secret-key from this exchange account |
 |**address**  | `string` | No |  | Address of wallet. This parameter is required when `type` is set to `ethereumwallet` |
@@ -32,7 +32,7 @@
 <br>
 <br>
 
-**Parameters response**<br>
+### Parameters response<br>
 
 | Name | Type |Description |
 |------|------|------------|
@@ -42,7 +42,7 @@
 | **market_icon** | `string` | Icon of the exchange  |
 | **market_code** | `string` |3Commas of exchange code entity |
 | **autobalance_enabled** | `boolean` | Indicates whether auto balance  mode is enabled for this account |
-| **auto_balance_period** | `integer` | TThe interval, in hours, at which automatic portfolio balancing occurs |
+| **auto_balance_period** | `integer` | The interval, in hours, at which automatic portfolio balancing occurs |
 | **auto_balance_portfolio_id** | `integer` | ID of the portfolio for which automatic balancing has been initiated |
 | **autobalance_enabled** | `boolean` | Indicates whether auto balance  mode is enabled for this account |
 | **auto_balance_error** | `null` or `string` | A description comes up to explain why autobalance failed |
@@ -89,7 +89,7 @@
 <br>
 <br>
 
-**Example Request**<br>
+### Example Request<br>
 
 ```json
 /v2/smart_trades/12345678
@@ -97,7 +97,7 @@
 <br>
 <br>
 
-**Example Response and errors**<br>
+### Example Response and errors<br>
 
 <details>
 <summary>Status: 200 OK</summary>

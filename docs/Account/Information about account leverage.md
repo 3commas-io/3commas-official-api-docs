@@ -20,7 +20,7 @@
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
-|**`account_id`**  | <mark style="color:grey;background-color:white"> integer | Yes |  | Unique 3Commas ID for this exchange account entity |
+|**account_id**  | `integer` | Yes |  | Unique 3Commas ID for this exchange account entity |
 
 <br>
 
@@ -28,7 +28,7 @@
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
-|**`page`**  | <mark style="color:grey;background-color:white">integer	| No |  | Page number for pagination.<br>Default: `1`  |
+|**page**  | `integer`	| No |  | Page number for pagination.<br>Default: `1`  |
 
 <br>
 <br>
@@ -36,19 +36,20 @@
 **Parameters response**<br>
 | Name | Type |	Description|
 |------|------|------------|
-|**`code`**|  |  |
-|**`name`**| boolean|  |
-|**`can_set_leverage_value`**| boolean|  |
-|**`max_leverage`**|  |  |
-|**`available_leverage_values`**|  |  |
-|**`valid[min]`**|  |  |
-|**`valid[max]`**|  |  |
+|**code**| `string` |  |
+|**name**| `boolean`|  |
+|**can_set_leverage_value**| boolean|  |
+|**max_leverage**| `string` or `null` |  |
+|**available_leverage_values**| `array` |  |
+|**valid[min]**| `string` or `null` |  |
+|**valid[max]**| `string` or `null` |  |
 
 <br>
 <br>
 **Example request**<br>
 
 ```json
+/ver1/accounts/32833910/leverage_data?pair=USDC_DOGE
 
 ```
 <br>

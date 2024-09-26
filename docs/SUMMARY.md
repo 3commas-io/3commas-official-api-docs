@@ -13,13 +13,17 @@
 * [Account](Account/README.md)
   * [Available market subtypes](Account/Available%20market%20subtypes.md)
   * [Add exchange account](Account/Add%20exchange%20account.md)
-  * [Get account info](Account/Get%20account%20info)
+  * [Get account info](Account/Get%20account%20info.md)
   * [List of exchanges and wallets connected by the user](Account/List%20of%20exchanges%20and%20wallets%20by%20the%20user.md)
   * [Get the list of active entities](Account/Get%20the%20list%20of%20active%20entities.md)
   * [Edit exchange account](Account/Edit%20exchange%20account.md)
+  * [Load balances for specified exchange](Account/Load%20balances%20for%20specified%20exchange.md)
   * [Sell all to BTC](Account/Sell%20all%20to%20BTC.md)
   * [Sell all to USD](Account/Sell%20all%20to%20USD.md)
   * [Information about account leverage](Account/Information%20about%20account%20leverage.md)
+  * [Transfer coins between accounts](Account/Transfer%20coins%20between%20accounts.md)
+  * [Transfer history](Account/Transfer%20history.md)
+  * [Balance history data](Account/Balance%20history%20data.md)
   * [Remove exchange connection](Account/Remove%20exchange%20connection.md)
 
 <br>
