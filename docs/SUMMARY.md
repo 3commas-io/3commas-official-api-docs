@@ -21,6 +21,9 @@
   * [Sell all to BTC](Account/Sell%20all%20to%20BTC.md)
   * [Sell all to USD](Account/Sell%20all%20to%20USD.md)
   * [Information about account leverage](Account/Information%20about%20account%20leverage.md)
+  * [Transfer coins between accounts](Account/Transfer%20coins%20between%20accounts.md)
+  * [Transfer history](Account/Transfer%20history.md)
+  * [Balance history data](Account/Balance%20history%20data.md)
   * [Remove exchange connection](Account/Remove%20exchange%20connection.md)
 
 <br>
