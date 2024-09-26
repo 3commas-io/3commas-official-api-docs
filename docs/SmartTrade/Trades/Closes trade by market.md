@@ -35,7 +35,7 @@ The endpoint is available for a take profit trades with statuses to_process ,  o
 **Response Parameters**<br>
 
 {% hint style="info" %}
-If successful response, the response includes a copy of the updated SmartTrade entity. You can find a total description of all attributes on the page about [SmartTrade](SmartTrade/README.md). 
+If successful response, the response includes a copy of the updated SmartTrade entity. You can find a total description of all attributes on the page about [SmartTrade](./README.md). 
 {% endhint %}
 
 <br>
