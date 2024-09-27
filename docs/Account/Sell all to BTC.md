@@ -30,7 +30,7 @@ When executing this request, all trading entities (bots, SmartTrade, trades, dea
 <br>
 <br>
 
-**Path Parameters**<br>
+### Path Parameters<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
@@ -39,7 +39,7 @@ When executing this request, all trading entities (bots, SmartTrade, trades, dea
 <br>
 <br>
 
-**Parameters response**<br>
+### Parameters response<br>
 
 {% hint style="info" %}
 If successful, the response includes a copy of the updated [Account](./README.md) entity.
@@ -48,7 +48,7 @@ If successful, the response includes a copy of the updated [Account](./README.md
 <br>
 <br>
 
-**Example request**<br>
+### Example request<br>
 
 ```
 /ver1/accounts/32833900/sell_all_to_usd
@@ -56,7 +56,8 @@ If successful, the response includes a copy of the updated [Account](./README.md
 <br>
 <br>
 
-**Example Response and errors**<br>
+### Example Response and errors<br>
+
 <details>
 <summary>Status: 201 Created</summary><br>
 
@@ -145,14 +146,15 @@ If successful, the response includes a copy of the updated [Account](./README.md
     "api_keys_state": "ok"
 }
 ```
-
-Status: 403 Forbidden
+</details>
+<details>
+<summary>Status: 403 Forbidden</summary>
 ```json
 {
     "error": "Forbidden. Unavailable for this account."
 }
 ```
-
+</details>
 
 
 

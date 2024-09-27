@@ -22,7 +22,7 @@ Keep in mind, that an exchange account can't delete if it has any active entitie
 <br>
 <br>
 
-**Path Parameters**<br>
+### Path Parameters<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
@@ -31,7 +31,7 @@ Keep in mind, that an exchange account can't delete if it has any active entitie
 <br>
 <br>
 
-**Parameters response**<br>
+### Parameters response<br>
 
 ```
 NONE
@@ -41,7 +41,7 @@ NONE
 <br>
 
 
-**Example request**<br>
+### Example request<br>
 
 ```json
 /ver1/accounts/12345678/remove
@@ -49,7 +49,7 @@ NONE
 <br>
 <br>
 
-**Example Response and errors**<br>
+### Example Response and errors<br>
 
 <details>
 <summary>Status: 201 Created</summary><br>

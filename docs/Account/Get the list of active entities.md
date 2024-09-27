@@ -17,7 +17,7 @@
 <br>
 <br>
 
-**Path Parameters**<br>
+### Path Parameters<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
@@ -26,7 +26,7 @@
 <br>
 <br>
 
-**Parameters response**<br>
+### Parameters response<br>
 
 | Name | Type |	Description|
 |------|------|------------|
@@ -39,7 +39,7 @@
 <br>
 <br>
 
-**Example request**<br>
+### Example request<br>
 
 ```json
 /ver1/accounts/12345678/active_trading_entities
@@ -47,7 +47,7 @@
 <br>
 <br>
 
-**Example Response and errors**<br>
+### Example Response and errors<br>
 
 
 <details>

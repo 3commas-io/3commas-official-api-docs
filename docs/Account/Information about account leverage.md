@@ -16,7 +16,7 @@
 <br>
 <br>
 
-**Path Parameters**<br>
+### Path Parameters<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
@@ -24,16 +24,17 @@
 
 <br>
 
-**Query Parameters**<br>
+### Query Parameters<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
-|**page**  | `integer`	| No |  | Page number for pagination.<br>Default: `1`  |
+| **page**  | `integer`	| No |  | Page number for pagination.<br>Default: `1`  |
 
 <br>
 <br>
 
-**Parameters response**<br>
+### Parameters response<br>
+
 | Name | Type |	Description|
 |------|------|------------|
 |**code**| `string` |  |
@@ -55,7 +56,7 @@
 <br>
 <br>
 
-**Example Response and errors**<br>
+### Example Response and errors<br>
 <details>
 <summary>Status: 200 OK</summary><br>
 

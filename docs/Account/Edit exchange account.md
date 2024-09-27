@@ -17,7 +17,7 @@
 <br>
 <br>
 
-**Parameters request**<br>
+### Parameters request<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
@@ -33,7 +33,7 @@
 <br>
 <br>
 
-**Parameters response**<br>
+### Parameters response<br>
 
 | Name | Type |Description |
 |------|------|------------|
@@ -87,14 +87,14 @@
 | **created_at** | `string` | ISO 8601 datetime `string` of when this Account entity was created |
 | **updated_at** | `string` | ISO 8601 datetime `string` of when this SmartTrade entity was updated |
 
-**Example request**<br>
+### Example request<br>
 
 ```
 /ver1/accounts/update?account_id=12345678&name=New%20name%20exchange
 ```
 
 
-**Example Response and errors**<br>
+### Example Response and errors<br>
 
 <details>
 <summary>Status: 201 Created</summary><br>

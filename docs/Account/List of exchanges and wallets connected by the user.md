@@ -18,7 +18,8 @@
 <br>
 <br>
 
-**Request Parameters**<br>
+### Request Parameters<br>
+
 | Name | Type | Mandatory | Values  | Description|
 |------|------|-----------|-----------------|------------|
 |**api_key**  | `string` | No |  | Filter by API-key  |
@@ -28,7 +29,7 @@
 <br>
 <br>
 
-**Parameter response**<br>
+### Parameter response<br>
 
 `TBD`
 
@@ -36,14 +37,14 @@
 <br>
 <br>
 
-**Example request**<br>
+### Example request<br>
 ```json
 
 ```
 <br>
 <br>
 
-**Example Response and errors**<br>
+### Example Response and errors<br>
 
 <details>
 

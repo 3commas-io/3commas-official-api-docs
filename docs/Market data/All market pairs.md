@@ -3,8 +3,10 @@
 **Description:** The method allows getting the list of pairs is supported by exchange in 3Commas' format<br>
 
 
-**Permission:** NONE<br>
-**Security:** NONE<br>
+{% hint style="success" %}
+This is an endpoint that does not need authentication
+{% endhint %}
+
 <br>
 
 -------- 
@@ -15,7 +17,6 @@
 
 -------- 
 
-<br>
 <br> 
 
 {% hint style="info" %}
@@ -25,26 +26,25 @@ Use endpoint [Supported markets list](Market%20data/1.Supported%20markets%20list
 <br>
 <br>
 
-**Query Parameters**
+### Request Parameters<br>
 <br>
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
-|**`market_code`**  | integer | Yes |	| Unique exchange code in the 3Commas system|
+|**market_code**  | `integer` | Yes |	| Unique exchange code in the 3Commas system|
 
 <br>
 <br>
 <br>
 
-**Example Request**
-<br>
+### Example request<br>
+
 ```json
 /ver1/accounts/market_pairs?market_code=binance_us
 ```
 <br>
 
-**Example Response and errors**
-
+### Example Response and errors<br>
 <details>
 <summary>Status: 200 OK</summary>
 
@@ -65,7 +65,4 @@ Use endpoint [Supported markets list](Market%20data/1.Supported%20markets%20list
 ```
 
 </details>
-
-
-
 

@@ -2,8 +2,9 @@
 
 **Description:** Returns the list of markets supported by 3Commas<br>
 
-**Permission:** NONE<br>
-**Security:** NONE<br>
+{% hint style="success" %}
+This is an endpoint that does not need authentication
+{% endhint %}
 <br>
 
 ------
@@ -14,40 +15,41 @@
 
 ------
 <br>
-<br>
 
-**Request Parameters**<br>
+### Request Parameters<br>
 
 ```json
 NONE
 ````
+
 <br>
 <br>
 
-**Response Parameters**<br> 
+### Response Parameters <br>
 
 | Name | Type |	 Description|
 |------|------|------------|
-|**`market_name`**  | <mark style="color:grey;background-color:white"> string| Name of the exchange in the 3Commas system |
-|**`market_url`**  | <mark style="color:grey;background-color:white">integer	| The referral link to the exchange website |
-|**`market_icon`**  | <mark style="color:grey;background-color:white">integer	| Icon of the exchange|
-|**`help_link`** | <mark style="color:grey;background-color:white">integer	| The public URL to the help page with detailed instructions on connecting the exchange |
-|**`market_code`**  | <mark style="color:grey;background-color:white">integer	| Unique exchange code in the 3Commas system|
-|**`form_fields[required][][field]`**  | <mark style="color:grey;background-color:white">integer	| The parameter needed to connect a new exchange account [?] |
-|**`form_fields[required][][localized_name]`**  | <mark style="color:grey;background-color:white">integer	| The parameter needed to connect a new exchange account [?] |
-|**`form_fields[optional]`** | <mark style="color:grey;background-color:white">integer	| The parameter needed to connect a new exchange account |
-|**`connection_type`** | <mark style="color:grey;background-color:white">integer	| Shows how many fields use to connect the exchange or the wallet |
-|**`available_connection_flows`** | <mark style="color:grey;background-color:white">integer	| Available exchange connection types in 3Commas: <br>`form` - connection through a web form option <br>`fast_connect` - quick connection option |
-|**`third_party_allowed`** | <mark style="color:grey;background-color:white">boolean	| This exchange provides a service to connect third-party apps.<br>`false` if the exchange does not support. |
-|**`trusted_ips`** | <mark style="color:grey;background-color:white">integer	| The list of IP addresses needs to be whitelisted on the exchange's website for 3Commas to work with the exchange  |
-|**`trusted_ips_input_type`** | <mark style="color:grey;background-color:white">integer	| Input type for trusted IP addresses. |
-|**`fast_connect_action_name`** | <mark style="color:grey;background-color:white">string | Name of the exchange for fast connection option in the 3Commas system |
+|**market_name** | `string` | Name of the exchange in the 3Commas system |
+|**market_url** | `integer`	| The referral link to the exchange website |
+|**market_icon**  | `integer`	| Icon of the exchange |
+|**help_link** | `integer`	| The public URL to the help page with detailed instructions on connecting the exchange |
+|**market_code**  | `integer`	| Unique exchange code in the 3Commas system|
+|**form_fields[required][][field]**  | `integer`	| The parameter needs to connect a new exchange account [?] |
+|**form_fields[required][][localized_name]**  | `integer`	| The parameter needs to connect a new exchange account [?] |
+|**form_fields[optional]** | `integer`	| The parameter needs to connect a new exchange account |
+|**connection_type** | `integer`	| Shows how many fields use to connect the exchange or the wallet |
+|**available_connection_flows** | `integer`	| Available exchange connection types in 3Commas: <br>`form` - connection through a web form option <br>`fast_connect` - quick connection option |
+|**third_party_allowed** | `boolean`	| This exchange provides a service to connect third-party apps.<br>`false` if the exchange does not support. |
+|**trusted_ips** | `integer`	| The list of IP addresses needs to be whitelisted on the exchange's website for 3Commas to work with the exchange  |
+|**trusted_ips_input_type** | `integer`	| Input type for trusted IP addresses. |
+|**fast_connect_action_name** | `string` | Name of the exchange for fast connection option in the 3Commas system |
 
 <br>
 <br>
 
 
-**Example Response and errors**<br> 
+### Example Response and errors<br>
+
 
 <details>
 <summary>Status: 200 OK</summary><br>
