@@ -24,7 +24,7 @@ This endpoint supports to create SmartTrade is available for accounts where the 
 <br>
 <br>
 
-**Query Parameters**<br>
+### Query Parameters<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
@@ -36,7 +36,7 @@ This endpoint supports to create SmartTrade is available for accounts where the 
 <br>
 <br>
 
-**Parameters response**<br>
+### Parameters response<br>
 
 | Name | Type |	Description|
 |------|------|------------|
@@ -48,7 +48,7 @@ This endpoint supports to create SmartTrade is available for accounts where the 
 <br>
 <br>
 
-**Example Request**<br>
+### Example Request<br>
 
 ```json
 /ver1/accounts/types_to_connect?type=binance&name=binance123&api_key=6q4zuONXKi8kOMepGTRs373K46W34wxcxkBlIACvhY8Qr97MsAT9p4qe9Uezqrrd&secret=7CfL1slTgPDfoJSPgaveIsOFxxzCsgzA23yRyCHapgJGDC4yfNGvOavW4QglsyQO
@@ -56,7 +56,7 @@ This endpoint supports to create SmartTrade is available for accounts where the 
 <br>
 <br>
 
-**Example Response and errors**<br>
+### Example Response and errors<br>
 
 <details>
 <summary>Status: 200 OK</summary><br>

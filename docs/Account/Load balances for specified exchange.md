@@ -17,7 +17,7 @@
 <br>
 <br>
 
-**Path Parameters**<br>
+### Path Parameters<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
@@ -26,13 +26,13 @@
 <br>
 <br>
 
-**Response Parameters**<br>
+### Response Parameters<br>
 
 {% hint style="info" %}
 If successful, the response includes a copy of the updated [Account](./README.md) entity.
 {% endhint %}
 
-**Example request**<br>
+### Example request<br>
 
 ```
 
@@ -40,7 +40,8 @@ If successful, the response includes a copy of the updated [Account](./README.md
 <br>
 <br>
 
-**Example Response and errors**<br>
+### Example Response and errors<br>
+
 <details>
 <summary>Status: 201 Created</summary><br>
 

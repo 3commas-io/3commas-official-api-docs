@@ -2,8 +2,9 @@
 
 **Description:** Retuns the current trading rules and ticker information on exchange<br>
 
-**Permission:** NONE<br>
-**Security:** NONE<br>
+{% hint style="success" %}
+This is an endpoint that does not need authentication
+{% endhint %}
 <br>
 
 -------- 

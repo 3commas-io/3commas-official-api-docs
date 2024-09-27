@@ -154,10 +154,10 @@ Total profit in BTC<br>
 Total profit in USD<br>
 
 <strong>created_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`string <date-time>`<br>
-ISO 8601 datetime `string ` of when this Account entity was created<br>
+ISO 8601 datetime string of when this Account entity was created<br>
 
 <strong>updated_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`string <date-time>`<br>
-ISO 8601 datetime `string ` of when this SmartTrade entity was updated<br>
+ISO 8601 datetime string of when this SmartTrade entity was updated<br>
 
 
 
