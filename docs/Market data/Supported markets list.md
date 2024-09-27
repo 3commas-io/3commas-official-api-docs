@@ -2,8 +2,9 @@
 
 **Description:** Returns the list of markets supported by 3Commas<br>
 
-**Permission:** NONE<br>
-**Security:** NONE<br>
+{% hint style="success" %}
+This is an endpoint that does not need authentication
+{% endhint %}
 <br>
 
 ------

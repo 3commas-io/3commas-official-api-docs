@@ -3,8 +3,10 @@
 **Description:** The method allows getting the list of pairs is supported by exchange in 3Commas' format<br>
 
 
-**Permission:** NONE<br>
-**Security:** NONE<br>
+{% hint style="success" %}
+This is an endpoint that does not need authentication
+{% endhint %}
+
 <br>
 
 -------- 
@@ -63,7 +65,4 @@ Use endpoint [Supported markets list](Market%20data/1.Supported%20markets%20list
 ```
 
 </details>
-
-
-
 

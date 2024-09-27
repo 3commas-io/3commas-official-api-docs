@@ -2,8 +2,9 @@
 
 **Description:** Returns the current trading rules and ticket information with data about leverages on the futures exchange<br>
 
-**Permission:** NONE<br>
-**Security:** NONE<br>
+{% hint style="success" %}
+This is an endpoint that does not need authentication
+{% endhint %}
 <br>
 
 -------- 
@@ -126,7 +127,6 @@ The market and trading pair code is used in 3Commas format. Use endpoints [Suppo
   "minPrice": "0.0613",
   "maxPrice": "100000.0"
 }
-
 ```
 </details>
 
