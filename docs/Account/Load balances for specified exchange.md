@@ -1,6 +1,6 @@
 ### Load balances for specified exchange<br>
 
-**Description:** Updates and gets a balance for exchange account using its ID<br>
+**Description:** Updates a balance for exchange account using its ID<br>
 
 **Permission:** ACCOUNTS_WRITE<br>
 **Security:** SIGNED<br>

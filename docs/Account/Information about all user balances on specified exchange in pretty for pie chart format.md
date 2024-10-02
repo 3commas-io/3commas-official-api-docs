@@ -17,7 +17,6 @@
 <br>
 <br>
 
-
 ### Path Parameters<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
@@ -31,33 +30,19 @@
 
 | Name | Type | Description|
 |------|------|------------|
-|**currency_code**| `string` |  |
-|**currency_name**| `string`|  |
-|**currency_icon**| `string`|  |
-|**currency_slug**| `string`|  |
+|**account_id**| `string`| ID of the exchange account entity |
+|**code**| `string` |  |
+|**coinmarketcapid**| `string`|  |
+|**coinmarketcapid**| `string`|  |
+|**y**| `string`|  |
 |**percentage**| `string`|  |
-|**position**| `string`|  |
-|**position_available**| `string`|  |
-|**position_type**| `string`|  |
-|**borrowed**| `string`|  |
-|**on_orders**| `string`|  |
-|**on_orders_with_leverage**| `string`|  |
-|**on_orders_long**| `string`|  |
-|**on_orders_short**| `string`|  |
-|**equity**| `string`|  |
-|**current_price**| `string`|  |
-|**current_price_usd**| `string`|  |
-|**day_change_percent**| `string`|  |
-|**day_change_percent_btc**| `string`|  |
-|**day_change_percent_usd**| `string`|  |
+|**amount**| `string`|  |
 |**btc_value**| `string`|  |
 |**usd_value**| `string`|  |
-|**available_long**| `string`|  |
-|**available_short**| `string`|  |
-|**available_with_leverage_long**| `string`|  |
-|**available_with_leverage_short**| `string`|  |
-|**account_id**| `integer`| Unique 3Commas ID of the exchange account entity |
-|**is_wallet**| `boolean`| Indicates whether this account is as a wallet |
+|**usd_value[currency]**| `string`|  |
+|**usd_value[amount]**| `string`|  |
+
+
 
 ### Example request<br>
 

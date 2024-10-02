@@ -39,7 +39,7 @@
 |------|------|------------|
 |**code**| `string` |  |
 |**name**| `boolean`|  |
-|**can_set_leverage_value**| boolean|  |
+|**can_set_leverage_value**| `boolean` |  |
 |**max_leverage**| `string` or `null` |  |
 |**available_leverage_values**| `array` |  |
 |**valid[min]**| `string` or `null` |  |
@@ -50,8 +50,7 @@
 **Example request**<br>
 
 ```json
-/ver1/accounts/32833910/leverage_data?pair=USDC_DOGE
-
+GET /ver1/accounts/32833910/leverage_data?pair=USDC_DOGE
 ```
 <br>
 <br>

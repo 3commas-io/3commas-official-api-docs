@@ -61,7 +61,7 @@
 ### Example request<br>
 
 ```json
-/ver1/accounts/32402783/account_table_data
+POST /ver1/accounts/32402783/account_table_data
 
 ```
 <br>
