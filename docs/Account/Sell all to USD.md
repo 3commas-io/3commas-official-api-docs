@@ -6,7 +6,7 @@
 **Security:** SIGNED<br>
 
 {% hint style="info" %}
-This endpoint works for the following exchanges: **Binance Spot**, **Binance Margin**, **Binance US**, **Coinbase Advanced Spot**, **Gemini Spot**, **Kraken Spot**, **Bybit Spot**, **GateIo**, **OKX Spot**, **Huobi Spot**, **Bitfinex Spot**, **Kucoin Spot**, **Bitstamp Spot**
+This endpoint works for the following exchanges: *Binance Spot*, *Binance Margin*, *Binance US*, *Coinbase Advanced Spot*, *Gemini Spot*, *Kraken Spot*, *Bybit Spot*, *GateIo*, *OKX Spot*, *Huobi Spot*, *Bitfinex Spot*, *Kucoin Spot*, *Bitstamp Spot*
 {% endhint %}
 
 <br>
@@ -24,7 +24,7 @@ This endpoint works for the following exchanges: **Binance Spot**, **Binance Mar
 <br>
 
 {% hint style="warning" %}
-When executing this request, all trading entities (bots, SmartTrade, trades, deals, orders, exception Signal Bot) stop and close at the 3Commas and the exchange
+When executing this request, all trading entities (bots, SmartTrade, trades, deals, orders, exception Signal Bot) will be stop and close at the 3Commas and the exchange
 {% endhint %}
 
 <br>
@@ -50,7 +50,7 @@ If successful, the response includes a copy of the updated [Account](./README.md
 
 ### Example request<br>
 ```
-/ver1/accounts/32833900/sell_all_to_usd
+/ver1/accounts/12345678/sell_all_to_usd
 ```
 <br>
 <br>
@@ -61,7 +61,7 @@ If successful, the response includes a copy of the updated [Account](./README.md
 <summary>Status: 201 Created</summary><br>
 ```json
 {
-    "id": 32833900,
+    "id": 12345678,
     "auto_balance_period": 12,
     "auto_balance_portfolio_id": null,
     "auto_balance_currency_change_limit": null,

@@ -43,7 +43,7 @@ If successful, the response includes a copy of the updated [Account](./README.md
 ### Example request<br>
 
 ```json
-/ver1/accounts/11223344/remove
+POST  /ver1/accounts/11223344/rename?name=new%20name
 ```
 <br>
 <br>

@@ -17,7 +17,7 @@ This is an endpoint that does not need authentication
 <br>
 
 {% hint style="info" %}
-The market and trading pair code is used in 3Commas format. Use endpoints [Supported markets list](Market%20data/1.Supported%20markets%20list.md) to get value for parameter `market_code` and [All market pairs](Market%20data/2.All%20market%20pairs.md) to get value for parameter `pair` in 3Commas format.
+The market and trading pair codes are used in 3Commas format. Use endpoints [Supported Markets List](Market%20data/1.Supported%20markets%20list.md) to get value for parameter `market_code` and [All Market Pairs](Market%20data/2.All%20market%20pairs.md) to get value for parameter `pair` in 3Commas format.
 {% endhint %}
 
 <br>
