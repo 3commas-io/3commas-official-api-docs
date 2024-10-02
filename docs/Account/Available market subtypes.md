@@ -15,9 +15,9 @@ This endpoint supports to create SmartTrade is available for accounts where the 
 
 ----------
 
-<mark style="color:green;background-color:white" > **GET** 
+<mark style="color:blue;background-color:white" > **GET** 
 
-<mark style="color:green;background-color:white" >**/ver1/accounts/types_to_connect**
+<mark style="color:blue;background-color:white" >**/ver1/accounts/types_to_connect**
 
 ----------
 
@@ -51,7 +51,8 @@ This endpoint supports to create SmartTrade is available for accounts where the 
 ### Example Request<br>
 
 ```json
-/ver1/accounts/types_to_connect?type=binance&name=binance123&api_key=6q4zuONXKi8kOMepGTRs373K46W34wxcxkBlIACvhY8Qr97MsAT9p4qe9Uezqrrd&secret=7CfL1slTgPDfoJSPgaveIsOFxxzCsgzA23yRyCHapgJGDC4yfNGvOavW4QglsyQO
+GET
+/ver1/accounts/types_to_connect?type=binance&name=binance123&api_key=6q4zuON***XKi8kOMepGT***xcxkBlIACvhY***8Qr97MsAT9***p4qe9Uezqrrd&secret=7CfL1slT***8xzCsgzA***4yfNGvOav***QO
 ```
 <br>
 <br>

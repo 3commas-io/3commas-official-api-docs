@@ -6,7 +6,7 @@
 **Security:** SIGNED<br>
 
 {% hint style="info" %}
-This endpoint works for the following exchanges: **Binance Spot**, **Binance Margin**, **Binance US**, **Coinbase Advanced Spot**, **Gemini Spot**, **Kraken Spot**, **Bybit Spot**, **GateIo**, **OKX Spot**, **Huobi Spot**, **Bitfinex Spot**, **Kucoin Spot**, **Bitstamp Spot**
+This endpoint works for the following exchanges: *Binance Spot*, *Binance Margin*, *Binance US*, *Coinbase Advanced Spot*, *Gemini Spot*, *Kraken Spot*, *Bybit Spot*, *GateIo*, *OKX Spot*, *Huobi Spot*, *Bitfinex Spot*, *Kucoin Spot*, *Bitstamp Spot*
 {% endhint %}
 
 <br>

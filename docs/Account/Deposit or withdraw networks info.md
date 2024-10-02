@@ -1,6 +1,6 @@
 ## Deposit or withdraw networks info<br>
 
-**Description:**  **TBD**<br>
+**Description:**  Shows information about the currency and each supported network for deposits and withdrawals available on the exchange account<br>
 
 {% hint style="info" %}
 This endpoint works for the following exchanges: *Binance Spot*, *Binance US*, *OKX Spot*, *Binance Broker*
@@ -42,9 +42,29 @@ This endpoint works for the following exchanges: *Binance Spot*, *Binance US*, *
 
 ### Parameters response<br>
 
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|** **  | `integer`| Yes |  |  |
+| Name | Type |	Description|
+|------|------|------------|
+|**currency**  | `integer`|  The name of currency |
+|**name**  | `integer`| The full name of the currency  |
+|**deposit_enable**  | `boolean` | Indicates whether currency deposit is available for this account |
+|**withdraw_enable**  | `boolean` | Indicates whether currency withdrawal is available for this account |
+|**network_list[network]**  | `string`| The name of network |
+|**network_list[default]**  | `boolean`| Indicates whether this network is the main one for deposits and withdrawals  |
+|**network_list[deposit_enable]**  | `boolean`| Indicates whether currency deposit is available for this network |
+|**network_list[withdraw_enable]**  | `boolean`| Indicates whether currency withdrawal is available for this network  |
+|**network_list[deposit_tip]** | `string` or `null`| Tip or notice related to deposits |
+|**network_list[withdraw_tip]** | `string` or `null` | Tip or notice related to withdrawals |
+|**network_list[special_tip]** | `string` or `null`| Additional information regarding specific network requirements |
+|**network_list[network_name]** | `string` or `null`| The full name of the network |
+|**network_list[network_url]** | `string` or `null`| The URL of the network |
+|**network_list[address_regexp]**  | `string` or `null` |  Regular expression (regex) used to validate Address|
+|**network_list[withdraw_fee]**  | `string` or `null` | Fee charged for withdrawals |
+|**network_list[withdraw_min]**  | `string` or `null` | Minimum withdrawal amount |
+|**network_list[withdrawMax]**  | `string` or `null` | The maximum possible withdrawal amount |
+|**network_list[withdrawMultiple]**  | `string` or `null`| Minimum increment for withdrawal amounts |
+|**network_list[memo_regexp]**  | `string` or `null`| Regular expression (regex) used to validate MEMO |
+|**network_list[label]**  | `string` or `null`| Label for the additional field (e.g., `MEMO` or `Tag`) |
+|**network_list[require_address_tag]**  | `boolean`| Specifies whether an additional field is required when depositing or withdrawing.<br> For example, `MEMO` or `Tag` |
 
 <br>
 <br>
@@ -90,25 +110,6 @@ This endpoint works for the following exchanges: *Binance Spot*, *Binance US*, *
                 "require_address_tag": false
             },
             {
-                "network": "BSC",
-                "default": false,
-                "deposit_enable": true,
-                "withdraw_enable": true,
-                "deposit_tip": "",
-                "withdraw_tip": "",
-                "special_tip": "",
-                "network_name": "BNB Smart Chain (BEP20)",
-                "network_url": null,
-                "address_regexp": "^(0x)[0-9A-Fa-f]{40}$",
-                "withdraw_fee": "0.000011",
-                "withdraw_min": "0.000022",
-                "withdrawMax": "10000000000",
-                "withdrawMultiple": "0.00000001",
-                "memo_regexp": "",
-                "label": "",
-                "require_address_tag": false
-            },
-            {
                 "network": "BTC",
                 "default": true,
                 "deposit_enable": true,
@@ -146,6 +147,14 @@ This endpoint works for the following exchanges: *Binance Spot*, *Binance US*, *
             "is missing"
         ]
     }
+}
+```
+</details><br>
+<details>
+<summary>Status: 403 Forbidden</summary><br>
+```json
+{
+    "error": "Forbidden. Unavailable for this account."
 }
 ```
 </details>

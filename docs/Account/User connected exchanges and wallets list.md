@@ -29,14 +29,9 @@
 
 ### Parameters response<br>
 
-| Name | Type |	Description|
-|------|------|------------|
-|**id**| | |
-|**` `**| | |
-|**` `**| | |
-|**` `**| | |
-|**` `**| | |
-|**` `**| | |
+{% hint style="info" %}
+If successful, the response will contain an array of [Account] (./README.md) entities.
+{% endhint %}
 
 <br>
 <br>
@@ -44,6 +39,7 @@
 ### Example request<br>
 
 ```json
+/ver1/accounts
 
 ```
 

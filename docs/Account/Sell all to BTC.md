@@ -24,7 +24,7 @@ This endpoint works for the following exchanges: **Binance Spot**, **Binance Mar
 <br>
 
 {% hint style="warning" %}
-When executing this request, all trading entities (bots, SmartTrade, trades, deals, orders, exception Signal Bot) stop and close at the 3Commas and the exchange
+When executing this request, all trading entities (bots, SmartTrade, trades, deals, orders, exception Signal Bot) will be stop and close at the 3Commas and the exchange
 {% endhint %}
 
 <br>
