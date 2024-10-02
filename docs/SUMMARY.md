@@ -14,10 +14,10 @@
   * [Available market subtypes](Account/Available%20market%20subtypes.md)
   * [Add exchange account](Account/Add%20exchange%20account.md)
   * [Get account info](Account/Get%20account%20info.md)
+  * [Edit exchange account](Account/Edit%20exchange%20account.md)
   * [User connected exchanges and wallets list](Account/User%20connected%20exchanges%20and%20wallets%20list.md)
   * [List of exchanges and wallets connected by the user](Account/List%20of%20exchanges%20and%20wallets%20by%20the%20user.md)
   * [Get the list of active entities](Account/Get%20the%20list%20of%20active%20entities.md)
-  * [Edit exchange account](Account/Edit%20exchange%20account.md)
   * [Rename exchange account](Account/Rename%20exchange%20account.md)
   * [Balance history data](Account/Balance%20history%20data.md)
   * [Load balances for specified exchange](Account/Load%20balances%20for%20specified%20exchange.md)
@@ -35,8 +35,8 @@
   * [Update bot](dca_bots/update_bot.md)
   * [Delete bot](dca_bots/deleted_bot.md)
 
-* [GRID bots](grid_bots/README.md)
-  * [Create bot](grid_bots/create_bot.md)
+* [GRID bots](grid_bot/README.md)
+  * [Create Grid bot](Grid%20bot/create_grid_bot.md)
   * [Grid Bots list](grid_bots/grid_bots_list.md)
   * [Grid Bot vents](grid_bots/grid_bot_vents.md)
 
