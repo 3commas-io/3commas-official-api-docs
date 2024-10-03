@@ -164,39 +164,141 @@ TBD: add a discription <br>
 <strong>skip_enter_stepote_raw</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`boolean`<br>
 Shows whether the position opening step was skipped<br>
 
-<strong>profit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`object`<br>
+<details>
+<summary><strong>data</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code></summary>
 TBD: add a discription<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>volume</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`number`<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>editable</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Indicates whether the user can modify the settings this  SmartTrade.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`true` if editing is available<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>current_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;TBD: add a discription<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>bid</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The current highest bid price of the asset<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ask</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The current lowest ask price of the asset<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>last</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The last traded price of the asset<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quote_volume</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[?]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>day_change_percent</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Percentage price change for the asset over the last 24 hours<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>target_price_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>orderbook_price_currency</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>base_order_finished</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>missing_funds_to_close</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>liquidation_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;The liquidation price of the asset on the futures exchange<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>average_enter_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;The average entering price of the asset with fees<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>average_close_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;The average closing price of the asset with fees<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>average_enter_price_without_commission</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;The average entering price of the asset without accounting for any fees<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>average_close_price_without_commission</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;The average closing price of the asset without accounting for any fees<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>panic_sell_available</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Indicates whether the SmartTrade can be closed at market based on its current status.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This option is available for SmartTrades with the following statuses: `waiting_targets`, `stop_loss_in_progress`, `reduce_funds_in_progress`, and `pending_reduce_funds`<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>add_funds_available</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Indicates whether adding funds is available for this SmartTrade based on its current status.<br>This option is not available for SmartTrades if: `status[basic_type]` is `waiting_position`; `<strong>type]` is `simple_sell` or `simple_buy`; `position[conditional][trailing][editable]` is `false<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>reduce_funds_available</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Indicates whether reducing funds is available for this SmartTrade based on its current status.<br>This option is available for SmartTrades with only the status: `waiting_targets`<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>force_start_available</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Indicates whether the option to force a market entry for the SmartTrade is available based on its current status.<br>This option is available for SmartTrades when position[status][basic_type] are `to_process`, `order_placed`, `trailing_activated`<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>force_process_available</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp; [?] <br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>cancel_available</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Indicates whether the SmartTrade can be canceled.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Available for SmartTrades where the parameter `basic_type` is one of the following: `waiting_position`, `waiting_targets`, `stop_loss_in_progress`, `reduce_funds_in_progress`, or `pending_reduce_funds`<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>finished</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Indicates whether the SmartTrade has been completed or finished.<br> `true` is SmartTrade finished<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>base_position_step_finished</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp; [?] <br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>entered_amount</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;The total amount of funds used to enter the position for this SmartTrade, including all additional funds trades, specified in base<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>entered_total</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Total amount of funds used to enter the position for this SmartTrade, specified in quota<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>closed_amount</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Total amount of SmartTrade closing volume in base<br> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>closed_total</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Total amount of SmartTrade closing volume in quota<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>commission</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;The trading fee of exchange for transaction<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>created_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>string <date-time></code><br> 
+&nbsp;&nbsp;&nbsp;&nbsp;ISO 8601 datetime string of when this SmartTrade entity was created<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>updated_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>string <date-time> or null</code> 
+&nbsp;&nbsp;&nbsp;&nbsp;ISO 8601 datetime string of when this SmartTrade entity was updated<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>type</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Type of SmartTrade<br>
+</details><br>
+
+
+<details>
+<summary>
+<strong>profit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code></summary>
+TBD: add a discription<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>volume</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The total profit volume generated by this SmartTrade in quote<br>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>usd</strong>`number`<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>usd</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br> 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The total profit volume generated by this SmartTrade in USD<br>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>percent</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`number`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>percent</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The total profit volume generated by this SmartTrade in percent<br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>roe</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`number` or `null`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The return on equity (ROE) for this SmartTrade's profit, applicable only for futures accounts<br><br>
-
-<details><summary><strong>margin</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `object`</summary> <br>
-TBD: add a discription<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>amount</strong> `number` or `null`<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The total margin amount required for this SmartTrade (base)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>total</strong><span style="margin-left: 30px;">`number` or `null`<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The total margin value for this SmartTrade (quote)<br>
-<br></details>
+</details><br>
 
 <details>
-<summary><strong>margin</strong> `object`</summary>
+<summary><strong>margin</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code></summary>
 
-TBD: add a description
+TBD: add a description<br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;<strong>amount</strong> `number` or `null`  
 &nbsp;&nbsp;&nbsp;&nbsp;The total margin amount required for this SmartTrade (base)
 
 &nbsp;&nbsp;&nbsp;&nbsp;<strong>total</strong> `number` or `null`  
 &nbsp;&nbsp;&nbsp;&nbsp;The total margin value for this SmartTrade (quote)
+</details><br>
 
-</details>
+
 <strong>is_position_not_filled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`boolean`<br>
 TBD: add a discription <br>
+
+<div style="margin-left: 20px;">
+  <strong>editable</strong> <code>boolean</code><br>
+  Indicates whether the user can modify the settings of this SmartTrade.<br>
+  <em>true</em> if editing is available.
+</div>
