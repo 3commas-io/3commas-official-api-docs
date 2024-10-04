@@ -15,13 +15,13 @@ Security: SIGNED<br>
 <br>
 <br>
 
-### Path Parameters
+### Path Parameters<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
 |**id**  | `integer` | Yes |	| Unique 3Commas ID for this Grid Bot entity |
 
-### Query Parameters
+### Query Parameters<br>
 
 | Name | Type |	Mandatory |	Values(default)	| Description|
 |------|------|-----------|-----------------|------------|
@@ -29,7 +29,7 @@ Security: SIGNED<br>
 |**per_page**  | `integer`	| Yes | Minimum: `1`, Maximum: `100` | Quantity of records on one page.<br>Default: `100` |
 
 
-### Parameters response
+### Parameters response<br>
 | Name | Type | Description|
 |------|------|-----------------|
 |**message**  | integer | Name of event |
@@ -41,7 +41,7 @@ Security: SIGNED<br>
 ### Example Request**<br>
 
 ```json
-
+GET /ver1/grid_bots/2338357/events?page=1&per_page=10
 ```
 <br>
 <br>
@@ -69,4 +69,25 @@ created_at: 2021-07-08 08:08:08
 ]
 ```
 
+</details>
+
+<details>
+<summary>Status: 400 Bad Request</summary><br>
+
+```json
+{
+    "error": "record_invalid",
+    "error_description": "Invalid parameters",
+    "error_attributes": {
+        "page": [
+            "is missing",
+            "does not have a valid value"
+        ],
+        "per_page": [
+            "is missing",
+            "does not have a valid value"
+        ]
+    }
+}
+```
 </details>

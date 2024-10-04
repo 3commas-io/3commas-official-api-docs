@@ -1,8 +1,6 @@
-## Enable Grid Bot<br>
+## Set a note to Grid Bot<br>
 
-**Description:** Stops the current Grid Bot.
-
-<br>
+**Description:** Adds a note to an existing Grid Bot<br>
 
 **Permission:** BOTS_WRITEE<br>
 **Security:** SIGNED<br>
@@ -13,7 +11,7 @@
 
 <mark style="color:green;background-color:white"> **POST**
 
-<mark style="color:green;background-color:white"> **/ver1/grid_bots/{id}/enable**
+<mark style="color:green;background-color:white"> **/ver1/grid_bots/{id}/note**
 
 -------- 
 
@@ -41,12 +39,10 @@ If successful, the response includes a copy of the updated [Grid bot](./README.m
 ### Example Request<br>
 
 ```json
-POST /ver1/grid_bots/2338357/disable
+POST {{baseUrl}}/ver1/grid_bots/2338357/note?note=New%20comment%20about%20this%20Grid%20Bot
 ```
-<br>
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
 <summary>Status: 201 Created</summary><br>
@@ -59,11 +55,11 @@ POST /ver1/grid_bots/2338357/disable
     "is_enabled": true,
     "grids_quantity": "81",
     "created_at": "2024-10-03T19:53:35.530Z",
-    "updated_at": "2024-10-04T13:57:55.547Z",
+    "updated_at": "2024-10-04T15:53:05.485Z",
     "strategy_type": "manual",
     "upper_stop_loss_enabled": false,
     "lower_stop_loss_enabled": false,
-    "note": null,
+    "note": "New comment about this Grid Bot",
     "editable": true,
     "lower_price": "0.016352",
     "lower_stop_loss_price": null,
@@ -78,40 +74,40 @@ POST /ver1/grid_bots/2338357/disable
     "pair": "BNFCR_VETUSDT",
     "start_price": "0.022395",
     "grid_price_step": "1.00399920581210916146041542739112586575949572812639182",
-    "current_profit": "1.9739482002440976",
-    "current_profit_usd": "1.9739482002440976",
-    "total_profits_count": "17",
+    "current_profit": "2.0323866961848739",
+    "current_profit_usd": "2.0323866961848739",
+    "total_profits_count": "21",
     "bought_volume": "0.0",
     "sold_volume": "0.0",
-    "profit_percentage": "0.1234688657622554423137524222839342",
-    "current_price": "0.022394",
+    "profit_percentage": "0.1270332297918356703883688023466714",
+    "current_price": "0.022355",
     "max_active_buy_lines": "81",
     "max_active_sell_lines": "81",
     "order_currency_type": "quote",
     "profit_currency_type": "quote",
     "trailing_up_enabled": "true",
     "grid_type": "geometric",
-    "investment_base_currency": "0.0",
-    "investment_quote_currency": "0.0",
-    "unrealized_profit_loss": "0.0",
-    "current_profit_loss": null,
-    "current_profit_loss_percent": null,
+    "investment_base_currency": "888.770386170732791183397769186",
+    "investment_quote_currency": "180.0",
+    "unrealized_profit_loss": "0.24628579",
+    "current_profit_loss": "2.2786724861848739",
+    "current_profit_loss_percent": "0.1424271897179972034905249791467625",
     "orderbook_price_currency": "BNFCR",
     "expansion_down_enabled": "false",
     "expansion_down_stop_price": null,
     "grid_lines": [
         {
-            "id": 256427680,
-            "price": "0.022414",
-            "side": null,
-            "order_placed": false
-        },
-      ... 
-        {
-            "id": 256427679,
-            "price": "0.022325",
+            "id": 256427678,
+            "price": "0.022236",
             "side": "buy",
-            "order_placed": false
+            "order_placed": true
+        },
+        ... 
+         {
+            "id": 256427674,
+            "price": "0.021884",
+            "side": "buy",
+            "order_placed": true
         }
     ]
 }

@@ -36,9 +36,14 @@
   * [Delete bot](dca_bots/deleted_bot.md)
 
 * [GRID bots](grid_bot/README.md)
-  * [Create Grid bot](Grid%20bot/create_grid_bot.md)
-  * [Grid Bots list](grid_bots/grid_bots_list.md)
-  * [Grid Bot vents](grid_bots/grid_bot_vents.md)
+  * [Create Grid bot](Grid%20Bot/create_grid_bot.md)
+  * [Get Grid bot](Grid%20Bot/Get%20Grid%20Bot.md)
+  * [Grid Bots list](Grid%20Bot/grid_bots_list.md)
+  * [Grid Bot vents](Grid%20Bot/grid_bot_vents.md)
+  * [Set a note to Grid Bot](Grid%20Bot/Set%20a%20note%20to%20Grid%20Bot.md)
+  * [Disable Grid Bot](Grid%20Bot/Disable%20Grid%20Bot.md)
+  * [Enable Grid Bot](Grid%20Bot/Enable%20Grid%20Bot.md)
+  * [Delete Grid Bot](Grid%20Bot/Delete%20Grid%20Bot.md)
 
 
  * [SmartTrade](SmartTrade/README.md) 
