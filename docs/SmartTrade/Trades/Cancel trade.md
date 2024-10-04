@@ -20,12 +20,10 @@ Keep in mind, to avoid canceling the SmartTrade, make sure to leave at least one
 <mark style="color:red;background-color:white" > **/v2/smart_trades/{smart_trade_id}/trades/{id}**
 
 ----------
-
+<br>
 <br>
 
-
-
-**Path Parameters**<br>
+### Path Parameters<br>
 | Name | Type |	Mandatory |	Values(default)	| Description|
 |------|------|-----------|-----------------|------------|
 | **smart-trade_id** | `integer` | Yes | - | Unique 3Commas ID for this SmartTrade entity. |

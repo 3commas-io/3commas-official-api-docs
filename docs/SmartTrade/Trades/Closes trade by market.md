@@ -23,7 +23,7 @@ The endpoint is available for a take profit trades with statuses to_process ,  o
 <br>
 
 
-**Path Parameters**<br>
+### Path Parameters<br>
 | Name | Type |	Mandatory |	Values(default)	| Description|
 |------|------|-----------|-----------------|------------|
 |**smart-trade_id** | `integer`	| Yes | - | Unique 3Commas ID for this SmartTrade entity. |
@@ -32,7 +32,7 @@ The endpoint is available for a take profit trades with statuses to_process ,  o
 <br>
 <br>
 
-**Response Parameters**<br>
+### Response Parameters<br>
 
 {% hint style="info" %}
 If successful response, the response includes a copy of the updated SmartTrade entity. You can find a total description of all attributes on the page about [SmartTrade](./README.md). 
@@ -247,14 +247,6 @@ If successful response, the response includes a copy of the updated SmartTrade e
 ```
 </details>
 
-<details>
-<summary>Status: 200 OK</summary><br>
-
-```json
-
-```
-
-</details>
 
 
 
