@@ -1,15 +1,14 @@
 # Account<br>
 
-Account entities hold information about the cryptocurrency portfolio, theys balances and the set of tools that are available for this account.<br>
+**Grid Bot** entities are designed to automate trading strategies by executing a series of buy and sell orders within predefined price ranges. They allow users to take advantage of market fluctuations while minimizing manual intervention.<br>
 
+**Grid Bot** entities hold information such as:<br>
 
-Account entities hold information like:<br>
+* Configuration details for the bot, including the trading pair, strategy type, and grid settings;
+* Performance metrics like current profit, total profits, and investment amounts in base and quote currencies;
+* Status indicators, such as whether the bot is enabled or disabled and whether stop-loss actions are set.<br>
 
-* Details about the connected exchange, including its type, name, and current status;
-* Profit and currency information, such as the account's balance and daily and total profit;
-* Available trading features for this account.<br>
-
-3Commas provides a set of methods to create new exchange account connections and manage existing accounts.<br><br>
+3Commas offers a range of tools to create new Grid Bots, manage their settings, and analyze their performance effectively.<br><br>
 
 ## Attributes<br>
 
