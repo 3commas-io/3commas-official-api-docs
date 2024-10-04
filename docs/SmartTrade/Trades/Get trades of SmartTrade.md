@@ -18,7 +18,7 @@
 <br>
 
 
-**Path Parameters**<br>
+### Path Parameters<br>
 | Name | Type |	Mandatory |	Values| Description|
 |------|------|-----------|-----------------|------------|
 |**smart-trade_id**| `integer` | Yes |  | Unique 3Commas ID for this SmartTrade entity |
@@ -26,7 +26,7 @@
 <br>
 <br>
 
-**Response Parameters**<br>
+### Response Parameters<br>
 
 | Name | Type |	Description|
 |------|------|------------|
@@ -61,20 +61,19 @@
 | **created_at**| `string <date-time>`| ISO 8601 datetime string of when this Trade entity was created |
 | **updated_at**| `string <date-time>`| ISO 8601 datetime string of when this Trade entity was updated |
 | **cancelable** | `boolean`| Indicates whether this trade can be canceled |
-| **force_processable** | `boolean`| Indicates whether this Trade can be close by market (хорошо бы переназвать поле) |
+| **force_processable** | `boolean`| Indicates whether this Trade can be close by market |
 
 <br>
 <br>
 
 
-**Example Request**<br>
+### Example Request<br>
 
 ```json
-/v2/smart_trades/30848974/trades
-
+GET /v2/smart_trades/30848974/trades
 ```
 
-**Example Response and errors**
+### Example Response and errors
 
 <details>
 <summary>Status: 200 OK</summary><br>
