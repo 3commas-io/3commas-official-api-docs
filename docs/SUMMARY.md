@@ -36,7 +36,7 @@
   * [Delete bot](dca_bots/deleted_bot.md)
 
 * [GRID bots](Grid%20Bot/README.md)
-  * [Create Grid Bot](Grid%20Bot/create_grid_bot.md)
+  * [Create Grid Bot](Grid%20Bot/Create%20Grid%20Bot.md)
   * [Edit Grid Bot](Grid%20Bot/Edit%20Grid%20Bot.md)
   * [Get Grid bot](Grid%20Bot/Get%20Grid%20Bot.md)
   * [Get the list of Grid Bots](Grid%20Bot/Get%20the%20list%20of%20Grid%20Bots.md)
