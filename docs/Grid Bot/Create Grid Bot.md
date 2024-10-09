@@ -20,7 +20,7 @@
 <br>
 <br>
 
-## Parameters request<br>
+## Body parameters<br>
 
 | Name | Type | Mandatory | Values (default) | Description |
 |------|------|-----------|-----------------|-------------|
