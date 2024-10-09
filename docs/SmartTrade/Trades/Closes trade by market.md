@@ -4,12 +4,13 @@
 
 
 {% hint style="warning" %}
-The endpoint is available for a take profit trades with statuses to_process ,  order_placed and  trailing_activated.
+The endpoint is available for Take Profit Trades for the statuses `to_process`,  `order_placed`, and `trailing_activated`.
 {% endhint %}
 <br>
 
 **Permission:** SMART_TRADES_WRITE<br>
 **Security:** SIGNED<br>
+<br>
 
 ----------
 
@@ -24,7 +25,7 @@ The endpoint is available for a take profit trades with statuses to_process ,  o
 
 
 ### Path Parameters<br>
-| Name | Type |	Mandatory |	Values(default)	| Description|
+| Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
 |**smart-trade_id** | `integer`	| Yes | - | Unique 3Commas ID for this SmartTrade entity. |
 |**id** | `integer`| Yes | - | Unique 3Commas ID for Trade entity |

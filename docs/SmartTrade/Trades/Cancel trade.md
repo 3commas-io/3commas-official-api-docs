@@ -24,7 +24,7 @@ Keep in mind, to avoid canceling the SmartTrade, make sure to leave at least one
 <br>
 
 ### Path Parameters<br>
-| Name | Type |	Mandatory |	Values(default)	| Description|
+| Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
 | **smart-trade_id** | `integer` | Yes | - | Unique 3Commas ID for this SmartTrade entity. |
 |**id** | `integer`	| Yes | - | Unique 3Commas ID for Trade entity |
