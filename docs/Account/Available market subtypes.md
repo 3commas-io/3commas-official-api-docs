@@ -30,8 +30,8 @@ This endpoint supports to create SmartTrade is available for accounts where the 
 |------|------|-----------|-----------------|------------|
 |**type**  | `string`| Yes |  | Name of the exchange in the 3Commas system |
 |**name**  | `string`	| Yes |  | Name for exchange account |
-|**api_key**  | `string`	| No |  | ID of the exchange account entity |
-|**secret**  | `string`	| No |  | ID of the exchange account entity |
+|**api_key**  | `string`	| No |  |API-key for this exchange account |
+|**secret**  | `string`	| No |  | Secret-key for this exchange account  |
 
 <br>
 <br>

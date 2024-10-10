@@ -26,7 +26,7 @@
 <br>
 <br>
 
-### Parameters response<br>
+### Response Parameters<br>
 
 | Name | Type |	Description|
 |------|------|------------|

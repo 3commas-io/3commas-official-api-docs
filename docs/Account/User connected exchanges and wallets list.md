@@ -16,7 +16,7 @@
 <br>
 <br>
 
-### Request Parameters<br>
+### Query Parameters<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
@@ -27,7 +27,7 @@
 <br>
 <br>
 
-### Parameters response<br>
+### Response Parameters<br>
 
 {% hint style="info" %}
 If successful, the response will contain an array of [Account] (./README.md) entities.

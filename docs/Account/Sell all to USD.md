@@ -40,7 +40,7 @@ When executing this request, all trading entities (bots, SmartTrade, trades, dea
 <br>
 
 
-### Parameters response<br>
+### Response Parameters<br>
 
 {% hint style="info" %}
 If successful, the response includes a copy of the updated [Account](./README.md) entity.
@@ -49,6 +49,7 @@ If successful, the response includes a copy of the updated [Account](./README.md
 <br>
 
 ### Example request<br>
+
 ```
 /ver1/accounts/12345678/sell_all_to_usd
 ```
