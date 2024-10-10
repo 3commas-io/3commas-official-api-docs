@@ -22,38 +22,38 @@
 
 ## Body parameters<br>
 
-| Name | Type | Mandatory | Values (default) | Description |
+| Name | Type | Mandatory | Values | Description |
 |------|------|-----------|-----------------|-------------|
 |**name** | `string` | No | `[1 ... 40]` characters | User-defined name of the Grid Bot. If not specified, the system will generate a default name automatically |
 |**account_id** | `integer` | Yes | - | ID of the exchange account entity where the Grid Bot is created |
 |**pair** | `string` | Yes | - | Trading pair in 3Commas format |
-|**upper_price** | `number` | Yes | - | The maximum price of the trading range, above which the bot will not place sell orders |
+|**upper_price** | `number` | Yes |  | The maximum price of the trading range, above which the bot will not place sell orders |
 |**lower_price** | `number` | Yes | - | The minimum price of the trading range, below which the bot will not place buy orders |
 |**grid_quantity** | `integer` | Yes | - | The number of grid levels between the upper and lower price boundaries. This value is limited based on the exchange’s rules for rates, limits, and leverage |
-|**grid_type** | `string` | No | `geometric`, `arithmetic` | Type of Grid Bot configuration |
+|**grid_type** | `string` | No | `geometric`<br>`arithmetic` | Type of Grid Bot configuration |
 |**quantity_per_grid** | `number` | Yes | - | Quantity of the asset allocated per 
 Grid Bot level order |
-|**order_currency_type** | `string` | No | `base`, `quote` | The currency type used for placing orders |
-|**profit_currency_type** | `string` | No | `base`, `quote` | The currency type used for calculating profits |
-|**upper_stop_loss_enabled** | `boolean` | No | `true`, `false` | Indicates if upper stop-loss settings are enabled. Use `true` to activate the settings group |
-|**upper_stop_loss_action** | `string` | No | `stop_bot`, `stop_bot_and_sell`, `stop_bot_and_close_position` | The action to perform if the asset price reaches or exceeds the set upper stop-loss level |
+|**order_currency_type** | `string` | No | `base`<br>`quote` | The currency type used for placing orders |
+|**profit_currency_type** | `string` | No | `base`<br> `quote` | The currency type used for calculating profits |
+|**upper_stop_loss_enabled** | `boolean` | No | `true`<br> `false` | Indicates if upper stop-loss settings are enabled. Use `true` to activate the settings group |
+|**upper_stop_loss_action** | `string` | No | `stop_bot`<br> `stop_bot_and_sell`<br> `stop_bot_and_close_position` | The action to perform if the asset price reaches or exceeds the set upper stop-loss level |
 |**upper_stop_loss_price** | `number` | No | - | The price level that triggers the upper stop-loss action |
-|**lower_stop_loss_enabled** | `boolean` | No | `true`, `false` | Indicates if lower stop-loss settings are enabled. Use `true` to activate the settings group |
-|**lower_stop_loss_action** | `string` | No | `stop_bot`, `stop_bot_and_sell`, `stop_bot_and_close_position` | The action to perform if the asset price reaches or falls below the set lower stop-loss level |
+|**lower_stop_loss_enabled** | `boolean` | No | `true`<br>`false` | Indicates if lower stop-loss settings are enabled. Use `true` to activate the settings group |
+|**lower_stop_loss_action** | `string` | No | `stop_bot`<br> `stop_bot_and_sell`<br> `stop_bot_and_close_position` | The action to perform if the asset price reaches or falls below the set lower stop-loss level |
 |**lower_stop_loss_price** | `number` | No | - | The price level that triggers the lower stop-loss action |
-|**leverage_type** | `string` | No | `cross`, `isolated` | Type of leverage used for the futures account |
+|**leverage_type** | `string` | No | `cross`<br>`isolated` | Type of leverage used for the futures account |
 |**leverage_custom_value** | `number` | No | - | Custom leverage value set for the Grid Bot |
-|**mode** | `string` | No | `reversal`, `long`, `short` | Grid Mode for futures trading |
+|**mode** | `string` | No | `reversal`<br>`long`<br>`short` | Grid Mode for futures trading |
 |**max_active_buy_lines** | `integer` | No | - | Maximum number of active buy orders that can be placed simultaneously |
 |**max_active_sell_lines** | `integer` | No | - | Maximum number of active sell orders that can be placed simultaneously |
-|**trailing_up_enabled** | `boolean` | No | `true`, `false` | Indicates if the trailing-up feature is enabled |
-|**trailing_down_enabled** | `boolean` | No | `true`, `false` | Indicates if the trailing-down feature is enabled |
-|**expansion_down_enabled** | `boolean` | No | `true`, `false` | Indicates if the grid expansion downwards is enabled |
+|**trailing_up_enabled** | `boolean` | No | `true`<br>`false` | Indicates if the trailing-up feature is enabled |
+|**trailing_down_enabled** | `boolean` | No | `true`<br>`false` | Indicates if the trailing-down feature is enabled |
+|**expansion_down_enabled** | `boolean` | No | `true`<br>`false` | Indicates if the grid expansion downwards is enabled |
 |**expansion_down_stop_price** | `number` | Yes (if `expansion_down_enabled` is `true`) | - | The price at which the downward grid expansion should stop |
-|**expansion_up_enabled** | `boolean` | No | `true`, `false` | Indicates if the grid expansion upwards is enabled. |
+|**expansion_up_enabled** | `boolean` | No | `true`<br>`false` | Indicates if the grid expansion upwards is enabled. |
 |**expansion_up_stop_price** | `number` | Yes (if `expansion_up_enabled` is `true`) | - | The price at which the upward grid expansion should stop |
-|**ignore_warnings** | `boolean` | No | `true`, `false` | Ignores warnings and forces the creation of the Grid Bot |
-|**note** | `string` | No | `[1 ... 300]` characters | Optional user-defined note for the Grid Bot, displayed in the 3Commas web app |
+|**ignore_warnings** | `boolean` | No | `true`<br>`false` | Ignores warnings and forces the creation of the Grid Bot |
+|**note** | `string` | No | `[1 ... 300]` characters | Optional user-defined note for the Grid Bot |
 
 <br>
 <br>

@@ -29,7 +29,7 @@
 
 <br>
 
-## Query parameters<br>
+### Query parameters<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
@@ -62,10 +62,12 @@ If the from and to values are not set, the response will include all records ord
 
 ```json
 GET /ver1/grid_bots/2338357/profits?from=2024-09-01T04:00:00.000Z&to=2024-10-11T03:59:59.000Z
-``
+```
+<br>
+<br>
 
+### Example response and errors<br>
 
-### Example Response and errors<br>
 <details>
 <summary>Status: 201 Created</summary><br>
 

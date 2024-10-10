@@ -2,8 +2,6 @@
 
 **Description:** Returns the list of Grid Bots. Use the body parameters to filter results<br>
 
-<br>
-
 **Permission:** BOTS_READ<br>
 **Security:** SIGNED<br>
 <br>
@@ -20,17 +18,17 @@
 <br>
 <br>
 
-### Body Parameters<br>
+### Query Parameters<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
 |**account_id**  | `string` | No |	| Unique 3Commas ID for this Grid Bot entity. Use a comma-separated list to specify multiple account_id values |
-|**state**  | `string` | No |`enabled`<br>`disabled`| Return entities that match the specified state. <br>Use `enabled` to get active bots and `disabled` to get inactive bots. |
+|**state**  | `string` | No |`enabled`<br>`disabled`| Return entities that match the specified state. <br>Use `enabled` to get active bots and `disabled` to get inactive bots |
 |**sort_by**  | `string` | No |	| Specifies the field by which to sort the response |
-|**sort_direction**  | `string` | No | `DESC`| Set the direction of order (`ASC` or `DESC`). |
+|**sort_direction**  | `string` | No | `ASC`<br>`DESC` | Set the direction of order.<br>Default: `DESC` |
 |**limit**  | `integer` | No |	Minimum: `1`<br> Maximum: `1000`| Quantity of the records you want to get in response.<br>Default: `10`|
 |**offset**  | `integer` | No |	| Used to specify the starting point for a set of records to return in a paginated list.<br>Default: `0` |
-|**from**  | `string` | No |	| Param for a filter by created date |
+|**from**  | `string` | No |	| Parameter for a filter by created date |
 |**base**  | `string` | No |	| Return entities that match the base currency of the trading pair (e.g., `BTC` for BTC/USDT). |
 |**quote**  | `string` | No |	| Return entities that match the quote currency of the trading pair (e.g., `USDT` for BTC/USDT) |
 
@@ -43,17 +41,14 @@
 {% hint style="info" %}
 If successful, the response includes an array of [Grid Bot](./README.md) entities.{% endhint %}
 
+<br>
+<br>
+
 
 ### Example request<br>
 
 ```json
-{
-   "account_ids": [
-      32833909,
-      32864603
-   ],
-   "state": "disabled"
-}
+GET  /ver1/grid_bots?account_ids[]=32833909&account_ids[]32864603
 ```
 <br>
 <br>

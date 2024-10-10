@@ -11,6 +11,7 @@ Security: SIGNED<br>
 <mark style="color:blue;background-color:white" > **GET**
 
 <mark style="color:blue;background-color:white" > **/ver1/grid_bots/{id}/events**
+
 -------- 
 <br>
 <br>
@@ -21,13 +22,17 @@ Security: SIGNED<br>
 |------|------|-----------|-----------------|------------|
 |**id**  | `integer` | Yes |	| Unique 3Commas ID for this Grid Bot entity |
 
+<br>
+
 ### Query Parameters<br>
 
-| Name | Type |	Mandatory |	Values(default)	| Description|
+| Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
 |**page**  | `integer` | Yes |	`1`| Page number for pagination |
 |**per_page**  | `integer`	| Yes | Minimum: `1`, Maximum: `100` | Quantity of records on one page.<br>Default: `100` |
 
+<br>
+<br>
 
 ### Parameters response<br>
 | Name | Type | Description|

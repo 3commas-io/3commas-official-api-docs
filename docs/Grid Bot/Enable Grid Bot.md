@@ -1,8 +1,6 @@
 ## Enable Grid Bot<br>
 
-**Description:** Stops the current Grid Bot.
-
-<br>
+**Description:** Activates an existing Grid Bot using its ID<br>
 
 **Permission:** BOTS_WRITEE<br>
 **Security:** SIGNED<br>
