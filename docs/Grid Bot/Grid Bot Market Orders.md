@@ -2,8 +2,6 @@
 
 **Description:** Returns a list of market orders for a Grid Bot using its ID<br>
 
-<br>
-
 **Permission:** BOTS_READ<br>
 **Security:** SIGNED<br>
 <br>
@@ -28,9 +26,9 @@
 
 <br>
 
-### Body Parameters<br>
+### Query Parameters<br>
 
-| Name | Type |	Mandatory |	Values(default)	| Description|
+| Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
 |**limit**  | `integer`	| No | Minimum: `1`, Maximum: `1000` | Quantity of the records you want to get in response.<br>Default: `100` |
 |**offset**  | `integer`	| No | 	| Used to specify the starting point for a set of records to return in a paginated list.<br>Default: `0` |

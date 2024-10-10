@@ -1,6 +1,6 @@
 ## Delete Grid Bot<br>
 
-**Description:** Deletes a existing Grid Bot in place using its ID <br>
+**Description:** Deletes an existing Grid Bot in place using its ID <br>
 
 <br>
 

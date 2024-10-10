@@ -1,8 +1,6 @@
 ## Get Grid Bot<br>
 
-**Description:** Shows information about a specific Grid Bot using its ID <br>
-
-<br>
+**Description:** Shows information about a specific Grid Bot using its ID<br>
 
 **Permission:** BOTS_WRITEE<br>
 **Security:** SIGNED<br>

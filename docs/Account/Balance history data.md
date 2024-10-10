@@ -27,8 +27,8 @@
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
-|**date_from** | `string<date-time>` | Yes | ISO 8601 format: YYYY-MM-DDTHH:mm:ssZ | Specifying the start date for the required records |
-|**date_to** | `string<date-time>` | No | ISO 8601 format: YYYY-MM-DDTHH:mm:ssZ | Specifies the end date for the required records |
+|**date_from** | `string<date-time>` | Yes | ISO 8601 format | Specifying the start date for the required records |
+|**date_to** | `string<date-time>` | No | ISO 8601 format| Specifies the end date for the required records |
 
 
 <br>
