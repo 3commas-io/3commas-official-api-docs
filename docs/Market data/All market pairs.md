@@ -17,12 +17,6 @@ This is an endpoint that does not need authentication
 
 -------- 
 
-<br> 
-
-{% hint style="info" %}
-Use endpoint [Supported markets list](Market%20data/1.Supported%20markets%20list.md) to get value for parameter 'market_code' in 3Commas.
-{% endhint %}
-
 <br>
 <br>
 
@@ -33,7 +27,10 @@ Use endpoint [Supported markets list](Market%20data/1.Supported%20markets%20list
 |------|------|-----------|-----------------|------------|
 |**market_code**  | `integer` | Yes |	| Unique exchange code in the 3Commas system|
 
-<br>
+{% hint style="info" %}
+Use endpoint [Supported markets list](Market%20data/1.Supported%20markets%20list.md) to get value for parameter 'market_code' in 3Commas.
+{% endhint %}
+
 <br>
 <br>
 

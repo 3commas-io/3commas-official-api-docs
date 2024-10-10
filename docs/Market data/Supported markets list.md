@@ -25,7 +25,7 @@ NONE
 <br>
 <br>
 
-### Response Parameters <br>
+### Response Parameters<br>
 
 | Name | Type |	 Description|
 |------|------|------------|

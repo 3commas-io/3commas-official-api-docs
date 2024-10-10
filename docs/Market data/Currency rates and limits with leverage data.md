@@ -17,21 +17,18 @@ This is an endpoint that does not need authentication
 <br>
 <br>
 
-
-{% hint style="info" %}
-The market and trading pair codes are used in 3Commas format. Use endpoints [Supported Markets List](Market%20data/1.Supported%20markets%20list.md) to get value for parameter `market_code` and [All Market Pairs](Market%20data/2.All%20market%20pairs.md) to get value for parameter `pair` in 3Commas format.
-{% endhint %}
-
-
-<br>
-<br>
-
 ### Request Parameters<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
 | **market_code** | `string`	| Yes |	| Name of the exchange in the 3Commas system |
 | **pair** | `string`	| Yes |	| Trading pair in 3Commas format |
+
+<br>
+
+{% hint style="info" %}
+The market and trading pair codes are used in 3Commas format. Use endpoints [Supported Markets List](Market%20data/1.Supported%20markets%20list.md) to get value for parameter `market_code` and [All Market Pairs](Market%20data/2.All%20market%20pairs.md) to get value for parameter `pair` in 3Commas format.
+{% endhint %}
 
 <br>
 <br>
@@ -81,7 +78,7 @@ The market and trading pair codes are used in 3Commas format. Use endpoints [Sup
 ```
 <br>
 
-### Example Response and errors<br>
+### Example response and errors<br>
 
 <details>
 <summary>Status: 200 OK</summary><br>
