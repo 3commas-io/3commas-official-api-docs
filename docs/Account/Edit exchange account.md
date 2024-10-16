@@ -90,7 +90,7 @@
 ### Example request<br>
 
 ```
-/ver1/accounts/update?account_id=12345678&name=New%20name%20exchange
+POST /ver1/accounts/update?account_id=12345678&name=New%20name%20exchange
 ```
 
 

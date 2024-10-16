@@ -1,28 +1,41 @@
-# SmartTrade<br>
+<h1>SmartTrade</h1>
 
-**SmartTrade** allows users to open, manage, and close orders on the exchange with predefined conditions.<br>
+<p>
+  The <strong>SmartTrade</strong> allows users to open, manage, and close orders on the exchange with predefined conditions.
+</p>
 
-3Commas provides a set of methods to create and manage SmartTrade entities and their associated trade entities.<br>
-<br>
+<p>
+  3Commas provides a set of methods to create and manage SmartTrade entities and their associated trade entities.
+</p>
 
-A **SmartTrade** entity holds information, including:<br>
-* Exchange account and trading pair;
-* Position data;
-* Conditions for Take Profit and Stop Loss;
-* Conditions for closing at market;
-* Conditions for reducing funds.<br>
-<br>
+<p>
+  A <strong>SmartTrade</strong> entity holds information, including:
+</p>
 
-The process starts with a **SmartTrade** entity, where all conditions are configured. **SmartTrade** then manages trades, which are automatically created by 3Commas based on the conditions set within the SmartTrade entity.
+<ul>
+  <li>Exchange account and trading pair;</li>
+  <li>Position data;</li>
+  <li>Conditions for Take Profit and Stop Loss;</li>
+  <li>Conditions for closing at market;</li>
+  <li>Conditions for reducing funds.</li>
+</ul>
 
-A **SmartTrade** can include the following **trade** types:<br>
+<p>
+  The process starts with a <strong>SmartTrade</strong> entity, where all conditions are configured. 
+  <strong>SmartTrade</strong> then manages trades, which are automatically created by 3Commas based on the conditions set within the SmartTrade entity.
+</p>
 
-* Position trade;
-* Take profit trade;
-* Stop-loss trade;
-* Reduce funds trade;
-* Market close trade.<br>
-<br>
+<p>
+  <strong>SmartTrade</strong> can include the following trade types:
+</p>
+
+<ul>
+  <li>Position trade;</li>
+  <li>Take profit trade;</li>
+  <li>Stop-loss trade;</li>
+  <li>Reduce funds trade;</li>
+  <li>Market close trade.</li>
+</ul>
 
 
 ## Attributes<br>

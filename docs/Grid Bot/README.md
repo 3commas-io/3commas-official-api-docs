@@ -1,4 +1,4 @@
-# GRID Bots
+# Grid Bots
 
 **Grid Bot** entities are designed to automate trading strategies by executing a series of buy and sell orders within predefined price ranges. They allow users to take advantage of market fluctuations while minimizing manual intervention.<br>
 
