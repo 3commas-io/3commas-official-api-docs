@@ -37,7 +37,7 @@ Use endpoint [Supported markets list](Market%20data/1.Supported%20markets%20list
 ### Example request<br>
 
 ```json
-/ver1/accounts/market_pairs?market_code=binance_us
+GET /ver1/accounts/market_pairs?market_code=binance_us
 ```
 <br>
 

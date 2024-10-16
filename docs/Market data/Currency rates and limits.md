@@ -69,8 +69,7 @@ The market and trading pair codes are used in 3Commas format. Use endpoints [Sup
 ### Example request<br>
 
 ```json
-/ver1/accounts/currency_rates_with_leverage_data?market_code=binance&pair=BTC_ETH
-
+GET /ver1/accounts/currency_rates_with_leverage_data?market_code=binance&pair=BTC_ETH
 ```
 <br>
 
