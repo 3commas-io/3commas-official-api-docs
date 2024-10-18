@@ -1,14 +1,20 @@
-# GRID Bots
+# Grid Bots<br>
 
-**Grid Bot** entities are designed to automate trading strategies by executing a series of buy and sell orders within predefined price ranges. They allow users to take advantage of market fluctuations while minimizing manual intervention.<br>
+<p>
+<strong>Grid Bot</strong> entities are designed to automate trading strategies by executing a series of buy and sell orders within predefined price ranges. They allow users to take advantage of market fluctuations while minimizing manual intervention.<br>
+</p>
+<p>
+<strong>Grid Bot</strong> entities hold information such as:<br>
+</p>
+<p><lu>
+<li> Configuration details for the bot, including the trading pair, strategy type, and grid settings;
+<li> Performance metrics like current profit, total profits, and investment amounts in base and quote currencies;
+<li> Status indicators, such as whether the bot is enabled or disabled and whether stop-loss actions are set.<br></lu>
+</p>
 
-**Grid Bot** entities hold information such as:<br>
-
-* Configuration details for the bot, including the trading pair, strategy type, and grid settings;
-* Performance metrics like current profit, total profits, and investment amounts in base and quote currencies;
-* Status indicators, such as whether the bot is enabled or disabled and whether stop-loss actions are set.<br>
-
+<p>
 3Commas offers a range of tools to create new Grid Bots, manage their settings, and analyze their performance effectively.<br><br>
+</p>
 
 ## Attributes<br>
 

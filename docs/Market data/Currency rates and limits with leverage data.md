@@ -17,21 +17,18 @@ This is an endpoint that does not need authentication
 <br>
 <br>
 
-
-{% hint style="info" %}
-The market and trading pair codes are used in 3Commas format. Use endpoints [Supported Markets List](Market%20data/1.Supported%20markets%20list.md) to get value for parameter `market_code` and [All Market Pairs](Market%20data/2.All%20market%20pairs.md) to get value for parameter `pair` in 3Commas format.
-{% endhint %}
-
-
-<br>
-<br>
-
 ### Request Parameters<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
 | **market_code** | `string`	| Yes |	| Name of the exchange in the 3Commas system |
 | **pair** | `string`	| Yes |	| Trading pair in 3Commas format |
+
+<br>
+
+{% hint style="info" %}
+The market and trading pair codes are used in 3Commas format. Use endpoints [Supported Markets List](Market%20data/1.Supported%20markets%20list.md) to get value for parameter `market_code` and [All Market Pairs](Market%20data/2.All%20market%20pairs.md) to get value for parameter `pair` in 3Commas format.
+{% endhint %}
 
 <br>
 <br>
@@ -49,12 +46,12 @@ The market and trading pair codes are used in 3Commas format. Use endpoints [Sup
 | **orderbook_price_currency**  | `string`  | Currency price of ticker |
 | **strategy_name**  | `string` | The strategy by which the contract price is calculated |
 |**contract_strategy_name**| `string` | The strategy by which the contract price is calculated |
-|**leverage_data[][code]**| `string` | **TBD** |
-|**leverage_data[][name]**| `string` | **TBD** |
-|**leverage_data[][can_set_leverage_value]**| `string` | **TBD** |
-|**leverage_data[][max_leverage]**| `string` | **TBD** |
-|**leverage_data[][value][min]**| `string` | **TBD** |
-|**leverage_data[][value][max]**| `string` | **TBD** |
+|**leverage_data[][code]**| `string` |  The type of leverage available |
+|**leverage_data[][name]**| `string` | Name of the leverage option available for this contract |
+|**leverage_data[][can_set_leverage_value]**| `boolean` | Indicates whether a custom leverage value can be set |
+|**leverage_data[][max_leverage]**| `string` | The maximum leverage value allowed for this contract |
+|**leverage_data[][value][min]**| `string` | The minimum leverage value that can be applied to this contract |
+|**leverage_data[][value][max]**| `string` | The maximum leverage value that can be applied to this contract |
 | **instrumentKind**  | `string`  | The type of exchange instrument |
 | **minPrice**  | `string`  | Minimum price order |
 | **maxPrice**  | `string`  | Maximum price order |
@@ -71,17 +68,18 @@ The market and trading pair codes are used in 3Commas format. Use endpoints [Sup
 | **minMarketTotal**  | `string`  | Minimum order size in Quote for market order |
 | **maxTotal**  |   `string`| Maximum order size in Quote |
 |**maxLotSize**  | `string` | Maximum order size in Base |
+
 <br>
 <br>
 
 ### Example request<br>
 
 ```json
-/ver1/accounts/currency_rates_with_leverage_data?market_code=binance_futures_eea&pair=BNFCR_1INCHUSDT
+GET /ver1/accounts/currency_rates_with_leverage_data?market_code=binance_futures_eea&pair=BNFCR_1INCHUSDT
 ```
 <br>
 
-### Example Response and errors<br>
+### Example response and errors<br>
 
 <details>
 <summary>Status: 200 OK</summary><br>

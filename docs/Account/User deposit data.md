@@ -37,7 +37,7 @@ This endpoint works for the following exchanges: *Binance Spot*, *Binance US*, *
 <br>
 <br>
 
-### Parameters response<br>
+### Response Parameters<br>
 
 | Name | Type |	Description|
 |------|------|------------|

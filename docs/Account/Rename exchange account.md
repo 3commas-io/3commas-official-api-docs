@@ -35,10 +35,13 @@
 <br>
 <br>
 
-### Parameters response<br>
+### Response Parameters<br>
 {% hint style="info" %}
 If successful, the response includes a copy of the updated [Account](./README.md) entity.
 {% endhint %}
+
+<br>
+<br>
 
 ### Example request<br>
 

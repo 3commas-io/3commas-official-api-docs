@@ -26,14 +26,14 @@
 <br>
 <br>
 
-### Parameters response<br>
+### Response Parameters<br>
 
 | Name | Type |	Description|
 |------|------|------------|
-|**data[active_bots_count]`**| `integer` | The number of all active DCA Bots on this account |
+|**data[active_bots_count]**| `integer` | The number of all active DCA Bots on this account |
 |**data[active_deals_count]**| `integer` | The number of all active deals of DCA Bot on this account |
 |**data[active_smart_trades_count]**| `integer` | The number of all active SmartTrades on this account |
-|**data[active_orders_count]**| `integer`| The number of all active orders on this account|
+|**data[active_orders_count]**|`integer`| The number of all active orders on this account|
 |**data[active_grid_bots_count]**| `integer` | The number of all active Grid Bots on this account |
 
 <br>
@@ -42,7 +42,7 @@
 ### Example request<br>
 
 ```json
-/ver1/accounts/12345678/active_trading_entities
+GET /ver1/accounts/12345678/active_trading_entities
 ```
 <br>
 <br>

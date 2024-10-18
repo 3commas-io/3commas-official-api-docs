@@ -31,7 +31,7 @@ Keep in mind, that an exchange account can't delete if it has any active entitie
 <br>
 <br>
 
-### Parameters response<br>
+### Response Parameters<br>
 
 ```
 NONE
@@ -39,7 +39,6 @@ NONE
 
 <br>
 <br>
-
 
 ### Example request<br>
 

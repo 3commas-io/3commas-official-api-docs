@@ -72,7 +72,7 @@ This endpoint works for the following exchanges: *Binance Spot*, *Binance US*, *
 ### Example request<br>
 
 ```
-/ver1/accounts/12345678/networks_info
+GET /ver1/accounts/12345678/networks_info
 ```
 <br>
 <br>

@@ -8,9 +8,9 @@
 
 ----------
 
-<mark style="color:green;background-color:white" > **GET**
+<mark style="color:blue;background-color:white" > **GET**
 
-<mark style="color:green;background-color:white" > **/ver1/accounts/{account_id}**
+<mark style="color:blue;background-color:white" > **/ver1/accounts/{account_id}**
 
 ----------
 <br>

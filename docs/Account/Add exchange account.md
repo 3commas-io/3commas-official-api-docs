@@ -16,7 +16,7 @@
 <br>
 <br>
 
-### Parameters request<br>
+### Body Parameters<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
@@ -25,14 +25,14 @@
 |**api_key**  | `string` | Yes |  | API-key from this exchange account |
 |**secret**  | `string` | Yes |  | Secret-key from this exchange account |
 |**address**  | `string` | No |  | Address of wallet. This parameter is required when `type` is set to `ethereumwallet` |
-|**`customer_id**  | `string` | No |  | Unique customer ID provided by the Bitstamp exchange.<br>This parameter is required when `type` is set to `Bitstamp` |
+|**customer_id**  | `string` | No |  | Unique customer ID provided by the Bitstamp exchange.<br>This parameter is required when `type` is set to `Bitstamp` |
 |**passphrase**  | `string` | No |  | Secret phrase from this exchange account.<br> This parameter is required when `type` is set to `Coinbase` |
 |**types_to_create**  | `array[string]` | No |  | Array of related account types to be created.<br> For example ['binance_margin'] |
 
 <br>
 <br>
 
-### Parameters response<br>
+### Response Parameters<br>
 
 | Name | Type |Description |
 |------|------|------------|
@@ -92,7 +92,7 @@
 ### Example Request<br>
 
 ```json
-/v2/smart_trades/12345678
+POST /v2/smart_trades/12345678
 ```
 <br>
 <br>

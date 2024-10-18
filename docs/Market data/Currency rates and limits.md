@@ -15,20 +15,20 @@ This is an endpoint that does not need authentication
 
 -------- 
 <br>
-
-{% hint style="info" %}
-The market and trading pair codes are used in 3Commas format. Use endpoints [Supported Markets List](Market%20data/1.Supported%20markets%20list.md) to get value for parameter `market_code` and [All Market Pairs](Market%20data/2.All%20market%20pairs.md) to get value for parameter `pair` in 3Commas format.
-{% endhint %}
-
-<br>
 <br>
 
-### Request Parameters <br>
+### Request Parameters<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
 | **market_code** | `integer`	| Yes |	 | Name of the exchange in the 3Commas system |
 | **pair** | `integer`	| Yes |	| Trading pair in 3Commas format |
+
+<br>
+
+{% hint style="info" %}
+The market and trading pair codes are used in 3Commas format. Use endpoints [Supported Markets List](Market%20data/1.Supported%20markets%20list.md) to get value for parameter `market_code` and [All Market Pairs](Market%20data/2.All%20market%20pairs.md) to get value for parameter `pair` in 3Commas format.
+{% endhint %}
 
 <br>
 <br>
@@ -69,8 +69,7 @@ The market and trading pair codes are used in 3Commas format. Use endpoints [Sup
 ### Example request<br>
 
 ```json
-/ver1/accounts/currency_rates_with_leverage_data?market_code=binance&pair=BTC_ETH
-
+GET /ver1/accounts/currency_rates_with_leverage_data?market_code=binance&pair=BTC_ETH
 ```
 <br>
 

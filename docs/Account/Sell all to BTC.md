@@ -39,7 +39,7 @@ When executing this request, all trading entities (bots, SmartTrade, trades, dea
 <br>
 <br>
 
-### Parameters response<br>
+### Response Parameters<br>
 
 {% hint style="info" %}
 If successful, the response includes a copy of the updated [Account](./README.md) entity.
