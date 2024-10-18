@@ -1,19 +1,45 @@
 <h1>Trades</h1>
 
-
-Set of method to create and work with SmartTrades in 3Commas.
+<p>
+The <strong>Trade</strong> is a sub-entity of SmartTrade. Each trade entity includes the conditions set for its specific trade type.
+</p>
 
 <p>
-  <strong>Trade</strong> can be the following types:
+The <strong>Trade</strong> entity holds the following information about:
 </p>
 
 <ul>
-  <li>Position trade;</li>
-  <li>Take profit trade;</li>
-  <li>Stop-loss trade;</li>
-  <li>Reduce funds trade;</li>
-  <li>Market close trade.</li>
+    <li>Order type ;
+    <li>Trading pair;
+    Trade status;
+    <li>Initial and realized amounts;
+    <li>Initial and realized total values;
+    <li>Price values, including initial, average, and realized prices;
+    <li>Position percentage for the trade;
+    <li>Conditions related to trailing and triggers (e.g., trailing enabled, trigger price).
 </ul>
+
+<p>
+Each trade is created automatically by 3Commas based on the conditions set within the SmartTrade entity.
+</p>
+
+<p>
+Depending on the conditions set within SmartTrade, a trade can be one of the following types:
+</p>
+
+<ul>
+    <li>Position trade;</li>
+    <li>Take profit trade;</li>
+    <li>Stop-loss trade;</li>
+    <li>Reduce funds trade;</li>
+    <li>Market close trade.</li>
+</ul>
+
+<p>
+Here you will find a set of methods to manage these trades.
+</p>
+<br>
+
 
 ## Attributes<br>
 
