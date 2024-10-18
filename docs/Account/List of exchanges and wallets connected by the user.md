@@ -18,7 +18,7 @@
 <br>
 <br>
 
-### Request Parameters<br>
+### Query Parameters<br>
 
 | Name | Type | Mandatory | Values  | Description|
 |------|------|-----------|-----------------|------------|

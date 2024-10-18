@@ -92,7 +92,7 @@
 ### Example Request<br>
 
 ```json
-/v2/smart_trades/12345678
+POST /v2/smart_trades/12345678
 ```
 <br>
 <br>

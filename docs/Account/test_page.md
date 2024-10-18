@@ -52,7 +52,24 @@
 </p>
 
 
+<hgroup>
+  <h1>Frankenstein</h1>
+  <p>Or: The Modern Prometheus</p>
+</hgroup>
+<p>
+  Victor Frankenstein, a Swiss scientist, has a great ambition: to create intelligent life. But when his creature first
+  stirs, he realizes he has made a monster. A monster which, abandoned by his master and shunned by everyone who sees
+  it, follows Dr Frankenstein to the very ends of the earth.
+</p>
 
 
 
+{% tabs %}
 
+{% tab title="Windows" %} Here are the instructions for Windows {% endtab %}
+
+{% tab title="OSX" %} Here are the instructions for macOS {% endtab %}
+
+{% tab title="Linux" %} Here are the instructions for Linux {% endtab %}
+
+{% endtabs %}
