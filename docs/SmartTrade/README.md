@@ -164,98 +164,80 @@ Details of the Take Profit and its steps applied to this SmartTrade<br>
     <dd><strong>position</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code></dt>
     <dd>Indicates the position of this take profit step for this SmartTrade</dd>
   </dl>
-<summary><strong>stop_loss</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code>
-<p>Details of the Stop Loss applied to this SmartTrade</p></summary>
-  <dl>
-    <dd><strong>enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code></dd>
-    <dd>Indicates whether the stop loss settings for this SmartTrade can be edited</dd><br>
-    <dd><strong>price_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code></dd>
-    <dd>The price type for the stop loss trade(s) that was set when creating the SmartTrade.<br>Can be either <code>value</code> or <code>percentage</code></dd><br>
-    <dd><strong>breakeven</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code></dd>
-    <dd>Indicates whether the stop loss has been set at the breakeven point</dd><br>
-    <dd><strong>order_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code></dd>
-    <dd>The type of order for this trade's stop loss</dd><br>
-    <dd><strong>editable</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code></dd>
-    <dd>Indicates whether the stop loss settings for this SmartTrade can be edited</dd><br>
-    <dd><strong>status</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code></dd>
-    <dd>Status of this the step of Stop Loss. Set automatically by 3Commas</dd><br>
-    <dd>
-      <dl>
-        <dd><strong>basic_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code></dd>
-        <dd>3Commas status for this stop loss trade</dd>
-        <dd><strong>title</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code></dd>
-        <dd>Brief description of this status for this trade</dd>
-        <dd><strong>error</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code></dd>
-        <dd>Error description for this stop loss trade if it fails</dd>
-      </dl>
-    </dd>
-    <dd><strong>units</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code></dd>
-    <dd>TBD</dd>
-    <dd>
-      <dl>
-        <dd><strong>value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code></dd>
-        <dd>The specific price value set for the stope loss order trigger</dd>
-      </dl>
-    </dd>
-    <dd><strong>total</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code></dd>
-    <dd>TBD</dd>
-    <dd>
-      <dl>
-        <dd><strong>value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code></dd>
-        <dd>The total value of the stop loss trade</dd>
-      </dl>
-    </dd>
-    <dd><strong>price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code></dd>
-    <dd>TBD</dd>
-    <dd>
-      <dl>
-        <dd><strong>value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code></dd>
-        <dd>TBD</dd>
-      </dl>
-    </dd>
-    <dd><strong>conditional</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code></dd>
-    <dd>TBD</dd>
-    <dd>
-      <dl>
-        <dd><strong>price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code></dt>
-        <dd>Details of the price applied the Stop Loss</dd>
-        <dd>
-          <dl>
-            <dd><strong>type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code></dd>
-            <dd>The type of price for the stop loss order used to close the position</dd>
-            <dd><strong>value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code></dd>
-            <dd>The specific price value set to trigger the Stop Loss order</dd>
-            <dd><strong>percent</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code></dd>
-            <dd>The specific percentage of the price set to trigger this Stop Loss trade</dd>
-          </dl>
-        </dd>
-        <dd><strong>trailing</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code></dd>
-        <dd>Details of the trailing applied for one step of Stop Loss</dd>
-        <dd>
-          <dl>
-            <dd><strong>editable</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code></dt>
-            <dd>Indicates whether trailing is enabled for the conditional stop loss</dd>
-            <dd><strong>percet</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code></dt>
-            <dd>The trailing percentage for the conditional stop loss</dd>
-          </dl>
-        </dd>
-      </dl>
-    </dd>
-    <dd><strong>timeout</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code></dd>
-    <dd>TBD</dd>
-    <dd>
-      <dl>
-        <dd><strong>enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code></dd>
-        <dd>Indicates whether the timeout setting for the stop loss is enabled</dd>
-        <dd><strong>value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code></dd>
-        <dd>The value of the timeout setting for the stop loss trade</dd>
-      </dl>
-    </dd>
-  </dl>
-<summary><strong>reduce_funds</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array</code> 
-<p>TBD</p></summary>
-    <dl>
-        <dd><strong>steps</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array</code></dd>
+
+<p>
+<strong>stop_loss</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+Details of the Stop Loss applied to this SmartTrade<br>
+</p>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Indicates whether the stop loss settings for this SmartTrade can be edited<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>price_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;The price type for the stop loss trade(s) that was set when creating the SmartTrade.<br>Can be either <code>value</code> or <code>percentage</code><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>breakeven</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Indicates whether the stop loss has been set at the breakeven point<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>order_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code></dd>
+&nbsp;&nbsp;&nbsp;&nbsp;The type of order for this trade's stop loss<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>editable</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Indicates whether the stop loss settings for this SmartTrade can be edited<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>status</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Status of this the step of Stop Loss. Set automatically by 3Commas<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>basic_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3Commas status for this stop loss trade<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>title</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Brief description of this status for this trade<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>error</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Error description for this stop loss trade if it fails<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>units</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;[TBD]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The specific price value set for the stope loss order trigger<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>total</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;[TBD]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code></dd>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The total value of the stop loss trade<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;[TBD]<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TBD]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>conditional</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;[TBD]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Details of the price applied the Stop Loss<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The type of price for the stop loss order used to close the position<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The specific price value set to trigger the Stop Loss order<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>percent</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The specific percentage of the price set to trigger this Stop Loss trade<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>trailing</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Details of the trailing applied for one step of Stop Loss<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>editable</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code></dt>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicates whether trailing is enabled for the conditional stop loss<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>percet</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code></dt>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The trailing percentage for the conditional stop loss<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>timeout</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;TBD<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicates whether the timeout setting for the stop loss is enabled<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The value of the timeout setting for the stop loss trade<br>
+</p>
+
+<p>
+<strong>reduce_funds</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array</code><br> 
+TBD<br>
+<strong>steps</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array</code></dd>
         <dl>
             <dd><strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code></dd>
             <dd>Unique 3Commas trade ID for this market close trade in the SmartTrade</dd><br>
@@ -295,6 +277,13 @@ Details of the Take Profit and its steps applied to this SmartTrade<br>
                 <dd><strong>panic_sell_available</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code></dd>
                 <dd>Indicates whether a drawdown transaction can be closed at market</dd>
 
+<strong>note</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+Optional user-defined note for this SmartTrade<br>
+
+<strong>note_raw</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br[TBD]<br>
+
+<strong>skip_enter_step</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+Shows whether the position opening step was skipped<br>
 
 <p>
 <strong>data</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
@@ -396,7 +385,6 @@ Details of the Take Profit and its steps applied to this SmartTrade<br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;<strong>type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
 &nbsp;&nbsp;&nbsp;&nbsp;Type of SmartTrade<br>
-
 </p>
 
 <p>
@@ -410,7 +398,8 @@ Detailed information about the profit received on this SmartTrade<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<strong>percent</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
 &nbsp;&nbsp;&nbsp;&nbsp;The total profit volume generated by this SmartTrade in percent<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<strong>roe</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code> or <code>null</code><br>
-&nbsp;&nbsp;&nbsp;&nbsp;The return on equity (ROE) for this SmartTrade's profit, applicable only for futures accounts<br></p>
+&nbsp;&nbsp;&nbsp;&nbsp;The return on equity (ROE) for this SmartTrade's profit, applicable only for futures accounts<br>
+</p>
 <p>
 <strong>margin</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
 Detailed information about the margin for this SmartTrade<br>
@@ -419,7 +408,9 @@ Detailed information about the margin for this SmartTrade<br>
 &nbsp;&nbsp;&nbsp;&nbsp;The total margin amount required for this SmartTrade (base)<br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;<strong>total</strong>&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code> or <code>null</code><br>
-&nbsp;&nbsp;&nbsp;&nbsp;The total margin value for this SmartTrade (quote)<br></p>
+&nbsp;&nbsp;&nbsp;&nbsp;The total margin value for this SmartTrade (quote)<br>
+</p>
 <p>
 <strong>is_position_not_filled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-Indicates whether a position has been successfully entered for this SmartTrade<br></p>
+Indicates whether a position has been successfully entered for this SmartTrade<br>
+</p>
