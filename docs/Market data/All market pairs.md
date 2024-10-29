@@ -26,6 +26,7 @@ This is an endpoint that does not need authentication
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
 |**market_code**  | `integer` | Yes |	| Unique exchange code in the 3Commas system|
+<br>
 
 {% hint style="info" %}
 Use endpoint [Supported markets list](Market%20data/1.Supported%20markets%20list.md) to get value for parameter 'market_code' in 3Commas.
@@ -39,6 +40,7 @@ Use endpoint [Supported markets list](Market%20data/1.Supported%20markets%20list
 ```json
 GET /ver1/accounts/market_pairs?market_code=binance_us
 ```
+<br>
 <br>
 
 ### Example Response and errors<br>
