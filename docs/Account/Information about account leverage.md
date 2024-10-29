@@ -37,17 +37,18 @@
 
 | Name | Type |	Description|
 |------|------|------------|
-|**code**| `string` |  |
-|**name**| `boolean`|  |
-|**can_set_leverage_value**| `boolean` |  |
-|**max_leverage**| `string` or `null` |  |
-|**available_leverage_values**| `array` |  |
-|**valid[min]**| `string` or `null` |  |
-|**valid[max]**| `string` or `null` |  |
+|**code**| `string` | Unique code identifying the leverage type |
+|**name**| `boolean`| Display name for the leverage type |
+|**can_set_leverage_value**| `boolean` | Indicates whether the leverage value can be set by the user |
+|**max_leverage**| `string` or `null` | Maximum allowable leverage value for this type, or null if there is no limit |
+|**available_leverage_values**| `array` | List of specific leverage values available for this type, if any |
+|**valid[min]**| `string` or `null` | Minimum allowable leverage value |
+|**valid[max]**| `string` or `null` | Maximum allowable leverage value |
 
 <br>
 <br>
-**Example request**<br>
+
+### Example request<br>
 
 ```json
 GET /ver1/accounts/32833910/leverage_data?pair=USDC_DOGE

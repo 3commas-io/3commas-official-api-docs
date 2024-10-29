@@ -30,24 +30,24 @@
 
 | Name | Type | Description|
 |------|------|------------|
-|**account_id**| `string`| ID of the exchange account entity |
-|**code**| `string` |  |
-|**coinmarketcapid**| `string`|  |
-|**coinmarketcapid**| `string`|  |
-|**y**| `string`|  |
-|**percentage**| `string`|  |
-|**amount**| `string`|  |
-|**btc_value**| `string`|  |
-|**usd_value**| `string`|  |
-|**usd_value[currency]**| `string`|  |
-|**usd_value[amount]**| `string`|  |
+|**account_id**| `integer` | ID of the exchange account entity |
+|**code**| `string` | The cryptocurrency code symbol |
+|**coinmarketcapid**| `string`| Unique identifier of the cryptocurrency on CoinMarketCap |
+|**name**| `string`| Full name of the cryptocurrency |
+|**y**| `string`| [TBD:?] |
+|**percentage**| `string`| The exact percentage share of this cryptocurrency in the account's portfolio |
+|**amount**| `string`| The amount of cryptocurrency held in this account |
+|**btc_value**| `string`| The equivalent value of this cryptocurrency in BTC |
+|**usd_value**| `string`| The equivalent value of this cryptocurrency in USD |
+|**usd_value[currency]**| `string`|The currency code used to display values for this cryptocurrency  |
+|**usd_value[amount]**| `string`| The amount of the cryptocurrency in the primary display currency |
 
 
 
 ### Example request<br>
 
 ```json
-/ver1/accounts/32402783/pie_chart_data
+POST /ver1/accounts/32402783/pie_chart_data
 ```
 <br>
 <br>
@@ -74,36 +74,7 @@
         },
         "account_id": 32402783
     },
-    {
-        "code": "1INCH",
-        "coinmarketcapid": "8104",
-        "name": "1inch Network (1INCH)",
-        "y": 22.81,
-        "percentage": 22.81,
-        "amount": 25.3832,
-        "btc_value": "0.00011168",
-        "usd_value": "7.12",
-        "primary_display_currency": {
-            "currency": "USD",
-            "amount": "7.118428038479759638742079268088009765107492032"
-        },
-        "account_id": 32402783
-    },
-    {
-        "code": "DOGE",
-        "coinmarketcapid": "74",
-        "name": "Dogecoin (DOGE)",
-        "y": 10.23,
-        "percentage": 10.23,
-        "amount": 27.076,
-        "btc_value": "0.00005009",
-        "usd_value": "3.19",
-        "primary_display_currency": {
-            "currency": "USD",
-            "amount": "3.192692695416"
-        },
-        "account_id": 32402783
-    },
+   ...
     {
         "code": "USDT",
         "coinmarketcapid": "825",
@@ -131,51 +102,6 @@
         "primary_display_currency": {
             "currency": "USD",
             "amount": "0.247266593784"
-        },
-        "account_id": 32402783
-    },
-    {
-        "code": "FIL",
-        "coinmarketcapid": "2280",
-        "name": "Filecoin (FIL)",
-        "y": 0.1,
-        "percentage": 0.1,
-        "amount": 0.008,
-        "btc_value": "0.00000049",
-        "usd_value": "0.03",
-        "primary_display_currency": {
-            "currency": "USD",
-            "amount": "0.0309223045260562519961798965959195228138048"
-        },
-        "account_id": 32402783
-    },
-    {
-        "code": "ADA",
-        "coinmarketcapid": "2010",
-        "name": "Cardano (ADA)",
-        "y": 0.05,
-        "percentage": 0.05,
-        "amount": 0.04,
-        "btc_value": "0.00000024",
-        "usd_value": "0.02",
-        "primary_display_currency": {
-            "currency": "USD",
-            "amount": "0.015220720368"
-        },
-        "account_id": 32402783
-    },
-    {
-        "code": "RENDER",
-        "coinmarketcapid": "5690",
-        "name": "Render (RENDER)",
-        "y": 0.0,
-        "percentage": 0.0,
-        "amount": 0.00018,
-        "btc_value": "0.00000002",
-        "usd_value": "0.0",
-        "primary_display_currency": {
-            "currency": "USD",
-            "amount": "0.001163970148812561494902812536999044751488824"
         },
         "account_id": 32402783
     }
