@@ -30,38 +30,41 @@
 
 | Name | Type | Description|
 |------|------|------------|
-|**currency_code**| `string` |  |
-|**currency_name**| `string`|  |
-|**currency_icon**| `string`|  |
-|**currency_slug**| `string`|  |
-|**percentage**| `string`|  |
-|**position**| `string`|  |
-|**position_available**| `string`|  |
+|**currency_code**| `string` | Code symbol for the cryptocurrency  |
+|**currency_name**| `string`| Full name of the cryptocurrency |
+|**currency_icon**| `string`| URL link to the icon image of the cryptocurrency |
+|**currency_slug**| `string`| Slug or identifier used for the cryptocurrency in URLs |
+|**percentage**| `string`| The percentage share of this cryptocurrency in the account |
+|**position**| `string`| Total position (amount) of this cryptocurrency held in the account |
+|**position_available**| `string`| The available position (amount) of this cryptocurrency that is not on orders or borrowed|
 |**position_type**| `string`|  |
-|**borrowed**| `string`|  |
-|**on_orders**| `string`|  |
-|**on_orders_with_leverage**| `string`|  |
-|**on_orders_long**| `string`|  |
-|**on_orders_short**| `string`|  |
-|**equity**| `string`|  |
-|**current_price**| `string`|  |
-|**current_price_usd**| `string`|  |
-|**day_change_percent**| `string`|  |
-|**day_change_percent_btc**| `string`|  |
-|**day_change_percent_usd**| `string`|  |
-|**btc_value**| `string`|  |
-|**usd_value**| `string`|  |
-|**available_long**| `string`|  |
-|**available_short**| `string`|  |
-|**available_with_leverage_long**| `string`|  |
-|**available_with_leverage_short**| `string`|  |
+|**borrowed**| `string`| Amount of this cryptocurrency that is borrowed |
+|**on_orders**| `string`| Amount of this cryptocurrency currently placed on orders |
+|**on_orders_with_leverage**| `string`| Amount on orders with leverage applied |
+|**on_orders_long**| `string`| The amount of this cryptocurrency placed on orders with a long strategy |
+|**on_orders_short**| `string`| The amount of this cryptocurrency placed on orders with a short strategy |
+|**equity**| `string`| Total equity of this cryptocurrency in the account |
+|**current_price**| `string`| Current price of this cryptocurrency in BTC |
+|**current_price_usd**| `string`| Current price of this cryptocurrency in USD |
+|**day_change_percent**| `string`| Daily price change percentage of this cryptocurrency in the primary display currency |
+|**day_change_percent_btc**| `string`| Daily price change percentage of this cryptocurrency in BTC |
+|**day_change_percent_usd**| `string`| Daily price change percentage of this cryptocurrency in USD |
+|**btc_value**| `string`| Total equivalent value of this cryptocurrency in BTC |
+|**usd_value**| `string`| Total equivalent value of this cryptocurrency in USD |
+|**available_long**| `string`| Amount available for long positions |
+|**available_short**| `string`| Amount available for short positions |
+|**available_with_leverage_long**| `string`| Amount available for long positions with leverage included |
+|**available_with_leverage_short**| `string`| Amount available for short positions with leverage included |
 |**account_id**| `integer`| Unique 3Commas ID of the exchange account entity |
 |**is_wallet**| `boolean`| Indicates whether this account is as a wallet |
+
+<br>
+<br>
 
 ### Example request<br>
 
 ```json
-POST /ver1/accounts/32402783/account_table_data
+POST /ver1/accounts/12345678/account_table_data
 
 ```
 <br>

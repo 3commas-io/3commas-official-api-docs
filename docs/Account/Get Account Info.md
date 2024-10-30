@@ -26,7 +26,7 @@
 <br>
 <br>
 
-### Parameters response**<br>
+### Parameters response<br>
 
 {% hint style="info" %}
 If successful, the response includes a copy of [Account](./README.md) entity.

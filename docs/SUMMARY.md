@@ -31,10 +31,11 @@
 
 <br>
 
-* [DCA bots](dca_bots/README.md)
-  * [Create bot](dca_bots/create_bot.md)
-  * [Update bot](dca_bots/update_bot.md)
-  * [Delete bot](dca_bots/deleted_bot.md)
+* [DCA bots](DCA Bot/README.md)
+  * [Create bot](DCA%20Bot/reate_bot.md)
+  * [Update bot](DCA%20Bot/update_bot.md)
+  * [Delete bot](DCA%20Bot/deleted_bot.md)
+  * [Available strategy list for bot](DCA%20Bot/Available%20strategy%20list%20for%20bot.md)
 
 * [GRID bots](Grid%20Bot/README.md)
   * [Create Grid Bot](Grid%20Bot/Create%20Grid%20Bot.md)
