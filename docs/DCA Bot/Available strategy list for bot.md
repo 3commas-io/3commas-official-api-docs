@@ -1,6 +1,6 @@
-## Available strategy list for bot<br>
+## Available strategy list for DCA Bot<br>
 
-**Description:** TBD <br>
+**Description:** Retunrs available strategy list for DCA Bot. Use the query parameters to page through results <br>
 
 **Permission:** BOTS_READ<br>
 **Security** SIGNED<br>
@@ -29,10 +29,16 @@
 <br>
 
 
+### Example Request<br>
 
 ```
-GET /ver1/bots/strategy_list?account_id=32864603
+GET /ver1/bots/strategy_list
 ```
+
+### Example Response and errors<br>
+
+<details>
+<summary>Status: 200 OK</summary><br>
 
 ```json
 {
