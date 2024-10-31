@@ -2,8 +2,6 @@
 
 **Description:** Creates a new Grid Bot<br>
 
-<br>
-
 **Permission:** BOTS_WRITEE<br>
 **Security:** SIGNED<br>
 <br>
@@ -24,7 +22,7 @@
 
 | Name | Type | Mandatory | Values | Description |
 |------|------|-----------|-----------------|-------------|
-|**name** | `string` | No | `[1 ... 40]` characters | User-defined name of the Grid Bot. If not specified, the system will generate a default name automatically |
+|**name** | `string` | No | `[1 ... 40]` characters | Grid bot name specified by the user. If not specified, the system will generate a default name automatically |
 |**account_id** | `integer` | Yes | - | ID of the exchange account entity where the Grid Bot is created |
 |**pair** | `string` | Yes | - | Trading pair in 3Commas format |
 |**upper_price** | `number` | Yes |  | The maximum price of the trading range, above which the bot will not place sell orders |
