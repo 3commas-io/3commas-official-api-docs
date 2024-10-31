@@ -34,6 +34,8 @@
 ```
 GET /ver1/bots/strategy_list
 ```
+<br>
+<br>
 
 ### Example Response and errors<br>
 
