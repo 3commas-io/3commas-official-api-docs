@@ -15,7 +15,7 @@
 ID of the exchange account entity<br>
 
 <strong>name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`string`<br>
-The name for the exchange account defined by the user<br>
+The name for the exchange account set by the user<br>
 
 <strong>exchange_name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`string`<br>
 Name of this exchange account<br>
