@@ -2,13 +2,18 @@
 
 * [Introduction](README.md)
 
+* [General information](General%20information/README.md)
+  * [Endpoint security type](General%20information/Endpoint%20security%20type.md)
+  * [Limits](General%20information/Limits.md)
+  * [Errors](General%20information/Errors.md)
+  * [Dates and times](General%20information/Dates%20and%20times.md)
+
 * [Market data](Market%20data/README.md)
   * [Supported markets list](Market%20data/Supported%20markets%20list.md)
   * [All market pairs](Market%20data/All%20market%20pairs.md)
   * [Currency rates and limits](Market%20data/Currency%20rates%20and%20limits.md)
   * [Currency rates and limits with leverage data](Market%20data/Currency%20rates%20and%20limits%20with%20leverage%20data.md)
   
-<br>
 
 * [Account](Account/README.md)
   * [test page](Account/test_page.md)
