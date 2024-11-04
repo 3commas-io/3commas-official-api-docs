@@ -22,7 +22,7 @@
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
 |**account_id**  | `integer`| No |  | Unique 3Commas ID of the exchange account entity |
-|**type**  | `string`| No | `simple`<br> `composite` |  |
+|**type**  | `string`| No | `simple`<br> `composite` | [TBD] |
 |**strategy**  | `string`| No | `long`<br>`short` | Strategy type for the bot |
 
 <br>
