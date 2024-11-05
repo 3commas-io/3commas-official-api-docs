@@ -37,12 +37,14 @@
 <br>
 
 * [DCA Bot](DCA%20Bot/README.md)
-  * [Create DCA bot](DCA%20Bot/Create%20DCA%20Bot.md)
+  * [Available strategy list for bot](DCA%20Bot/Available%20strategy%20list%20for%20bot.md)
+  * [Create DCA Bot](DCA%20Bot/Create%20DCA%20Bot.md)
   * [Edit DCA Bot](DCA%20Bot/Edit%20DCA%20Bot.md)
   * [Disable DCA Bot](DCA%20Bot/Disable%20DCA%20Bot.md)
   * [Enable DCA Bot](DCA%20Bot/Enable%20DCA%20Bot.md)
   * [Delete DCA Bot](DCA%20Bot/Delete%20DCA%20Bot.md)
-  * [Available strategy list for bot](DCA%20Bot/Available%20strategy%20list%20for%20bot.md)
+  * [Get DCA Bot](DCA%20Bot/Get%20DCA%20Bot.md)
+  * [Get the list of DCA Bots](DCA%20Bot/Get%20the%20list%20of%20DCA%20Bots.md)
 
 * [GRID bots](Grid%20Bot/README.md)
   * [Create Grid Bot](Grid%20Bot/Create%20Grid%20Bot.md)

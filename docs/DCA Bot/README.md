@@ -1,7 +1,27 @@
-# DCA bots API<br>
-<strong>TBD</strong>
+<h1>DCA bots API</h1>
 
-
+<p>
+   The <strong>DCA Bot</strong> allows users to automate trading on the exchange by following a Dollar Cost Averaging strategy.
+</p>
+<p>
+   DCA Bot entity contains a set of parameters and conditions that manage deals.
+</p>
+<p>
+   3Commas provides methods to create and manage DCA Bot entities and their associated deals.
+</p>
+<p> 
+   Each <strong>DCA Bot</strong> entity holds information, including: 
+</p>
+<ul>
+   <li>Exchange account and trading pairs;</li>
+   <li>Strategy configuration and active deals;</li>
+   <li>Take Profit and Stop Loss settings;</li>
+   <li>Safety Orders configuration for risk management;</li>
+   <li>Trading cooldowns and limits.</li>
+</ul><br>
+<p>
+   The process starts with configuring a <strong>DCA Bot</strong>, where all trading conditions, such as base and safety orders, take profit, and stop loss, are set. The bot automatically creates and manages deals based on the configured strategy.
+</p>
 
 ## Attributes<br>
 <p>
@@ -14,7 +34,7 @@
 </p>
 <p>
    <strong>is_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-   Indicates whether DCA Bot is currently enabled
+   Indicates whether DCA Bot is currently enabled.<br>If the value is <code>false</code>, it means the bot is disabled
 </p>
 <p>
    <strong>pairs</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>strign</code><br>
