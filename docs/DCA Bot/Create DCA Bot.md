@@ -62,25 +62,30 @@
 |**min_price** | `number` | No |  | The minimum price to open a new deal for this DCA Bot |
 |**max_price** | `number` | No |  | The maximum price to open a new deal for this DCA Bot |
 |**deal_start_delay_seconds** | `integer` | No |  | Delay in seconds before a new deal starts |
-|**cooldown** | `number` | No | 0 < C < 2592000 sec. | The time (in seconds) that the DCA bot will wait after closing a deal before accepting a signal to start a new deal for the same asset pair |
+|**cooldown** | `number` | No | `0` < C < `2592000` sec. | The time (in seconds) that the DCA bot will wait after closing a deal before accepting a signal to start a new deal for the same asset pair |
 |**disable_after_deals_count** | `integer` | No |  | The number of opening deals after that DCA bot will disabled |
 |**allowed_deals_on_same_pair** | `integer` | No |  |  Allow to set up a specific number of deals on the same pair.<br> It works only for bot where <code>type</code> is <code>Bot::MultiBot</code>|
 |**min_price_percentage** | `number` | No | - |  Min price percent. Must be greater then -95 and lower then 1000|
 |**max_price_percentage** | `number` | No | - | Max price percent. Must be greater then -95 and lower then 1000 |
-|**close_deals_timeout** | `integer` | No | Minimum: `60` | The time after which the deals will close automatically (format: sec) |
+|**close_deals_timeout** | `integer` | No | Minimum: `60` | The time after which the deals will close automatically (format: `sec`) |
 
 <br>
 <br>
 
-### Additional information
+### Additional information<br>
 
-<strong>Strategy list</strong><br>
-The data strategies are used to populate the `strategy_list` and `close_strategy_list` parameters.<br> You can retrieve the full list of strategies available for this DCA bot through the [Available strategy list for bot](DCA%20Bot/Available%20strategy%20list%20for%20bot.md) endpoint.
-
-Below are several examples demonstrating how to fill these parameters with strategy data.<br>
+<p>
+   <strong>Strategy list</strong>
+</p>
+<p>
+   The data strategies are used to populate the `strategy_list` and `close_strategy_list` parameters.<br> You can retrieve the full list of strategies available for this DCA bot through the [Available strategy list for bot](DCA%20Bot/Available%20strategy%20list%20for%20bot.md) endpoint.
+</p>
+<p>
+   Below are several examples demonstrating how to fill these parameters with strategy data:
+</p>
 
 {% tabs %}
-{% tab title="**Manual signals**" %}
+{% tab title="Manual signals" %}
 
 ```json
 [
@@ -97,7 +102,7 @@ or
 
 {% endtab %}
 
-{% tab title="**Non-stop**" %}
+{% tab title="Non-stop" %}
 
 It's using only for 1 pair bot.
 
@@ -113,7 +118,7 @@ It's using only for 1 pair bot.
 ```
 {% endtab %}
 
-{% tab title="**QFL**" %}
+{% tab title="QFL" %}
 
 ```json
 [
@@ -129,7 +134,7 @@ It's using only for 1 pair bot.
 
 {% endtab %}
 
-{% tab title="**TradingView**" %} 
+{% tab title="TradingView" %} 
 
 ```json
 [
@@ -145,7 +150,7 @@ It's using only for 1 pair bot.
 
 {% endtab %}
 
-{% tab title="**RSI**" %} 
+{% tab title="RSI" %} 
 
 ```json
 [
@@ -160,7 +165,6 @@ It's using only for 1 pair bot.
    }
 ] 
 ```
-
 {% endtab %}
 {% endtabs %}
 
