@@ -2,13 +2,18 @@
 
 * [Introduction](README.md)
 
+* [General information](General%20information/README.md)
+  * [Endpoint security type](General%20information/Endpoint%20security%20type.md)
+  * [Limits](General%20information/Limits.md)
+  * [Errors](General%20information/Errors.md)
+  * [Dates and times](General%20information/Dates%20and%20times.md)
+
 * [Market data](Market%20data/README.md)
   * [Supported markets list](Market%20data/Supported%20markets%20list.md)
   * [All market pairs](Market%20data/All%20market%20pairs.md)
   * [Currency rates and limits](Market%20data/Currency%20rates%20and%20limits.md)
   * [Currency rates and limits with leverage data](Market%20data/Currency%20rates%20and%20limits%20with%20leverage%20data.md)
   
-<br>
 
 * [Account](Account/README.md)
   * [test page](Account/test_page.md)
@@ -31,11 +36,15 @@
 
 <br>
 
-* [DCA bots](DCA Bot/README.md)
-  * [Create bot](DCA%20Bot/reate_bot.md)
-  * [Update bot](DCA%20Bot/update_bot.md)
-  * [Delete bot](DCA%20Bot/deleted_bot.md)
+* [DCA Bot](DCA%20Bot/README.md)
   * [Available strategy list for bot](DCA%20Bot/Available%20strategy%20list%20for%20bot.md)
+  * [Create DCA Bot](DCA%20Bot/Create%20DCA%20Bot.md)
+  * [Edit DCA Bot](DCA%20Bot/Edit%20DCA%20Bot.md)
+  * [Disable DCA Bot](DCA%20Bot/Disable%20DCA%20Bot.md)
+  * [Enable DCA Bot](DCA%20Bot/Enable%20DCA%20Bot.md)
+  * [Delete DCA Bot](DCA%20Bot/Delete%20DCA%20Bot.md)
+  * [Get DCA Bot](DCA%20Bot/Get%20DCA%20Bot.md)
+  * [Get the list of DCA Bots](DCA%20Bot/Get%20the%20list%20of%20DCA%20Bots.md)
 
 * [GRID bots](Grid%20Bot/README.md)
   * [Create Grid Bot](Grid%20Bot/Create%20Grid%20Bot.md)

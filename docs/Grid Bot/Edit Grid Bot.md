@@ -30,8 +30,7 @@
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
-|**name** | `string` | No | `[1 ... 40]` characters | User-defined name of the Grid Bot. If not specified, the system will generate a default name automatically |
-|**pair** | `string` | Yes |  | Trading pair in 3Commas format |
+|**name** | `string` | No | `[1 ... 40]` characters | Grid bot name specified by the user |
 |**upper_price** | `number` | Yes |  | The maximum price of the trading range, above which the bot will not place sell orders |
 |**lower_price** | `number` | Yes |  | The minimum price of the trading range, below which the bot will not place buy orders |
 |**grid_quantity** | `integer` | Yes |  | The number of grid levels between the upper and lower price boundaries. This value is limited based on the exchange’s rules for rates, limits, and leverage |
