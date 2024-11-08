@@ -1,6 +1,6 @@
-## Cancel all deals of DCA Bot<br>
+## Cancel DCA Bot<br>
 
-**Description:** Cancels an existing DCA Bot and its active deals using the bot's ID<br>
+**Description:** Cancels an existing DCA Bot and all active deals using the bot's ID<br>
 
 
 **Permission:** SMART_TRADES_WRITE<br>
