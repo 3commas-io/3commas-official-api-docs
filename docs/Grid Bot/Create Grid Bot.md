@@ -1,4 +1,4 @@
-## Create a Grid Bot<br>
+## Create Grid Bot<br>
 
 **Description:** Creates a new Grid Bot<br>
 
@@ -18,7 +18,7 @@
 <br>
 <br>
 
-## Body parameters<br>
+### Body parameters<br>
 
 | Name | Type | Mandatory | Values | Description |
 |------|------|-----------|-----------------|-------------|
