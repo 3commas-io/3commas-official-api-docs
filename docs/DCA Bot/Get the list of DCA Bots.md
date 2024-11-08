@@ -25,12 +25,13 @@
 |**offset** | `integer` | No |   | Skips the first N records in the results |
 |**from** | `string` | No |   | Returns entities created after a specific time |
 |**account_id** | `integer` | No |   | Filters entities linked to the specified 3Commas exchange account |
-|**scope** | `string` | No |   | Filters deals by their status.<br>Default: `null` <details> <summary>_Allowed value_</summary> <dl><li>enable - returns bots where the state is active;<li>disabled - returns bots where the state is stopped;<li>`null` - returns all bots</dl></details>|
-|**strategy**  | `string`| No | `long`<br>`short` | [TBD] |
+|**scope** | `string` | No |   | Filters bots by their status.<br>Default: `null` <details> <summary>_Allowed value_</summary> <dl><li>enable - returns bots where the state is active;<li>disabled - returns bots where the state is stopped;<li>`null` - returns all bots</dl></details>|
+|**strategy**  | `string`| No | `long`<br>`short` | Filters bots by trading strategy type |
 |**sort_by** | `string` | No | `created_at`;<br>`updated_at`;<br>`profit` | Specifies the field used to order the results.<br>Default: `created_at`| 
 |**order_direction** | `string` | No | `[ASC]` or `[DESC]` | Sets the direction of order.<br>Default: `[DESC]` |
 |**quote** | `string` | No |   | Filters by quote currency |
 |**form_type** | `string` | No | `gordon`<br>`advanced`  | Filters entities by the type of bot |
+
 
 <br>
 {% hint style="info" %}

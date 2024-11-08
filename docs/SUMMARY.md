@@ -45,6 +45,10 @@
   * [Delete DCA Bot](DCA%20Bot/Delete%20DCA%20Bot.md)
   * [Get DCA Bot](DCA%20Bot/Get%20DCA%20Bot.md)
   * [Get the list of DCA Bots](DCA%20Bot/Get%20the%20list%20of%20DCA%20Bots.md)
+  * [Get data on bot's profits grouped by day](DCA%20Bot/Get%20data%20the%20bot's%20profit.md)
+  * [Get stats of DCA Bot](DCA%20Bot/Get%20bot%20stats.md)
+  * [Get Profit Stats by Date](DCA%20Bot/Get%20bot%20stats.md)
+  * [Close DCA Bot by market price](DCA%20Bot/Close%20DCA%20Bot%20by%20market.md)
 
 * [GRID bots](Grid%20Bot/README.md)
   * [Create Grid Bot](Grid%20Bot/Create%20Grid%20Bot.md)

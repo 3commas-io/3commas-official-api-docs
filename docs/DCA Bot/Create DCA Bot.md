@@ -73,9 +73,11 @@
 <br>
 
 ### Additional information<br>
+<p><strong>pairs</strong>
 
+</p>
 <p>
-   <strong>Strategy list</strong>
+   <strong>strategy list, close_strategy_list, safety_strategy_list, </strong>
 </p>
 <p>
    The data strategies are used to populate the `strategy_list` and `close_strategy_list` parameters.<br> You can retrieve the full list of strategies available for this DCA bot through the [Available strategy list for bot](DCA%20Bot/Available%20strategy%20list%20for%20bot.md) endpoint.
@@ -180,7 +182,9 @@ If successful, the response includes a update copy of [DCA Bot](./README.md) ent
 
 ### Example Request<br>
 
+```json
 POST /ver1/bots/create_bot
+```
 
 ```json
 {
