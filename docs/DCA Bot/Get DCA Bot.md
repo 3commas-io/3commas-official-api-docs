@@ -35,7 +35,7 @@
 <br>
 <br>
 
-### Parameters response<br>
+
 
 {% hint style="info" %}
 If successful, the response includes a copy of [DCA Bot](./README.md) entity.
@@ -52,7 +52,7 @@ GET /ver1/bots/12345678/show?include_events=true
 <br>
 <br>
 
-###  Example Response and errors<br>
+### Example Response and errors<br>
 
 <details>
 <summary>Status: 200 OK</summary><br>
