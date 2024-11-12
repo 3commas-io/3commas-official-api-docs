@@ -55,7 +55,9 @@
       * [Get deal of DCA Bot](DCA%20Bot/Deals/Get%20deal%20of%20DCA%20Bot.md)
       * [Get the list of deals](DCA%20Bot/Deals/Get%20the%20list%20of%20deals.md)
       * [Edit the deal](DCA%20Bot/Deals/Edit%20the%20deal.md)
+      * [Close deal at market price](DCA%20Bot/Deals/Close%20deal%20at%20market%20price.md)
       * [Cancel the deal](DCA%20Bot/Deals/Cancel%20deal.md)
+
 
 * [GRID bots](Grid%20Bot/README.md)
   * [Create Grid Bot](Grid%20Bot/Create%20Grid%20Bot.md)

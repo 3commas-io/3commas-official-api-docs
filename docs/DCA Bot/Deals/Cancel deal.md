@@ -209,11 +209,3 @@ POST  /ver1/deals/2345678901/cancel
 }
 ```
 </details>
-
-<details>
-<summary>Status: </summary><br>
-
-```json
-
-```
-</details>
