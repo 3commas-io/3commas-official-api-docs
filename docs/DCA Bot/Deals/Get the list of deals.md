@@ -9,9 +9,9 @@
 
 ----------
 
-<mark style="color:blue;background-color:white"> **GET**
+<mark style="color:blue"> **GET**
 
-<mark style="color:blue;background-color:white"> **/ver1/deals**
+<mark style="color:blue"> **/ver1/deals**
 
 ----------
 
@@ -54,6 +54,7 @@ If successful, the response includes a copy of [Deals](./README.md) entity.
 
 ```json
 POST /ver1/bots/12345678/disable
+
 ```
 
 <br>
