@@ -4,9 +4,10 @@
 
 * [General information](General%20information/README.md)
   * [Endpoint security type](General%20information/Endpoint%20security%20type.md)
+  * [Dates and times](General%20information/Dates%20and%20times.md)
   * [Limits](General%20information/Limits.md)
   * [Errors](General%20information/Errors.md)
-  * [Dates and times](General%20information/Dates%20and%20times.md)
+  
 
 * [Market data](Market%20data/README.md)
   * [Supported markets list](Market%20data/Supported%20markets%20list.md)
@@ -57,6 +58,7 @@
       * [Edit the deal](DCA%20Bot/Deals/Edit%20the%20deal.md)
       * [Close deal at market price](DCA%20Bot/Deals/Close%20deal%20at%20market%20price.md)
       * [Cancel the deal](DCA%20Bot/Deals/Cancel%20deal.md)
+      * [Convert to SmartTrade](DCA%20Bot/Deals/Convert%20to%20SmartTrade.md)
 
 
 * [GRID bots](Grid%20Bot/README.md)
