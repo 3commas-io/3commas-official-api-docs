@@ -13,6 +13,7 @@
   * [All market pairs](Market%20data/All%20market%20pairs.md)
   * [Currency rates and limits](Market%20data/Currency%20rates%20and%20limits.md)
   * [Currency rates and limits with leverage data](Market%20data/Currency%20rates%20and%20limits%20with%20leverage%20data.md)
+
   
 
 * [Account](Account/README.md)
@@ -49,6 +50,12 @@
   * [Get stats of DCA Bot](DCA%20Bot/Get%20bot%20stats.md)
   * [Get Profit Stats by Date](DCA%20Bot/Get%20bot%20stats.md)
   * [Close DCA Bot by market price](DCA%20Bot/Close%20DCA%20Bot%20by%20market.md)
+  * [Cancel all deals of DCA Bot](DCA%20Bot/Cancels%20all%20bot%20deals.md)
+  * [Deals](DCA%20Bot/Deals/README.md)
+      * [Get deal of DCA Bot](DCA%20Bot/Deals/Get%20deal%20of%20DCA%20Bot.md)
+      * [Get the list of deals](DCA%20Bot/Deals/Get%20the%20list%20of%20deals.md)
+      * [Edit the deal](DCA%20Bot/Deals/Edit%20the%20deal.md)
+      * [Cancel the deal](DCA%20Bot/Deals/Cancel%20deal.md)
 
 * [GRID bots](Grid%20Bot/README.md)
   * [Create Grid Bot](Grid%20Bot/Create%20Grid%20Bot.md)
@@ -63,7 +70,7 @@
   * [Disable Grid Bot](Grid%20Bot/Disable%20Grid%20Bot.md)
   * [Enable Grid Bot](Grid%20Bot/Enable%20Grid%20Bot.md)
   * [Delete Grid Bot](Grid%20Bot/Delete%20Grid%20Bot.md)
-
+  
 
  * [SmartTrade](SmartTrade/README.md) 
    * [Create SmartTrade](SmartTrade/1.%20Create%20SmartTrade.md)
