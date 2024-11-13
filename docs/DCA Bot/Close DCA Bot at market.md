@@ -4,7 +4,6 @@
 
 **Permission:** BOTS_WRITE<br>
 **Security:** SIGNED<br>
-
 <br>
 
 ----------
@@ -226,6 +225,16 @@ POST /ver1/bots/12345678/panic_sell_all_deals
             "crypto_widget": null
         }
     ]
+}
+```
+</details>
+
+<details>
+<summary>Status: 404 Not Found</summary><br>
+```json
+{
+    "error": "not_found",
+    "error_description": "Not Found"
 }
 ```
 </details>

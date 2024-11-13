@@ -22,7 +22,7 @@ After this action, the final status **Panic_sold** will be automatically set by 
 <br>
 <br>
 
-### Path Parameters<br
+### Path Parameters<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
@@ -31,11 +31,14 @@ After this action, the final status **Panic_sold** will be automatically set by 
 <br>
 <br>
 
-### Parameter response<br>
+### Response Parameters<br>
 
 {% hint style="info" %}
 If successful, the response includes an updated copy of the [Deals](./README.md) entity.
 {% endhint %}
+
+<br>
+<br>
 
 ### Example request<br>
 

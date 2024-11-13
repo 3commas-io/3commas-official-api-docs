@@ -1,6 +1,6 @@
 ## Get the list of DCA Bots<br>
 
-**Description:** Returns a list of DCA Bots by user. Use the query parameters to filter the results<br><br>
+**Description:** Returns a list of DCA Bots by user. Use the query parameters to filter the results<br>
 
 **Permission:** BOTS_READ<br>
 **Security** SIGNED<br>
@@ -8,9 +8,8 @@
 
 ----------
 
-<mark style="color:blue;background-color:white"><strong>GET<br>
-
-<mark style="color:blue;background-color:white">**/ver1/bots**</strong>
+<mark style="color:blue"><strong>GET<br>
+<mark style="color:blue">**/ver1/bots**</strong>
 
 ----------
 
@@ -35,7 +34,7 @@
 
 <br>
 {% hint style="info" %}
-Use endpoint [User connected exchanges and wallets list](Account/User%20connected%20exchanges%20and%20wallets%20list.md) to get value for parameter 'account_id' in 3Commas.
+Use endpoint [User connected exchanges and wallets list](Account/User%20connected%20exchanges%20and%20wallets%20list.md) to get value for parameter <code>account_id</code> in 3Commas.
 {% endhint %}
 <br>
 <br>
@@ -147,3 +146,4 @@ GET /ver1/bots/12345678/show?include_events=true
     ...
 ]
 ```
+</details>
