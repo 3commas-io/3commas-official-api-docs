@@ -30,7 +30,7 @@
 
 | Name | Type |	Description|
 |------|------|------------|
-| **id** | `integer`| ID of this trade entity |
+| **id** | `integer`| Unique 3Commas Trade entity ID |
 | **average_price** | `null` or `string` | The weighted average price at which the asset was bought or sold during the execution of the trades|
 | **follow_price_type** | `string`  | The type of price to follow for this trade (f.e. `bid`, `ask`, or `last`) |
 | **initial_amount** | `string`|The initial amount for this trade  |

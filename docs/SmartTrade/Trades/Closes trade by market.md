@@ -1,10 +1,10 @@
-## Closes trade by market<br>
+## Closes trade at market price<br>
 
-**Description:** Closes a specific take profit trade within a SmartTrade by market using its ID<br>
+**Description:** Closes a specific take profit trade within a SmartTrade at market price using its ID<br>
 
 
 {% hint style="warning" %}
-The endpoint is available for Take Profit Trades for the statuses `to_process`,  `order_placed`, and `trailing_activated`.
+The endpoint is available for Take Profit Trades for the statuses `to_process`, `order_placed`, and `trailing_activated`.
 {% endhint %}
 <br>
 
@@ -27,8 +27,8 @@ The endpoint is available for Take Profit Trades for the statuses `to_process`, 
 ### Path Parameters<br>
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
-|**smart-trade_id** | `integer`	| Yes | - | Unique 3Commas ID for this SmartTrade entity. |
-|**id** | `integer`| Yes | - | Unique 3Commas ID for Trade entity |
+|**smart-trade_id** | `integer`	| Yes |  | Unique 3Commas ID for this SmartTrade entity. |
+|**id** | `integer`| Yes |  | Unique 3Commas ID for Trade entity |
 
 <br>
 <br>

@@ -45,7 +45,7 @@ Here you will find a set of methods to manage these trades.
 
 <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
 <br>
-ID of this trade entity
+Unique 3Commas Trade entity ID
 <br>
 
 <strong>average_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>null</code> or<code>string</code>
@@ -80,17 +80,22 @@ The limit price for this trade
 
 <strong>order_side</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><code>string</code>
 <br>
-The side of the order to be created by this trade
+The side of the order to be created by this trade<br>
+<details>
+    <summary><em>Allowed value</em></summary>         
+        <li>Buy</li>
+        <li>Sell</li>
+</details>
 <br>
 
 <strong>order_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
 <br>
 The type of order used to open the position trade<br>
 <details>
-    <summary><strong>Show allowed values</strong></summary>         
-        <li>market</li>
-        <li>limit</li>
-        <li>conditional</li>
+    <summary><em>Allowed value</em></summary>         
+        <li>Market</li>
+        <li>Limit</li>
+        <li>Conditional</li>
 </details>
 <br>
 
