@@ -100,3 +100,84 @@ Good to know. Use endpoint [Supported markets list](Market%20data/1.Supported%20
 
 - **target_price_type** `string`
 - **orderbook_price_currency** `string`
+
+--------
+
+### Query parameters<br>
+
+<p>
+   <strong>limit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Limits the number of records returned<br>Maximum: <code>100</code>; Default: <code>50</code>
+</p>
+<p>
+   <strong>offset</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Skips the first N records in the results
+</p>
+<p>
+   <strong>from</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Returns entities created after a specific time
+</p>
+<p>
+   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Filters entities linked to the specified 3Commas exchange account
+</p>
+<p>
+   <strong>scope</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Filters deals by their status.<br>Default: <code>null</code> 
+<details>
+   <summary><strong>Allowed value</strong></summary>
+   <dl>
+      <li>enable - returns bots where the state is active;
+      <li>disabled - returns bots where the state is stopped;
+      <li>
+         `null` - returns all bots
+   </dl>
+</details>
+</p>
+<p>
+<strong>strategy</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+[TBD] <br>Valid fields for strategy: <code>long</code> or <code>short</code> 
+</p>
+<p>
+<strong>sort_by</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+Specifies the field used to order the results.<br>
+Valid fields for sorting: <code>created_at</code>; <code>updated_at</code>; <code>profit</code>.<br>Default: <code>created_at</code>
+</p>
+<p>
+<strong>order_direction</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+Sets the direction of order (<code>[ASC]</code> or <code>[DESC]</code>).<br>Default: <code>[DESC]</code>
+</p>
+<p>
+<strong>quote</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+Filters by quote currency
+</p>
+<p>
+<strong>form_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+Filters entities by the type of bot (<code>gordon</code> or <code>advanced</code>). 
+</p>
+
+
+<br>
+{% hint style="info" %}
+Use endpoint [User connected exchanges and wallets list](Account/User%20connected%20exchanges%20and%20wallets%20list.md) to get value for parameter <code>account_id</code> in 3Commas.
+{% endhint %}
+<br>
+<br>
+
+
+
+--------
+
+### Path Parameters<br>
+<p>
+   <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">REQUIRED</mark>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Unique 3Commas ID DCA Bot entity 
+</p><br>
+
+
+### Query Parameters<br>
+<p>
+   <strong>days</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Specifies the number of days for which profit data is requested for this bot. Default: <code>30</code>
+</p><br>
+<br>

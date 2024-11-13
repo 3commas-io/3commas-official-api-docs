@@ -207,6 +207,3 @@
     <strong>updated_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
     ISO 8601 datetime string of when this SmartTrade entity was updated
 </p>
-
-
-
