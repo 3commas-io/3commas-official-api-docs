@@ -58,6 +58,8 @@
       * [Edit the deal](DCA%20Bot/Deals/Edit%20the%20deal.md)
       * [Close deal at market price](DCA%20Bot/Deals/Close%20deal%20at%20market%20price.md)
       * [Cancel the deal](DCA%20Bot/Deals/Cancel%20deal.md)
+      * [Get Trades of Deal](DCA%20Bot/Deals/Get%20Trades%20of%20Deal.md)
+      * [Cancel manual safety orders](DCA%20Bot/Deals/Cancel%20manual%20safety%20orders.md)
       * [Convert to SmartTrade](DCA%20Bot/Deals/Convert%20to%20SmartTrade.md)
 
 
