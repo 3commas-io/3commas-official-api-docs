@@ -1,6 +1,6 @@
-## Get the list of deals<br>
+## Get List of Deals<br>
 
-**Description:** Returns a list of geals. Use the query parameters to page through results<br>
+**Description:** Returns the list of geals. Use the query parameters to page through results<br>
 
 
 **Permission:** BOTS_READ<br>
@@ -9,9 +9,8 @@
 
 ----------
 
-<mark style="color:blue;background-color:white"> **GET**
-
-<mark style="color:blue;background-color:white"> **/ver1/deals**
+<mark style="color:blue"> <strong>GET</strong><br>
+<mark style="color:blue"> <strong>/ver1/deals</strong>
 
 ----------
 
@@ -28,9 +27,9 @@
 |**offset** | `integer` | No |   | Skips the first N records in the results |
 |**from** | `string` | No |   | Returns entities created after a specific time |
 |**to** | `string` | No |   | Returns entities created before a specific time |
-|**scope** | `string` | No |   | Filters deals by their status.<br>Default: `null` <details> <summary>Show allowed value</summary><br> <dl><li>active - active deals;<li>finished - finished deals;<li>completed - successfully completed;<li>cancelled - cancelled deals;<li>failed - failed deals;<li>`null` - all deals</dl></details>|
+|**scope** | `string` | No |   | Filters deals by their status.<br>Default: `null` <details> <summary>_Allowed value_</summary><br> <dl><li>active - active deals;<li>finished - finished deals;<li>completed - successfully completed;<li>cancelled - cancelled deals;<li>failed - failed deals;<li>`null` - all deals</dl></details>|
 |**order** | `string` | No | `created_at`<br>`updated_at`<br>`closed_at`<br> `profit`<br>`profit_percentage`| Specifies the field used to order the results.<br>Default: `created_at`| 
-|**order_direction** | `string` | No | `ASC` or `DESC` | Sets the direction of order.<br>Default: `DESC`
+|**order_direction** | `string` | No | `ASC`<br>`DESC` | Sets the direction of order.<br>Default: `DESC`
 |**base** | `string` | No |   | Filters by base currency |
 |**quote** | `string` | No |   | Filters by quote currency |
 |**note** | `string` | No |   | Filters deals by note |
@@ -54,6 +53,7 @@ If successful, the response includes a copy of [Deals](./README.md) entity.
 
 ```json
 POST /ver1/bots/12345678/disable
+
 ```
 
 <br>

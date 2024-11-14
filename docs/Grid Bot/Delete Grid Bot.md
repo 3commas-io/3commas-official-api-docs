@@ -48,6 +48,7 @@ DELETE /ver1/grid_bots/2320287
 
 <details>
 <summary>Status: 200 OK</summary><br>
+
 ```
 NONE
 ```

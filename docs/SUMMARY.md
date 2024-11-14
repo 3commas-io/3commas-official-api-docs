@@ -4,15 +4,17 @@
 
 * [General information](General%20information/README.md)
   * [Endpoint security type](General%20information/Endpoint%20security%20type.md)
+  * [Dates and times](General%20information/Dates%20and%20times.md)
   * [Limits](General%20information/Limits.md)
   * [Errors](General%20information/Errors.md)
-  * [Dates and times](General%20information/Dates%20and%20times.md)
+  
 
 * [Market data](Market%20data/README.md)
   * [Supported markets list](Market%20data/Supported%20markets%20list.md)
   * [All market pairs](Market%20data/All%20market%20pairs.md)
   * [Currency rates and limits](Market%20data/Currency%20rates%20and%20limits.md)
   * [Currency rates and limits with leverage data](Market%20data/Currency%20rates%20and%20limits%20with%20leverage%20data.md)
+
   
 
 * [Account](Account/README.md)
@@ -45,6 +47,25 @@
   * [Delete DCA Bot](DCA%20Bot/Delete%20DCA%20Bot.md)
   * [Get DCA Bot](DCA%20Bot/Get%20DCA%20Bot.md)
   * [Get the list of DCA Bots](DCA%20Bot/Get%20the%20list%20of%20DCA%20Bots.md)
+  * [Get data on bot's profits grouped by day](DCA%20Bot/Get%20data%20the%20bot's%20profit.md)
+  * [Get stats of DCA Bot](DCA%20Bot/Get%20bot%20stats.md)
+  * [Get Profit Stats by Date](DCA%20Bot/Get%20bot%20stats.md)
+  * [Close DCA Bot by market price](DCA%20Bot/Close%20DCA%20Bot%20by%20market.md)
+  * [Cancel all deals of DCA Bot](DCA%20Bot/Cancels%20all%20bot%20deals.md)
+  * [Deals](DCA%20Bot/Deals/README.md)
+      * [Get Deal](DCA%20Bot/Deals/Get%20Deal.md)
+      * [Get List of Deals](DCA%20Bot/Deals/Get%20List%20of%20Deals.md)
+      * [Update Deal](DCA%20Bot/Deals/Update%20Deal.md)
+      * [Close deal at market price](DCA%20Bot/Deals/Close%20deal%20at%20market%20price.md)
+      * [Close one step in deal at market price](DCA%20Bot/Deals/Close%20one%20step%20in%20deal%20at%20market%20price.md)
+      * [Cancel Deal](DCA%20Bot/Deals/Cancel%20Deal.md)
+      * [Get Trades of Deal](DCA%20Bot/Deals/Get%20Trades%20of%20Deal.md)
+      * [Info required to add funds correctly](DCA%20Bot/Deals/Info%20required%20to%20add%20funds%20correctly.md)
+      * [Add Manual Safety Trade](DCA%20Bot/Deals/Add%20Manual%20Safety%20Trade.md)
+      * [Modify Maximum Safety Orders Count](DCA%20Bot/Deals/Modify%20Maximum%20Safety%20Orders%20Count.md)
+      * [Cancel Manual Safety Trade](DCA%20Bot/Deals/Cancel%20Manual%20Safety%20Order.md)
+      * [Convert to SmartTrade](DCA%20Bot/Deals/Convert%20to%20SmartTrade.md)
+
 
 * [GRID bots](Grid%20Bot/README.md)
   * [Create Grid Bot](Grid%20Bot/Create%20Grid%20Bot.md)
@@ -59,7 +80,7 @@
   * [Disable Grid Bot](Grid%20Bot/Disable%20Grid%20Bot.md)
   * [Enable Grid Bot](Grid%20Bot/Enable%20Grid%20Bot.md)
   * [Delete Grid Bot](Grid%20Bot/Delete%20Grid%20Bot.md)
-
+  
 
  * [SmartTrade](SmartTrade/README.md) 
    * [Create SmartTrade](SmartTrade/1.%20Create%20SmartTrade.md)

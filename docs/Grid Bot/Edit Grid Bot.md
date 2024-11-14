@@ -55,6 +55,7 @@ Grid Bot level order |
 |**expansion_up_stop_price** | `number` | Yes (if `expansion_up_enabled` is `true`) |  | The price at which the upward grid expansion should stop |
 |**ignore_warnings** | `boolean` | No | `true`<br>`false` | Ignores warnings and forces the creation of the Grid Bot |
 |**note** | `string` | No | `[1 ... 300]` characters | Optional user-defined note for the Grid Bot |
+
 <br>
 <br>
 
@@ -64,6 +65,8 @@ Grid Bot level order |
 If successful, the response includes a copy of the updated [Grid Bot](./README.md) entity.
 {% endhint %}
 
+<br>
+<br>
 
 ### Example Request<br>
 
@@ -96,11 +99,13 @@ PATCH /ver1/grid_bots/2291725/manual
     "mode": "long"
 }
 
-``
+```
+
 <br>
 <br>
 
 ### Example response and errors<br>
+
 
 <details>
 <summary>Status: 200 OK</summary><br>

@@ -1,6 +1,6 @@
 ## Get the list of DCA Bots<br>
 
-**Description:** Returns a list of DCA Bots by user. Use the query parameters to filter the results<br><br>
+**Description:** Returns a list of DCA Bots by user. Use the query parameters to filter the results<br>
 
 **Permission:** BOTS_READ<br>
 **Security** SIGNED<br>
@@ -8,9 +8,8 @@
 
 ----------
 
-<mark style="color:blue;background-color:white"><strong>GET<br>
-
-<mark style="color:blue;background-color:white">**/ver1/bots**</strong>
+<mark style="color:blue"><strong>GET<br>
+<mark style="color:blue">**/ver1/bots**</strong>
 
 ----------
 
@@ -25,16 +24,17 @@
 |**offset** | `integer` | No |   | Skips the first N records in the results |
 |**from** | `string` | No |   | Returns entities created after a specific time |
 |**account_id** | `integer` | No |   | Filters entities linked to the specified 3Commas exchange account |
-|**scope** | `string` | No |   | Filters deals by their status.<br>Default: `null` <details> <summary>_Allowed value_</summary> <dl><li>enable - returns bots where the state is active;<li>disabled - returns bots where the state is stopped;<li>`null` - returns all bots</dl></details>|
-|**strategy**  | `string`| No | `long`<br>`short` | [TBD] |
+|**scope** | `string` | No |   | Filters bots by their status.<br>Default: `null` <details> <summary>_Allowed value_</summary> <dl><li>enable - returns bots where the state is active;<li>disabled - returns bots where the state is stopped;<li>`null` - returns all bots</dl></details>|
+|**strategy**  | `string`| No | `long`<br>`short` | Filters bots by trading strategy type |
 |**sort_by** | `string` | No | `created_at`;<br>`updated_at`;<br>`profit` | Specifies the field used to order the results.<br>Default: `created_at`| 
 |**order_direction** | `string` | No | `[ASC]` or `[DESC]` | Sets the direction of order.<br>Default: `[DESC]` |
 |**quote** | `string` | No |   | Filters by quote currency |
 |**form_type** | `string` | No | `gordon`<br>`advanced`  | Filters entities by the type of bot |
 
+
 <br>
 {% hint style="info" %}
-Use endpoint [User connected exchanges and wallets list](Account/User%20connected%20exchanges%20and%20wallets%20list.md) to get value for parameter 'account_id' in 3Commas.
+Use endpoint [User connected exchanges and wallets list](Account/User%20connected%20exchanges%20and%20wallets%20list.md) to get value for parameter <code>account_id</code> in 3Commas.
 {% endhint %}
 <br>
 <br>
@@ -146,3 +146,4 @@ GET /ver1/bots/12345678/show?include_events=true
     ...
 ]
 ```
+</details>
