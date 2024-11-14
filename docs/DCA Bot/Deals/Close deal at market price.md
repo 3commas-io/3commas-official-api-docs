@@ -13,9 +13,8 @@ After this action, the final status **Panic_sold** will be automatically set by 
 
 ----------
 
-<mark style="color:green"> **POST**
-
-<mark style="color:green"> **/ver1/deals/{deal_id}/panic_sell**
+<mark style="color:green"> <strong>POST<strong><br>
+<mark style="color:green"> <strong>/ver1/deals/{deal_id}/panic_sell<strong>
 
 ----------
 
@@ -43,7 +42,7 @@ If successful, the response includes an updated copy of the [Deals](./README.md)
 ### Example request<br>
 
 ```
-POST {{baseUrl}}/ver1/deals/1234567890/panic_sell
+POST /ver1/deals/1234567890/panic_sell
 ```
 <br>
 <br>

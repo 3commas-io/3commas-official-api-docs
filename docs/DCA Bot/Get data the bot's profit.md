@@ -8,15 +8,14 @@
 
 ----------
 
-<mark style="color:blue"> **GET**
-
-<mark style="color:blue"> **/ver1/bots/stats**
+<mark style="color:blue"> <strong>GET</strong><br>
+<mark style="color:blue"> <strong>/ver1/bots/stats</strong>
 
 ----------
 <br>
 <br>
 
-### Path Parameters<br>
+### Path Parameter<br>
 
 | Name | Type | Mandatory | Values | Description|
 |----- | ------------ | ------------ | ------------ | ------------|
@@ -24,11 +23,11 @@
 
 <br>
 
-### Query Parameters<br>
+### Query Parameter<br>
 
 | Name | Type | Mandatory | Values | Description|
 |----- | ------------ | ------------ | ------------ | ------------|
-|**days** | `integer` | No |   | Specifies the number of days for which profit data is requested for this bot. Default: <code>30</code> |
+|**days** | `integer` | No |   | Specifies the number of days for which profit data is requested for this bot.<br>Default: <code>30</code> |
 
 <br>
 <br>

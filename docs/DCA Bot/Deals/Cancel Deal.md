@@ -1,4 +1,4 @@
-## Cancel the deal<br>
+## Cancel Deal<br>
 
 **Description:** Cancels a specific deal within the DCA Bot using its ID<br>
 
@@ -14,9 +14,9 @@ After this action, 3Commas will automatically set the final status to **Cancelle
 
 ----------
 
-<mark style="color:green" > <strong>POST</strong>
+<mark style="color:green"> <strong>POST</strong>
 
-<mark style="color:green" > <strong>/ver1/deals/{deal_id}/cancel</strong>
+<mark style="color:green"> <strong>/ver1/deals/{deal_id}/cancel</strong>
 
 ----------
 <br>

@@ -4,14 +4,12 @@
 
 **Permission:** BOTS_READ<br>
 **Security:** SIGNED<br>
-
 <br>
 
 ----------
 
-<mark style="color:blue"> **GET**
-
-<mark style="color:blue"> **/ver1/deals/{deal_id}/show**
+<mark style="color:blue"> <strong>GET</strong><br>
+<mark style="color:blue"> <strong>/ver1/deals/{deal_id}/show</strong>
 
 ----------
 

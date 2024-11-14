@@ -1,17 +1,15 @@
 ## Get profit data for bot on specific date<br>
 
-**Description:** Returns profit data for DCA Bot(s) on a specific date<br>
+**Description:** Returns profit data for the specified DCA Bot(s) over a defined number of days<br>
 
 **Permission:** BOTS_READ<br>
 **Security:** SIGNED<br>
-
 <br>
 
 ----------
 
-<mark style="color:blue;background-color:white"> **GET**
-
-<mark style="color:blue;background-color:white"> **/ver1/bots/stats_by_date**
+<mark style="color:blue;background-color:white"> <strong>GET</strong><br>
+<mark style="color:blue;background-color:white"> <strong>/ver1/bots/stats_by_date</strong>
 
 ----------
 
@@ -21,10 +19,10 @@
 ### Query Parameters<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**bot_id**  | `integer`| No |  | Unique 3Commas ID DCA Bot entity |
+| ------|------|-----------|-----------------|------------|
+| **bot_id**  | `integer`| No |  | Unique 3Commas ID DCA Bot entity |
 | **account_id** | `integer` | No |   | Filters entities linked to the specified 3Commas exchange account |
-|**date** | `string` | Yes |  | Specific day for which profit data is requested for this bot or account |
+| **date** | `string` | Yes |  | Specific days for which profit data is requested for this bot or account |
 
 <br>
 <br>

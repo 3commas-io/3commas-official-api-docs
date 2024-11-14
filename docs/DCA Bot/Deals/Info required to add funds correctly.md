@@ -4,21 +4,19 @@
 
 **Permission:** BOTS_READ<br>
 **Security:** SIGNED<br>
-
 <br>
 
 ----------
 
-<mark style="color:blue"> **GET**
-
-<mark style="color:blue"> **/ver1/deals/{deal_id}/data_for_adding_funds**
+<mark style="color:blue"> <strong>GET</strong><br>
+<mark style="color:blue"> <strong>/ver1/deals/{deal_id}/data_for_adding_funds</strong>
 
 ----------
 
 <br>
 <br>
 
-### Path Parameters<br
+### Path Parameters<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|
