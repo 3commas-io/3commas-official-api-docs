@@ -2,34 +2,31 @@
 
 **Description:** The method allows getting the list of pairs is supported by exchange in 3Commas' format<br>
 
-
 {% hint style="success" %}
 This is an endpoint that does not need authentication
 {% endhint %}
-
 <br>
 
 -------- 
 
-<mark style="color:blue;background-color:white"> **GET**
+<mark style="color:blue;background-color:white"><strong>GET</strong>
 
-<mark style="color:blue;background-color:white"> **/ver1/accounts/market_pairs**
+<mark style="color:blue;background-color:white"><strong>/ver1/accounts/market_pairs</strong>
 
 -------- 
-
 <br>
 <br>
 
-### Request Parameters<br>
-<br>
+### Query Parameter<br>
 
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**market_code**  | `integer` | Yes |	| Unique exchange code in the 3Commas system|
+<p>
+   <strong>market_code</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique exchange code in the 3Commas system
+</p>
 <br>
 
 {% hint style="info" %}
-Use endpoint [Supported markets list](Market%20data/1.Supported%20markets%20list.md) to get value for parameter 'market_code' in 3Commas.
+Use endpoint [Supported markets list](/docs/Market%20data/Supported%20markets%20list.md) to get value for parameter <code>market_code</code> in 3Commas.
 {% endhint %}
 
 <br>
@@ -45,7 +42,7 @@ GET /ver1/accounts/market_pairs?market_code=binance_us
 
 ### Example Response and errors<br>
 <details>
-<summary>Status: 200 OK</summary>
+<summary>Status: 200 OK</summary><br>
 
 ```json
 [
@@ -62,6 +59,5 @@ GET /ver1/accounts/market_pairs?market_code=binance_us
 "USDT_BTC",
 ]
 ```
-
 </details>
 

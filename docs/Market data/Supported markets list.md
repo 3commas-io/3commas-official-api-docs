@@ -9,51 +9,107 @@ This is an endpoint that does not need authentication
 
 ------
 
-<mark style="color:blue;background-color:white"> **GET**
+<mark style="color:blue;background-color:white"> <strong>GET</strong>
 
-<mark style="color:blue;background-color:white">**/ver1/accounts/market_list**
+<mark style="color:blue;background-color:white"><strong>/ver1/accounts/market_list</strong>
 
 ------
+<br>
 <br>
 
 ### Request Parameters<br>
 
 ```json
 NONE
-````
-
+```
 <br>
 <br>
 
 ### Response Parameters<br>
 
-| Name | Type |	 Description|
-|------|------|------------|
-|**market_name** | `string` | Name of the exchange in the 3Commas system |
-|**market_url** | `integer`	| The referral link to the exchange website |
-|**market_icon**  | `integer`	| Icon of the exchange |
-|**help_link** | `integer`	| The public URL to the help page with detailed instructions on connecting the exchange |
-|**market_code**  | `integer`	| Unique exchange code in the 3Commas system|
-|**form_fields[required][][field]**  | `integer`	| The parameter needs to connect a new exchange account [?] |
-|**form_fields[required][][localized_name]**  | `integer`	| The parameter needs to connect a new exchange account [?] |
-|**form_fields[optional]** | `integer`	| The parameter needs to connect a new exchange account |
-|**connection_type** | `integer`	| Shows how many fields use to connect the exchange or the wallet |
-|**available_connection_flows** | `integer`	| Available exchange connection types in 3Commas: <br>`form` - connection through a web form option <br>`fast_connect` - quick connection option |
-|**third_party_allowed** | `boolean`	| This exchange provides a service to connect third-party apps.<br>`false` if the exchange does not support. |
-|**trusted_ips** | `integer`	| The list of IP addresses needs to be whitelisted on the exchange's website for 3Commas to work with the exchange  |
-|**trusted_ips_input_type** | `integer`	| Input type for trusted IP addresses. |
-|**fast_connect_action_name** | `string` | Name of the exchange for fast connection option in the 3Commas system |
-
+<p>
+   <strong>market_name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Name of the exchange in the 3Commas system 
+</p>
+<p>
+   <strong>market_url</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The referral link to the exchange website
+</p>
+<p>
+   <strong>market_icon</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The URL link to the icon for this exchange
+</p>
+<p>
+   <strong>help_link</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The public URL to the help page with detailed instructions on connecting the exchange
+</p>
+<p>
+   <strong>form_fields</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+   Contains required and optional fields necessary for connecting to the exchange
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>required</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array[object]</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shows required fields necessary for connecting to the exchange
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>field</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The parameter needs to connect a new exchange account.<br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: <code>api_key</code>; <code>secret</code>
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>localized_name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Display name of the field, localized for user convenience
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>optional</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array[object]	</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shows optinal fields need for connecting to the exchange
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>field</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The parameter needs to connect a new exchange account.<br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: <code>api_key</code>; <code>secret</code>
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>localized_name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Display name of the field, localized for user convenience
+</p>
+<p>
+   <strong>connection_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Shows how many fields use to connect the exchange or the wallet
+</p>
+<p>
+   <strong>available_connection_flows</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array</code><br>
+   Available exchange connection types in 3Commas<br>
+   <details><summary><em>Allowed value</em></summary>
+      <dl>
+       <li><strong>form</strong> - connection through a web form option;
+       <li><strong>fast_connect</strong> - quick connection option;
+    </dl>
+   </details>
+</p>
+<p>
+   <strong>third_party_allowed</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+   This exchange provides a service to connect third-party apps.<br><code>false</code> - if the exchange does not support
+</p>
+<p>
+   <strong>trusted_ips</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array[string]</code><br>
+   The list of IP addresses needs to be whitelisted on the exchange's website for 3Commas to work with the exchange
+</p>
+<p>
+   <strong>trusted_ips_input_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Input type for trusted IP addresses
+</p>
+<p>
+   <strong>fast_connect_action_name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Name of the exchange for fast connection option in the 3Commas system
+</p>
 <br>
 <br>
 
 
 ### Example Response and errors<br>
-
-
 <details>
 <summary>Status: 200 OK</summary><br>
-<br>
 
 ```json
 [
