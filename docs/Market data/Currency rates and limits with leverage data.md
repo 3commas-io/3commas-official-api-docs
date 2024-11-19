@@ -96,7 +96,7 @@ The market and trading pair codes are used in 3Commas format. Use endpoints [Sup
 </p>
 <p>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The minimum leverage value that can be applied to this contract
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contains minimum and maximum leverage value that can be applied for this pair
 </p>
 <p>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>min</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
