@@ -21,7 +21,7 @@
 
 <p>
    <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <code>integer</code><br>
-   Unique 3Commas ID of [the exchange account entity](./docs/Account/User%20connected%20exchanges%20and%20wallets%20list.md) 
+   Unique 3Commas ID of the exchange account entity
 </p>
 <p>
    <strong>type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
@@ -35,8 +35,10 @@
 <br>
 
 {% hint style="info" %}
-Use endpoint [User connected exchanges and wallets list](Account/User%20connected%20exchanges%20and%20wallets%20list.md) to get value for parameter <code>account_id</code> in 3Commas.
+Use endpoint [User connected exchanges and wallets list](/docs/Account/User%20connected%20exchanges%20and%20wallets%20list.md) to get value for parameter <code>account_id</code> in 3Commas.
 {% endhint %}
+<br>
+<br>
 
 ### Example Request<br>
 
