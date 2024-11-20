@@ -1,45 +1,40 @@
 ## Get DCA Bot<br>
 
-**Description:** Shows information about a specific DCA Bot using its ID
+**Description:** Shows information about a specific DCA Bot using its ID<br>
 
 **Permission:** BOTS_READ<br>
 **Security:** SIGNED<br>
-
 <br>
 
 ----------
 
-<mark style="color:blue;background-color:white"> **GET**
-
-<mark style="color:blue;background-color:white"> **/ver1/bots/{bot_id}/show**
+<mark style="color:blue"><strong>GET</strong><br>
+<mark style="color:blue"><strong>/ver1/bots/{bot_id}/show</strong>
 
 ----------
 
 <br>
 <br>
 
-### Path Parameters<br>
+### Path Parameter<br>
 
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**bot_id**  | `integer`| Yes |  | Unique 3Commas ID DCA Bot entity |
-
+<p>
+   <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID DCA Bot entity 
+</p>
 <br>
 
-### Query Parameters<br>
+### Query Parameter<br>
 
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**include_events** | `boolean` | No |  | Indicates whether to include information about events related to the entity |
-
+<p>
+   <strong>include_events</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+Indicates whether to include information about events related to the entity (<code>true</code>) or not (<code>false</code>)
+</p>
 <br>
-<br>
 
+### Response Parameters<br>
 
-
-{% hint style="info" %}
 If successful, the response includes a copy of [DCA Bot](./README.md) entity.
-{% endhint %}
 
 <br>
 <br>
@@ -52,7 +47,7 @@ GET /ver1/bots/12345678/show?include_events=true
 <br>
 <br>
 
-### Example Response and errors<br>
+### Example Response and Errors<br>
 
 <details>
 <summary>Status: 200 OK</summary><br>
@@ -129,3 +124,5 @@ GET /ver1/bots/12345678/show?include_events=true
     "max_price_percentage": null,
     "active_deals": []
 }
+```
+</details>

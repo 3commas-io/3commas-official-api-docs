@@ -3,7 +3,7 @@
 **Description:** Edits an existing deal of DCA Bot using its ID<br>
 
 {% hint style="warning" %}
-The endpoint is available for Deal for the statuses `created`, `bought`, and `settled`.
+The endpoint is available for Deal for the statuses `bought` and `close_strategy_activated`.
 {% endhint %}
 
 <br>

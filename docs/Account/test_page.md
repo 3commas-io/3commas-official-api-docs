@@ -181,3 +181,12 @@ Use endpoint [User connected exchanges and wallets list](Account/User%20connecte
    Specifies the number of days for which profit data is requested for this bot. Default: <code>30</code>
 </p><br>
 <br>
+
+### Path Parameters<br>
+
+<p>
+   <strong>deal_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Limits the number of records returned<br>Maximum: <code>100</code>; Default: <code>50</code>
+</p>
+<br>
+<br>
