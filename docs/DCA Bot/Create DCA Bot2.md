@@ -64,7 +64,7 @@
    The start order type for this DCA Bot: <code>limit</code> or <code>market</code>
 </p>
 <p>
-   <strong>strategy_list</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>starray[json]ring</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   <strong>strategy_list</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array[json]</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
    Array of strategies specifically for opening deals in this DCA Bot
 </p>
 <p>
@@ -72,7 +72,7 @@
    Sets leverage settings for a futures account: <code>cross</code> or <code>isolated</code>
 </p>
 <p>
-   <strong>leverage_custom_value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+   <strong>leverage_custom_value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code> or <code>null</code><br>
    Leverage value. Leverage value is dependent on the exchange and the pair.
 </p>
 <p>
@@ -98,7 +98,7 @@ Indicates whether trailing is enabled for Take Profit (<code>true</code>) or not
 <li><code>profit_percentage</code>.</li>
 </p>
 <p>
-   <strong>close_strategy_list</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code> array[json]</code><br>
+   <strong>close_strategy_list</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array[json]</code><br>
    Array of strategies used for closing deals in this DCA Bot
 </p>
 <p>
@@ -364,7 +364,6 @@ It's using only for 1 pair bot.
 ### Response Parameters<br>
 
 If successful, the response includes a update copy of [DCA Bot](./README.md) entity.
-
 
 <br>
 <br>

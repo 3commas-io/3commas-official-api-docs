@@ -8,9 +8,9 @@
 
 ----------
 
-<mark style="color:deep purple"> <strong>PATCH</strong>
+<mark style="color:purple"><strong>PATCH</strong>
 
-<mark style="color:purple"> <strong>/ver1/bots/{bot_id}/update</strong>
+<mark style="color:purple"><strong>/ver1/bots/{bot_id}/update</strong>
 
 ----------
 <br>
@@ -25,11 +25,11 @@
 
 ### Body Parameters<br>
 <p>
-   <strong>name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>strign</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   <strong>name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
    DCA Bot name specified by the user
 </p>
 <p>
-   <strong>pairs</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>strign</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   <strong>pairs</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
    Trading pair(s) in 3Commas format
 </p>
 <p>
@@ -87,10 +87,6 @@
    The percentage of price movement in the opposite direction of the Take Profit target that triggers the Stop Loss.<br>
    The value should be set to <code>0</code> to disable Stop Loss
 </p>
-
-
-| **sl_to_breakeven_enabled** | `boolean` | No |  |  |
-| **sl_to_breakeven_data** | `json` | No |  |  |
 <p>
    <strong>sl_to_breakeven_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
    Enables (true) or disable (false) the Move to Breakeven feature for this DCA Bot. To use this feature, you must have at least two Take Profit steps.<br>
@@ -123,7 +119,7 @@ Indicates whether trailing is enabled for Take Profit (<code>true</code>) or not
    The type of profit (<code>base </code> or <code>total</code>), which sets the basis for profit calculation in this DCA Bot
 </p>
 <p>
-   <strong>strategy_list</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>starray[json]ring</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   <strong>strategy_list</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array[json]</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
    Array of strategies specifically for opening deals in this DCA Bot
 </p>
 <p>

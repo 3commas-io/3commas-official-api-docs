@@ -40,7 +40,7 @@
 
 * [DCA Bot](DCA%20Bot/README.md)
   * [Available strategy list](DCA%20Bot/Available%20strategy%20list.md)
-  * [Create DCA Bot](DCA%20Bot/Create%20DCA%20Bot.md)
+  * [Create DCA Bot](DCA%20Bot/Create%20DCA%20Bot2.md)
   * [Edit DCA Bot](DCA%20Bot/Edit%20DCA%20Bot.md)
   * [Disable DCA Bot](DCA%20Bot/Disable%20DCA%20Bot.md)
   * [Enable DCA Bot](DCA%20Bot/Enable%20DCA%20Bot.md)
@@ -51,6 +51,7 @@
   * [Get stats of DCA Bot](DCA%20Bot/Get%20bot%20stats.md)
   * [Get Profit Stats by Date](DCA%20Bot/Get%20bot%20stats.md)
   * [Close DCA Bot by market price](DCA%20Bot/Close%20DCA%20Bot%20by%20market.md)
+  * [Copy the DCA Bot](/docs/DCA%20Bot/Copy%20the%20DCA%20Bot.md)
   * [Cancel all deals of DCA Bot](DCA%20Bot/Cancels%20all%20bot%20deals.md)
   * [Deals](DCA%20Bot/Deals/README.md)
       * [Get Deal](DCA%20Bot/Deals/Get%20Deal.md)
