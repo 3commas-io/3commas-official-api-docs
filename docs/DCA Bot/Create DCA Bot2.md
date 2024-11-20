@@ -270,6 +270,7 @@ For example:<br>
    <strong>strategy list, close_strategy_list, safety_strategy_list, </strong>
 </p>
 <p>
+
    The data strategies are used to populate the `strategy_list` and `close_strategy_list` parameters.<br> You can retrieve the full list of strategies available for this DCA bot through the [Available strategy list for bot](/docs/DCA%20Bot/Available%20strategy%20list.md) endpoint.
 </p>
 <p>
