@@ -9,25 +9,28 @@ This is an endpoint that does not need authentication
 
 -------- 
 
-<mark style="color:blue;background-color:white"> **GET**
+<mark style="color:blue"> <strong>GET</strong>
 
-<mark style="color:blue;background-color:white"> **/ver1/accounts/currency_rates_with_leverage_data**
+<mark style="color:blue"> <storng>/ver1/accounts/currency_rates_with_leverage_data</strong>
 
 -------- 
 <br>
 <br>
 
-### Request Parameters<br>
+### Query Parameters<br>
 
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-| **market_code** | `string`	| Yes |	| Name of the exchange in the 3Commas system |
-| **pair** | `string`	| Yes |	| Trading pair in 3Commas format |
-
+<p>
+   <strong>market_code</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique exchange code in the 3Commas system
+</p>
+<p>
+   <strong>pair</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Trading pair in 3Commas format
+</p>
 <br>
 
 {% hint style="info" %}
-The market and trading pair codes are used in 3Commas format. Use endpoints [Supported Markets List](Market%20data/1.Supported%20markets%20list.md) to get value for parameter `market_code` and [All Market Pairs](Market%20data/2.All%20market%20pairs.md) to get value for parameter `pair` in 3Commas format.
+The market and trading pair codes are used in 3Commas format. Use endpoints [Supported Markets List](/docs/Market%20data/Supported%20markets%20list.md) to get value for parameter <code>market_code</code> and [All Market Pairs](/docs/Market%20data/All%20market%20pairs.md) to get value for parameter <code>pair</code> in 3Commas format.
 {% endhint %}
 
 <br>
@@ -35,40 +38,142 @@ The market and trading pair codes are used in 3Commas format. Use endpoints [Sup
 
 ### Response Parameters<br>
 
-| Name | Type |  Description|
-|------|------|-----------|
-|**last**  | `string` | Last price|
-|**bid**  | `string`  | Bid price |
-| **ask**  | `string` | Ask price |
-| **orderbook_ask**  | `string` | Ask price of ticker|
-| **orderbook_bid**  | `string` | Bid price of ticker|
-| **orderbook_last**  | `string`  | Last price of ticker|
-| **orderbook_price_currency**  | `string`  | Currency price of ticker |
-| **strategy_name**  | `string` | The strategy by which the contract price is calculated |
-|**contract_strategy_name**| `string` | The strategy by which the contract price is calculated |
-|**leverage_data[][code]**| `string` |  The type of leverage available |
-|**leverage_data[][name]**| `string` | Name of the leverage option available for this contract |
-|**leverage_data[][can_set_leverage_value]**| `boolean` | Indicates whether a custom leverage value can be set |
-|**leverage_data[][max_leverage]**| `string` | The maximum leverage value allowed for this contract |
-|**leverage_data[][value][min]**| `string` | The minimum leverage value that can be applied to this contract |
-|**leverage_data[][value][max]**| `string` | The maximum leverage value that can be applied to this contract |
-| **instrumentKind**  | `string`  | The type of exchange instrument |
-| **minPrice**  | `string`  | Minimum price order |
-| **maxPrice**  | `string`  | Maximum price order |
-| **priceStep**  | `string` | The minimum step for changing the price  |
-| **minLotSize**  | `string`  | The minimum lot size for order in Base currency |
-| **lotStep**  | `string` | Order of changing the size in Base currency  |
-| **maxMarketBuyAmount**  | `string`  | Maximum order size in Base currency for buy |
-| **maxMarketSellAmount**  |`string`| Maximum order size in Base currency for sell |
-| **bidMultiplierDown**  | `string` | A multiplier applied to decrease the bid price |
-| **bidMultiplierUp**  | `string` | A multiplier applied to increase the bid price |
-| **askMultiplierUp**  | `string` | A multiplier applied to increase the ask price |
-| **askMultiplierDown**  | `string` | A multiplier applied to decrease the ask price|
-| **minTotal**  | `string`  | Minimum order size in Quote |
-| **minMarketTotal**  | `string`  | Minimum order size in Quote for market order |
-| **maxTotal**  |   `string`| Maximum order size in Quote |
-|**maxLotSize**  | `string` | Maximum order size in Base |
-
+<p>
+   <strong>last</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Last price
+</p>
+<p>
+   <strong>bid</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Bid price
+</p>
+<p>
+   <strong>ask</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Ask price
+</p>
+<p>
+   <strong>orderbook_ask</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Ask price of ticker
+</p>
+<p>
+   <strong>orderbook_bid</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Bid price of ticker
+</p>
+<p>
+   <strong>orderbook_last</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Last price of ticker
+</p>
+<p>
+   <strong>orderbook_price_currency</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Currency price of ticker
+</p>
+<p>
+   <strong>strategy_name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   [Description needed]
+</p>
+<p>
+   <strong>leverage_data</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array[object]</code><br>
+   Represents a leverage data for this pair
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>code</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The type of leverage available
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name of the leverage option available for this contract
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>can_set_leverage_value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicates whether a custom leverage value can be set
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>available_leverage_values</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Available leverage values for settings for this pair and exchange
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>max_leverage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The maximum leverage value allowed for this contract
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contains minimum and maximum leverage value that can be applied for this pair
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>min</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The minimum leverage value that can be applied to this contract
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>max</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The maximum leverage value that can be applied to this contract
+</p>
+<p>
+   <strong>contract_strategy_name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The strategy by which the contract price is calculated
+</p>
+<p>
+   <strong>instrumentKind</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The type of exchange instrument
+</p>
+<p>
+   <strong>minPrice</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Minimum price order
+</p>
+<p>
+   <strong>maxPrice</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Maximum price order
+</p>
+<p>
+   <strong>priceStep</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The minimum step for changing the price
+</p>
+<p>
+   <strong>minLotSize</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The minimum lot size for order in Base currency
+</p>
+<p>
+   <strong>lotStep</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Order of changing the size in Base currency
+</p>
+<p>
+   <strong>maxMarketBuyAmount</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Maximum order size in Base currency for buy
+</p>
+<p>
+   <strong>maxMarketSellAmount</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Maximum order size in Base currency for sell
+</p>
+<p>
+   <strong>bidMultiplierDown</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   A multiplier applied to decrease the bid price
+</p>
+<p>
+   <strong>bidMultiplierUp</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   A multiplier applied to increase the bid price
+</p>
+<p>
+   <strong>askMultiplierUp</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   A multiplier applied to increase the ask price
+</p>
+<p>
+   <strong>askMultiplierDown</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   A multiplier applied to decrease the ask price
+</p>
+<p>
+   <strong>minTotal</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Minimum order size in Quote
+</p>
+<p>
+   <strong>minMarketTotal</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Minimum order size in Quote for market order
+</p>
+<p>
+   <strong>maxTotal</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Maximum order size in Quote
+</p>
+<p>
+   <strong>maxLotSize</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Maximum order size in Base
+</p>
 <br>
 <br>
 

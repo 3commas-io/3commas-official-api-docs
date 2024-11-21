@@ -8,9 +8,9 @@
 
 ----------
 
-<mark style="color:blue;background-color:white"> **GET**
+<mark style="color:blue"><strong>GET</strong>
 
-<mark style="color:blue;background-color:white"> **/ver1/bots/strategy_list**
+<mark style="color:blue"> <strong>/ver1/bots/strategy_list</strong>
 
 ----------
 
@@ -19,15 +19,26 @@
 
 ### Query Parameters<br>
 
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**account_id**  | `integer`| No |  | Unique 3Commas ID of the exchange account entity |
-|**type**  | `string`| No | `simple`<br> `composite` | [TBD] |
-|**strategy**  | `string`| No | `long`<br>`short` | Strategy type for the bot |
-
+<p>
+   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <code>integer</code><br>
+   Unique 3Commas ID of the exchange account entity
+</p>
+<p>
+   <strong>type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   [TBD]: <code>simple</code> or <code>composite</code>
+</p>
+<p>
+   <strong>strategy</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Strategy type for the bot: <code>long</code> or <code>short</code>
+</p>
 <br>
 <br>
 
+{% hint style="info" %}
+Use endpoint [User connected exchanges and wallets list](/docs/Account/User%20connected%20exchanges%20and%20wallets%20list.md) to get value for parameter <code>account_id</code> in 3Commas.
+{% endhint %}
+<br>
+<br>
 
 ### Example Request<br>
 
