@@ -29,12 +29,12 @@
 </p>
 <p>
    <strong>pairs</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
-   Trading pair(s) in 3Commas format.<br> If a single pair is passed, a SingleBot is created. If two or more pairs are passed, a MultiBot is created
+   Trading pair(s) in 3Commas format<br> If a single pair is passed, a SingleBot is created. If two or more pairs are passed, a MultiBot is created
 </p>
 <p>
    <strong>max_active_deals</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   The maximum number of active deals available for this DCA Bot.
-   Minimum:<code>1</code>, Maximum:<code>199</code>.<br>
+   The maximum number of active deals available for this DCA Bot<br>
+   Minimum:<code>1</code>, Maximum:<code>199</code><br>
    Default: <code>1</code>
 </p>
 <p>
@@ -43,13 +43,7 @@
 </p>
 <p>
    <strong>profit_currency</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-      Currency used for the profit from the trades executed by this bot<br>
-   <details><summary><em>Allowed value</em></summary>
-      <dl>
-       <li>base_currency - [TBD];
-       <li>quite_currency - [TBD];
-    </dl>
-   </details>
+      Currency used for the profit from the trades executed by this bot: <code>base_currency</code>; <code>quite_currency</code>
 </p>
 <p>
    <strong>base_order_volume_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
@@ -72,8 +66,8 @@
    Sets leverage settings for a futures account: <code>cross</code> or <code>isolated</code>
 </p>
 <p>
-   <strong>leverage_custom_value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code> or <code>null</code><br>
-   Leverage value. Leverage value is dependent on the exchange and the pair.
+   <strong>leverage_custom_value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+   Leverage value. Leverage value is dependent on the exchange and the pair
 </p>
 <p>
    <strong>trailing_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
@@ -111,7 +105,7 @@ Indicates whether trailing is enabled for Take Profit (<code>true</code>) or not
 </p>
 <p>
    <strong>reinvesting_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Set up a percentage of realized profit to be reinvested in each new deal.<br>
+   Set up a percentage of realized profit to be reinvested in each new deal<br>
    Minimum: <code>0</code>; Maximum: <code>100</code>
 </p>
 <p>
@@ -128,7 +122,7 @@ Indicates whether trailing is enabled for Take Profit (<code>true</code>) or not
 </p>
 <p>
    <strong>sl_to_breakeven_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-   Enables (true) or disable (false) the Move to Breakeven feature for this DCA Bot. To use this feature, you must have at least two Take Profit steps.<br>
+   Enables (<code>true</code>) or disable (<code>false</code>) the Move to Breakeven feature for this DCA Bot. To use this feature, you must have at least two Take Profit steps<br>
    Default: <code>false</code>
 </p>
 <p>
@@ -138,12 +132,12 @@ Indicates whether trailing is enabled for Take Profit (<code>true</code>) or not
 </p>
 <p>
    <strong>stop_loss_timeout_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-   Indicates whether the Stop Loss timeout is enabled (<code>true</code>) or disabled (<code>false</code>).<br>
+   Indicates whether the Stop Loss timeout is enabled (<code>true</code>) or disabled (<code>false</code>)<br>
    Default: <code>false</code>
 </p>
 <p>
    <strong>stop_loss_timeout_in_seconds</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   Value timeout in seconds<br>This parameter is required when `stop_loss_timeout_enabled` is set to <code>true</code>
+   Value timeout in seconds<br>This parameter is required when <code>stop_loss_timeout_enabled</code> is set to <code>true</code>
 </p>
 <p>
    <strong>risk_reduction_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
@@ -166,7 +160,8 @@ Indicates whether trailing is enabled for Take Profit (<code>true</code>) or not
 </p>
 <p>
    <strong>max_safety_orders</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
-   The maximum total number of Safety Orders allowed per deal opened by this DCA Bot. Minimum:<code>0</code>; Maximum:<code>200</code>
+   The maximum total number of Safety Orders allowed per deal opened by this DCA Bot<br>
+   Minimum:<code>0</code>; Maximum:<code>200</code>
 </p>
 <p>
    <strong>active_safety_orders_count</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
@@ -174,12 +169,12 @@ Indicates whether trailing is enabled for Take Profit (<code>true</code>) or not
 </p>
 <p>
    <strong>martingale_volume_coefficient</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
-   Coefficient for increasing <em>safety order volume</em> in Martingale strategy.<br>
+   Coefficient for increasing <em>safety order volume</em> in Martingale strategy<br>
    Minimum:<code>0,1</code>; Maximum:<code>10</code>
 </p>
 <p>
    <strong>martingale_step_coefficient</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
-   Coefficient for increasing safety order price (<code>safety_order_step_percentage</code>) in Martingale strategy.<br> Minimum:<code>0,1</code>; Maximum:<code>10</code>
+   Coefficient for increasing safety order price (<code>safety_order_step_percentage</code>) in Martingale strategy<br> Minimum:<code>0,1</code>; Maximum:<code>10</code>
 </p>
 <p>
    <strong>min_volume_btc_24h</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
@@ -199,7 +194,7 @@ Indicates whether trailing is enabled for Take Profit (<code>true</code>) or not
 </p>
 <p>
    <strong>cooldown</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
-   The time (in seconds) that the DCA bot will wait after closing a deal before accepting a signal to start a new deal for the same asset pair.<br>
+   The time (in seconds) that the DCA bot will wait after closing a deal before accepting a signal to start a new deal for the same asset pair<br>
    Minimum: <code>0</code>; Maximum: <code>2592000</code>
 </p>
 <p>
@@ -220,7 +215,8 @@ Indicates whether trailing is enabled for Take Profit (<code>true</code>) or not
 </p>
 <p>
    <strong>close_deals_timeout</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>><br>
-   The time in seconds after which the deals will close automatically. Minimum: <code>60</code>
+   The time in seconds after which the deals will close automatically<br>
+   Minimum: <code>60</code>
 </p>
 <br>
 <br>

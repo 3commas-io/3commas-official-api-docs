@@ -29,7 +29,6 @@
 |**sort_by** | `string` | No | `created_at`;<br>`updated_at`;<br>`profit` | Specifies the field used to order the results.<br>Default: `created_at`| 
 |**order_direction** | `string` | No | `[ASC]` or `[DESC]` | Sets the direction of order.<br>Default: `[DESC]` |
 |**quote** | `string` | No |   | Filters by quote currency |
-|**form_type** | `string` | No | `gordon`<br>`advanced`  | Filters entities by the type of bot |
 
 
 <br>
