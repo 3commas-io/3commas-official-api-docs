@@ -23,8 +23,6 @@
    Unique 3Commas ID for this DCA Bot entity
 </p>
 <br>
-
-<br>
 <br>
 
 ### Parameter response<br>

@@ -1,4 +1,4 @@
-<h1>DCA bots API</h1>
+<h1>DCA Bot</h1>
 
 <p>
    The <strong>DCA Bot</strong> allows users to automate trading on the exchange by following a Dollar Cost Averaging strategy.
@@ -34,8 +34,8 @@
 </p>
 <p>
    <strong>is_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-   Indicates whether DCA Bot is currently enabled.<br>If the value is <code>false</code>, it means the bot is disabled
-</p>
+   Indicates whether DCA Bot is currently enabled (<code>true</code>) or not (<code>false</code>)
+   </p>
 <p>
    <strong>pairs</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>strign</code><br>
    Trading pair(s) in 3Commas format
@@ -76,13 +76,16 @@
    <strong>trailing_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
    Indicates whether trailing is enabled for Take Profit of this bot
 </p>
+<p><strong>trailing_deviation</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+   Percentage value of the trailing price, in percent
+</p>
 <p>
    <strong>tsl_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
    Indicates whether trailing is enabled for Stop Loss
 </p>
 <p>
    <strong>deal_start_delay_seconds</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code> or <code>null</code><br>
-   Delay in seconds before a new deal starts
+   Delay in seconds before a next deal starts
 </p>
 <p><strong>stop_loss_timeout_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
    Indicates if the Stop Loss timeout is active
@@ -94,16 +97,13 @@
    The number of deals after that the bot will be switched to disabled (is_enabled: <code> false</code>)
 </p>
 <p><strong>deals_counter</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   Tracks the number of deals executed by the bot 
+   Tracks the number of deals executed by the bot  (считает именно для disable_after_deals_count -  поправить описание!)
 </p>
 <p><strong>allowed_deals_on_same_pair</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code> or <code>null</code><br>
    Number of active deals allowed with the same trading pair simultaneously.<br>It worls only for bot where <code>type</code> is <code>Bot::MultiBot</code>
 </p>
-<p><strong>easy_form_supported</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-   [TBD]
-</p>
 <p><strong>close_deals_timeout</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code> or <code>null</code><br>
-   The time after which the deals will close automatically (format: sec)
+   The time in seconds after which the deals will close automatically
 </p>
 <p><strong>url_secret</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
    Unique code this DCA Bot using for copying this bot
@@ -136,35 +136,35 @@
    The volume of the base order for this DCA Bot
 </p>
 <p><strong>safety_order_volume_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   The specified volume type for the Safety Order in this DCA Bot
+   The volume type for the Safety Order in this DCA Bot
 </p>
 <p><strong>safety_order_volume</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
    The volume of the Safety Order for this DCA Bot
 </p>
 <p><strong>safety_order_step_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
-   Price deviation (percentage) to open Safety Trades
+   Price deviation in percentage to open Safety Trades
 </p>
 <p>
    <strong>max_safety_orders</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   Maximum number of Safety Orders allowed for per deal that is opened
+   Maximum number of Safety Orders allowed for per deal
 </p>
 <p><strong>active_safety_orders_count</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   The number of Safety Orders the DCA Bot is allowed to place in advance on the exchange's order book
+      The number of active Safety Orders the DCA Bot is allowed to place at one time
 </p>
 <p><strong>min_profit_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>null</code> or <code>string</code><br>
-   The type of minimum profit, which sets the basis for profit calculation in this DCA Bot
+   The type of minimum profit used as the basis for profit calculation in this DCA Bot, applicable to the close strategy of Take Profit
 </p>
 <p><strong>min_profit_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>null</code> or <code>string</code><br>
-   The minimum profit percentage which need to reach  for this DCA Bot to complete a deal
+   The minimum profit percentage which need to reach for this DCA Bot to complete a deal, applicable to the close strategy of Take Profit
 </p>
 <p><strong>type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
    The type of DCA Bot, based on the number of pairs.<br>If a single pair is passed, a <code>Bot::SingleBot</code> is created;<br>If two or more pairs are passed, a <code>Bot::MultiBot</code> is created
 </p>
 <p><strong>martingale_volume_coefficient</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
-   Coefficient for increasing safety order volume in Martingale strategy
+   Coefficient for increasing <em>safety order volume</em> in Martingale strategy
 </p>
 <p><strong>martingale_step_coefficient</strong></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
-   Coefficient for increasing safety order volume in Martingale strategy
+   Coefficient for increasing safety order price (<code>safety_order_step_percentage</code>) in Martingale strategy
 <p><strong>stop_loss_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
    The type of Stop Loss action the bot should perform after closing a deal
 </p>
@@ -185,10 +185,10 @@
    Type of strategy used by the bot (e.g., <code>long</code>, <code>short</code>)
 </p>
 <p><strong>min_volume_btc_24h</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
-   [TBD]
+   The minimum trading volume in BTC over the last 24 hours required to open a deal
 </p>
 <p><strong>profit_currency</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Currency used for calculating the profit from the trades executed by this bot
+   Currency used for the profit from the trades executed by this bot
 </p>
 <p><strong>min_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>null</code> or <code>string</code><br>
    Minimum price at which the new deal will open for thi DCA Bot
@@ -204,10 +204,18 @@
 </p>
 <p><strong>finished_deals_profit_usd</strong> "0.0",</p>
 <p><strong>finished_deals_count</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Total number of deals finished by DCA bot
+   Total number of deals finished by DCA Bot
 </p>
 <p><strong>leverage_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Type of leverage applied for this DCA Bot(e.g., <code>cross</code>, <code>isolated</code>)
+   Type of leverage applied for this DCA Bot<br>
+   <details><summary><em>Allowed value</em></summary>
+      <dl>
+       <li><strong>cross</strong> - uses all available funds in your account as collateral for your trades;</li>
+       <li><strong>isolated</strong> - the margin is limited to a specific position;</li>
+       <li><strong>not_specified</strong> - no leverage type specified for this DCA Bot;</li>
+      </dl>
+   </details>
+</p>
 </p>
 <p><strong>leverage_custom_value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
    The leverage value set by the user
@@ -219,7 +227,7 @@
    Total USD profit from active deals
 </p>
 <p><strong>risk_reduction_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
-   Percentage of risk reduction applied
+   Percentage of losses reduction applied for this DCA Bot
 </p>
 <p><strong>reinvesting_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
    The percentage of realized profit to be reinvested into each new deal
@@ -228,10 +236,10 @@
    USD volume reinvested from profit
 </p>
 <p><strong>min_price_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>null</code> or <code>string</code><br>
-   Minimum price percentage for bot activation
+   Minimum price percentage for bot activation (only for Multy bot)
 </p>
 <p><strong>max_price_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>null</code> or <code>string</code><br>
-   Max price percent
+   Max price percent (only for Multy bot)
 </p>
 <p><strong>active_deals</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array</code><br>
    List of active deals managed by this DCA Bot
