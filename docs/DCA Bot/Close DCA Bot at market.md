@@ -8,20 +8,21 @@
 
 ----------
 
-<mark style="color:green"> **POST**
+<mark style="color:green"><strong>POST</strong>
 
-<mark style="color:green"> **/ver1/bots/{bot_id}/show**
+<mark style="color:green"><strong>/ver1/bots/{bot_id}/show</strong>
 
 ----------
 
 <br>
 <br>
 
-### Path Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**bot_id**  | `integer`| Yes |  | Unique 3Commas ID DCA Bot entity |
+### Path Parameter<br>
+<p>
+   <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID for this DCA Bot entity
+</p>
+<br>
 
 <br>
 <br>

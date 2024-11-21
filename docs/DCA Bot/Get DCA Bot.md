@@ -8,7 +8,8 @@
 
 ----------
 
-<mark style="color:blue"><strong>GET</strong><br>
+<mark style="color:blue"><strong>GET</strong>
+
 <mark style="color:blue"><strong>/ver1/bots/{bot_id}/show</strong>
 
 ----------
@@ -123,6 +124,15 @@ GET /ver1/bots/12345678/show?include_events=true
     "min_price_percentage": null,
     "max_price_percentage": null,
     "active_deals": []
+}
+```
+</details>
+
+<details>
+<summary>Status: 404 Not Found</summary><br>
+```
+{
+    "error": "Not found"
 }
 ```
 </details>

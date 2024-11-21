@@ -8,8 +8,9 @@
 
 ----------
 
-<mark style="color:blue;background-color:white"> <strong>GET</strong><br>
-<mark style="color:blue;background-color:white"> <strong>/ver1/bots/stats_by_date</strong>
+<mark style="color:blue"> <strong>GET</strong>
+
+<mark style="color:blue"> <strong>/ver1/bots/stats_by_date</strong>
 
 ----------
 

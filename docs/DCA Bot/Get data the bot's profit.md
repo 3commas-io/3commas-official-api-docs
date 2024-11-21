@@ -8,7 +8,8 @@
 
 ----------
 
-<mark style="color:blue"> <strong>GET</strong><br>
+<mark style="color:blue"> <strong>GET</strong>
+
 <mark style="color:blue"> <strong>/ver1/bots/stats</strong>
 
 ----------
@@ -16,31 +17,46 @@
 <br>
 
 ### Path Parameter<br>
-
-| Name | Type | Mandatory | Values | Description|
-|----- | ------------ | ------------ | ------------ | ------------|
-|**bot_id** | `integer` | Yes |  | Unique 3Commas ID DCA Bot entity |
+<p>
+   <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID for this DCA Bot entity
+</p>
+<br>
+<br>
 
 <br>
 
 ### Query Parameter<br>
 
-| Name | Type | Mandatory | Values | Description|
-|----- | ------------ | ------------ | ------------ | ------------|
-|**days** | `integer` | No |   | Specifies the number of days for which profit data is requested for this bot.<br>Default: <code>30</code> |
-
+<p>
+   <strong>days</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Specifies the number of days for which profit data is requested for this bot<br>
+   Default: <code>30</code>
+</p>
 <br>
 <br>
 
 ### Parameters response<br>
-
-| Name | Type | Description |
-|----- | ------- | ------------ |
-|**s_date** | `string` | The specific date for which profit data is recorded for the this DCA Bot |
-|**unix_timestamp** | `array` | [TBD] |
-|**profit[btc]** | `integer` | BTC profit or loss from deals per day |
-|**profits[usd]** | `string` | USD profit or loss from deals per day |
-
+<p>
+   <strong>s_date</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The specific date for which profit data is recorded for the this DCA Bot
+</p>
+<p>
+   <strong>unix_timestamp</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+The date represented as a Unix Timestamp for which profit data is recorded
+</p>
+<p>
+   <strong>profit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+   Contain profit or loss data for the specified day, broken down by currency
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>btc</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BTC profit or loss from deals per day
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>usd</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USD profit or loss from deals per day
+</p>
 <br>
 <br>
 

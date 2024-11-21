@@ -8,9 +8,9 @@
 
 ----------
 
-<mark style="color:blue;background-color:white"><strong>GET<br>
+<mark style="color:blue"><strong>GET</strong>
 
-<mark style="color:blue;background-color:white">**/ver1/bots/pairs_black_list**</strong>
+<mark style="color:blue"><strong>/ver1/bots/pairs_black_list</strong>
 
 ----------
 
@@ -22,16 +22,15 @@
 ```
 NONE
 ```
-
 <br>
 <br>
 
-### Response Parameters<br>
+### Response Parameter<br>
 
-| Name | Type | Description |
-|----- | ------- | ------------ |
-|**pairs** | `array` | Lists the pairs added to the blacklist |
-
+<p>
+   <strong>pairs</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array</code><br>
+   Lists the pairs added to the blacklist
+</p>
 <br>
 <br>
 

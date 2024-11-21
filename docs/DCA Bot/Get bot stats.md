@@ -8,9 +8,9 @@
 
 ----------
 
-<mark style="color:blue;background-color:white" > **GET**
+<mark style="color:blue"><strong>GET</strong>
 
-<mark style="color:blue;background-color:white" > **/ver1/bots/stats**
+<mark style="color:blue"><strong>/ver1/bots/stats</strong>
 
 ----------
 <br>
@@ -18,32 +18,54 @@
 
 
 ### Path Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-| **account_id** | `integer` | No |   | Filters entities linked to the specified 3Commas exchange account |
-| **bot_id** | `integer` | No |   | Filters entities linked to the specified DCA Bot|
-
+<p>
+   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Filters entities linked to the specified 3Commas exchange account
+</p>
+<p>
+   <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Filters entities linked to the specified DCA Bot
+</p>
 <br>
 
 {% hint style="info" %}
-Use endpoint [User connected exchanges and wallets list](Account/User%20connected%20exchanges%20and%20wallets%20list.md) to get value for parameter 'account_id' in 3Commas.
+Use endpoint [User connected exchanges and wallets list](Account/User%20connected%20exchanges%20and%20wallets%20list.md) to get value for parameter <code>account_id</code> in 3Commas.
 {% endhint %}
 
 <br>
 <br>
 
 ### Parameters response<br>
-
-| Name | Type | Description |
-|----- | ------- | ------------ |
-|**overall_stats** | `array` | Shows cumulative profit or loss by currency for all trading activity |
-|**today_stats** | `array` | Shows today's profit or loss by currency |
-|**profits_in_usd[overall_usd_profit]** | `string` | Cumulative USD profit or loss from all trading activity  |
-|**profits_in_usd[today_usd_profit]** | `string` | USD profit or loss accumulated for the current day  |
-|**profits_in_usd[active_deals_usd_profit]** | `string` |  USD profit or loss from active (unclosed) deals |
-|**profits_in_usd[funds_locked_in_active_deals]** | `string` | Total funds, in USD, currently allocated to active deals |
-
+<p>
+   <strong>overall_stats</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array</code><br>
+   Shows cumulative profit or loss by currency for all trading activity
+</p>
+<p>
+   <strong>today_stats</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array</code><br>
+   Shows today's profit or loss by currency
+</p>
+<p>
+   <strong>profits_in_usd</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Contains detailed profit and loss data in USD
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>overall_usd_profit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cumulative USD profit or loss from all trading activity
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>today_usd_profit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USD profit or loss accumulated for the current day
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>active_deals_usd_profit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USD profit or loss from active (unclosed) deals
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>funds_locked_in_active_deals</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total funds, in USD, currently allocated to active deals
+</p>
+<br>
+<br>
 
 ### Example request<br>
 

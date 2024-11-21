@@ -8,8 +8,9 @@
 
 ----------
 
-<mark style="color:blue"><strong>GET<br>
-<mark style="color:blue">**/ver1/bots**</strong>
+<mark style="color:blue"><strong>GET</strong>
+
+<mark style="color:blue"><strong>/ver1/bots</strong>
 
 ----------
 
@@ -18,20 +19,56 @@
 
 ### Query parameters<br>
 
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**limit** | `integer` | No |  Maximum: `100` | Limits the number of records returned.<br>Default: `50` |
-|**offset** | `integer` | No |   | Skips the first N records in the results |
-|**from** | `string` | No |   | Returns entities created after a specific time |
-|**account_id** | `integer` | No |   | Filters entities linked to the specified 3Commas exchange account |
-|**scope** | `string` | No |   | Filters bots by their status.<br>Default: `null` <details> <summary>_Allowed value_</summary> <dl><li>enable - returns bots where the state is active;<li>disabled - returns bots where the state is stopped;<li>`null` - returns all bots</dl></details>|
-|**strategy**  | `string`| No | `long`<br>`short` | Filters bots by trading strategy type |
-|**sort_by** | `string` | No | `created_at`;<br>`updated_at`;<br>`profit` | Specifies the field used to order the results.<br>Default: `created_at`| 
-|**order_direction** | `string` | No | `[ASC]` or `[DESC]` | Sets the direction of order.<br>Default: `[DESC]` |
-|**quote** | `string` | No |   | Filters by quote currency |
-
-
+<p>
+   <strong>limit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Limits the number of records returned.<br>
+   Maximum: <code>100</code>, Default: <code>50</code>
+</p>
+<p>
+   <strong>offset</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Skips the first N records in the results
+</p>
+<p>
+   <strong>from</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Returns entities created after a specific time
+</p>
+<p>
+   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Filters entities linked to the specified 3Commas exchange account
+</p>
+<p>
+   <strong>scope</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Filters bots by their status<br>
+   Default: <code>null</code>
+<details>
+   <summary><em>Allowed value</em></summary>
+   <dl>
+      <li><strong>enable</strong> - returns bots where the state is active;
+      <li><strong>disabled</strong> - returns bots where the state is stopped;
+      <li><strong>null</strong> - returns all bots
+   </dl>
+</details>
+</p>
+<p>
+   <strong>strategy</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Filters bots by trading strategy type: <code>long</code> or <code>short</code>; 
+</p>
+<p>
+   <strong>sort_by</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Specifies the field used to order the results: <code>created_at</code>; <code>updated_at</code>; <code>profit</code><br>
+   Default: <code>created_at</code>
+</p>
+<p>
+   <strong>order_direction</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Sets the direction of order (<code>[ASC]</code> or <code>[DESC]</code>)<br>
+   Default: <code>[DESC]</code>
+</p>
+<p>
+   <strong>quote</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Filters by quote currency
+</p>
 <br>
+
 {% hint style="info" %}
 Use endpoint [User connected exchanges and wallets list](Account/User%20connected%20exchanges%20and%20wallets%20list.md) to get value for parameter <code>account_id</code> in 3Commas.
 {% endhint %}
