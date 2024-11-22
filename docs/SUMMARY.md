@@ -47,7 +47,7 @@
   * [Disable DCA Bot](DCA%20Bot/Disable%20DCA%20Bot.md)
   * [Enable DCA Bot](DCA%20Bot/Enable%20DCA%20Bot.md)
   * [Delete DCA Bot](DCA%20Bot/Delete%20DCA%20Bot.md)
-  * [Copy DCA Bot](/docs/DCA%20Bot/Copy%20the%20DCA%20Bot.md)
+  * [Copy DCA Bot](/docs/DCA%20Bot/Copy%20DCA%20Bot.md)
   * [Close DCA Bot at market price](/docs/DCA%20Bot/Close%20DCA%20Bot%20at%20market.md)
   * [Get the blacklist of pairs](/docs/DCA%20Bot/Get%20the%20blacklist%20of%20pairs.md)
   * [Add pairs to the blacklist](/docs/DCA%20Bot/Add%20pairs%20to%20the%20blacklist.md)
