@@ -9,22 +9,20 @@
 
 ----------
 
-<mark style="color:green;background-color:white"> **POST**
+<mark style="color:green"><strong>POST</strong>
 
-<mark style="color:green;background-color:white"> **/ver1/bots/{bot_id}/disable**
+<mark style="color:green"><strong>/ver1/bots/{bot_id}/disable</strong>
 
 ----------
 
 <br>
 <br>
 
-### Path Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**bot_id**  | `integer`| Yes |  | Unique 3Commas ID DCA Bot entity |
-
-<br>
+### Path Parameter<br>
+<p>
+   <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID for this DCA Bot entity
+</p>
 <br>
 
 ### Response Parameters<br>

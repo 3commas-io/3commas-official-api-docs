@@ -8,8 +8,9 @@
 
 ----------
 
-<mark style="color:blue;background-color:white"> <strong>GET</strong><br>
-<mark style="color:blue;background-color:white"> <strong>/ver1/bots/stats_by_date</strong>
+<mark style="color:blue"> <strong>GET</strong>
+
+<mark style="color:blue"> <strong>/ver1/bots/stats_by_date</strong>
 
 ----------
 
@@ -17,23 +18,38 @@
 <br>
 
 ### Query Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-| ------|------|-----------|-----------------|------------|
-| **bot_id**  | `integer`| No |  | Unique 3Commas ID DCA Bot entity |
-| **account_id** | `integer` | No |   | Filters entities linked to the specified 3Commas exchange account |
-| **date** | `string` | Yes |  | Specific days for which profit data is requested for this bot or account |
-
+<p>
+   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Filters entities linked to the specified 3Commas exchange account
+</p>
+<p>
+   <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Filters entities linked to the specified ID DCA Bot entity
+</p>
+<p>
+   <strong>date</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Specific days for which profit data is requested for this bot or account
+</p>
 <br>
 <br>
 
 ### Parameters response<br>
-
-| Name | Type | Description |
-|----- | ------- | ------------ |
-|**stats[USDT]** | `string` | [TBD] |
-|**usd_profit** | `string` |  USD profit from deals for a specific day |
-|**btc_profit** | `string` |  BTC profit from deals for a specific day  |
+<p>
+   <strong>profits_in_usd</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+   [TBD]
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>USDT</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cumulative USD profit or loss from all trading activity
+</p>
+<p>
+   <strong>usd_profit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   USD profit from deals for a specific day
+</p>
+<p>
+   <strong>btc_profit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   BTC profit from deals for a specific day
+</p>
 <br>
 <br>
 

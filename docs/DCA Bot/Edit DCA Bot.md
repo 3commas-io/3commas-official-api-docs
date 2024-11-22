@@ -19,7 +19,7 @@
 ### Path Parameter<br>
 <p>
    <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
-   Unique 3Commas ID for this Grid Bot entity
+   Unique 3Commas ID for this DCA Bot entity
 </p>
 <br>
 
@@ -34,8 +34,8 @@
 </p>
 <p>
    <strong>max_active_deals</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   The maximum number of active deals available for this DCA Bot.<br>
-   Minimum:<code>1</code>, Maximum:<code>199</code>.
+   The maximum number of active deals available for this DCA Bot<br>
+   Minimum:<code>1</code>, Maximum:<code>199</code>
    Default: <code>1</code>
 </p>
 <p>
@@ -65,7 +65,7 @@
 </p>
 <p>
    <strong>martingale_volume_coefficient</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
-   Coefficient for increasing <em>safety order volume</em> in Martingale strategy.<br>
+   Coefficient for increasing <em>safety order volume</em> in Martingale strategy<br>
    Minimum:<code>0,1</code>; Maximum:<code>10</code>
 </p>
 <p>
@@ -75,7 +75,7 @@
 </p>
 <p>
    <strong>max_safety_orders</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
-   The maximum total number of Safety Orders allowed per deal opened by this DCA Bot.<br>
+   The maximum total number of Safety Orders allowed per deal opened by this DCA Bot<br>
    Minimum:<code>0</code>; Maximum:<code>200</code>
 </p>
 <p>
@@ -84,12 +84,11 @@
 </p>
 <p>
    <strong>stop_loss_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
-   The percentage of price movement in the opposite direction of the Take Profit target that triggers the Stop Loss.<br>
-   The value should be set to <code>0</code> to disable Stop Loss
+   The percentage of price movement in the opposite direction of the Take Profit target that triggers the Stop Loss. The value should be set to <code>0</code> to disable Stop Loss
 </p>
 <p>
    <strong>sl_to_breakeven_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-   Enables (true) or disable (false) the Move to Breakeven feature for this DCA Bot. To use this feature, you must have at least two Take Profit steps.<br>
+   Enables (true) or disable (false) the Move to Breakeven feature for this DCA Bot. To use this feature, you must have at least two Take Profit steps<br>
    Default: <code>false</code>
 </p>
 <p>
@@ -100,7 +99,8 @@
 </p>
 <p>
    <strong>cooldown</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
-   The time (in seconds) that the DCA bot will wait after closing a deal before accepting a signal to start a new deal for the same asset pair.<br> Minimum: <code>0</code>; Maximum: <code>2592000</code>
+   The time (in seconds) that the DCA bot will wait after closing a deal before accepting a signal to start a new deal for the same asset pair<br> 
+   Minimum: <code>0</code>; Maximum: <code>2592000</code>
 </p>
 <p>
    <strong>trailing_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
@@ -128,16 +128,16 @@ Indicates whether trailing is enabled for Take Profit (<code>true</code>) or not
 </p>
 <p>
    <strong>leverage_custom_value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
-   Leverage value. Leverage value is dependent on the exchange and the pair.
+   Leverage value. Leverage value is dependent on the exchange and the pair
 </p>
 <p>
    <strong>stop_loss_timeout_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-   Indicates whether the Stop Loss timeout is enabled (<code>true</code>) or disabled (<code>false</code>).<br>
+   Indicates whether the Stop Loss timeout is enabled (<code>true</code>) or disabled (<code>false</code>)<br>
    Default: <code>false</code>
 </p>
 <p>
    <strong>stop_loss_timeout_in_seconds</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   Value timeout in seconds<br>This parameter is required when `stop_loss_timeout_enabled` is set to <code>true</code>
+   Value timeout in seconds<br>This parameter is required when <code>stop_loss_timeout_enabled</code> is set to <code>true</code>
 </p>
 <p>
    <strong>tsl_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
@@ -153,13 +153,7 @@ Indicates whether trailing is enabled for Take Profit (<code>true</code>) or not
 </p>
 <p>
    <strong>profit_currency</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-      Currency used for the profit from the trades executed by this bot<br>
-   <details><summary><em>Allowed value</em></summary>
-      <dl>
-       <li>base_currency - [TBD];
-       <li>quite_currency - [TBD];
-    </dl>
-   </details>
+      Currency used for the profit from the trades executed by this bot: <code>base_currency</code>; <code>quite_currency</code>
 </p>
 <p>
    <strong>start_order_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
@@ -175,7 +169,8 @@ Indicates whether trailing is enabled for Take Profit (<code>true</code>) or not
 </p>
 <p>
    <strong>allowed_deals_on_same_pair</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   Allow to set up a specific number of deals on the same pair.<br>It works only for bot where <code>type</code> is <code>Bot::MultiBot</code>
+   Allow to set up a specific number of deals on the same pair.<br>
+   It works only for bot where <code>type</code> is <code>Bot::MultiBot</code>
 </p>
 <p>
    <strong>min_profit_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
@@ -195,7 +190,7 @@ Indicates whether trailing is enabled for Take Profit (<code>true</code>) or not
 </p>
 <p>
    <strong>reinvesting_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
-   Set up a percentage of realized profit to be reinvested in each new deal.<br>
+   Set up a percentage of realized profit to be reinvested in each new deal<br>
    Minimum: <code>0</code>; Maximum: <code>100</code>
 </p>
 <p>
@@ -207,8 +202,9 @@ Indicates whether trailing is enabled for Take Profit (<code>true</code>) or not
    Max price percent. Must be greater then <code>-95</code> and lower then <code>1000</code>
 </p>
 <p>
-   <strong>close_deals_timeout</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>><br>
-   The time in seconds after which the deals will close automatically. Minimum: <code>60</code>
+   <strong>close_deals_timeout</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   The time in seconds after which the deals will close automatically<br>
+   Minimum: <code>60</code>
 </p>
 <br>
 <br>
@@ -362,13 +358,140 @@ If successful, the response includes a copy of [DCA Bot](./README.md) entity.
 ### Example Request<br>
 
 ```json
+PATCH /ver1/bots/12345678/update
+```
+<strong></strong>
+```json
+Body:
 
+{
+   "account_id": 32199203,
+   "name": "name DCA Bot",
+   "pairs": "USDT_ETH",
+   "strategy_list": [
+      {
+         "options": {},
+         "strategy": "nonstop"
+      }
+   ],
+   "base_order_volume": "100.0",
+   "take_profit_type": "total",
+   "take_profit": null,
+   "take_profit_steps": [
+    {
+        "amount_percentage": 50,
+        "profit_percentage": 10
+        },
+    {
+        "amount_percentage": 50,
+        "profit_percentage": 20
+    }
+],
+   "stop_loss_percentage": "8",
+   "close_deals_timeout": "100",
+   "max_safety_orders": 3,
+   "active_safety_orders_count": 3,
+   "safety_order_volume": "20.0",
+   "safety_order_step_percentage": "1.0",
+   "min_profit_type": null,
+   "martingale_volume_coefficient": "2",
+   "martingale_step_coefficient": "2"
+}
 ```
 
 <br>
 <br>
 
 ### Example response and errors<br>
+
+<details>
+<summary>Status: 200 OK</summary><br>
+
+```json
+{
+    "id": 15656489,
+    "account_id": 32199203,
+    "is_enabled": false,
+    "max_safety_orders": 3,
+    "active_safety_orders_count": 3,
+    "pairs": [
+        "USDT_ETH"
+    ],
+    "strategy_list": [
+        {
+            "options": {},
+            "strategy": "nonstop"
+        }
+    ],
+    "close_strategy_list": [],
+    "safety_strategy_list": [],
+    "max_active_deals": 1,
+    "active_deals_count": 0,
+    "deletable?": true,
+    "created_at": "2024-11-19T21:04:11.299Z",
+    "updated_at": "2024-11-21T15:22:24.557Z",
+    "trailing_enabled": null,
+    "tsl_enabled": false,
+    "deal_start_delay_seconds": null,
+    "stop_loss_timeout_enabled": false,
+    "stop_loss_timeout_in_seconds": 0,
+    "disable_after_deals_count": null,
+    "deals_counter": null,
+    "allowed_deals_on_same_pair": null,
+    "easy_form_supported": false,
+    "close_deals_timeout": 100,
+    "url_secret": "5e334993e6",
+    "take_profit_steps": [
+        {
+            "amount_percentage": 50,
+            "profit_percentage": 10,
+            "id": 0
+        },
+        {
+            "amount_percentage": 50,
+            "profit_percentage": 20,
+            "id": 1
+        }
+    ],
+    "name": "name DCA Bot",
+    "take_profit": null,
+    "min_profit_percentage": null,
+    "base_order_volume": "100.0",
+    "safety_order_volume": "20.0",
+    "safety_order_step_percentage": "1.0",
+    "take_profit_type": "total",
+    "min_profit_type": null,
+    "type": "Bot::SingleBot",
+    "martingale_volume_coefficient": "2.0",
+    "martingale_step_coefficient": "2.0",
+    "stop_loss_percentage": "8.0",
+    "cooldown": "0",
+    "btc_price_limit": "0.0",
+    "strategy": "long",
+    "min_volume_btc_24h": "0.0",
+    "profit_currency": "quote_currency",
+    "min_price": null,
+    "max_price": null,
+    "stop_loss_type": "stop_loss",
+    "safety_order_volume_type": "quote_currency",
+    "base_order_volume_type": "quote_currency",
+    "account_name": "Paper Account 1251857",
+    "trailing_deviation": "0.2",
+    "finished_deals_profit_usd": "0.0",
+    "finished_deals_count": "0",
+    "leverage_type": "not_specified",
+    "leverage_custom_value": null,
+    "start_order_type": "limit",
+    "active_deals_usd_profit": "0.0",
+    "reinvesting_percentage": null,
+    "risk_reduction_percentage": null,
+    "reinvested_volume_usd": null,
+    "min_price_percentage": null,
+    "max_price_percentage": null
+```
+
+</details>
+
 
 <details>
 <summary>Status: 400 Bad Request</summary><br>
@@ -378,44 +501,10 @@ If successful, the response includes a copy of [DCA Bot](./README.md) entity.
     "error": "record_invalid",
     "error_description": "Invalid parameters",
     "error_attributes": {
-        "name": [
-            "is missing"
-        ],
-        "pairs": [
-            "is missing"
-        ],
-        "base_order_volume": [
-            "is missing"
-        ],
-        "take_profit": [
-            "is missing"
-        ],
-        "safety_order_volume": [
-            "is missing"
-        ],
-        "martingale_volume_coefficient": [
-            "is missing"
-        ],
-        "martingale_step_coefficient": [
-            "is missing"
-        ],
-        "max_safety_orders": [
-            "is missing"
-        ],
-        "active_safety_orders_count": [
-            "is missing"
-        ],
-        "safety_order_step_percentage": [
-            "is missing"
-        ],
-        "take_profit_type": [
-            "is missing"
-        ],
-        "strategy_list": [
-            "is missing"
+        "stop_loss_percentage": [
+            "Stop Loss should be below the last safety order (7.0)"
         ]
     }
 }
 ```
-400
-Bad Request
+</details>
