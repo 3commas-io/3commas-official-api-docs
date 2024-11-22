@@ -14,11 +14,9 @@ This is an endpoint that does not need authentication
 <mark style="color:blue"> <storng>/ver1/accounts/currency_rates_with_leverage_data</strong>
 
 -------- 
-<br>
-<br>
+
 
 ### Query Parameters<br>
-
 <p>
    <strong>market_code</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
    Unique exchange code in the 3Commas system
