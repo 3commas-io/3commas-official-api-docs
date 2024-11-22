@@ -31,6 +31,9 @@
 If successful, the response includes an updated copy of the [DCA Bot](./README.md) entity.
 {% endhint %}
 
+<br>
+<br>
+
 ### Example request<br>
 
 ```

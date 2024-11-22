@@ -165,9 +165,16 @@
 </p>
 <p><strong>martingale_step_coefficient</strong></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
    Coefficient for increasing safety order price (<code>safety_order_step_percentage</code>) in Martingale strategy
-<p><strong>stop_loss_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   The type of Stop Loss action the bot should perform after closing a deal
-</p>
+</p>   
+<p><strong>stop_loss_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br> 
+Specifies the type of action the bot performs when Stop Loss is triggered after closing a deal
+<details>
+   <summary><em>Allowed values</em></summary>
+   <dl>
+      <li><code>stop_loss</code> - сloses the deal without disabling the bot.</li>
+      <li><code>stop_loss_and_disable_bot</code> - сloses the deal and disables the bot.</li>
+   </dl>
+</details>
 </p>
 <p><strong>stop_loss_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
    Stop loss percentage for this bot

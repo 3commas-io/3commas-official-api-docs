@@ -17,7 +17,7 @@
 <br>
 
 
-### Path Parameters<br>
+### Query Parameters<br>
 <p>
    <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
    Filters entities linked to the specified 3Commas exchange account

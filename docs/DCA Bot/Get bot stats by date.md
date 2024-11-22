@@ -18,7 +18,6 @@
 <br>
 
 ### Query Parameters<br>
-
 <p>
    <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
    Filters entities linked to the specified 3Commas exchange account
@@ -35,7 +34,6 @@
 <br>
 
 ### Parameters response<br>
-
 <p>
    <strong>profits_in_usd</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
    [TBD]
