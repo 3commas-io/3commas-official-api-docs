@@ -1,4 +1,4 @@
-# Copy the DCA Bot
+# Copy DCA Bot
 
 **Description:** Copies the bot from or to another linked exchange account connected to 3Commas<br>
 
