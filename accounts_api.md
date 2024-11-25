@@ -2,7 +2,7 @@
 #### _Please read General API Information first_
 ### Available market subtypes to connect
 ```
-GET /ver1/accounts/types_to_connect
+POST /ver1/accounts/types_to_connect
 ```
 **Weight:**
 1
