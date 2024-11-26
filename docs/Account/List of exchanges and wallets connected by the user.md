@@ -10,9 +10,9 @@
 
 ----------
 
-<mark style="color:blue;background-color:white" > **GET**
+<mark style="color:blue"> <strong>GET</strong>
 
-<mark style="color:blue;background-color:white" > **/ver1/accounts**
+<mark style="color:blue"><strong>/ver1/accounts</strong>
 
 ----------
 <br>
