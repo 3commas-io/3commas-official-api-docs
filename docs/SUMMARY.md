@@ -1,7 +1,5 @@
 # Summary
 
-* [Introduction](README.md)
-
 * [General information](General%20information/README.md)
   * [Overview](General%20information/Overview.md)
   * [Endpoint security type](General%20information/Endpoint%20security%20type.md)
@@ -101,6 +99,10 @@
       * [Get trades of SmartTrade](SmartTrade/Trades/Get%20trades%20of%20SmartTrade.md)
       * [Closes trade by market](SmartTrade/Trades/Closes%20trade%20by%20market.md)
       * [Cancel trade](SmartTrade/Trades/Cancel%20trade.md)
+
+* [Websocket streem](/docs/Websocket%20streem/README.md)
+  * [Deals streams](/docs/Websocket%20streem/Deals%20Streams.md)
+  * [SmartTrades Streams](/docs/Websocket%20streem/SmartTrades%20Streams.md)
       
 
 

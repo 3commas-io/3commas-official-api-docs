@@ -171,8 +171,8 @@ Specifies the type of action the bot performs when Stop Loss is triggered after 
 <details>
    <summary><em>Allowed values</em></summary>
    <dl>
-      <li><code>stop_loss</code> - сloses the deal without disabling the bot.</li>
-      <li><code>stop_loss_and_disable_bot</code> - сloses the deal and disables the bot.</li>
+      <li><code>stop_loss</code> - closes the deal without disabling the bot;</li>
+      <li><code>stop_loss_and_disable_bot</code> - closes the deal and disables the bot.</li>
    </dl>
 </details>
 </p>
