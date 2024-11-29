@@ -11,8 +11,7 @@ The base endpoint is:
 ```
 https://api.3commas.io/public/api
 ```
-</p>
-
+</p><br>
 
 ### Request Guidelines<br>
 <p>
@@ -31,17 +30,20 @@ https://api.3commas.io/public/api
 </p>
 <p>
    <strong>Parameter Conflict:</strong> If a parameter is sent in both the query string and the request body, the value from the query string will be used.
-</p>
+</p><br>
 
 
 ### Official Channels<br>
 <p> 
-    <strong>Official Announcements:</strong><br>
-    Changes, downtime, etc., will be reported in this [Telegram channel](https://t.me/commas_API)
+   <strong>Official Announcements:</strong><br>
+
+   Changes, downtime, etc., will be reported in this [Telegram channel](https://t.me/commas_API)
+
 </p>
 <p> 
-    <strong>Community Discussion:</strong><br>
-    Join our [Telegram group](https://t.me/xcommas_api) to discuss API-related questions or issues.
+   <strong>Community Discussion:</strong><br>
+
+   Join our [Telegram group](https://t.me/xcommas_api) to discuss API-related questions or issues.
 </p>
 
 
