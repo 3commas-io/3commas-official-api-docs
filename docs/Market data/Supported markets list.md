@@ -1,4 +1,5 @@
 ## Supported markets list<br>
+<br>
 
 **Description:** Returns the list of markets supported by 3Commas<br>
 
@@ -15,17 +16,15 @@ This is an endpoint that does not need authentication
 
 ------
 <br>
-<br>
 
-### Request Parameters<br>
+### Request parameters<br>
 
 ```json
 NONE
 ```
 <br>
-<br>
 
-### Response Parameters<br>
+### Response parameters<br>
 
 <p>
    <strong>market_name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>

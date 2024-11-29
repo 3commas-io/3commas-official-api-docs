@@ -1,4 +1,5 @@
 ## All market pairs<br>
+<br>
 
 **Description:** The method allows getting the list of pairs is supported by exchange in 3Commas' format<br>
 
@@ -11,7 +12,7 @@ This is an endpoint that does not need authentication
 
 <mark style="color:blue"><strong>GET</strong>
 
-<mark style="color:black">/ver1/accounts/market_pairs
+<mark style="color:blue"><strong>/ver1/accounts/market_pairs</strong>
 
 -------- 
 <br>
