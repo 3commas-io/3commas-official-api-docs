@@ -12,54 +12,59 @@ This endpoint works for the following exchanges: *Binance Spot*, *Binance US*, *
 
 ----------
 
-<mark style="color:blue;background-color:white" >**GET**
+<mark style="color:blue"><strong>GET</strong>
 
-<mark style="color:blue;background-color:white" > **/ver1/accounts/{account_id}/deposit_data**
+<mark style="color:blue"><strong>/ver1/accounts/{account_id}/deposit_data</strong>
 
 ----------
+
 <br>
-<br>
 
-### Path Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**account_id** | `integer` | Yes |  | Unique 3Commas ID for this exchange account entity |
-
+### Path Parameter<br>
+<p>
+   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID for this exchange account entity
+</p><br>
 
 ### Query Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**currency** | `string` | Yes |  | Currency code for what you want to get a data<br>Example: `BTC` |
-|**network** | `string` | Yes |  | Name of Network for this currency |
-
-<br>
-<br>
+<p>
+   <strong>currency</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Currency code for what you want to get a data<br>
+   Example: <code>BTC</code>
+</p>
+<p>
+   <strong>network</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Name of Network for this currency
+</p><br>
 
 ### Response Parameters<br>
-
-| Name | Type |	Description|
-|------|------|------------|
-|**address**| `string` | The cryptocurrency wallet address for deposits and withdrawals |
-|**address_tag**| `string`| Tag of address for this deposits |
-|**available_balance**| `string`| The available balance in this currency and account |
-|**in_orders**| `string`|The amount of this currency currently locked in active orders |
-|**total_balance**|`string` | The total balance in this currency and account|
-
-<br>
-<br>
+<p>
+   <strong>address</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The cryptocurrency wallet address for deposits and withdrawals
+</p>
+<p>
+   <strong>network</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Tag of address for this deposits
+</p>
+<p>
+   <strong>currency</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The amount of this currency currently locked in active orders
+</p>
+<p>
+   <strong>total_balance</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The total balance in this currency and account
+</p><br>
 
 ### Example Request<br>
 
 ```json
-/ver1/accounts/76543210/deposit_data?currency=BTC&network=BTC
+
+GET /ver1/accounts/76543210/deposit_data?currency=BTC&network=BTC
 ```
 <br>
-<br>
+
 
 ###  Example Response and errors<br>
-
 <details>
 <summary>Status: 200 OK</summary><br>
 

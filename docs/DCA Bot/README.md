@@ -62,8 +62,7 @@
 </p>
 <p>
    <strong>deletable?</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-   Indicates whether this DCA Bot can be deleted
-</p>
+   Indicates whether this DCA Bot can be deleted (<code>true</code>) or not (<code>false</code>)</p>
 <p>
    <strong>created_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
    ISO 8601 datetime string of when this DCA Bot entity was created
@@ -74,21 +73,21 @@
 </p>
 <p>
    <strong>trailing_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-   Indicates whether trailing is enabled for Take Profit of this bot
+   Indicates whether trailing is enabled for Take Profit of this bot (<code>true</code>) or not (<code>false</code>)
 </p>
-<p><strong>trailing_deviation</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+<p><strong>trailing_deviation</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
    Percentage value of the trailing price, in percent
 </p>
 <p>
    <strong>tsl_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-   Indicates whether trailing is enabled for Stop Loss
+  Indicates whether trailing is enabled for Stop Loss (true) or not (false) for this DCA Bot
 </p>
 <p>
    <strong>deal_start_delay_seconds</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code> or <code>null</code><br>
    Delay in seconds before a next deal starts
 </p>
 <p><strong>stop_loss_timeout_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-   Indicates if the Stop Loss timeout is active
+   Indicates if the Stop Loss timeout is active (<code>true</code>) or not (<code>false</code>)
 </p>
 <p><strong>stop_loss_timeout_in_seconds</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
    Duration of the Stop Loss timeout in seconds
@@ -142,14 +141,14 @@
    The volume of the Safety Order for this DCA Bot
 </p>
 <p><strong>safety_order_step_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
-   Price deviation in percentage to open Safety Trades
+   Price deviation in percentage to open Safety Orders
 </p>
 <p>
    <strong>max_safety_orders</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
    Maximum number of Safety Orders allowed for per deal
 </p>
 <p><strong>active_safety_orders_count</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-      The number of active Safety Orders the DCA Bot is allowed to place at one time
+   The number of active Safety Orders the DCA Bot is allowed to place at one time
 </p>
 <p><strong>min_profit_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>null</code> or <code>string</code><br>
    The type of minimum profit used as the basis for profit calculation in this DCA Bot, applicable to the close strategy of Take Profit
@@ -163,7 +162,7 @@
 <p><strong>martingale_volume_coefficient</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
    Coefficient for increasing <em>safety order volume</em> in Martingale strategy
 </p>
-<p><strong>martingale_step_coefficient</strong></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+<p><strong>martingale_step_coefficient</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
    Coefficient for increasing safety order price (<code>safety_order_step_percentage</code>) in Martingale strategy
 </p>   
 <p><strong>stop_loss_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br> 
@@ -171,8 +170,8 @@ Specifies the type of action the bot performs when Stop Loss is triggered after 
 <details>
    <summary><em>Allowed values</em></summary>
    <dl>
-      <li><code>stop_loss</code> - сloses the deal without disabling the bot.</li>
-      <li><code>stop_loss_and_disable_bot</code> - сloses the deal and disables the bot.</li>
+      <li><code>stop_loss</code> - closes the deal without disabling the bot;</li>
+      <li><code>stop_loss_and_disable_bot</code> - closes the deal and disables the bot.</li>
    </dl>
 </details>
 </p>
@@ -209,7 +208,10 @@ Specifies the type of action the bot performs when Stop Loss is triggered after 
 <p><strong>trailing_deviation</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
    Percentage value of the trailing price, in percent
 </p>
-<p><strong>finished_deals_profit_usd</strong> "0.0",</p>
+<p>
+<strong>finished_deals_profit_usd</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   [TBD]
+</p>
 <p><strong>finished_deals_count</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
    Total number of deals finished by DCA Bot
 </p>
@@ -249,5 +251,7 @@ Specifies the type of action the bot performs when Stop Loss is triggered after 
    Max price percent (only for Multy bot)
 </p>
 <p><strong>active_deals</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array</code><br>
-   List of active deals managed by this DCA Bot
+
+   List of active [deals](/docs/DCA%20Bot/Deals/README.md) managed by this DCA Bot
+
 </p>

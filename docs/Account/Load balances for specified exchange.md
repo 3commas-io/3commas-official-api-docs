@@ -9,22 +9,19 @@
 
 ----------
 
-<mark style="color:green;background-color:white" > **POST**
+<mark style="color:green"><strong>POST</strong>
 
-<mark style="color:green;background-color:white" > **/ver1/accounts/{account_id}/load_balances**
+<mark style="color:green"><strong>/ver1/accounts/{account_id}/load_balances</strong>
 
 ----------
 <br>
 <br>
 
 ### Path Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**account_id**  | `integer` | Yes |  | Unique 3Commas ID for this exchange account entity |
-
-<br>
-<br>
+<p>
+   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Unique 3Commas ID for this exchange account entity
+</p><br>
 
 ### Response Parameters<br>
 
@@ -32,16 +29,16 @@
 If successful, the response includes a copy of the updated [Account](./README.md) entity.
 {% endhint %}
 
+<br>
+
 ### Example request<br>
 
 ```
-/ver1/accounts/12345678/load_balances
+ POST /ver1/accounts/12345678/load_balances
 ```
-<br>
 <br>
 
 ### Example Response and errors<br>
-
 <details>
 <summary>Status: 201 Created</summary><br>
 
@@ -133,6 +130,7 @@ If successful, the response includes a copy of the updated [Account](./README.md
 </details><br>
 <details>
 <summary>Status: 422 Unprocessable Entity</summary><br>
+
 ```json
 {
     "error_description": "API keys are no longer valid or incorrect.",

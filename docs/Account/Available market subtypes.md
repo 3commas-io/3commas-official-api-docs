@@ -6,47 +6,58 @@
 **Security:** SIGNED<br>
 <br>
 
-{% hint style="info" %}
-This endpoint supports to create SmartTrade is available for accounts where the parameter `smart_trading_supported` is `true`.
-{% endhint %}
+----------
 
-<br>
-<br>
+<mark style="color:blue"><strong>GET</strong> 
+
+<mark style="color:blue"><strong>/ver1/accounts/types_to_connect</strong> 
 
 ----------
 
-<mark style="color:blue;background-color:white" > **GET** 
-
-<mark style="color:blue;background-color:white" >**/ver1/accounts/types_to_connect**
-
-----------
-
-<br>
 <br>
 
 ### Query Parameters<br>
+<p>
+   <strong>type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Name of the exchange in the 3Commas system 
+</p>
+<p>
+   <strong>name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Name for exchange account
+</p>
+<p>
+   <strong>api_key</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   API-key for this exchange account
+</p>
+<p>
+   <strong>secret</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Secret-key for this exchange account
+</p><br>
 
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**type**  | `string`| Yes |  | Name of the exchange in the 3Commas system |
-|**name**  | `string`	| Yes |  | Name for exchange account |
-|**api_key**  | `string`	| No |  |API-key for this exchange account |
-|**secret**  | `string`	| No |  | Secret-key for this exchange account  |
+{% hint style="info" %}
+Use endpoint [Supported markets list](/docs/Market%20data/Supported%20markets%20list.md) and parameter <code>market_code</code>to get value for parameter <code>type</code> in 3Commas.
+{% endhint %}
 
 <br>
-<br>
 
-### Parameters response<br>
+### Parameters Response<br>
+<p>
+   <strong>type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The exchange code available to connect
+</p>
+<p>
+   <strong>connected</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+   Indicates whether the exchange is currently connected (<code>true</code>) or not (<code>false</code>)
+</p>
+<p>
+   <strong>available</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+   Secret-key for this exchange account
+</p>
+<p>
+   <strong>unified</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+   Shows the exchange supports an unified account. Using for Bybit exchange<br><code>true</code> is if it supports 
+</p><br>
 
-| Name | Type |	Description|
-|------|------|------------|
-|**type** | `string` | The exchange code available to connect |
-|**connected**| `boolean`| Returns status connect of exchange<br>`true` is if connected |
-|**available**| `boolean`| Shows the availability of connection to the exchange.<br>`true` is if the exchange connection is available |
-|**unified**| `boolean`| Shows the exchange supports a unified account. Using for Bybit exchange<br>`true` is if it supports  |
-
-<br>
-<br>
 
 ### Example Request<br>
 
@@ -55,10 +66,8 @@ GET
 /ver1/accounts/types_to_connect?type=binance&name=binance123&api_key=6q4zuON***XKi8kOMepGT***xcxkBlIACvhY***8Qr97MsAT9***p4qe9Uezqrrd&secret=7CfL1slT***8xzCsgzA***4yfNGvOav***QO
 ```
 <br>
-<br>
 
 ### Example Response and errors<br>
-
 <details>
 <summary>Status: 200 OK</summary><br>
 
@@ -88,5 +97,21 @@ GET
         "unified": false
     }
 ]
+```
+</details>
+
+<details>
+<summary>Status: 400 Bad Request</summary><br>
+
+```json
+{
+    "error": "record_invalid",
+    "error_description": "Invalid parameters",
+    "error_attributes": {
+        "type": [
+            "does not have a valid value"
+        ]
+    }
+}
 ```
 </details>

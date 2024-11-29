@@ -18,26 +18,74 @@
 <br>
 
 ### Query Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**bot_id**  | `integer`| No |  | Filters by the unique ID of the 3Commas DCA Bot |
-|**account_id** | `integer` | No |   | Filters entities linked to the specified 3Commas exchange account |
-|**limit** | `integer` | No |  Maximum: `1000` | Limits the number of records returned.<br>Default: `50` |
-|**offset** | `integer` | No |   | Skips the first N records in the results |
-|**from** | `string` | No |   | Returns entities created after a specific time |
-|**to** | `string` | No |   | Returns entities created before a specific time |
-|**scope** | `string` | No |   | Filters deals by their status.<br>Default: `null` <details> <summary>_Allowed value_</summary><br> <dl><li>active - active deals;<li>finished - finished deals;<li>completed - successfully completed;<li>cancelled - cancelled deals;<li>failed - failed deals;<li>`null` - all deals</dl></details>|
-|**order** | `string` | No | `created_at`<br>`updated_at`<br>`closed_at`<br> `profit`<br>`profit_percentage`| Specifies the field used to order the results.<br>Default: `created_at`| 
-|**order_direction** | `string` | No | `ASC`<br>`DESC` | Sets the direction of order.<br>Default: `DESC`
-|**base** | `string` | No |   | Filters by base currency |
-|**quote** | `string` | No |   | Filters by quote currency |
-|**note** | `string` | No |   | Filters deals by note |
-
+<p>
+   <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Filters by the unique ID of the 3Commas DCA Bot
+</p>
+<p>
+   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Filters entities linked to the specified 3Commas exchange account
+</p>
+<p>
+   <strong>limit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Limits the number of records returned<br>
+   Maximum: <code>1000</code>, Default: <code>50</code>
+</p>
+<p>
+   <strong>offset</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Skips the first N records in the results
+</p>
+<p>
+   <strong>from</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Returns entities created after a specific time
+</p>
+<p>
+   <strong>to</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Returns entities created before a specific time
+</p>
+<p>
+   <strong>scope</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Filters deals by their status<br>Default: <code>null</code>
+    <details>
+        <summary><em>Allowed value</em></summary>
+            <dl>
+                <li>active - active deals;
+                 <li>finished - finished deals;
+                 <li>completed - successfully completed;
+                 <li>cancelled - cancelled deals;
+                 <li>failed - failed deals;
+                 <li><code>null</code> - all deals
+            </dl>
+    </details>
+</p>
+<p>
+   <strong>order</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Specifies the field used to order the results<br>
+   Valid fields for ordering: <code>created_at</code>; <code>updated_at</code>; <code>closed_at</code>; <code>profit</code>; <code>profit_percentage</code>. Default: <code>created_at</code>
+</p>
+<p>
+   <strong>order_direction</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Sets the direction of order: <code>ASC</code> or <code>DESC</code><br>
+   Default: <code>DESC</code>
+</p>
+<p>
+   <strong>base</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Filters by base currency
+</p>
+<p>
+   <strong>quote</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Filters by quote currency
+</p>
+<p>
+   <strong>note</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Filters deals by note
+</p>
 <br>
+
 {% hint style="info" %}
 Use endpoint [User connected exchanges and wallets list](Account/User%20connected%20exchanges%20and%20wallets%20list.md) to get value for parameter 'account_id' in 3Commas.
 {% endhint %}
+
 <br>
 
 ### Response Parameters<br>
@@ -52,8 +100,7 @@ If successful, the response includes a copy of [Deals](./README.md) entity.
 ### Example Request<br>
 
 ```json
-POST /ver1/bots/12345678/disable
-
+GET /ver1/deals?bot_id=23456789
 ```
 
 <br>
@@ -71,7 +118,7 @@ POST /ver1/bots/12345678/disable
         "to_currency_id": 0,
         "id": 2293916474,
         "type": "Deal",
-        "bot_id": 15565014,
+        "bot_id": 23456789,
         "max_safety_orders": 3,
         "deal_has_error": false,
         "account_id": 32199203,
@@ -189,3 +236,4 @@ POST /ver1/bots/12345678/disable
     ... 
 ]
 ```
+</details>

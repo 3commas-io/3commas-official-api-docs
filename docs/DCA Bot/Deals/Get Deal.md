@@ -8,15 +8,14 @@
 
 ----------
 
-<mark style="color:blue"> <strong>GET</strong><br>
-<mark style="color:blue"> <strong>/ver1/deals/{deal_id}/show</strong>
+<mark style="color:blue"><strong>GET</strong><br>
+<mark style="color:blue"><strong>/ver1/deals/{deal_id}/show</strong>
 
 ----------
-
 <br>
 <br>
 
-### Path Parameters<br
+### Path Parameters<br>
 
 | Name | Type |	Mandatory |	Values	| Description|
 |------|------|-----------|-----------------|------------|

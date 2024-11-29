@@ -18,13 +18,10 @@
 <br>
 
 ### Path Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**account_id**  | `integer` | Yes |  | Unique 3Commas ID for this exchange account entity |
-
-<br>
-<br>
+<p>
+   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Unique 3Commas ID for this exchange account entity
+</p><br>
 
 ### Response Parameters<br>
 

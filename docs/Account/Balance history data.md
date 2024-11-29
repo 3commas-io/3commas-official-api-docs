@@ -8,49 +8,61 @@
 
 ----------
 
-<mark style="color:blue;background-color:white" >**GET**
+<mark style="color:blue"><strong>GET</strong>
 
-<mark style="color:blue;background-color:white" > **/ver1/accounts/{account_id}/balance_chart_data**
+<mark style="color:blue"><strong>/ver1/accounts/{account_id}/balance_chart_data</strong>
 
 ----------
 <br>
 <br>
 
-### Path Parameters<br>
+### Path Parameter<br>
+<p>
+   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID for this exchange account entity
+</p>
 
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**account_id**  | `integer` | Yes |  | Unique 3Commas ID for this exchange account entity |
-<br>
 
 ### Request Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**date_from** | `string<date-time>` | Yes | ISO 8601 format | Specifying the start date for the required records |
-|**date_to** | `string<date-time>` | No | ISO 8601 format| Specifies the end date for the required records |
-
-
+<p>
+   <strong>date_from</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Specifying the start date in ISO 8601 format for the required records 
+</p>
+<p>
+   <strong>date_to</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Specifies the end date for the required records
+</p>
 <br>
 <br>
 
 ### Parameters response<br>
-
-| Name | Type |	Description|
-|------|------|------------|
-|**date**| `string <date-time>` | Timestamp (UNIX time) in seconds representing a specific date |
-|**usd**| `string`| The value in USD for a specific date |
-|**btc**|`string` | The value in BTC for a specific date|
-|**btc_deposit_amount**| `string` | The deposited amount in BTC on a specific date |
-|**usd_deposit_amount**| `string` | The deposited amount in USD on a specific date |
-
+<p>
+   <strong>date_to</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Timestamp (UNIX time) in seconds representing a specific date
+</p>
+<p>
+   <strong>usd</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The value in USD for a specific date
+</p>
+<p>
+   <strong>btc</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The value in BTC for a specific date
+</p>
+<p>
+   <strong>btc_deposit_amount</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The deposited amount in BTC on a specific date
+</p>
+<p>
+   <strong>usd_deposit_amount</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The deposited amount in USD on a specific date
+</p>
 <br>
 <br>
 
 ### Example Request<br>
 
 ```json
-/ver1/accounts/12345678/balance_chart_data?date_from=2024-09-18T18:58:55.469Z
+ GET /ver1/accounts/12345678/balance_chart_data?date_from=2024-09-18T18:58:55.469Z
 ```
 <br>
 <br>

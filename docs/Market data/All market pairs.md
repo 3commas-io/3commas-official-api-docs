@@ -9,16 +9,14 @@ This is an endpoint that does not need authentication
 
 -------- 
 
-<mark style="color:blue;background-color:white"><strong>GET</strong>
+<mark style="color:blue"><strong>GET</strong>
 
-<mark style="color:blue;background-color:white"><strong>/ver1/accounts/market_pairs</strong>
+<mark style="color:black">/ver1/accounts/market_pairs
 
 -------- 
 <br>
-<br>
 
 ### Query Parameter<br>
-
 <p>
    <strong>market_code</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
    Unique exchange code in the 3Commas system
@@ -30,7 +28,6 @@ Use endpoint [Supported markets list](/docs/Market%20data/Supported%20markets%20
 {% endhint %}
 
 <br>
-<br>
 
 ### Example request<br>
 
@@ -38,7 +35,7 @@ Use endpoint [Supported markets list](/docs/Market%20data/Supported%20markets%20
 GET /ver1/accounts/market_pairs?market_code=binance_us
 ```
 <br>
-<br>
+
 
 ### Example Response and errors<br>
 <details>

@@ -8,32 +8,26 @@
 
 ----------
 
-<mark style="color:green;background-color:white" > **POST**
+<mark style="color:green"><strong>POST</strong>
 
-<mark style="color:green;background-color:white" > **/ver1/accounts/{account_id}/rename**
+<mark style="color:green"><strong>/ver1/accounts/{account_id}/rename</strong>
 
 ----------
 <br>
-<br>
 
 
-### Path Parameters<br>
+### Path Parameter<br>
+<p>
+   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Unique 3Commas ID for this exchange account entity
+</p><br>
 
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**account_id**  | `integer` | Yes |  | Unique 3Commas ID for this exchange account entity |
+### Query Parameter<br>
+<p>
+   <strong>name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   New name for this exchange account
+</p><br>
 
-<br>
-<br>
-
-### Query Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**name**  | `integer` | Yes |  | New name for this exchange account |
-
-<br>
-<br>
 
 ### Response Parameters<br>
 {% hint style="info" %}
@@ -41,7 +35,7 @@ If successful, the response includes a copy of the updated [Account](./README.md
 {% endhint %}
 
 <br>
-<br>
+
 
 ### Example request<br>
 
@@ -49,7 +43,7 @@ If successful, the response includes a copy of the updated [Account](./README.md
 POST  /ver1/accounts/11223344/rename?name=new%20name
 ```
 <br>
-<br>
+
 
 ### Example Response and errors<br>
 

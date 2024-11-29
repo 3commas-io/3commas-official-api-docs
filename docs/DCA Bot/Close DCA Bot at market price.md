@@ -15,14 +15,12 @@
 ----------
 
 <br>
-<br>
 
 ### Path Parameter<br>
 <p>
    <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
    Unique 3Commas ID for this DCA Bot entity
 </p>
-<br>
 <br>
 
 ### Parameter response<br>
@@ -31,7 +29,6 @@
 If successful, the response includes an updated copy of the [DCA Bot](./README.md) entity.
 {% endhint %}
 
-<br>
 <br>
 
 ### Example request<br>
@@ -43,7 +40,6 @@ POST /ver1/bots/12345678/panic_sell_all_deals
 <br>
 
 ### Example Response and errors<br>
-
 <details>
 <summary>Status: 201 Created</summary><br>
 
@@ -233,6 +229,7 @@ POST /ver1/bots/12345678/panic_sell_all_deals
 
 <details>
 <summary>Status: 404 Not Found</summary><br>
+
 ```json
 {
     "error": "not_found",

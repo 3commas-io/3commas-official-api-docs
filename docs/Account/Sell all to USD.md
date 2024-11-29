@@ -21,7 +21,6 @@ This endpoint works for the following exchanges: *Binance Spot*, *Binance Margin
 ----------
 
 <br>
-<br>
 
 {% hint style="warning" %}
 When executing this request, all trading entities (bots, SmartTrade, trades, deals, orders, exception Signal Bot) will be stop and close at the 3Commas and the exchange
@@ -31,11 +30,10 @@ When executing this request, all trading entities (bots, SmartTrade, trades, dea
 <br>
 
 ### Path Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**account_id**  | `integer`| Yes |  | Unique 3Commas ID for this exchange account entity |
-
+<p>
+   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID for this exchange account entity
+</p>
 <br>
 <br>
 

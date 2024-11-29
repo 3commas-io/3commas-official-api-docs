@@ -16,21 +16,18 @@
 <br>
 <br>
 
-### Path Parameters<br>
+### Path Parameter<br>
+<p>
+   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID for this exchange account entity
+</p><br>
 
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**account_id**  | `integer` | Yes |  | Unique 3Commas ID for this exchange account entity |
-
-<br>
-
-### Query Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-| **page**  | `integer`	| No |  | Page number for pagination.<br>Default: `1`  |
-
-<br>
+### Query Parameter<br>
+<p>
+   <strong>page</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Page number for pagination<br>
+   Default: <code>1</code>
+</p><br>
 <br>
 
 ### Parameters response<br>
