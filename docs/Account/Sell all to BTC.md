@@ -31,10 +31,10 @@ When executing this request, all trading entities (bots, SmartTrade, trades, dea
 <br>
 
 ### Path Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**account_id**  | `integer`| Yes |  | Unique 3Commas ID for this exchange account entity |
+<p>
+   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID for this exchange account entity
+</p>
 
 <br>
 <br>

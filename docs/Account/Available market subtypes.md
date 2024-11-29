@@ -32,14 +32,12 @@
 <p>
    <strong>secret</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
    Secret-key for this exchange account
-</p>
-<br>
+</p><br>
 
 {% hint style="info" %}
 Use endpoint [Supported markets list](/docs/Market%20data/Supported%20markets%20list.md) and parameter <code>market_code</code>to get value for parameter <code>type</code> in 3Commas.
 {% endhint %}
 
-<br>
 <br>
 
 ### Parameters Response<br>
@@ -58,9 +56,8 @@ Use endpoint [Supported markets list](/docs/Market%20data/Supported%20markets%20
 <p>
    <strong>unified</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
    Shows the exchange supports an unified account. Using for Bybit exchange<br><code>true</code> is if it supports 
-</p>
-<br>
-<br>
+</p><br>
+
 
 ### Example Request<br>
 
@@ -69,10 +66,8 @@ GET
 /ver1/accounts/types_to_connect?type=binance&name=binance123&api_key=6q4zuON***XKi8kOMepGT***xcxkBlIACvhY***8Qr97MsAT9***p4qe9Uezqrrd&secret=7CfL1slT***8xzCsgzA***4yfNGvOav***QO
 ```
 <br>
-<br>
 
 ### Example Response and errors<br>
-
 <details>
 <summary>Status: 200 OK</summary><br>
 

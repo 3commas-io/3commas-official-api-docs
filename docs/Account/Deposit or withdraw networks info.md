@@ -14,29 +14,27 @@ This endpoint works for the following exchanges: *Binance Spot*, *Binance US*, *
 
 ----------
 
-<mark style="color:blue;background-color:white"> **GET**
+<mark style="color:blue"><strong>GET</strong>
 
-<mark style="color:blue;background-color:white"> **/ver1/accounts/{account_id}/networks_info**
+<mark style="color:blue"><strong>/ver1/accounts/{account_id}/networks_info</strong>
 
 ----------
 
 <br>
-<br>
+
 
 ### Path Parameter<br>
 <p>
    <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
    Unique 3Commas ID for this exchange account entity
-</p>
-<br>
+</p><br>
 
-### Query Parameters<br>
+### Query Parameter<br>
 <p>
    <strong>purpose</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
    Filter currencies with <code>deposit</code> or <code>withdraw</code> enabled
-</p>
-<br>
-<br>
+</p><br>
+
 
 ### Parameters response<br>
 

@@ -8,23 +8,18 @@
 
 ----------
 
-<mark style="color:blue;background-color:white" > **GET**
+<mark style="color:blue"><strong>GET</strong>
 
-<mark style="color:blue;background-color:white" > **/ver1/accounts/{account_id}**
+<mark style="color:blue"><strong>/ver1/accounts/{account_id}</strong>
 
 ----------
 <br>
-<br>
 
-
-### Path Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**account_id**  | `integer` | Yes |  | Unique 3Commas ID for this exchange account entity |
-
-<br>
-<br>
+### Path Parameter<br>
+<p>
+   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID for this exchange account entity
+</p><br>
 
 ### Parameters response<br>
 
@@ -32,17 +27,16 @@
 If successful, the response includes a copy of [Account](./README.md) entity.
 {% endhint %}
 
+<br>
 
 ### Example request<br>
 
 ```json
-/ver1/accounts/12345678
+GET /ver1/accounts/12345678
 ```
-<br>
 <br>
 
 ### Example Response and errors<br>
-
 <details>
 <summary>Status: 201 Created</summary><br>
 

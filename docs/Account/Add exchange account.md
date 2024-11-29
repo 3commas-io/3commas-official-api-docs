@@ -20,7 +20,6 @@ Please note that connections using manually created API keys are available only 
 
 ----------
 <br>
-<br>
 
 ### Body Parameters<br>
 <p>

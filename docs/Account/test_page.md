@@ -168,11 +168,6 @@ Use endpoint [User connected exchanges and wallets list](Account/User%20connecte
 
 --------
 
-### Path Parameters<br>
-<p>
-   <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">REQUIRED</mark>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   Unique 3Commas ID DCA Bot entity 
-</p><br>
 
 
 ### Query Parameters<br>
