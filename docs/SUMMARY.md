@@ -2,9 +2,9 @@
 
 * [General information](General%20information/README.md)
   * [Overview](General%20information/Overview.md)
+  * [Security and Permission Types](/docs/General%20information/Security%20and%20Permission%20Types.md)
   * [How to start](/docs/General%20information/How%20to%20start.md)
   * [Get an API Key](/docs/General%20information/Get%20an%20API%20key.md)
-  * [Endpoint security type](General%20information/Endpoint%20security%20type.md)
   * [Dates and times](General%20information/Dates%20and%20times.md)
   * [Limits](General%20information/Limits.md)
   * [Errors](General%20information/Errors.md)
