@@ -29,17 +29,11 @@ To authenticate, pass your 3Commas `API Key` and the `Signature` header in the r
 
 <strong>API credentials validity check</strong><br>
 
-**Permission:** NONE<br>
-**Security:** SIGNED
-<br>
 
--------- 
+<code><mark style="color:blue"><strong>GET</strong></mark></code><br>
+<span style="font-family: 'Courier New', monospace;">/ver1/validate</span>
 
-<mark style="color:blue"><strong>GET</strong>
 
-<mark style="color:blue"><strong>/ver1/validate</strong>
-
--------- 
 <br>
 
 #### Responce
