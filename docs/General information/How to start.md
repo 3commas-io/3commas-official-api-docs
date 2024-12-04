@@ -22,6 +22,7 @@ To authenticate, pass your 3Commas `API Key` and the `Signature` header in the r
 
 {% endstep %}
 {% endstepper %}
+<br>
 
 
 ### Test authentication<br>
