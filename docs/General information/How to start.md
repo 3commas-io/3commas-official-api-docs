@@ -24,7 +24,6 @@ To authenticate, pass your 3Commas `API Key` and the `Signature` header in the r
 {% endstepper %}
 <br>
 
-
 ### Test authentication<br>
 <p> The quickest way to test your authentication setup is by sending a request to the <code>/ver1/validate</code> endpoint. This endpoint verifies the validity of your API credentials and returns the status of your authentication. </p>
 
@@ -33,11 +32,9 @@ To authenticate, pass your 3Commas `API Key` and the `Signature` header in the r
 
 <code><mark style="color:blue"><strong>GET</strong></mark></code><br>
 <span style="font-family: 'Courier New', monospace;">/ver1/validate</span>
-
-
 <br>
 
-#### Responce
+#### Responce<br>
 
 <p>
  If successful, 3Commas returns:</p>
