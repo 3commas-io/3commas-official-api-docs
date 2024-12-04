@@ -1,7 +1,7 @@
 ## Disable DCA Bot<br>
+<br>
 
 **Description:** Disables an existing DCA Bot using its ID<br>
-
 
 **Permission:** BOTS_WRITE<br>
 **Security** SIGNED<br>
@@ -9,16 +9,16 @@
 
 ----------
 
-<mark style="color:green"><strong>POST</strong>
+<mark style="color:green"><strong>POST<br>
 
-<mark style="color:green"><strong>/ver1/bots/{bot_id}/disable</strong>
+<mark style="color:green">/ver1/bots/{bot_id}/disable</strong>
 
 ----------
 
 <br>
-<br>
 
 ### Path Parameter<br>
+
 <p>
    <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
    Unique 3Commas ID for this DCA Bot entity
@@ -26,21 +26,17 @@
 <br>
 
 ### Response Parameters<br>
+<p>
 
-{% hint style="info" %}
 If successful, the response includes a copy of [DCA Bot](./README.md) entity.
-{% endhint %}
+</p><br>
 
-<br>
-<br>
 
 ### Example Request<br>
-
+ 
 ```json
 POST /ver1/bots/12345678/disable
 ```
-
-<br>
 <br>
 
 ### Example response and errors<br>

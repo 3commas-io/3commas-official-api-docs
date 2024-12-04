@@ -26,7 +26,6 @@ Keep in mind, that an exchange account can't delete if it has any active entitie
    Unique 3Commas ID for this exchange account entity
 </p><br>
 
-
 ### Response Parameters<br>
 
 ```

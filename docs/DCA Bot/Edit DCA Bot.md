@@ -1,4 +1,5 @@
 ## Edit DCA Bot<br>
+<br>
 
 **Description:** Edits an existing DCA Bot using its ID<br>
 
@@ -8,20 +9,18 @@
 
 ----------
 
-<mark style="color:purple"><strong>PATCH</strong>
+<mark style="color:purple"><strong>PATCH<br>
 
-<mark style="color:purple"><strong>/ver1/bots/{bot_id}/update</strong>
+<mark style="color:purple">/ver1/bots/{bot_id}/update</strong>
 
 ----------
-<br>
 <br>
 
 ### Path Parameter<br>
 <p>
    <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
    Unique 3Commas ID for this DCA Bot entity
-</p>
-<br>
+</p><br>
 
 ### Body Parameters<br>
 <p>
@@ -205,11 +204,9 @@ Indicates whether trailing is enabled for Take Profit (<code>true</code>) or not
    <strong>close_deals_timeout</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
    The time in seconds after which the deals will close automatically<br>
    Minimum: <code>60</code>
-</p>
-<br>
-<br>
+</p><br>
 
-### Additional information<br>
+### Additional Information<br>
 <p>
    <strong>pairs</strong>
 
@@ -344,15 +341,13 @@ It's using only for 1 pair bot.
 {% endtabs %}
 </p>
 <br>
-<br>
 
 ### Parameters response<br>
 
-{% hint style="info" %}
-If successful, the response includes a copy of [DCA Bot](./README.md) entity.
-{% endhint %}
+<p>
 
-<br>
+If successful, the response includes a copy of [DCA Bot](./README.md) entity.</p>
+
 <br>
 
 ### Example Request<br>
@@ -360,7 +355,7 @@ If successful, the response includes a copy of [DCA Bot](./README.md) entity.
 ```json
 PATCH /ver1/bots/12345678/update
 ```
-<strong></strong>
+
 ```json
 Body:
 

@@ -1,4 +1,5 @@
 ## Create DCA Bot<br>
+<br>
 
 **Description:** Creates a new DCA Bot<br>
 
@@ -13,11 +14,9 @@
 <mark style="color:green">/ver1/bots/create_bot</strong>
 
 ----------
-
-<br>
 <br>
 
-### Body parameters<br>
+### Body Parameters<br>
 
 <p>
    <strong>name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
@@ -221,7 +220,7 @@ Indicates whether trailing is enabled for Take Profit (<code>true</code>) or not
 <br>
 <br>
 
-### Additional information<br>
+### Additional Information<br>
 <p>
    <strong>pairs</strong>
 
@@ -357,12 +356,12 @@ It's using only for 1 pair bot.
 {% endtab %}
 {% endtabs %}
 
+<br>
 
 ### Response Parameters<br>
 
 If successful, the response includes a update copy of [DCA Bot](./README.md) entity.
 
-<br>
 <br>
 
 ### Example Request<br>
@@ -407,7 +406,6 @@ Body:
    "martingale_step_coefficient": "4.0"
 }
 ```
-<br>
 <br>
 
 ### Example Response and errors<br>

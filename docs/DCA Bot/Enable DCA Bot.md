@@ -1,7 +1,7 @@
 ## Enable DCA Bot<br>
+<br>
 
 **Description:** Enables an existing DCA Bot using its ID<br>
-
 
 **Permission:** BOTS_WRITE<br>
 **Security** SIGNED<br>
@@ -9,14 +9,14 @@
 
 ----------
 
-<mark style="color:green"><strong>POST</strong>
+<mark style="color:green"><strong>POST<br>
 
-<mark style="color:green"><strong>/ver1/bots/{bot_id}/enable</strong>
+<mark style="color:green">/ver1/bots/{bot_id}/enable</strong>
 
 ----------
 
 <br>
-<br>
+
 
 ### Path Parameter<br>
 <p>
@@ -24,15 +24,11 @@
    Unique 3Commas ID for this DCA Bot entity
 </p>
 <br>
-<br>
 
 ### Response Parameters<br>
 
-{% hint style="info" %}
 If successful, the response includes a copy of [DCA Bot](./README.md) entity.
-{% endhint %}
 
-<br>
 <br>
 
 ### Example Request<br>
@@ -42,9 +38,8 @@ POST /ver1/bots/15577628/enable
 ```
 
 <br>
-<br>
 
-### Example response and errors<br>
+### Example Response and errors<br>
 
 <details>
 <summary>Status: 201 Created</summary><br>

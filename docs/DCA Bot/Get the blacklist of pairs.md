@@ -8,13 +8,12 @@
 
 ----------
 
-<mark style="color:blue"><strong>GET</strong>
+<mark style="color:blue"><strong>GET<br>
 
-<mark style="color:blue"><strong>/ver1/bots/pairs_black_list</strong>
+<mark style="color:blue">/ver1/bots/pairs_black_list</strong>
 
 ----------
 
-<br>
 <br>
 
 ### Request parameters<br>
@@ -22,7 +21,6 @@
 ```
 NONE
 ```
-<br>
 <br>
 
 ### Response Parameter<br>
@@ -32,14 +30,12 @@ NONE
    Lists the pairs added to the blacklist
 </p>
 <br>
-<br>
 
 ### Example Request<br>
 
 ```json
 GET /ver1/bots/pairs_black_list
 ```
-<br>
 <br>
 
 ### Example Response and errors<br>

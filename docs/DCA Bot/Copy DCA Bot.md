@@ -1,4 +1,5 @@
-# Copy DCA Bot
+## Copy DCA Bot<br>
+<br>
 
 **Description:** Copies the bot from or to another linked exchange account connected to 3Commas<br>
 
@@ -8,12 +9,11 @@
 
 ----------
 
-<mark style="color:green"><strong>POST</strong>
+<mark style="color:green"><strong>POST<br>
 
-<mark style="color:green"> <strong>/ver1/bots/{bot_id}/copy_and_create</strong>
+<mark style="color:green">/ver1/bots/{bot_id}/copy_and_create</strong>
 
 ----------
-<br>
 <br>
 
 ### Path Parameter<br>
@@ -37,7 +37,7 @@
    Maximum amount allocated for bot usage. Calculated based on the current rate
 </p>
 <br>
-<br>
+
 
 ### Response Parameters<br>
 <p>
@@ -58,6 +58,8 @@ POST /ver1/bots/12345678/copy_and_create
 ```
 
 ```json
+Body:
+
 {
    "name": "Name DCA Bot",
    "secret": "ab7b22d2f1"
@@ -66,7 +68,7 @@ POST /ver1/bots/12345678/copy_and_create
 <br>
 <br>
 
-### Example Response and errors<br>
+### Example Response and Errors<br>
 
 <details>
 <summary>Status: 201 Created</summary><br>

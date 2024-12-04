@@ -8,16 +8,15 @@
 
 ----------
 
-<mark style="color:blue"><strong>GET</strong>
+<mark style="color:blue"><strong>GET<br>
 
-<mark style="color:blue"><strong>/ver1/bots</strong>
+<mark style="color:blue">/ver1/bots</strong>
 
 ----------
 
 <br>
-<br>
 
-### Query parameters<br>
+### Query Parameters<br>
 
 <p>
    <strong>limit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
@@ -73,15 +72,14 @@
 Use endpoint [User connected exchanges and wallets list](Account/User%20connected%20exchanges%20and%20wallets%20list.md) to get value for parameter <code>account_id</code> in 3Commas.
 {% endhint %}
 <br>
-<br>
 
-### Parameters response<br>
 
-{% hint style="info" %}
+### Parameters Response<br>
+<p>
+
 If successful, the response includes a copy of [DCA Bot](./README.md) entity.
-{% endhint %}
+</p>
 
-<br>
 <br>
 
 ### Example Request<br>
@@ -90,9 +88,9 @@ If successful, the response includes a copy of [DCA Bot](./README.md) entity.
 GET /ver1/bots/12345678/show?include_events=true
 ```
 <br>
-<br>
 
-###  Example Response and errors<br>
+
+###  Example Response and Errors<br>
 
 <details>
 <summary>Status: 200 OK</summary><br>

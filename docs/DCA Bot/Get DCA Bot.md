@@ -1,4 +1,5 @@
 ## Get DCA Bot<br>
+<br>
 
 **Description:** Shows information about a specific DCA Bot using its ID<br>
 
@@ -15,10 +16,8 @@
 ----------
 
 <br>
-<br>
 
 ### Path Parameter<br>
-
 <p>
    <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
    Unique 3Commas ID DCA Bot entity 
@@ -38,14 +37,12 @@ Indicates whether to include information about events related to the entity (<co
 If successful, the response includes a copy of [DCA Bot](./README.md) entity.
 
 <br>
-<br>
 
 ### Example Request<br>
 
 ```json
 GET /ver1/bots/12345678/show?include_events=true
 ```
-<br>
 <br>
 
 ### Example Response and Errors<br>
