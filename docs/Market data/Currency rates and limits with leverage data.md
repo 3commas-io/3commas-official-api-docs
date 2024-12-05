@@ -1,4 +1,5 @@
 ## Currency rates and limits with leverage data<br>
+<br>
 
 **Description:** Returns the current trading rules and ticket information with data about leverages on the futures exchange<br>
 
@@ -11,10 +12,10 @@ This is an endpoint that does not need authentication
 
 <mark style="color:blue"> <strong>GET</strong>
 
-<mark style="color:blue"> <storng>/ver1/accounts/currency_rates_with_leverage_data</strong>
+<mark style="color:blue"><strong>/ver1/accounts/currency_rates_with_leverage_data</strong>
 
 -------- 
-
+<br>
 
 ### Query Parameters<br>
 <p>
@@ -32,10 +33,8 @@ The market and trading pair codes are used in 3Commas format. Use endpoints [Sup
 {% endhint %}
 
 <br>
-<br>
 
 ### Response Parameters<br>
-
 <p>
    <strong>last</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
    Last price
@@ -183,7 +182,6 @@ GET /ver1/accounts/currency_rates_with_leverage_data?market_code=binance_futures
 <br>
 
 ### Example response and errors<br>
-
 <details>
 <summary>Status: 200 OK</summary><br>
 

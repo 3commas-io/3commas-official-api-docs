@@ -1,4 +1,5 @@
 ## Currency rates and limits<br>
+<br>
 
 **Description:** Retuns the current trading rules and ticker information on exchange<br>
 
@@ -14,7 +15,6 @@ This is an endpoint that does not need authentication
 <mark style="color:blue;background-color:white"> **/ver1/accounts/currency_rates**
 
 -------- 
-<br>
 <br>
 
 ### Query Parameters<br>
@@ -33,7 +33,6 @@ This is an endpoint that does not need authentication
 The market and trading pair codes are used in 3Commas format. Use endpoints [Supported Markets List](/docs/Market%20data/Supported%20markets%20list.md) to get value for parameter <code>market_code</code> and [All Market Pairs](/docs/Market%20data/All%20market%20pairs.md) to get value for parameter <code>pair</code> in 3Commas format.
 {% endhint %}
 
-<br>
 <br>
 
 ### Response Parameters<br>
@@ -68,7 +67,7 @@ The market and trading pair codes are used in 3Commas format. Use endpoints [Sup
 </p>
 <p>
    <strong>strategy_name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   The name of strategy
+   The name of trading strategy
 </p>
 <p>
    <strong>contract_strategy_name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
@@ -149,7 +148,6 @@ GET /ver1/accounts/currency_rates_with_leverage_data?market_code=binance&pair=BT
 <br>
 
 ### Example Response and errors<br>
-
 <details>
 <summary>Status: 200 OK</summary><br>
 

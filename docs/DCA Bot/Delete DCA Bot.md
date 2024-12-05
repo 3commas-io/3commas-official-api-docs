@@ -1,4 +1,5 @@
 ## Delete DCA Bot<br>
+<br>
 
 **Description:** Deletes an existing DCA Bot using its ID <br>
 
@@ -8,13 +9,12 @@
 
 ----------
 
-<mark style="color:green"><strong>POST</strong>
+<mark style="color:green"><strong>POST<br>
 
-<mark style="color:green"><strong>/ver1/bots/{bot_id}/delete</strong>
+<mark style="color:green">/ver1/bots/{bot_id}/delete</strong>
 
 ----------
 
-<br>
 <br>
 
 ### Path Parameter<br>
@@ -23,7 +23,6 @@
    Unique 3Commas ID for this DCA Bot entity
 </p>
 <br>
-<br>
 
 ### Response Parameters<br>
 
@@ -31,15 +30,12 @@
 NONE
 ```
 <br>
-<br>
 
 ### Example Request<br>
 
 ```json
 POST /ver1/bots/12345678/delete
 ```
-
-<br>
 <br>
 
 ### Example response and errors<br>
