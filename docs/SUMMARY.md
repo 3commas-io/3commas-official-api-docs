@@ -3,8 +3,8 @@
 * [General information](General%20information/README.md)
   * [Overview](General%20information/Overview.md)
   * [Security and Permission Types](/docs/General%20information/Security%20and%20Permission%20Types.md)
-  * [How to start](/docs/General%20information/How%20to%20start.md)
-  * [Get an API Key](/docs/General%20information/Get%20an%20API%20key.md)
+  * [How to start](General%20information/How%20to%20start.md)
+  * [Get an API Key](General%20information/Get%20an%20API%20key.md)
   * [Dates and times](General%20information/Dates%20and%20times.md)
   * [Limits](General%20information/Limits.md)
   * [Errors](General%20information/Errors.md)
@@ -16,7 +16,7 @@
   * [Currency rates and limits](Market%20data/Currency%20rates%20and%20limits.md)
   * [Currency rates and limits with leverage data](Market%20data/Currency%20rates%20and%20limits%20with%20leverage%20data.md)
 
-  
+
 
 * [Account](Account/README.md)
   * [test page](Account/test_page.md)
@@ -49,13 +49,13 @@
   * [Enable DCA Bot](DCA%20Bot/Enable%20DCA%20Bot.md)
   * [Delete DCA Bot](DCA%20Bot/Delete%20DCA%20Bot.md)
   * [Copy DCA Bot](/docs/DCA%20Bot/Copy%20DCA%20Bot.md)
-  * [Close DCA Bot at market price](/docs/DCA%20Bot/Close%20DCA%20Bot%20at%20market.md)
-  * [Get the blacklist of pairs](/docs/DCA%20Bot/Get%20the%20blacklist%20of%20pairs.md)
-  * [Add pairs to the blacklist](/docs/DCA%20Bot/Add%20pairs%20to%20the%20blacklist.md)
+  * [Close DCA Bot at market price](DCA%20Bot/Close%20DCA%20Bot%20at%20market%20price.md)
+  * [Get the blacklist of pairs](DCA%20Bot/Get%20the%20blacklist%20of%20pairs.md)
+  * [Add pairs to the blacklist](DCA%20Bot/Add%20pairs%20to%20the%20blacklist.md)
   * [Get data on bot's profits grouped by day](DCA%20Bot/Get%20data%20the%20bot's%20profit.md)
   * [Get stats of DCA Bot](DCA%20Bot/Get%20bot%20stats.md)
-  * [Get Profit Stats by Date](/docs/DCA%20Bot/Get%20bot%20stats%20by%20date.md)
-  * [Cancel all deals of DCA Bot](/docs/DCA%20Bot/Cancel%20DCA%20Bot.md)
+  * [Get Profit Stats by Date](DCA%20Bot/Get%20bot%20stats%20by%20date.md)
+  * [Cancel all deals of DCA Bot](DCA%20Bot/Cancel%20DCA%20Bot.md)
   * [Deals](DCA%20Bot/Deals/README.md)
       * [Get Deal](DCA%20Bot/Deals/Get%20Deal.md)
       * [Get List of Deals](DCA%20Bot/Deals/Get%20List%20of%20Deals.md)
