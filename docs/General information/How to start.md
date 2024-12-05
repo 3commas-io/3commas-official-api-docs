@@ -37,7 +37,7 @@ To authenticate, pass your 3Commas `API Key` and the `Signature` header in the r
 #### Responce<br>
 
 <p>
- If successful, 3Commas returns:</p>
+ If successful, 3Commas returns:
 </p>
 
 ```json

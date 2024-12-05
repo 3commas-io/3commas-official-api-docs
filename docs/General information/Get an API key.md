@@ -1,6 +1,6 @@
-## Get an API Key
+## Get an API Key<br>
 
-### Ways to generate API Key
+### Ways to generate API Key<br>
 <p>
 We offer two ways to generate API Key:
 
