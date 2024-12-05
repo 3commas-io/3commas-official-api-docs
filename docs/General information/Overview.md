@@ -15,21 +15,25 @@ https://api.3commas.io/public/api
 
 ### Request Guidelines<br>
 <p>
-   <strong>GET Requests:</strong> Parameters must be sent as a query string.
+   <strong>POST Requests:</strong> <br>Parameters must be sent in the request body.
 </p>
 <p>
-   <strong>POST, PUT, DELETE Requests:</strong> Parameters can be sent:
+   <strong>GET Requests:</strong> <br>Parameters must be sent as a query string.
+</p>
+<p>
+   <strong>POST, PUT, DELETE Requests:</strong><br>
+   Parameters can be sent:
    <di>
-<li>As a query string</li>
-<li>In the request body with content type <code>application/x-www-form-urlencoded</code> or <code>application/json</code>.</li>
-<li>Mixed between the query string and request body.</li>
+      <li>As a query string;</li>
+      <li>In the request body with content type<br> <code>application/x-www-form-urlencoded</code> or<br> <code>application/json</code>;</li>
+      <li>Mixed between the query string and request body;</li>
 <di>
 </p>
 <p>
-   <strong>Parameter Order:</strong> Parameters can be sent in any order.
+   <strong>Parameter Order:</strong><br>Parameters can be sent in any order;
 </p>
 <p>
-   <strong>Parameter Conflict:</strong> If a parameter is sent in both the query string and the request body, the value from the query string will be used.
+   <strong>Parameter Conflict:</strong><br>If a parameter is sent in both the query string and the request body, the value from the query string will be used.
 </p><br>
 
 
