@@ -17,36 +17,30 @@
 <br>
 
 ### Path Parameter<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**deal_id**  | `integer`| Yes |  | Unique 3Commas ID Deal entity |
-
+<p>
+   <strong>deal_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID Deal entity
+</p>
 <br>
 
 ### Body Parameter<br>
-
-| Name | Type | Mandatory | Values | Description
-| ------------ | ------------ | ------------ | ------------ | --------|
-| **max_safety_orders** | `integer` | Yes |   | New maximum safety orders value |
-
-
-<br>
+<p>
+   <strong>max_safety_orders</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   New maximum safety orders value
+</p>
 <br>
 
 ### Response Parameters<br>
 
-{% hint style="info" %}
 If successful, the response includes an updated copy of [Deals](./README.md) entity.
-{% endhint %}
-
 <br>
 <br>
 
 ### Example Request<br>
 
 ```json
-POST /ver1/deals/:deal_id/update_max_safety_orders?max_safety_orders=6
+POST 
+/ver1/deals/:deal_id/update_max_safety_orders?max_safety_orders=6
 ```
 
 <br>

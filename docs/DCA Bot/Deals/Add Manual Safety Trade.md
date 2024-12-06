@@ -18,21 +18,29 @@
 <br>
 
 ### Path Parameter<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**deal_id**  | `integer`| Yes |  | Unique 3Commas ID Deal entity |
+<p>
+   <strong>deal_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID Deal entity
+</p>
 
 
 ### Body Parameters<br>
-
-| Name | Type | Mandatory | Values | Description |
-| ------------ | ------------ | -----------| -------- | ------------ |
-| **quantity** | `number` | Yes |   | Specifies the amount for the manual safety trade |
-| **is_market** | `boolean` | Yes | `true`<br>`false` | Indicates the type of order: `true` for a market order, `false` for a limit order |
-| **response_type** | `string` | No | `empty`<br>`deal`<br>`market_order` | Defines the response format. `deal` is using only for 1 pair bot.<br>Default: `empty` |
-| **rate** | `number` | Yes |   | Sets the rate for the safety order. <br> Required if a limit order is used|
-
+<p>
+   <strong>quantity</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Specifies the amount for the manual safety trade
+</p>
+<p>
+   <strong>is_market</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Indicates the type of order: <code>true</code> for a market order, <code>false</code> for a limit order
+</p>
+<p>
+   <strong>response_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Defines the response format: <code>empty</code>;<code>deal</code>;<code>market_order</code><br><code>deal</code> is using only for 1 pair bot.<br>Default: <code>empty</code>
+</p>
+<p>
+   <strong>rate</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Sets the rate for the safety order. Required if a limit order is used
+</p>
 <br>
 <br>
 

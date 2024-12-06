@@ -34,7 +34,8 @@ https://api.3commas.io/public/api
 </p>
 <p>
    <strong>Parameter Conflict:</strong><br>If a parameter is sent in both the query string and the request body, the value from the query string will be used.
-</p><br>
+</p>
+<br>
 
 
 ### Official Channels<br>

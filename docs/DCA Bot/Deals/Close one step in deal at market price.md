@@ -13,32 +13,34 @@ After this action, the final status **Panic_sold** will be automatically set by 
 
 ----------
 
-<mark style="color:green"> **POST**
+<mark style="color:green"><strong>POST<br>
 
-<mark style="color:green"> **/ver1/deals/{deal_id}/panic_sell_step**
+<mark style="color:green">/ver1/deals/{deal_id}/panic_sell_step</strong>
 
 ----------
 
 <br>
 <br>
 
-### Path Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**deal_id**  | `integer`| Yes |  | Unique 3Commas ID Deal entity |
-
+### Path Parameter<br>
+<p>
+   <strong>deal_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID Deal entity
+</p>
 <br>
 
-### Body Parameters<br>
+### Body Parameter<br>
 
-| Name | Type | Mandatory | Values | Description
-| ------------ | ------------ | ------------ | ------ | ------------
-| **trade_id** | integer | Yes |   | Unique 3Commas ID Trade of the deal that should be sold |
-
+<p>
+   <strong>trade_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID Trade of the deal that should be sold
+</p>
+<br>
 <br>
 {% hint style="info" %}
+
 Use endpoint [Get Deal](DCA%20Bot/Deals/Get%20Deal.md) to get value for parameter 'trade_id'.
+
 {% endhint %}
 
 <br>
@@ -46,14 +48,15 @@ Use endpoint [Get Deal](DCA%20Bot/Deals/Get%20Deal.md) to get value for paramete
 
 ### Parameter response<br>
 
-{% hint style="info" %}
 If successful, the response includes an updated copy of the [Deals](./README.md) entity.
-{% endhint %}
+
 
 ### Example request<br>
 
+
 ```
-{{baseUrl}}/ver1/deals/:deal_id/panic_sell_step?trade_id=1123324654
+POST
+/ver1/deals/12345678/panic_sell_step?trade_id=1123324654
 ```
 <br>
 <br>

@@ -9,6 +9,7 @@
 ----------
 
 <mark style="color:blue"> <strong>GET</strong><br>
+
 <mark style="color:blue"> <strong>/ver1/deals/{deal_id}/market_orders</strong>
 
 ----------
@@ -17,31 +18,75 @@
 <br>
 
 ### Path Parameter<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**deal_id**  | `integer`| Yes |  | Unique 3Commas ID Deal entity |
-
-<br>
+<p>
+   <strong>deal_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID Deal entity
+</p>
 <br>
 
 ### Response Parameters<br>
-
-| Name | Type |	Description|
-| ------|------|-----------|
-| **order_id**  | `string`| Unique 3Commas Trade entity ID |
-| **order_type**  | `string`| The side of the order to be created by this trade<br><details><summary><em>Allowed value</em></summary><li>Buy</li><li>Sell</li></details><br> |
-| **deal_order_type**  | `string`| The type of the order to be created by this trade<br><details><summary><em>Allowed value</em></summary><li>Base</li><li>Take profit</li><li>Stop Loss</li><li>Safety</li></details><br> |
-| **cancellable**  | `boolean`| Indicates whether this trade can be canceled |
-| **status_string**  | `string`| 3Commas status for this Trade<br><details><summary><em>Allowed value</em></summary><li>Active - the trade is currently open, waiting to be filled</li><li>Filled - the trade has been fully executed</li><li>Finished - the trade process is complete</li><li>Cancelled - the trade was canceled before it could be fully executed </li></details><br> |
-| **created_at**  | `string`| ISO 8601 datetime string of when this Trade entity was created |
-| **updated_at**  | `string`| ISO 8601 datetime string of when this Trade entity was updated |
-| **quantity**  | `string`| Total quantity of the asset in this order |
-| **quantity_remaining**  | `string`| Remaining quantity of the asset left to be filled in this order |
-| **total**  | `string`| Total value of the order based on `quantity` and `rate` |
-| **rate**  | `string`| Price per unit of the asset in the order |
-| **average_price**  | `string`| The weighted average price at which the asset was bought or sold during the execution of the trades |
-
+<p>
+   <strong>order_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Unique 3Commas Trade entity ID
+</p>
+<p>
+   <strong>order_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The side of the order to be created by this trade
+   <details><summary><em>Allowed value</em></summary><li>Buy</li><li>Sell</li></details>
+</p>
+<p>
+   <strong>deal_order_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The type of the order to be created by this trade
+   <details><summary><em>Allowed value</em></summary>
+   <li>Base</li>
+   <li>Take profit</li>
+   <li>Stop Loss</li>
+   <li>Safety</li>
+   <li>Manual Safety</li>
+   </details>
+</p>
+<p>
+   <strong>cancellable</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+   Indicates whether this trade can be canceled (<code>true</code>) or not (<code>false</code>)
+</p>
+<p>
+   <strong>status_string</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   3Commas status for this Trade
+   <details><summary><em>Allowed value</em></summary>
+   <li>Active - the trade is currently open, waiting to be filled</li>
+   <li>Filled - the trade has been fully executed</li>
+   <li>Finished - the trade process is complete</li>
+   <li>Cancelled - the trade was canceled before it could be fully executed</li>
+   </details>
+</p>
+<p>
+   <strong>created_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   ISO 8601 datetime string of when this Trade entity was created
+</p>
+<p>
+   <strong>updated_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   ISO 8601 datetime string of when this Trade entity was updated
+</p>
+<p>
+   <strong>quantity</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Total quantity of the asset in this order
+</p>
+<p>
+   <strong>quantity_remaining</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Remaining quantity of the asset left to be filled in this order
+</p>
+<p>
+   <strong>total</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Total value of the order based on <code>quantity</code> and <code>rate</code>
+</p>
+<p>
+   <strong>rate</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Price per unit of the asset in the order
+</p>
+<p>
+   <strong>average_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The weighted average price at which the asset was bought or sold during the execution of the trades
+</p>
 <br>
 <br>
 
@@ -50,7 +95,6 @@
 ```json
 GET /ver1/deals/1234567890/market_orders
 ```
-
 <br>
 <br>
 
