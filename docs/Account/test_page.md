@@ -185,3 +185,12 @@ Use endpoint [User connected exchanges and wallets list](Account/User%20connecte
 </p>
 <br>
 <br>
+
+----------
+
+<code><mark style="color:green"><strong> POST </strong></mark></code><br>
+
+<code>/ver1/deals/{deal_id}/panic_sell_step</code>
+
+----------
+

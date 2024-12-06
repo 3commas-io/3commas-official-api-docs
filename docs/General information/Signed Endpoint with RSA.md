@@ -1,62 +1,66 @@
-## SIGNED Endpoint security with RSA<br>
+## Create a Signature and Send a Request with RSA
 <p>
-3Commas now supports using RSA keys to create signed API requests. All you need to do is generate an RSA Key pair and register the public key on 3Commas.
+For successful completion, follow the steps and examples below.
 </p>
 
-### How to create an RSA Key pair
+### How to compute the signature with RSA<br>
 
-#### 1. You can use command line to create key pair
+{% stepper %}
 
-**Generate Private Key**
-<br>
-<p>
-Run this command to generate a 4096-bit private key and output it to the private.pem file. If you like, you may change the key length and/or output file.
-</p>
+{% step %}
+### Prepare the payload:
+Convert the data to be signed (signature payload) into _ASCII format_. This payload typically includes all relevant request parameters or fields.
+{% endstep %}
+{% step %}
+### Generate the binary signature:
+Use the _RSASSA-PKCS1-v1_5_ signing algorithm with the SHA-256 hash function and _your RSA private key_ to create a binary signature.
+{% endstep %}
+{% step %}
+### Encode the signature:
+Convert the binary output of the signature to a Base64 string (RFC 2045).
+{% endstep %}
 
-```
-openssl genrsa
-```
+{% endstepper %}
 
-**Derive Public Key**
-<br>
-<p>
-Given a private key, you may derive its public key and output it to public.pem using this command.
-</p>
-
-```
-openssl rsa -in private.pem -pubout -out public.pem
-```
-<br>
-
-#### 2.You can use official Binance RSA key pair generator
-
-<p>
-Go to the official [RSA Keys Generator](https://github.com/binance/asymmetric-key-generator/releases) website to download and install the latest version of the generator.
-</p>
-
-#### 3. You can use online RSA key pair generator (not recommended)
-
-For example https://cryptotools.net/rsagen
-
-You need to choose 2048 or 4096 key length for RSA key pair.
 
 ### How to send a signed API request
-* `SIGNED` endpoints require an additional header, `Signature`, to be sent.
-* `Signature` should be generated with RSA private key and encoded to Base64 (RFC 2045)
-* The signature is case sensitive.
-
-### How to compute the signature
-1. Encode signature payload as ASCII data
-2. Sign payload using RSASSA-PKCS1-v1_5 algorithm with SHA-256 hash function
-3. Encode output as base64 string (RFC 2045)
-
-### Examples
-SIGNED Endpoint Examples for 
-
-POST /public/api/ver1/users/change_mode
-
 <p>
-Here is a step-by-step example of how to send a valid signed payload from the Linux command line using echo, openssl, and curl.
+Once the signature has been created, you can include it in your API request:</p>
+
+{% stepper %}
+
+{% step %}
+### Add the Signature to the request header:
+Use the Base64-encoded signature generated in the previous step.
+{% endstep %}
+
+{% step %}
+### Include your API Key:
+Add your 3Commas API Key in the header alongside the Signature.
+{% endstep %}
+
+{% step %}
+### Send the request::
+Make the request to a SIGNED endpoint. Ensure the payload, headers, and method match the data used to compute the signature to avoid mismatches.
+{% endstep %}
+
+{% endstepper %}
+
+{% hint style="warning" %}
+Keep in mind, the signature is case sensitive. 
+{% endhint %}
+
+
+### Examples<br>
+<p>
+Below are examples of signed endpoints and step-by-step guides for interacting with them.
+</p>
+
+Let's consider the first an example of a signed endpoint for the <code><mark style="color:green"><strong>POST</strong></mark></code><br> method: 
+
+<code>/public/api/ver1/users/change_mode</code><br>
+<p>
+The following is a step-by-step guide for sending a valid signed payload using the Linux command line with <code>echo</code>, <code>openssl</code>, and <code>curl</code>.
 </p>
 
 Key | Value
@@ -88,32 +92,33 @@ mode | paper
 ```
 
 #### Example 2: As a request body<br>
-* **path**: /public/api/ver1/users/change_mode
-* **requestBody**: mode=paper
-* **payload**: /public/api/ver1/users/change_mode?mode=paper
-* **signature**:
+**path**: /public/api/ver1/users/change_mode<br>
+**requestBody**: mode=paper<br>
+**payload**: /public/api/ver1/users/change_mode?mode=paper<br>
+**signature**:
 
 ```
 [linux]$ echo -n "/public/api/ver1/users/change_mode?mode=paper" | openssl dgst -sha256 -sign private.pem | openssl enc -base64 -A
 >> W+a26NiV6KkWP5zWoaDU9nSHmfObAtbbaq+xPIKwiKIz81Mlgrek/Z51qsAWNXEMCpIGW40IYDo7BTq4FSvOVSxdfrFK3lRqBveoXW+/50QOd3p+fDe5Ku7Z0U6MvXSUeFOguMBxP7er1SLGOb5RLYI/2GPMI5txLAoSsTLjGkWOc7S3ZhUpxEfxSCp8wCFp6E99biIX2MhIT1/AAl290ID76Wr1dj9Y3QxIl6KtQlbpEqhvWBaadYaYyZR5YjHAn5NWAE2cvxLkH+SQE1khzAdB6T9ZJ9sgMtY1bOzTTV/Cj9W0SABCYr4In12+uFY0lB+ANvgi8hLr2NCl775Wdw==
 ```
 
-* **curl command**:
+**curl command**:<br>
 
 ```
 [linux]$ curl -H "Apikey: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -H "Signature: W+a26NiV6KkWP5zWoaDU9nSHmfObAtbbaq+xPIKwiKIz81Mlgrek/Z51qsAWNXEMCpIGW40IYDo7BTq4FSvOVSxdfrFK3lRqBveoXW+/50QOd3p+fDe5Ku7Z0U6MvXSUeFOguMBxP7er1SLGOb5RLYI/2GPMI5txLAoSsTLjGkWOc7S3ZhUpxEfxSCp8wCFp6E99biIX2MhIT1/AAl290ID76Wr1dj9Y3QxIl6KtQlbpEqhvWBaadYaYyZR5YjHAn5NWAE2cvxLkH+SQE1khzAdB6T9ZJ9sgMtY1bOzTTV/Cj9W0SABCYr4In12+uFY0lB+ANvgi8hLr2NCl775Wdw==" -X POST 'https://api.3commas.io/public/api/ver1/users/change_mode?mode=paper'
 ```
 
 #### Example 3: As a raw json<br>
-* **path**: /public/api/ver1/users/change_mode
-* **requestBody**: '{"mode": "paper"}'
-* **payload**: /public/api/ver1/users/change_mode{"mode": "paper"}
+**path**: /public/api/ver1/users/change_mode<br>
+**requestBody**: '{"mode": "paper"}'<br>
+**payload**: /public/api/ver1/users/change_mode{"mode": "paper"}<br>
 
 ```
 [linux]$ echo -n '/public/api/ver1/users/change_mode{"mode": "paper"}' | openssl dgst -sha256 -sign private.pem | openssl enc -base64 -A
 >> EEVNxc6DLLb6PVNzc3jeNkVXVIfgHJVrfLws4Hm7wynLTLlDe6QpwPmOeT/5lAZDsft+sIN0nwo4SBNKmkea6mtxkcVz/8BuP3rhQVeGhRn3lAGy/nacsP35B50IMDx+ge1tnkjGGL4IbjtbfP5v+UVLMpJpWfVzQGlWpyLEL6PHAu7cuYs5Ug8lbfq4zgrpl1tSmemNVAedU4D4qYE/LaPB/z/urzoFYQZzobZbnXpLh4MRLaTjUgTNuiJawpk+j0K7Xk2AvHt+gY1TNOCmbRvjaP+ihgzZA0m4h32s7EdGMznI55C4CVftKQRVIfyR6TIifoljCG5nNJNZtTj98Q==
 ```
-* **curl command**:
+
+**curl command**:<br>
 
 ```
 [linux]$ curl -H "Apikey: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -H "Signature: EEVNxc6DLLb6PVNzc3jeNkVXVIfgHJVrfLws4Hm7wynLTLlDe6QpwPmOeT/5lAZDsft+sIN0nwo4SBNKmkea6mtxkcVz/8BuP3rhQVeGhRn3lAGy/nacsP35B50IMDx+ge1tnkjGGL4IbjtbfP5v+UVLMpJpWfVzQGlWpyLEL6PHAu7cuYs5Ug8lbfq4zgrpl1tSmemNVAedU4D4qYE/LaPB/z/urzoFYQZzobZbnXpLh4MRLaTjUgTNuiJawpk+j0K7Xk2AvHt+gY1TNOCmbRvjaP+ihgzZA0m4h32s7EdGMznI55C4CVftKQRVIfyR6TIifoljCG5nNJNZtTj98Q==" -X POST 'https://api.3commas.io/public/api/ver1/users/change_mode?mode=paper'
