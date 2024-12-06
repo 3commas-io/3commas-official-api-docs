@@ -4,7 +4,9 @@
 3Commas now supports using RSA keys to create signed API requests.
 </p>
 <p>
-All you need to do is generate an RSA Key pair and register the public key on 3Commas.
+
+All you need to do is generate an RSA Key pair and then **only** provide **the public key** on 3Commas.
+
 </p>
 
 ### Generate Keys via Command Line<br>
