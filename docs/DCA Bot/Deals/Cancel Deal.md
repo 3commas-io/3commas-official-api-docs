@@ -20,22 +20,20 @@ After this action, 3Commas will automatically set the final status to **Cancelle
 
 ----------
 <br>
-<br>
+
 
 ### Path Parameters<br
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**deal_id**  | `integer`| Yes |  | Unique 3Commas ID Deal entity |
-
+<p>
+   <strong>deal_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID Deal entity
+</p>
 <br>
 <br>
 
 ### Response Parameters<br>
 
-{% hint style="info" %}
 If successful, the response includes an updated copy of the [Deals](./README.md) entity.
-{% endhint %}
+
 
 <br>
 <br>

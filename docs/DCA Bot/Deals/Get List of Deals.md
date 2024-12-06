@@ -90,10 +90,7 @@ Use endpoint [User connected exchanges and wallets list](Account/User%20connecte
 
 ### Response Parameters<br>
 
-{% hint style="info" %}
 If successful, the response includes a copy of [Deals](./README.md) entity.
-{% endhint %}
-
 <br>
 <br>
 
@@ -103,7 +100,6 @@ If successful, the response includes a copy of [Deals](./README.md) entity.
 GET /ver1/deals?bot_id=23456789
 ```
 
-<br>
 <br>
 
 ### Example response and errors<br>

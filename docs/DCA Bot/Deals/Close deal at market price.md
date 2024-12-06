@@ -13,8 +13,9 @@ After this action, the final status **Panic_sold** will be automatically set by 
 
 ----------
 
-<mark style="color:green"> <strong>POST<strong><br>
-<mark style="color:green"> <strong>/ver1/deals/{deal_id}/panic_sell<strong>
+<mark style="color:green"><strong>POST<br>
+
+<mark style="color:green">/ver1/deals/{deal_id}/panic_sell</strong>
 
 ----------
 
@@ -22,20 +23,16 @@ After this action, the final status **Panic_sold** will be automatically set by 
 <br>
 
 ### Path Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**deal_id**  | `integer`| Yes |  | Unique 3Commas ID Deal entity |
-
+<p>
+   <strong>deal_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID Deal entity
+</p>
 <br>
 <br>
 
 ### Response Parameters<br>
 
-{% hint style="info" %}
 If successful, the response includes an updated copy of the [Deals](./README.md) entity.
-{% endhint %}
-
 <br>
 <br>
 
