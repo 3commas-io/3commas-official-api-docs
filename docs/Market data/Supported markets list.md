@@ -8,13 +8,11 @@ This is an endpoint that does not need authentication
 {% endhint %}
 <br>
 
-------
+<blockquote>
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-<mark style="color:blue;background-color:white"> <strong>GET</strong>
-
-<mark style="color:blue;background-color:white"><strong>/ver1/accounts/market_list</strong>
-
-------
+<code>/ver1/accounts/market_list</code>
+</blockquote>
 <br>
 
 ### Request parameters<br>
