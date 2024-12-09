@@ -6,15 +6,14 @@
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:blue"> <strong>GET</strong>
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-<mark style="color:blue"> <strong>/ver1/bots/stats_by_date</strong>
+<code>/ver1/bots/stats_by_date</code>
 
-----------
+</blockquote>
 
-<br>
 <br>
 
 ### Query Parameters<br>
@@ -30,7 +29,6 @@
    <strong>date</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
    Specific days for which profit data is requested for this bot or account
 </p>
-<br>
 <br>
 
 ### Parameters response<br>
@@ -51,14 +49,12 @@
    BTC profit from deals for a specific day
 </p>
 <br>
-<br>
 
 ### Example Request<br>
 
 ```json
 GET /ver1/bots/stats_by_date?date=2024-11-06T04:00:00.000Z&bot_id=15577628
 ```
-<br>
 <br>
 
 ### Example Response and errors<br>

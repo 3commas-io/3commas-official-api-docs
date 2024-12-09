@@ -1,4 +1,5 @@
 ## Close DCA Bot at market price<br>
+<br>
 
 **Description:** Closes all deals of the bot at market price and disables the DCA Bot<br>
 
@@ -6,13 +7,13 @@
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:green"><strong>POST</strong>
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-<mark style="color:green"><strong>/ver1/bots/{bot_id}/show</strong>
+<code>/ver1/bots/{bot_id}/show</code>
 
-----------
+</blockquote>
 
 <br>
 
@@ -25,9 +26,7 @@
 
 ### Parameter response<br>
 
-{% hint style="info" %}
 If successful, the response includes an updated copy of the [DCA Bot](./README.md) entity.
-{% endhint %}
 
 <br>
 

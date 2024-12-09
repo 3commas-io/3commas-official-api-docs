@@ -1,4 +1,5 @@
 ## Get data on bot's profits grouped by day<br>
+<br>
 
 **Description:** Returns daily profit data for a specified DCA Bot, grouped by date and identified by its unique ID<br>
 
@@ -6,14 +7,14 @@
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:blue"> <strong>GET</strong>
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-<mark style="color:blue"> <strong>/ver1/bots/stats</strong>
+<code>/ver1/bots/stats</code>
 
-----------
-<br>
+</blockquote>
+
 <br>
 
 ### Path Parameter<br>
@@ -21,9 +22,6 @@
    <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
    Unique 3Commas ID for this DCA Bot entity
 </p>
-<br>
-<br>
-
 <br>
 
 ### Query Parameter<br>
@@ -34,7 +32,7 @@
    Default: <code>30</code>
 </p>
 <br>
-<br>
+
 
 ### Parameters response<br>
 <p>
@@ -58,7 +56,6 @@ The date represented as a Unix Timestamp for which profit data is recorded
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USD profit or loss from deals per day
 </p>
 <br>
-<br>
 
 ### Example Request<br>
 
@@ -66,7 +63,6 @@ The date represented as a Unix Timestamp for which profit data is recorded
 GET /ver1/bots/15565014/profit_by_day
 ```
 
-<br>
 <br>
 
 ###  Example Response and errors<br>

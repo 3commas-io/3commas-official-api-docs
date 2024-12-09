@@ -7,13 +7,13 @@
 **Security** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:green"><strong>POST<br>
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-<mark style="color:green">/ver1/bots/{bot_id}/enable</strong>
+<code>/ver1/bots/{bot_id}/enable</code>
 
-----------
+</blockquote>
 
 <br>
 

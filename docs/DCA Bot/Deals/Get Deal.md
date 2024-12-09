@@ -1,4 +1,5 @@
 ## Get deal of DCA Bot<br>
+<br>
 
 **Description:** Shows information about a specific deal of DCA Bot using its ID<br>
 
@@ -6,12 +7,14 @@
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:blue"><strong>GET</strong><br>
-<mark style="color:blue"><strong>/ver1/deals/{deal_id}/show</strong>
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-----------
+<code>/ver1/deals/{deal_id}/show</code>
+
+</blockquote>
+
 <br>
 
 ### Path Parameter<br>
@@ -26,7 +29,6 @@
 
 If successful, the response includes a copy of [Deals](./README.md) entity.
 <br>
-<br>
 
 ### Example Request<br>
 
@@ -34,7 +36,7 @@ If successful, the response includes a copy of [Deals](./README.md) entity.
 GET /ver1/deals/2295490936/show
 ```
 <br>
-<br>
+
 
 ### Example Response and errors<br>
 

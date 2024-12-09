@@ -1,20 +1,19 @@
 ## Available strategy list for DCA Bot<br>
+<br>
 
 **Description:** Retunrs available strategy list for DCA Bot. Use the query parameters to page through results <br>
 
 **Permission:** BOTS_READ<br>
 **Security** SIGNED<br>
 <br>
+<blockquote>
 
-----------
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-<mark style="color:blue"><strong>GET</strong>
+<code>/ver1/bots/strategy_list</code>
 
-<mark style="color:blue"> <strong>/ver1/bots/strategy_list</strong>
+</blockquote>
 
-----------
-
-<br>
 <br>
 
 ### Query Parameters<br>

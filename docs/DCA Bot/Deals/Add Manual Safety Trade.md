@@ -1,20 +1,20 @@
 ## Add Manual Safety Trade<br>
+<br>
 
-**Description:** [TBD] <br>
+**Description:** Creates a new additional safety manual trade entry<br>
 
 **Permission:** BOTS_WRITE<br>
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:gree"> <strong>POST</strong><br>
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-<mark style="color:gree"> <strong>/ver1/deals/{deal_id}/add_funds</strong>
+<code>/ver1/deals/{deal_id}/add_funds</code>
 
-----------
+</blockquote>
 
-<br>
 <br>
 
 ### Path Parameter<br>

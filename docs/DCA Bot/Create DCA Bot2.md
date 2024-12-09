@@ -7,13 +7,14 @@
 **Security** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:green"><strong>POST<br>
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-<mark style="color:green">/ver1/bots/create_bot</strong>
+<code>/ver1/bots/create_bot</code>
 
-----------
+</blockquote>
+
 <br>
 
 ### Body Parameters<br>
@@ -213,11 +214,10 @@ Indicates whether trailing is enabled for Take Profit (<code>true</code>) or not
    Max price percent. Must be greater then <code>-95</code> and lower then <code>1000</code>
 </p>
 <p>
-   <strong>close_deals_timeout</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>><br>
+   <strong>close_deals_timeout</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
    The time in seconds after which the deals will close automatically<br>
    Minimum: <code>60</code>
 </p>
-<br>
 <br>
 
 ### Additional Information<br>

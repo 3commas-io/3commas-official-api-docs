@@ -7,13 +7,14 @@
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:green"><strong>POST<br>
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-<mark style="color:green">/ver1/bots/{bot_id}/copy_and_create</strong>
+<code>/ver1/bots/{bot_id}/copy_and_create</code>
 
-----------
+</blockquote>
+
 <br>
 
 ### Path Parameter<br>
@@ -38,7 +39,6 @@
 </p>
 <br>
 
-
 ### Response Parameters<br>
 <p>
    <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
@@ -48,7 +48,6 @@
    <strong>bot_required_amount</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
    The minimum amount of funds required to launch this bot
 </p>
-<br>
 <br>
 
 ### Example Request<br>
@@ -65,7 +64,6 @@ Body:
    "secret": "ab7b22d2f1"
 }
 ```
-<br>
 <br>
 
 ### Example Response and Errors<br>

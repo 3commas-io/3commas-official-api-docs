@@ -1,4 +1,5 @@
 ## Get stats of DCA Bot<br>
+<br>
 
 **Description:** Returns profit and locked amount data on deals for all DCA Bots or an existing bot or an existing exchange account using their ID<br>
 
@@ -6,14 +7,14 @@
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:blue"><strong>GET</strong>
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-<mark style="color:blue"><strong>/ver1/bots/stats</strong>
+<code>/ver1/bots/stats</code>
 
-----------
-<br>
+</blockquote>
+
 <br>
 
 
@@ -65,7 +66,7 @@ Use endpoint [User connected exchanges and wallets list](Account/User%20connecte
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total funds, in USD, currently allocated to active deals
 </p>
 <br>
-<br>
+
 
 ### Example request<br>
 
@@ -73,7 +74,7 @@ Use endpoint [User connected exchanges and wallets list](Account/User%20connecte
 GET /ver1/bots/stats
 ```
 <br>
-<br>
+
 
 ### Example Response and errors<br>
 

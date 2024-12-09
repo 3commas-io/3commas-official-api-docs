@@ -8,8 +8,9 @@
 
 ----------
 
-<mark style="color:blue"> <strong>GET</strong><br>
-<mark style="color:blue"> <strong>/ver1/deals/{deal_id}/data_for_adding_funds</strong>
+<mark style="color:blue"> <strong>GET<br>
+
+<mark style="color:blue">/ver1/deals/{deal_id}/data_for_adding_funds</strong>
 
 ----------
 
@@ -17,11 +18,10 @@
 <br>
 
 ### Path Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**deal_id**  | `integer`| Yes |  | Unique 3Commas ID Deal entity |
-
+<p>
+   <strong>deal_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID Deal entity
+</p>
 <br>
 <br>
 

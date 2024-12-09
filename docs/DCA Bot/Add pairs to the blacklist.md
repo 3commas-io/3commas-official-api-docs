@@ -1,4 +1,5 @@
 ## Add pairs to the blacklist<br>
+<br>
 
 **Description:** Adds specified pair(s) to the blacklist, preventing all DCA bots from opening deals with these pairs <br>
 
@@ -6,13 +7,13 @@
 **Security** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:green;background-color:white"><strong>POST</strong>
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-<mark style="color:green;background-color:white"><strong>/ver1/bots/update_pairs_black_list</strong>
+<code>ver1/bots/update_pairs_black_list</code>
 
-----------
+</blockquote>
 
 <br>
 <br>
