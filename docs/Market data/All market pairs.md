@@ -8,13 +8,11 @@ This is an endpoint that does not need authentication
 {% endhint %}
 <br>
 
--------- 
+<blockquote>
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-<mark style="color:blue"><strong>GET</strong>
-
-<mark style="color:blue"><strong>/ver1/accounts/market_pairs</strong>
-
--------- 
+<code>/ver1/accounts/market_pairs</code>
+</blockquote>
 <br>
 
 ### Query Parameter<br>
@@ -25,7 +23,7 @@ This is an endpoint that does not need authentication
 <br>
 
 {% hint style="info" %}
-Use endpoint [Supported markets list](/docs/Market%20data/Supported%20markets%20list.md) to get value for parameter <code>market_code</code> in 3Commas.
+Use endpoint [Supported markets list](/docs/Market%20data/Supported%20markets%20list.md) to get value for parameter <code>market_code</code>.
 {% endhint %}
 
 <br>
@@ -55,6 +53,7 @@ GET /ver1/accounts/market_pairs?market_code=binance_us
 "BTC_GAS",
 "ETH_BNB",
 "USDT_BTC",
+...
 ]
 ```
 </details>

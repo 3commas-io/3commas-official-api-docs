@@ -7,13 +7,14 @@
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:purple"><strong>PATCH<br>
+<code><mark style="color:purple"><strong> PATCH </strong></mark></code>
 
-<mark style="color:purple">/ver1/bots/{bot_id}/update</strong>
+<code>/ver1/bots/{bot_id}/update</code>
 
-----------
+</blockquote>
+
 <br>
 
 ### Path Parameter<br>

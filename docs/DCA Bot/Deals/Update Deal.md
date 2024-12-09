@@ -23,11 +23,10 @@ The endpoint is available for Deal for the statuses `bought` and `close_strategy
 <br>
 
 ### Path Parameter<br>
-
-| Name | Type |	Mandatory |	Values	| Description |
-| ------|------|-----------|-----------------|------------ |
-| **deal_id**| `integer`| Yes |  | Unique 3Commas ID Deal entity |
-
+<p>
+   <strong>deal_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID Deal entity
+</p>
 <br>
 
 ### Body parameters<br>

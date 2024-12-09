@@ -1,4 +1,5 @@
 ## Get the blacklist of pairs<br>
+<br>
 
 **Description:** Returns the list of blacklist pair(s) that restricts all DCA bots from opening deals with these pairs<br>
 
@@ -6,13 +7,13 @@
 **Security** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:blue"><strong>GET<br>
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-<mark style="color:blue">/ver1/bots/pairs_black_list</strong>
+<code>/ver1/bots/pairs_black_list</code>
 
-----------
+</blockquote>
 
 <br>
 

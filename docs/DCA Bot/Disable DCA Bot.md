@@ -7,13 +7,13 @@
 **Security** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:green"><strong>POST<br>
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-<mark style="color:green">/ver1/bots/{bot_id}/disable</strong>
+<code>/ver1/bots/{bot_id}/disable</code>
 
-----------
+</blockquote>
 
 <br>
 
@@ -29,8 +29,8 @@
 <p>
 
 If successful, the response includes a copy of [DCA Bot](./README.md) entity.
-</p><br>
-
+</p>
+<br>
 
 ### Example Request<br>
  

@@ -18,10 +18,9 @@
 <br>
 
 ### Path Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**bot_id**  | `integer`| Yes |  | Unique 3Commas ID DCA Bot entity |
-
+<p>
+   <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID DCA Bot entity
+</p>
 <br>
 <br>

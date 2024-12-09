@@ -1,4 +1,5 @@
 ## Cancel DCA Bot<br>
+<br>
 
 **Description:** Cancels an existing DCA Bot and all active deals using the bot's ID<br>
 
@@ -6,15 +7,13 @@
 **Security:** SIGNED<br>
 <br>
 
--------- 
+<blockquote>
 
-<mark style="color:green"> <strong>POST</strong>
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-<mark style="color:gree"> <strong>/ver1/bots/{bot_id}/cancel_all_deals</strong>
+<code>/ver1/bots/{bot_id}/cancel_all_deals</code>
 
--------- 
-
-<br>
+</blockquote>
 <br>
 
 ### Path Parameter<br>
@@ -27,11 +26,8 @@
 
 ### Parameters response<br>
 
-{% hint style="info" %}
 If successful, the response includes an updated copy of the [DCA Bot](./README.md) entity.
-{% endhint %}
 
-<br>
 <br>
 
 ### Example Request<br>
@@ -40,7 +36,6 @@ If successful, the response includes an updated copy of the [DCA Bot](./README.m
 POST /ver1/bots/15564495/cancel_all_deals
 ```
 
-<br>
 <br>
 
 ### Example Response and errors<br>

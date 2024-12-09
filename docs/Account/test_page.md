@@ -1,9 +1,16 @@
 
 
-**POST** `https://foo.bar/api/v1/bots`
+----------
+
+<code><mark style="color:green"><strong> POST </strong></mark></code><br>
+
+<code>/ver1/deals/{deal_id}/panic_sell_step</code>
+
+----------
+<br>
+<br>
 
 
-----------------
 
 <table>
   <tr>
@@ -34,6 +41,46 @@
 
 </blockquote>
 
+
+
+
+----------
+<br>
+
+<blockquote>
+
+<code><mark style="color:green"><strong> POST </strong></mark></code>
+
+<code>/ver1/deals/{deal_id}/panic_sell_step</code>
+
+</blockquote>
+
+
+<blockquote>
+
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
+
+<code>/ver1/deals/{deal_id}/panic_sell_step</code>
+
+</blockquote>
+
+
+<blockquote>
+
+<code><mark style="color:red"><strong> DELETE </strong></mark></code>
+
+<code>/ver1/deals/{deal_id}/panic_sell_step</code>
+
+</blockquote>
+
+
+<blockquote>
+
+<code><mark style="color:purple"><strong> PATCH </strong></mark></code>
+
+<code>/ver1/deals/{deal_id}/panic_sell_step</code>
+
+</blockquote>
 
 
 <p>
@@ -79,29 +126,7 @@
 Good to know. Use endpoint [Supported markets list](Market%20data/1.Supported%20markets%20list.md) to get value for parameter 'market_code' in 3Commas.
 {% endhint %}
 
-------
 
-**data** `object`
-
-- **editable** `boolean`  
-  Indicates whether the user can modify the settings of this SmartTrade. `true` if editing is available.
-
-- **current_price** `object`  
-  - **bid** `number`  
-    The current highest bid price of the asset.
-  - **ask** `number`  
-    The current lowest ask price of the asset.
-  - **last** `number`  
-    The last traded price of the asset.
-  - **quote_volume** `number`  
-    [?]
-  - **day_change_percent** `number`  
-    Percentage price change for the asset over the last 24 hours.
-
-- **target_price_type** `string`
-- **orderbook_price_currency** `string`
-
---------
 
 ### Query parameters<br>
 
@@ -186,11 +211,11 @@ Use endpoint [User connected exchanges and wallets list](Account/User%20connecte
 <br>
 <br>
 
-----------
 
-<code><mark style="color:green"><strong> POST </strong></mark></code><br>
+<blockquote>
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-<code>/ver1/deals/{deal_id}/panic_sell_step</code>
-
-----------
+<code>/ver1/accounts/currency_rates_with_leverage_data</code>
+</blockquote>
+<br>
 

@@ -6,13 +6,13 @@
 **Security** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:blue"><strong>GET<br>
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-<mark style="color:blue">/ver1/bots</strong>
+<code>/ver1/bots</code>
 
-----------
+</blockquote>
 
 <br>
 

@@ -8,13 +8,11 @@ This is an endpoint that does not need authentication
 {% endhint %}
 <br>
 
--------- 
+<blockquote>
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-<mark style="color:blue"> <strong>GET</strong>
-
-<mark style="color:blue"><strong>/ver1/accounts/currency_rates_with_leverage_data</strong>
-
--------- 
+<code>/ver1/accounts/currency_rates_with_leverage_data</code>
+</blockquote>
 <br>
 
 ### Query Parameters<br>
