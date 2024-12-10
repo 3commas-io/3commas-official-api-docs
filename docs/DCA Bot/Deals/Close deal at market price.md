@@ -1,4 +1,5 @@
 ## Close the deal at market price<br>
+<br>
 
 **Description:** Closes a specific deal within a DCA Bot by market using its ID<br>
 
@@ -11,15 +12,14 @@ After this action, the final status **Panic_sold** will be automatically set by 
 
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:green"><strong>POST<br>
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-<mark style="color:green">/ver1/deals/{deal_id}/panic_sell</strong>
+<code>/ver1/deals/{deal_id}/panic_sell</code>
 
-----------
+</blockquote>
 
-<br>
 <br>
 
 ### Path Parameters<br>
@@ -28,12 +28,10 @@ After this action, the final status **Panic_sold** will be automatically set by 
    Unique 3Commas ID Deal entity
 </p>
 <br>
-<br>
 
 ### Response Parameters<br>
 
 If successful, the response includes an updated copy of the [Deals](./README.md) entity.
-<br>
 <br>
 
 ### Example request<br>
@@ -41,7 +39,6 @@ If successful, the response includes an updated copy of the [Deals](./README.md)
 ```
 POST /ver1/deals/1234567890/panic_sell
 ```
-<br>
 <br>
 
 ### Example Response and errors<br>

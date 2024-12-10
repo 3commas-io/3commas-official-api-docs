@@ -1,4 +1,5 @@
 ## Update Deal<br>
+<br>
 
 **Description:** Edits an existing deal of DCA Bot using its ID<br>
 
@@ -12,14 +13,14 @@ The endpoint is available for Deal for the statuses `bought` and `close_strategy
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:purple"><strong>PATCH</strong><br>
-<mark style="color:purple"><strong>/ver1/deals/{deal_id}/update_deal</strong>
+<code><mark style="color:purple"><strong> PATCH </strong></mark></code>
 
-----------
+<code>/ver1/deals/{deal_id}/update_deal</code>
 
-<br>
+</blockquote>
+
 <br>
 
 ### Path Parameter<br>
@@ -31,36 +32,96 @@ The endpoint is available for Deal for the statuses `bought` and `close_strategy
 
 ### Body parameters<br>
 
-| Name | Type |	Mandatory |	Values	| Description|
-| ------|------|-----------|-----------------|------------|
-| **take_profit** | number | No |   | Percentage value for the bot’s Take Profit.<br>If multiple steps are specified in `take_profit_steps settings`, this parameter should be set to `0` |
-| **take_profit_steps** | array[json] | No |   | Contains multiple steps with conditions for Taking Profit in this deal |
-| **profit_currency** | string | No | `quite_currency`<br>`base_currency` | Profit currency used for calculating the profit from the trades executed by this DCA Bot |
-| **take_profit_type** | string | No |  `base`<br>`total`| Take Profit order type for this DCA Bot.<br><details> <summary>_Allowed value_</summary> <dl><li>base - from base order;<li>total - from total volume;</dl></details>|
-| **trailing_enabled** | boolean | No | `true`<br>`false` | Indicates whether trailing is enabled for Take Profit  |
-| **trailing_deviation** | number | No |   | Percentage value of the trailing price, in percent. This parameter is required when `trailing_enabled` is set to `true` |
-| **sl_to_breakeven_enabled** | boolean | No | `true`<br>`false` | Enables the Move to Breakeven feature for this DCA Bot.To use this feature, you must have at least two Take Profit steps |
-| **sl_to_breakeven_data** | json | No |   | The upper limit to which the stop loss will move.<br>To activate, you need at least two separate targets of Take Profit<br> Example: <code>{upper_breakeven_limit: 1}</code> |
-| **max_safety_orders** | integer | No |  Minimum: `0`<br>Maximum: `200` | The maximum total number of Safety Orders allowed for this deal |
-|**active_safety_orders_count** | integer | No |   | The number of Safety Orders is allowed to place in advance on the exchange's order book  |
-| **stop_loss_percentage** | number | No |   | The percentage by which the price needs to move in the opposite direction of your Take Profit target to trigger the Stop Loss, at which point the bot will execute a Market Order.  |
-|**stop_loss_timeout_enabled** | boolean | No | `true`<br>`false` | Set timeout settings for Stop Loss order |
-|**stop_loss_timeout_in_seconds** | integer | No |   | Value timeout (format: `s`) <br>This parameter is required when `stop_loss_timeout_enabled` is set to `true` |
-| **tsl_enabled** | boolean | No | `true`<br>`false`  | Indicates whether trailing is enabled for Stop Loss |
-| **stop_loss_type** | string | No | `stop_loss`<br>`stop_loss_and_disable_bot` | The type of action the bot should perform after closing a deal due to the Stop Loss setting |
-| **close_timeout** | integer | No | Minimum: `60`  | The time after which the deal will close automatically (format: `sec`) |
-| **note** | string | No |   | Optional user-defined note for this Deal  |
-| **min_profit_percentage** | number | No |   | The minimum profit percentage which need to reach  for this DCA Bot to complete a deal  |
-
+<p>
+   <strong>take_profit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+   Percentage value for the bot’s Take Profit.<br>
+   If multiple steps are specified in <code>take_profit_steps settings</code>, this parameter should be set to <code>0</code>
+</p>
+<p>
+   <strong>take_profit_steps</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array[json]</code><br>
+   Contains multiple steps with conditions for Taking Profit in this deal
+</p>
+<p>
+   <strong>profit_currency</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Profit currency used for calculating the profit from the trades executed by this DCA Bot: <code>quite_currency</code> or <code>base_currency</code>
+</p>
+<p>
+   <strong>take_profit_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Take Profit order type for this DCA Bot.<br>
+   <details><summary><em>Allowed value</em></summary>
+   <dl>
+   <li>base - from base order;
+   <li>total - from total volume;</dl>
+   </details>
+</p>
+<p>
+   <strong>trailing_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+    Indicates whether trailing is enabled for Take Profit (<code>true</code>) or not (<code>false</code>)
+</p>
+<p>
+   <strong>sl_to_breakeven_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+    Enables (<code>true</code>) or disable (<code>false</code>) the Move to Breakeven feature for this Deal. To use this feature, you must have at least two Take Profit steps<br>
+</p>
+<p>
+   <strong>sl_to_breakeven_data</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>json</code><br>
+    The upper limit to which the stop loss will move.<br>
+    To activate, you need at least two separate targets of Take Profit<br> Example: <code>{upper_breakeven_limit: 1}</code>
+</p>
+<p>
+   <strong>max_safety_orders</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+    The maximum total number of Safety Orders allowed for this deal<br>
+    Minimum: <code>0</code>; Maximum: <code>200</code>
+</p>
+<p>
+   <strong>maxactive_safety_orders_count_safety_orders</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+    The number of Safety Orders is allowed to place in advance on the exchange's order book
+</p>
+<p>
+   <strong>stop_loss_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+    The percentage by which the price needs to move in the opposite direction of your Take Profit target to trigger the Stop Loss, at which point the bot will execute a Market Order.
+</p>
+<p>
+   <strong>stop_loss_timeout_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+     Indicates whether the Stop Loss timeout is enabled (<code>true</code>) or disabled (<code>false</code>)<br>
+</p>
+<p>
+   <strong>stop_loss_timeout_in_seconds</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+        Value timeout in seconds<br>
+     This parameter is required when <code>stop_loss_timeout_enabled</code> is set to <code>true</code>
+</p>
+<p>
+   <strong>tsl_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+    Indicates whether trailing is enabled (<code>true</code>) for Stop Loss or not (<code>false</code>)
+</p>
+<p>
+   <strong>stop_loss_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+    The type of action the bot should perform after closing a deal due to the Stop Loss setting: <code>stop_loss</code> or <code>stop_loss_and_disable_bot</code>
+</p>
+<p>
+   <strong>close_timeout</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+    The time in seconds after which this deal will close automatically<br>
+    Minimum: <code>60</code>
+</p>
+<p>
+   <strong>note</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+    Optional user-defined note for this Deal
+</p>
+<p>
+   <strong>min_profit_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+    The minimum profit percentage which need to reach  for this DCA Bot to complete a deal
+</p>
 <br>
 
-{% hint style="info" %}
+### Additional Information<br>
+
 <strong>Take Profit steps</strong>
 <p>
 You should allocate 100% of your position volume across different targets. In total, the maximum number of targets is 4.</p>
 
 <p>One target is one step. Each step is represented as an object with properties:<br>
-<strong>id</strong>; <strong>amount_percentage</strong>; <strong>profit_percentage</strong>
+<code>id</code><br>
+<code>amount_percentage</code><br>
+<code>profit_percentage</code>
 </p>
 <p>
 Below is an example demonstrating how to fill this parameter with several steps of Take Profit:</p>
@@ -90,18 +151,12 @@ Below is an example demonstrating how to fill this parameter with several steps 
 ]
 
 ```
-{% endhint %}
-
-<br>
 <br>
 
 ### Response Parameters<br>
 
-{% hint style="info" %}
 If successful, the response includes an updated copy of [Deals](./README.md) entity.
-{% endhint %}
 
-<br>
 <br>
 
 ### Example Request<br>

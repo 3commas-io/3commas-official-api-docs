@@ -137,7 +137,8 @@ Indicates whether trailing is enabled for Take Profit (<code>true</code>) or not
 </p>
 <p>
    <strong>stop_loss_timeout_in_seconds</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   Value timeout in seconds<br>This parameter is required when <code>stop_loss_timeout_enabled</code> is set to <code>true</code>
+   Value timeout in seconds<br>
+   This parameter is required when <code>stop_loss_timeout_enabled</code> is set to <code>true</code>
 </p>
 <p>
    <strong>risk_reduction_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
@@ -239,7 +240,7 @@ Indicates whether trailing is enabled for Take Profit (<code>true</code>) or not
 <strong>take_profit_steps</strong><br>
 When using multiple steps for Take Profit, each step should be represented as an object with the following properties:
 
-<code>amount_percentage</code>
+<code>amount_percentage</code><br>
 <code>profit_percentage</code>
 
 Keep in mind, you can create a maximum of 4 targets, allocating 100% of your position volume is allocated across them.

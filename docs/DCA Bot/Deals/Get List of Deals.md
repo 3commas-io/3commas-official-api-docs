@@ -1,4 +1,5 @@
 ## Get List of Deals<br>
+<br>
 
 **Description:** Returns the list of geals. Use the query parameters to page through results<br>
 
@@ -7,14 +8,14 @@
 **Security** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:blue"> <strong>GET</strong><br>
-<mark style="color:blue"> <strong>/ver1/deals</strong>
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-----------
+<code>/ver1/deals</code>
 
-<br>
+</blockquote>
+
 <br>
 
 ### Query Parameters<br>

@@ -16,7 +16,6 @@
 </blockquote>
 
 <br>
-<br>
 
 ### Body parameter<br>
 <p>
@@ -24,13 +23,11 @@
    Trading pair(s) in 3Commas format
 </p>
 <br>
-<br>
 
 {% hint style="info" %}
 The trading pair code is used in the 3Commas format. Use the endpoint [All Market Pairs](Market%20data/2.All%20market%20pairs.md) to get the value for parameter pair in 3Commas format.
 {% endhint %}
 
-<br>
 <br>
 
 ### Response Parameter<br>
@@ -39,14 +36,12 @@ The trading pair code is used in the 3Commas format. Use the endpoint [All Marke
    The list of pairs that was added to the blacklist
 </p>
 <br>
-<br>
 
 ### Example Request<br>
 
 ```json
 POST /ver1/bots/update_pairs_black_list?pairs=1INCH_1INCH-USD-SWAP
 ```
-<br>
 <br>
 
 ### Example Response and errors<br>

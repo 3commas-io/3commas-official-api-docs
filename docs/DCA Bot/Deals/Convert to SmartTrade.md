@@ -1,4 +1,5 @@
 ## Convert to SmartTrade<br>
+<br>
 
 **Description:** Allows to convert the deal entity into SmarTrade entity<br>
 
@@ -12,46 +13,41 @@ After this action, 3Commas will automatically set the final status to **Cancelle
 **Security** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:green"><strong>POST<br>
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-<mark style="color:green">/ver1/deals/{deal_id}/convert_to_smart_trade</strong>
+<code>/ver1/deals/{deal_id}/convert_to_smart_trade</code>
 
-----------
+</blockquote>
 
 <br>
-<br>
 
-### Path Parameters<br>
+### Path Parameter<br>
 <p>
    <strong>deal_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
    Unique 3Commas ID Deal entity
 </p>
 <br>
 
-### Body Parameters<br>
+### Body Parameter<br>
 <p>
    <strong>stop_bot</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
    Indicates whether to disable the DCA Bot (<code>true</code>) or not (<code>false</code>)
 </p>
 <br>
-<br>
 
-### Parameter response<br>
+### Response Parameters<br>
 
 If successful, the response includes a copy of [SmartTrade](./README.md) entity.
 
-
-<br>
 <br>
 
 ### Example Request<br>
 
-```
+```json
 POST /ver1/deals/1234567890/convert_to_smart_trade?stop_bot=false
 ```
-<br>
 <br>
 
 ### Example Response and errors<br>

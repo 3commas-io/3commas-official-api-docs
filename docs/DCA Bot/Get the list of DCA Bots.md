@@ -1,4 +1,5 @@
 ## Get the list of DCA Bots<br>
+<br>
 
 **Description:** Returns a list of DCA Bots by user. Use the query parameters to filter the results<br>
 

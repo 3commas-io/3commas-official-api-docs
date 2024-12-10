@@ -1,4 +1,5 @@
 ## Cancel Manual Safety Trade<br>
+<br>
 
 **Description:** Cancels a specific manual safety trade within the DCA Bot using its ID<br>
 
@@ -12,14 +13,14 @@ After this action, 3Commas will automatically set the final status to **Cancelle
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:green"><strong>POST<br>
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-<mark style="color:green">/ver1/deals/{deal_id}/cancel_order</strong>
+<code>/ver1/deals/{deal_id}/cancel_order</code>
 
-----------
-<br>
+</blockquote>
+
 <br>
 
 ### Path Parameter<br>
@@ -108,15 +109,13 @@ Use the [Get Trades of Deal](./DCA%20Bot/Deals/Get%20Trades%20of%20Deal.md) endp
    The weighted average price at which the asset was bought or sold during the execution of the trades
 </p>
 <br>
-<br>
+
 
 ### Example Request<br>
 
 ```json
 POST  /ver1/deals/2345678901/cancel_order
 ```
-
-<br>
 <br>
 
 ###  Example Response and errors<br>
