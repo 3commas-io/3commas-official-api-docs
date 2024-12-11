@@ -1,39 +1,31 @@
 ## Enable Grid Bot<br>
+<br>
 
 **Description:** Activates an existing Grid Bot using its ID<br>
 
 **Permission:** BOTS_WRITEE<br>
 **Security:** SIGNED<br>
 <br>
-<br>
+<blockquote>
 
--------- 
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-<mark style="color:green;background-color:white"> **POST**
+<code>/ver1/grid_bots/{id}/enable</code>
 
-<mark style="color:green;background-color:white"> **/ver1/grid_bots/{id}/enable**
+</blockquote>
 
--------- 
-
-<br>
 <br>
 
 ### Path Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**id**  | `integer` | Yes |	| Unique 3Commas ID for this Grid Bot entity |
-
-<br>
+<p>
+   <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID for this Grid Bot entity
+</p>
 <br>
 
 ### Response Parameters<br>
 
-{% hint style="info" %}
 If successful, the response includes a copy of the updated [Grid bot](./README.md) entity.
-{% endhint %}
-
-<br>
 <br>
 
 ### Example Request<br>

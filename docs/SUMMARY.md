@@ -74,13 +74,14 @@
       * [Convert to SmartTrade](DCA%20Bot/Deals/Convert%20to%20SmartTrade.md)
 
 
-* [GRID bots](Grid%20Bot/README.md)
+* [Grid Bot](Grid%20Bot/README.md)
   * [Create Grid Bot](Grid%20Bot/Create%20Grid%20Bot.md)
   * [Edit Grid Bot](Grid%20Bot/Edit%20Grid%20Bot.md)
   * [Get Grid Bot](Grid%20Bot/Get%20Grid%20Bot.md)
   * [Get the list of Grid Bots](Grid%20Bot/Get%20the%20list%20of%20Grid%20Bots.md)
   * [Get profit details of Grid Bot](Grid%20Bot/Get%20profit%20details%20of%20Grid%20Bot.md)
   * [Grid Bot Market Orders](Grid%20Bot/Grid%20Bot%20Market%20Orders.md)
+  * [Grid Bot Profits](Grid%20Bot/Grid%20Bot%20Profits.md)
   * [Grid Bot vents](Grid%20Bot/grid_bot_vents.md)
   * [Get required balances to start bot](Grid%20Bot/Get%20required%20balances%20to%20start%20bot.md)
   * [Set a note to Grid Bot](Grid%20Bot/Set%20a%20note%20to%20Grid%20Bot.md)

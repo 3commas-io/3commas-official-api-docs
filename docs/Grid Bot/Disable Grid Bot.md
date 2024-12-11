@@ -1,30 +1,28 @@
 ## Disable Grid Bot<br>
+<br>
 
 **Description:** Stops an existing Grid Bot using its ID<br>
 
 **Permission:** BOTS_WRITEE<br>
 **Security:** SIGNED<br>
 <br>
-<br>
 
--------- 
 
-<mark style="color:green;background-color:white"> **POST**
+<blockquote>
 
-<mark style="color:green;background-color:white"> **/ver1/grid_bots/{id}/disable**
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
--------- 
+<code>/ver1/grid_bots/{id}/disable</code>
 
-<br>
-<br>
-
-### Path Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**id**  | `integer` | Yes |	| Unique 3Commas ID for this Grid Bot entity |
+</blockquote>
 
 <br>
+
+### Path Parameter<br>
+<p>
+   <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID for this Grid Bot entity
+</p>
 <br>
 
 ### Response Parameters<br>
@@ -34,7 +32,6 @@ If successful, the response includes a copy of the updated [Grid bot](./README.m
 {% endhint %}
 
 <br>
-<br>
 
 ### Example Request<br>
 
@@ -42,7 +39,7 @@ If successful, the response includes a copy of the updated [Grid bot](./README.m
 POST /ver1/grid_bots/2338357/disable
 ```
 
-### Example Response and errors
+### Example Response and Errors
 
 <details>
 <summary>Status: 201 Created</summary><br>

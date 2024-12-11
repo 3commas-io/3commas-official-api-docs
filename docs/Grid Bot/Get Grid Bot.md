@@ -1,38 +1,34 @@
 ## Get Grid Bot<br>
+<br>
 
 **Description:** Shows information about a specific Grid Bot using its ID<br>
 
 **Permission:** BOTS_WRITEE<br>
 **Security:** SIGNED<br>
 <br>
+
+<blockquote>
+
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
+
+<code>/ver1/grid_bots/{id}</code>
+
+</blockquote>
+
 <br>
 
--------- 
-
-<mark style="color:blue;background-color:white"> **GET**
-
-<mark style="color:blue;background-color:white"> **/ver1/grid_bots/{id}**
-
--------- 
-
-<br>
-<br>
 
 ### Path Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**id**  | `integer` | Yes |	| Unique 3Commas ID for this Grid Bot entity |
-
-<br>
+<p>
+   <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID for this Grid Bot entity
+</p>
 <br>
 
 ### Response Parameters<br>
-{% hint style="info" %}
-If successful, the response includes a copy of the updated [Grid bot](./README.md) entity.
-{% endhint %}
 
-<br>
+If successful, the response includes a copy of the updated [Grid bot](./README.md) entity.
+
 <br>
 
 ### Example Request<br>

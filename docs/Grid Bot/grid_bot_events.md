@@ -1,4 +1,5 @@
 ## Grid Bot Events<br>
+<br>
 
 **Description:** Getting a list of events by Grid Bot<br>
 
@@ -6,42 +7,50 @@ Permission: BOTS_READ<br>
 Security: SIGNED<br>
 <br>
 
--------- 
+<blockquote>
 
-<mark style="color:blue;background-color:white" > **GET**
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-<mark style="color:blue;background-color:white" > **/ver1/grid_bots/{id}/events**
+<code>/ver1/grid_bots/{id}/events</code>
 
--------- 
+</blockquote>
+
 <br>
-<br>
 
-### Path Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**id**  | `integer` | Yes |	| Unique 3Commas ID for this Grid Bot entity |
+### Path Parameter<br>
+<p>
+   <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID for this Grid Bot entity
+</p>
 
 <br>
 
 ### Query Parameters<br>
 
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**page**  | `integer` | Yes |	`1`| Page number for pagination |
-|**per_page**  | `integer`	| Yes | Minimum: `1`, Maximum: `100` | Quantity of records on one page.<br>Default: `100` |
-
-<br>
+<p>
+   <strong>page</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Page number for pagination
+   Default: <code>1</code>
+</p>
+<p>
+   <strong>per_page</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Quantity of records on one page
+   Minimum: <code>1<code>, Maximum: <code>100</code>
+   Default: <code>100</code>
+</p>
 <br>
 
 ### Parameters response<br>
-| Name | Type | Description|
-|------|------|-----------------|
-|**message**  | string | The description of the event |
-|**created_at**  | string | ISO 8601 datetime string indicating when the event was recorded |
+<p>
+   <strong>message</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The description of the event
+</p>
+<p>
+   <strong>created_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   ISO 8601 datetime string indicating when the event was recorded
+</p>
+<br>
 
-<br>
-<br>
 
 ### Example Request**<br>
 
@@ -49,12 +58,10 @@ Security: SIGNED<br>
 GET /ver1/grid_bots/2338357/events?page=1&per_page=10
 ```
 <br>
-<br>
 
 ### Example Response and errors<br>
 
 <details>
-
 <summary>Status: 201 Created</summary><br>
 
 ```json

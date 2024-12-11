@@ -1,58 +1,88 @@
 ## Get trades of Grid Bot<br>
+<br>
 
 **Description:** Returns a list of market orders for a Grid Bot using its ID<br>
 
 **Permission:** BOTS_READ<br>
 **Security:** SIGNED<br>
 <br>
+
+<blockquote>
+
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
+
+<code>/ver1/grid_bots/{id}/market_orders</code>
+
+</blockquote>
+
 <br>
 
--------- 
-
-<mark style="color:blue;background-color:white"> **GET**
-
-<mark style="color:blue;background-color:white"> **/ver1/grid_bots/{id}/market_orders**
-
--------- 
-
-<br>
-<br>
-
-### Path Parameters<br>
-
-| Name | Type |	Mandatory |	Values | Description|
-|------|------|-----------|-----------------|------------|
-|**id**  | `integer`	| Yes |  | Unique 3Commas ID for this Grid Bot entity |
-
+### Path Parameter<br>
+<p>
+   <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID for this Grid Bot entity
+</p>
 <br>
 
 ### Query Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**limit**  | `integer`	| No | Minimum: `1`, Maximum: `1000` | Quantity of the records you want to get in response.<br>Default: `100` |
-|**offset**  | `integer`	| No | 	| Used to specify the starting point for a set of records to return in a paginated list.<br>Default: `0` |
-
-<br>
+<p>
+   <strong>limit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Quantity of the records you want to get in response<br>
+   Minimum: <code>1</code>, Maximum: <code>1000</code><br>
+   Default: <code>100</code>
+</p>
+<p>
+   <strong>offset</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Used to specify the starting point for a set of records to return in a paginated list<br>
+   Default: <code>0</code>
+</p>
 <br>
 
 ### Response Parameters<br>
-
-| Name | Type |	Description|
-|------|------|------------|
-| **grid_lines_orders[order_id]** | `integer`| ID of this trade entity |
-| **grid_lines_orders[order_type]** | `string`| The side of the order to be created by this trade|
-|**grid_lines_orders[status_string]** | `integer`| 3Commas status for this Trade |
-| **grid_lines_orders[created_at]** | `string <date-time>`| ISO 8601 datetime string of when this Trade entity was created |
-| **grid_lines_orders[updated_at]** | `string <date-time>`| ISO 8601 datetime string of when this Trade entity was updated |
-| **grid_lines_orders[quantity]** | `integer`| The total amount of the asset involved in the order |
-| **grid_lines_orders[quantity_remaining]** | `integer`| The amount of the asset that remains unfulfilled from the total order quantity |
-| **grid_lines_orders[total]** | `integer`| The total value of the order based on the executed quantity and rate |
-| **grid_lines_orders[rate]** | `integer`| The rate at which the asset was bought or sold for this order  |
-| **grid_lines_orders[average_price]** | `string`| Weighted average price of the asset during trade execution |
-
-
-<br>
+<p>
+   <strong>grid_lines_orders</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+An array of grid line orders associated with this trading strategy
+</p>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>order_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID of Trade entity
+</p>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>order_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The side of the order to be created by this trade: <code>Buy</code> or <code>Sell</code>
+</p>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>status_string</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3Commas status for this Trade
+</p>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>created_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ISO 8601 datetime string of when this Trade entity was created
+</p>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>updated_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ISO 8601 datetime string of when this Trade entity was updated
+</p>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The total amount of the asset involved in the order
+</p>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity_remaining</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The amount of the asset that remains unfulfilled from the total order quantity
+</p>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>total</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The total value of the order based on the executed quantity and rate
+</p>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>rate</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The rate at which the asset was bought or sold for this order
+</p>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>average_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Weighted average price of the asset during trade execution
+</p>
 <br>
 
 ### Example Request<br>

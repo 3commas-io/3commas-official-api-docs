@@ -1,48 +1,111 @@
 ## Get required balances to start bot<br>
+<br>
 
-**Description:** <br>
+**Description:** Returns the amount of funds required to launch the Grid Bot and details about the current balance state.<br>
+
+{% hint style="info" %}
+This endpoint works only for the spot exchange.
+{% endhint %}
 
 **Permission:** BOTS_READ<br>
 **Security:** SIGNED<br>
 <br>
-<br>
 
--------- 
+<blockquote>
 
-<mark style="color:blue;background-color:white"> **GET**
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-<mark style="color:blue;background-color:white"> **/ver1/grid_bots/{id}/required_balances**
+<code>/ver1/grid_bots/{id}/required_balances</code>
 
--------- 
+</blockquote>
 
-<br>
 <br>
 
 ### Path Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**id**  | `integer` | Yes |	| Unique 3Commas ID for this Grid Bot entity |
-
-<br>
+<p>
+   <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID for this Grid Bot entity
+</p>
 <br>
 
 ### Parameters response<br>
-
-| Name | Type |	Description|
-|------|------|------------|
-| **missing_balance[base][quantity]** | `string` |  |
-| **missing_balance[base][currency]** | `string` |  |
-| **missing_balance[quote][quantity]** | `string` |  |
-| **missing_balance[quote][currency]** | `string` |  |
-| **required_balance[base][quantity]** | `string` |  |
-| **required_balance[base][currency]** | `string` |  |
-| **required_balance[quote][quantity]** | `string` |  |
-| **required_balance[quote][currency]** | `string` |  |
-| **need_balancing** | `boolean`|  |
-| **balancing_available** | `boolean`|  |
-| **necessary_quantities[quantity]** | `string`|  |
-| **necessary_quantities[currency]** | `string`|  |
+<p>
+   <strong>missing_balance</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+   [TBD]
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>base</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Details of the missing amount in the base currency
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The amount of the base currency that is missing
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>currency</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The name or symbol of the base currency
+   </p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quote</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Details of the missing amount in the quote currency
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The amount of the quote currency that is missing
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>currency</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The name or symbol of the quote currency 
+</p>
+<p>
+   <strong>required_balance</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+   The total amount of funds required in base and quote currencies to launch the Grid Bot
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>base</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Details of the required amount in the base currency
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The total amount of the base currency required
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>currency</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The name or symbol of the base currency
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quote</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Details of the required amount in the quote currency
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The total amount of the quote currency required
+   </p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>currency</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The name or symbol of the quote currency
+</p>
+<p>
+   <strong>need_balancing</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+   Indicates whether additional funds are required to balance the Grid Bot (<code>true</code>) or not (<code>false</code>)
+</p>
+<p>
+   <strong>balancing_available</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+   Indicates whether the bot can be balanced with the current available funds (<code>true</code>) or not (<code>false</code>)
+</p>
+<p>
+   <strong>necessary_quantities</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+   Details of the exact amount and currency required to balance the Grid Bot
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The specific amount of the required currency needed to balance the bot
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>currency</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The symbol of the currency required for balancing
+</p>
+<br>
 
 ### Example Request<br>
 
@@ -85,7 +148,6 @@ GET /ver1/grid_bots/12345678/required_balances
 }
 ```
 </details>
-<br>
 
 <details>
 <summary>Status: 404 Not Found</summary><br>
@@ -97,7 +159,6 @@ GET /ver1/grid_bots/12345678/required_balances
 }
 ```
 </details>
-<br>
 <details>
 <summary>Status: 500 Internal Server Error</summary><br>
 

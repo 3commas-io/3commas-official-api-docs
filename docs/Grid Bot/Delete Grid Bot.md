@@ -1,4 +1,5 @@
 ## Delete Grid Bot<br>
+<br>
 
 **Description:** Deletes an existing Grid Bot in place using its ID<br>
 <br>
@@ -6,26 +7,22 @@
 **Permission:** BOTS_WRITEE<br>
 **Security:** SIGNED<br>
 <br>
-<br>
 
--------- 
+<blockquote>
 
-<mark style="color:red;background-color:white"> **DELETE**
+<code><mark style="color:red"><strong> DELETE </strong></mark></code>
 
-<mark style="color:red;background-color:white"> **/ver1/grid_bots/{id}**
+<code>/ver1/grid_bots/{id}</code>
 
--------- 
+</blockquote>
 
-<br>
 <br>
 
 ### Path Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**id**  | `integer` | Yes |	| Unique 3Commas ID for this Grid Bot entity |
-
-<br>
+<p>
+   <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID for this Grid Bot entity
+</p>
 <br>
 
 ### Response Parameters<br>
