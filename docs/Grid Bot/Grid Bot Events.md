@@ -26,7 +26,6 @@ Security: SIGNED<br>
 <br>
 
 ### Query Parameters<br>
-
 <p>
    <strong>page</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
    Page number for pagination
@@ -35,7 +34,7 @@ Security: SIGNED<br>
 <p>
    <strong>per_page</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
    Quantity of records on one page
-   Minimum: <code>1<code>, Maximum: <code>100</code>
+   Minimum: <code>1</code>, Maximum: <code>100</code>
    Default: <code>100</code>
 </p>
 <br>
@@ -52,7 +51,7 @@ Security: SIGNED<br>
 <br>
 
 
-### Example Request**<br>
+### Example Request<br>
 
 ```json
 GET /ver1/grid_bots/2338357/events?page=1&per_page=10

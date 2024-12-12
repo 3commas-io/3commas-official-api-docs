@@ -27,9 +27,7 @@
 
 ### Response Parameters<br>
 
-{% hint style="info" %}
 If successful, the response includes a copy of the updated [Grid bot](./README.md) entity.
-{% endhint %}
 
 <br>
 
