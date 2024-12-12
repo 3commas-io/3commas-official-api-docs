@@ -1,4 +1,5 @@
 ## Edit exchange account<br>
+<br>
 
 **Description:** Updates an exchange account using its ID, including updating API keys for reconnecting the account<br>
 
