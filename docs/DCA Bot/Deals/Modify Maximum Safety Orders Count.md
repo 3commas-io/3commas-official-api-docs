@@ -1,4 +1,5 @@
 ## Modify Maximum Safety Trades Count<br>
+<br>
 
 **Description:** Updates a value for parameter `max_safety_orders` for a specific deal of DCA Bot using its ID<br>
 
@@ -6,14 +7,14 @@
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:green"> <strong>POST</strong><br>
-<mark style="color:green"> <strong>/ver1/deals/{deal_id}/update_max_safety_orders</strong>
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-----------
+<code>/ver1/deals/{deal_id}/update_max_safety_orders</code>
 
-<br>
+</blockquote>
+
 <br>
 
 ### Path Parameter<br>
@@ -33,7 +34,7 @@
 ### Response Parameters<br>
 
 If successful, the response includes an updated copy of [Deals](./README.md) entity.
-<br>
+
 <br>
 
 ### Example Request<br>
@@ -43,7 +44,6 @@ POST
 /ver1/deals/:deal_id/update_max_safety_orders?max_safety_orders=6
 ```
 
-<br>
 <br>
 
 ### Example Response and errors<br>

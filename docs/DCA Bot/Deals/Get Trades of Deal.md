@@ -1,4 +1,5 @@
 ## Get Trades of Deal<br>
+<br>
 
 **Description:** Returns all type of trades for a specific deal<br>
 
@@ -6,15 +7,14 @@
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:blue"> <strong>GET</strong><br>
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-<mark style="color:blue"> <strong>/ver1/deals/{deal_id}/market_orders</strong>
+<code>/ver1/deals/{deal_id}/market_orders</code>
 
-----------
+</blockquote>
 
-<br>
 <br>
 
 ### Path Parameter<br>

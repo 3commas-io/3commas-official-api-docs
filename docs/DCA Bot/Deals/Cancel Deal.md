@@ -1,4 +1,5 @@
 ## Cancel Deal<br>
+<br>
 
 **Description:** Cancels a specific deal within the DCA Bot using its ID<br>
 
@@ -12,17 +13,18 @@ After this action, 3Commas will automatically set the final status to **Cancelle
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:green"> <strong>POST</strong>
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-<mark style="color:green"> <strong>/ver1/deals/{deal_id}/cancel</strong>
+<code>/ver1/deals/{deal_id}/cancel</code>
 
-----------
+</blockquote>
+
 <br>
 
 
-### Path Parameters<br
+### Path Parameter<br
 <p>
    <strong>deal_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
    Unique 3Commas ID Deal entity
@@ -34,8 +36,6 @@ After this action, 3Commas will automatically set the final status to **Cancelle
 
 If successful, the response includes an updated copy of the [Deals](./README.md) entity.
 
-
-<br>
 <br>
 
 ### Example Request<br>
@@ -44,7 +44,6 @@ If successful, the response includes an updated copy of the [Deals](./README.md)
 POST  /ver1/deals/2345678901/cancel
 ```
 
-<br>
 <br>
 
 ###  Example Response and errors<br>

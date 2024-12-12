@@ -1,59 +1,54 @@
 ## Add a note to Grid Bot<br>
+<br>
 
 **Description:** Adds a note to an existing Grid Bot<br>
 
 **Permission:** BOTS_WRITEE<br>
 **Security:** SIGNED<br>
 <br>
+
+<blockquote>
+
+<code><mark style="color:green"><strong> POST </strong></mark></code>
+
+<code>/ver1/grid_bots/{id}/note</code>
+
+</blockquote>
 <br>
 
--------- 
-
-<mark style="color:green;background-color:white"> **POST**
-
-<mark style="color:green;background-color:white"> **/ver1/grid_bots/{id}/note**
-
--------- 
-
-<br>
+### Path Parameter<br>
+<p>
+   <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID for this Grid Bot entity
+</p>
 <br>
 
-### Path Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**id**  | `integer` | Yes |	| Unique 3Commas ID for this Grid Bot entity |
-
-<br>
-
-### Body Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**note**  | `string`	| Yes | minlength:`1`<br> maxlength:`300` | Short note for this Grid Bot |
-
-<br>
+### Body Parameter<br>
+<p>
+   <strong>note</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Short note for this Grid Bot
+   Minlength: <code>1</code>; Maxlength: <code>300</code>
+</p>
 <br>
 
 ### Response Parameters<br>
 
-{% hint style="info" %}
 If successful, the response includes a copy of the updated [Grid bot](./README.md) entity.
-{% endhint %}
 
-<br>
 <br>
 
 ### Example Request<br>
 
-
-
 ```json
 POST  /ver1/grid_bots/2345678/note
-
- { "note": "Welcome to my 3Commas" } 
 ```
 
+```
+Body:
+
+{ "note": "Welcome to my 3Commas" } 
+```
+<br>
 
 ### Example Response and errors
 

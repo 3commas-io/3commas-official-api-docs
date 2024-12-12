@@ -199,7 +199,7 @@ Use endpoint [User connected exchanges and wallets list](Account/User%20connecte
 <p>
    <strong>days</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
    Specifies the number of days for which profit data is requested for this bot. Default: <code>30</code>
-</p><br>
+</p>
 <br>
 
 ### Path Parameters<br>

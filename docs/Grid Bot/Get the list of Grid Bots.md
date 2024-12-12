@@ -1,56 +1,78 @@
 ## Get the list of Grid Bots
+<br>
 
 **Description:** Returns the list of Grid Bots. Use the body parameters to filter results<br>
 
 **Permission:** BOTS_READ<br>
 **Security:** SIGNED<br>
 <br>
-<br>
 
--------- 
+<blockquote>
 
-<mark style="color:blue;background-color:white"> **GET**
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-<mark style="color:blue;background-color:white"> **/ver1/grid_bots**
+<code>/ver1/grid_bots</code>
 
--------- 
+</blockquote>
 
-<br>
 <br>
 
 ### Query Parameters<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**account_id**  | `string` | No |	| Unique 3Commas ID for this Grid Bot entity. Use a comma-separated list to specify multiple account_id values |
-|**state**  | `string` | No |`enabled`<br>`disabled`| Return entities that match the specified state. <br>Use `enabled` to get active bots and `disabled` to get inactive bots |
-|**sort_by**  | `string` | No |	| Specifies the field by which to sort the response |
-|**sort_direction**  | `string` | No | `ASC`<br>`DESC` | Set the direction of order.<br>Default: `DESC` |
-|**limit**  | `integer` | No |	Minimum: `1`<br> Maximum: `1000`| Quantity of the records you want to get in response.<br>Default: `10`|
-|**offset**  | `integer` | No |	| Used to specify the starting point for a set of records to return in a paginated list.<br>Default: `0` |
-|**from**  | `string` | No |	| Parameter for a filter by created date |
-|**base**  | `string` | No |	| Return entities that match the base currency of the trading pair (e.g., `BTC` for BTC/USDT). |
-|**quote**  | `string` | No |	| Return entities that match the quote currency of the trading pair (e.g., `USDT` for BTC/USDT) |
-
-
-<br>
+<p>
+   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Unique 3Commas ID for this Grid Bot entity.<br>
+   Use a comma-separated list to specify multiple account_id values
+</p>
+<p>
+   <strong>state</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Return entities that match the specified state. 
+   <br>Use <code>enabled</code> to get active bots and <code>disabled</code> to get inactive bots
+</p>
+<p>
+   <strong>sort_by</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Specifies the field by which to sort the response
+</p>
+<p>
+   <strong>sort_direction</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Sets the direction of order (<code>[ASC]</code> or <code>[DESC]</code>)<br>
+   Default: <code>[DESC]</code>
+</p>
+<p>
+   <strong>limit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Quantity of the records you want to get in response.<br>
+   Minimum: <code>1</code>; Maximum: <code>1000</code><br>
+   Default: <code>10</code>
+</p>
+<p>
+   <strong>offset</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Used to specify the starting point for a set of records to return in a paginated list<br>
+   Default: <code>0</code>
+</p>
+<p>
+   <strong>from</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Parameter for a filter by created date
+</p>
+<p>
+   <strong>base</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Return entities that match the base currency of the trading pair (e.g., <code>BTC</code> for BTC/USDT)
+</p>
+<p>
+   <strong>quote</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Return entities that match the quote currency of the trading pair (e.g., <code>USDT</code> for BTC/USDT)
+</p>
 <br>
 
 ### Parameters response<br>
 
-{% hint style="info" %}
-If successful, the response includes an array of [Grid Bot](./README.md) entities.{% endhint %}
+If successful, the response includes an array of [Grid Bot](./README.md) entities.
 
 <br>
-<br>
-
 
 ### Example request<br>
 
 ```json
 GET  /ver1/grid_bots?account_ids[]=32833909&account_ids[]32864603
 ```
-<br>
 <br>
 
 ### Example Response and errors<br>

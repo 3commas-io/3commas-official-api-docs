@@ -1,4 +1,5 @@
 ## Close one step in deal at market price<br>
+<br>
 
 **Description:** Closes a specific Trade within the Deal by market using its ID<br>
 
@@ -11,15 +12,14 @@ After this action, the final status **Panic_sold** will be automatically set by 
 
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:green"><strong>POST<br>
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-<mark style="color:green">/ver1/deals/{deal_id}/panic_sell_step</strong>
+<code>/ver1/deals/{deal_id}/panic_sell_step</code>
 
-----------
+</blockquote>
 
-<br>
 <br>
 
 ### Path Parameter<br>
@@ -36,7 +36,7 @@ After this action, the final status **Panic_sold** will be automatically set by 
    Unique 3Commas ID Trade of the deal that should be sold
 </p>
 <br>
-<br>
+
 {% hint style="info" %}
 
 Use endpoint [Get Deal](DCA%20Bot/Deals/Get%20Deal.md) to get value for parameter 'trade_id'.
@@ -44,21 +44,19 @@ Use endpoint [Get Deal](DCA%20Bot/Deals/Get%20Deal.md) to get value for paramete
 {% endhint %}
 
 <br>
-<br>
 
 ### Parameter response<br>
 
 If successful, the response includes an updated copy of the [Deals](./README.md) entity.
 
+<br>
 
 ### Example request<br>
-
 
 ```
 POST
 /ver1/deals/12345678/panic_sell_step?trade_id=1123324654
 ```
-<br>
 <br>
 
 ### Example Response and errors<br>
