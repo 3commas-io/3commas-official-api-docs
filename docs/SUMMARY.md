@@ -22,7 +22,6 @@
 
 
 * [Account](Account/README.md)
-  * [test page](Account/test_page.md)
   * [Available market subtypes](Account/Available%20market%20subtypes.md)
   * [Add exchange account](Account/Add%20exchange%20account.md)
   * [Get account info](Account/Get%20Account%20Info.md)
