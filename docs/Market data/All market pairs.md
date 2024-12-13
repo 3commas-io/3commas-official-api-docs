@@ -1,11 +1,11 @@
 ## All market pairs
 <code><mark style="color:blue">GET</mark></code> <code>/ver1/accounts/market_pairs</strong></code>
 
-**Description:** The method allows getting the list of pairs is supported by exchange in 3Commas' format
-
 {% hint style="success" %}
 This is an endpoint that does not need authentication
 {% endhint %}
+
+The method allows getting the list of pairs is supported by exchange in 3Commas' format
 
 ##### Query Parameters
 | Name        | Type    | Mandatory | Description                                 |
