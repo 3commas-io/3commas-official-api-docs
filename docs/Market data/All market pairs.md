@@ -1,5 +1,5 @@
 ## All market pairs
-<strong><mark style="color:blue">GET</mark> /ver1/accounts/market_pairs</strong>
+<code><mark style="color:blue">GET</mark></code> <code>/ver1/accounts/market_pairs</strong></code>
 
 **Description:** The method allows getting the list of pairs is supported by exchange in 3Commas' format
 
