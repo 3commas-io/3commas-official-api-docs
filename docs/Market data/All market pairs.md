@@ -1,17 +1,11 @@
 ## All market pairs<br>
-<br>
+<strong><mark style="color:blue">GET</mark> /ver1/accounts/market_pairs</strong>
 
 **Description:** The method allows getting the list of pairs is supported by exchange in 3Commas' format<br>
 
 {% hint style="success" %}
 This is an endpoint that does not need authentication
 {% endhint %}
-<br>
-
-<blockquote>
-<strong><mark style="color:blue">GET</mark> /ver1/accounts/market_pairs</strong>
-</blockquote>
-<br>
 
 ### Query Parameter<br>
 <p>
@@ -24,15 +18,11 @@ This is an endpoint that does not need authentication
 Use endpoint [Supported markets list](/docs/Market%20data/Supported%20markets%20list.md) to get value for parameter <code>market_code</code>.
 {% endhint %}
 
-<br>
-
 ### Example request<br>
 
 ```json
 GET /ver1/accounts/market_pairs?market_code=binance_us
 ```
-<br>
-
 
 ### Example Response and errors<br>
 <details>
