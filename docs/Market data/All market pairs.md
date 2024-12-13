@@ -7,7 +7,10 @@
 This is an endpoint that does not need authentication
 {% endhint %}
 
-### Query Parameter
+### Query Parameters
+| Name        | Type    | Mandatory | Description                          |
+|:------------|:-------:|---------:|--------------------------------------|
+| market_code | integer | Yes      | Unique exchange code in the 3Commas system |
 <p>
    <strong>market_code</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark>
    Unique exchange code in the 3Commas system
