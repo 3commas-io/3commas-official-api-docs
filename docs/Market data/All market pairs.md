@@ -1,5 +1,5 @@
 ## All market pairs
-<code><mark style="color:blue">GET</mark></code> <code>/ver1/accounts/market_pairs</strong></code>
+<code><mark style="color:blue">GET</mark> /ver1/accounts/market_pairs</code>
 
 {% hint style="success" %}
 This is an endpoint that does not need authentication
