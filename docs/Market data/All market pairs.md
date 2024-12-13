@@ -7,7 +7,7 @@
 This is an endpoint that does not need authentication
 {% endhint %}
 
-### Query Parameters
+#### Query Parameters
 | Name        | Type    | Mandatory | Description                                 |
 |-------------|---------|-----------|---------------------------------------------|
 | market_code | integer | Yes       | Unique exchange code in the 3Commas system  |
@@ -16,13 +16,13 @@ This is an endpoint that does not need authentication
 Use endpoint [Supported markets list](/docs/Market%20data/Supported%20markets%20list.md) to get value for parameter <code>market_code</code>.
 {% endhint %}
 
-### Example request
+#### Example request
 
 ```json
 GET /ver1/accounts/market_pairs?market_code=binance_us
 ```
 
-### Example Response and errors
+#### Example Response and errors
 <details>
 <summary>Status: 200 OK</summary>
 
