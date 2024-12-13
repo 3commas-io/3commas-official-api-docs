@@ -9,9 +9,7 @@ This is an endpoint that does not need authentication
 <br>
 
 <blockquote>
-<code><mark style="color:blue"><strong> GET </strong></mark></code>
-
-<code>/ver1/accounts/market_pairs</code>
+<strong><mark style="color:blue">GET</mark> /ver1/accounts/market_pairs</strong>
 </blockquote>
 <br>
 
@@ -57,4 +55,3 @@ GET /ver1/accounts/market_pairs?market_code=binance_us
 ]
 ```
 </details>
-
