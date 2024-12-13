@@ -8,13 +8,9 @@ This is an endpoint that does not need authentication
 {% endhint %}
 
 ### Query Parameters
-| Name        | Type    | Mandatory | Description                          |
-|:------------|:-------:|---------:|--------------------------------------|
-| market_code | integer | Yes      | Unique exchange code in the 3Commas system |
-<p>
-   <strong>market_code</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark>
-   Unique exchange code in the 3Commas system
-</p>
+| Name        | Type    | Mandatory | Description                                 |
+|-------------|---------|-----------|---------------------------------------------|
+| market_code | integer | Yes       | Unique exchange code in the 3Commas system  |
 
 {% hint style="info" %}
 Use endpoint [Supported markets list](/docs/Market%20data/Supported%20markets%20list.md) to get value for parameter <code>market_code</code>.
