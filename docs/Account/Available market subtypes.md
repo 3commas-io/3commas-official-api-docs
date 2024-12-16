@@ -1,4 +1,5 @@
 ## Available market subtypes<br>
+<br>
 
 **Description:** Returns the available account types for connection by user for specific exchange and pair of keys<br>
 
@@ -6,13 +7,13 @@
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:blue"><strong>GET</strong> 
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-<mark style="color:blue"><strong>/ver1/accounts/types_to_connect</strong> 
+<code>/ver1/accounts/types_to_connect</code>
 
-----------
+</blockquote>
 
 <br>
 
@@ -40,7 +41,7 @@ Use endpoint [Supported markets list](/docs/Market%20data/Supported%20markets%20
 
 <br>
 
-### Parameters Response<br>
+### Response Parameters<br>
 <p>
    <strong>type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
    The exchange code available to connect

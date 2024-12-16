@@ -1,4 +1,5 @@
 ### Load balances for specified exchange<br>
+<br>
 
 **Description:** Updates a balance for exchange account using its ID<br>
 
@@ -7,14 +8,14 @@
 
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:green"><strong>POST</strong>
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-<mark style="color:green"><strong>/ver1/accounts/{account_id}/load_balances</strong>
+<code>/ver1/accounts/{account_id}/load_balances</code>
 
-----------
-<br>
+</blockquote>
+
 <br>
 
 ### Path Parameters<br>
@@ -25,9 +26,7 @@
 
 ### Response Parameters<br>
 
-{% hint style="info" %}
 If successful, the response includes a copy of the updated [Account](./README.md) entity.
-{% endhint %}
 
 <br>
 
@@ -127,7 +126,7 @@ If successful, the response includes a copy of the updated [Account](./README.md
     "api_keys_state": "ok"
 }
 ```
-</details><br>
+</details>
 <details>
 <summary>Status: 422 Unprocessable Entity</summary><br>
 

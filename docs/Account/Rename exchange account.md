@@ -1,4 +1,5 @@
 ## Rename exchange account<br>
+<br>
 
 **Description:** Updates a name for the exchange account entity<br>
 
@@ -6,13 +7,14 @@
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:green"><strong>POST</strong>
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-<mark style="color:green"><strong>/ver1/accounts/{account_id}/rename</strong>
+<code>/ver1/accounts/{account_id}/rename</code>
 
-----------
+</blockquote>
+
 <br>
 
 
@@ -20,19 +22,20 @@
 <p>
    <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
    Unique 3Commas ID for this exchange account entity
-</p><br>
+</p>
+<br>
 
 ### Query Parameter<br>
 <p>
    <strong>name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
    New name for this exchange account
-</p><br>
+</p>
+<br>
 
 
 ### Response Parameters<br>
-{% hint style="info" %}
+
 If successful, the response includes a copy of the updated [Account](./README.md) entity.
-{% endhint %}
 
 <br>
 
@@ -136,7 +139,7 @@ POST  /ver1/accounts/11223344/rename?name=new%20name
 }
 
 ```
-</details><br>
+</details>
 <details>
 <summary>Status: 401 Unauthorized</summary><br>
 ```json

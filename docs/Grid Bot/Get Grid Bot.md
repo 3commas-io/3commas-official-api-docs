@@ -17,7 +17,6 @@
 
 <br>
 
-
 ### Path Parameters<br>
 <p>
    <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
@@ -36,12 +35,12 @@ If successful, the response includes a copy of the updated [Grid bot](./README.m
 ```json
 GET /ver1/grid_bots/2338357
 ```
+<br>
 
 ### Example Response and errors
 
 <details>
 <summary>Status: 200 OK</summary><br>
-
 
 ```json
 {

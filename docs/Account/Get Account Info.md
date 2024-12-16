@@ -1,4 +1,5 @@
 ## Get Account Info<br>
+<br>
 
 **Description:** Shows information about a specific account using its ID<br>
 
@@ -6,26 +7,26 @@
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:blue"><strong>GET</strong>
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-<mark style="color:blue"><strong>/ver1/accounts/{account_id}</strong>
+<code>/ver1/accounts/{account_id}</code>
 
-----------
+</blockquote>
+
 <br>
 
 ### Path Parameter<br>
 <p>
    <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
    Unique 3Commas ID for this exchange account entity
-</p><br>
+</p>
+<br>
 
-### Parameters response<br>
+### Response Parameters<br>
 
-{% hint style="info" %}
 If successful, the response includes a copy of [Account](./README.md) entity.
-{% endhint %}
 
 <br>
 
@@ -126,3 +127,4 @@ GET /ver1/accounts/12345678
     "api_keys_state": "ok"
 }
 ```
+</details>

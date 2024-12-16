@@ -1,4 +1,5 @@
 ## Add exchange account<br>
+<br>
 
 **Description:** Adds a new exchange account<br>
 
@@ -12,13 +13,14 @@ Please note that connections using manually created API keys are available only 
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:green"><strong>POST</strong>
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-<mark style="color:green"><strong>/ver1/accounts/new</strong>
+<code>/ver1/accounts/new</code>
 
-----------
+</blockquote>
+
 <br>
 
 ### Body Parameters<br>
@@ -54,7 +56,6 @@ Please note that connections using manually created API keys are available only 
    <strong>types_to_create</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>`array[string]`</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
    Array of related account types to be created.<br> For example: [<code>binance_margin</code>]
 </p>
-<br>
 <br>
 
 ### Response Parameters<br>
@@ -124,7 +125,7 @@ Please note that connections using manually created API keys are available only 
 </p>
 <p>
    <strong>trading_supported</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-   Indicates if trading is supported at 3Commas (<code>true</code>) or not (<code>false</code>)
+   Indicates whether trading is supported in 3Commas (<code>true</code>) or not (<code>false</code>)
 </p>
 <p>
    <strong>market_buy_supported</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
@@ -250,7 +251,6 @@ Monthly profit percentage in USD
    <strong>updated_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
    ISO 8601 datetime of when this SmartTrade entity was updated
 </p>
-<br>
 <br>
 
 ### Example Request<br>

@@ -1,4 +1,5 @@
 ## User deposit data<br>
+<br>
 
 **Description:** Returns the data of deposit for a specific account using its ID<br>
 
@@ -10,13 +11,13 @@ This endpoint works for the following exchanges: *Binance Spot*, *Binance US*, *
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:blue"><strong>GET</strong>
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-<mark style="color:blue"><strong>/ver1/accounts/{account_id}/deposit_data</strong>
+<code>/ver1/accounts/{account_id}/deposit_data</code>
 
-----------
+</blockquote>
 
 <br>
 
@@ -58,7 +59,6 @@ This endpoint works for the following exchanges: *Binance Spot*, *Binance US*, *
 ### Example Request<br>
 
 ```json
-
 GET /ver1/accounts/76543210/deposit_data?currency=BTC&network=BTC
 ```
 <br>

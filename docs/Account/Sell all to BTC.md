@@ -1,4 +1,5 @@
 ## Sell all to BTC<br>
+<br>
 
 **Description:**  Sells all assets on the exchange account in BTC, creating orders on the exchange<br>
 
@@ -10,24 +11,21 @@ This endpoint works for the following exchanges: **Binance Spot**, **Binance Mar
 {% endhint %}
 
 <br>
-<br>
 
-----------
+<blockquote>
 
-<mark style="color:green;background-color:white"> **POST**
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-<mark style="color:green;background-color:white"> **/ver1/accounts/{account_id}/sell_all_to_btc**
+<code>/ver1/accounts/{account_id}/sell_all_to_btc</code>
 
-----------
+</blockquote>
 
-<br>
 <br>
 
 {% hint style="warning" %}
 When executing this request, all trading entities (bots, SmartTrade, trades, deals, orders, exception Signal Bot) will be stop and close at the 3Commas and the exchange
 {% endhint %}
 
-<br>
 <br>
 
 ### Path Parameters<br>
@@ -37,13 +35,10 @@ When executing this request, all trading entities (bots, SmartTrade, trades, dea
 </p>
 
 <br>
-<br>
 
 ### Response Parameters<br>
 
-{% hint style="info" %}
 If successful, the response includes a copy of the updated [Account](./README.md) entity.
-{% endhint %}
 
 <br>
 <br>
@@ -51,9 +46,8 @@ If successful, the response includes a copy of the updated [Account](./README.md
 ### Example request<br>
 
 ```
-/ver1/accounts/32833900/sell_all_to_usd
+POST /ver1/accounts/32833900/sell_all_to_usd
 ```
-<br>
 <br>
 
 ### Example Response and errors<br>

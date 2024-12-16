@@ -1,4 +1,5 @@
 ## Convert dust coins to BNB<br>
+<br>
 
 **Description:** TBD <br>
 
@@ -7,14 +8,14 @@
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:green;background-color:white" >**POST**
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-<mark style="color:green;background-color:white" > **/ver1/accounts/{account_id}/convert_dust_to_bnb**
+<code>/ver1/accounts/{account_id}/convert_dust_to_bnb</code>
 
-----------
-<br>
+</blockquote>
+
 <br>
 
 
@@ -24,10 +25,6 @@
    Unique 3Commas ID for this exchange account entity
 </p>
 
-<br>
-<br>
-
-<br>
 <br>
 
 ### Parameters response<br>

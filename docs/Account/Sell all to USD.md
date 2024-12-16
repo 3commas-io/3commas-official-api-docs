@@ -1,4 +1,5 @@
 ## Sell all to BTC<br>
+<br>
 
 **Description:**  Sells all assets on the exchange account in USD, creating orders on the exchange<br>
 
@@ -10,15 +11,14 @@ This endpoint works for the following exchanges: *Binance Spot*, *Binance Margin
 {% endhint %}
 
 <br>
-<br>
 
-----------
+<blockquote>
 
-<mark style="color:green;background-color:white"> **POST**
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-<mark style="color:green;background-color:white"> **/ver1/accounts/{account_id}/sell_all_to_usd**
+<code>/ver1/accounts/{account_id}/sell_all_to_usd</code>
 
-----------
+</blockquote>
 
 <br>
 
@@ -40,16 +40,14 @@ When executing this request, all trading entities (bots, SmartTrade, trades, dea
 
 ### Response Parameters<br>
 
-{% hint style="info" %}
 If successful, the response includes a copy of the updated [Account](./README.md) entity.
-{% endhint %}
 
 <br>
 
 ### Example request<br>
 
 ```
-/ver1/accounts/12345678/sell_all_to_usd
+POST /ver1/accounts/12345678/sell_all_to_usd
 ```
 <br>
 <br>

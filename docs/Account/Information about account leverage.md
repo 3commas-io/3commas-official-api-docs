@@ -1,19 +1,20 @@
 ## Information about account leverage<br>
+<br>
 
-**Description:** Returns a list of leverages that the exchange market is using<br>
+**Description:** Returns a list of leverages that the exchange is using<br>
 
 **Permission:** ACCOUNTS_READ<br>
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:blue;background-color:white" > **GET**
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-<mark style="color:blue;background-color:white" > **/ver1/accounts/{account_id}/leverage_data**
+<code>/ver1/accounts/{account_id}/leverage_data</code>
 
-----------
-<br>
+</blockquote>
+
 <br>
 
 ### Path Parameter<br>
@@ -31,18 +32,38 @@
 <br>
 
 ### Parameters response<br>
-
-| Name | Type |	Description|
-|------|------|------------|
-|**code**| `string` | Unique code identifying the leverage type |
-|**name**| `boolean`| Display name for the leverage type |
-|**can_set_leverage_value**| `boolean` | Indicates whether the leverage value can be set by the user |
-|**max_leverage**| `string` or `null` | Maximum allowable leverage value for this type, or null if there is no limit |
-|**available_leverage_values**| `array` | List of specific leverage values available for this type, if any |
-|**valid[min]**| `string` or `null` | Minimum allowable leverage value |
-|**valid[max]**| `string` or `null` | Maximum allowable leverage value |
-
-<br>
+<p>
+   <strong>code</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Unique code identifying the leverage type
+</p>
+<p>
+   <strong>name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Display name for the leverage type
+</p>
+<p>
+   <strong>can_set_leverage_value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+   Indicates whether the leverage value can be set by the user (<code>true</code>) or not (<code>false</code>)
+</p>
+<p>
+   <strong>max_leverage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   Maximum allowable leverage value for this type, or null if there is no limit
+</p>
+<p>
+   <strong>available_leverage_values</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array</code><br>
+   List of specific leverage values available for this type
+</p>
+<p>
+   <strong>valid</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+   [TBD]
+</p>
+<p>
+   <strong>min</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   Minimum allowable leverage value
+</p>
+<p>
+   <strong>max</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   Maximum allowable leverage value
+</p>
 <br>
 
 ### Example request<br>
@@ -51,9 +72,9 @@
 GET /ver1/accounts/32833910/leverage_data?pair=USDC_DOGE
 ```
 <br>
-<br>
 
 ### Example Response and errors<br>
+
 <details>
 <summary>Status: 200 OK</summary><br>
 

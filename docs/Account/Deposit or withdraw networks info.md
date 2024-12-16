@@ -1,24 +1,24 @@
 ## Deposit or withdraw networks info<br>
+<br>
 
-**Description:**  Shows information about the currency and each supported network for deposits and withdrawals available on the exchange account<br>
+**Description:** Shows information about the currency and each supported network for deposits and withdrawals available on the exchange account<br>
 
 {% hint style="info" %}
 This endpoint works for the following exchanges: *Binance Spot*, *Binance US*, *OKX Spot*, *Binance Broker*
 {% endhint %}
 <br>
 
-**Permission:**  ACCOUNTS_READ<br>
+**Permission:** ACCOUNTS_READ<br>
 **Security:** SIGNED<br>
 <br>
-<br>
 
-----------
+<blockquote>
 
-<mark style="color:blue"><strong>GET</strong>
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-<mark style="color:blue"><strong>/ver1/accounts/{account_id}/networks_info</strong>
+<code>/ver1/accounts/{account_id}/networks_info</code>
 
-----------
+</blockquote>
 
 <br>
 
@@ -33,36 +33,102 @@ This endpoint works for the following exchanges: *Binance Spot*, *Binance US*, *
 <p>
    <strong>purpose</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
    Filter currencies with <code>deposit</code> or <code>withdraw</code> enabled
-</p><br>
-
+</p>
+<br>
 
 ### Parameters response<br>
-
-| Name | Type |	Description|
-|------|------|------------|
-|**currency**  | `integer`|  The name of currency |
-|**name**  | `integer`| The full name of the currency  |
-|**deposit_enable**  | `boolean` | Indicates whether currency deposit is available for this account |
-|**withdraw_enable**  | `boolean` | Indicates whether currency withdrawal is available for this account |
-|**network_list[network]**  | `string`| The name of network |
-|**network_list[default]**  | `boolean`| Indicates whether this network is the main one for deposits and withdrawals  |
-|**network_list[deposit_enable]**  | `boolean`| Indicates whether currency deposit is available for this network |
-|**network_list[withdraw_enable]**  | `boolean`| Indicates whether currency withdrawal is available for this network  |
-|**network_list[deposit_tip]** | `string` or `null`| Tip or notice related to deposits |
-|**network_list[withdraw_tip]** | `string` or `null` | Tip or notice related to withdrawals |
-|**network_list[special_tip]** | `string` or `null`| Additional information regarding specific network requirements |
-|**network_list[network_name]** | `string` or `null`| The full name of the network |
-|**network_list[network_url]** | `string` or `null`| The URL of the network |
-|**network_list[address_regexp]**  | `string` or `null` |  Regular expression (regex) used to validate Address|
-|**network_list[withdraw_fee]**  | `string` or `null` | Fee charged for withdrawals |
-|**network_list[withdraw_min]**  | `string` or `null` | Minimum withdrawal amount |
-|**network_list[withdrawMax]**  | `string` or `null` | The maximum possible withdrawal amount |
-|**network_list[withdrawMultiple]**  | `string` or `null`| Minimum increment for withdrawal amounts |
-|**network_list[memo_regexp]**  | `string` or `null`| Regular expression (regex) used to validate MEMO |
-|**network_list[label]**  | `string` or `null`| Label for the additional field (e.g., `MEMO` or `Tag`) |
-|**network_list[require_address_tag]**  | `boolean`| Specifies whether an additional field is required when depositing or withdrawing.<br> For example, `MEMO` or `Tag` |
-
-<br>
+<p>
+   <strong>currency</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   The name of currency
+</p>
+<p>
+   <strong>name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   The full name of the currency
+</p>
+<p>
+   <strong>deposit_enable</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+   Indicates whether currency deposit is available for this account (<code>true</code>) or not (<code>false</code>)
+</p>
+<p>
+   <strong>withdraw_enable</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+   Indicates whether currency withdrawal is available for this account (<code>true</code>) or not (<code>false</code>)
+</p>
+<p>
+   <strong>withdraw_enable</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+   Indicates whether currency withdrawal is available for this account (<code>true</code>) or not (<code>false</code>)
+</p>
+<p>
+   <strong>network_list</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+   The name of network
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>network</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The name of network
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>default</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicates whether this network is the main one for deposits and withdrawals (<code>true</code>) or not (<code>false</code>)
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>deposit_enable</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicates whether currency deposit is available for this network (<code>true</code>) or not (<code>false</code>)
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>withdraw_enable</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicates whether currency withdrawal is available for this network (<code>true</code>) or not (<code>false</code>)
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>deposit_tip</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tip or notice related to deposits
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>withdraw_tip</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tip or notice related to withdrawals
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>special_tip</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Additional information regarding specific network requirements
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>network_name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The full name of the network
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>network_url</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The URL of the network
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>address_regexp</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Regular expression (regex) used to validate Address
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>withdraw_fee</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fee charged for withdrawals
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>withdraw_min</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minimum withdrawal amount
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>withdrawMax</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The maximum possible withdrawal amount
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>withdrawMultiple</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minimum increment for withdrawal amounts
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>memo_regexp</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Regular expression (regex) used to validate MEMO
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>label</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Label for the additional field (e.g., <code>MEMO</code> or <code>Tag</code>)
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>require_address_tag</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies whether an additional field is required when depositing or withdrawing.<br> For example, <code>MEMO</code> or <code>Tag</code>
+</p>
 <br>
 
 ### Example request<br>
@@ -70,7 +136,6 @@ This endpoint works for the following exchanges: *Binance Spot*, *Binance US*, *
 ```
 GET /ver1/accounts/12345678/networks_info
 ```
-<br>
 <br>
 
 ### Example Response and errors<br>
@@ -128,9 +193,10 @@ GET /ver1/accounts/12345678/networks_info
     },
 ...
 ```
-</details><br>
+</details>
 <details>
 <summary>Status: 400 Bad Request</summary><br>
+
 ```json
 {
     "error": "record_invalid",
@@ -145,9 +211,10 @@ GET /ver1/accounts/12345678/networks_info
     }
 }
 ```
-</details><br>
+</details>
 <details>
 <summary>Status: 403 Forbidden</summary><br>
+
 ```json
 {
     "error": "Forbidden. Unavailable for this account."

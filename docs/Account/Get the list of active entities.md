@@ -1,4 +1,5 @@
 ## Get the list of active entities<br>
+<br>
 
 **Description:** Returns the list of active bots, deals and smarttrades using an ID account<br>
 
@@ -6,18 +7,17 @@
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:blue;background-color:white" > **GET**
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-<mark style="color:blue;background-color:white" > **/ver1/accounts/{account_id}/active_trading_entities**
+<code>/ver1/accounts/{account_id}/active_trading_entities</code>
 
-----------
+</blockquote>
 
 <br>
-<br>
 
-### Path Parameters<br>
+### Path Parameter<br>
 <p>
    <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
    Unique 3Commas ID for this exchange account entity

@@ -1,5 +1,5 @@
 ## Information about all user balances on specified exchange in pretty for pie chart formats<br>
-
+<br>
 
 **Description:** Shows information about currency balances of a specific account using its ID<br>
 
@@ -7,37 +7,72 @@
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:green;background-color:white" > **POST**
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-<mark style="color:green;background-color:white" > **ver1/accounts/{account_id}/pie_chart_data**
+<code>ver1/accounts/{account_id}/pie_chart_data</code>
 
-----------
-<br>
+</blockquote>
+
 <br>
 
 ### Path Parameters<br>
 <p>
    <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
    Unique 3Commas ID for this exchange account entity
-</p><br>
+</p>
+<br>
 
 ### Response Parameters<br>
-
-| Name | Type | Description|
-|------|------|------------|
-|**account_id**| `integer` | ID of the exchange account entity |
-|**code**| `string` | The cryptocurrency code symbol |
-|**coinmarketcapid**| `string`| Unique identifier of the cryptocurrency on CoinMarketCap |
-|**name**| `string`| Full name of the cryptocurrency |
-|**y**| `string`| [TBD:?] |
-|**percentage**| `string`| The exact percentage share of this cryptocurrency in the account's portfolio |
-|**amount**| `string`| The amount of cryptocurrency held in this account |
-|**btc_value**| `string`| The equivalent value of this cryptocurrency in BTC |
-|**usd_value**| `string`| The equivalent value of this cryptocurrency in USD |
-|**usd_value[currency]**| `string`|The currency code used to display values for this cryptocurrency  |
-|**usd_value[amount]**| `string`| The amount of the cryptocurrency in the primary display currency |
+<p>
+   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   ID of the exchange account entity
+</p>
+<p>
+   <strong>code</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The cryptocurrency code symbol
+</p>
+<p>
+   <strong>coinmarketcapid</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Unique identifier of the cryptocurrency on CoinMarketCap
+</p>
+<p>
+   <strong>name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Full name of the cryptocurrency
+</p>
+<p>
+   <strong>y</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   [TBD]
+</p>
+<p>
+   <strong>percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The percentage of the total portfolio value represented by this cryptocurrency
+</p>
+<p>
+   <strong>amount</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The amount of cryptocurrency held in this account
+</p>
+<p>
+   <strong>btc_value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The equivalent value of this cryptocurrency in BTC
+</p>
+<p>
+   <strong>usd_value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The equivalent value of this cryptocurrency in USD
+</p>
+<p>
+   <strong>primary_display_currency</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+   Contains information about the currency used for displaying the value of this cryptocurrency in the preferred display currency
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>currency</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The currency code used to display values for this cryptocurrency
+</p>
+<p>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>amount</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The value of this cryptocurrency, converted to the primary display currency using the current market rate
+</p>
 
 
 

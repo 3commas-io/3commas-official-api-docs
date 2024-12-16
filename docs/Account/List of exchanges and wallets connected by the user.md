@@ -8,42 +8,46 @@
 
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:blue"> <strong>GET</strong>
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-<mark style="color:blue"><strong>/ver1/accounts</strong>
+<code>/ver1/accounts</code>
 
-----------
-<br>
+</blockquote>
+
 <br>
 
 ### Query Parameters<br>
 
-| Name | Type | Mandatory | Values  | Description|
-|------|------|-----------|-----------------|------------|
-|**api_key**  | `string` | No |  | Filter by API-key  |
-|**page**  | `integer` | No |  | Page number for pagination.<br> Default: `1` |
-|**per_page**  | `integer` | No | Minimum: `1`<br>Maximum: `100` | Quantity of records on one page.<br>Default: `100` |
+<p>
+   <strong>api_key</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Filter by API-key
+</p>
+<p>
+   <strong>page</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Page number for pagination.<br>
+   Default: <code>1</code>
+</p>
+<p>
+   <strong>per_page</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Quantity of records on one page<br>
+   Minimum: <code>1</code>, Maximum: <code>100</code>
+   Default: <code>100</code>
+</p>
 
-<br>
 <br>
 
 ### Parameter response<br>
 
-{% hint style="info" %}
 If successful, the response includes a copy of [Account](./README.md) entity.
-{% endhint %}
 
-
-<br>
 <br>
 
 ### Example request<br>
 ```json
 GET /ver1/accounts
 ```
-<br>
 <br>
 
 ### Example Response and errors<br>

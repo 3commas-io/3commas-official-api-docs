@@ -5,15 +5,14 @@
 **Permission:**  ACCOUNTS_READ<br>
 **Security:** SIGNED<br>
 <br>
+<blockquote>
 
-----------
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-<mark style="color:blue"><strong>GET</strong>
+<code>/ver1/accounts/{account_id}/balance_chart_data</code>
 
-<mark style="color:blue"><strong>/ver1/accounts/{account_id}/balance_chart_data</strong>
+</blockquote>
 
-----------
-<br>
 <br>
 
 ### Path Parameter<br>
@@ -23,7 +22,7 @@
 </p>
 
 
-### Request Parameters<br>
+### Query Parameters<br>
 <p>
    <strong>date_from</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
    Specifying the start date in ISO 8601 format for the required records 
@@ -32,7 +31,6 @@
    <strong>date_to</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
    Specifies the end date for the required records
 </p>
-<br>
 <br>
 
 ### Parameters response<br>
@@ -57,14 +55,12 @@
    The deposited amount in USD on a specific date
 </p>
 <br>
-<br>
 
 ### Example Request<br>
 
 ```json
  GET /ver1/accounts/12345678/balance_chart_data?date_from=2024-09-18T18:58:55.469Z
 ```
-<br>
 <br>
 
 ###  Example Response and errors<br>
@@ -94,6 +90,7 @@
 </details>
 <details>
 <summary>Status: 400 Bad Request</summary><br>
+
 ```json
 {
     "error": "record_invalid",

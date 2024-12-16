@@ -1,4 +1,5 @@
 ## Remove exchange connection<br>
+<br>
 
 **Description:** Deletes an exchange account from user<br>
 
@@ -11,13 +12,14 @@ Keep in mind, that an exchange account can't delete if it has any active entitie
 
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:green"><strong>POST</strong>
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-<mark style="color:green"><strong>/ver1/accounts/{account_id}/remove</strong>
+<code>/ver1/accounts/{account_id}/remove</code>
 
-----------
+</blockquote>
+
 <br>
 
 ### Path Parameter<br>
