@@ -1,56 +1,41 @@
-## Available strategy list for DCA Bot<br>
-<br>
+**Description:** Retunrs available strategy list for DCA Bot. Use the query parameters to page through results
 
-**Description:** Retunrs available strategy list for DCA Bot. Use the query parameters to page through results <br>
+**Permission:** BOTS_READ
+**Security** SIGNED
 
-**Permission:** BOTS_READ<br>
-**Security** SIGNED<br>
-<br>
 <blockquote>
 
-<code><mark style="color:blue"><strong> GET </strong></mark></code>
+<code><mark style={{ color: "blue"}}> GET </mark></code>
 
 <code>/ver1/bots/strategy_list</code>
 
 </blockquote>
 
-<br>
+### Query Parameters
 
-### Query Parameters<br>
-
-<p>
-   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <code>integer</code><br>
+   account_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <code>integer</code>
    Unique 3Commas ID of the exchange account entity
-</p>
-<p>
-   <strong>type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    [TBD]: <code>simple</code> or <code>composite</code>
-</p>
-<p>
-   <strong>strategy</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   strategy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Strategy type for the bot: <code>long</code> or <code>short</code>
-</p>
-<br>
-<br>
 
-{% hint style="info" %}
+:::info
 Use endpoint [User connected exchanges and wallets list](/docs/Account/User%20connected%20exchanges%20and%20wallets%20list.md) to get value for parameter <code>account_id</code> in 3Commas.
-{% endhint %}
-<br>
-<br>
+:::
 
-### Example Request<br>
+### Example Request
 
 ```
 GET /ver1/bots/strategy_list
 ```
-<br>
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 200 OK</summary><br>
+<summary>Status: 200 OK</summary>
 
 ```json
 {
@@ -629,3 +614,5 @@ GET /ver1/bots/strategy_list
     }
 }
 ```
+
+</details>

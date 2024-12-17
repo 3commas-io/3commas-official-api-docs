@@ -1,55 +1,39 @@
-## Cancel Deal<br>
-<br>
+**Description:** Cancels a specific deal within the DCA Bot using its ID
 
-**Description:** Cancels a specific deal within the DCA Bot using its ID<br>
-
-{% hint style="warning" %}
+:::warning
 After this action, 3Commas will automatically set the final status to **Cancelled** for this deal.
-{% endhint %}
+:::
 
-<br>
-
-**Permission:** BOTS_WRITE<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** BOTS_WRITE
+**Security:** SIGNED
 
 <blockquote>
 
-<code><mark style="color:green"><strong> POST </strong></mark></code>
+<code><mark style={{ color: "green" }}> POST </mark></code>
 
-<code>/ver1/deals/{deal_id}/cancel</code>
+<code>`/ver1/deals/{deal_id}/cancel`</code>
 
 </blockquote>
 
-<br>
+### Path Parameter
 
-
-### Path Parameter<br
-<p>
-   <strong>deal_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   deal_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID Deal entity
-</p>
-<br>
-<br>
 
-### Response Parameters<br>
+### Response Parameters
 
 If successful, the response includes an updated copy of the [Deals](./README.md) entity.
 
-<br>
-
-### Example Request<br>
+### Example Request
 
 ```json
 POST  /ver1/deals/2345678901/cancel
 ```
 
-<br>
-
-###  Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 {
@@ -205,4 +189,5 @@ POST  /ver1/deals/2345678901/cancel
     ]
 }
 ```
+
 </details>

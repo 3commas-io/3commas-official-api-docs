@@ -1,74 +1,54 @@
-## Get data on bot's profits grouped by day<br>
-<br>
+**Description:** Returns daily profit data for a specified DCA Bot, grouped by date and identified by its unique ID
 
-**Description:** Returns daily profit data for a specified DCA Bot, grouped by date and identified by its unique ID<br>
-
-**Permission:** BOTS_READ<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** BOTS_READ
+**Security:** SIGNED
 
 <blockquote>
 
-<code><mark style="color:blue"><strong> GET </strong></mark></code>
+<code><mark style={{ color: "blue"}}> GET </mark></code>
 
 <code>/ver1/bots/stats</code>
 
 </blockquote>
 
-<br>
+### Path Parameter
 
-### Path Parameter<br>
-<p>
-   <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   bot_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID for this DCA Bot entity
-</p>
-<br>
 
-### Query Parameter<br>
+### Query Parameter
 
-<p>
-   <strong>days</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   Specifies the number of days for which profit data is requested for this bot<br>
+   days&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+   Specifies the number of days for which profit data is requested for this bot
    Default: <code>30</code>
-</p>
-<br>
 
+### Parameters response
 
-### Parameters response<br>
-<p>
-   <strong>s_date</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   s_date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    The specific date for which profit data is recorded for the this DCA Bot
-</p>
-<p>
-   <strong>unix_timestamp</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-The date represented as a Unix Timestamp for which profit data is recorded
-</p>
-<p>
-   <strong>profit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
-   Contain profit or loss data for the specified day, broken down by currency
-</p>
-<p>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>btc</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BTC profit or loss from deals per day
-</p>
-<p>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>usd</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USD profit or loss from deals per day
-</p>
-<br>
 
-### Example Request<br>
+   unix_timestamp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+The date represented as a Unix Timestamp for which profit data is recorded
+
+   profit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code>
+   Contain profit or loss data for the specified day, broken down by currency
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BTC profit or loss from deals per day
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;usd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USD profit or loss from deals per day
+
+### Example Request
 
 ```json
 GET /ver1/bots/15565014/profit_by_day
 ```
 
-<br>
-
-###  Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 200 OK</summary><br>
+<summary>Status: 200 OK</summary>
 
 ```json
 {
@@ -116,4 +96,5 @@ GET /ver1/bots/15565014/profit_by_day
     ]
 }
 ```
+
 </details>

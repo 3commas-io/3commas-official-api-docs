@@ -1,47 +1,35 @@
-## Cancel DCA Bot<br>
-<br>
+**Description:** Cancels an existing DCA Bot and all active deals using the bot's ID
 
-**Description:** Cancels an existing DCA Bot and all active deals using the bot's ID<br>
-
-**Permission:** BOTS_WRITE<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** BOTS_WRITE
+**Security:** SIGNED
 
 <blockquote>
 
-<code><mark style="color:green"><strong> POST </strong></mark></code>
+<code><mark style={{ color: "green" }}> POST </mark></code>
 
-<code>/ver1/bots/{bot_id}/cancel_all_deals</code>
+<code>`/ver1/bots/{bot_id}/cancel_all_deals`</code>
 
 </blockquote>
-<br>
 
-### Path Parameter<br>
-<p>
-   <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+### Path Parameter
+
+   bot_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID for this DCA Bot entity
-</p>
-<br>
-<br>
 
-### Parameters response<br>
+### Parameters response
 
 If successful, the response includes an updated copy of the [DCA Bot](./README.md) entity.
 
-<br>
-
-### Example Request<br>
+### Example Request
 
 ```json
 POST /ver1/bots/15564495/cancel_all_deals
 ```
 
-<br>
-
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 200 OK</summary><br>
+<summary>Status: 200 OK</summary>
 
 ```json
 {
@@ -205,4 +193,5 @@ POST /ver1/bots/15564495/cancel_all_deals
     ]
 }
 ```
+
 </details>

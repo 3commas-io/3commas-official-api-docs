@@ -1,98 +1,72 @@
-## Get profit details of Grid Bot<br>
-<br>
+**Description:** Returns profit details of existing Grid Bot using its ID
 
-**Description:** Returns profit details of existing Grid Bot using its ID<br>
-
-<br>
-
-**Permission:** BOTS_READ<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** BOTS_READ
+**Security:** SIGNED
 
 <blockquote>
 
-<code><mark style="color:blue"><strong> GET </strong></mark></code>
+<code><mark style={{ color: "blue"}}> GET </mark></code>
 
-<code>/ver1/grid_bots/{id}/profits</code>
+<code>`/ver1/grid_bots/{id}/profits`</code>
 
 </blockquote>
 
-<br>
+### Path Parameter
 
-
-### Path Parameter<br>
-<p>
-   <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID for this Grid Bot entity
-</p>
-<br>
 
-### Query parameters<br>
-<p>
-   <strong>from</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+### Query parameters
+
+   from&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Filters Grid Bots created after a specific date in ISO 8601 format
-</p>
-<p>
-   <strong>to</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   to&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Filters the Grid Bots created before a specific date in ISO 8601 format
-</p>
 
-<br>
-{% hint style="info" %}
+:::info
 If the from and to values are not set, the response will include all records ordered in descending (`DESC`) order by ID parameter
-{% endhint %}
-<br>
+:::
 
-### Parameters response<br>
-<p>
-   <strong>grid_line_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+### Parameters response
+
+   grid_line_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Unique 3Commas ID for this Grid line entity
-</p>
-<p>
-   <strong>profit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Profit amount from this Grid line event in the base currency
-</p>
-<p>
-   <strong>usd_profit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Profit amount in USD from this Grid line event 
-</p>
-<p>
-   <strong>created_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   ISO 8601 datetime string indicating when the event was recorded
-</p>
-<p>
-   <strong>grid_line</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
-   [TBD]
-</p>
-<p>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unique 3Commas ID for this Grid line entity
-</p>
-<p>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The price value at which the asset was bought or sold when this grid line was executed
-</p>
-<p>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>side</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Order side for this Grid line
-</p>
-<p>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>order_placed</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicates whether the order for this Grid line has been placed
-</p>
-<br>
 
-### Example Request<br>
+   profit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   Profit amount from this Grid line event in the base currency
+
+   usd_profit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   Profit amount in USD from this Grid line event
+
+   created_at&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   ISO 8601 datetime string indicating when the event was recorded
+
+   grid_line&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code>
+   [TBD]
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unique 3Commas ID for this Grid line entity
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The price value at which the asset was bought or sold when this grid line was executed
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;side&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Order side for this Grid line
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;order_placed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicates whether the order for this Grid line has been placed
+
+### Example Request
 
 ```json
 GET /ver1/grid_bots/2338357/profits?from=2024-09-01T04:00:00.000Z&to=2024-10-11T03:59:59.000Z
 ```
-<br>
 
-### Example response and errors<br>
+### Example response and errors
 
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 [
@@ -123,4 +97,5 @@ GET /ver1/grid_bots/2338357/profits?from=2024-09-01T04:00:00.000Z&to=2024-10-11T
     ...
 ]
 ```
+
 </details>

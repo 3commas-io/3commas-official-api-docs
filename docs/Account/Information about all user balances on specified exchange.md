@@ -1,27 +1,24 @@
-## Information about all user balances on specified exchange<br>
+## Information about all user balances on specified exchange
 
-**Description:** Shows information about currency balances of a specific account using its ID<br>
+**Description:** Shows information about currency balances of a specific account using its ID
 
-**Permission:** ACCOUNTS_READ<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** ACCOUNTS_READ
+**Security:** SIGNED
+
+----------
+
+<mark style={{ color: "green" }}>POST</mark>
+
+<mark style={{ color: "green" }}>`ver1/accounts/{account_id}/account_table_data`</mark>
 
 ----------
 
-<mark style="color:green"><strong>POST</strong>
+### Path Parameter
 
-<mark style="color:green"><strong>ver1/accounts/{account_id}/account_table_data</strong>
-
-----------
-<br>
-
-### Path Parameter<br>
-<p>
-   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   account_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
    Unique 3Commas ID for this exchange account entity
-</p><br>
 
-### Response Parameters<br>
+### Response Parameters
 
 | Name | Type | Description|
 |------|------|------------|
@@ -53,22 +50,17 @@
 |**account_id**| `integer`| Unique 3Commas ID of the exchange account entity |
 |**is_wallet**| `boolean`| Indicates whether this account is as a wallet |
 
-<br>
-<br>
-
-### Example request<br>
+### Example request
 
 ```json
 POST /ver1/accounts/12345678/account_table_data
 
 ```
-<br>
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 [
@@ -306,5 +298,5 @@ POST /ver1/accounts/12345678/account_table_data
     }
 ]
 ```
+
 </details>
- 

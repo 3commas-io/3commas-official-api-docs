@@ -1,55 +1,42 @@
-## List of exchanges and wallets connected by the user<br>
+## List of exchanges and wallets connected by the user
 
-**Description:** Returns the list of exchange accounts and wallets connecting to a user account<br>
+**Description:** Returns the list of exchange accounts and wallets connecting to a user account
 
-**Permission:** ACCOUNTS_READ<br>
-**Security:** SIGNED<br>
-<br>
-
-<br>
+**Permission:** ACCOUNTS_READ
+**Security:** SIGNED
 
 ----------
 
-<mark style="color:blue"> <strong>GET</strong>
+<mark style={{ color: "blue"}}> GET</mark>
 
-<mark style="color:blue"><strong>/ver1/accounts</strong>
+<mark style={{ color: "blue"}}>/ver1/accounts</mark>
 
 ----------
-<br>
-<br>
 
-### Query Parameters<br>
+### Query Parameters
 
 | Name | Type | Mandatory | Values  | Description|
 |------|------|-----------|-----------------|------------|
 |**api_key**  | `string` | No |  | Filter by API-key  |
-|**page**  | `integer` | No |  | Page number for pagination.<br> Default: `1` |
-|**per_page**  | `integer` | No | Minimum: `1`<br>Maximum: `100` | Quantity of records on one page.<br>Default: `100` |
+|**page**  | `integer` | No |  | Page number for pagination. Default: `1` |
+|**per_page**  | `integer` | No | Minimum: `1`Maximum: `100` | Quantity of records on one page.Default: `100` |
 
-<br>
-<br>
+### Parameter response
 
-### Parameter response<br>
-
-{% hint style="info" %}
+:::info
 If successful, the response includes a copy of [Account](./README.md) entity.
-{% endhint %}
+:::
 
+### Example request
 
-<br>
-<br>
-
-### Example request<br>
 ```json
 GET /ver1/accounts
 ```
-<br>
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 200 OK</summary><br>
+<summary>Status: 200 OK</summary>
 ```json
 [
     {
@@ -222,5 +209,3 @@ GET /ver1/accounts
 ]
 ```
 </details>
-
-

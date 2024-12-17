@@ -1,46 +1,39 @@
-### Load balances for specified exchange<br>
+### Load balances for specified exchange
 
-**Description:** Updates a balance for exchange account using its ID<br>
+**Description:** Updates a balance for exchange account using its ID
 
-**Permission:** ACCOUNTS_WRITE<br>
-**Security:** SIGNED<br>
-
-<br>
+**Permission:** ACCOUNTS_WRITE
+**Security:** SIGNED
 
 ----------
 
-<mark style="color:green"><strong>POST</strong>
+<mark style={{ color: "green" }}>POST</mark>
 
-<mark style="color:green"><strong>/ver1/accounts/{account_id}/load_balances</strong>
+<mark style={{ color: "green" }}>`/ver1/accounts/{account_id}/load_balances`</mark>
 
 ----------
-<br>
-<br>
 
-### Path Parameters<br>
-<p>
-   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+### Path Parameters
+
+   account_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
    Unique 3Commas ID for this exchange account entity
-</p><br>
 
-### Response Parameters<br>
+### Response Parameters
 
-{% hint style="info" %}
+:::info
 If successful, the response includes a copy of the updated [Account](./README.md) entity.
-{% endhint %}
+:::
 
-<br>
-
-### Example request<br>
+### Example request
 
 ```
  POST /ver1/accounts/12345678/load_balances
 ```
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
+
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 {
@@ -127,9 +120,10 @@ If successful, the response includes a copy of the updated [Account](./README.md
     "api_keys_state": "ok"
 }
 ```
-</details><br>
+
+</details>
 <details>
-<summary>Status: 422 Unprocessable Entity</summary><br>
+<summary>Status: 422 Unprocessable Entity</summary>
 
 ```json
 {
@@ -137,4 +131,5 @@ If successful, the response includes a copy of the updated [Account](./README.md
     "error": "invalid_api_key"
 }
 ```
+
 </details>

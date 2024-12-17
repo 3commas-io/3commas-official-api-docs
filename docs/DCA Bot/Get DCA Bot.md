@@ -1,54 +1,40 @@
-## Get DCA Bot<br>
-<br>
+**Description:** Shows information about a specific DCA Bot using its ID
 
-**Description:** Shows information about a specific DCA Bot using its ID<br>
-
-**Permission:** BOTS_READ<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** BOTS_READ
+**Security:** SIGNED
 
 <blockquote>
 
-<code><mark style="color:blue"><strong> GET </strong></mark></code>
+<code><mark style={{ color: "blue"}}> GET </mark></code>
 
-<code>/ver1/bots/{bot_id}/show</code>
+<code>`/ver1/bots/{bot_id}/show`</code>
 
 </blockquote>
 
-<br>
+### Path Parameter
 
-### Path Parameter<br>
-<p>
-   <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
-   Unique 3Commas ID DCA Bot entity 
-</p>
-<br>
+   bot_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
+   Unique 3Commas ID DCA Bot entity
 
-### Query Parameter<br>
+### Query Parameter
 
-<p>
-   <strong>include_events</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+   include_events&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
 Indicates whether to include information about events related to the entity (<code>true</code>) or not (<code>false</code>)
-</p>
-<br>
 
-### Response Parameters<br>
+### Response Parameters
 
 If successful, the response includes a copy of [DCA Bot](./README.md) entity.
 
-<br>
-
-### Example Request<br>
+### Example Request
 
 ```json
 GET /ver1/bots/12345678/show?include_events=true
 ```
-<br>
 
-### Example Response and Errors<br>
+### Example Response and Errors
 
 <details>
-<summary>Status: 200 OK</summary><br>
+<summary>Status: 200 OK</summary>
 
 ```json
 {
@@ -123,10 +109,11 @@ GET /ver1/bots/12345678/show?include_events=true
     "active_deals": []
 }
 ```
+
 </details>
 
 <details>
-<summary>Status: 404 Not Found</summary><br>
+<summary>Status: 404 Not Found</summary>
 ```
 {
     "error": "Not found"

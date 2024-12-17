@@ -1,112 +1,83 @@
-## Get List of Deals<br>
-<br>
+**Description:** Returns the list of geals. Use the query parameters to page through results
 
-**Description:** Returns the list of geals. Use the query parameters to page through results<br>
-
-
-**Permission:** BOTS_READ<br>
-**Security** SIGNED<br>
-<br>
+**Permission:** BOTS_READ
+**Security** SIGNED
 
 <blockquote>
 
-<code><mark style="color:blue"><strong> GET </strong></mark></code>
+<code><mark style={{ color: "blue"}}> GET </mark></code>
 
 <code>/ver1/deals</code>
 
 </blockquote>
 
-<br>
+### Query Parameters
 
-### Query Parameters<br>
-<p>
-   <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   bot_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
    Filters by the unique ID of the 3Commas DCA Bot
-</p>
-<p>
-   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+
+   account_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
    Filters entities linked to the specified 3Commas exchange account
-</p>
-<p>
-   <strong>limit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   Limits the number of records returned<br>
+
+   limit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+   Limits the number of records returned
    Maximum: <code>1000</code>, Default: <code>50</code>
-</p>
-<p>
-   <strong>offset</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+
+   offset&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
    Skips the first N records in the results
-</p>
-<p>
-   <strong>from</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   from&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Returns entities created after a specific time
-</p>
-<p>
-   <strong>to</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   to&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Returns entities created before a specific time
-</p>
-<p>
-   <strong>scope</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Filters deals by their status<br>Default: <code>null</code>
+
+   scope&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   Filters deals by their statusDefault: <code>null</code>
     <details>
-        <summary><em>Allowed value</em></summary>
-            <dl>
-                <li>active - active deals;
-                 <li>finished - finished deals;
-                 <li>completed - successfully completed;
-                 <li>cancelled - cancelled deals;
-                 <li>failed - failed deals;
-                 <li><code>null</code> - all deals
-            </dl>
+        <summary>Allowed value</summary>
+            - active - active deals;
+            - finished - finished deals;
+            - completed - successfully completed;
+            - cancelled - cancelled deals;
+            - failed - failed deals;
+            - <code>null</code> - all deals
     </details>
-</p>
-<p>
-   <strong>order</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Specifies the field used to order the results<br>
+
+   order&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   Specifies the field used to order the results
    Valid fields for ordering: <code>created_at</code>; <code>updated_at</code>; <code>closed_at</code>; <code>profit</code>; <code>profit_percentage</code>. Default: <code>created_at</code>
-</p>
-<p>
-   <strong>order_direction</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Sets the direction of order: <code>ASC</code> or <code>DESC</code><br>
+
+   order_direction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   Sets the direction of order: <code>ASC</code> or <code>DESC</code>
    Default: <code>DESC</code>
-</p>
-<p>
-   <strong>base</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   base&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Filters by base currency
-</p>
-<p>
-   <strong>quote</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   quote&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Filters by quote currency
-</p>
-<p>
-   <strong>note</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   note&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Filters deals by note
-</p>
-<br>
 
-{% hint style="info" %}
+:::info
 Use endpoint [User connected exchanges and wallets list](Account/User%20connected%20exchanges%20and%20wallets%20list.md) to get value for parameter 'account_id' in 3Commas.
-{% endhint %}
 
-<br>
-
-### Response Parameters<br>
+### Response Parameters
 
 If successful, the response includes a copy of [Deals](./README.md) entity.
-<br>
-<br>
 
-### Example Request<br>
+### Example Request
 
 ```json
 GET /ver1/deals?bot_id=23456789
 ```
 
-<br>
-
-### Example response and errors<br>
+### Example response and errors
 
 <details>
-<summary>Status: 200 OK</summary><br>
+<summary>Status: 200 OK</summary>
 
 ```json
 [
@@ -233,4 +204,5 @@ GET /ver1/deals?bot_id=23456789
     ... 
 ]
 ```
+
 </details>

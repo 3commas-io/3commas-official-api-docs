@@ -1,65 +1,47 @@
-## Sell all to BTC<br>
+## Sell all to BTC
 
-**Description:**  Sells all assets on the exchange account in BTC, creating orders on the exchange<br>
+**Description:**  Sells all assets on the exchange account in BTC, creating orders on the exchange
 
-**Permission:** ACCOUNTS_WRITE<br>
-**Security:** SIGNED<br>
+**Permission:** ACCOUNTS_WRITE
+**Security:** SIGNED
 
-{% hint style="info" %}
+:::info
 This endpoint works for the following exchanges: **Binance Spot**, **Binance Margin**, **Binance US**, **Coinbase Advanced Spot**, **Gemini Spot**, **Kraken Spot**, **Bybit Spot**, **GateIo**, **OKX Spot**, **Huobi Spot**, **Bitfinex Spot**, **Kucoin Spot**, **Bitstamp Spot**
-{% endhint %}
-
-<br>
-<br>
+:::
 
 ----------
 
-<mark style="color:green;background-color:white"> **POST**
+<mark style={{ color: "green", backgroundColor: "white" }}> **POST**</mark>
 
-<mark style="color:green;background-color:white"> **/ver1/accounts/{account_id}/sell_all_to_btc**
+<mark style={{ color: "green", backgroundColor: "white" }}>`/ver1/accounts/{account_id}/sell_all_to_btc`</mark>
 
 ----------
 
-<br>
-<br>
-
-{% hint style="warning" %}
+:::warning
 When executing this request, all trading entities (bots, SmartTrade, trades, deals, orders, exception Signal Bot) will be stop and close at the 3Commas and the exchange
-{% endhint %}
+:::
 
-<br>
-<br>
+### Path Parameters
 
-### Path Parameters<br>
-<p>
-   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   account_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID for this exchange account entity
-</p>
 
-<br>
-<br>
+### Response Parameters
 
-### Response Parameters<br>
-
-{% hint style="info" %}
+:::info
 If successful, the response includes a copy of the updated [Account](./README.md) entity.
-{% endhint %}
+:::
 
-<br>
-<br>
-
-### Example request<br>
+### Example request
 
 ```
 /ver1/accounts/32833900/sell_all_to_usd
 ```
-<br>
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 {
@@ -146,6 +128,7 @@ If successful, the response includes a copy of the updated [Account](./README.md
     "api_keys_state": "ok"
 }
 ```
+
 </details>
 <details>
 <summary>Status: 403 Forbidden</summary>
@@ -155,6 +138,3 @@ If successful, the response includes a copy of the updated [Account](./README.md
 }
 ```
 </details>
-
-
-

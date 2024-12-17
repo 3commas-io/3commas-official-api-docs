@@ -1,101 +1,75 @@
-## Grid Bot Profits<br>
-<br>
+**Description:** Returns profit data for a specific Grid Line associated with a Grid Bot, identified by its unique ID
 
-**Description:** Returns profit data for a specific Grid Line associated with a Grid Bot, identified by its unique ID<br>
+**Permission:** BOTS_READ
+**Security:** SIGNED
 
-**Permission:** BOTS_READ<br>
-**Security:** SIGNED<br>
-<br>
 <blockquote>
 
-<code><mark style="color:blue"><strong> GET </strong></mark></code>
+<code><mark style={{ color: "blue"}}> GET </mark></code>
 
-<code>/ver1/grid_bots/{id}/profits</code>
+<code>`/ver1/grid_bots/{id}/profits`</code>
 
 </blockquote>
 
-<br>
+### Path Parameter
 
-### Path Parameter<br>
-<p>
-   <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID for this Grid Bot entity
-</p>
-<br>
 
-### Body Parameters<br>
+### Body Parameters
 
-<p>
-   <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Filters the Grid Bots created after a specific date. Use an ISO 8601 datetime string as the value
-</p>
-<p>
-   <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Filters the Grid Bots created before a specific date. Use an ISO 8601 datetime string as the value
-</p>
-<br>
 
-{% hint style="info" %}
+:::info
 If the <code>from</code> and <code>to</code> values are not set, the response will include all records ordered in descending (<code>[DESC]</code>) order.
-{% endhint %}
+:::
 
-<br>
-<br>
+### Response Parameters
 
-### Response Parameters<br>
-<p>
-   <strong>grid_line_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   grid_line_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Unique 3Commas ID for this Grid line entity
-</p>
-<p>
-   <strong>profit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Profit amount from this Grid line event in the base currency
-</p>
-<p>
-   <strong>usd_profit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Profit amount in USD from this Grid line event
-</p>
-<p>
-   <strong>created_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   ISO 8601 datetime string indicating when the event was recorded
-</p>
-<p>
-   <strong>created_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   ISO 8601 datetime string indicating when the event was recorded
-</p>
-<p>
-   <strong>grid_line</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
-   Details about a specific Grid line event
-</p>
-<p>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unique 3Commas ID for this Grid line entity
-</p>
-<p>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The price value at which the asset was bought or sold when this grid line was executed
-</p>
-<p>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>side</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Order side for this Grid line
-</p>
-<p>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>order_placed</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicates whether the order for this Grid line has been placed
-</p>
-<br>
 
-### Example Request<br>
+   profit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   Profit amount from this Grid line event in the base currency
+
+   usd_profit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   Profit amount in USD from this Grid line event
+
+   created_at&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   ISO 8601 datetime string indicating when the event was recorded
+
+   created_at&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   ISO 8601 datetime string indicating when the event was recorded
+
+   grid_line&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code>
+   Details about a specific Grid line event
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unique 3Commas ID for this Grid line entity
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The price value at which the asset was bought or sold when this grid line was executed
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;side&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Order side for this Grid line
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;order_placed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicates whether the order for this Grid line has been placed
+
+### Example Request
 
 ```
 GET /ver1/grid_bots/2338357/profits
 ```
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 200 OK</summary><br>
+<summary>Status: 200 OK</summary>
 
 ```
 [
@@ -127,10 +101,11 @@ GET /ver1/grid_bots/2338357/profits
 ]
 
 ```
+
 </details>
 
 <details>
-<summary>Status: 401 Unauthorized</summary><br>
+<summary>Status: 401 Unauthorized</summary>
 
 ```json
 {
@@ -138,4 +113,5 @@ GET /ver1/grid_bots/2338357/profits
     "error_description": "Provided signature is invalid"
 }
 ```
+
 </details>

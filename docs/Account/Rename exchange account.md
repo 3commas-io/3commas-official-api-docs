@@ -1,54 +1,44 @@
-## Rename exchange account<br>
+## Rename exchange account
 
-**Description:** Updates a name for the exchange account entity<br>
+**Description:** Updates a name for the exchange account entity
 
-**Permission:** ACCOUNTS_READ<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** ACCOUNTS_READ
+**Security:** SIGNED
+
+----------
+
+<mark style={{ color: "green" }}>POST</mark>
+
+<mark style={{ color: "green" }}>`/ver1/accounts/{account_id}/rename`</mark>
 
 ----------
 
-<mark style="color:green"><strong>POST</strong>
+### Path Parameter
 
-<mark style="color:green"><strong>/ver1/accounts/{account_id}/rename</strong>
-
-----------
-<br>
-
-
-### Path Parameter<br>
-<p>
-   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   account_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
    Unique 3Commas ID for this exchange account entity
-</p><br>
 
-### Query Parameter<br>
-<p>
-   <strong>name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+### Query Parameter
+
+   name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
    New name for this exchange account
-</p><br>
 
+### Response Parameters
 
-### Response Parameters<br>
-{% hint style="info" %}
+:::info
 If successful, the response includes a copy of the updated [Account](./README.md) entity.
-{% endhint %}
+:::
 
-<br>
-
-
-### Example request<br>
+### Example request
 
 ```json
 POST  /ver1/accounts/11223344/rename?name=new%20name
 ```
-<br>
 
-
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 {
@@ -136,13 +126,14 @@ POST  /ver1/accounts/11223344/rename?name=new%20name
 }
 
 ```
-</details><br>
+
+</details>
 <details>
-<summary>Status: 401 Unauthorized</summary><br>
+<summary>Status: 401 Unauthorized</summary>
 ```json
 {
     "error": "signature_invalid",
     "error_description": "Provided signature is invalid"
 }
 ```
-<details>
+</details>

@@ -1,68 +1,49 @@
-## Close one step in deal at market price<br>
-<br>
+**Description:** Closes a specific Trade within the Deal by market using its ID
 
-**Description:** Closes a specific Trade within the Deal by market using its ID<br>
-
-{% hint style="warning" %}
+:::warning
 After this action, the final status **Panic_sold** will be automatically set by 3Commas.
-{% endhint %}
+:::
 
-**Permission:** BOTS_WRITE<br>
-**Security:** SIGNED<br>
-
-<br>
+**Permission:** BOTS_WRITE
+**Security:** SIGNED
 
 <blockquote>
 
-<code><mark style="color:green"><strong> POST </strong></mark></code>
+<code><mark style={{ color: "green" }}> POST </mark></code>
 
-<code>/ver1/deals/{deal_id}/panic_sell_step</code>
+<code>`/ver1/deals/{deal_id}/panic_sell_step`</code>
 
 </blockquote>
 
-<br>
+### Path Parameter
 
-### Path Parameter<br>
-<p>
-   <strong>deal_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   deal_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID Deal entity
-</p>
-<br>
 
-### Body Parameter<br>
+### Body Parameter
 
-<p>
-   <strong>trade_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   trade_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID Trade of the deal that should be sold
-</p>
-<br>
 
-{% hint style="info" %}
-
+:::info
 Use endpoint [Get Deal](DCA%20Bot/Deals/Get%20Deal.md) to get value for parameter 'trade_id'.
+:::
 
-{% endhint %}
-
-<br>
-
-### Parameter response<br>
+### Parameter response
 
 If successful, the response includes an updated copy of the [Deals](./README.md) entity.
 
-<br>
-
-### Example request<br>
+### Example request
 
 ```
 POST
 /ver1/deals/12345678/panic_sell_step?trade_id=1123324654
 ```
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 {
@@ -296,3 +277,5 @@ POST
     ]
 }
 ```
+
+</details>

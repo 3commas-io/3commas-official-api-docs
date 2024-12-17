@@ -1,75 +1,61 @@
-## Available market subtypes<br>
+## Available market subtypes
 
-**Description:** Returns the available account types for connection by user for specific exchange and pair of keys<br>
+**Description:** Returns the available account types for connection by user for specific exchange and pair of keys
 
-**Permission:** NONE<br>
-**Security:** SIGNED<br>
-<br>
-
-----------
-
-<mark style="color:blue"><strong>GET</strong> 
-
-<mark style="color:blue"><strong>/ver1/accounts/types_to_connect</strong> 
+**Permission:** NONE
+**Security:** SIGNED
 
 ----------
 
-<br>
+<mark style={{ color: "blue"}}>GET</mark>
 
-### Query Parameters<br>
-<p>
-   <strong>type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
-   Name of the exchange in the 3Commas system 
-</p>
-<p>
-   <strong>name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+<mark style={{ color: "blue"}}>/ver1/accounts/types_to_connect </mark>
+
+----------
+
+### Query Parameters
+
+   type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
+   Name of the exchange in the 3Commas system
+
+   name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Name for exchange account
-</p>
-<p>
-   <strong>api_key</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+
+   api_key&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    API-key for this exchange account
-</p>
-<p>
-   <strong>secret</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
-   Secret-key for this exchange account
-</p><br>
 
-{% hint style="info" %}
+   secret&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
+   Secret-key for this exchange account
+
+:::info
 Use endpoint [Supported markets list](/docs/Market%20data/Supported%20markets%20list.md) and parameter <code>market_code</code>to get value for parameter <code>type</code> in 3Commas.
-{% endhint %}
+:::
 
-<br>
+### Parameters Response
 
-### Parameters Response<br>
-<p>
-   <strong>type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    The exchange code available to connect
-</p>
-<p>
-   <strong>connected</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+
+   connected&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
    Indicates whether the exchange is currently connected (<code>true</code>) or not (<code>false</code>)
-</p>
-<p>
-   <strong>available</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+
+   available&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
    Secret-key for this exchange account
-</p>
-<p>
-   <strong>unified</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-   Shows the exchange supports an unified account. Using for Bybit exchange<br><code>true</code> is if it supports 
-</p><br>
 
+   unified&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
+   Shows the exchange supports an unified account. Using for Bybit exchange<code>true</code> is if it supports
 
-### Example Request<br>
+### Example Request
 
 ```json
 GET
 /ver1/accounts/types_to_connect?type=binance&name=binance123&api_key=6q4zuON***XKi8kOMepGT***xcxkBlIACvhY***8Qr97MsAT9***p4qe9Uezqrrd&secret=7CfL1slT***8xzCsgzA***4yfNGvOav***QO
 ```
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
+
 <details>
-<summary>Status: 200 OK</summary><br>
+<summary>Status: 200 OK</summary>
 
 ```json
  {
@@ -98,10 +84,11 @@ GET
     }
 ]
 ```
+
 </details>
 
 <details>
-<summary>Status: 400 Bad Request</summary><br>
+<summary>Status: 400 Bad Request</summary>
 
 ```json
 {
@@ -114,4 +101,5 @@ GET
     }
 }
 ```
+
 </details>

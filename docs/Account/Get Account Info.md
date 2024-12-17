@@ -1,44 +1,39 @@
-## Get Account Info<br>
+## Get Account Info
 
-**Description:** Shows information about a specific account using its ID<br>
+**Description:** Shows information about a specific account using its ID
 
-**Permission:** ACCOUNTS_READ<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** ACCOUNTS_READ
+**Security:** SIGNED
+
+----------
+
+<mark style={{ color: "blue"}}>GET</mark>
+
+<mark style={{ color: "blue"}}>`/ver1/accounts/{account_id}`</mark>
 
 ----------
 
-<mark style="color:blue"><strong>GET</strong>
+### Path Parameter
 
-<mark style="color:blue"><strong>/ver1/accounts/{account_id}</strong>
-
-----------
-<br>
-
-### Path Parameter<br>
-<p>
-   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   account_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID for this exchange account entity
-</p><br>
 
-### Parameters response<br>
+### Parameters response
 
-{% hint style="info" %}
+:::info
 If successful, the response includes a copy of [Account](./README.md) entity.
-{% endhint %}
+:::
 
-<br>
-
-### Example request<br>
+### Example request
 
 ```json
 GET /ver1/accounts/12345678
 ```
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
+
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 {
@@ -126,3 +121,5 @@ GET /ver1/accounts/12345678
     "api_keys_state": "ok"
 }
 ```
+
+</details>

@@ -1,40 +1,32 @@
-## Edit exchange account<br>
-<br>
+## Edit exchange account
 
-**Description:** Updates an exchange account using its ID, including updating API keys for reconnecting the account<br>
+**Description:** Updates an exchange account using its ID, including updating API keys for reconnecting the account
 
-**Permission:** ACCOUNTS_WRITE<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** ACCOUNTS_WRITE
+**Security:** SIGNED
 
 ----------
 
-<mark style="color:green;background-color:white" >**POST**
+<mark style={{ color: "green", backgroundColor: "white" }} >**POST**</mark>
 
-<mark style="color:green;background-color:white" >**/ver1/accounts/update**
+<mark style={{ color: "green", backgroundColor: "white" }} >**/ver1/accounts/update**</mark>
 
 ----------
 
-<br>
-<br>
+### Parameters request
 
-### Parameters request<br>
-
-| Name | Type |	Mandatory |	Values	| Description|
+| Name | Type | Mandatory | Values | Description|
 |------|------|-----------|-----------------|------------|
 |**account_id**  | `integer` | Yes |  | Unique 3Commas ID of the exchange account entity |
 |**name**  | `string` | No |  | Name of this exchange account. |
 |**api_key**  | `string` | No |  | API-key from this exchange account |
 |**secret**  | `string` | No |  | Secret-key from this exchange account |
-|**customer_id**  | `string` | No |  | Unique customer ID provided by the Bitstamp exchange.<br>This parameter is required when `type` is set to `Bitstamp` |
-|**passphrase**  | `string` | No |  | Secret phrase from this exchange account.<br> This parameter is required when `type` is set to `Coinbase` |
+|**customer_id**  | `string` | No |  | Unique customer ID provided by the Bitstamp exchange.This parameter is required when `type` is set to `Bitstamp` |
+|**passphrase**  | `string` | No |  | Secret phrase from this exchange account. This parameter is required when `type` is set to `Coinbase` |
 |**address**  | `string` | No |  | Address of wallet. This parameter is required when `type` is set to `ethereumwallet` |
-|**include_in_summary**  | `boolean` | No | `true` <br> `false` | Choose whether this account should be included in the summary statistics |
+|**include_in_summary**  | `boolean` | No | `true`  `false` | Choose whether this account should be included in the summary statistics |
 
-<br>
-<br>
-
-### Parameters response<br>
+### Parameters response
 
 | Name | Type |Description |
 |------|------|------------|
@@ -88,17 +80,16 @@
 | **created_at** | `string` | ISO 8601 datetime `string` of when this Account entity was created |
 | **updated_at** | `string` | ISO 8601 datetime `string` of when this SmartTrade entity was updated |
 
-### Example request<br>
+### Example request
 
 ```
 POST /ver1/accounts/update?account_id=12345678&name=New%20name%20exchange
 ```
 
-
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 {
@@ -185,4 +176,5 @@ POST /ver1/accounts/update?account_id=12345678&name=New%20name%20exchange
     "api_keys_state": "ok"
 }
 ```
+
 </details>

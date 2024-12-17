@@ -1,112 +1,87 @@
-## Supported markets list<br>
-<br>
+## Supported markets list
 
-**Description:** Returns the list of markets supported by 3Commas<br>
+**Description:** Returns the list of markets supported by 3Commas
 
-{% hint style="success" %}
+:::tip
 This is an endpoint that does not need authentication
-{% endhint %}
-<br>
+:::
 
 <blockquote>
-<code><mark style="color:blue"><strong> GET </strong></mark></code>
+<code><mark style={{color: "blue"}}> GET </mark></code>
 
 <code>/ver1/accounts/market_list</code>
 </blockquote>
-<br>
 
-### Request parameters<br>
+### Request parameters
 
 ```json
 NONE
 ```
-<br>
 
-### Response parameters<br>
+### Response parameters
 
-<p>
-   <strong>market_name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Name of the exchange in the 3Commas system 
-</p>
-<p>
-   <strong>market_url</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   market_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   Name of the exchange in the 3Commas system
+
+   market_url&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    The referral link to the exchange website
-</p>
-<p>
-   <strong>market_icon</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   market_icon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    The URL link to the icon for this exchange
-</p>
-<p>
-   <strong>help_link</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   help_link&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    The public URL to the help page with detailed instructions on connecting the exchange
-</p>
-<p>
-   <strong>form_fields</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+
+   form_fields&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code>
    Contains required and optional fields necessary for connecting to the exchange
-</p>
-<p>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>required</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array[object]</code><br>
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;required&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array[object]</code>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shows required fields necessary for connecting to the exchange
-</p>
-<p>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>field</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The parameter needs to connect a new exchange account.<br>
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The parameter needs to connect a new exchange account.
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: <code>api_key</code>; <code>secret</code>
-</p>
-<p>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>localized_name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;localized_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Display name of the field, localized for user convenience
-</p>
-<p>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>optional</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array[object]	</code><br>
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;optional&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array[object] </code>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shows optinal fields need for connecting to the exchange
-</p>
-<p>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>field</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The parameter needs to connect a new exchange account.<br>
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The parameter needs to connect a new exchange account.
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: <code>api_key</code>; <code>secret</code>
-</p>
-<p>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>localized_name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;localized_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Display name of the field, localized for user convenience
-</p>
-<p>
-   <strong>connection_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   connection_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Shows how many fields use to connect the exchange or the wallet
-</p>
-<p>
-   <strong>available_connection_flows</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array</code><br>
-   Available exchange connection types in 3Commas<br>
-   <details><summary><em>Allowed value</em></summary>
-      <dl>
-       <li><strong>form</strong> - connection through a web form option;
-       <li><strong>fast_connect</strong> - quick connection option;
-    </dl>
+
+   available_connection_flows&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array</code>
+   Available exchange connection types in 3Commas
+   <details>
+   <summary>Allowed value</summary>
+       - form - connection through a web form option;
+       - fast_connect - quick connection option;
    </details>
-</p>
-<p>
-   <strong>third_party_allowed</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-   This exchange provides a service to connect third-party apps.<br><code>false</code> - if the exchange does not support
-</p>
-<p>
-   <strong>trusted_ips</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array[string]</code><br>
+
+   third_party_allowed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
+   This exchange provides a service to connect third-party apps.<code>false</code> - if the exchange does not support
+
+   trusted_ips&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array[string]</code>
    The list of IP addresses needs to be whitelisted on the exchange's website for 3Commas to work with the exchange
-</p>
-<p>
-   <strong>trusted_ips_input_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   trusted_ips_input_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Input type for trusted IP addresses
-</p>
-<p>
-   <strong>fast_connect_action_name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   fast_connect_action_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Name of the exchange for fast connection option in the 3Commas system
-</p>
-<br>
-<br>
 
+### Example Response and errors
 
-### Example Response and errors<br>
 <details>
-<summary>Status: 200 OK</summary><br>
+<summary>Status: 200 OK</summary>
 
 ```json
 [
@@ -184,4 +159,5 @@ NONE
    },
 ]
 ```
-<details>
+
+</details>

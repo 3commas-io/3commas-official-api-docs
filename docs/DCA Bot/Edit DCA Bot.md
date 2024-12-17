@@ -1,229 +1,183 @@
-## Edit DCA Bot<br>
-<br>
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-**Description:** Edits an existing DCA Bot using its ID<br>
+**Description:** Edits an existing DCA Bot using its ID
 
-**Permission:** BOTS_WRITE<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** BOTS_WRITE
+**Security:** SIGNED
 
 <blockquote>
 
-<code><mark style="color:purple"><strong> PATCH </strong></mark></code>
+<code><mark style={{ color: "purple" }}> PATCH </mark></code>
 
-<code>/ver1/bots/{bot_id}/update</code>
+<code>`/ver1/bots/{bot_id}/update`</code>
 
 </blockquote>
 
-<br>
+### Path Parameter
 
-### Path Parameter<br>
-<p>
-   <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   bot_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID for this DCA Bot entity
-</p><br>
 
-### Body Parameters<br>
-<p>
-   <strong>name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+### Body Parameters
+
+   name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    DCA Bot name specified by the user
-</p>
-<p>
-   <strong>pairs</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+
+   pairs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Trading pair(s) in 3Commas format
-</p>
-<p>
-   <strong>max_active_deals</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   The maximum number of active deals available for this DCA Bot<br>
+
+   max_active_deals&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+   The maximum number of active deals available for this DCA Bot
    Minimum:<code>1</code>, Maximum:<code>199</code>
    Default: <code>1</code>
-</p>
-<p>
-   <strong>base_order_volume_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
-   The volume type of the base order for this DCA Bot: <code>quote_currency</code>, <code>base_currency</code> or <code>percent</code>
-</p>
-<p>
-   <strong>base_order_volume</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
-   The volume of the base order for this DCA Bot
-</p>
-<p>
-   <strong>take_profit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
-   Percentage value for the bot’s Take Profit.<br>If multiple steps are specified in <code>take_profit_steps settings</code>, this parameter should be set to <code>0</code>
-</p>
-<p>
-   <strong>take_profit_steps</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array[object]</code><br>
-   Take Profit Steps, each represented as an object with properties:
-<li><code>amount_percentage</code>;</li>
-<li><code>profit_percentage</code>.</li>
-</p>
-<p>
-   <strong>safety_order_volume</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
-   The volume of the Safety Order for this DCA Bot
-</p>
-<p><strong>safety_order_volume_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   The volume type of the Safety Order for this DCA Bot
-</p>
-<p>
-   <strong>martingale_volume_coefficient</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
-   Coefficient for increasing <em>safety order volume</em> in Martingale strategy<br>
-   Minimum:<code>0,1</code>; Maximum:<code>10</code>
-</p>
-<p>
-   <strong>martingale_step_coefficient</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
-   Coefficient for increasing safety order price (<code>safety_order_step_percentage</code>) in Martingale strategy.<br>
-   Minimum:<code>0,1</code>; Maximum:<code>10</code>
-</p>
-<p>
-   <strong>max_safety_orders</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
-   The maximum total number of Safety Orders allowed per deal opened by this DCA Bot<br>
-   Minimum:<code>0</code>; Maximum:<code>200</code>
-</p>
-<p>
-   <strong>active_safety_orders_count</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
-   The number of active Safety Orders the DCA Bot is allowed to place at one time
-</p>
-<p>
-   <strong>stop_loss_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
-   The percentage of price movement in the opposite direction of the Take Profit target that triggers the Stop Loss. The value should be set to <code>0</code> to disable Stop Loss
-</p>
-<p>
-   <strong>sl_to_breakeven_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-   Enables (true) or disable (false) the Move to Breakeven feature for this DCA Bot. To use this feature, you must have at least two Take Profit steps<br>
-   Default: <code>false</code>
-</p>
-<p>
-   <strong>sl_to_breakeven_data</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>json</code><br>
-   Upper limit for Stop Loss to move to breakeven, where <code>0</code> is the base order bought price, <code>1</code> is 1st step of TP, and <code>2</code> is 2st step of TP<br>
-   Example: <br>
-   <code>{upper_breakeven_limit: 1}</code>
-</p>
-<p>
-   <strong>cooldown</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
-   The time (in seconds) that the DCA bot will wait after closing a deal before accepting a signal to start a new deal for the same asset pair<br> 
-   Minimum: <code>0</code>; Maximum: <code>2592000</code>
-</p>
-<p>
-   <strong>trailing_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-Indicates whether trailing is enabled for Take Profit (<code>true</code>) or not (<code>false</code>)
-</p>
-<p>
-   <strong>trailing_deviation</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
-   Percentage value of the trailing price, in percent. This parameter is required when <code>trailing_enabled</code> is set to <code>true</code>
-</p>
-<p>
-   <strong>safety_order_step_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
-      Price deviation in percentage to open Safety Trades
-</p>
-<p>
-   <strong>take_profit_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
-   The type of profit (<code>base </code> or <code>total</code>), which sets the basis for profit calculation in this DCA Bot
-</p>
-<p>
-   <strong>strategy_list</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array[json]</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
-   Array of strategies specifically for opening deals in this DCA Bot
-</p>
-<p>
-   <strong>leverage_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Sets leverage settings for a futures account: <code>cross</code> or <code>isolated</code>
-</p>
-<p>
-   <strong>leverage_custom_value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
-   Leverage value. Leverage value is dependent on the exchange and the pair
-</p>
-<p>
-   <strong>stop_loss_timeout_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-   Indicates whether the Stop Loss timeout is enabled (<code>true</code>) or disabled (<code>false</code>)<br>
-   Default: <code>false</code>
-</p>
-<p>
-   <strong>stop_loss_timeout_in_seconds</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   Value timeout in seconds<br>This parameter is required when <code>stop_loss_timeout_enabled</code> is set to <code>true</code>
-</p>
-<p>
-   <strong>tsl_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-   Indicates whether trailing is enabled (<code>true</code>) for Stop Loss or not (<code>false</code>)
-</p>
-<p>
-   <strong>min_volume_btc_24h</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
-   The minimum trading volume in BTC over the last 24 hours required to open a deal
-</p>
-<p>
-   <strong>deal_start_delay_seconds</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   Delay in seconds before a new deal starts
-</p>
-<p>
-   <strong>profit_currency</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-      Currency used for the profit from the trades executed by this bot: <code>base_currency</code>; <code>quite_currency</code>
-</p>
-<p>
-   <strong>start_order_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   The start order type for this DCA Bot: <code>limit</code> or <code>market</code>
-</p>
-<p>
-   <strong>stop_loss_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   The type of action the bot should perform after closing a deal due to the Stop Loss setting: <code>stop_loss</code> or <code>stop_loss_and_disable_bot</code>
-</p>
-<p>
-   <strong>disable_after_deals_count</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   The number of opening deals after that DCA bot will disabled
-</p>
-<p>
-   <strong>allowed_deals_on_same_pair</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   Allow to set up a specific number of deals on the same pair.<br>
-   It works only for bot where <code>type</code> is <code>Bot::MultiBot</code>
-</p>
-<p>
-   <strong>min_profit_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
-   The minimum profit percentage when it reaches the deal will be complete by the chosen strategy
-</p>
-<p>
-   <strong>min_profit_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-  The type of minimum profit, which sets the basis for profit calculation in this DCA Bot: <code>base_order_volume</code> or <code>total_bought_volume</code>
-</p>
-<p>
-   <strong>close_strategy_list</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code> array[json]</code><br>
-   Array of strategies used for closing deals in this DCA Bot
-</p>
-<p>
-   <strong>risk_reduction_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
-   Percentage of losses that allows reducing the base order and Safety Orders proportionally to losses
-</p>
-<p>
-   <strong>reinvesting_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
-   Set up a percentage of realized profit to be reinvested in each new deal<br>
-   Minimum: <code>0</code>; Maximum: <code>100</code>
-</p>
-<p>
-   <strong>min_price_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
-   Min price percent. Must be greater then <code>-95</code> and lower then <code>1000</code>
-</p>
-<p>
-   <strong>max_price_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
-   Max price percent. Must be greater then <code>-95</code> and lower then <code>1000</code>
-</p>
-<p>
-   <strong>close_deals_timeout</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   The time in seconds after which the deals will close automatically<br>
-   Minimum: <code>60</code>
-</p><br>
 
-### Additional Information<br>
-<p>
-   <strong>pairs</strong>
+   base_order_volume_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
+   The volume type of the base order for this DCA Bot: <code>quote_currency</code>, <code>base_currency</code> or <code>percent</code>
+
+   base_order_volume&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
+   The volume of the base order for this DCA Bot
+
+   take_profit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
+   Percentage value for the bot’s Take Profit.If multiple steps are specified in <code>take_profit_steps settings</code>, this parameter should be set to <code>0</code>
+
+   take_profit_steps&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array[object]</code>
+   Take Profit Steps, each represented as an object with properties:
+
+- <code>amount_percentage</code>;
+- <code>profit_percentage</code>.
+
+   safety_order_volume&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
+   The volume of the Safety Order for this DCA Bot
+
+   safety_order_volume_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   The volume type of the Safety Order for this DCA Bot
+
+   martingale_volume_coefficient&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
+   Coefficient for increasing safety order volume in Martingale strategy
+   Minimum:<code>0,1</code>; Maximum:<code>10</code>
+
+   martingale_step_coefficient&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
+   Coefficient for increasing safety order price (<code>safety_order_step_percentage</code>) in Martingale strategy.
+   Minimum:<code>0,1</code>; Maximum:<code>10</code>
+
+   max_safety_orders&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
+   The maximum total number of Safety Orders allowed per deal opened by this DCA Bot
+   Minimum:<code>0</code>; Maximum:<code>200</code>
+
+   active_safety_orders_count&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
+   The number of active Safety Orders the DCA Bot is allowed to place at one time
+
+   stop_loss_percentage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
+   The percentage of price movement in the opposite direction of the Take Profit target that triggers the Stop Loss. The value should be set to <code>0</code> to disable Stop Loss
+
+   sl_to_breakeven_enabled&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
+   Enables (true) or disable (false) the Move to Breakeven feature for this DCA Bot. To use this feature, you must have at least two Take Profit steps
+   Default: <code>false</code>
+
+   sl_to_breakeven_data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>json</code>
+   Upper limit for Stop Loss to move to breakeven, where <code>0</code> is the base order bought price, <code>1</code> is 1st step of TP, and <code>2</code> is 2st step of TP
+   Example:
+   <code></code>
+
+   cooldown&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
+   The time (in seconds) that the DCA bot will wait after closing a deal before accepting a signal to start a new deal for the same asset pair
+   Minimum: <code>0</code>; Maximum: <code>2592000</code>
+
+   trailing_enabled&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
+Indicates whether trailing is enabled for Take Profit (<code>true</code>) or not (<code>false</code>)
+
+   trailing_deviation&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
+   Percentage value of the trailing price, in percent. This parameter is required when <code>trailing_enabled</code> is set to <code>true</code>
+
+   safety_order_step_percentage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
+      Price deviation in percentage to open Safety Trades
+
+   take_profit_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
+   The type of profit (<code>base </code> or <code>total</code>), which sets the basis for profit calculation in this DCA Bot
+
+   strategy_list&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array[json]</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
+   Array of strategies specifically for opening deals in this DCA Bot
+
+   leverage_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   Sets leverage settings for a futures account: <code>cross</code> or <code>isolated</code>
+
+   leverage_custom_value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
+   Leverage value. Leverage value is dependent on the exchange and the pair
+
+   stop_loss_timeout_enabled&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
+   Indicates whether the Stop Loss timeout is enabled (<code>true</code>) or disabled (<code>false</code>)
+   Default: <code>false</code>
+
+   stop_loss_timeout_in_seconds&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+   Value timeout in secondsThis parameter is required when <code>stop_loss_timeout_enabled</code> is set to <code>true</code>
+
+   tsl_enabled&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
+   Indicates whether trailing is enabled (<code>true</code>) for Stop Loss or not (<code>false</code>)
+
+   min_volume_btc_24h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
+   The minimum trading volume in BTC over the last 24 hours required to open a deal
+
+   deal_start_delay_seconds&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+   Delay in seconds before a new deal starts
+
+   profit_currency&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+      Currency used for the profit from the trades executed by this bot: <code>base_currency</code>; <code>quite_currency</code>
+
+   start_order_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   The start order type for this DCA Bot: <code>limit</code> or <code>market</code>
+
+   stop_loss_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   The type of action the bot should perform after closing a deal due to the Stop Loss setting: <code>stop_loss</code> or <code>stop_loss_and_disable_bot</code>
+
+   disable_after_deals_count&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+   The number of opening deals after that DCA bot will disabled
+
+   allowed_deals_on_same_pair&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+   Allow to set up a specific number of deals on the same pair.
+   It works only for bot where <code>type</code> is <code>Bot::MultiBot</code>
+
+   min_profit_percentage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
+   The minimum profit percentage when it reaches the deal will be complete by the chosen strategy
+
+   min_profit_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+  The type of minimum profit, which sets the basis for profit calculation in this DCA Bot: <code>base_order_volume</code> or <code>total_bought_volume</code>
+
+   close_strategy_list&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code> array[json]</code>
+   Array of strategies used for closing deals in this DCA Bot
+
+   risk_reduction_percentage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
+   Percentage of losses that allows reducing the base order and Safety Orders proportionally to losses
+
+   reinvesting_percentage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
+   Set up a percentage of realized profit to be reinvested in each new deal
+   Minimum: <code>0</code>; Maximum: <code>100</code>
+
+   min_price_percentage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
+   Min price percent. Must be greater then <code>-95</code> and lower then <code>1000</code>
+
+   max_price_percentage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
+   Max price percent. Must be greater then <code>-95</code> and lower then <code>1000</code>
+
+   close_deals_timeout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+   The time in seconds after which the deals will close automatically
+   Minimum: <code>60</code>
+
+### Additional Information
+
+   pairs
 
    Use endpoint [All market pairs](/docs/Market%20data/All%20market%20pairs.md) to get value for parameter.
-</p>
 
 --------
 
-<p><strong>leverage_custom_value</strong><br>
+   leverage_custom_value
 
    Use endpoints [Currency rates and limits with leverage data](/docs/Market%20data/Currency%20rates%20and%20limits%20with%20leverage%20data.md) to check available value for this parameter.
-</p>
 
 --------
-<p>
-<strong>take_profit_steps</strong><br>
+
+take_profit_steps
 When using multiple steps for Take Profit, each step should be represented as an object with the following properties:
 
 <code>amount_percentage</code>
@@ -231,7 +185,8 @@ When using multiple steps for Take Profit, each step should be represented as an
 
 Keep in mind, you can create a maximum of 4 targets, allocating 100% of your position volume is allocated across them.
 
-For example:<br>
+For example:
+
 ```json
     "take_profit_steps": [
     {
@@ -244,114 +199,107 @@ For example:<br>
     }
 ]
 ```
+
 --------
 
-<p>
-   <strong>strategy list, close_strategy_list, safety_strategy_list, </strong>
-</p>
-<p>
+   strategy list, close_strategy_list, safety_strategy_list,
 
-   The data strategies are used to populate the `strategy_list` and `close_strategy_list` parameters.<br> You can retrieve the full list of strategies available for this DCA bot through the [Available strategy list for bot](DCA%20Bot/Available%20strategy%20list%20for%20bot.md) endpoint.
-</p>
-<p>
+   The data strategies are used to populate the `strategy_list` and `close_strategy_list` parameters. You can retrieve the full list of strategies available for this DCA bot through the [Available strategy list for bot](DCA%20Bot/Available%20strategy%20list%20for%20bot.md) endpoint.
+
    Below are several examples demonstrating how to fill these parameters with strategy data:
-</p>
 
-{% tabs %}
-{% tab title="Manual signals" %}
+<Tabs>
+  <TabItem value="manual_signals" label="Manual signals" default>
 
 ```json
 [
-   {
-      "strategy": "manual"
-   }
+  {
+    "strategy": "manual"
+  }
 ]
 ```
-or 
+
+or
 
 ```
 []
 ```
 
-{% endtab %}
+  </TabItem>
 
-{% tab title="Non-stop" %}
+  <TabItem value="non_stop" label="Non-stop">
 
 It's using only for 1 pair bot.
 
 ```json
 [
-   {
-      "strategy": "nonstop"
-   },
-   {
-      "options": {}
-   }
-]
-```
-{% endtab %}
-
-{% tab title="QFL" %}
-
-```json
-[
-   {
-      "options": {
-         "type": "original",
-         "percent": 3
-      },
-      "strategy": "qfl"
-   }
+  {
+    "strategy": "nonstop"
+  },
+  {
+    "options": {}
+  }
 ]
 ```
 
-{% endtab %}
+  </TabItem>
 
-{% tab title="TradingView" %} 
+  <TabItem value="qfl" label="QFL">
 
 ```json
 [
-   {
-      "options": {
-         "time": "5m",
-         "type": "buy_or_strong_buy"
-      },
-      "strategy": "trading_view"
-   }
+  {
+    "options": {
+      "type": "original",
+      "percent": 3
+    },
+    "strategy": "qfl"
+  }
 ]
 ```
 
-{% endtab %}
+  </TabItem>
 
-{% tab title="RSI" %} 
+  <TabItem value="tradingview" label="TradingView">
 
 ```json
 [
-   {
-      "options": {
-         "time": "5m",
-         "points": 30,
-         "trigger_condition": "less",
-         "time_period": 7
-      },
-      "strategy": "rsi"
-   }
-] 
+  {
+    "options": {
+      "time": "5m",
+      "type": "buy_or_strong_buy"
+    },
+    "strategy": "trading_view"
+  }
+]
 ```
-{% endtab %}
-{% endtabs %}
-</p>
-<br>
 
-### Parameters response<br>
+  </TabItem>
 
-<p>
+  <TabItem value="rsi" label="RSI">
 
-If successful, the response includes a copy of [DCA Bot](./README.md) entity.</p>
+```json
+[
+  {
+    "options": {
+      "time": "5m",
+      "points": 30,
+      "trigger_condition": "less",
+      "time_period": 7
+    },
+    "strategy": "rsi"
+  }
+]
+```
 
-<br>
+  </TabItem>
+</Tabs>
 
-### Example Request<br>
+### Parameters response
+
+If successful, the response includes a copy of [DCA Bot](./README.md) entity.
+
+### Example Request
 
 ```json
 PATCH /ver1/bots/12345678/update
@@ -395,13 +343,10 @@ Body:
 }
 ```
 
-<br>
-<br>
-
-### Example response and errors<br>
+### Example response and errors
 
 <details>
-<summary>Status: 200 OK</summary><br>
+<summary>Status: 200 OK</summary>
 
 ```json
 {
@@ -488,9 +433,8 @@ Body:
 
 </details>
 
-
 <details>
-<summary>Status: 400 Bad Request</summary><br>
+<summary>Status: 400 Bad Request</summary>
 
 ```json
 {
@@ -503,4 +447,5 @@ Body:
     }
 }
 ```
+
 </details>

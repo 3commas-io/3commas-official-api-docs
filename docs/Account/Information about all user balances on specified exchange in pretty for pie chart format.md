@@ -1,29 +1,24 @@
-## Information about all user balances on specified exchange in pretty for pie chart formats<br>
+## Information about all user balances on specified exchange in pretty for pie chart formats
 
+**Description:** Shows information about currency balances of a specific account using its ID
 
-**Description:** Shows information about currency balances of a specific account using its ID<br>
-
-**Permission:** ACCOUNTS_READ<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** ACCOUNTS_READ
+**Security:** SIGNED
 
 ----------
 
-<mark style="color:green;background-color:white" > **POST**
+<mark style={{ color: "green", backgroundColor: "white" }} > **POST**</mark>
 
-<mark style="color:green;background-color:white" > **ver1/accounts/{account_id}/pie_chart_data**
+<mark style={{ color: "green", backgroundColor: "white" }} >`ver1/accounts/{account_id}/pie_chart_data`</mark>
 
 ----------
-<br>
-<br>
 
-### Path Parameters<br>
-<p>
-   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+### Path Parameters
+
+   account_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
    Unique 3Commas ID for this exchange account entity
-</p><br>
 
-### Response Parameters<br>
+### Response Parameters
 
 | Name | Type | Description|
 |------|------|------------|
@@ -39,20 +34,16 @@
 |**usd_value[currency]**| `string`|The currency code used to display values for this cryptocurrency  |
 |**usd_value[amount]**| `string`| The amount of the cryptocurrency in the primary display currency |
 
-
-
-### Example request<br>
+### Example request
 
 ```json
 POST /ver1/accounts/32402783/pie_chart_data
 ```
-<br>
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 [
@@ -104,5 +95,5 @@ POST /ver1/accounts/32402783/pie_chart_data
     }
 ]
 ```
+
 </details>
- 

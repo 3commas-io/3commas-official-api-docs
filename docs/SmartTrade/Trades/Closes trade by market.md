@@ -1,55 +1,41 @@
-## Closes trade at market price<br>
+**Description:** Closes a specific take profit trade within a SmartTrade at market price using its ID
 
-**Description:** Closes a specific take profit trade within a SmartTrade at market price using its ID<br>
-
-
-{% hint style="warning" %}
+:::warning
 The endpoint is available for Take Profit Trades for the statuses `to_process`, `order_placed`, and `trailing_activated`.
-{% endhint %}
-<br>
+:::
 
-**Permission:** SMART_TRADES_WRITE<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** SMART_TRADES_WRITE
+**Security:** SIGNED
 
 ----------
 
-<mark style="color:green;background-color:white" > **POST**
+<mark style={{ color: "green", backgroundColor: "white" }} > **POST**</mark>
 
-<mark style="color:green;background-color:white" > **/v2/smart_trades/{smart_trade_id}/trades/{id}/close_by_market**
+<mark style={{ color: "green", backgroundColor: "white" }} >`/v2/smart_trades/{smart_trade_id}/trades/{id}/close_by_market`</mark>
 
 ----------
 
-<br>
-<br>
+### Path Parameters
 
-
-### Path Parameters<br>
-| Name | Type |	Mandatory |	Values	| Description|
+| Name | Type | Mandatory | Values | Description|
 |------|------|-----------|-----------------|------------|
-|**smart-trade_id** | `integer`	| Yes |  | Unique 3Commas ID for this SmartTrade entity. |
+|**smart-trade_id** | `integer` | Yes |  | Unique 3Commas ID for this SmartTrade entity. |
 |**id** | `integer`| Yes |  | Unique 3Commas ID for Trade entity |
 
-<br>
-<br>
+### Response Parameters
 
-### Response Parameters<br>
-
-{% hint style="info" %}
-If successful response, the response includes a copy of the updated SmartTrade entity. You can find a total description of all attributes on the page about [SmartTrade](./README.md). 
-{% endhint %}
-
-<br>
-<br>
+:::info
+If successful response, the response includes a copy of the updated SmartTrade entity. You can find a total description of all attributes on the page about [SmartTrade](./README.md).
+:::
 
 ```json
 /v2/smart_trades/12345678/trades/1047934729/close_by_market
 ```
 
-**Example Response and errors**<br>
+**Example Response and errors**
 
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 {
@@ -246,9 +232,5 @@ If successful response, the response includes a copy of the updated SmartTrade e
 }
 
 ```
+
 </details>
-
-
-
-
-

@@ -1,55 +1,41 @@
-## Modify Maximum Safety Trades Count<br>
-<br>
+**Description:** Updates a value for parameter `max_safety_orders` for a specific deal of DCA Bot using its ID
 
-**Description:** Updates a value for parameter `max_safety_orders` for a specific deal of DCA Bot using its ID<br>
-
-**Permission:** BOTS_WRITE<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** BOTS_WRITE
+**Security:** SIGNED
 
 <blockquote>
 
-<code><mark style="color:green"><strong> POST </strong></mark></code>
+<code><mark style={{ color: "green" }}> POST </mark></code>
 
-<code>/ver1/deals/{deal_id}/update_max_safety_orders</code>
+<code>`/ver1/deals/{deal_id}/update_max_safety_orders`</code>
 
 </blockquote>
 
-<br>
+### Path Parameter
 
-### Path Parameter<br>
-<p>
-   <strong>deal_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   deal_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID Deal entity
-</p>
-<br>
 
-### Body Parameter<br>
-<p>
-   <strong>max_safety_orders</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+### Body Parameter
+
+   max_safety_orders&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    New maximum safety orders value
-</p>
-<br>
 
-### Response Parameters<br>
+### Response Parameters
 
 If successful, the response includes an updated copy of [Deals](./README.md) entity.
 
-<br>
-
-### Example Request<br>
+### Example Request
 
 ```json
 POST 
 /ver1/deals/:deal_id/update_max_safety_orders?max_safety_orders=6
 ```
 
-<br>
-
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 {
@@ -283,10 +269,11 @@ POST
     ]
 }
 ```
+
 </details>
 
 <details>
-<summary>Status: 404 Not Found</summary><br>
+<summary>Status: 404 Not Found</summary>
 
 ```json
 {
@@ -294,4 +281,5 @@ POST
     "error_description": "Not Found"
 }
 ```
+
 </details>

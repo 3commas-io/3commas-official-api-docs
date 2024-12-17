@@ -1,130 +1,102 @@
-## Update Deal<br>
-<br>
+**Description:** Edits an existing deal of DCA Bot using its ID
 
-**Description:** Edits an existing deal of DCA Bot using its ID<br>
-
-{% hint style="warning" %}
+:::warning
 The endpoint is available for Deal for the statuses `bought` and `close_strategy_activated`.
-{% endhint %}
+:::
 
-<br>
-
-**Permission:** BOTS_READ<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** BOTS_READ
+**Security:** SIGNED
 
 <blockquote>
 
-<code><mark style="color:purple"><strong> PATCH </strong></mark></code>
+<code><mark style={{ color: "purple" }}> PATCH </mark></code>
 
-<code>/ver1/deals/{deal_id}/update_deal</code>
+<code>`/ver1/deals/{deal_id}/update_deal`</code>
 
 </blockquote>
 
-<br>
+### Path Parameter
 
-### Path Parameter<br>
-<p>
-   <strong>deal_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   deal_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID Deal entity
-</p>
-<br>
 
-### Body parameters<br>
+### Body parameters
 
-<p>
-   <strong>take_profit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
-   Percentage value for the bot’s Take Profit.<br>
+   take_profit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
+   Percentage value for the bot’s Take Profit.
    If multiple steps are specified in <code>take_profit_steps settings</code>, this parameter should be set to <code>0</code>
-</p>
-<p>
-   <strong>take_profit_steps</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array[json]</code><br>
+
+   take_profit_steps&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array[json]</code>
    Contains multiple steps with conditions for Taking Profit in this deal
-</p>
-<p>
-   <strong>profit_currency</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   profit_currency&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Profit currency used for calculating the profit from the trades executed by this DCA Bot: <code>quite_currency</code> or <code>base_currency</code>
-</p>
-<p>
-   <strong>take_profit_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Take Profit order type for this DCA Bot.<br>
-   <details><summary><em>Allowed value</em></summary>
-   <dl>
-   <li>base - from base order;
-   <li>total - from total volume;</dl>
+
+   take_profit_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   Take Profit order type for this DCA Bot.
+   <details>
+   <summary>Allowed value</summary>
+        - base - from base order;
+        - total - from total volume;
    </details>
-</p>
-<p>
-   <strong>trailing_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+
+   trailing_enabled&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
     Indicates whether trailing is enabled for Take Profit (<code>true</code>) or not (<code>false</code>)
-</p>
-<p>
-   <strong>sl_to_breakeven_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-    Enables (<code>true</code>) or disable (<code>false</code>) the Move to Breakeven feature for this Deal. To use this feature, you must have at least two Take Profit steps<br>
-</p>
-<p>
-   <strong>sl_to_breakeven_data</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>json</code><br>
-    The upper limit to which the stop loss will move.<br>
-    To activate, you need at least two separate targets of Take Profit<br> Example: <code>{upper_breakeven_limit: 1}</code>
-</p>
-<p>
-   <strong>max_safety_orders</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-    The maximum total number of Safety Orders allowed for this deal<br>
+
+   sl_to_breakeven_enabled&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
+    Enables (<code>true</code>) or disable (<code>false</code>) the Move to Breakeven feature for this Deal. To use this feature, you must have at least two Take Profit steps
+
+   sl_to_breakeven_data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>json</code>
+    The upper limit to which the stop loss will move.
+    To activate, you need at least two separate targets of Take Profit Example: <code></code>
+
+   max_safety_orders&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+    The maximum total number of Safety Orders allowed for this deal
     Minimum: <code>0</code>; Maximum: <code>200</code>
-</p>
-<p>
-   <strong>maxactive_safety_orders_count_safety_orders</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+
+   maxactive_safety_orders_count_safety_orders&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
     The number of Safety Orders is allowed to place in advance on the exchange's order book
-</p>
-<p>
-   <strong>stop_loss_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+
+   stop_loss_percentage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
     The percentage by which the price needs to move in the opposite direction of your Take Profit target to trigger the Stop Loss, at which point the bot will execute a Market Order.
-</p>
-<p>
-   <strong>stop_loss_timeout_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-     Indicates whether the Stop Loss timeout is enabled (<code>true</code>) or disabled (<code>false</code>)<br>
-</p>
-<p>
-   <strong>stop_loss_timeout_in_seconds</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-        Value timeout in seconds<br>
+
+   stop_loss_timeout_enabled&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
+     Indicates whether the Stop Loss timeout is enabled (<code>true</code>) or disabled (<code>false</code>)
+
+   stop_loss_timeout_in_seconds&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+        Value timeout in seconds
      This parameter is required when <code>stop_loss_timeout_enabled</code> is set to <code>true</code>
-</p>
-<p>
-   <strong>tsl_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+
+   tsl_enabled&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
     Indicates whether trailing is enabled (<code>true</code>) for Stop Loss or not (<code>false</code>)
-</p>
-<p>
-   <strong>stop_loss_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   stop_loss_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
     The type of action the bot should perform after closing a deal due to the Stop Loss setting: <code>stop_loss</code> or <code>stop_loss_and_disable_bot</code>
-</p>
-<p>
-   <strong>close_timeout</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-    The time in seconds after which this deal will close automatically<br>
+
+   close_timeout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+    The time in seconds after which this deal will close automatically
     Minimum: <code>60</code>
-</p>
-<p>
-   <strong>note</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   note&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
     Optional user-defined note for this Deal
-</p>
-<p>
-   <strong>min_profit_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+
+   min_profit_percentage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
     The minimum profit percentage which need to reach  for this DCA Bot to complete a deal
-</p>
-<br>
 
-### Additional Information<br>
+### Additional Information
 
-<strong>Take Profit steps</strong>
-<p>
-You should allocate 100% of your position volume across different targets. In total, the maximum number of targets is 4.</p>
+Take Profit steps
 
-<p>One target is one step. Each step is represented as an object with properties:<br>
-<code>id</code><br>
-<code>amount_percentage</code><br>
-<code>profit_percentage</code>
-</p>
-<p>
-Below is an example demonstrating how to fill this parameter with several steps of Take Profit:</p>
+    You should allocate 100% of your position volume across different targets. In total, the maximum number of targets is 4.
+
+
+
+    One target is one step. Each step is represented as an object with properties:
+    <code>id</code>
+    <code>amount_percentage</code>
+    <code>profit_percentage</code>
+
+Below is an example demonstrating how to fill this parameter with several steps of Take Profit:
 
 ```json
 [
@@ -151,19 +123,17 @@ Below is an example demonstrating how to fill this parameter with several steps 
 ]
 
 ```
-<br>
 
-### Response Parameters<br>
+### Response Parameters
 
 If successful, the response includes an updated copy of [Deals](./README.md) entity.
 
-<br>
-
-### Example Request<br>
+### Example Request
 
 ```json
 PATCH /ver1/deals/1234567890/update_deal
 ```
+
 ```
 Body:
 {
@@ -173,13 +143,11 @@ Body:
    "max_safety_orders": 6
 }
 ```
-<br>
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 200 OK</summary><br>
+<summary>Status: 200 OK</summary>
 
 ```json
 {
@@ -387,9 +355,11 @@ Body:
     ]
 }
 ```
+
 </details>
 
-<details> <summary>Status: 400 Bad Request</summary><br>
+<details>
+<summary>Status: 400 Bad Request</summary>
 
 ```json
 {
@@ -402,4 +372,5 @@ Body:
     }
 }
 ```
+
 </details>

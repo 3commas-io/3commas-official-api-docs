@@ -1,53 +1,40 @@
-## Add pairs to the blacklist<br>
-<br>
+**Description:** Adds specified pair(s) to the blacklist, preventing all DCA bots from opening deals with these pairs
 
-**Description:** Adds specified pair(s) to the blacklist, preventing all DCA bots from opening deals with these pairs <br>
-
-**Permission:** BOTS_WRITE<br>
-**Security** SIGNED<br>
-<br>
+**Permission:** BOTS_WRITE
+**Security** SIGNED
 
 <blockquote>
 
-<code><mark style="color:green"><strong> POST </strong></mark></code>
+<code><mark style={{ color: "green" }}> POST </mark></code>
 
 <code>ver1/bots/update_pairs_black_list</code>
 
 </blockquote>
 
-<br>
+### Body parameter
 
-### Body parameter<br>
-<p>
-   <strong>pairs</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   pairs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Trading pair(s) in 3Commas format
-</p>
-<br>
 
-{% hint style="info" %}
+:::info
 The trading pair code is used in the 3Commas format. Use the endpoint [All Market Pairs](Market%20data/2.All%20market%20pairs.md) to get the value for parameter pair in 3Commas format.
-{% endhint %}
+:::
 
-<br>
+### Response Parameter
 
-### Response Parameter<br>
-<p>
-   <strong>pairs</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array</code><br>
+   pairs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array</code>
    The list of pairs that was added to the blacklist
-</p>
-<br>
 
-### Example Request<br>
+### Example Request
 
 ```json
 POST /ver1/bots/update_pairs_black_list?pairs=1INCH_1INCH-USD-SWAP
 ```
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 {
@@ -56,4 +43,5 @@ POST /ver1/bots/update_pairs_black_list?pairs=1INCH_1INCH-USD-SWAP
     ]
 }
 ```
+
 </details>

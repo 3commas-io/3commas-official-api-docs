@@ -1,159 +1,122 @@
-## Create Grid Bot<br>
-<br>
+**Description:** Creates a new Grid Bot
 
-**Description:** Creates a new Grid Bot<br>
-
-**Permission:** BOTS_WRITEE<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** BOTS_WRITEE
+**Security:** SIGNED
 
 <blockquote>
 
-<code><mark style="color:green"><strong> POST </strong></mark></code>
+<code><mark style={{ color: "green" }}> POST </mark></code>
 
 <code>/ver1/grid_bots/manual</code>
 
 </blockquote>
 
-<br>
+### Body parameters
 
-### Body parameters<br>
-<p>
-   <strong>name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   Grid bot name specified by the user<br>
-   If not specified, the system will generate a default name automatically<br>
+   name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+   Grid bot name specified by the user
+   If not specified, the system will generate a default name automatically
    Characters: <code>[1 ... 40]</code>
-</p>
-<p>
-   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+
+   account_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    ID of the exchange account entity where the Grid Bot is created
-</p>
-<p>
-   <strong>pair</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+
+   pair&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Trading pair in 3Commas format
-   
+
    Use the [All market pairs](Market%20data/All%20market%20pairs.md) endpoint to retrieve the list of supported pairs and their format
-</p>
-<p>
-   <strong>upper_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+
+   upper_price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    The maximum price of the trading range, above which the bot will not place sell orders
-</p>
-<p>
-   <strong>lower_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+
+   lower_price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
   The minimum price of the trading range, below which the bot will not place buy orders
-</p>
-<p>
-   <strong>grids_quantity</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+
+   grids_quantity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    The number of grid levels between the upper and lower price boundaries
-</p>
-<p>
-   <strong>grid_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   grid_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Type of Grid Bot configuration: <code>geometric</code> or <code>arithmetic</code>
    Default: <code>arithmetic</code>
-</p>
-<p>
-   <strong>quantity_per_grid</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+
+   quantity_per_grid&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Quantity allocated for each Grid Bot level order
-</p>
-<p>
-   <strong>order_currency_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   The currency type used for placing orders: <code>base</code> or <code>quote</code><br>
+
+   order_currency_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   The currency type used for placing orders: <code>base</code> or <code>quote</code>
    Default: <code>quote</code>
-</p>
-<p>
-   <strong>profit_currency_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   The currency in which the bot will generate profit: <code>base</code> or <code>quote</code><br>
+
+   profit_currency_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   The currency in which the bot will generate profit: <code>base</code> or <code>quote</code>
    Default: <code>quote</code>
-</p>
-<p>
-   <strong>upper_stop_loss_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+
+   upper_stop_loss_enabled&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
    Indicates if upper stop-loss settings are enabled. Use <code>true</code> to activate the settings group
-</p>
-<p>
-   <strong>upper_stop_loss_action</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   The action to perform if the asset price reaches or exceeds the set upper stop-loss level: 
+
+   upper_stop_loss_action&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   The action to perform if the asset price reaches or exceeds the set upper stop-loss level:
    <code>stop_bot</code>,
    <code>stop_bot_and_sell</code>, <code>stop_bot_and_close_position</code>
-</p>
-<p>
-   <strong>upper_stop_loss_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+
+   upper_stop_loss_price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
    The price level that triggers the upper stop-loss action
-</p>
-<p>
-   <strong>lower_stop_loss_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+
+   lower_stop_loss_enabled&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
    Indicates if lower stop-loss settings are enabled. Use <code>true</code> to activate the settings group
-</p>
-<p>
-   <strong>lower_stop_loss_action</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   lower_stop_loss_action&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    The action to perform if the asset price reaches or falls below the set lower stop-loss level:
-   <code>stop_bot</code>, <code>stop_bot_and_sell</code>, <code>stop_bot_and_close_position</code><br>
+   <code>stop_bot</code>, <code>stop_bot_and_sell</code>, <code>stop_bot_and_close_position</code>
    Default: <code>stop_bot</code>
-</p>
-<p>
-   <strong>lower_stop_loss_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+
+   lower_stop_loss_price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
    The price level that triggers the lower stop-loss action
-</p>
-<p>
-   <strong>leverage_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   leverage_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Type of leverage used for the futures account: <code>cross</code>,<code>isolated</code>
    Default: <code>not_specified</code>,
 
-</p>
-<p>
-   <strong>leverage_custom_value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+   leverage_custom_value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
    Custom leverage value set for the Grid Bot
-</p>
-<p>
-   <strong>mode</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   mode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Type of strategy used by the bot: <code>reversal</code>, <code>long</code>, <code>short</code>
-</p>
-<p>
-   <strong>max_active_sell_lines</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+
+   max_active_sell_lines&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
    Maximum number of active sell orders that can be placed simultaneously
-</p>
-<p>
-   <strong>trailing_up_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+
+   trailing_up_enabled&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
    Indicates if the trailing-up feature is enabled (<code>true</code> or not (<code>false</code>)
-</p>
-<p>
-   <strong>trailing_down_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+
+   trailing_down_enabled&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
    Indicates if the trailing-down feature is enabled (<code>true</code> or not (<code>false</code>)
-</p>
-<p>
-   <strong>expansion_down_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+
+   expansion_down_enabled&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
    Indicates if the grid expansion downwards is enabled (<code>true</code> or not (<code>false</code>)
-</p>
-<p>
-   <strong>expansion_down_stop_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
-   The price at which the downward grid expansion should stop<br>
+
+   expansion_down_stop_price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
+   The price at which the downward grid expansion should stop
    This parameter is required when <code>expansion_down_enabled</code> is set to <code>true</code>
-</p>
-<p>
-   <strong>expansion_up_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+
+   expansion_up_enabled&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
    Indicates if the grid expansion upwards is enabled (<code>true</code> or not (<code>false</code>)
-</p>
-<p>
-   <strong>expansion_up_stop_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+
+   expansion_up_stop_price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    The price at which the upward grid expansion should stop.
    This parameter is required when <code>expansion_up_enabled</code> is set to <code>true</code>.
-</p>
-<p>
-   <strong>ignore_warnings</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-   Ignores warnings and forces the creation of the Grid Bot (<code>true</code>) or not (<code>false</code>)
-</p>
-<p>
-   <strong>note</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   Optional user-defined note for the Grid Bot.<br>
-   <code>[1 ... 300]</code> characters
-</p>
-<br>
 
-### Parameters response<br>
+   ignore_warnings&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
+   Ignores warnings and forces the creation of the Grid Bot (<code>true</code>) or not (<code>false</code>)
+
+   note&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+   Optional user-defined note for the Grid Bot.
+   <code>[1 ... 300]</code> characters
+
+### Parameters response
 
 If successful, the response includes a copy of [Grid Bot](./README.md) entity.
-<br>
 
-### Example Request<br>
+### Example Request
 
 ```json
 {
@@ -178,10 +141,10 @@ If successful, the response includes a copy of [Grid Bot](./README.md) entity.
 }
 ```
 
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 {
@@ -255,10 +218,11 @@ If successful, the response includes a copy of [Grid Bot](./README.md) entity.
    ]
 }
 ```
+
 </details>
 
 <details>
-<summary>Status: 400 Bad Request</summary><br>
+<summary>Status: 400 Bad Request</summary>
 
 ```json
 {
@@ -277,9 +241,11 @@ If successful, the response includes a copy of [Grid Bot](./README.md) entity.
 </details>
 
 <details>
-<summary>Status: 404 Not Found</summary><br>
+<summary>Status: 404 Not Found</summary>
+```json
 {
    "error": "not_found",
    "error_description": "Not Found"
 }
+```
 </details>

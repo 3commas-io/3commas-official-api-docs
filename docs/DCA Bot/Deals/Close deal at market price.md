@@ -1,50 +1,39 @@
-## Close the deal at market price<br>
-<br>
+**Description:** Closes a specific deal within a DCA Bot by market using its ID
 
-**Description:** Closes a specific deal within a DCA Bot by market using its ID<br>
-
-{% hint style="warning" %}
+:::warning
 After this action, the final status **Panic_sold** will be automatically set by 3Commas.
-{% endhint %}
+:::
 
-**Permission:** BOTS_WRITE<br>
-**Security:** SIGNED<br>
-
-<br>
+**Permission:** BOTS_WRITE
+**Security:** SIGNED
 
 <blockquote>
 
-<code><mark style="color:green"><strong> POST </strong></mark></code>
+<code><mark style={{ color: "green" }}> POST </mark></code>
 
-<code>/ver1/deals/{deal_id}/panic_sell</code>
+<code>`/ver1/deals/{deal_id}/panic_sell`</code>
 
 </blockquote>
 
-<br>
+### Path Parameters
 
-### Path Parameters<br>
-<p>
-   <strong>deal_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   deal_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID Deal entity
-</p>
-<br>
 
-### Response Parameters<br>
+### Response Parameters
 
 If successful, the response includes an updated copy of the [Deals](./README.md) entity.
-<br>
 
-### Example request<br>
+### Example request
 
 ```
 POST /ver1/deals/1234567890/panic_sell
 ```
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 {
@@ -217,4 +206,5 @@ POST /ver1/deals/1234567890/panic_sell
     ]
 }
 ```
+
 </details>

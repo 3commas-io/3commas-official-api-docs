@@ -1,55 +1,46 @@
-## Delete DCA Bot<br>
-<br>
+**Description:** Deletes an existing DCA Bot using its ID
 
-**Description:** Deletes an existing DCA Bot using its ID <br>
-
-**Permission:** BOTS_WRITE<br>
-**Security** SIGNED<br>
-<br>
+**Permission:** BOTS_WRITE
+**Security** SIGNED
 
 <blockquote>
 
-<code><mark style="color:green"><strong> POST </strong></mark></code>
+<code><mark style={{ color: "green" }}> POST </mark></code>
 
-<code>/ver1/bots/{bot_id}/delete</code>
+<code>`/ver1/bots/{bot_id}/delete`</code>
 
 </blockquote>
 
-<br>
+### Path Parameter
 
-### Path Parameter<br>
-<p>
-   <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   bot_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID for this DCA Bot entity
-</p>
-<br>
 
-### Response Parameters<br>
+### Response Parameters
 
 ```
 NONE
 ```
-<br>
 
-### Example Request<br>
+### Example Request
 
 ```json
 POST /ver1/bots/12345678/delete
 ```
-<br>
 
-### Example response and errors<br>
+### Example response and errors
 
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 true
 ```
+
 </details>
 
 <details>
-<summary>Status: 403 Forbidden</summary><br>
+<summary>Status: 403 Forbidden</summary>
 
 ```json
 {
@@ -59,7 +50,7 @@ true
 
 </details>
 <details>
-<summary>Status: 404 Not Found</summary><br>
+<summary>Status: 404 Not Found</summary>
 
 ```
 {
@@ -67,4 +58,5 @@ true
     "error_description": "Not Found"
 }
 ```
+
 </details>

@@ -1,38 +1,32 @@
-## Information about account leverage<br>
+## Information about account leverage
 
-**Description:** Returns a list of leverages that the exchange market is using<br>
+**Description:** Returns a list of leverages that the exchange market is using
 
-**Permission:** ACCOUNTS_READ<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** ACCOUNTS_READ
+**Security:** SIGNED
+
+----------
+
+<mark style={{ color: "blue", backgroundColor: "white" }} > **GET**</mark>
+
+<mark style={{ color: "blue", backgroundColor: "white" }} >`/ver1/accounts/{account_id}/leverage_data`</mark>
 
 ----------
 
-<mark style="color:blue;background-color:white" > **GET**
+### Path Parameter
 
-<mark style="color:blue;background-color:white" > **/ver1/accounts/{account_id}/leverage_data**
-
-----------
-<br>
-<br>
-
-### Path Parameter<br>
-<p>
-   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   account_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID for this exchange account entity
-</p><br>
 
-### Query Parameter<br>
-<p>
-   <strong>page</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
-   Page number for pagination<br>
+### Query Parameter
+
+   page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
+   Page number for pagination
    Default: <code>1</code>
-</p><br>
-<br>
 
-### Parameters response<br>
+### Parameters response
 
-| Name | Type |	Description|
+| Name | Type | Description|
 |------|------|------------|
 |**code**| `string` | Unique code identifying the leverage type |
 |**name**| `boolean`| Display name for the leverage type |
@@ -42,20 +36,16 @@
 |**valid[min]**| `string` or `null` | Minimum allowable leverage value |
 |**valid[max]**| `string` or `null` | Maximum allowable leverage value |
 
-<br>
-<br>
-
-### Example request<br>
+### Example request
 
 ```json
 GET /ver1/accounts/32833910/leverage_data?pair=USDC_DOGE
 ```
-<br>
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
+
 <details>
-<summary>Status: 200 OK</summary><br>
+<summary>Status: 200 OK</summary>
 
 ```json
 [
@@ -91,4 +81,5 @@ GET /ver1/accounts/32833910/leverage_data?pair=USDC_DOGE
     }
 ]
 ```
+
 </details>

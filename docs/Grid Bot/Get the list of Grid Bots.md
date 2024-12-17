@@ -1,84 +1,66 @@
-## Get the list of Grid Bots
-<br>
+**Description:** Returns the list of Grid Bots. Use the body parameters to filter results
 
-**Description:** Returns the list of Grid Bots. Use the body parameters to filter results<br>
-
-**Permission:** BOTS_READ<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** BOTS_READ
+**Security:** SIGNED
 
 <blockquote>
 
-<code><mark style="color:blue"><strong> GET </strong></mark></code>
+<code><mark style={{ color: "blue"}}> GET </mark></code>
 
 <code>/ver1/grid_bots</code>
 
 </blockquote>
 
-<br>
+### Query Parameters
 
-### Query Parameters<br>
-<p>
-   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Unique 3Commas ID for this Grid Bot entity.<br>
+   account_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   Unique 3Commas ID for this Grid Bot entity.
    Use a comma-separated list to specify multiple account_id values
-</p>
-<p>
-   <strong>state</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Return entities that match the specified state. 
-   <br>Use <code>enabled</code> to get active bots and <code>disabled</code> to get inactive bots
-</p>
-<p>
-   <strong>sort_by</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Specifies the field by which to sort the response
-</p>
-<p>
-   <strong>sort_direction</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Sets the direction of order (<code>[ASC]</code> or <code>[DESC]</code>)<br>
-   Default: <code>[DESC]</code>
-</p>
-<p>
-   <strong>limit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Quantity of the records you want to get in response.<br>
-   Minimum: <code>1</code>; Maximum: <code>1000</code><br>
-   Default: <code>10</code>
-</p>
-<p>
-   <strong>offset</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   Used to specify the starting point for a set of records to return in a paginated list<br>
-   Default: <code>0</code>
-</p>
-<p>
-   <strong>from</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Parameter for a filter by created date
-</p>
-<p>
-   <strong>base</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Return entities that match the base currency of the trading pair (e.g., <code>BTC</code> for BTC/USDT)
-</p>
-<p>
-   <strong>quote</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Return entities that match the quote currency of the trading pair (e.g., <code>USDT</code> for BTC/USDT)
-</p>
-<br>
 
-### Parameters response<br>
+   state&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   Return entities that match the specified state.
+   Use <code>enabled</code> to get active bots and <code>disabled</code> to get inactive bots
+
+   sort_by&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   Specifies the field by which to sort the response
+
+   sort_direction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   Sets the direction of order (<code>[ASC]</code> or <code>[DESC]</code>)
+   Default: <code>[DESC]</code>
+
+   limit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   Quantity of the records you want to get in response.
+   Minimum: <code>1</code>; Maximum: <code>1000</code>
+   Default: <code>10</code>
+
+   offset&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+   Used to specify the starting point for a set of records to return in a paginated list
+   Default: <code>0</code>
+
+   from&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   Parameter for a filter by created date
+
+   base&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   Return entities that match the base currency of the trading pair (e.g., <code>BTC</code> for BTC/USDT)
+
+   quote&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   Return entities that match the quote currency of the trading pair (e.g., <code>USDT</code> for BTC/USDT)
+
+### Parameters response
 
 If successful, the response includes an array of [Grid Bot](./README.md) entities.
 
-<br>
-
-### Example request<br>
+### Example request
 
 ```json
 GET  /ver1/grid_bots?account_ids[]=32833909&account_ids[]32864603
 ```
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 200 OK</summary><br>
+<summary>Status: 200 OK</summary>
+```json
 [
     {
         "id": 2338357,
@@ -260,7 +242,7 @@ GET  /ver1/grid_bots?account_ids[]=32833909&account_ids[]32864603
                 "side": "sell",
                 "order_placed": false
             },
-           ... 
+           ...
             {
                 "id": 256563805,
                 "price": "0.11283",
@@ -270,11 +252,14 @@ GET  /ver1/grid_bots?account_ids[]=32833909&account_ids[]32864603
         ]
     }
 ]
+```
 </details>
 <details>
-<summary>Status: 500 Internal Server Error</summary><br>
+<summary>Status: 500 Internal Server Error</summary>
+```json
 {
     "error": "unknown_error",
     "error_description": "Unknown error occurred#JSON::ParserError"
 }
+```
 </details>

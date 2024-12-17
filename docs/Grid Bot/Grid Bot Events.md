@@ -1,67 +1,50 @@
-## Grid Bot Events<br>
-<br>
+**Description:** Getting a list of events by Grid Bot
 
-**Description:** Getting a list of events by Grid Bot<br>
-
-Permission: BOTS_READ<br>
-Security: SIGNED<br>
-<br>
+Permission: BOTS_READ
+Security: SIGNED
 
 <blockquote>
 
-<code><mark style="color:blue"><strong> GET </strong></mark></code>
+<code><mark style={{ color: "blue"}}> GET </mark></code>
 
-<code>/ver1/grid_bots/{id}/events</code>
+<code>`/ver1/grid_bots/{id}/events`</code>
 
 </blockquote>
 
-<br>
+### Path Parameter
 
-### Path Parameter<br>
-<p>
-   <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID for this Grid Bot entity
-</p>
 
-<br>
+### Query Parameters
 
-### Query Parameters<br>
-<p>
-   <strong>page</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Page number for pagination
    Default: <code>1</code>
-</p>
-<p>
-   <strong>per_page</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+
+   per_page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Quantity of records on one page
    Minimum: <code>1</code>, Maximum: <code>100</code>
    Default: <code>100</code>
-</p>
-<br>
 
-### Parameters response<br>
-<p>
-   <strong>message</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+### Parameters response
+
+   message&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    The description of the event
-</p>
-<p>
-   <strong>created_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   created_at&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    ISO 8601 datetime string indicating when the event was recorded
-</p>
-<br>
 
-
-### Example Request<br>
+### Example Request
 
 ```json
 GET /ver1/grid_bots/2338357/events?page=1&per_page=10
 ```
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 [
@@ -96,7 +79,7 @@ GET /ver1/grid_bots/2338357/events?page=1&per_page=10
 </details>
 
 <details>
-<summary>Status: 400 Bad Request</summary><br>
+<summary>Status: 400 Bad Request</summary>
 
 ```json
 {
@@ -114,4 +97,5 @@ GET /ver1/grid_bots/2338357/events?page=1&per_page=10
     }
 }
 ```
+
 </details>

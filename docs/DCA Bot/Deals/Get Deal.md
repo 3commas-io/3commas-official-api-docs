@@ -1,47 +1,35 @@
-## Get deal of DCA Bot<br>
-<br>
+**Description:** Shows information about a specific deal of DCA Bot using its ID
 
-**Description:** Shows information about a specific deal of DCA Bot using its ID<br>
-
-**Permission:** BOTS_READ<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** BOTS_READ
+**Security:** SIGNED
 
 <blockquote>
 
-<code><mark style="color:blue"><strong> GET </strong></mark></code>
+<code><mark style={{ color: "blue"}}> GET </mark></code>
 
-<code>/ver1/deals/{deal_id}/show</code>
+<code>`/ver1/deals/{deal_id}/show`</code>
 
 </blockquote>
 
-<br>
+### Path Parameter
 
-### Path Parameter<br>
-<p>
-   <strong>deal_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   deal_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID Deal entity
-</p>
-<br>
-<br>
 
-### Response Parameters<br>
+### Response Parameters
 
 If successful, the response includes a copy of [Deals](./README.md) entity.
-<br>
 
-### Example Request<br>
+### Example Request
 
 ```json
 GET /ver1/deals/2295490936/show
 ```
-<br>
 
-
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 200 OK</summary><br>
+<summary>Status: 200 OK</summary>
 
 ```json
 {
@@ -208,4 +196,5 @@ GET /ver1/deals/2295490936/show
     ]
 }
 ```
+
 </details>

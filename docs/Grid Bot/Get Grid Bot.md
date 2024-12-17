@@ -1,37 +1,25 @@
-## Get Grid Bot<br>
-<br>
+**Description:** Shows information about a specific Grid Bot using its ID
 
-**Description:** Shows information about a specific Grid Bot using its ID<br>
-
-**Permission:** BOTS_WRITEE<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** BOTS_WRITEE
+**Security:** SIGNED
 
 <blockquote>
 
-<code><mark style="color:blue"><strong> GET </strong></mark></code>
-
-<code>/ver1/grid_bots/{id}</code>
+<code><mark style={{ color: "blue"}}> GET </mark></code>
+<code>`/ver1/grid_bots/{id}`</code>
 
 </blockquote>
 
-<br>
+### Path Parameters
 
-
-### Path Parameters<br>
-<p>
-   <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID for this Grid Bot entity
-</p>
-<br>
 
-### Response Parameters<br>
+### Response Parameters
 
 If successful, the response includes a copy of the updated [Grid bot](./README.md) entity.
 
-<br>
-
-### Example Request<br>
+### Example Request
 
 ```json
 GET /ver1/grid_bots/2338357
@@ -40,8 +28,7 @@ GET /ver1/grid_bots/2338357
 ### Example Response and errors
 
 <details>
-<summary>Status: 200 OK</summary><br>
-
+<summary>Status: 200 OK</summary>
 
 ```json
 {
@@ -108,3 +95,5 @@ GET /ver1/grid_bots/2338357
     ]
 }
 ```
+
+</details>

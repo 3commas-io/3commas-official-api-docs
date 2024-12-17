@@ -1,44 +1,35 @@
-## Deposit or withdraw networks info<br>
+## Deposit or withdraw networks info
 
-**Description:**  Shows information about the currency and each supported network for deposits and withdrawals available on the exchange account<br>
+**Description:**  Shows information about the currency and each supported network for deposits and withdrawals available on the exchange account
 
-{% hint style="info" %}
+:::info
 This endpoint works for the following exchanges: *Binance Spot*, *Binance US*, *OKX Spot*, *Binance Broker*
-{% endhint %}
-<br>
+:::
 
-**Permission:**  ACCOUNTS_READ<br>
-**Security:** SIGNED<br>
-<br>
-<br>
+**Permission:**  ACCOUNTS_READ
+**Security:** SIGNED
 
 ----------
 
-<mark style="color:blue"><strong>GET</strong>
+<mark style={{ color: "blue"}}>GET</mark>
 
-<mark style="color:blue"><strong>/ver1/accounts/{account_id}/networks_info</strong>
+<mark style={{ color: "blue"}}>`/ver1/accounts/{account_id}/networks_info`</mark>
 
 ----------
 
-<br>
+### Path Parameter
 
-
-### Path Parameter<br>
-<p>
-   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   account_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID for this exchange account entity
-</p><br>
 
-### Query Parameter<br>
-<p>
-   <strong>purpose</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+### Query Parameter
+
+   purpose&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
    Filter currencies with <code>deposit</code> or <code>withdraw</code> enabled
-</p><br>
 
+### Parameters response
 
-### Parameters response<br>
-
-| Name | Type |	Description|
+| Name | Type | Description|
 |------|------|------------|
 |**currency**  | `integer`|  The name of currency |
 |**name**  | `integer`| The full name of the currency  |
@@ -60,23 +51,18 @@ This endpoint works for the following exchanges: *Binance Spot*, *Binance US*, *
 |**network_list[withdrawMultiple]**  | `string` or `null`| Minimum increment for withdrawal amounts |
 |**network_list[memo_regexp]**  | `string` or `null`| Regular expression (regex) used to validate MEMO |
 |**network_list[label]**  | `string` or `null`| Label for the additional field (e.g., `MEMO` or `Tag`) |
-|**network_list[require_address_tag]**  | `boolean`| Specifies whether an additional field is required when depositing or withdrawing.<br> For example, `MEMO` or `Tag` |
+|**network_list[require_address_tag]**  | `boolean`| Specifies whether an additional field is required when depositing or withdrawing. For example, `MEMO` or `Tag` |
 
-<br>
-<br>
-
-### Example request<br>
+### Example request
 
 ```
 GET /ver1/accounts/12345678/networks_info
 ```
-<br>
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 200 OK</summary><br>
+<summary>Status: 200 OK</summary>
 
 ```json
 
@@ -128,9 +114,10 @@ GET /ver1/accounts/12345678/networks_info
     },
 ...
 ```
-</details><br>
+
+</details>
 <details>
-<summary>Status: 400 Bad Request</summary><br>
+<summary>Status: 400 Bad Request</summary>
 ```json
 {
     "error": "record_invalid",
@@ -145,9 +132,9 @@ GET /ver1/accounts/12345678/networks_info
     }
 }
 ```
-</details><br>
+</details>
 <details>
-<summary>Status: 403 Forbidden</summary><br>
+<summary>Status: 403 Forbidden</summary>
 ```json
 {
     "error": "Forbidden. Unavailable for this account."

@@ -1,45 +1,35 @@
-## Enable Grid Bot<br>
-<br>
+**Description:** Activates an existing Grid Bot using its ID
 
-**Description:** Activates an existing Grid Bot using its ID<br>
+**Permission:** BOTS_WRITEE
+**Security:** SIGNED
 
-**Permission:** BOTS_WRITEE<br>
-**Security:** SIGNED<br>
-<br>
 <blockquote>
 
-<code><mark style="color:green"><strong> POST </strong></mark></code>
+<code><mark style={{ color: "green" }}> POST </mark></code>
 
-<code>/ver1/grid_bots/{id}/enable</code>
+<code>`/ver1/grid_bots/{id}/enable`</code>
 
 </blockquote>
 
-<br>
+### Path Parameters
 
-### Path Parameters<br>
-<p>
-   <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID for this Grid Bot entity
-</p>
-<br>
 
-### Response Parameters<br>
+### Response Parameters
 
 If successful, the response includes a copy of the updated [Grid bot](./README.md) entity.
-<br>
 
-### Example Request<br>
+### Example Request
 
 ```json
 POST /ver1/grid_bots/2338357/disable
 ```
-<br>
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 {
@@ -106,3 +96,5 @@ POST /ver1/grid_bots/2338357/disable
     ]
 }
 ```
+
+</details>

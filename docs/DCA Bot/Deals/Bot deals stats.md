@@ -1,26 +1,17 @@
-## Bot deals stats
+**Description:** TBD
 
-**Description:** TBD <br>
-
-**Permission:** BOTS_READ<br>
-**Security** SIGNED<br>
-<br>
+**Permission:** BOTS_READ
+**Security** SIGNED
 
 ----------
 
-<mark style="color:blue;background-color:white"> **GET**
+<mark style={{ color: "blue", backgroundColor: "white" }}> **GET**</mark>
 
-<mark style="color:blue;background-color:white"> **/ver1/bots/{bot_id}/deals_stats**
+<mark style={{ color: "blue", backgroundColor: "white" }}>`/ver1/bots/{bot_id}/deals_stats`</mark>
 
 ----------
 
-<br>
-<br>
+### Path Parameters
 
-### Path Parameters<br>
-<p>
-   <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   bot_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID DCA Bot entity
-</p>
-<br>
-<br>

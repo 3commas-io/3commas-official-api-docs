@@ -1,58 +1,46 @@
-## Delete Grid Bot<br>
-<br>
+**Description:** Deletes an existing Grid Bot in place using its ID
 
-**Description:** Deletes an existing Grid Bot in place using its ID<br>
-<br>
-
-**Permission:** BOTS_WRITEE<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** BOTS_WRITEE
+**Security:** SIGNED
 
 <blockquote>
 
-<code><mark style="color:red"><strong> DELETE </strong></mark></code>
+<code><mark style={{ color: "red" }}> DELETE </mark></code>
 
-<code>/ver1/grid_bots/{id}</code>
+<code>`/ver1/grid_bots/{id}`</code>
 
 </blockquote>
 
-<br>
+### Path Parameters
 
-### Path Parameters<br>
-<p>
-   <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID for this Grid Bot entity
-</p>
-<br>
 
-### Response Parameters<br>
+### Response Parameters
 
 ```
 NONE
 ```
-<br>
-<br>
 
-### Example Request<br>
+### Example Request
 
 ```json
 DELETE /ver1/grid_bots/2320287
 ```
-<br>
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 200 OK</summary><br>
+<summary>Status: 200 OK</summary>
 
 ```
 NONE
 ```
+
 </details>
 
 <details>
-<summary>Status: 401 Unauthorized</summary><br>
+<summary>Status: 401 Unauthorized</summary>
 
 ```json
 {
@@ -60,4 +48,5 @@ NONE
     "error_description": "Provided signature is invalid"
 }
 ```
+
 </details>

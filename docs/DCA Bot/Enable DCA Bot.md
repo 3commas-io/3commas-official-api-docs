@@ -1,48 +1,35 @@
-## Enable DCA Bot<br>
-<br>
+**Description:** Enables an existing DCA Bot using its ID
 
-**Description:** Enables an existing DCA Bot using its ID<br>
-
-**Permission:** BOTS_WRITE<br>
-**Security** SIGNED<br>
-<br>
+**Permission:** BOTS_WRITE
+**Security** SIGNED
 
 <blockquote>
 
-<code><mark style="color:green"><strong> POST </strong></mark></code>
+<code><mark style={{ color: "green" }}> POST </mark></code>
 
-<code>/ver1/bots/{bot_id}/enable</code>
+<code>`/ver1/bots/{bot_id}/enable`</code>
 
 </blockquote>
 
-<br>
+### Path Parameter
 
-
-### Path Parameter<br>
-<p>
-   <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   bot_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID for this DCA Bot entity
-</p>
-<br>
 
-### Response Parameters<br>
+### Response Parameters
 
 If successful, the response includes a copy of [DCA Bot](./README.md) entity.
 
-<br>
-
-### Example Request<br>
+### Example Request
 
 ```json
 POST /ver1/bots/15577628/enable
 ```
 
-<br>
-
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 {
@@ -233,3 +220,5 @@ POST /ver1/bots/15577628/enable
     ]
 }
 ```
+
+</details>

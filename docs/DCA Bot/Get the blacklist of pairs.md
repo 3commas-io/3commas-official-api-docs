@@ -1,48 +1,37 @@
-## Get the blacklist of pairs<br>
-<br>
+**Description:** Returns the list of blacklist pair(s) that restricts all DCA bots from opening deals with these pairs
 
-**Description:** Returns the list of blacklist pair(s) that restricts all DCA bots from opening deals with these pairs<br>
-
-**Permission:** BOTS_WRITE<br>
-**Security** SIGNED<br>
-<br>
+**Permission:** BOTS_WRITE
+**Security** SIGNED
 
 <blockquote>
 
-<code><mark style="color:blue"><strong> GET </strong></mark></code>
+<code><mark style={{ color: "blue"}}> GET </mark></code>
 
 <code>/ver1/bots/pairs_black_list</code>
 
 </blockquote>
 
-<br>
-
-### Request parameters<br>
+### Request parameters
 
 ```
 NONE
 ```
-<br>
 
-### Response Parameter<br>
+### Response Parameter
 
-<p>
-   <strong>pairs</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array</code><br>
+   pairs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array</code>
    Lists the pairs added to the blacklist
-</p>
-<br>
 
-### Example Request<br>
+### Example Request
 
 ```json
 GET /ver1/bots/pairs_black_list
 ```
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 {
@@ -53,4 +42,5 @@ GET /ver1/bots/pairs_black_list
     ]
 }
 ```
+
 </details>

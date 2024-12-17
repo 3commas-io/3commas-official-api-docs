@@ -1,0 +1,15 @@
+services:
+  docusaurus:
+    build:
+      context: ..
+      dockerfile: .dockerdev/Dockerfile
+    ports:
+      - "3000:3000"
+    command: "npm start"
+    volumes:
+      - ../docs:/app/docs
+      - ../src:/app/src
+      - ../static:/app/static
+      - ../docusaurus.config.ts:/app/docusaurus.config.ts
+      - ../sidebars.ts:/app/sidebars.ts
+      - ../tsconfig.json:/app/tsconfig.json

@@ -1,43 +1,32 @@
-## Add a note to Grid Bot<br>
-<br>
+**Description:** Adds a note to an existing Grid Bot
 
-**Description:** Adds a note to an existing Grid Bot<br>
-
-**Permission:** BOTS_WRITEE<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** BOTS_WRITEE
+**Security:** SIGNED
 
 <blockquote>
 
-<code><mark style="color:green"><strong> POST </strong></mark></code>
+<code><mark style={{ color: "green" }}> POST </mark></code>
 
-<code>/ver1/grid_bots/{id}/note</code>
+<code>`/ver1/grid_bots/{id}/note`</code>
 
 </blockquote>
-<br>
 
-### Path Parameter<br>
-<p>
-   <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+### Path Parameter
+
+   id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID for this Grid Bot entity
-</p>
-<br>
 
-### Body Parameter<br>
-<p>
-   <strong>note</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+### Body Parameter
+
+   note&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Short note for this Grid Bot
    Minlength: <code>1</code>; Maxlength: <code>300</code>
-</p>
-<br>
 
-### Response Parameters<br>
+### Response Parameters
 
 If successful, the response includes a copy of the updated [Grid bot](./README.md) entity.
 
-<br>
-
-### Example Request<br>
+### Example Request
 
 ```json
 POST  /ver1/grid_bots/2345678/note
@@ -48,12 +37,11 @@ Body:
 
 { "note": "Welcome to my 3Commas" } 
 ```
-<br>
 
 ### Example Response and errors
 
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 {
@@ -120,3 +108,5 @@ Body:
     ]
 }
 ```
+
+</details>

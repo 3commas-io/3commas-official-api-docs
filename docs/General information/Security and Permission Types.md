@@ -1,11 +1,9 @@
-## Security and Permission Types<br>
-<br>
-<p>Each endpoint in the 3Commas API has specific security and permission types, which determine how you can interact with it.
-</p>
 
+Each endpoint in the 3Commas API has specific security and permission types, which determine how you can interact with it.
 
-### Security Types<br>
-<p>Security types define the authentication required to access API endpoints.</p>
+### Security Types
+
+Security types define the authentication required to access API endpoints.
 
 <table>
     <thead>
@@ -25,18 +23,16 @@
         </tr>
     </tbody>
 </table>
-<br>
 
-### Permission Types<br>
-<p>
+### Permission Types
+
     Each API endpoint has a specific permission type that defines how it can be accessed.
-</p>
-<p>
+
+
     Also the 3Commas API allows configuring API Keys with different permission sets.
-<br>
+
     For example, one API Key might provide access to read-only statistics, while another could enable full control over bots and accounts.
-</p>
-<br>
+
 <table>
     <thead>
         <tr>

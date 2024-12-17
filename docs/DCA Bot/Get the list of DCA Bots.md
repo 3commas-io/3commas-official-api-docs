@@ -1,100 +1,72 @@
-## Get the list of DCA Bots<br>
-<br>
+**Description:** Returns a list of DCA Bots by user. Use the query parameters to filter the results
 
-**Description:** Returns a list of DCA Bots by user. Use the query parameters to filter the results<br>
-
-**Permission:** BOTS_READ<br>
-**Security** SIGNED<br>
-<br>
+**Permission:** BOTS_READ
+**Security** SIGNED
 
 <blockquote>
 
-<code><mark style="color:blue"><strong> GET </strong></mark></code>
+<code><mark style={{ color: "blue"}}> GET </mark></code>
 
 <code>/ver1/bots</code>
 
 </blockquote>
 
-<br>
+### Query Parameters
 
-### Query Parameters<br>
-
-<p>
-   <strong>limit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   Limits the number of records returned.<br>
+   limit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+   Limits the number of records returned.
    Maximum: <code>100</code>, Default: <code>50</code>
-</p>
-<p>
-   <strong>offset</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+
+   offset&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
    Skips the first N records in the results
-</p>
-<p>
-   <strong>from</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+
+   from&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
    Returns entities created after a specific time
-</p>
-<p>
-   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+
+   account_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
    Filters entities linked to the specified 3Commas exchange account
-</p>
-<p>
-   <strong>scope</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Filters bots by their status<br>
+
+   scope&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   Filters bots by their status
    Default: <code>null</code>
 <details>
-   <summary><em>Allowed value</em></summary>
-   <dl>
-      <li><strong>enable</strong> - returns bots where the state is active;
-      <li><strong>disabled</strong> - returns bots where the state is stopped;
-      <li><strong>null</strong> - returns all bots
-   </dl>
+   <summary>Allowed value</summary>
+   - enable - returns bots where the state is active;
+   - disabled - returns bots where the state is stopped;
+   - null - returns all bots
 </details>
-</p>
-<p>
-   <strong>strategy</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Filters bots by trading strategy type: <code>long</code> or <code>short</code>; 
-</p>
-<p>
-   <strong>sort_by</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Specifies the field used to order the results: <code>created_at</code>; <code>updated_at</code>; <code>profit</code><br>
+
+   strategy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   Filters bots by trading strategy type: <code>long</code> or <code>short</code>;
+
+   sort_by&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   Specifies the field used to order the results: <code>created_at</code>; <code>updated_at</code>; <code>profit</code>
    Default: <code>created_at</code>
-</p>
-<p>
-   <strong>order_direction</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Sets the direction of order (<code>[ASC]</code> or <code>[DESC]</code>)<br>
+
+   order_direction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   Sets the direction of order (<code>[ASC]</code> or <code>[DESC]</code>)
    Default: <code>[DESC]</code>
-</p>
-<p>
-   <strong>quote</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   quote&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Filters by quote currency
-</p>
-<br>
 
-{% hint style="info" %}
+:::info
 Use endpoint [User connected exchanges and wallets list](Account/User%20connected%20exchanges%20and%20wallets%20list.md) to get value for parameter <code>account_id</code> in 3Commas.
-{% endhint %}
-<br>
 
-
-### Parameters Response<br>
-<p>
+### Parameters Response
 
 If successful, the response includes a copy of [DCA Bot](./README.md) entity.
-</p>
 
-<br>
-
-### Example Request<br>
+### Example Request
 
 ```json
 GET /ver1/bots/12345678/show?include_events=true
 ```
-<br>
 
-
-###  Example Response and Errors<br>
+### Example Response and Errors
 
 <details>
-<summary>Status: 200 OK</summary><br>
+<summary>Status: 200 OK</summary>
 
 ```json
 [
@@ -181,4 +153,5 @@ GET /ver1/bots/12345678/show?include_events=true
     ...
 ]
 ```
+
 </details>

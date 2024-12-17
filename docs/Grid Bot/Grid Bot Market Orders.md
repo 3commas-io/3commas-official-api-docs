@@ -1,102 +1,77 @@
-## Get trades of Grid Bot<br>
-<br>
+**Description:** Returns a list of market orders for a Grid Bot using its ID
 
-**Description:** Returns a list of market orders for a Grid Bot using its ID<br>
-
-**Permission:** BOTS_READ<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** BOTS_READ
+**Security:** SIGNED
 
 <blockquote>
 
-<code><mark style="color:blue"><strong> GET </strong></mark></code>
+<code><mark style={{ color: "blue"}}> GET </mark></code>
 
-<code>/ver1/grid_bots/{id}/market_orders</code>
+<code>`/ver1/grid_bots/{id}/market_orders`</code>
 
 </blockquote>
 
-<br>
+### Path Parameter
 
-### Path Parameter<br>
-<p>
-   <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID for this Grid Bot entity
-</p>
-<br>
 
-### Query Parameters<br>
-<p>
-   <strong>limit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   Quantity of the records you want to get in response<br>
-   Minimum: <code>1</code>, Maximum: <code>1000</code><br>
+### Query Parameters
+
+   limit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+   Quantity of the records you want to get in response
+   Minimum: <code>1</code>, Maximum: <code>1000</code>
    Default: <code>100</code>
-</p>
-<p>
-   <strong>offset</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-   Used to specify the starting point for a set of records to return in a paginated list<br>
+
+   offset&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+   Used to specify the starting point for a set of records to return in a paginated list
    Default: <code>0</code>
-</p>
-<br>
 
-### Response Parameters<br>
-<p>
-   <strong>grid_lines_orders</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+### Response Parameters
+
+   grid_lines_orders&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code>
 An array of grid line orders associated with this trading strategy
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>order_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID of Trade entity
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>order_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The side of the order to be created by this trade: <code>Buy</code> or <code>Sell</code>
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>status_string</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3Commas status for this Trade
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>created_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ISO 8601 datetime string of when this Trade entity was created
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>updated_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ISO 8601 datetime string of when this Trade entity was updated
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The total amount of the asset involved in the order
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity_remaining</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The amount of the asset that remains unfulfilled from the total order quantity
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>total</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The total value of the order based on the executed quantity and rate
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>rate</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The rate at which the asset was bought or sold for this order
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>average_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Weighted average price of the asset during trade execution
-</p>
-<br>
 
-### Example Request<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;order_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID of Trade entity
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;order_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The side of the order to be created by this trade: <code>Buy</code> or <code>Sell</code>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status_string&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3Commas status for this Trade
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created_at&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ISO 8601 datetime string of when this Trade entity was created
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_at&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ISO 8601 datetime string of when this Trade entity was updated
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quantity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The total amount of the asset involved in the order
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quantity_remaining&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The amount of the asset that remains unfulfilled from the total order quantity
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The total value of the order based on the executed quantity and rate
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The rate at which the asset was bought or sold for this order
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;average_price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Weighted average price of the asset during trade execution
+
+### Example Request
 
 ```json
 POST /ver1/grid_bots/2338357/market_orders
 ```
-<br>
-<br>
 
-###  Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 200 OK</summary><br>
+<summary>Status: 200 OK</summary>
 
 ```json
 {
@@ -143,4 +118,5 @@ POST /ver1/grid_bots/2338357/market_orders
     ]
 }
 ```
+
 </details>

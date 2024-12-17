@@ -1,137 +1,102 @@
-## Info required to add funds correctly<br>
-<br>
+**Description:** Returns the information required to add funds correctly
 
-**Description:** Returns the information required to add funds correctly<br>
-
-**Permission:** BOTS_READ<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** BOTS_READ
+**Security:** SIGNED
 
 <blockquote>
 
-<code><mark style="color:blue"><strong> GET </strong></mark></code>
+<code><mark style={{ color: "blue"}}> GET </mark></code>
 
-<code>/ver1/deals/{deal_id}/data_for_adding_funds</code>
+<code>`/ver1/deals/{deal_id}/data_for_adding_funds`</code>
 
 </blockquote>
 
-<br>
+### Path Parameter
 
-### Path Parameter<br>
-<p>
-   <strong>deal_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   deal_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID Deal entity
-</p>
-<br>
 
-### Response Parameters<br>
+### Response Parameters
 
-<p>
-   <strong>orderbook_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   The current price from the an exchange's order book for the pair 
-</p>
-<p>
-   <strong>price_per_one_unit_strategy_name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   orderbook_price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   The current price from the an exchange's order book for the pair
+
+   price_per_one_unit_strategy_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    The name of strategy used to determine price per unit
-</p>
-<p>
-   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+
+   account_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
    ID of the exchange account entity where this DCA Bot's deal was created
-</p>
-<p>
-   <strong>quote_currency</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   quote_currency&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    The quote currency in the trading pair
-</p>
-<p>
-   <strong>base_currency</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   base_currency&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    The base currency in the trading pair
-</p>
-<p>
-   <strong>adding_funds_currency</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   adding_funds_currency&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Currency for additional funds
-</p>
-<p>
-   <strong>available_amount</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   available_amount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    The amount of quote currency available for trading
-</p>
-<p>
-   <strong>limits</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+
+   limits&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code>
    Exchange trading limits applicable to the pair used in this DCA Bot
-</p>
-<p>
-   <strong>market_supported</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+
+   market_supported&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
    Indicates if market orders are supported for this pair (<code>true</code>) or not (<code>false</code>)
-</p>
-<p>
-   <strong>is_contract</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
-   Specifies if the trading instrument is a contract (<code>true</code>) or not (<code>false</code>) 
-</p>
-<p>
-   <strong>orderbook_price_currency</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   is_contract&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
+   Specifies if the trading instrument is a contract (<code>true</code>) or not (<code>false</code>)
+
+   orderbook_price_currency&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Currency used for the order book price
-</p>
-<p>
-   <strong>take_profit_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   take_profit_price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    The set price at which to take profit for the bot's deals
-</p>
-<p>
-   <strong>stop_loss_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   stop_loss_price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    The price set to trigger a stop loss for the bot's deals
-</p>
-<p>
-   <strong>account_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   account_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Specifies the type of account
-</p>
-<p>
-   <strong>deal_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   deal_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Indicates the type of deal being executed: <code>long</code> or <code>short</code>)  
-</p>
-<p>
-   <strong>pair</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   Trading pair in 3Commas format      
-</p>
-<p>
-   <strong>limit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   The limit price for buy or sell orders                          
-</p>
-<p>
-   <strong>market_buy_min_total</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   The minimum total amount for market buy orders                                     
-</p>
-<p>
-   <strong>min_lot_size</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   The minimum amount of the base currency that can be traded per order                                         
-</p>
-<p>
-   <strong>leverage_custom_value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   The custom leverage value, if specified                                     
-</p>
-<p>
-   <strong>leverage_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+
+   pair&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   Trading pair in 3Commas format
+
+   limit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   The limit price for buy or sell orders
+
+   market_buy_min_total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   The minimum total amount for market buy orders
+
+   min_lot_size&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   The minimum amount of the base currency that can be traded per order
+
+   leverage_custom_value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   The custom leverage value, if specified
+
+   leverage_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Type of leverage applied for this Deal
-   <details><summary><em>Allowed value</em></summary>
-      <dl>
-       <li><strong>cross</strong> - uses all available funds in your account as collateral for your trades;</li>
-       <li><strong>isolated</strong> - the margin is limited to a specific position;</li>
-       <li><strong>not_specified</strong> - no leverage type specified for deal;</li>
-      </dl>
+   <details>
+   <summary>Allowed value</summary>
+      - cross - uses all available funds in your account as collateral for your trades;
+      - isolated - the margin is limited to a specific position;
+      - not_specified - no leverage type specified for deal;
    </details>
-</p>
 
-<br>
-
-### Example Request<br>
+### Example Request
 
 ```json
 GET /ver1/deals/2295655961/data_for_adding_funds
 ```
-<br>
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 200 OK</summary><br>
+<summary>Status: 200 OK</summary>
 
 ```json
 {
@@ -173,3 +138,5 @@ GET /ver1/deals/2295655961/data_for_adding_funds
     "leverage_type": "not_specified"
 }
 ```
+
+</details>

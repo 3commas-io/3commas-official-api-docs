@@ -1,65 +1,53 @@
-## Get the list of active entities<br>
+## Get the list of active entities
 
-**Description:** Returns the list of active bots, deals and smarttrades using an ID account<br>
+**Description:** Returns the list of active bots, deals and smarttrades using an ID account
 
-**Permission:** ACCOUNTS_READ<br>
-**Security:** SIGNED<br>
-<br>
-
-----------
-
-<mark style="color:blue;background-color:white" > **GET**
-
-<mark style="color:blue;background-color:white" > **/ver1/accounts/{account_id}/active_trading_entities**
+**Permission:** ACCOUNTS_READ
+**Security:** SIGNED
 
 ----------
 
-<br>
-<br>
+<mark style={{ color: "blue", backgroundColor: "white" }} > **GET**</mark>
 
-### Path Parameters<br>
-<p>
-   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+<mark style={{ color: "blue", backgroundColor: "white" }} >`/ver1/accounts/{account_id}/active_trading_entities`</mark>
+
+----------
+
+### Path Parameters
+
+   account_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
    Unique 3Commas ID for this exchange account entity
-</p><br>
 
-### Response Parameters<br>
-<p>
-   <strong>data</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+### Response Parameters
+
+   data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code>
       Contains aggregated information about the active trading entities on this account
-</p>
-<p>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>active_bots_count</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;active_bots_count&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The number of all active DCA Bots on this account
-</p>
-<p>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>active_deals_count</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;active_deals_count&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The number of all active deals of DCA Bot on this account
-</p>
-<p>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>active_smart_trades_count</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;active_smart_trades_count&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The number of all active SmartTrades on this account
-</p>
-<p>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>active_orders_count</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;active_orders_count&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The number of all active orders on this account
-</p>
-<p>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>active_grid_bots_count</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;active_grid_bots_count&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The number of all active Grid Bots on this account
-</p><br>
 
-
-### Example request<br>
+### Example request
 
 ```json
 GET /ver1/accounts/12345678/active_trading_entities
 ```
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
+
 <details>
-<summary>Status: 200 OK</summary><br>
+<summary>Status: 200 OK</summary>
 
 ```json
 {
@@ -72,4 +60,5 @@ GET /ver1/accounts/12345678/active_trading_entities
     }
 }
 ```
+
 </details>

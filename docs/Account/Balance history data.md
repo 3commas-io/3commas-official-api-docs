@@ -1,76 +1,58 @@
-## Balance history data<br>
+## Balance history data
 
-**Description:** Returns the balance history for a specific account using its ID<br>
+**Description:** Returns the balance history for a specific account using its ID
 
-**Permission:**  ACCOUNTS_READ<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:**  ACCOUNTS_READ
+**Security:** SIGNED
+
+----------
+
+<mark style={{ color: "blue"}}>GET</mark>
+
+<mark style={{ color: "blue"}}>`/ver1/accounts/{account_id}/balance_chart_data`</mark>
 
 ----------
 
-<mark style="color:blue"><strong>GET</strong>
+### Path Parameter
 
-<mark style="color:blue"><strong>/ver1/accounts/{account_id}/balance_chart_data</strong>
-
-----------
-<br>
-<br>
-
-### Path Parameter<br>
-<p>
-   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   account_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID for this exchange account entity
-</p>
 
+### Request Parameters
 
-### Request Parameters<br>
-<p>
-   <strong>date_from</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
-   Specifying the start date in ISO 8601 format for the required records 
-</p>
-<p>
-   <strong>date_to</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   date_from&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
+   Specifying the start date in ISO 8601 format for the required records
+
+   date_to&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
    Specifies the end date for the required records
-</p>
-<br>
-<br>
 
-### Parameters response<br>
-<p>
-   <strong>date_to</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+### Parameters response
+
+   date_to&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Timestamp (UNIX time) in seconds representing a specific date
-</p>
-<p>
-   <strong>usd</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   The value in USD for a specific date
-</p>
-<p>
-   <strong>btc</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   The value in BTC for a specific date
-</p>
-<p>
-   <strong>btc_deposit_amount</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   The deposited amount in BTC on a specific date
-</p>
-<p>
-   <strong>usd_deposit_amount</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   The deposited amount in USD on a specific date
-</p>
-<br>
-<br>
 
-### Example Request<br>
+   usd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   The value in USD for a specific date
+
+   btc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   The value in BTC for a specific date
+
+   btc_deposit_amount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   The deposited amount in BTC on a specific date
+
+   usd_deposit_amount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+   The deposited amount in USD on a specific date
+
+### Example Request
 
 ```json
  GET /ver1/accounts/12345678/balance_chart_data?date_from=2024-09-18T18:58:55.469Z
 ```
-<br>
-<br>
 
-###  Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 200 OK</summary><br>
+<summary>Status: 200 OK</summary>
 
 ```json
 [
@@ -91,9 +73,10 @@
     }
 ]
 ```
+
 </details>
 <details>
-<summary>Status: 400 Bad Request</summary><br>
+<summary>Status: 400 Bad Request</summary>
 ```json
 {
     "error": "record_invalid",

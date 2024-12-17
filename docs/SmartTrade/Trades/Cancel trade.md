@@ -1,58 +1,43 @@
-## Cancel trade<br>
+**Description:** Cancels a specific trade within a SmartTrade using its ID
 
-**Description:** Cancels a specific trade within a SmartTrade using its ID<br>
-<br>
-
-{% hint style="warning" %}
+:::warning
 Keep in mind, to avoid canceling the SmartTrade, make sure to leave at least one step in the Take Profit trade and avoid deleting the Stop Loss trade.
-{% endhint %}
+:::
 
-<br>
-
-**Permission:** SMART_TRADES_WRITE<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** SMART_TRADES_WRITE
+**Security:** SIGNED
 
 ----------
 
-<mark style="color:red;background-color:white" > **DELETE**
+<mark style={{ color: "red", backgroundColor: "white" }} > **DELETE**</mark>
 
-<mark style="color:red;background-color:white" > **/v2/smart_trades/{smart_trade_id}/trades/{id}**
+<mark style={{ color: "red", backgroundColor: "white" }} >`/v2/smart_trades/{smart_trade_id}/trades/{id}`</mark>
 
 ----------
-<br>
-<br>
 
-### Path Parameters<br>
-| Name | Type |	Mandatory |	Values	| Description|
+### Path Parameters
+
+| Name | Type | Mandatory | Values | Description|
 |------|------|-----------|-----------------|------------|
 | **smart-trade_id** | `integer` | Yes | - | Unique 3Commas ID for this SmartTrade entity. |
-|**id** | `integer`	| Yes | - | Unique 3Commas ID for Trade entity |
+|**id** | `integer` | Yes | - | Unique 3Commas ID for Trade entity |
 
-<br>
-<br>
+### Response Parameters
 
-### Response Parameters<br>
-
-{% hint style="info" %}
+:::info
 If successful response, the response includes a copy of the updated SmartTrade entity. You can find a total description of all attributes on the page about [SmartTrade](/SmartTrade/README.md).
-{% endhint %}
+:::
 
-<br>
-<br>
-
-### Example Request<br>
+### Example Request
 
 ```json
 /v2/smart_trades/30428625/trades/1008300673
 ```
-<br>
-<br>
 
-###  Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 200 OK</summary><br>
+<summary>Status: 200 OK</summary>
 
 ```json
 {
@@ -247,12 +232,14 @@ If successful response, the response includes a copy of the updated SmartTrade e
     "is_position_not_filled": false
 }
 ```
+
 </details>
 
 <details>
-<summary>Status: </summary><br>
+<summary>Status: </summary>
 
 ```json
 
 ```
+
 </details>

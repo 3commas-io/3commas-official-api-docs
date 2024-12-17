@@ -1,127 +1,100 @@
-## Cancel Manual Safety Trade<br>
-<br>
+**Description:** Cancels a specific manual safety trade within the DCA Bot using its ID
 
-**Description:** Cancels a specific manual safety trade within the DCA Bot using its ID<br>
-
-{% hint style="warning" %}
+:::warning
 After this action, 3Commas will automatically set the final status to **Cancelled** for this trade.
-{% endhint %}
+:::
 
-<br>
-
-**Permission:** BOTS_WRITE<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** BOTS_WRITE
+**Security:** SIGNED
 
 <blockquote>
-
-<code><mark style="color:green"><strong> POST </strong></mark></code>
-
-<code>/ver1/deals/{deal_id}/cancel_order</code>
-
+<span style={{ color: "green" }}>POST</span>
+<code>`/ver1/deals/{deal_id}/cancel_order`</code>
 </blockquote>
 
-<br>
+### Path Parameter
 
-### Path Parameter<br>
-<p>
-   <strong>deal_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   deal_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID Deal entity
-</p>
-<br>
 
-### Body Parameter<br>
-<p>
-   <strong>order_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+### Body Parameter
+
+   order_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas Trade entity ID
-</p>
-<br>
 
-{% hint style="infor" %}
-
+:::warning
 Use the [Get Trades of Deal](./DCA%20Bot/Deals/Get%20Trades%20of%20Deal.md) endpoint to retrieve the value for the order_id parameter.
-{% endhint %}
+:::
 
-<br>
-<br>
+### Response Parameters
 
-### Response Parameters<br>
-<p>
-   <strong>order_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   order_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Unique 3Commas Trade entity ID
-</p>
-<p>
-   <strong>order_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   The side of the order to be created by this trade
-   <details><summary><em>Allowed value</em></summary><li>Buy</li><li>Sell</li></details>
-</p>
-<p>
-   <strong>deal_order_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   The type of the order to be created by this trade
-   <details><summary><em>Allowed value</em></summary>
-   <li>Base</li>
-   <li>Take profit</li>
-   <li>Stop Loss</li>
-   <li>Safety</li>
-   <li>Manual Safety</li>
-   </details>
-</p>
-<p>
-   <strong>cancellable</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+
+    order_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+    The side of the order to be created by this trade
+    <details>
+        <summary>Allowed value</summary>
+        - Buy
+        - Sell
+    </details>
+
+
+    deal_order_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+    The type of the order to be created by this trade
+    <details>
+        <summary>Allowed value</summary>
+        - Base
+        - Take profit
+        - Stop Loss
+        - Safety
+        - Manual Safety
+    </details>
+
+   cancellable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
    Indicates whether this trade can be canceled
-</p>
-<p>
-   <strong>status_string</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   3Commas status for this Trade
-   <details><summary><em>Allowed value</em></summary>
-   <li>Active - the trade is currently open, waiting to be filled</li>
-   <li>Filled - the trade has been fully executed</li>
-   <li>Finished - the trade process is complete</li>
-   <li>Cancelled - the trade was canceled before it could be fully executed</li>
-   </details>
-</p>
-<p>
-   <strong>created_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+    status_string&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
+    3Commas status for this Trade
+    <details>
+        <summary>Allowed value</summary>
+        - Active - the trade is currently open, waiting to be filled
+        - Filled - the trade has been fully executed
+        - Finished - the trade process is complete
+        - Cancelled - the trade was canceled before it could be fully executed
+    </details>
+
+   created_at&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    ISO 8601 datetime string of when this Trade entity was created
-</p>
-<p>
-   <strong>updated_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   updated_at&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    ISO 8601 datetime string of when this Trade entity was updated
-</p>
-<p>
-   <strong>quantity</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   quantity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Total quantity of the asset in this order
-</p>
-<p>
-   <strong>quantity_remaining</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   quantity_remaining&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Remaining quantity of the asset left to be filled in this order
-</p>
-<p>
-   <strong>total</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Total value of the order based on <code>quantity</code> and <code>rate</code>
-</p>
-<p>
-   <strong>rate</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   rate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    Price per unit of the asset in the order
-</p>
-<p>
-   <strong>average_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+
+   average_price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
    The weighted average price at which the asset was bought or sold during the execution of the trades
-</p>
-<br>
 
-
-### Example Request<br>
+### Example Request
 
 ```json
 POST  /ver1/deals/2345678901/cancel_order
 ```
-<br>
 
-###  Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 [
@@ -267,10 +240,11 @@ POST  /ver1/deals/2345678901/cancel_order
     }
 ]
 ```
+
 </details>
 
 <details>
-<summary>Status: 400 Bad Request</summary><br>
+<summary>Status: 400 Bad Request</summary>
 
 ```json
 {
@@ -283,12 +257,14 @@ POST  /ver1/deals/2345678901/cancel_order
     }
 }
 ```
+
 </details>
 
 <details>
-<summary>Status: 422 Unprocessable Entity</summary><br>
+<summary>Status: 422 Unprocessable Entity</summary>
 ```
 {
     "error": "Cant be cancelled"
 }
+```
 </details>

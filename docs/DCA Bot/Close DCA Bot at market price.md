@@ -1,46 +1,35 @@
-## Close DCA Bot at market price<br>
-<br>
+**Description:** Closes all deals of the bot at market price and disables the DCA Bot
 
-**Description:** Closes all deals of the bot at market price and disables the DCA Bot<br>
-
-**Permission:** BOTS_WRITE<br>
-**Security:** SIGNED<br>
-<br>
+**Permission:** BOTS_WRITE
+**Security:** SIGNED
 
 <blockquote>
 
-<code><mark style="color:green"><strong> POST </strong></mark></code>
+<code><mark style={{ color: "green" }}> POST </mark></code>
 
-<code>/ver1/bots/{bot_id}/show</code>
+<code>`/ver1/bots/{bot_id}/show`</code>
 
 </blockquote>
 
-<br>
+### Path Parameter
 
-### Path Parameter<br>
-<p>
-   <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   bot_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID for this DCA Bot entity
-</p>
-<br>
 
-### Parameter response<br>
+### Parameter response
 
 If successful, the response includes an updated copy of the [DCA Bot](./README.md) entity.
 
-<br>
-
-### Example request<br>
+### Example request
 
 ```
 POST /ver1/bots/12345678/panic_sell_all_deals
 ```
-<br>
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
+
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 {
@@ -224,10 +213,11 @@ POST /ver1/bots/12345678/panic_sell_all_deals
     ]
 }
 ```
+
 </details>
 
 <details>
-<summary>Status: 404 Not Found</summary><br>
+<summary>Status: 404 Not Found</summary>
 
 ```json
 {
@@ -235,4 +225,5 @@ POST /ver1/bots/12345678/panic_sell_all_deals
     "error_description": "Not Found"
 }
 ```
+
 </details>

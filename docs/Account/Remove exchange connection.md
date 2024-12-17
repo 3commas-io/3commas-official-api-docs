@@ -1,58 +1,52 @@
-## Remove exchange connection<br>
+## Remove exchange connection
 
-**Description:** Deletes an exchange account from user<br>
+**Description:** Deletes an exchange account from user
 
-**Permission:** ACCOUNTS_WRITE<br>
-**Security:** SIGNED<br>
-<br>
-{% hint style="warning" %}
+**Permission:** ACCOUNTS_WRITE
+**Security:** SIGNED
+
+:::warning
 Keep in mind, that an exchange account can't delete if it has any active entities (Grid Bot, Smart Trade, Deals, Trade, Signal Bot).
-{% endhint %}
-
-<br>
+:::
 
 ----------
 
-<mark style="color:green"><strong>POST</strong>
+<mark style={{ color: "green" }}>POST</mark>
 
-<mark style="color:green"><strong>/ver1/accounts/{account_id}/remove</strong>
+<mark style={{ color: "green" }}>`/ver1/accounts/{account_id}/remove`</mark>
 
 ----------
-<br>
 
-### Path Parameter<br>
-<p>
-   <strong>account_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+### Path Parameter
+
+   account_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
    Unique 3Commas ID for this exchange account entity
-</p><br>
 
-### Response Parameters<br>
+### Response Parameters
 
 ```
 NONE
 ```
-<br>
 
-### Example request<br>
+### Example request
 
 ```json
 POST /ver1/accounts/12345678/remove
 ```
-<br>
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 true
 ```
+
 </details>
 
 <details>
-<summary>Status: 404 Not Found</summary><br>
+<summary>Status: 404 Not Found</summary>
 
 ```json
 {
@@ -60,10 +54,11 @@ true
     "error_description": "Not Found"
 }
 ```
+
 </details>
 
 <details>
-<summary> Status: 422 Unprocessable Entity</summary><br>
+<summary> Status: 422 Unprocessable Entity</summary>
 
 ```json
 {
@@ -71,4 +66,5 @@ true
     "error_description": "There are active trading deals on this exchange. Close all trading operations and try again"
 }
 ```
+
 </details>

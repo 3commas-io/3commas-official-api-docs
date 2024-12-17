@@ -1,59 +1,44 @@
-## Convert to SmartTrade<br>
-<br>
+**Description:** Allows to convert the deal entity into SmarTrade entity
 
-**Description:** Allows to convert the deal entity into SmarTrade entity<br>
-
-{% hint style="warning" %}
+:::warning
 After this action, 3Commas will automatically set the final status to **Cancelled** for this deal.
-{% endhint %}
+:::
 
-<br>
-
-**Permission:** SMART_TRADE_WRITE<br>
-**Security** SIGNED<br>
-<br>
+**Permission:** SMART_TRADE_WRITE
+**Security** SIGNED
 
 <blockquote>
 
-<code><mark style="color:green"><strong> POST </strong></mark></code>
+<code><mark style={{ color: "green" }}> POST </mark></code>
 
-<code>/ver1/deals/{deal_id}/convert_to_smart_trade</code>
+<code>`/ver1/deals/{deal_id}/convert_to_smart_trade`</code>
 
 </blockquote>
 
-<br>
+### Path Parameter
 
-### Path Parameter<br>
-<p>
-   <strong>deal_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   deal_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Unique 3Commas ID Deal entity
-</p>
-<br>
 
-### Body Parameter<br>
-<p>
-   <strong>stop_bot</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+### Body Parameter
+
+   stop_bot&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
    Indicates whether to disable the DCA Bot (<code>true</code>) or not (<code>false</code>)
-</p>
-<br>
 
-### Response Parameters<br>
+### Response Parameters
 
 If successful, the response includes a copy of [SmartTrade](./README.md) entity.
 
-<br>
-
-### Example Request<br>
+### Example Request
 
 ```json
 POST /ver1/deals/1234567890/convert_to_smart_trade?stop_bot=false
 ```
-<br>
 
-### Example Response and errors<br>
+### Example Response and errors
 
 <details>
-<summary>Status: 201 Created</summary><br>
+<summary>Status: 201 Created</summary>
 
 ```json
 {
@@ -226,3 +211,4 @@ POST /ver1/deals/1234567890/convert_to_smart_trade?stop_bot=false
 }
 ```
 
+</details>

@@ -1,13 +1,7 @@
-## Dates and times<br>
-<p>
 
 All dates and times use the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 
-</p>
-<p>
-
 For example:
-</p>
 
 <table>
   <tr>
@@ -27,4 +21,3 @@ For example:
     <td>2024-09-12T15:53:22.940Z</td>
   </tr>
 </table>
-
