@@ -1,4 +1,5 @@
 ## Get trades of SmartTrade<br>
+<br>
 
 **Description:** Shows trades of existing SmartTrade<br>
 
@@ -6,66 +7,163 @@
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:blue;background-color:white" > **GET**
+<code><mark style="color:blue"><strong> GET </strong></mark></code>
 
-<mark style="color:blue;background-color:white" > **/v2/smart_trades/{smart_trade_id}/trades**
+<code>/v2/smart_trades/{smart_trade_id}/trades</code>
 
-----------
+</blockquote>
 
 <br>
-<br>
-
 
 ### Path Parameters<br>
-| Name | Type |	Mandatory |	Values| Description|
-|------|------|-----------|-----------------|------------|
-|**smart-trade_id**| `integer` | Yes |  | Unique 3Commas ID for this SmartTrade entity |
-
-<br>
+<p>
+   <strong>smart-trade_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID for this SmartTrade entity
+</p>
 <br>
 
 ### Response Parameters<br>
-
-| Name | Type |	Description|
-|------|------|------------|
-| **id** | `integer`| Unique 3Commas Trade entity ID |
-| **average_price** | `null` or `string` | The weighted average price at which the asset was bought or sold during the execution of the trades|
-| **follow_price_type** | `string`  | The type of price to follow for this trade (f.e. `bid`, `ask`, or `last`) |
-| **initial_amount** | `string`|The initial amount for this trade  |
-| **initial_total** | `string`| The initial total for this trade |
-| **initial_price** | `number`| The initial price for this trade |
-| **order_price** | `null` or `string` | The limit price for this trade |
-| **order_side**  | `string`  | The side of the order to be created by this trade |
-| **order_type** | `string` | The type of trade used to open the position (e.g., `market`, `limit`, `conditional`) 
-| **pair** | `string` | Trading pair in 3Commas format for this trade |
-| **position_percentage** | `null` or `string`|Доля в процентах шага по TP. заполняется поле только в случае  "trade_purpose": "take_profit"|
-| **realised_amount** |  `string` or `null` | Indicates the realized amount from the trade |
-| **realised_total** | `string` or `null` | Indicates the total realized amount from the trade |
-| **realised_percentage** | `number`| Indicates the realized percentage of the total trade amount  |
-| **realised_price** | `number` or `null` | Indicates the realized price of the trade |
-| **status** | `string` | 3Commas status for this Trade | 
-| **take_profit_percentage**  | `string` or `null` | The percentage price level for Take Profit for this Trade |
-| **trade_purpose** | `string`| The type of trade.<br><details> <summary>Show allowed values</summary>**position**<br> **take_profit** <br>**stop_loss** <br>**reduce_funds**<br></details><br> |
-| **trail_percentage** | `string` or `null` | Indicates the percentage deviation from the price for this trade |
-| **trail_value** | `string` or `null` | Indicates the deviation from the price for this trade (сами высчитываем) по этому трейду |
-| **trailing_enabled** | `boolean`| Indicates whether the trailing settings for this trade can be edited |
-| **trailing_last_price** | `string` or `null` | Indicates the last price used for trailing |
-| **trailing_last_price_updated_at** | `number` or `null` |Indicates the timestamp of the last update to the trailing price |
-| **trigger_condition** | `number` or `null` | Indicates the condition under which the trigger is activated<br> <details><summary>Show allowed values</summary><br>* greater<br>-less<br>-greater_or_equal <br>-less_or_equal<br>
-</details><br> |
-| **trigger_price** | `string` or `null` | Indicates the price at which the trigger is activated |
-| **trigger_price_percentage** | `string` or `null` | Indicates the percentage for the trigger price |
-| **trigger_type** | `string` | Indicates the type of trigger for the trade |
-| **created_at**| `string <date-time>`| ISO 8601 datetime string of when this Trade entity was created |
-| **updated_at**| `string <date-time>`| ISO 8601 datetime string of when this Trade entity was updated |
-| **cancelable** | `boolean`| Indicates whether this trade can be canceled |
-| **force_processable** | `boolean`| Indicates whether this Trade can be close by market |
-
+<p>
+   <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   Unique 3Commas Trade entity ID
+</p>
+<p>
+   <strong>average_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   The weighted average price at which the asset was bought or sold during the execution of the trades
+</p>
+<p>
+   <strong>follow_price_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The type of price to follow for this trade; <code>bid</code>, <code>ask</code>, or <code>last</code>)
+</p>
+<p>
+   <strong>initial_amount</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The initial amount for this trade
+</p>
+<p>
+   <strong>initial_total</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The initial total for this trade
+</p>
+<p>
+   <strong>initial_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+   The initial price for this trade
+</p>
+<p>
+   <strong>order_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   The limit price for this trade
+</p>
+<p>
+   <strong>order_side</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The side of the order to be created by this trade
+</p>
+<p>
+   <strong>order_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The type of trade used to open the position: <code>market</code>, <code>limit</code>, <code>conditional</code>
+</p>
+<p>
+   <strong>pair</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   Trading pair in 3Commas format for this trade
+</p>
+<p>
+   <strong>position_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   The percentage share of the step in the Take Profit process. 
+   This field cannot be <code>null</code> when the trade_purpose is set to <code>take_profit</code>
+</p>
+<p>
+   <strong>realised_amount</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   Indicates the realized amount from the trade
+</p>
+<p>
+   <strong>realised_total</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+    The total amount realized from the trade
+</p>
+<p>
+   <strong>realised_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code><br>
+   The percentage of the total trade amount that has been realized
+</p>
+<p>
+   <strong>realised_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+    The price at which the trade was realized
+</p>
+<p>
+   <strong>status</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   3Commas status for this Trade
+</p>
+<p>
+   <strong>take_profit_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   The percentage price level for Take Profit for this Trade
+</p>
+<p>
+   <strong>trade_purpose</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   The type of trade.<br>
+   <details><summary>Show allowed values</summary>
+   <li>position</li><br>
+   <li>take_profit</li><br>
+   <li>stop_loss</li><br>
+   <li>reduce_funds</li><br>
+   </details>
+</p>
+<p>
+   <strong>trail_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   The percentage deviation used for trailing the price in this trade
+</p>
+<p>
+   <strong>trail_value</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   Represents the price deviation calculated by the system for this trade
+</p>
+<p>
+   <strong>trailing_enabled</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+   Indicates whether the trailing settings for this trade can be edited
+</p>
+<p>
+   <strong>trailing_last_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   Represents the last price used for trailing
+</p>
+<p>
+   <strong>trailing_last_price_updated_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   Indicates the timestamp of the last update to the trailing price
+</p>
+<p>
+   <strong>trigger_condition</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   Indicates the condition under which the trigger is activated
+   <details>
+   <summary>Show allowed values</summary>
+   <li>greater</li>
+   <li>less</li>
+   <li>greater_or_equal</li>
+   <li>less_or_equal</li>
+   </details>
+</p>
+<p>
+   <strong>trigger_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   The price at which the trigger is activated
+</p>
+<p>
+   <strong>trigger_price_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   The percentage associated with the trigger price
+</p>
+<p>
+   <strong>trigger_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+   Specifies the type of trigger used for the trade
+</p>
+<p>
+   <strong>created_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   ISO 8601 datetime string of when this Trade entity was created
+</p>
+<p>
+   <strong>updated_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   ISO 8601 datetime string of when this Trade entity was updated
+</p>
+<p>
+   <strong>cancelable</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+    Indicates whether this trade can be canceled (<code>true</code>) or (<code>false</code>)
+</p>
+<p>
+   <strong>force_processable</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+   Indicates whether this trade can be closed by market (<code>true</code>) or (<code>false</code>)
+</p>
 <br>
-<br>
-
 
 ### Example Request<br>
 

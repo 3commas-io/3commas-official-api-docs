@@ -1,18 +1,14 @@
 ## Currency rates and limits<br>
 <br>
+<code><mark style="color:blue">GET</mark></code> <code>/ver1/accounts/currency_rates</code>
+<br>
 
-**Description:** Retuns the current trading rules and ticker information on exchange<br>
+Retuns the current trading rules and ticker information on exchange
+<br>
 
 {% hint style="success" %}
 This is an endpoint that does not need authentication
 {% endhint %}
-<br>
-
-<blockquote>
-<code><mark style="color:blue"><strong> GET </strong></mark></code>
-
-<code>/ver1/accounts/currency_rates</code>
-</blockquote>
 <br>
 
 ### Query Parameters<br>
@@ -135,7 +131,6 @@ The market and trading pair codes are used in 3Commas format. Use endpoints [Sup
    <strong>maxLotSize</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
    Maximum order size in Base
 </p>
-<br>
 <br>
 
 ### Example request<br>

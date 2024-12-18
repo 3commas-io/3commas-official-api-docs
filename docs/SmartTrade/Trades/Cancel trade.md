@@ -1,4 +1,5 @@
 ## Cancel trade<br>
+<br>
 
 **Description:** Cancels a specific trade within a SmartTrade using its ID<br>
 <br>
@@ -13,40 +14,38 @@ Keep in mind, to avoid canceling the SmartTrade, make sure to leave at least one
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:red;background-color:white" > **DELETE**
+<code><mark style="color:red"><strong> DELETE </strong></mark></code>
 
-<mark style="color:red;background-color:white" > **/v2/smart_trades/{smart_trade_id}/trades/{id}**
+<code>/v2/smart_trades/{smart_trade_id}/trades/{id}</code>
 
-----------
-<br>
+</blockquote>
+
 <br>
 
 ### Path Parameters<br>
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-| **smart-trade_id** | `integer` | Yes | - | Unique 3Commas ID for this SmartTrade entity. |
-|**id** | `integer`	| Yes | - | Unique 3Commas ID for Trade entity |
-
-<br>
+<p>
+   <strong>smart-trade_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID for this SmartTrade entity
+</p>
+<p>
+   <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID for Trade entity
+</p>
 <br>
 
 ### Response Parameters<br>
 
-{% hint style="info" %}
 If successful response, the response includes a copy of the updated SmartTrade entity. You can find a total description of all attributes on the page about [SmartTrade](/SmartTrade/README.md).
-{% endhint %}
 
-<br>
 <br>
 
 ### Example Request<br>
 
 ```json
-/v2/smart_trades/30428625/trades/1008300673
+DELETE /v2/smart_trades/30428625/trades/1008300673
 ```
-<br>
 <br>
 
 ###  Example Response and errors<br>
@@ -248,11 +247,13 @@ If successful response, the response includes a copy of the updated SmartTrade e
 }
 ```
 </details>
-
 <details>
-<summary>Status: </summary><br>
+<summary>Status: 400 Bad Request</summary><br>
 
 ```json
-
+{
+    "error": "Wrong param(s)",
+    "error_description": "trade 1000000000 can not be cancelled"
+}
 ```
 </details>

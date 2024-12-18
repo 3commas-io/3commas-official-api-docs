@@ -1,29 +1,20 @@
 ## Supported markets list<br>
 <br>
+<code><mark style="color:blue">GET</mark></code> <code>/ver1/accounts/market_list</code>
+<br>
 
-**Description:** Returns the list of markets supported by 3Commas<br>
+Returns the list of markets supported by 3Commas<br>
 
 {% hint style="success" %}
 This is an endpoint that does not need authentication
 {% endhint %}
 <br>
 
-<blockquote>
-<code><mark style="color:blue"><strong> GET </strong></mark></code>
-
-<code>/ver1/accounts/market_list</code>
-</blockquote>
-<br>
-
 ### Request parameters<br>
 
-```json
-NONE
-```
-<br>
+No parameters.<br>
 
 ### Response parameters<br>
-
 <p>
    <strong>market_name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
    Name of the exchange in the 3Commas system 
@@ -101,8 +92,6 @@ NONE
    Name of the exchange for fast connection option in the 3Commas system
 </p>
 <br>
-<br>
-
 
 ### Example Response and errors<br>
 <details>

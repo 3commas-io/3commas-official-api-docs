@@ -1,18 +1,12 @@
 ## Currency rates and limits with leverage data<br>
 <br>
+<code><mark style="color:blue">GET</mark></code> <code>/ver1/accounts/currency_rates_with_leverage_data</code><br>
 
-**Description:** Returns the current trading rules and ticket information with data about leverages on the futures exchange<br>
+Returns the current trading rules and ticket information with data about leverages on the futures exchange<br>
 
 {% hint style="success" %}
 This is an endpoint that does not need authentication
 {% endhint %}
-<br>
-
-<blockquote>
-<code><mark style="color:blue"><strong> GET </strong></mark></code>
-
-<code>/ver1/accounts/currency_rates_with_leverage_data</code>
-</blockquote>
 <br>
 
 ### Query Parameters<br>

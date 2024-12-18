@@ -34,22 +34,13 @@ Here, you can find methods and attributes to monitor, update, or analyze the det
 </p><br>
 
 ## Attributes<br>
-
 <p>
-    <strong>from_currency_id</strong>: 0,<br>
-    [TBD]
-</p>
-<p>
-    <strong>to_currency_id</strong>: 0,<br>
-    [TBD]
-</p>
-<p>
-    <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
+   <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
    Unique 3Commas ID for this Deal entity
 </p>
 <p>
     <strong>type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-   The type of entity
+    The type of entity
 </p>
 <p>
     <strong>bot_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code><br>
@@ -295,7 +286,7 @@ Here, you can find methods and attributes to monitor, update, or analyze the det
     The average price at which the asset was sold
 </p>
 <p>
-    <strong>final_profit</strong>: "-3.35618503",
+    <strong>final_profit</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
     The final profit from the deal
 </p>
 <p>
@@ -324,7 +315,7 @@ Here, you can find methods and attributes to monitor, update, or analyze the det
     Example: <code>{upper_breakeven_limit: 1}</code>
 </p>
 <p>
-    <strong>error_message</strong>: null,
+    <strong>error_message</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
     Description of the error for this Deal if it fails
 </p>
 <p>
@@ -411,17 +402,16 @@ Here, you can find methods and attributes to monitor, update, or analyze the det
      Indicates if this deal was converted to SmartTrade (<code>true</code>) or not (<code>false</code>)
 </p>
 <p>
-    <strong>market_type</strong>: "spot",
-    [TBD] Type of strategy used by the bot (e.g., long, short)
+    <strong>market_type</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+    The strategy type used by the bot: <code>spot</code>, <code>long</code>, <code>short</code>.  
 </p>
 <p>
-    <strong>current_price</strong>: "2428.0",
-    [TBD]
+    <strong>current_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+    Shows the current market price for the traded asset
 </p>
-
 <p>
-    <strong>stop_loss_price</strong>: null,
-    [TBD]
+    <strong>stop_loss_price</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code><br>
+    Indicates the price at which the stop-loss is triggered
 </p>
 <p>
     <strong>actual_profit_percentage</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
@@ -429,37 +419,40 @@ Here, you can find methods and attributes to monitor, update, or analyze the det
 </p>
 <p>
     <strong>reserved_quote_funds</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-    [TBD]
+    The amount of quote currency reserved for this deal
 </p>
 <p>
     <strong>reserved_base_funds</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-    [TBD]
+    The symbol of the base coin reserved for this deal
 </p>
 <p>
     <strong>reserved_base_coin</strong>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-    [TBD]
+    The symbol of the second coin reserved for this deal
 </p>
 <p>
     <strong>reserved_second_coin</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
-    [TBD]
+    The symbol of the second coin reserved for this deal
 </p>
 <p>
-    <strong>orderbook_price_currency</strong>: "USDT",
-    [TBD]
+    <strong>orderbook_price_currency</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+    Specifies the currency used for price quotes in the order book
 </p>
 <p>
-<strong>crypto_widget</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+    <strong>crypto_widget</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>object</code><br>
+    Displays widget-related information for the cryptocurrency
 </p>
 <p>
 <strong>buy_steps</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array</code><br>
+Contains data about the steps executed during the buy process
 <p>
 <strong>bot_events</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array</code><br>
+Logs events related to the bot's operation
 </p>
 <p>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>message</strong>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TBD]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contains details about a specific bot event
 </p>
 <p>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>created_at</strong>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TBD]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ISO 8601 datetime string of when this event occurred
 </p>

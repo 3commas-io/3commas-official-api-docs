@@ -1,7 +1,7 @@
 ## Closes trade at market price<br>
+<br>
 
 **Description:** Closes a specific take profit trade within a SmartTrade at market price using its ID<br>
-
 
 {% hint style="warning" %}
 The endpoint is available for Take Profit Trades for the statuses `to_process`, `order_placed`, and `trailing_activated`.
@@ -12,38 +12,35 @@ The endpoint is available for Take Profit Trades for the statuses `to_process`, 
 **Security:** SIGNED<br>
 <br>
 
-----------
+<blockquote>
 
-<mark style="color:green;background-color:white" > **POST**
+<code><mark style="color:green"><strong> POST </strong></mark></code>
 
-<mark style="color:green;background-color:white" > **/v2/smart_trades/{smart_trade_id}/trades/{id}/close_by_market**
+<code>/v2/smart_trades/{smart_trade_id}/trades/{id}/close_by_market</code>
 
-----------
+</blockquote>
 
-<br>
 <br>
 
 
 ### Path Parameters<br>
-| Name | Type |	Mandatory |	Values	| Description|
-|------|------|-----------|-----------------|------------|
-|**smart-trade_id** | `integer`	| Yes |  | Unique 3Commas ID for this SmartTrade entity. |
-|**id** | `integer`| Yes |  | Unique 3Commas ID for Trade entity |
-
-<br>
+<p>
+   <strong>smart-trade_id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID for this SmartTrade entity
+</p>
+<p>
+   <strong>id</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style="color:orange">required</mark><br>
+   Unique 3Commas ID for Trade entity
+</p>
 <br>
 
 ### Response Parameters<br>
 
-{% hint style="info" %}
-If successful response, the response includes a copy of the updated SmartTrade entity. You can find a total description of all attributes on the page about [SmartTrade](./README.md). 
-{% endhint %}
-
-<br>
+If successful response, the response includes a copy of the updated SmartTrade entity. You can find a total description of all attributes on the page about [SmartTrade](./README.md).
 <br>
 
 ```json
-/v2/smart_trades/12345678/trades/1047934729/close_by_market
+POST /v2/smart_trades/12345678/trades/1047934729/close_by_market
 ```
 
 **Example Response and errors**<br>

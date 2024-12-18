@@ -202,22 +202,19 @@ Indicates the percentage for the trigger price
 Indicates the type of trigger for the trade
 <br>
 
-<strong>created_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string <date-time></code>
-<br>
-ISO 8601 datetime string of when this Trade entity was created
-<br>
-
-<strong>updated_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string <date-time></code>
-<br>
-ISO 8601 datetime string of when this Trade entity was updated
-<br>
-
-<strong>cancelable</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
-<br>
-Indicates whether this trade can be canceled
-<br>
-
-<strong>force_processable</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
-<br> 
-Indicates whether this Trade can be close by market
-<br>
+<p>
+   <strong>created_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   ISO 8601 datetime string of when this Trade entity was created
+</p>
+<p>
+   <strong>updated_at</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code><br>
+   ISO 8601 datetime string of when this Trade entity was updated
+</p>
+<p>
+   <strong>cancelable</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+    Indicates whether this trade can be canceled (<code>true</code>) or (<code>false</code>)
+</p>
+<p>
+   <strong>force_processable</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code><br>
+   Indicates whether this trade can be closed by market (<code>true</code>) or (<code>false</code>)
+</p>
