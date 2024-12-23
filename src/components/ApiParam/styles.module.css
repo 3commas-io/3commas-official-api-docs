@@ -1,0 +1,31 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  padding-left: calc(0.5rem + 12px);
+  margin: 0;
+
+  p {
+    margin: 0;
+  }
+}
+
+.name {
+  font-weight: 500;
+}
+
+.type {
+  color: var(--ifm-toc-link-color);
+  font-size: 85%;
+  line-height: 1rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 32px;
+}
+
+.marginBottom {
+  margin-bottom: var(--ifm-spacing-vertical);
+}

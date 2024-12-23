@@ -1,5 +1,8 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
 
 **Description:** Creates a new additional safety manual trade entry
 
@@ -117,6 +120,29 @@ Response format depends on choosing <code>response_type</code>:
     If successful, the response includes an updated copy of the [Deals](./README.md) entity.
   </TabItem>
 </Tabs>
+
+### More
+
+<ApiParam name='deal_id' type='integer' required>
+  Unique 3Commas ID Deal entity
+</ApiParam>
+
+<CollapsibleApiParam name="charge" type="nullable string">
+asd
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="charge" type="nullable string">
+  <CollapsibleNestedParams>
+    <CollapsibleNestedParams>
+      <ApiParam name='deal_id' type='integer' required>
+        Unique 3Commas ID Deal entity
+      </ApiParam>
+      <ApiParam name='deal_id' type='integer' required>
+        Unique 3Commas ID Deal entity
+      </ApiParam>
+    </CollapsibleNestedParams>
+  </CollapsibleNestedParams>
+</CollapsibleApiParam>
 
 ### Example Request
 

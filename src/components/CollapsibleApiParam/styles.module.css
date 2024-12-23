@@ -1,0 +1,58 @@
+.collapseIcon {
+  transform: rotate(0deg);
+  transition: var(--docusaurus-details-transition);
+  color: var(--ifm-toc-link-color);
+}
+
+.name {
+  font-weight: 500;
+}
+
+.type {
+  color: var(--ifm-toc-link-color);
+  font-size: 85%;
+  line-height: 1rem;
+}
+
+.details {
+  --icon-size: 12px;
+  --gap: 0.5rem;
+  margin: 0;
+
+  padding: 0.5rem 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+
+  ::before {
+    display: none;
+  }
+
+  summary {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+    min-height: 32px;
+  }
+
+  summary + div > * {
+    border: none;
+    margin-top: 0;
+    padding-top: 0;
+    padding-left: calc(var(--icon-size) + var(--gap));
+  }
+
+  .collapseIcon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+  }
+
+  &[data-collapsed='false'] .collapseIcon {
+    transform: rotate(90deg);
+  }
+}
+
+.marginBottom {
+  margin-bottom: var(--ifm-spacing-vertical);
+}
