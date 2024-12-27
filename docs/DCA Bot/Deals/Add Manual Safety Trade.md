@@ -123,18 +123,18 @@ Response format depends on choosing <code>response_type</code>:
 
 ### More
 
-<ApiParam name='deal_id' type='integer' required>
+<ApiParam name='deal_id' type='integer' id="deal_id" required>
   Unique 3Commas ID Deal entity
 </ApiParam>
 
-<CollapsibleApiParam name="charge" type="nullable string">
+<CollapsibleApiParam name="charge" type="nullable string" id="charge" required>
 asd
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="charge" type="nullable string">
   <CollapsibleNestedParams>
     <CollapsibleNestedParams>
-      <ApiParam name='deal_id' type='integer' required>
+      <ApiParam name='deal_id' type='integer'>
         Unique 3Commas ID Deal entity
       </ApiParam>
       <ApiParam name='deal_id' type='integer' required>

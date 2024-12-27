@@ -14,6 +14,22 @@
   line-height: 1rem;
 }
 
+.anchor {
+  position: absolute;
+  left: 0;
+  transform: translateX(calc(-100% - 0.5rem));
+  opacity: 0;
+  background: var(--ifm-navbar-background-color);
+  display: inline-grid;
+  place-items: center;
+}
+
+.required {
+  color: var(--ifm-color-danger);
+  font-size: 85%;
+  line-height: 1rem;
+}
+
 .details {
   --icon-size: 12px;
   --gap: 0.5rem;
@@ -23,6 +39,13 @@
   background: none;
   border: none;
   box-shadow: none;
+  scroll-margin-top: var(--ifm-navbar-height);
+
+  @media screen and (min-width: 997px) {
+    &:hover .anchor {
+      opacity: 1;
+    }
+  }
 
   ::before {
     display: none;

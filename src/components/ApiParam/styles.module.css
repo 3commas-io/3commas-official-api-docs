@@ -3,9 +3,16 @@
   flex-direction: column;
   padding-left: calc(0.5rem + 12px);
   margin: 0;
+  scroll-margin-top: var(--ifm-navbar-height);
 
   p {
     margin: 0;
+  }
+
+  @media screen and (min-width: 997px) {
+    &:hover .anchor {
+      opacity: 1;
+    }
   }
 }
 
@@ -19,13 +26,28 @@
   line-height: 1rem;
 }
 
+.anchor {
+  position: absolute;
+  left: 0;
+  transform: translateX(calc(-100% - 0.5rem));
+  opacity: 0;
+}
+
 .header {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
   min-height: 32px;
+  position: relative;
 }
 
 .marginBottom {
   margin-bottom: var(--ifm-spacing-vertical);
+}
+
+.required {
+  color: var(--ifm-color-danger);
+  font-size: 85%;
+  line-height: 1rem;
 }
