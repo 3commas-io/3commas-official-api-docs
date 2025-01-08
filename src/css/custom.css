@@ -13,7 +13,7 @@
   --ifm-color-primary-light: #33925d;
   --ifm-color-primary-lighter: #359962;
   --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
+  --ifm-code-font-size: 75%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
@@ -28,3 +28,178 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+.main-container-endpoint {
+  display: flex;
+  gap: 60px; /* Расстояние между элементами */
+  padding-left: 0px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+
+.container-endpoint {
+  background-color: #00000008;
+  border-radius: 5px;
+  padding: 6px 15px 6px 6px;
+  display: flex;
+  flex-wrap: wrap; /* Для адаптивности */
+  align-items: center; 
+  max-height: 90%;
+  min-width: 60%;
+}
+
+.container-method-post {
+  background-color: #008438 ;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center; /* Центрирование содержимого */
+  max-height: 70px;
+  border-radius: 5px;
+  margin-right: 20px;
+  padding: 6px 10px 6px 10px;
+}
+
+.container-method-get {
+  background-color: rgb(30, 143, 255);
+  display: flex;
+  justify-content: center; /* Центрирование содержимого */
+  max-height: 70px;
+  border-radius: 5px;
+  margin-right: 20px;
+  padding: 6px 10px 6px 10px;
+}
+
+.container-method-delete {
+  background-color: #f04438;
+  display: flex;
+  justify-content: center; /* Центрирование содержимого */
+  max-height: 70px;
+  border-radius: 5px;
+  margin-right: 20px;
+  padding: 6px 10px 6px 10px;
+}
+
+.container-method-patch {
+  background-color: rgb(110, 8, 220);
+  display: flex;
+  justify-content: center; /* Центрирование содержимого */
+  max-height: 70px;
+  border-radius: 5px;
+  margin-right: 20px;
+  padding: 6px 10px 6px 10px;
+}
+
+.container-permission {
+  padding: 6px 15px 6px 6px;
+  display: inline-flex;
+  align-items: flex-start; 
+  max-height: 70%;
+  flex-direction: column;
+}
+
+
+.permission-description {
+  color: #0e1414;
+  font-style: normal;
+  font-family: JetBrains Mono, monospace;
+  font-size: 13px;
+}
+
+.container-url {
+  color: #ffffff;
+  font-style: normal;
+  padding: 6px 15px 6px 6px;
+  width: 50%;
+  display: inline-block;
+}
+
+.endpoint-method {
+  color: #ffffff;
+  font-weight: bold;
+  font-family: Graphik, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  display: flex;
+  justify-content: center; /* Центрирование по горизонтали */
+  align-items: center;    /* Центрирование по вертикали */
+}
+
+.endpoint-url {
+  color: #0e1414;
+  font-style: normal;
+  font-family: JetBrains Mono, monospace;
+  font-size: 14px;
+  word-break: break-word; /* Перенос длинного текста */
+  line-height: 1.5; /* Межстрочный интервал */
+}
+
+
+.method-description {
+  font-size: 10px;
+  font-family: JetBrains Mono, monospace;
+  color: #333;
+  margin-top: 5px;
+}
+
+
+.section-discription-entity {
+  width: auto;
+  display: block;
+  padding: 20px;
+}
+
+.custom-class-h2 {
+  font-size: 22px;
+  font-style: normal;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding-left: 30px;
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 22px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding-left: 30px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  color: var(--text-primary-color, #333); /* Основной цвет текста */
+}
+
+h3 {
+  font-size: 18px;
+  font-style: normal;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.custom-class-p {
+  font-size: 16px;
+  font-style: normal;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding-left: 30px;
+  margin-bottom: 30px;
+}
+
+.p-method-discription {
+  font-size: 18px;
+  font-style: normal;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding-left: 30px;
+  margin-bottom: 30px;
+}
+
+.items-description {
+display: block;
+ }
+
+
+.red {
+  color: #B22222;
+}
+
+
+.green {
+  color: #008437fc;
+}
+
