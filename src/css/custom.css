@@ -31,16 +31,16 @@
 
 .main-container-endpoint {
   display: flex;
-  gap: 60px; /* Расстояние между элементами */
+  gap: 50px; /* Расстояние между элементами */
   padding-left: 0px;
-  margin-left: 30px;
-  margin-bottom: 30px;
+  margin-left: 0px;
+  margin-bottom: 15px;
 }
 
 .container-endpoint {
   background-color: #00000008;
   border-radius: 5px;
-  padding: 6px 15px 6px 6px;
+  padding: 5px 8px 5px 5px;
   display: flex;
   flex-wrap: wrap; /* Для адаптивности */
   align-items: center; 
@@ -101,15 +101,15 @@
 .permission-description {
   color: #0e1414;
   font-style: normal;
-  font-family: JetBrains Mono, monospace;
-  font-size: 13px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
 }
 
 .container-url {
   color: #ffffff;
   font-style: normal;
-  padding: 6px 15px 6px 6px;
-  width: 50%;
+  padding: 6px 10px 6px 6px;
+  width: 80%;
   display: inline-block;
 }
 
@@ -151,14 +151,14 @@
   font-size: 22px;
   font-style: normal;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  padding-left: 30px;
+  padding-left: px;
   margin-bottom: 40px;
 }
 
 h2 {
   font-size: 22px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  padding-left: 30px;
+  padding-left: 0px;
   margin-bottom: 30px;
   margin-top: 20px;
   color: var(--text-primary-color, #333); /* Основной цвет текста */
@@ -168,7 +168,7 @@ h3 {
   font-size: 18px;
   font-style: normal;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  padding-left: 30px;
+  padding-left: 15px;
   margin-top: 20px;
   margin-bottom: 30px;
 }
@@ -177,15 +177,15 @@ h3 {
   font-size: 16px;
   font-style: normal;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  padding-left: 30px;
+  padding-left: 15px;
   margin-bottom: 30px;
 }
 
 .p-method-discription {
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  padding-left: 30px;
+  padding-left: 0px;
   margin-bottom: 30px;
 }
 
@@ -203,3 +203,13 @@ display: block;
   color: #008437fc;
 }
 
+.list-endpoints-box {
+  border-color: #d8dee4;
+  background-color: #f5f6f8;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.name-endpoints-box {
+  border-color: #d8dee4
+}
