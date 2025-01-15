@@ -4,6 +4,10 @@
   color: var(--ifm-toc-link-color);
 }
 
+p {
+  margin: 0;
+}
+
 .name {
   font-weight: 500;
 }

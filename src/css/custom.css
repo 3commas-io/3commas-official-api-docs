@@ -31,7 +31,7 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-
+/* CSS for endpoint and permission*/
 .main-container-endpoint {
   display: flex;
   gap: 100px; /* Расстояние между элементами */
@@ -103,7 +103,6 @@
   flex-direction: column;
 }
 
-
 .permission-description {
   color: #0e1414;
   font-style: normal;
@@ -138,7 +137,6 @@
   line-height: 1.5; /* Межстрочный интервал */
 }
 
-
 .method-description {
   font-size: 10px;
   font-family: JetBrains Mono, monospace;
@@ -147,13 +145,13 @@
 }
 
 
-.section-discription-entity {
-  width: auto;
-  display: block;
-  padding: 20px;
+h1 {
+  font-size: 28px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding-left: 0px;
+  margin: 10px 0 30px 20px;
+  color: var(--text-primary-color, #333); /* Основной цвет текста */
 }
-
-
 
 h2 {
   font-size: 22px;
@@ -168,11 +166,11 @@ h3 {
   font-style: normal;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   padding-left: 0;
-  margin: 0 0 30px 20px;
+  margin: 0 0 10px 20px;
 }
 
 p {
-  margin: 0 0 30px 10px;
+  margin: 0 0 10px 20px;
 }
 
 .custom-class-p {
@@ -191,6 +189,11 @@ p {
   margin: 20px 0 30px 20px;
 }
 
+.section-discription-entity {
+  width: auto;
+  display: block;
+  padding: 20px;
+}
 
 /* Color of tabs. */
 
