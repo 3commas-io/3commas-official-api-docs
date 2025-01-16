@@ -1,209 +1,221 @@
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+
 # Account
+<div class="section-discription-entity">
+<p>
+   <strong>Account</strong> entities hold information about the cryptocurrency portfolio, their balances, and the set of tools that are available for this account.
+</p>
+<p>
+   <strong>Account</strong> entities hold information like:
+</p>
+<ul>
+   <li>Details about the connected exchange, including its type, name, and current status;</li>
+   <li>Profit and currency information, such as the account's balance and daily and total profit;</li>
+   <li>Available trading features for this account.</li>
+</ul>
+<p>
+   3Commas provides a set of methods to create new exchange account connections and manage existing accounts.
+</p>
+</div>
+
+
+<h2> Attributes</h2>
+
+<ApiParam name='id' type='integer' id="id">
+  ID of the exchange account entity
+</ApiParam>
+
+<ApiParam name='exchange_name' type='string' id="exchange_name">
+  Name of this exchange account
+</ApiParam>
+
+<ApiParam name='market_code' type='string' id="market_code">
+  3Commas of exchange code entity
+</ApiParam>
+
+<ApiParam name='api_key' type='string' id="api_key">
+  API key used for the account
+</ApiParam>
+
+<ApiParam name='exchange_name' type='string' id="exchange_name">
+  Name of this exchange account
+</ApiParam>
+
+<h3> More attributes </h3>
+
+<CollapsibleApiParam name="name" type="string" id="name">
+  The name for the exchange account set by the user
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="market_icon" type="string" id="market_icon">
+  Icon of the exchange
+</CollapsibleApiParam>
+<CollapsibleApiParam name='autobalance_enabled' type='boolean' id="autobalance_enabled">
+  Indicates whether auto balance mode is enabled for this account (<code>true</code>) or not(<code>false</code>)
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='auto_balance_period' type='integer' id="auto_balance_period">
+  The interval, in hours, at which automatic portfolio balancing occurs
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='auto_balance_portfolio_id' type='integer' id="auto_balance_portfolio_id">
+  ID of the portfolio for which automatic balancing has been initiated
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='auto_balance_error' type='string or null' id="auto_balance_error">
+A description comes up to explain why autobalance failed
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='last_auto_balance' type='string or null' id="last_auto_balance">
+ISO 8601 datetime `string` of when this Auto balance was last time
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='hedge_mode_available' type='boolean' id="hedge_mode_available">
+Indicates whether hedge mode is available for this account (<code>true</code>) or not(<code>false</code>)
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='hedge_mode_enabled' type='boolean' id="hedge_mode_enabled">
+Indicates whether hedge mode is enabled for this account (<code>true</code>) or not(<code>false</code>)
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='is_locked' type='boolean' id="is_locked">
+Indicates this the account is locked (<code>true</code>) or not(<code>false</code>)
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='lock_reason' type='string or null' id="lock_reason">
+The reason for locking this account in case <code>is_locked</code> is <code>true</code>
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='smart_trading_supported' type='boolean' id="smart_trading_supported">
+Indicates if the SmartTrade tool is supported for this exchange account (<code>true</code>) or not(<code>false</code>)
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='stats_supported' type='boolean' id="stats_supported">
+Indicates whether statistic of profit are supported for this account (<code>true</code>) or not(<code>false</code>)
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='trading_supported' type='boolean' id="trading_supported">
+Indicates if trading is supported at 3Commas
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='market_buy_supported' type='boolean' id="market_buy_supported">
+Indicates whether creating a market buy order is supported on the exchange
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='market_sell_supported' type='boolean' id="market_sell_supported">
+Indicates whether creating a market sell order is supported on the exchange
+</CollapsibleApiParam>
 
-**Account** entities hold information about the cryptocurrency portfolio, theys balances and the set of tools that are available for this account.
+<CollapsibleApiParam name='conditional_buy_supported' type='boolean' id="conditional_buy_supported">
+Indicates whether creating a conditional buy order is supported on the exchange (<code>true</code>) or not(<code>false</code>)
+</CollapsibleApiParam>
 
-**Account** entities hold information like:
+<CollapsibleApiParam name='bots_allowed' type='boolean' id="bots_allowed">
+Indicates whether DCA Bot is enabled for this account (<code>true</code>) or not(<code>false</code>)
+</CollapsibleApiParam>
 
-* Details about the connected exchange, including its type, name, and current status;
-* Profit and currency information, such as the account's balance and daily and total profit;
-* Available trading features for this account.
+<CollapsibleApiParam name='bots_ttp_allowed' type='boolean' id="bots_ttp_allowed">
+Indicates whether the trailing take profit feature is enabled on this account (<code>true</code>) or not(<code>false</code>)
+</CollapsibleApiParam>
 
-3Commas provides a set of methods to create new exchange account connections and manage existing accounts.
+<CollapsibleApiParam name='bots_tsl_allowed' type='boolean' id="bots_tsl_allowed">
+Indicates whether the trading stop loss feature is enabled on this account (<code>true</code>) or not(<code>false</code>)
+</CollapsibleApiParam>
 
-## Attributes
+<CollapsibleApiParam name='multi_bots_allowed' type='boolean' id="multi_bots_allowed">
+Indicates whether the Multi-Pair feature is supported for this account (<code>true</code>) or not(<code>false</code>)
+</CollapsibleApiParam>
 
-    id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>
-    ID of the exchange account entity
+<CollapsibleApiParam name='fast_convert_available' type='boolean' id="fast_convert_available">
+Indicates whether the "Sell All to BTC/USD" feature is enabled for this account (<code>true</code>) or not(<code>false</code>)
+</CollapsibleApiParam>
 
+<CollapsibleApiParam name='grid_bots_allowed' type='boolean' id="grid_bots_allowed">
+Indicates whether Grid Bot is enabled for this account (<code>true</code>) or not(<code>false</code>)
+</CollapsibleApiParam>
 
-    name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
-    The name for the exchange account set by the user
+<CollapsibleApiParam name='api_key_invalid' type='boolean' id="api_key_invalid">
+Indicates whether the API key for this account is invalid
+</CollapsibleApiParam>
 
+<CollapsibleApiParam name='api_keys_state' type='string' id="api_keys_state">
+Indicates the state of the API keys
+</CollapsibleApiParam>
 
-    exchange_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
-    Name of this exchange account
+<CollapsibleApiParam name='deposit_enabled' type='boolean' id="deposit_enabled">
+Indicates whether the Deposit feature is enabled for this account
+</CollapsibleApiParam>
 
+<CollapsibleApiParam name='available_include_in_summary' type='boolean' id="available_include_in_summary">
+Indicates whether this account is available to be included in the summary
+</CollapsibleApiParam>
 
-    market_icon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
-    Icon of the exchange
+<CollapsibleApiParam name='include_in_summary' type='boolean' id="include_in_summary">
+Indicates whether this account is included in the summary
+</CollapsibleApiParam>
 
+<CollapsibleApiParam name='supported_market_types' type='array' id="supported_market_types">
+The type of market supported by the connected exchange account
+</CollapsibleApiParam>
 
-    market_code&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
-    3Commas of exchange code entity
+<CollapsibleApiParam name='customer_id' type='string' id="customer_id">
+Unique customer ID provided by the Bitstamp exchange
+</CollapsibleApiParam>
 
+<CollapsibleApiParam name='btc_amount' type='string' id="btc_amount">
+Amount of Bitcoin in the account
+</CollapsibleApiParam>
 
-    autobalance_enabled&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
-    Indicates whether auto-balance  mode is enabled for this account
+<CollapsibleApiParam name='usd_amount' type='string' id="usd_amount">
+Amount in USD in the account
+</CollapsibleApiParam>
 
+<CollapsibleApiParam name='day_profit_btc' type='string' id="day_profit_btc">
+Daily profit in BTC
+</CollapsibleApiParam>
 
-    auto_balance_period&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>null</code> or <code>string</code>
-    The interval, in hours, at which automatic portfolio balancing occurs
+<CollapsibleApiParam name='day_profit_usd' type='string' id="day_profit_usd">
+Daily profit in USD
+</CollapsibleApiParam>
 
+<CollapsibleApiParam name='day_profit_btc_percentage' type='number' id="day_profit_btc_percentage">
+Daily profit percentage in BTC
+</CollapsibleApiParam>
 
-    auto_balance_portfolio_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>integer</code> or <code>null</code>
-    ID of the portfolio for which automatic balancing has been initiated
+<CollapsibleApiParam name='day_profit_usd_percentage' type='number' id="day_profit_usd_percentage">
+Daily profit percentage in USD
+</CollapsibleApiParam>
 
+<CollapsibleApiParam name='btc_profit' type='number' id="btc_profit">
+Monthly profit in BTC
+</CollapsibleApiParam>
 
-    autobalance_enabled&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
-    Indicates whether auto-balance  mode is enabled for this account
+<CollapsibleApiParam name='usd_profit' type='number' id="usd_profit">
+Monthly profit in USD
+</CollapsibleApiParam>
 
+<CollapsibleApiParam name='btc_profit_percentage' type='number' id="btc_profit_percentage">
+Monthly profit percentage in BTC 
+</CollapsibleApiParam>
 
-    auto_balance_error&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> or <code>null</code>
-    A description comes up to explain why auto-balance failed
+<CollapsibleApiParam name='usd_profit_percentage' type='number' id="usd_profit_percentage">
+Monthly profit percentage in USD
+</CollapsibleApiParam>
 
+<CollapsibleApiParam name='total_btc_profit' type='number' id="total_btc_profit">
+Total profit in BTC
+</CollapsibleApiParam>
 
-    last_auto_balance&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>null</code> or <code>string</code>
-    ISO 8601 datetime <code>string</code> of when this auto-balance was last time
+<CollapsibleApiParam name='total_usd_profit' type='number' id="total_usd_profit">
+Total profit in USD
+</CollapsibleApiParam>
 
+<CollapsibleApiParam name='created_at' type='string' id="created_at">
+ISO 8601 datetime <code>string</code> of when this Account entity was created
+</CollapsibleApiParam>
 
-    hedge_mode_available&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
-    Indicates whether hedge mode is available for this account
-
-
-    hedge_mode_enabled&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
-    Indicates whether hedge mode is enabled for this account
-
-
-    is_locked&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
-    Indicates if the account is locked
-
-
-    lock_reason&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>null</code> or <code>string</code>
-    The reason for locking this account in case  <code>is_locked</code> is <code>true</code>
-
-
-    smart_trading_supported&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
-    Indicates if smart trading is supported
-
-
-    stats_supported&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
-    Indicates whether statistic of profit are supported for this account
-
-
-    trading_supported&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
-    Indicates if trading is supported at 3Commas
-
-
-    market_buy_supported&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
-    Indicates whether creating a market buy order is supported on the exchange
-
-
-    market_sell_supported&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
-    Indicates whether creating a market sell order is supported on the exchange
-
-
-    conditional_buy_supported&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
-    Indicates whether creating a conditional buy order is supported on the exchange
-
-
-    bots_allowed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
-    Indicates whether DCA Bot is enabled for this account
-
-
-    bots_ttp_allowed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
-    Indicates whether the trailing take profit feature is enabled on this account
-
-
-    bots_tsl_allowed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
-    Indicates whether the trading stop loss feature is enabled on this account
-    
-
-    multi_bots_allowed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
-    Indicates whether the Multi-Pair feature is supported for this account
-
-
-    fast_convert_available&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
-    Indicates whether the "Sell All to BTC/USD" feature is enabled for this account
-
-
-    grid_bots_allowed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
-    Indicates whether Grid Bot is enabled for this account
-
-
-    api_key&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
-    API key used for the account
-
-
-    api_key_invalid&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
-    Indicates whether the API key for this account is invalid
-
-
-    api_keys_state&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
-    Indicates the state of the API keys
-
-
-    deposit_enabled&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
-    Indicates whether the Deposit feature is enabled for this account
-
-
-    available_include_in_summary&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
-    Indicates whether this account is available to be included in the summary
-
-
-    include_in_summary&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>
-    Indicates whether this account included in the summary
-
-
-    supported_market_types&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>array</code>
-    The type of market supported by the connected exchange account
-
-
-    customer_id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
-    Unique customer ID provided by the Bitstamp exchange
-
-
-    btc_amount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
-    Amount of Bitcoin in the account
-
-
-    usd_amount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
-    Amount in USD in the account
-
-
-    day_profit_etc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
-    Daily profit in BTC
-
-
-    day_profit_usd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
-    Daily profit in USD
-
-
-    day_profit_btc_percentage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
-    Daily profit percentage in BTC
-
-
-    day_profit_usd_percentage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
-    Daily profit percentage in USD
-
-
-
-    btc_profit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
-    Monthly profit in BTC
-
-
-    usd_profit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
-    Monthly profit in USD
-
-
-    btc_profit_percentage &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
-    Monthly profit percentage in BTC
-
-
-    usd_profit_percentage &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
-    Monthly profit percentage in USD
-
-
-    total_btc_profit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
-    Total profit in BTC
-
-
-    total_usd_profit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>number</code>
-    Total profit in USD
-
-
-    created_at&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
-    ISO 8601 datetime string of when this Account entity was created
-
-
-    updated_at&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code>
-    ISO 8601 datetime string of when this SmartTrade entity was updated
+<CollapsibleApiParam name='updated_at' type='string' id="updated_at">
+ISO 8601 datetime <code>string</code> of when this SmartTrade entity was updated
+</CollapsibleApiParam>
