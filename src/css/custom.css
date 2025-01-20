@@ -34,7 +34,7 @@
 /* CSS for endpoint and permission*/
 .main-container-endpoint {
   display: flex;
-  gap: 100px; /* Расстояние между элементами */
+  gap: 30px; /* Расстояние между элементами */
   padding-left: 0px;
   margin-left: 20px;
   margin-bottom: 15px;
@@ -45,7 +45,7 @@
   border-radius: 5px;
   padding: 5px 15px 5px 5px;
   display: flex;
-  flex-wrap: wrap; /* Для адаптивности */
+  flex-wrap: nowrap; /* Запрещаем перенос элементов на новую строку */
   align-items: center; 
   max-height: 70%;
   min-width: 55%;
@@ -111,11 +111,13 @@
 }
 
 .container-url {
-  color: #ffffff;
-  font-style: normal;
-  padding: 6px 10px 6px 6px;
-  width: 80%;
-  display: inline-block;
+    color: #ffffff;
+    font-style: normal;
+    padding: 6px 10px;
+    flex-grow: 1; /* Позволяем блоку занимать всё доступное пространство */
+    flex-shrink: 1; /* Разрешаем блоку сжиматься при нехватке места */
+    flex-basis: 0; /* Базовая ширина для равномерного распределения */
+    word-break: break-word; /* Перенос длинного текста */
 }
 
 .endpoint-method {
@@ -166,9 +168,8 @@ h3 {
   font-style: normal;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   padding-left: 0;
-  margin: 0 0 10px 20px;
+  margin: 10px 0 30px 20px;
 }
-
 
 .custom-class-p {
   font-size: 16px;
@@ -184,6 +185,10 @@ h3 {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   padding-left: 0px;
   margin: 20px 0 30px 20px;
+}
+
+.alert alert--warning {
+  margin: 0 0 0 30px;
 }
 
 .section-discription-entity {
