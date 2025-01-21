@@ -21,6 +21,7 @@
     "@docusaurus/preset-classic": "3.6.3",
     "@mdx-js/react": "^3.0.0",
     "@radix-ui/react-collapsible": "^1.1.2",
+    "@radix-ui/react-tooltip": "^1.1.6",
     "clsx": "^2.0.0",
     "prism-react-renderer": "^2.3.0",
     "react": "^18.0.0",
