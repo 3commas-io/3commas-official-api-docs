@@ -11,7 +11,7 @@ export const useCollapseAllContext = () => {
   const ctx = useContext(CollapseContext)
 
   if (!ctx) {
-    throw new Error('useCollapseContext must be used within a <CollapseAll />')
+    return { collapsed: undefined }
   }
 
   return ctx
