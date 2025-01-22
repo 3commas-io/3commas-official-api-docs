@@ -1,7 +1,6 @@
 .root {
   display: flex;
   flex-direction: column;
-  padding-left: calc(0.5rem + 12px);
   margin-bottom: 10px;
   scroll-margin-top: var(--ifm-navbar-height);
 
