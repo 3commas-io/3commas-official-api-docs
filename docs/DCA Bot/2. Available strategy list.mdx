@@ -1,0 +1,643 @@
+import CodeBlock from '@theme/CodeBlock'
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam'
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams'
+import ApiParam from '@site/src/components/ApiParam'
+import Endpoint, { Permission } from '@site/src/components/Endpoint'
+import { Steps, Step } from '@site/src/components/VerticalStepper'
+import * as StickyLayout from '@site/src/components/StickyLayout'
+import * as ResponseTabs from '@site/src/components/ResponseTabs'
+
+<Endpoint
+  url="/ver1/bots/strategy_list"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="BOTS_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Returns available strategy list for DCA Bot. Use the query parameters to page through results
+
+## Steps
+
+<Steps>
+  <Step title="Get API Key" description="Choose gen method" />
+  <Step
+    title="Create Signature"
+    description="lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  />
+  <Step title="Signed Endpoint" description="Pass headers" />
+</Steps>
+
+## Example response
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+### Query Parameters
+
+<ApiParam name='account_id' type='integer' id="account_id">
+    Unique 3Commas ID of the exchange account entity.
+
+    Use the [List of connected exchanges and wallets](/docs/Account/5.%20List%20of%20connected%20exchanges%20and%20wallets.md) endpoint to retrieve the value for the `account_id` parameter.
+
+</ApiParam>
+
+<ApiParam name="type" type="string" id="type">
+  TBD: `simple` or `composite`
+</ApiParam>
+
+<ApiParam name="strategy" type="string" id="strategy">
+  TBD: `simple` or `composite`
+</ApiParam>
+
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+
+<ResponseTabs.Root>
+  <ResponseTabs.TabItem value="200" label="200 OK" default>
+    ```json
+{
+  "manual": {
+    "strategy_type": "signal",
+    "payed": false,
+    "beta": false,
+    "name": "Manually/API (Bot won't open new trades automatically)"
+  },
+  "tv_custom_signal": {
+    "strategy_type": "signal",
+    "payed": false,
+    "beta": false,
+    "name": "Trading View custom signal"
+  },
+  "rsi": {
+    "name": "RSI",
+    "payed": false,
+    "beta": false,
+    "strategy_type": "indicator",
+    "options": {
+      "time": {
+        "3m": "3 minutes",
+        "5m": "5 minutes",
+        "15m": "15 minutes",
+        "30m": "30 minutes",
+        "1h": "1 hour",
+        "4h": "4 hours",
+        "1d": "1 day",
+        "2h": "2 hours",
+        "8h": "8 hours",
+        "3d": "3 days",
+        "1w": "1 week"
+      },
+      "points": null,
+      "trigger_condition": {
+        "less": "less",
+        "greater": "greater",
+        "crossing_above": "crossing_down",
+        "crossing_below": "crossing_up"
+      },
+      "time_period": null
+    },
+    "accounts_whitelist": [
+      "Account::BinanceFuturesAccount",
+      "Accounts::BinanceFuturesEeaAccount",
+      "Accounts::BinanceFuturesCoin",
+      "Accounts::Ftx",
+      "Accounts::FtxFutures",
+      "Account::BybitAccount",
+      "Accounts::BybitUsdtPerpetualAccount",
+      "Account::GdaxAccount",
+      "Account::KrakenAccount",
+      "Account::BinanceUsAccount",
+      "Account::GateIoAccount",
+      "Accounts::BybitSpotAccount",
+      "Accounts::GateIoBtcPerpetualAccount",
+      "Accounts::GateIoUsdtPerpetualAccount",
+      "Account::BinanceAccount",
+      "Account::BinanceJerseyAccount",
+      "Account::BinanceMarginAccount",
+      "Account::PaperTradingAccount",
+      "Account::OkexAccount",
+      "Accounts::OkexFuturesAccount",
+      "Accounts::CoinbaseAdvancedAccount",
+      "Accounts::BitgetUsdtFuturesAccount"
+    ]
+  },
+  "ult": {
+    "name": "Ultimate Oscillator",
+    "payed": false,
+    "beta": false,
+    "strategy_type": "indicator",
+    "options": {
+      "time": {
+        "3m": "3 minutes",
+        "5m": "5 minutes",
+        "15m": "15 minutes",
+        "30m": "30 minutes",
+        "1h": "1 hour",
+        "4h": "4 hours",
+        "1d": "1 day"
+      },
+      "trigger_condition": {
+        "less": "less",
+        "greater": "greater",
+        "crossing_above": "crossing_down",
+        "crossing_below": "crossing_up"
+      },
+      "points": null,
+      "first_period": null,
+      "second_period": null,
+      "third_period": null
+    },
+    "accounts_whitelist": [
+      "Account::BinanceFuturesAccount",
+      "Accounts::BinanceFuturesEeaAccount",
+      "Accounts::BinanceFuturesCoin",
+      "Accounts::Ftx",
+      "Accounts::FtxFutures",
+      "Account::BybitAccount",
+      "Accounts::BybitUsdtPerpetualAccount",
+      "Account::GdaxAccount",
+      "Account::KrakenAccount",
+      "Account::BinanceUsAccount",
+      "Account::GateIoAccount",
+      "Accounts::BybitSpotAccount",
+      "Accounts::GateIoBtcPerpetualAccount",
+      "Accounts::GateIoUsdtPerpetualAccount",
+      "Account::BinanceAccount",
+      "Account::BinanceJerseyAccount",
+      "Account::BinanceMarginAccount",
+      "Account::PaperTradingAccount",
+      "Account::OkexAccount",
+      "Accounts::OkexFuturesAccount",
+      "Accounts::CoinbaseAdvancedAccount",
+      "Accounts::BitgetUsdtFuturesAccount"
+    ]
+  },
+  "b_bands_percent": {
+    "name": "Bollinger Bands %B",
+    "payed": false,
+    "beta": false,
+    "strategy_type": "indicator",
+    "options": {
+      "time": {
+        "3m": "3 minutes",
+        "5m": "5 minutes",
+        "15m": "15 minutes",
+        "30m": "30 minutes",
+        "1h": "1 hour",
+        "4h": "4 hours",
+        "1d": "1 day"
+      },
+      "points": null,
+      "trigger_condition": {
+        "less": "less",
+        "greater": "greater",
+        "crossing_above": "crossing_down",
+        "crossing_below": "crossing_up"
+      },
+      "time_period": null,
+      "deviation": null
+    },
+    "accounts_whitelist": [
+      "Account::BinanceFuturesAccount",
+      "Accounts::BinanceFuturesEeaAccount",
+      "Accounts::BinanceFuturesCoin",
+      "Accounts::Ftx",
+      "Accounts::FtxFutures",
+      "Account::BybitAccount",
+      "Accounts::BybitUsdtPerpetualAccount",
+      "Account::GdaxAccount",
+      "Account::KrakenAccount",
+      "Account::BinanceUsAccount",
+      "Account::GateIoAccount",
+      "Accounts::BybitSpotAccount",
+      "Accounts::GateIoBtcPerpetualAccount",
+      "Accounts::GateIoUsdtPerpetualAccount",
+      "Account::BinanceAccount",
+      "Account::BinanceJerseyAccount",
+      "Account::BinanceMarginAccount",
+      "Account::PaperTradingAccount",
+      "Account::OkexAccount",
+      "Accounts::OkexFuturesAccount",
+      "Accounts::CoinbaseAdvancedAccount",
+      "Accounts::BitgetUsdtFuturesAccount"
+    ]
+  },
+  "ma_cross": {
+    "name": "Moving Average (MA)",
+    "payed": false,
+    "beta": false,
+    "strategy_type": "indicator",
+    "options": {
+      "indicator_type": {
+        "ema": "ema",
+        "sma": "sma"
+      },
+      "time": {
+        "3m": "3 minutes",
+        "5m": "5 minutes",
+        "15m": "15 minutes",
+        "30m": "30 minutes",
+        "1h": "1 hour",
+        "4h": "4 hours",
+        "1d": "1 day"
+      },
+      "trigger_condition": {
+        "less": "less",
+        "greater": "greater",
+        "crossing_above": "crossing_down",
+        "crossing_below": "crossing_up"
+      },
+      "time_period_first": null,
+      "time_period_second": null
+    },
+    "accounts_whitelist": [
+      "Account::BinanceFuturesAccount",
+      "Accounts::BinanceFuturesEeaAccount",
+      "Accounts::BinanceFuturesCoin",
+      "Accounts::Ftx",
+      "Accounts::FtxFutures",
+      "Account::BybitAccount",
+      "Accounts::BybitUsdtPerpetualAccount",
+      "Account::GdaxAccount",
+      "Account::KrakenAccount",
+      "Account::BinanceUsAccount",
+      "Account::GateIoAccount",
+      "Accounts::BybitSpotAccount",
+      "Accounts::GateIoBtcPerpetualAccount",
+      "Accounts::GateIoUsdtPerpetualAccount",
+      "Account::BinanceAccount",
+      "Account::BinanceJerseyAccount",
+      "Account::BinanceMarginAccount",
+      "Account::PaperTradingAccount",
+      "Account::OkexAccount",
+      "Accounts::OkexFuturesAccount",
+      "Accounts::CoinbaseAdvancedAccount",
+      "Accounts::BitgetUsdtFuturesAccount"
+    ]
+  },
+  "adx": {
+    "name": "Average Directional Index",
+    "payed": false,
+    "beta": false,
+    "strategy_type": "indicator",
+    "options": {
+      "time": {
+        "3m": "3 minutes",
+        "5m": "5 minutes",
+        "15m": "15 minutes",
+        "30m": "30 minutes",
+        "1h": "1 hour",
+        "4h": "4 hours",
+        "1d": "1 day"
+      },
+      "trigger_condition": {
+        "less": "less",
+        "greater": "greater",
+        "crossing_above": "crossing_down",
+        "crossing_below": "crossing_up"
+      },
+      "points": null,
+      "time_period": null
+    },
+    "accounts_whitelist": [
+      "Account::BinanceFuturesAccount",
+      "Accounts::BinanceFuturesEeaAccount",
+      "Accounts::BinanceFuturesCoin",
+      "Accounts::Ftx",
+      "Accounts::FtxFutures",
+      "Account::BybitAccount",
+      "Accounts::BybitUsdtPerpetualAccount",
+      "Account::GdaxAccount",
+      "Account::KrakenAccount",
+      "Account::BinanceUsAccount",
+      "Account::GateIoAccount",
+      "Accounts::BybitSpotAccount",
+      "Accounts::GateIoBtcPerpetualAccount",
+      "Accounts::GateIoUsdtPerpetualAccount",
+      "Account::BinanceAccount",
+      "Account::BinanceJerseyAccount",
+      "Account::BinanceMarginAccount",
+      "Account::PaperTradingAccount",
+      "Account::OkexAccount",
+      "Accounts::OkexFuturesAccount",
+      "Accounts::CoinbaseAdvancedAccount",
+      "Accounts::BitgetUsdtFuturesAccount"
+    ]
+  },
+  "stochastic": {
+    "name": "Stochastic",
+    "payed": false,
+    "beta": false,
+    "strategy_type": "indicator",
+    "options": {
+      "time": {
+        "3m": "3 minutes",
+        "5m": "5 minutes",
+        "15m": "15 minutes",
+        "30m": "30 minutes",
+        "1h": "1 hour",
+        "4h": "4 hours",
+        "1d": "1 day"
+      },
+      "points": null,
+      "trigger_condition": {
+        "less": "less",
+        "greater": "greater",
+        "crossing_above": "crossing_down",
+        "crossing_below": "crossing_up"
+      },
+      "line_trigger_condition": {
+        "crossing_above": "crossing_down",
+        "crossing_below": "crossing_up"
+      },
+      "fast_k_period": null,
+      "slow_k_period": null,
+      "slow_d_period": null
+    },
+    "accounts_whitelist": [
+      "Account::BinanceFuturesAccount",
+      "Accounts::BinanceFuturesEeaAccount",
+      "Accounts::BinanceFuturesCoin",
+      "Accounts::Ftx",
+      "Accounts::FtxFutures",
+      "Account::BybitAccount",
+      "Accounts::BybitUsdtPerpetualAccount",
+      "Account::GdaxAccount",
+      "Account::KrakenAccount",
+      "Account::BinanceUsAccount",
+      "Account::GateIoAccount",
+      "Accounts::BybitSpotAccount",
+      "Accounts::GateIoBtcPerpetualAccount",
+      "Accounts::GateIoUsdtPerpetualAccount",
+      "Account::BinanceAccount",
+      "Account::BinanceJerseyAccount",
+      "Account::BinanceMarginAccount",
+      "Account::PaperTradingAccount",
+      "Account::OkexAccount",
+      "Accounts::OkexFuturesAccount",
+      "Accounts::CoinbaseAdvancedAccount",
+      "Accounts::BitgetUsdtFuturesAccount"
+    ]
+  },
+  "macd": {
+    "name": "MACD",
+    "payed": false,
+    "beta": false,
+    "strategy_type": "indicator",
+    "options": {
+      "time": {
+        "3m": "3 minutes",
+        "5m": "5 minutes",
+        "15m": "15 minutes",
+        "30m": "30 minutes",
+        "1h": "1 hour",
+        "4h": "4 hours",
+        "1d": "1 day"
+      },
+      "trigger_condition": {
+        "crossing_above": "crossing_down",
+        "crossing_below": "crossing_up"
+      },
+      "line_trigger_condition": {
+        "less": "less",
+        "greater": "greater"
+      },
+      "fast_period": null,
+      "slow_period": null,
+      "signal_period": null
+    },
+    "accounts_whitelist": [
+      "Account::BinanceFuturesAccount",
+      "Accounts::BinanceFuturesEeaAccount",
+      "Accounts::BinanceFuturesCoin",
+      "Accounts::Ftx",
+      "Accounts::FtxFutures",
+      "Account::BybitAccount",
+      "Accounts::BybitUsdtPerpetualAccount",
+      "Account::GdaxAccount",
+      "Account::KrakenAccount",
+      "Account::BinanceUsAccount",
+      "Account::GateIoAccount",
+      "Accounts::BybitSpotAccount",
+      "Accounts::GateIoBtcPerpetualAccount",
+      "Accounts::GateIoUsdtPerpetualAccount",
+      "Account::BinanceAccount",
+      "Account::BinanceJerseyAccount",
+      "Account::BinanceMarginAccount",
+      "Account::PaperTradingAccount",
+      "Account::OkexAccount",
+      "Accounts::OkexFuturesAccount",
+      "Accounts::CoinbaseAdvancedAccount",
+      "Accounts::BitgetUsdtFuturesAccount"
+    ]
+  },
+  "parabolic_sar": {
+    "name": "Parabolic SAR",
+    "payed": false,
+    "beta": false,
+    "strategy_type": "indicator",
+    "options": {
+      "time": {
+        "3m": "3 minutes",
+        "5m": "5 minutes",
+        "15m": "15 minutes",
+        "30m": "30 minutes",
+        "1h": "1 hour",
+        "4h": "4 hours",
+        "1d": "1 day"
+      },
+      "acceleration_factor": null,
+      "af_maximum": null,
+      "trigger_condition": {
+        "crossing_above": "crossing_down",
+        "crossing_below": "crossing_up"
+      }
+    },
+    "accounts_whitelist": [
+      "Account::BinanceFuturesAccount",
+      "Accounts::BinanceFuturesEeaAccount",
+      "Accounts::BinanceFuturesCoin",
+      "Accounts::Ftx",
+      "Accounts::FtxFutures",
+      "Account::BybitAccount",
+      "Accounts::BybitUsdtPerpetualAccount",
+      "Account::GdaxAccount",
+      "Account::KrakenAccount",
+      "Account::BinanceUsAccount",
+      "Account::GateIoAccount",
+      "Accounts::BybitSpotAccount",
+      "Accounts::GateIoBtcPerpetualAccount",
+      "Accounts::GateIoUsdtPerpetualAccount",
+      "Account::BinanceAccount",
+      "Account::BinanceJerseyAccount",
+      "Account::BinanceMarginAccount",
+      "Account::PaperTradingAccount",
+      "Account::OkexAccount",
+      "Accounts::OkexFuturesAccount",
+      "Accounts::CoinbaseAdvancedAccount",
+      "Accounts::BitgetUsdtFuturesAccount"
+    ]
+  },
+  "mfi": {
+    "name": "Money Flow Index",
+    "payed": false,
+    "beta": false,
+    "strategy_type": "indicator",
+    "options": {
+      "time": {
+        "3m": "3 minutes",
+        "5m": "5 minutes",
+        "15m": "15 minutes",
+        "30m": "30 minutes",
+        "1h": "1 hour",
+        "4h": "4 hours",
+        "1d": "1 day"
+      },
+      "time_period": null,
+      "points": null,
+      "trigger_condition": {
+        "less": "less",
+        "greater": "greater",
+        "crossing_above": "crossing_down",
+        "crossing_below": "crossing_up"
+      }
+    },
+    "accounts_whitelist": [
+      "Account::BinanceFuturesAccount",
+      "Accounts::BinanceFuturesEeaAccount",
+      "Accounts::BinanceFuturesCoin",
+      "Accounts::Ftx",
+      "Accounts::FtxFutures",
+      "Account::BybitAccount",
+      "Accounts::BybitUsdtPerpetualAccount",
+      "Account::GdaxAccount",
+      "Account::KrakenAccount",
+      "Account::BinanceUsAccount",
+      "Account::GateIoAccount",
+      "Accounts::BybitSpotAccount",
+      "Accounts::GateIoBtcPerpetualAccount",
+      "Accounts::GateIoUsdtPerpetualAccount",
+      "Account::BinanceAccount",
+      "Account::BinanceJerseyAccount",
+      "Account::BinanceMarginAccount",
+      "Account::PaperTradingAccount",
+      "Account::OkexAccount",
+      "Accounts::OkexFuturesAccount",
+      "Accounts::CoinbaseAdvancedAccount",
+      "Accounts::BitgetUsdtFuturesAccount"
+    ]
+  },
+  "cci": {
+    "name": "Commodity Channel Index",
+    "payed": false,
+    "beta": false,
+    "strategy_type": "indicator",
+    "options": {
+      "time": {
+        "3m": "3 minutes",
+        "5m": "5 minutes",
+        "15m": "15 minutes",
+        "30m": "30 minutes",
+        "1h": "1 hour",
+        "4h": "4 hours",
+        "1d": "1 day"
+      },
+      "trigger_condition": {
+        "less": "less",
+        "greater": "greater",
+        "crossing_above": "crossing_down",
+        "crossing_below": "crossing_up"
+      },
+      "points": null,
+      "time_period": null
+    },
+    "accounts_whitelist": [
+      "Account::BinanceFuturesAccount",
+      "Accounts::BinanceFuturesEeaAccount",
+      "Accounts::BinanceFuturesCoin",
+      "Accounts::Ftx",
+      "Accounts::FtxFutures",
+      "Account::BybitAccount",
+      "Accounts::BybitUsdtPerpetualAccount",
+      "Account::GdaxAccount",
+      "Account::KrakenAccount",
+      "Account::BinanceUsAccount",
+      "Account::GateIoAccount",
+      "Accounts::BybitSpotAccount",
+      "Accounts::GateIoBtcPerpetualAccount",
+      "Accounts::GateIoUsdtPerpetualAccount",
+      "Account::BinanceAccount",
+      "Account::BinanceJerseyAccount",
+      "Account::BinanceMarginAccount",
+      "Account::PaperTradingAccount",
+      "Account::OkexAccount",
+      "Accounts::OkexFuturesAccount",
+      "Accounts::CoinbaseAdvancedAccount",
+      "Accounts::BitgetUsdtFuturesAccount"
+    ]
+  },
+  "heikin_ashi": {
+    "name": "Heikin Ashi",
+    "payed": false,
+    "beta": false,
+    "strategy_type": "indicator",
+    "options": {
+      "time": {
+        "3m": "3 minutes",
+        "5m": "5 minutes",
+        "15m": "15 minutes",
+        "30m": "30 minutes",
+        "1h": "1 hour",
+        "4h": "4 hours",
+        "1d": "1 day"
+      },
+      "candles_count": {
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8",
+        "9": "9",
+        "10": "10"
+      }
+    },
+    "accounts_whitelist": [
+      "Account::BinanceFuturesAccount",
+      "Accounts::BinanceFuturesEeaAccount",
+      "Accounts::BinanceFuturesCoin",
+      "Accounts::Ftx",
+      "Accounts::FtxFutures",
+      "Account::BybitAccount",
+      "Accounts::BybitUsdtPerpetualAccount",
+      "Account::GdaxAccount",
+      "Account::KrakenAccount",
+      "Account::BinanceUsAccount",
+      "Account::GateIoAccount",
+      "Accounts::BybitSpotAccount",
+      "Accounts::GateIoBtcPerpetualAccount",
+      "Accounts::GateIoUsdtPerpetualAccount",
+      "Account::BinanceAccount",
+      "Account::BinanceJerseyAccount",
+      "Account::BinanceMarginAccount",
+      "Account::PaperTradingAccount",
+      "Account::OkexAccount",
+      "Accounts::OkexFuturesAccount",
+      "Accounts::CoinbaseAdvancedAccount",
+      "Accounts::BitgetUsdtFuturesAccount"
+    ]
+  }
+}
+```
+  </ResponseTabs.TabItem>
+</ResponseTabs.Root>
+
+</StickyLayout.Sticky>
+
+</StickyLayout.Root>

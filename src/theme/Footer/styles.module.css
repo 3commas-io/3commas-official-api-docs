@@ -1,0 +1,31 @@
+.root {
+  background-color: #1e1e1f;
+  color: #dee0e3;
+  padding: var(--ifm-footer-padding-vertical)
+    var(--ifm-footer-padding-horizontal);
+}
+
+.container {
+  padding: 0 var(--ifm-spacing-horizontal);
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo {
+  color: white;
+}
+
+.divider {
+  width: 1px;
+  flex-shrink: 0;
+  background: #3a3b3f;
+  display: block;
+  height: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-inline: 4px;
+  align-self: stretch;
+}
