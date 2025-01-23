@@ -23,10 +23,6 @@
   font-size: 14px;
   word-break: break-word;
   line-height: 1.5;
-
-  @media (min-width: 997px) {
-    max-width: 75%;
-  }
 }
 
 .permissions {
