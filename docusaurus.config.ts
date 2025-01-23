@@ -52,7 +52,6 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      // title: 'My Site',
       logo: {
         alt: '3Commas API Platform',
         src: 'img/logo.svg',
@@ -69,7 +68,6 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      copyright: `© ${new Date().getFullYear()}`,
     },
     prism: {
       theme: prismThemes.github,
