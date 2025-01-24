@@ -1,31 +1,28 @@
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock'
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout'
+import * as ResponseTabs from '@site/src/components/ResponseTabs'
+import Endpoint, { Permission } from '@site/src/components/Endpoint'
 
-
-<div className="main-container-endpoint">
-      <div className="container-endpoint">
-               <div className="container-method-post">
-                <span className="endpoint-method">POST</span>
-                </div>
-               <div className="container-url">
-                <span className="endpoint-url">/ver1/bots/create_bot</span>
-               </div>
-         </div>
-   <div className="container-permission">
-          <span className="permission-description"><strong>Permission: </strong> BOTS_WRITE</span>
-          <span className="permission-description"><strong>Security: </strong> SIGNED</span>
-   </div>
-</div>
-
-
+<Endpoint
+  url="/ver1/bots/create_bot"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="BOTS_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
 <p class="custom-class-p"> Creates a new DCA Bot</p>
 
+## Body Parameters
 
-<h2 class="custom-class-h2"> Body Parameters </h2>
-
+<StickyLayout.Root>
+   <StickyLayout.Main>
 <ApiParam name='name' type='string' id="name" required>
     <span> User-defined name of the DCA Bot. If not specified, the system will generate a default name automatically</span>
     <span> Characters: <code>[1 ... 200]</code> </span>
@@ -41,13 +38,12 @@ import ApiParam from '@site/src/components/ApiParam';
 </ApiParam>
 
 
-
-<h3 class="custom-class-h3"> More attributes </h3>
+<CollapseAll>
+<CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
 
 <CollapsibleApiParam name='max_active_deals' type='integer' id="max_active_deals">
-     <span>The maximum number of active deals available for this DCA Bot </span>>
-     <span>Minimum:<code> 1 </code>, Maximum:<code>199</code> </span>
-     <span>Default: <code> 1 </code> </span>
+     <p>The maximum number of active deals available for this DCA Bot </p>
+     <p>Minimum:<code> 1 </code>, Maximum:<code>199</code>; Default: <code> 1 </code> </p>
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='strategy' type='string' id="strategy">
@@ -236,29 +232,25 @@ import ApiParam from '@site/src/components/ApiParam';
    <p> The time in seconds after which the deals will close automatically</p>
    <p>Minimum: <code>60</code></p>
 </CollapsibleApiParam>
+</CollapseAll>
 
-
-<h3> Additional Information </h3>
-
-<div style={{ margin: '20px', padding: '10px', borderBottom: '1px solid rgba(53, 58, 68, 0.4)', }}>
+<strong> Additional Information </strong>
    <p>
       <strong> pairs </strong>
    </p>
    <p>
       Use endpoint [All market pairs](/docs/Market%20data/All%20market%20pairs.md) to get value for parameter.
    </p>
-</div>
 
-<div style={{ margin: '20px', padding: '10px', borderBottom: '1px solid rgba(53, 58, 68, 0.4)', }}>
+
+
    <p> 
       <strong> leverage_custom_value </strong>
    </p>
    <p>
       Use endpoints [Currency rates and limits with leverage data](/docs/Market%20data/Currency%20rates%20and%20limits%20with%20leverage%20data.md) to check available value for this parameter.
    </p>
-</div>   
 
-<div style={{ margin: '20px', padding: '10px', borderBottom: '1px solid rgba(53, 58, 68, 0.4)', }}>
 <p>
    <strong>take_profit_steps</strong>
 </p>
@@ -293,9 +285,7 @@ import ApiParam from '@site/src/components/ApiParam';
         </code>
       </pre>
   </div>
-</div>
 
-<div style={{ margin: '20px', padding: '10px', }}>
 <p>
    <strong>strategy list, close_strategy_list, safety_strategy_list</strong>
 </p>
@@ -306,25 +296,22 @@ import ApiParam from '@site/src/components/ApiParam';
 <p>
    Below are several examples demonstrating how to fill these parameters with strategy data:
 </p>
-
-<div style={{ margin: '0px', padding: '10px' }}> 
-<Tabs>
-  <TabItem value="Manual signals" label="Manual signals" default>
-
-    ```json
+<ResponseTabs.Root>
+  <ResponseTabs.TabItem value="Manual signals" label="Manual signals" default>
+   ```json
 [
    {
       "strategy": "manual"
    }
 ]
-```
+   ```
 or 
 
-```
+   ```json
 []
-```
-  </TabItem>
-  <TabItem value="Non-stop" label="Non-stop">
+   ```
+  </ResponseTabs.TabItem>
+  <ResponseTabs.TabItem value="Non-stop" label="Non-stop" default>
    It's using only for 1 pair bot.
 
 ```json
@@ -337,12 +324,10 @@ or
    }
 ]
 ```
-  </TabItem>
-      
-      <TabItem value="TradingView" label="TradingView">
-
+  </ResponseTabs.TabItem>
+  <ResponseTabs.TabItem value="TradingView" label="TradingView" default>
    ```json
-[
+   [
    {
       "options": {
          "time": "5m",
@@ -351,12 +336,11 @@ or
       "strategy": "trading_view"
    }
 ]
-```
-      </TabItem>
-      <TabItem value="RSI" label="RSI">
-
+   ```
+  </ResponseTabs.TabItem>
+  <ResponseTabs.TabItem value="RSI" label="RSI" default>
    ```json
-[
+      [
    {
       "options": {
          "time": "5m",
@@ -367,21 +351,19 @@ or
       "strategy": "rsi"
    }
 ] 
-```
-   </TabItem>
-   </Tabs>
-</div>
-</div>
+   ```
+  </ResponseTabs.TabItem>
+</ResponseTabs.Root>
+
+
 
 <h2> Response Parameters</h2>
-
 <p className="custom-class-p">
    If successful, the response includes a update copy of [DCA Bot](./README.md) entity.
 </p>
+</StickyLayout.Main>
 
-<h2> Example Request</h2> 
-<div style={{ margin: '20px', padding: '10px' }}>
-
+<StickyLayout.Sticky>
 ```json title="POST /ver1/bots/create_bot"
 {
    "account_id": 32833909,
@@ -416,14 +398,9 @@ or
    "martingale_step_coefficient": "4.0"
 }
 ```
-</div>
 
-<h2> Example Response and errors </h2>
-
-<div style={{ margin: '20px', padding: '10px' }}>
-<Tabs>
-  <TabItem value="201" label="201 Created" attributes={{className: "green"}}>
-
+<ResponseTabs.Root>
+   <ResponseTabs.TabItem value="201" label="201 Created" default>
    ```json
 {
     "id": 15564828,
@@ -496,9 +473,8 @@ or
     "max_price_percentage": null
 }
 ```
-  </TabItem>
-   <TabItem value="400" label="400 Bad Request" attributes={{className: "red"}}>
-
+  </ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="400" label="400 Bad Request">
    ```json
 {
     "error": "record_invalid",
@@ -510,15 +486,15 @@ or
     }
 }
 ```
-   </TabItem>
-   <TabItem value="404" label="404 Not Found" attributes={{className: "red"}}>
-   
+   </ResponseTabs.TabItem>
+   <ResponseTabs.TabItem value="404" label="404 Not Found">
    ```json
 {
     "error": "not_found",
     "error_description": "Not Found"
 }
 ```
-   </TabItem>
-</Tabs>  
-</div>
+   </ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
