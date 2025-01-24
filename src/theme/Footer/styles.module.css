@@ -2,11 +2,11 @@
   background-color: #1e1e1f;
   color: #dee0e3;
   padding: var(--ifm-footer-padding-vertical)
-    var(--ifm-footer-padding-horizontal);
+    var(--ifm-navbar-padding-horizontal);
+  font-size: 13px;
 }
 
 .container {
-  padding: 0 var(--ifm-spacing-horizontal);
   width: 100%;
   margin: 0 auto;
   display: flex;
