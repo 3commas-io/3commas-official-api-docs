@@ -28,8 +28,8 @@ export default function CollapsibleNestedParams({
         </svg>
 
         <span className={styles.name}>
-          <span className={styles.collapsedName}>{collapsedName}</span>
-          <span className={styles.openName}>{openName}</span>
+          <span className={styles.collapsedName}>{openName}</span>
+          <span className={styles.openName}>{collapsedName}</span>
         </span>
       </summary>
 
