@@ -5,24 +5,11 @@ Each endpoint in the 3Commas API has specific security and permission types, whi
 
 Security types define the authentication required to access API endpoints.
 
-<table>
-    <thead>
-        <tr>
-            <th>Security Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>NONE</td>
-            <td>Endpoint can be accessed freely</td>
-        </tr>
-        <tr>
-            <td>SIGNED</td>
-            <td>Requires a valid `APIKey` and a `Signature` for access</td>
-        </tr>
-    </tbody>
-</table>
+| Security Type | Description |
+|---------------|--------------|
+| NONE | Endpoint can be accessed freely |
+| SIGNED | Requires a valid `APIKey` and a `Signature` for access |
+
 
 ## Permission Types
 
@@ -30,41 +17,12 @@ Security types define the authentication required to access API endpoints.
 
     For example, one API Key might provide access to read-only statistics, while another could enable full control over bots and accounts.
 
-<table>
-    <thead>
-        <tr>
-            <th>Permission Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>NONE</td>
-            <td>Endpoint can be accessed freely</td>
-        </tr>
-        <tr>
-            <td>BOTS_READ</td>
-            <td>Allows viewing information associated with this permission</td>
-        </tr>
-        <tr>
-            <td>BOTS_WRITE</td>
-            <td>Allows creating or modifying data associated with this permission</td>
-        </tr>
-          <tr>
-            <td>ACCOUNTS_READ</td>
-            <td>Allows viewing information associated with this permission</td>
-        </tr>
-          <tr>
-            <td>ACCOUNTS_WRITE</td>
-            <td>Allows creating or modifying data associated with this permission</td>
-        </tr>
-          <tr>
-            <td>SMART_TRADES_READ</td>
-            <td>Allows viewing information associated with this permission</td>
-        </tr>
-          <tr>
-            <td>SMART_TRADES_WRITE</td>
-            <td>Allows creating or modifying data associated with this permission</td>
-        </tr>
-    </tbody>
-</table>
+| Permission Type | Description |
+|---------------|--------------|
+| NONE | Endpoint can be accessed freely |
+| BOTS_READ | Allows viewing information associated with this permission |
+| BOTS_WRITE | Allows creating or modifying data associated with this permission |
+| ACCOUNTS_READ | Allows viewing information associated with this permission |
+| ACCOUNTS_WRITE | Allows creating or modifying data associated with this permission |
+| SMART_TRADES_READ | Allows viewing information associated with this permission |
+| SMART_TRADES_WRITE | Allows creating or modifying data associated with this permission |
