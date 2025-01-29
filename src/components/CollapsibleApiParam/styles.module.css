@@ -92,6 +92,7 @@ p {
     gap: var(--gap);
     min-height: 32px;
     cursor: pointer;
+    position: relative;
   }
 
   summary + div > * {
