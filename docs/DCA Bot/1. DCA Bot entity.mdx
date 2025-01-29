@@ -2,8 +2,13 @@ import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout'
+import * as ResponseTabs from '@site/src/components/ResponseTabs'
 
-<h2> Attributes</h2>
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Attributes
 
 <ApiParam name='id' type='integer' id="id">
      Unique 3Commas ID for this DCA Bot entity
@@ -180,10 +185,10 @@ The current number of active deals managed by this bot
 
 <CollapsibleApiParam name="stop_loss_type" type="string" id="stop_loss_type">
  Specifies the type of action the bot performs when Stop Loss is triggered after closing a deal
-     <CollapsibleApiParam name="Allowed values">
+     <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
       <li><code>stop_loss</code> - closes the deal without disabling the bot;</li>
       <li><code>stop_loss_and_disable_bot</code> - closes the deal and disables the bot.</li>
-     </CollapsibleApiParam>
+     </CollapsibleNestedParams>
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="stop_loss_percentage" type="number" id="stop_loss_percentage">
@@ -240,11 +245,11 @@ The current number of active deals managed by this bot
 
 <CollapsibleApiParam name="leverage_type" type="string" id="leverage_type">
   Type of leverage applied for this DCA Bot
-     <CollapsibleApiParam name="Allowed values">
-      <li><strong>cross</strong> - uses all available funds in your account as collateral for your trades;</li>
+  <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+       <li><strong>cross</strong> - uses all available funds in your account as collateral for your trades;</li>
        <li><strong>isolated</strong> - the margin is limited to a specific position;</li>
        <li><strong>not_specified</strong> - no leverage type specified for this DCA Bot;</li>
-     </CollapsibleApiParam>
+  </CollapsibleNestedParams>
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="leverage_custom_value" type="string" id="leverage_custom_value">
@@ -283,3 +288,83 @@ The current number of active deals managed by this bot
   List of active [deals](/docs/DCA%20Bot/Deals/README.md) managed by this DCA Bot
 </CollapsibleApiParam>
 </CollapseAll>
+
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+
+```json title="DCA Bot entity"
+{
+    "id": 15564828,
+    "account_id": 32833909,
+    "is_enabled": false,
+    "max_safety_orders": 4,
+    "active_safety_orders_count": 1,
+    "pairs": [
+        "BNFCR_1INCHUSDT"
+    ],
+    "strategy_list": [
+        {
+            "strategy": "nonstop",
+            "options": {}
+        }
+    ],
+    "close_strategy_list": [],
+    "safety_strategy_list": [],
+    "max_active_deals": 1,
+    "active_deals_count": 0,
+    "deletable?": true,
+    "created_at": "2024-10-24T19:57:43.635Z",
+    "updated_at": "2024-10-24T19:57:43.635Z",
+    "trailing_enabled": null,
+    "tsl_enabled": false,
+    "deal_start_delay_seconds": null,
+    "stop_loss_timeout_enabled": false,
+    "stop_loss_timeout_in_seconds": 0,
+    "disable_after_deals_count": null,
+    "deals_counter": null,
+    "allowed_deals_on_same_pair": null,
+    "easy_form_supported": false,
+    "close_deals_timeout": null,
+    "url_secret": "738d600eb4",
+    "take_profit_steps": [],
+    "name": "test 24 oct",
+    "take_profit": "2.0",
+    "min_profit_percentage": null,
+    "base_order_volume": "15.0",
+    "safety_order_volume": "30.0",
+    "safety_order_step_percentage": "1.0",
+    "take_profit_type": "total",
+    "min_profit_type": null,
+    "type": "Bot::SingleBot",
+    "martingale_volume_coefficient": "2.0",
+    "martingale_step_coefficient": "4.0",
+    "stop_loss_percentage": "0.0",
+    "cooldown": "0",
+    "btc_price_limit": "0.0",
+    "strategy": "long",
+    "min_volume_btc_24h": "0.0",
+    "profit_currency": "quote_currency",
+    "min_price": null,
+    "max_price": null,
+    "stop_loss_type": "stop_loss",
+    "safety_order_volume_type": "quote_currency",
+    "base_order_volume_type": "quote_currency",
+    "account_name": "My Binance",
+    "trailing_deviation": "0.2",
+    "finished_deals_profit_usd": "0.0",
+    "finished_deals_count": "0",
+    "leverage_type": "not_specified",
+    "leverage_custom_value": null,
+    "start_order_type": "limit",
+    "active_deals_usd_profit": "0.0",
+    "reinvesting_percentage": null,
+    "risk_reduction_percentage": null,
+    "reinvested_volume_usd": null,
+    "min_price_percentage": null,
+    "max_price_percentage": null
+}
+```
+
+</StickyLayout.Sticky>
+</StickyLayout.Root>
