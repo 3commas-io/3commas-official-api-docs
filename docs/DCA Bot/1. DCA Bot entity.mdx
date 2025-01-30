@@ -19,7 +19,7 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs'
 </ApiParam>
 
 <ApiParam name='is_enabled' type='boolean' id="is_enabled">
-     Indicates whether DCA Bot is currently enabled (<code>true</code>) or not (<code>false</code>)
+     Indicates whether DCA Bot is currently enabled (`true`) or not (`false`)
 </ApiParam>
 
 <ApiParam name='pairs' type='string' id="pairs">
@@ -43,8 +43,8 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs'
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='max_active_deals' type='integer' id="max_active_deals">
-<p>The maximum number of active deals available for this DCA Bot</p>
-<p>Default: <code>1</code></p>
+The maximum number of active deals available for this DCA Bot
+Default: `1`
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='active_deals_count' type='string' id="active_deals_count">
@@ -52,7 +52,7 @@ The current number of active deals managed by this bot
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='deletable?' type='boolean' id="deletable?">
-     Indicates whether this DCA Bot can be deleted (<code>true</code>) or not (<code>false</code>)
+     Indicates whether this DCA Bot can be deleted (`true`) or not (`false`)
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='created_at' type='string' id="created_at">
@@ -64,7 +64,7 @@ The current number of active deals managed by this bot
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='trailing_enabled' type='boolean' id="trailing_enabled">
-     Indicates whether trailing is enabled for Take Profit of this bot (<code>true</code>) or not (<code>false</code>)
+     Indicates whether trailing is enabled for Take Profit of this bot (`true`) or not (`false`)
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='trailing_deviation' type='number' id="trailing_deviation">
@@ -72,7 +72,7 @@ The current number of active deals managed by this bot
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='tsl_enabled' type='boolean' id="tsl_enabled">
-     Indicates whether trailing is enabled for Stop Loss (<code>true</code>) or not (<code>false</code>) for this DCA Bot
+     Indicates whether trailing is enabled for Stop Loss (`true`) or not (`false`) for this DCA Bot
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='deal_start_delay_seconds' type='integer or null' id="deal_start_delay_seconds">
@@ -80,7 +80,7 @@ The current number of active deals managed by this bot
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="stop_loss_timeout_enabled" type="boolean" id="stop_loss_timeout_enabled">
-     Indicates if the Stop Loss timeout is active (<code>true</code>) or not (<code>false</code>)
+     Indicates if the Stop Loss timeout is active (`true`) or not (`false`)
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="stop_loss_timeout_in_seconds" type="boolean" id="stop_loss_timeout_in_seconds">
@@ -88,15 +88,15 @@ The current number of active deals managed by this bot
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="disable_after_deals_count" type="integer" id="disable_after_deals_count">
-     The number of deals after that the bot will be switched to disabled (is_enabled: <code> false</code>)
+     The number of deals after that the bot will be switched to disabled (is_enabled: `false`)
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="deals_counter" type="integer" id="deals_counter">
- Tracks the number of deals executed by the bot for <code>disable_after_deals_count</code>
+ Tracks the number of deals executed by the bot for `disable_after_deals_count`
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="allowed_deals_on_same_pair" type="integer or null" id="allowed_deals_on_same_pair">
- Number of active deals allowed with the same trading pair simultaneously. It worls only for bot where <code>type</code> is <code>Bot::MultiBot</code>
+ Number of active deals allowed with the same trading pair simultaneously. It worls only for bot where `type` is `Bot::MultiBot`
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="close_deals_timeout" type="integer or null" id="allowed_deals_on_same_pair">
@@ -108,7 +108,7 @@ The current number of active deals managed by this bot
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="take_profit_type" type="string" id="take_profit_type">
- Type of take profit calculation: <code>base</code>, <code>total</code>)
+ Type of take profit calculation: `base`, `total`
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="take_profit" type="number" id="take_profit">
@@ -135,7 +135,7 @@ The current number of active deals managed by this bot
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="base_order_volume_type" type="string" id="base_order_volume_type">
- Volume type for base orders: <code>quote_currency</code>, <code>base_currency</code>, <code>percent</code>)
+ Volume type for base orders: `quote_currency`, `base_currency`, `percent`
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="base_order_volume" type="number" id="base_order_volume">
@@ -171,8 +171,9 @@ The current number of active deals managed by this bot
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="type" type="string" id="type">
- <p>The type of DCA Bot, based on the number of pairs. If a single pair is passed, a <code>Bot::SingleBot</code> is created</p>
- <p>If two or more pairs are passed, a <code>Bot::MultiBot</code> is created</p>
+ The type of DCA Bot, based on the number of pairs. If a single pair is passed, a `Bot::SingleBot` is created_at
+
+ If two or more pairs are passed, a `Bot::MultiBot` is created
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="martingale_volume_coefficient" type="number" id="martingale_volume_coefficient">
@@ -180,14 +181,14 @@ The current number of active deals managed by this bot
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="martingale_step_coefficient" type="number" id="martingale_step_coefficient">
- Coefficient for increasing safety order price (<code>safety_order_step_percentage</code>) in Martingale strategy
+ Coefficient for increasing safety order price (`safety_order_step_percentage`) in Martingale strategy
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="stop_loss_type" type="string" id="stop_loss_type">
  Specifies the type of action the bot performs when Stop Loss is triggered after closing a deal
      <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
-      <li><code>stop_loss</code> - closes the deal without disabling the bot;</li>
-      <li><code>stop_loss_and_disable_bot</code> - closes the deal and disables the bot.</li>
+      * **stop_loss** - closes the deal without disabling the bot;
+      * **stop_loss_and_disable_bot** - closes the deal and disables the bot.
      </CollapsibleNestedParams>
 </CollapsibleApiParam>
 
@@ -208,7 +209,7 @@ The current number of active deals managed by this bot
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="strategy" type="string" id="strategy">
- Type of strategy used by the bot: <code>long</code>, <code>short</code>)
+ Type of strategy used by the bot: `long`, `short`
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="min_volume_btc_24h" type="number" id="min_volume_btc_24h">
@@ -246,9 +247,9 @@ The current number of active deals managed by this bot
 <CollapsibleApiParam name="leverage_type" type="string" id="leverage_type">
   Type of leverage applied for this DCA Bot
   <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
-       <li><strong>cross</strong> - uses all available funds in your account as collateral for your trades;</li>
-       <li><strong>isolated</strong> - the margin is limited to a specific position;</li>
-       <li><strong>not_specified</strong> - no leverage type specified for this DCA Bot;</li>
+       * **cross** - uses all available funds in your account as collateral for your trades;
+       * **isolated** - the margin is limited to a specific position;
+       * **not_specified** - no leverage type specified for this DCA Bot;
   </CollapsibleNestedParams>
 </CollapsibleApiParam>
 
@@ -257,7 +258,7 @@ The current number of active deals managed by this bot
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="start_order_type" type="string" id="start_order_type">
- Type of order to start deals with: <code>limit</code>, <code>market</code>)
+ Type of order to start deals with: `limit`, `market`
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="active_deals_usd_profit" type="string" id="active_deals_usd_profit">
