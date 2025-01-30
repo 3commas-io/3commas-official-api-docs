@@ -1,0 +1,197 @@
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+
+<Endpoint
+  url="/ver1/accounts/currency_rates"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="NONE" />
+      <Permission title="Security" description="NONE" />
+    </>
+  }
+/>
+
+ Retuns the current trading rules and ticker information on exchange
+
+<StickyLayout.Root>
+   <StickyLayout.Main> 
+
+      ## Query Parameters
+
+      <ApiParam name='market_code' type='integer' id="market_code" required>
+         Unique exchange code in the 3Commas system. 
+         
+         Use endpoint [Supported markets list](/docs/Market%20data/1.%20Supported%20markets%20list.md) to get value for parameter `market_code`.
+      </ApiParam>
+
+      <ApiParam name='pair' type='string' id="pair" required>
+         Trading pair in 3Commas format. 
+         
+         Use endpoints [All Market Pairs](/docs/Market%20data/2.%20All%20market%20pairs.md) to get value for parameter `pair` in 3Commas format.
+      </ApiParam>
+   </StickyLayout.Main>
+
+   <StickyLayout.Sticky>
+      ## Example request
+
+         ```json
+         GET /ver1/accounts/currency_rates_with_leverage_data?market_code=binance&pair=BTC_ETH
+         ```
+   </StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+   <StickyLayout.Main> 
+
+   ## Response Parameters
+
+   <ApiParam name='last' type='integer' id="last">
+      Last price
+   </ApiParam>
+
+   <ApiParam name='bid' type='string' id="bid">
+      Bid price
+   </ApiParam>
+
+   <ApiParam name='ask' type='string' id="ask">
+      Ask price
+   </ApiParam>
+
+   <ApiParam name='orderbook_ask' type='string' id="orderbook_ask">
+      Ask price of ticker
+   </ApiParam>
+
+   <ApiParam name='orderbook_bid' type='string' id="orderbook_bid">
+      Bid price of ticker
+   </ApiParam>
+
+   <CollapseAll>
+   <CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
+
+   <CollapsibleApiParam name='orderbook_last' type='string' id="orderbook_last">
+      Last price of ticker
+   </CollapsibleApiParam> 
+
+   <CollapsibleApiParam name='orderbook_price_currency' type='string' id="orderbook_price_currency">
+      Currency price of ticker
+   </CollapsibleApiParam>
+
+   <CollapsibleApiParam name='strategy_name' type='string' id="strategy_name">
+      The name of trading strategy
+   </CollapsibleApiParam>
+
+   <CollapsibleApiParam name='contract_strategy_name' type='string' id="stratcontract_strategy_nameegy_name">
+      The strategy by which the contract price is calculated
+   </CollapsibleApiParam>
+
+   <CollapsibleApiParam name='instrumentKind' type='string' id="instrumentKind">
+      The type of exchange instrument
+   </CollapsibleApiParam>
+
+   <CollapsibleApiParam name='minPrice' type='string' id="minPrice">
+      Minimum price order
+   </CollapsibleApiParam>
+
+   <CollapsibleApiParam name='maxPrice' type='string' id="maxPrice">
+      Maximum price order
+   </CollapsibleApiParam>
+
+   <CollapsibleApiParam name='priceStep' type='string' id="priceStep">
+      The minimum step for changing the price
+   </CollapsibleApiParam>
+
+   <CollapsibleApiParam name='minLotSize' type='string' id="maxminLotSizePrice">
+      The minimum lot size for order in Base currency
+   </CollapsibleApiParam>
+
+   <CollapsibleApiParam name='lotStep' type='string' id="lotStep">
+      Order of changing the size in Base currency
+   </CollapsibleApiParam>
+
+   <CollapsibleApiParam name='maxMarketBuyAmount' type='string' id="maxMarketBuyAmount">
+      Maximum order size in Base currency for buy
+   </CollapsibleApiParam>
+
+   <CollapsibleApiParam name='maxMarketSellAmount' type='string' id="maxMarketSellAmount">
+      Maximum order size in Base currency for sell
+   </CollapsibleApiParam>
+
+   <CollapsibleApiParam name='bidMultiplierDown' type='string' id="bidMultiplierDown">
+      A multiplier applied to decrease the bid price
+   </CollapsibleApiParam>
+
+   <CollapsibleApiParam name='bidMultiplierUp' type='string' id="bidMultiplierUp">
+      A multiplier applied to increase the bid price
+   </CollapsibleApiParam>   
+      
+   <CollapsibleApiParam name='askMultiplierUp' type='string' id="askMultiplierUp">
+      A multiplier applied to increase the ask price
+   </CollapsibleApiParam>
+      
+   <CollapsibleApiParam name='askMultiplierDown' type='string' id="askMultiplierDown">
+      A multiplier applied to decrease the ask price
+   </CollapsibleApiParam>
+      
+   <CollapsibleApiParam name='minTotal' type='string' id="minTotal">
+      Minimum order size in Quote
+   </CollapsibleApiParam>  
+
+   <CollapsibleApiParam name='minMarketTotal' type='string' id="minMarketTotal">
+      Minimum order size in Quote for market order
+   </CollapsibleApiParam>   
+      
+   <CollapsibleApiParam name='maxTotal' type='string' id="maxTotal">
+      Maximum order size in Quote
+   </CollapsibleApiParam>
+
+   <CollapsibleApiParam name='maxLotSize' type='string' id="maxLotSize">
+      Maximum order size in Base
+   </CollapsibleApiParam>
+   </CollapseAll>
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+   ## Example Response and errors
+
+   <ResponseTabs.Root>
+      <ResponseTabs.TabItem value="200" label="200 OK" default>
+
+         ```json
+         {
+         "last": "63802.44",
+         "bid": "63802.44",
+         "ask": "63802.45",
+         "orderbook_ask": "63802.45",
+         "orderbook_bid": "63802.44",
+         "orderbook_last": "63802.44",
+         "orderbook_price_currency": "USDT",
+         "strategy_name": "orderbook_price",
+         "contract_strategy_name": "orderbook_price",
+         "instrumentKind": "spot",
+         "minPrice": "0.01",
+         "maxPrice": "1000000.0",
+         "priceStep": "0.01",
+         "minLotSize": "0.00001",
+         "lotStep": "0.00001",
+         "maxMarketBuyAmount": "121.22278732",
+         "maxMarketSellAmount": "121.22278732",
+         "bidMultiplierDown": "0.2",
+         "bidMultiplierUp": "5.0",
+         "askMultiplierUp": "5.0",
+         "askMultiplierDown": "0.2",
+         "minTotal": "5.0",
+         "minMarketTotal": "5.0",
+         "maxTotal": "9000000.0",
+         "maxLotSize": "9000.0"
+         }
+         ```
+   </ResponseTabs.TabItem>
+  </ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
