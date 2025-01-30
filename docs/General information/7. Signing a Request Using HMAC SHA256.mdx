@@ -4,15 +4,15 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-<code>SIGNED</code> endpoints require an additional <code>Signature</code> header to verify the authenticity of the request.
+`SIGNED` endpoints require an additional `Signature` header to verify the authenticity of the request.
 
-Follow the steps below to compute a signature using <code>HMAC SHA256</code>.
+Follow the steps below to compute a signature using `HMAC SHA256`.
 
 ## How to compute the signature with HMAC SHA256
 
-The signature is generated using the <code>HMAC SHA256</code> algorithm. This method combines your <code>SecretKey</code> and the <code>uri?totalParams</code> to produce a unique code.
+The signature is generated using the `HMAC SHA256` algorithm. This method combines your `SecretKey` and the `uri?totalParams` to produce a unique code.
 
-<code>totalParams</code> consists of the <code>query string</code> (parameters in the URL) concatenated with the <code>request body</code> (payload).
+`totalParams` consists of the `query string` (parameters in the URL) concatenated with the `request body` (payload).
 
     Important notes:
     * The signature is **not case sensitive**.
@@ -56,7 +56,7 @@ Keep in mind, the signature is not case sensitive.
 
 ### How to Sign the Request
 
-Below is a step-by-step example of how to send a valid signed payload from the Linux command line using <code>echo</code>, <code>openssl</code>, and <code>curl</code>.
+Below is a step-by-step example of how to send a valid signed payload from the Linux command line using `echo`, `openssl`, and `curl`.
 
 Here are examples of signed endpoints, along with step-by-step guides for interacting with them.
  
