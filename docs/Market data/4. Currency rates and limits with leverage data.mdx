@@ -1,38 +1,54 @@
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
-<div className="main-container-endpoint">
-    <div className="container-endpoint">
-            <div className="container-method-get">
-                <span className="endpoint-method">GET</span>
-            </div>
-              <div className="container-url">
-                <span className="endpoint-url">/ver1/accounts/currency_rates_with_leverage_data</span>
-           </div>
-    </div>
-    <div className="container-permission">
-        <span className="permission-description"><strong>Permission: </strong>NONE</span>
-        <span className="permission-description"><strong>Security: </strong>NONE</span>
-    </div>
-</div>
+<Endpoint
+  url="/ver1/accounts/currency_rates_with_leverage_data"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="NONE" />
+      <Permission title="Security" description="NONE" />
+    </>
+  }
+/>
 
-<p class="p-method-discription">  
- Returns the current trading rules and ticket information with data about leverages on the futures exchange
-</p>
+ Returns the current trading rules and ticket information with data about leverages on the futures exchange.
 
-<h2> Query Parameters </h2>
+<StickyLayout.Root>
+   <StickyLayout.Main> 
+
+## Query Parameters
 
 <ApiParam name='market_code' type='integer' id="market_code" required>
-    Unique exchange code in the 3Commas system. Use endpoint [Supported markets list](/docs/Market%20data/1.%20Supported%20markets%20list.md) to get value for parameter <code>market_code</code>.
+    Unique exchange code in the 3Commas system. 
+    
+    Use endpoint [Supported markets list](/docs/Market%20data/1.%20Supported%20markets%20list.md) to get value for parameter `market_code`.
 </ApiParam>
 
 <ApiParam name='pair' type='string' id="pair" required>
-    Trading pair in 3Commas format. Use endpoints [All Market Pairs](/docs/Market%20data/2.%20All%20market%20pairs.md) to get value for parameter <code>pair</code> in 3Commas format.
+    Trading pair in 3Commas format. 
+
+    Use endpoints [All Market Pairs](/docs/Market%20data/2.%20All%20market%20pairs.md) to get value for parameter `pair` in 3Commas format.
 </ApiParam>
 
+   </StickyLayout.Main>
+
+   <StickyLayout.Sticky>
+      ## Example request
+
+        ```json
+         GET /ver1/accounts/currency_rates_with_leverage_data?market_code=binance_futures_eea&pair=BNFCR_1INCHUSDT
+        ```
+   </StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+   <StickyLayout.Main>
 
 ### Response Parameters
 
@@ -56,7 +72,8 @@ import TabItem from '@theme/TabItem';
    Bid price of ticker
 </ApiParam>
 
-<h3> More attributes </h3>
+<CollapseAll>
+   <CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
 
 <CollapsibleApiParam name='orderbook_last' type='string' id="orderbook_last">
    Last price of ticker
@@ -167,21 +184,15 @@ import TabItem from '@theme/TabItem';
 <CollapsibleApiParam name='maxLotSize' type='string' id="maxLotSize">
    Maximum order size in Base
 </CollapsibleApiParam>
+</CollapseAll>
+</StickyLayout.Main>
 
-<h2> Example request </h2>
-<div style={{ margin: '10px', padding: '10px' }}>
+<StickyLayout.Sticky>
 
-```json
-GET /ver1/accounts/currency_rates_with_leverage_data?market_code=binance_futures_eea&pair=BNFCR_1INCHUSDT
-```
-</div>
+## Example Response and errors
 
-
-<h2> Example Response and errors </h2>
-
-<div style={{ margin: '10px', padding: '10px' }}>
-  <Tabs>
-    <TabItem value="200" label="200 OK" attributes={{className: "green"}}>
+<ResponseTabs.Root>
+      <ResponseTabs.TabItem value="200" label="200 OK" default>
 
     ```JSON
 {
@@ -225,17 +236,17 @@ GET /ver1/accounts/currency_rates_with_leverage_data?market_code=binance_futures
   "maxPrice": "100000.0"
 }
 ```
+</ResponseTabs.TabItem>
 
-  </TabItem>
+   <ResponseTabs.TabItem value="400" label="400 Bad Request" default>
 
-  <TabItem value="400" label="400 Bad Request" attributes={{className: "red"}}>
+      ```json
+      {
+      "error": "Unknown pair"
+       }
+   ```
+  </ResponseTabs.TabItem>
+</ResponseTabs.Root>
 
-    ```json
-{
-  "error": "Unknown pair"
-}
-```
-  </TabItem>
-  </Tabs>
-</div>
-
+</StickyLayout.Sticky>
+</StickyLayout.Root>
