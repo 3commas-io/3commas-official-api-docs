@@ -19,8 +19,9 @@
 .details {
   --icon-size: 12px;
   --gap: 0.5rem;
-  margin: 0;
+  --ifm-list-margin: 0rem;
 
+  margin: 0;
   padding: 0;
   background: none;
   border: 1px solid var(--ifm-blockquote-border-color);
