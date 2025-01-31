@@ -1,159 +1,160 @@
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout'
+import * as ResponseTabs from '@site/src/components/ResponseTabs'
 
-<div className="main-container-endpoint">
-    <div className="container-endpoint">
-            <div className="container-method-patch">
-                <span className="endpoint-method">PATCH</span>
-            </div>
-              <div className="container-url">
-                <span className="endpoint-url">/ver1/grid_bots/:id/manual</span>
-           </div>
-    </div>
-    <div className="container-permission">
-        <span className="permission-description"><strong>Permission: </strong>BOTS_WRITE</span>
-        <span className="permission-description"><strong>Security: </strong>SIGNED</span>
-    </div>
-</div>
+<Endpoint
+  url="/ver1/grid_bots/:id/manual"
+  method="PATCH"
+  permissions={
+    <>
+      <Permission title="Permission" description="BOTS_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
 
-<p className="p-method-discription">
   Updates an existing Grid Bot using its ID
-</p>
 
-<h2> Path Parameter </h2>
+<StickyLayout.Root>
+   <StickyLayout.Main>
+
+## Path Parameter 
 <ApiParam name='id' type='integer' id="id" required>
    Unique 3Commas ID for this Grid Bot entity
 </ApiParam>
 
-
-
-<h2> Body Parameters </h2>
+## Body Parameters 
 
 <ApiParam name='name' type='integer' id="name" required>
-  Grid bot name specified by the user
+  Grid bot name specified by the user.
 </ApiParam>
 
 <ApiParam name='upper_price' type='number' id="upper_price" required>
-   The maximum price of the trading range, above which the bot will not place sell orders
+   The maximum price of the trading range, above which the bot will not place sell orders.
 </ApiParam>
 
 <ApiParam name='lower_price' type='number' id="lower_price" required>
-   The minimum price of the trading range, below which the bot will not place buy orders
+   The minimum price of the trading range, below which the bot will not place buy orders.
 </ApiParam>
 
 <ApiParam name='grids_quantity' type="number" id="grids_quantity" required>
-  <p> The number of grid levels between the upper and lower price boundaries. </p>
-  <p> This value is limited based on [the exchange’s rules for rates, limits, and leverage](/docs/Market%20data/Currency%20rates%20and%20limits%20with%20leverage%20data.md) </p>
+  The number of grid levels between the upper and lower price boundaries.
+
+  This value is limited based on [the exchange’s rules for rates, limits, and leverage](/docs/Market%20data/Currency%20rates%20and%20limits%20with%20leverage%20data.md).
 </ApiParam> 
 
 
-<h3> More attributes </h3>
+<CollapseAll>
+<CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
 
 <CollapsibleApiParam name="grid_type" type="string" id="grid_type">
-  Type of Grid Bot configuration: <code>geometric</code> or <code>arithmetic</code>
+  Type of Grid Bot configuration: `geometric` or `arithmetic`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="quantity_per_grid" type="number" id="quantity_per_grid" required>
-   Quantity of the asset allocated per Grid Bot level order
+   Quantity of the asset allocated per Grid Bot level order.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="upper_stop_loss_enabled" type="boolean" id="upper_stop_loss_enabled">
-  Indicates if upper stop-loss settings are enabled (<code>true</code>) or not(<code>false</code>). Use <code>true</code> to activate the settings group
+  Indicates if upper stop-loss settings are enabled (`true`) or not(`false`). Use `true` to activate the settings group.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="upper_stop_loss_action" type="string" id="upper_stop_loss_action">
-  The action to perform if the asset price reaches or exceeds the set upper stop-loss level
-  <CollapsibleApiParam name="Allowed values">
-      <li><strong>stop_bot</strong>;</li>
-       <li><strong>stop_bot_and_sell</strong>;</li>
-       <li><strong>stop_bot_and_close_position</strong>;</li>
-     </CollapsibleApiParam>
+  The action to perform if the asset price reaches or exceeds the set upper stop-loss level.
+  <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **stop_bot**;
+      * **stop_bot_and_sell**;
+      * **stop_bot_and_close_position**;
+     </CollapsibleNestedParams>
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="upper_stop_loss_price" type="number" id="upper_stop_loss_price">
-  The price level that triggers the upper stop-loss action
+  The price level that triggers the upper stop-loss action.
 </CollapsibleApiParam> 
    
 <CollapsibleApiParam name="lower_stop_loss_enabled" type="boolean" id="lower_stop_loss_enabled">
-   Indicates if lower stop-loss settings are enabled <code>true</code> or not (<code>false</code>). Use <code>true</code> to activate the settings group
+   Indicates if lower stop-loss settings are enabled `true` or not (`false`). Use `true` to activate the settings group.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="lower_stop_loss_action" type="string" id="lower_stop_loss_action">
    The action to perform if the asset price reaches or falls below the set lower stop-loss level.
-   <CollapsibleApiParam name="Allowed values">
-      <li><strong>stop_bot</strong>;</li>
-       <li><strong>stop_bot_and_sell</strong>;</li>
-       <li><strong>stop_bot_and_close_position</strong>;</li>
-     </CollapsibleApiParam>
+   <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **stop_bot**;
+      * **stop_bot_and_sell**;
+      * **stop_bot_and_close_position**;
+     </CollapsibleNestedParams>
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="lower_stop_loss_price" type="number" id="lower_stop_loss_price">
-   The price level that triggers the lower stop-loss action
+   The price level that triggers the lower stop-loss action.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="leverage_type" type="string" id="leverage_type">
-Type of leverage applied for this Grid Bot
-    <CollapsibleApiParam name="Allowed values">
-      <li><strong>cross</strong> - uses all available funds in your account as collateral for your trades;</li>
-       <li><strong>isolated</strong> - the margin is limited to a specific position;</li>
-   </CollapsibleApiParam>
+Type of leverage applied for this Grid Bot.
+    <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **cross** - uses all available funds in your account as collateral for your trades;
+      * **isolated** - the margin is limited to a specific position;
+      </CollapsibleNestedParams>
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="leverage_custom_value" type="number" id="leverage_custom_value">
-   Custom leverage value set for the Grid Bot
+   Custom leverage value set for the Grid Bot.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="max_active_sell_lines" type="integer" id="max_active_sell_lines">
-   Maximum number of active sell orders that can be placed simultaneously
+   Maximum number of active sell orders that can be placed simultaneously.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="trailing_up_enabled" type="boolean" id="trailing_up_enabled">
-   Indicates if the trailing-up feature is enabled (<code>true</code> or not (<code>false</code>)
+   Indicates if the trailing-up feature is enabled (`true`) or not (`false`).
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="trailing_down_enabled" type="boolean" id="trailing_down_enabled">
-   Indicates if the trailing-down feature is enabled (<code>true</code> or not (<code>false</code>)
+   Indicates if the trailing-down feature is enabled (`true`) or not (`false`).
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="expansion_down_enabled" type="boolean" id="expansion_down_enabled">
-   Indicates if the grid expansion downwards is enabled (<code>true</code> or not (<code>false</code>)
+   Indicates if the grid expansion downwards is enabled (`true`) or not (`false`).
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="expansion_down_stop_price" type="number" id="expansion_down_stop_price" required>
-   <p>The price at which the downward grid expansion should stop</p>
-   <p>This parameter is required when <code>expansion_down_enabled</code> is set to <code>true</code> </p>
+   The price at which the downward grid expansion should stop.
+   This parameter is required when `expansion_down_enabled` is set to `true`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="expansion_up_enabled" type="boolean" id="expansion_up_stop_price">
-   Indicates if the grid expansion upwards is enabled (<code>true</code> or not (<code>false</code>)
+   Indicates if the grid expansion upwards is enabled (`true`) or not (`false`).
 </CollapsibleApiParam>  
 
 <CollapsibleApiParam name="expansion_up_stop_price" type="boolean" id="expansion_up_stop_price" required>
-   <p>The price at which the upward grid expansion should stop.</p>
-   <p>This parameter is required when <code>expansion_up_enabled</code> is set to <code>true</code>. </p>
+   The price at which the upward grid expansion should stop.
+   This parameter is required when `expansion_up_enabled` is set to `true`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="ignore_warnings" type="boolean" id="ignore_warnings">
-   Ignores warnings and forces the creation of the Grid Bot (<code>true</code>) or not (<code>false</code>)
+   Ignores warnings and forces the creation of the Grid Bot (`true`) or not (`false`).
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="note" type="integer" id="note">
-   <p>Optional user-defined note for the Grid Bot</p>
-   <p> <code>[1 ... 300]</code> characters </p>
+   Optional user-defined note for the Grid Bot.
+   `[1 ... 300]` characters.
 </CollapsibleApiParam>
 
+</CollapseAll>
 
-<h2> Parameters response </h2>
+</StickyLayout.Main>
 
-<p> If successful, the response includes a copy of the updated [Grid Bot](./README.md) entity. </p>
 
-<h2> Example Request </h2>
-<div style={{ margin: '10px', padding: '10px' }}>
+<StickyLayout.Sticky>
 
-```json title="PATCH /ver1/grid_bots/2291725/manual"
+## Example Request
+
+```json
+PATCH /ver1/grid_bots/2291725/manual
 
 {
     "name": "CHANGED USDT_BTCUSDT EXAMPLE",
@@ -182,12 +183,24 @@ Type of leverage applied for this Grid Bot
 }
 
 ```
-</div>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
 
-<h2> Example response and errors</h2>
-<div style={{ margin: '10px', padding: '10px' }}>
-<Tabs>
-  <TabItem value="200" label="200 OK" attributes={{className: "green"}}>
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Parameters response 
+
+If successful, the response includes a copy of the updated [Grid Bot](./README.md) entity.
+
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+
+## Response
+
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="200" label="200 OK" default>
 
 ```json
 {"id"=>2291725,
@@ -278,6 +291,7 @@ Type of leverage applied for this Grid Bot
    {"id"=>253750911, "price"=>"64256.4", "side"=>"buy", "order_placed"=>false},
    {"id"=>253750912, "price"=>"64615.4", "side"=>"buy", "order_placed"=>false}]}
 ```
-  </TabItem>
-  </Tabs>
-</div>
+  </ResponseTabs.TabItem>
+  </ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
