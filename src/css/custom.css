@@ -19,6 +19,7 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-col-width: 0px !important;
   --ifm-table-cell-padding: 0.5rem;
+  --ifm-list-left-padding: 1rem;
 
   @media (min-width: 997px) {
     --ifm-global-spacing: 1.5rem;

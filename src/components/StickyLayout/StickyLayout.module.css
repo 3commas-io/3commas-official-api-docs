@@ -10,8 +10,10 @@
 
   @media (min-width: 997px) {
     position: sticky;
-    top: calc(var(--ifm-navbar-height) + 1rem);
-    max-height: calc(100vh - (var(--ifm-navbar-height) + 2rem));
+    /* top: calc(var(--ifm-navbar-height) + 1rem); */
+    /* max-height: calc(100vh - (var(--ifm-navbar-height) + 2rem)); */
+    top: 1rem;
+    max-height: calc(100vh - 2rem);
   }
 }
 
