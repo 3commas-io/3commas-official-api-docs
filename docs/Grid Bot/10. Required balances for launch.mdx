@@ -1,40 +1,51 @@
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout'
+import * as ResponseTabs from '@site/src/components/ResponseTabs'
 
-<div className="main-container-endpoint">
-    <div className="container-endpoint">
-            <div className="container-method-get">
-                <span className="endpoint-method">GET</span>
-            </div>
-              <div className="container-url">
-                <span className="endpoint-url">/ver1/grid_bots/:id/required_balances</span>
-           </div>
-    </div>
-    <div className="container-permission">
-        <span className="permission-description"><strong>Permission: </strong>BOTS_READ</span>
-        <span className="permission-description"><strong>Security: </strong>SIGNED</span>
-    </div>
-</div>
+<Endpoint
+  url="/ver1/grid_bots/:id/required_balances"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="BOTS_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
 
-<p className="p-method-discription">
-  Returns the amount of funds required to launch the Grid Bot and details about the current balance state.
-</p>
+Returns the amount of funds required to launch the Grid Bot and details about the current balance state.
 
-<div class="alert alert--danger" role="alert" style={{ margin: '30px 20px 20px 20px', padding: '15px' }}>
+<div class="alert alert--danger" role="alert" style={{ margin: '30px 20px 20px 0px', padding: '15px' }}>
 This endpoint works only for the spot exchange.
 </div>
 
+<StickyLayout.Root>
+<StickyLayout.Main>
 
-
-<h2> Path Parameter </h2>
+## Path Parameter
 <ApiParam name='id' type='integer' id="id" required>
    Unique 3Commas ID for this Grid Bot entity
 </ApiParam>
 
-<h2> Response Parameters </h2>
+</StickyLayout.Main>
+<StickyLayout.Sticky>
+
+## Example Request
+
+```
+GET /ver1/grid_bots/12345678/required_balances
+```
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Response Parameters
 
 <CollapsibleApiParam name="missing_balance" type="object" id="missing_balance">
    TBD
@@ -91,10 +102,10 @@ This endpoint works only for the spot exchange.
     </CollapsibleNestedParams>
 </CollapsibleApiParam>
 <CollapsibleApiParam name="need_balancing" type="boolean" id="need_balancing">
-   Indicates whether additional funds are required to balance the Grid Bot (<code>true</code>) or not (<code>false</code>)
+   Indicates whether additional funds are required to balance the Grid Bot (`true`) or not (`false`)
 </CollapsibleApiParam>
 <CollapsibleApiParam name="balancing_available" type="boolean" id="balancing_available">
-   Indicates whether the bot can be balanced with the current available funds (<code>true</code>) or not (<code>false</code>)
+   Indicates whether the bot can be balanced with the current available funds (`true`) or not (`false`)
 </CollapsibleApiParam>
 <CollapsibleApiParam name="necessary_quantities" type="object" id="necessary_quantities">
    Details of the exact amount and currency required to balance the Grid Bot
@@ -108,17 +119,13 @@ This endpoint works only for the spot exchange.
     </CollapsibleNestedParams>
 </CollapsibleApiParam>
 
-<h2> Example Request </h2>
-<div style={{ margin: '10px', padding: '10px' }}>
-```
-GET /ver1/grid_bots/12345678/required_balances
-```
-</div>
+</StickyLayout.Main>
 
-<h2> Example response and errors</h2>
-<div style={{ margin: '10px', padding: '10px' }}>
-<Tabs>
-  <TabItem value="200" label="200 OK" attributes={{className: "green"}}>
+<StickyLayout.Sticky>
+
+## Example Responses
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="200" label="200 OK" default>
 
 ```json
 {
@@ -150,8 +157,8 @@ GET /ver1/grid_bots/12345678/required_balances
    }
 }
 ```
-</TabItem>
-<TabItem value="404" label="404 Not Found" attributes={{className: "red"}}>
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="404" label="404 Not Found" >
 
 ```json
 {
@@ -159,8 +166,8 @@ GET /ver1/grid_bots/12345678/required_balances
     "error_description": "Not Found"
 }
 ```
-</TabItem>
-<TabItem value="500" label="500 Internal Server Error" attributes={{className: "red"}}>
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="500" label="500 Internal Server Error">
 
 ```json
 {
@@ -168,6 +175,7 @@ GET /ver1/grid_bots/12345678/required_balances
     "error_description": "Grid lines empty or not marked"
 }
 ```
-</TabItem>
-</Tabs>
-</div>
+  </ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
