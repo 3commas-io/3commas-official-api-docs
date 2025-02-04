@@ -1,0 +1,133 @@
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+
+<Endpoint
+  url="/ver1/accounts/types_to_connect"
+  method="PATCH"
+  permissions={
+    <>
+      <Permission title="Permission" description="NONE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Returns the available account types for connection by user for specific exchange and pair of keys.
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Query Parameters
+
+<ApiParam name='type' type='string' id="type" required>
+    Name of the exchange in the 3Commas system.
+
+    Use endpoint [Supported markets list](/docs/Market%20data/Supported%20markets%20list.md) and parameter <code>market_code</code>to get value for parameter.
+</ApiParam>
+
+<ApiParam name='name' type='string' id="name" required>
+    Name for exchange account.
+</ApiParam>
+
+<ApiParam name='api_key' type='string' id="api_key" required>
+    API-key for this exchange account.
+</ApiParam>
+
+<ApiParam name='secret' type='string' id="secret" required>
+    Secret-key for this exchange account.
+</ApiParam>
+</StickyLayout.Main>
+<StickyLayout.Sticky>
+
+## Example Request
+
+```json
+GET
+/ver1/accounts/types_to_connect?type=binance&name=binance123&api_key=6q4zuON***XKi8kOMepGT***xcxkBlIACvhY***8Qr97MsAT9***p4qe9Uezqrrd&secret=7CfL1slT***8xzCsgzA***4yfNGvOav***QO
+```
+
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+<h2> Parameters Response </h2>
+
+<ApiParam name='type' type='string' id="type">
+   The exchange code available to connect.
+</ApiParam>
+
+<ApiParam name='connected' type='boolean' id="connected">
+   Indicates whether the exchange is currently connected (<code>true</code>) or not (<code>false</code>)
+</ApiParam>
+
+<ApiParam name='available' type='boolean' id="available">
+   Secret-key for this exchange account.
+</ApiParam>
+
+<ApiParam name='unified' type='boolean' id="unified">
+  Shows the exchange supports an unified account. 
+  Using for Bybit exchange<code>true</code> is if it supports.
+</ApiParam>
+</StickyLayout.Main>
+   
+
+<StickyLayout.Sticky>
+
+
+## Responses
+
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="200" label="200 OK" default>
+
+```json
+ {
+        "type": "binance",
+        "connected": false,
+        "available": true,
+        "unified": false
+    },
+    {
+        "type": "binance_margin",
+        "connected": false,
+        "available": true,
+        "unified": false
+    },
+    {
+        "type": "binance_futures",
+        "connected": true,
+        "available": true,
+        "unified": false
+    },
+    {
+        "type": "binance_futures_coin",
+        "connected": true,
+        "available": true,
+        "unified": false
+    }
+]
+```
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="40O" label="400 Bad Request">
+
+  ```json
+{
+    "error": "record_invalid",
+    "error_description": "Invalid parameters",
+    "error_attributes": {
+        "type": [
+            "does not have a valid value"
+        ]
+    }
+}
+```
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
