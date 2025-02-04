@@ -1,64 +1,70 @@
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
-<div className="main-container-endpoint">
-    <div className="container-endpoint">
-            <div className="container-method-get">
-                <span className="endpoint-method">GET</span>
-            </div>
-              <div className="container-url">
-                <span className="endpoint-url">/ver1/grid_bots/:id/events</span>
-           </div>
-    </div>
-    <div className="container-permission">
-        <span className="permission-description"><strong>Permission: </strong>BOTS_READ</span>
-        <span className="permission-description"><strong>Security: </strong>SIGNED</span>
-    </div>
-</div>
+<Endpoint
+  url="/ver1/grid_bots/:id/events"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="BOTS_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
 
-<p className="p-method-discription">
-  Getting a list of events by Grid Bot
-</p>
+Getting a list of events by Grid Bot.
 
-<h2> Path Parameter </h2>
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Path Parameter
 <ApiParam name='id' type='integer' id="id" required>
    Unique 3Commas ID for this Grid Bot entity
 </ApiParam>
 
 <h2> Query Parameters </h2>
 <ApiParam name='page' type='integer' id="page" required>
-   <p> Page number for pagination </p>
-   <p> Default: <code>1</code> </p>
+    Page number for pagination
+    Default: `1`
 </ApiParam>
 <ApiParam name='per_page' type='integer' id="per_page" required>
-   <p> Quantity of records on one page </p>
-   <p> Minimum: <code>1</code>, Maximum: <code>100</code>; Default: <code>100</code> </p>
+    Quantity of records on one page
+    Minimum: `1`, Maximum: `100`; Default: `100`
 </ApiParam>
+
+</StickyLayout.Main>
+<StickyLayout.Sticky>
   
+## Example Request
 
-<h2> Response Parameters </h2>
-<CollapsibleApiParam name="message" type="string" id="message">   
-    The description of the event
-</CollapsibleApiParam>
-<CollapsibleApiParam name="created_at" type="string" id="created_at">   
-    ISO 8601 datetime string indicating when the event was recorded
-</CollapsibleApiParam>
-
-<h2> Example Request </h2>
-
-<div style={{ margin: '10px', padding: '10px' }}>
 ```json
 GET /ver1/grid_bots/2338357/events?page=1&per_page=10
 ```
-</div>
 
-<h2> Example response and errors</h2>
-<div style={{ margin: '10px', padding: '10px' }}>
-<Tabs>
-  <TabItem value="201" label="201 Created" attributes={{className: "green"}}>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Response Parameters
+<ApiParam name='message' type='string' id="message">   
+    The description of the event
+</ApiParam>
+<ApiParam name='created_at' type='string' id="created_at">   
+    ISO 8601 datetime string indicating when the event was recorded
+</ApiParam>
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+## Example Responses
+
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="201" label="201 Created" default>
 
 ```json
 [
@@ -89,9 +95,9 @@ GET /ver1/grid_bots/2338357/events?page=1&per_page=10
     }
 ]
 ```
-</TabItem>
+</ResponseTabs.TabItem>
 
-<TabItem value="400" label="400 Bad Request" attributes={{className: "red"}}>
+<ResponseTabs.TabItem value="400" label="400 Bad Request" default>
 
 ```json
 {
@@ -109,6 +115,8 @@ GET /ver1/grid_bots/2338357/events?page=1&per_page=10
     }
 }
 ```
-</TabItem>
-</Tabs>
-</div>
+  </ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
