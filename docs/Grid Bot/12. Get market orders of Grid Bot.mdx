@@ -1,34 +1,33 @@
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout'
+import * as ResponseTabs from '@site/src/components/ResponseTabs'
 
-<div className="main-container-endpoint">
-    <div className="container-endpoint">
-            <div className="container-method-get">
-                <span className="endpoint-method">GET</span>
-            </div>
-              <div className="container-url">
-                <span className="endpoint-url">/ver1/grid_bots/:id/market_orders</span>
-           </div>
-    </div>
-    <div className="container-permission">
-        <span className="permission-description"><strong>Permission: </strong>BOTS_READ</span>
-        <span className="permission-description"><strong>Security: </strong>SIGNED</span>
-    </div>
-</div>
+<Endpoint
+  url="/ver1/grid_bots/:id/market_orders"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="BOTS_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
 
-<p className="p-method-discription">
-  Returns a list of market orders for a Grid Bot using its ID
-</p>
+Returns a list of market orders for a Grid Bot using its ID
 
-<h2> Path Parameter </h2>
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Path Parameter
 <ApiParam name='id' type='integer' id="id" required>
    Unique 3Commas ID for this Grid Bot entity
 </ApiParam>
 
-<h2> Query Parameters </h2>
+## Query Parameters
 
 <ApiParam name='limit' type='integer' id="limit">
    <p>Quantity of the records you want to get in response</p>
@@ -39,8 +38,21 @@ import TabItem from '@theme/TabItem';
    <p> Used to specify the starting point for a set of records to return in a paginated list </p>
    <p> Default: <code>0</code> </p>
 </ApiParam>
+</StickyLayout.Main>
+<StickyLayout.Sticky>
 
-<h2> Response Parameters </h2>
+## Example Request 
+
+```json
+POST /ver1/grid_bots/2338357/market_orders
+```
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Response Parameters
 
 <CollapsibleApiParam name="grid_lines_orders" type="object" id="grid_lines_orders">
 An array of grid line orders associated with this trading strategy
@@ -113,18 +125,13 @@ An array of grid line orders associated with this trading strategy
     </CollapsibleNestedParams>
 </CollapsibleApiParam>
 
-<h2> Example Request </h2>
-<div style={{ margin: '10px', padding: '10px' }}>
-```json
-POST /ver1/grid_bots/2338357/market_orders
-```
-</div>
+</StickyLayout.Main>
 
-<h2> Example response and errors</h2>
+<StickyLayout.Sticky>
+## Example response and errors
 
-<div style={{ margin: '10px', padding: '10px' }}>
-<Tabs>
-  <TabItem value="200" label="200 OK" attributes={{className: "green"}}>
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="200" label="200 OK" default>
 
 ```json
 {
@@ -171,6 +178,9 @@ POST /ver1/grid_bots/2338357/market_orders
     ]
 }
 ```
-</TabItem>
-</Tabs>
-</div>
+  </ResponseTabs.TabItem>
+</ResponseTabs.Root>
+
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
