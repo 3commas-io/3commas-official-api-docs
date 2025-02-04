@@ -1,51 +1,56 @@
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
-<div className="main-container-endpoint">
-    <div className="container-endpoint">
-            <div className="container-method-post">
-                <span className="endpoint-method">POST</span>
-            </div>
-              <div className="container-url">
-                <span className="endpoint-url">/ver1/accounts/:account_id/load_balances</span>
-           </div>
-    </div>
-    <div className="container-permission">
-        <span className="permission-description"><strong>Permission: </strong>ACCOUNTS_WRITE</span>
-        <span className="permission-description"><strong>Security: </strong>SIGNED</span>
-    </div>
-</div>
+<Endpoint
+  url="/ver1/accounts/:account_id/load_balances"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="ACCOUNTS_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
 
-<p className="p-method-discription">
-  Updates a balance for exchange account using its ID
-</p>
+Updates a balance for exchange account using its ID.
 
-<h2> Path Parameter </h2>
+<StickyLayout.Root>
+<StickyLayout.Main>
+## Path Parameter
 <ApiParam name='account_id' type='integer' id="account_id" required>
-    Unique 3Commas ID of this exchange account entity
+    Unique 3Commas ID of this exchange account entity.
 </ApiParam>
+</StickyLayout.Main>
 
-<h2> Response Parameters </h2>
+<StickyLayout.Sticky>
 
-<p>If successful, the response includes a copy of the updated [Account](./README.md) entity.</p>
+## Example request
 
-
-<h2> Example request </h2>
-<div style={{ margin: '10px', padding: '10px' }}>
 ```
  POST /ver1/accounts/12345678/load_balances
 ```
-</div>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
 
+<StickyLayout.Root>
+<StickyLayout.Main>
 
-<h2> Example Response and errors </h2>
+## Response Parameters
 
-<div style={{ margin: '10px', padding: '10px' }}>
-<Tabs>
-  <TabItem value="201" label="201 Created" attributes={{className: "green"}}>
+If successful, the response includes a copy of the updated [Account](0.%20Account%20entity.mdx) entity.
+
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+## Example Responses
+
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="201" label="201 Created" default>
 
     ```json
     {
@@ -132,9 +137,8 @@ import TabItem from '@theme/TabItem';
     "api_keys_state": "ok"
     }
 ```
-  </TabItem>
-
-  <TabItem value="422" label="422 Unprocessable Entity" attributes={{className: "red"}}>
+  </ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="422" label="422 Unprocessable Entity">
 
     ```json
 {
@@ -142,6 +146,7 @@ import TabItem from '@theme/TabItem';
     "error": "invalid_api_key"
 }
 ```
-  </TabItem>
-    </Tabs>
-</div>
+  </ResponseTabs.TabItem>
+   </ResponseTabs.Root>
+    </StickyLayout.Sticky>
+</StickyLayout.Root>
