@@ -1,61 +1,66 @@
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
-<div className="main-container-endpoint">
-    <div className="container-endpoint">
-            <div className="container-method-post">
-                <span className="endpoint-method">POST</span>
-            </div>
-              <div className="container-url">
-                <span className="endpoint-url">/ver1/accounts/:account_id/sell_all_to_usd</span>
-           </div>
-    </div>
-    <div className="container-permission">
-        <span className="permission-description"><strong>Permission: </strong>ACCOUNTS_WRITE</span>
-        <span className="permission-description"><strong>Security: </strong>SIGNED</span>
-    </div>
-</div>
+<Endpoint
+  url="/ver1/accounts/:account_id/sell_all_to_usd"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="ACCOUNTS_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
 
-<p className="p-method-discription">
   Sells all assets on the exchange account in USD, creating orders on the exchange
-</p>
-<p className="p-method-discription">
-    This endpoint works for the following exchanges:
-    <em> Binance Spot</em>, <em> Binance Margin</em>, <em> Binance US</em>, <em> Coinbase Advanced Spot</em>, <em> Gemini Spot</em>, <em> Kraken Spot</em>, <em> Bybit Spot</em>, <em> GateIo</em>, <em> OKX Spot</em>, <em> Huobi Spot</em>, <em> Bitfinex Spot</em>, <em> Kucoin Spot</em>, <em> Bitstamp Spot</em>
-</p>
 
-<div class="alert alert--warning" role="alert" style={{ margin: '20px', padding: '10px' }}>
-When executing this request, all trading entities (bots, SmartTrade, trades, deals, and orders, except for Signal Bot) will be stopped and closed both on 3Commas and the exchange.
-</div>
+:::info[ Additional Information]
+  This endpoint works for the following exchanges:
+    *Binance Spot*, *Binance Margin*, *Binance US*, *Coinbase Advanced Spot*, *Gemini Spot*, *Kraken Spot*, *Bybit Spot*, *GateIo*, *OKX Spot*, *Huobi Spot*, *Bitfinex Spot*, *Kucoin Spot*, *Bitstamp Spot*
+:::
 
-<h2> Path Parameter </h2>
+:::danger
+When executing this request, all trading entities (bots, SmartTrade, trades, deals, and orders—except for Signal Bot) will be stopped and closed both in 3Commas and on the exchange.
+:::
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Path Parameter
 
 <ApiParam name='account_id' type='integer' id="account_id" required>
     Unique 3Commas ID of this exchange account entity
 </ApiParam>
 
-<h2> Response Parameters </h2>
+</StickyLayout.Main>
+<StickyLayout.Sticky>
 
-<p>If successful, the response includes a copy of the updated [Account](./README.md) entity.</p>
+## Example request
 
-
-<h2> Example request</h2>
-<div style={{ margin: '10px', padding: '10px' }}>
 ```
 POST /ver1/accounts/12345678/sell_all_to_usd
 ```
-</div>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
 
+<StickyLayout.Root>
+<StickyLayout.Main>
 
+## Response Parameters 
 
-<h2> Example Response and errors </h2>
+<p>If successful, the response includes a copy of the updated [Account](./README.md) entity.</p>
 
-<div style={{ margin: '10px', padding: '10px' }}>
-<Tabs>
-<TabItem value="201" label="201 Created" attributes={{className: "green"}}>
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+## Example Responses
+
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="201" label="201 Created " default>
 
 ```json
 {
@@ -142,9 +147,8 @@ POST /ver1/accounts/12345678/sell_all_to_usd
     "api_keys_state": "ok"
 }
 ```
-</TabItem>
-
-<TabItem value="401" label="401 Unauthorized" attributes={{className: "red"}}>
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="401" label="401 Unauthorized">
 
 ```json
 {
@@ -153,7 +157,8 @@ POST /ver1/accounts/12345678/sell_all_to_usd
 }
 
 ```
-</TabItem>
-</Tabs>
-</div>
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
 
