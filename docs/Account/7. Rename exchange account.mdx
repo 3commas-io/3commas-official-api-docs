@@ -1,31 +1,27 @@
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-# Rename exchange account
-
-<div className="main-container-endpoint">
-    <div className="container-endpoint">
-            <div className="container-method-post">
-                <span className="endpoint-method">POST</span>
-            </div>
-              <div className="container-url">
-                <span className="endpoint-url">/ver1/accounts/:account_id/rename</span>
-           </div>
-    </div>
-    <div className="container-permission">
-        <span className="permission-description"><strong>Permission: </strong>ACCOUNTS_READ</span>
-        <span className="permission-description"><strong>Security: </strong>SIGNED</span>
-    </div>
-</div>
-
-<p className="p-method-discription">
-  Updates a name for the exchange account entity
-</p>
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 
+<Endpoint
+  url="/ver1/accounts/:account_id/rename"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="ACCOUNTS_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Updates a name for the exchange account entity
+
+<StickyLayout.Root>
+<StickyLayout.Main>
 
 <h2> Path Parameter </h2>
 
@@ -38,24 +34,32 @@ import TabItem from '@theme/TabItem';
 <ApiParam name='name' type='integer' id="name" required>
     New name for this exchange account
 </ApiParam>
+</StickyLayout.Main>
 
+<StickyLayout.Sticky>
+## Example request
 
-<h2> Response Parameters </h2>
-
-<p>If successful, the response includes a copy of the updated [Account](./README.md) entity.</p>
-
-<h2> Example request </h2>
-<div style={{ margin: '10px', padding: '10px' }}>
 ```json
 POST  /ver1/accounts/11223344/rename?name=new%20name
 ```
-</div>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
 
-<h2> Example Response and errors </h2>
+<StickyLayout.Root>
+<StickyLayout.Main>
 
-<div style={{ margin: '10px', padding: '10px' }}>
-<Tabs>
-  <TabItem value="201" label="201 Created" attributes={{className: "green"}}>
+## Parameters response
+
+If successful, the response includes a copy of [Account](0.%20Account%20entity.mdx) entity.
+
+</StickyLayout.Main>
+
+
+<StickyLayout.Sticky>
+## Example Responses
+
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="201" label="201 Created" default>
 
 ```json
 {
@@ -144,8 +148,8 @@ POST  /ver1/accounts/11223344/rename?name=new%20name
 
 ```
 
-  </TabItem>
-    <TabItem value="401" label="401 Unauthorized" attributes={{className: "red"}}>
+  </ResponseTabs.TabItem>
+  <ResponseTabs.TabItem value="401" label="401 Unauthorized">
   
 ```json
 {
@@ -153,6 +157,7 @@ POST  /ver1/accounts/11223344/rename?name=new%20name
     "error_description": "Provided signature is invalid"
 }
 ```
-  </TabItem>
-    </Tabs>
-</div>
+  </ResponseTabs.TabItem>
+    </ResponseTabs.Root>
+    </StickyLayout.Sticky>
+</StickyLayout.Root>
