@@ -1,63 +1,69 @@
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
+<Endpoint
+  url="/ver1/accounts"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="ACCOUNTS_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
 
+Returns the list of exchange accounts and wallets connecting to a user account.
 
-<div className="main-container-endpoint">
-    <div className="container-endpoint">
-            <div className="container-method-get">
-                <span className="endpoint-method">GET</span>
-            </div>
-              <div className="container-url">
-                <span className="endpoint-url">/ver1/accounts</span>
-           </div>
-    </div>
-    <div className="container-permission">
-        <span className="permission-description"><strong>Permission: </strong>ACCOUNTS_READ</span>
-        <span className="permission-description"><strong>Security: </strong>SIGNED</span>
-    </div>
-</div>
+<StickyLayout.Root>
+<StickyLayout.Main>
 
-<p className="p-method-discription">
-  Returns the list of exchange accounts and wallets connecting to a user account
-</p>
-
-<h2> Query Parameters </h2>
+## Query Parameters
 
 <ApiParam name='api_key' type='string' id="api_key">
-    Filter by API-key
+  Filter by API-key.
 </ApiParam>
 
 <ApiParam name='page' type='integer' id="page">
-   <p>Page number for pagination.</p>
-   <p> Default: <code> 1 </code> </p>
+  Page number for pagination. Default: ` 1 `.
 </ApiParam>
 
 <ApiParam name='per_page' type='integer' id="page">
-   <p>Quantity of records on one page.</p>
-   <p> Minimum: <code>1</code>; Maximum: <code>100</code>; Default:  <code>100</code> </p>
+   Quantity of records on one page.
+
+   Minimum: `1`; Maximum: `100`; Default:  `100`.
 </ApiParam>
 
-<h2> Parameter response </h2> 
+</StickyLayout.Main>
 
-<p>If successful, the response includes a copy of [Account](./README.md) entity.</p>
+<StickyLayout.Sticky>
 
-<h2> Example request </h2>
+## Example request
 
-<div style={{ margin: '10px', padding: '10px' }}>
 ```json
 GET /ver1/accounts
 ```
-</div>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
 
-<h3> Example Response and errors </h3>
+<StickyLayout.Root>
+<StickyLayout.Main>
 
-<div style={{ margin: '10px', padding: '10px' }}>
-<Tabs>
-  <TabItem value="200" label="200 OK" attributes={{className: "green"}}>
+## Parameters response
+
+If successful, the response includes a copy of [Account](0.%20Account%20entity.mdx) entity.
+
+</StickyLayout.Main>
+
+
+<StickyLayout.Sticky>
+## Example Response and errors
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="200" label="200 OK" default>
 
 ```json
 [
@@ -230,6 +236,7 @@ GET /ver1/accounts
    ...
 ]
 ```
-</TabItem>
-</Tabs>
-</div>
+  </ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
