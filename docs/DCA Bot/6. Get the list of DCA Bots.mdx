@@ -1,103 +1,100 @@
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import * as StickyLayout from '@site/src/components/StickyLayout';
 
-<div className="main-container-endpoint">
-    <div className="container-endpoint">
-            <div className="container-method-get">
-                <span className="endpoint-method">GET</span>
-            </div>
-              <div className="container-url">
-                <span className="endpoint-url">/ver1/bots</span>
-           </div>
-    </div>
-    <div className="container-permission">
-        <span className="permission-description"><strong>Permission: </strong>BOTS_READ</span>
-        <span className="permission-description"><strong>Security: </strong>SIGNED</span>
-    </div>
-</div>
+<Endpoint
+  url="/ver1/bots"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="BOTS_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
 
-<p class="p-method-discription"> Returns a list of DCA Bots by user. Use the query parameters to filter the results </p>
+Returns a list of DCA Bots by user. Use the query parameters to filter the results.
 
+<StickyLayout.Root>
+   <StickyLayout.Main>
 
-<h2> Query Parameters </h2>
+## Query Parameters 
 
 <ApiParam name='account_id' type='integer' id="account_id">
-  Filters entities linked to the specified 3Commas exchange account
+  Filters entities linked to the specified 3Commas exchange account.
+
+  Use endpoint [User connected exchanges and wallets list](Account/User%20connected%20exchanges%20and%20wallets%20list.md) to get value for parameter.
 </ApiParam>
 
 <ApiParam name="strategy" type="string" id="strategy">
-  Filters bots by trading strategy type: <code>long</code> or <code>short</code>
+  Filters bots by trading strategy type: `long` or `short`
 </ApiParam>
 
 <ApiParam name="order_direction" type="string" id="order_direction">
-  <p>Sets the direction of order (<code>ASC</code> or <code>DESC</code>)</p>
-  <p><strong>Default:</strong> <code>DESC</code></p>
+  Sets the direction of order (`ASC` or `DESC`).
+  **Default:** `DESC`
 </ApiParam>
 
-<h3> More attributes </h3>
-
+<CollapseAll>
+<CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
 <CollapsibleApiParam name="limit" type="integer" id="limit">
-  <p> Limits the number of records returned </p>
-  <p> Maximum: <code> 100 </code>; Default: <code> 50 </code> </p>
+  Limits the number of records returned. Maximum: ` 100 `.
+   
+   Default: `50`.
 </CollapsibleApiParam>
-
 <CollapsibleApiParam name="offset" type="integer" id="offset">
-  <p>Skips the first N records in the results</p>
+  Skips the first N records in the results.
 </CollapsibleApiParam>
-
 <CollapsibleApiParam name="from" type="integer" id="from">
-  <p>Returns entities created after a specific time</p>
+  Returns entities created after a specific time.
 </CollapsibleApiParam>
-
-
 <CollapsibleApiParam name="scope" type="string" id="scope">
-  Filters bots by their status. <strong>Default: </strong> <code>null</code>
+  Filters bots by their status. **Default: ** `null`
     <CollapsibleApiParam name="Allowed values">
-      <li><strong>enable</strong> - Returns bots where the state is active;</li>
-       <li><strong>disabled</strong> - Returns bots where the state is stopped;</li>
-       <li><strong>null</strong> - Returns all bots;</li>
+      * ***enable** - Returns bots where the state is active;
+      * **disabled** - Returns bots where the state is stopped;
+      * **null** - Returns all bots;
      </CollapsibleApiParam>
 </CollapsibleApiParam>
-
 <CollapsibleApiParam name="sort_by" type="string" id="sort_by">
-  <p>Specifies the field used to order the results: <code>created_at</code>, <code>updated_at</code>, <code>profit</code>.</p>
-  <p>Default: <code>created_at</code> </p>
+  Specifies the field used to order the results: `created_at`, `updated_at`, `profit`.
+
+  Default: `created_at`.
 </CollapsibleApiParam>
-
-
 
 <CollapsibleApiParam name="quote" type="string" id="quote">
-  <p>Filters by quote currency</p>
+  Filters by quote currency.
 </CollapsibleApiParam>
+</CollapseAll>
+   </StickyLayout.Main>
 
+   <StickyLayout.Sticky>
 
-:::tip
-Use endpoint [User connected exchanges and wallets list](Account/User%20connected%20exchanges%20and%20wallets%20list.md) to get value for parameter <code>account_id</code> in 3Commas.
-:::
-
-<h2> Parameters Response </h2>
-
-<p>  
-  If successful, the response includes copies of the [DCA Bot](./README.md) entity.
-</p>
-
-<h2> Example Request</h2>
-
-<div style={{ margin: '10px', padding: '10px' }}>
+## Example Request
 
 ```json
 GET /ver1/bots/12345678/show?include_events=true
 ```
-</div>
+   </StickyLayout.Sticky>
+   </StickyLayout.Root>
 
-<h2> Example Response and Errors </h2>
+<StickyLayout.Root>
+<StickyLayout.Main>
 
-<div style={{ margin: '10px', padding: '10px' }}>
-  <Tabs>
-    <TabItem value="200" label="200 OK" attributes={{className: "green"}}>
+## Parameters Response 
+ 
+  If successful, the response includes copies of the [DCA Bot](1.%20DCA%20Bot%20entity.mdx) entity.
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+## Example Response and Errors 
+
+<ResponseTabs.Root>
+	 <ResponseTabs.TabItem value="200" label="200 OK" default>
   ```json
 [
     {
@@ -183,6 +180,7 @@ GET /ver1/bots/12345678/show?include_events=true
     ...
 ]
 ```
-  </TabItem>
-</Tabs>
-</div>
+	</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
