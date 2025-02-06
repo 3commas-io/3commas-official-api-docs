@@ -1,52 +1,55 @@
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import * as StickyLayout from '@site/src/components/StickyLayout';
 
-<div className="main-container-endpoint">
-    <div className="container-endpoint">
-            <div className="container-method-post">
-                <span className="endpoint-method">POST</span>
-            </div>
-              <div className="container-url">
-                <span className="endpoint-url">/ver1/bots/:bot_id/cancel_all_deals</span>
-           </div>
-    </div>
-    <div className="container-permission">
-        <span className="permission-description"><strong>Permission: </strong>BOTS_WRITE</span>
-        <span className="permission-description"><strong>Security: </strong>SIGNED</span>
-    </div>
-</div>
-<p className="p-method-discription">
-   Cancels an existing DCA Bot and all active deals using the bot's ID
-</p>
+<Endpoint
+  url="/ver1/bots/:bot_id/cancel_all_deals"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="BOTS_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+    Cancels an existing DCA Bot and all active deals using the bot's ID.
 
-<h2> Path Parameter </h2>
+<StickyLayout.Root>
+   <StickyLayout.Main>
+
+## Path Parameter
 
 <ApiParam name='bot_id' type='integer' id="bot_id" required>
-  Unique 3Commas ID for this DCA Bot entity
+  Unique 3Commas ID for this DCA Bot entity.
 </ApiParam>
+</StickyLayout.Main>
 
-<h2> Parameters response </h2>
+<StickyLayout.Sticky>
+## Example Request
 
-<p> 
-    If successful, the response includes an updated copy of the [DCA Bot](./README.md) entity.
-</p>
-
-<h2> Example Request </h2>
-
-<div style={{ margin: '10px', padding: '10px' }}>
 ```json
 POST /ver1/bots/15564495/cancel_all_deals
 ```
-</div>
+   </StickyLayout.Sticky>
+</StickyLayout.Root>
 
-<h2> Example Response and errors </h2>
+<StickyLayout.Root>
+<StickyLayout.Main>
 
-<div style={{ margin: '10px', padding: '10px' }}>
-<Tabs>
-    <TabItem value="200" label="200 OK" attributes={{className: "green"}}>
+## Parameters response
+    If successful, the response includes an updated copy of the [DCA Bot](1.%20DCA%20Bot%20entity.mdx) entity.
+
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+
+## Example Response and errors
+
+<ResponseTabs.Root>
+      <ResponseTabs.TabItem value="200" label="200 OK" default>
 
 ```json
 {
@@ -210,7 +213,8 @@ POST /ver1/bots/15564495/cancel_all_deals
     ]
 }
 ```
-</TabItem>
-</Tabs>
-</div>
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+   </StickyLayout.Sticky>
+</StickyLayout.Root>
 
