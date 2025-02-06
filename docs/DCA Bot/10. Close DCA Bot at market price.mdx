@@ -1,53 +1,55 @@
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import * as StickyLayout from '@site/src/components/StickyLayout';
 
-<div className="main-container-endpoint">
-    <div className="container-endpoint">
-            <div className="container-method-post">
-                <span className="endpoint-method">POST</span>
-            </div>
-              <div className="container-url">
-                <span className="endpoint-url">/ver1/bots/:bot_id/show</span>
-           </div>
-    </div>
-    <div className="container-permission">
-        <span className="permission-description"><strong>Permission: </strong>BOTS_WRITE</span>
-        <span className="permission-description"><strong>Security: </strong>SIGNED</span>
-    </div>
-</div>
-<p className="p-method-discription">
-   Closes all deals of the bot at market price and disables the DCA Bot
-</p>
 
-<h2> Path Parameter </h2> 
+<Endpoint
+  url="/ver1/bots/:bot_id/show"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="BOTS_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+    Closes all deals of the bot at market price and disables the DCA Bot.
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Path Parameter
 
 <ApiParam name='bot_id' type='integer' id="bot_id" required>
-  Unique 3Commas ID for this DCA Bot entity
+  Unique 3Commas ID for this DCA Bot entity.
 </ApiParam>
+</StickyLayout.Main>
 
-
-<h2> Parameter response </h2>
-
-<p>If successful, the response includes an updated copy of the [DCA Bot](./README.md) entity.</p>
-
-<h2>  Example request</h2> 
-
-<div style={{ margin: '10px', padding: '10px' }}>
+<StickyLayout.Sticky>
+##  Example request 
 
 ```json
 POST /ver1/bots/12345678/panic_sell_all_deals
 ```
-</div>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
 
+<StickyLayout.Root>
+<StickyLayout.Main>
+## Parameter response
 
-<h2>  Example Response and errors </h2> 
+If successful, the response includes an updated copy of the [DCA Bot](1.%20DCA%20Bot%20entity.mdx) entity.
 
-<div style={{ margin: '10px', padding: '10px' }}>
-    <Tabs>
-        <TabItem value="201" label="201 Created" attributes={{className: "green"}}>
+   </StickyLayout.Main>
+<StickyLayout.Sticky>
+
+##  Example Responses
+
+<ResponseTabs.Root>
+      <ResponseTabs.TabItem value="201" label="201 Created" default>
 
      ```json
 {
@@ -232,8 +234,8 @@ POST /ver1/bots/12345678/panic_sell_all_deals
 }
 
 ```
-</TabItem>
-    <TabItem value="404" label="404 Not Found" attributes={{className: "red"}}>
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="404" label="404 Not Found">
 
         ```json
 {
@@ -241,6 +243,7 @@ POST /ver1/bots/12345678/panic_sell_all_deals
     "error_description": "Not Found"
 }
 ```
-</TabItem>
-</Tabs>
-</div>
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+   </StickyLayout.Sticky>
+</StickyLayout.Root>
