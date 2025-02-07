@@ -1,50 +1,51 @@
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
-<div className="main-container-endpoint">
-    <div className="container-endpoint">
-            <div className="container-method-get">
-                <span className="endpoint-method">GET</span>
-            </div>
-              <div className="container-url">
-                <span className="endpoint-url">/v2/smart_trades/:id</span>
-           </div>
-    </div>
-    <div className="container-permission">
-        <span className="permission-description"><strong>Permission: </strong>SMART_TRADES_READ</span>
-        <span className="permission-description"><strong>Security: </strong>SIGNED</span>
-    </div>
-</div>
+<Endpoint
+  url="/v2/smart_trades/:id"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="SMART_TRADES_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
 
-<p className="p-method-discription">
-  Shows information about a specific SmartTrade using its ID
-</p>
+Shows information about a specific SmartTrade using its ID.
 
-<h2> Path Parameter </h2>
+<StickyLayout.Root>
+<StickyLayout.Main>
+## Path Parameter
 <ApiParam name='id' type='integer' id="id" required>
    Unique 3Commas ID for this SmartTrade entity
 </ApiParam>
+</StickyLayout.Main>
 
-<h2> Response Parameters </h2>
-<p>
-    If successful, the response includes a copy of the [SmartTrade](/docs/SmartTrade/1.%20SmartTrade%20entity.md) entity.
-</p>
+<StickyLayout.Sticky>
+## Example Request
 
-<h2> Example Request </h2>
-<div style={{ margin: '10px', padding: '10px' }}>
 ```json
 GET /v2/smart_trades/12345678
 ```
-</div>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
 
-<h2> Example Response and errors </h2>
+<StickyLayout.Root>
+<StickyLayout.Main>
 
-<div style={{ margin: '10px', padding: '10px' }}>
-<Tabs>
-<TabItem value="200" label="200 OK" attributes={{className: "green"}}>
+## Response Parameters
+ If successful, the response includes a copy of the [SmartTrade](0.%20SmartTrade%20entity.mdx) entity.
+
+</StickyLayout.Main>
+<StickyLayout.Sticky>
+## Example Responses
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="200" label="200 OK" default>
 
 ```json
 {
@@ -153,15 +154,15 @@ GET /v2/smart_trades/12345678
     "is_position_not_filled": false
 }
 ```
-</TabItem>
-<TabItem value="400" label="400 Not found" attributes={{className: "red"}}>
-
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="400" label="400 Bad Request">
 ```json
 {
     "error": "Not found",
     "error_description": "Smart Trade not found"
 }
 ```
-</TabItem>
-</Tabs>
-</div>
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
