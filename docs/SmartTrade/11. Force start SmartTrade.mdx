@@ -1,51 +1,50 @@
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import * as ResponseTabs from '@site/src/components/ResponseTabs'
 
-<div className="main-container-endpoint">
-    <div className="container-endpoint">
-            <div className="container-method-post">
-                <span className="endpoint-method">POST</span>
-            </div>
-              <div className="container-url">
-                <span className="endpoint-url">/v2/smart_trades/:id/force_start</span>
-           </div>
-    </div>
-    <div className="container-permission">
-        <span className="permission-description"><strong>Permission: </strong>SMART_TRADES_WRITE</span>
-        <span className="permission-description"><strong>Security: </strong>SIGNED</span>
-    </div>
-</div>
+<Endpoint
+  url="/v2/smart_trades/:id/force_start"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="SMART_TRADES_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
 
-<p className="p-method-discription">
-  Opens a position by market price
-</p>
+Opens a position by market price.
 
-<h2> Path Parameter </h2>
-<ApiParam name='id' type='integer' id="id" required>
-   Unique 3Commas ID for this SmartTrade entity.
-</ApiParam>
+<StickyLayout.Root>
+    <StickyLayout.Main>
+        ## Path Parameter
+        <ApiParam name='id' type='integer' id="id" required>
+        Unique 3Commas ID for this SmartTrade entity.
+        </ApiParam>
+    </StickyLayout.Main>
+    <StickyLayout.Sticky>
+        ## Example Request
 
-<h2> Response Parameters </h2>
-<p>
-    If successful, the response includes an updated copy of the [SmartTrade](/docs/SmartTrade/1.%20SmartTrade%20entity.md) entity.
-</p>
+        ```json
+        POST /v2/smart_trades/12345678/force_start
+        ```
+    </StickyLayout.Sticky>
+</StickyLayout.Root>
 
-<h2> Example Request </h2>
-<div style={{ margin: '10px', padding: '10px' }}>
-```json
-POST /v2/smart_trades/12345678/force_start
-```
-</div>
 
-<h2> Example Response and Errors </h2>
-<div style={{ margin: '10px', padding: '10px' }}>
-<Tabs>
-<TabItem value="201" label="201 Created" attributes={{className: "green"}}>
-
-```json
+<StickyLayout.Root>
+    <StickyLayout.Main>
+        ## Response Parameters
+        If successful, the response includes an updated copy of the [SmartTrade](/docs/SmartTrade/1.%20SmartTrade%20entity.md) entity.
+    </StickyLayout.Main>
+    <StickyLayout.Sticky>
+        ## Example Response
+        <ResponseTabs.Root>
+                 <ResponseTabs.TabItem value="201" label="201 Created" default>
+                    ```json
 {
     "id": 31247949,
     "version": 2,
@@ -181,6 +180,15 @@ POST /v2/smart_trades/12345678/force_start
     "is_position_not_filled": true
 }
 ```
-</TabItem>
-</Tabs>
-</div>
+                 </ResponseTabs.TabItem>
+        </ResponseTabs.Root>
+    </StickyLayout.Sticky>
+</StickyLayout.Root>
+
+
+
+
+
+
+
+
