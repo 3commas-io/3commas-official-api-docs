@@ -1,68 +1,61 @@
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
-<div className="main-container-endpoint">
-    <div className="container-endpoint">
-            <div className="container-method-post">
-                <span className="endpoint-method">POST</span>
-            </div>
-              <div className="container-url">
-                <span className="endpoint-url">/v2/smart_trades/:id/reduce_funds</span>
-           </div>
-    </div>
-    <div className="container-permission">
-        <span className="permission-description"><strong>Permission: </strong>SMART_TRADES_WRITE</span>
-        <span className="permission-description"><strong>Security: </strong>SIGNED</span>
-    </div>
-</div>
+<Endpoint
+  url="/v2/smart_trades/:id/reduce_funds"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="SMART_TRADES_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
 
-<p className="p-method-discription">
-  Starts the process of creating reduced funds
-</p>
+Starts the process of creating reduced funds.
 
-<div class="alert alert--info" role="alert" style={{ margin: '30px 20px 20px 20px', padding: '15px' }}>
+:::info
  New trades and orders will be created on the exchange once the process begins.
-</div>
+:::
 
+<StickyLayout.Root>
+<StickyLayout.Main>
 
-<h2> Path Parameters </h2>
+## Path Parameter
 
 <ApiParam name='id' type='integer' id="id" required>
    Unique 3Commas ID for this SmartTrade entity.
 </ApiParam>
 
-<h2> Body Parameters </h2>
+## Body Parameters 
 <ApiParam name='order_type' type='integer' id="order_type" required>
-   Order type for reducing funds in this SmartTrade: <code> market </code>, <code> limit </code>
+   Order type for reducing funds in this SmartTrade:  `market`, `limit`.
 </ApiParam>
-<CollapsibleApiParam name="units" type="object" id="units" required>
-    Defines the amount of units to reduce in this SmartTrade
+
+<ApiParam name="units" type="object" id="units" required>
+    Defines the amount of units to reduce in this SmartTrade.
    <CollapsibleNestedParams>
     <ApiParam name='value' type='number' id='value' required>
-         Specifies the number of units to sell
+         Specifies the number of units to sell.
     </ApiParam>
     </CollapsibleNestedParams>
-</CollapsibleApiParam>
-<CollapsibleApiParam name="price" type="object" id="price" required>
-   Provides pricing details for the limit order. This parameter is required if <code>order_type</code> is set to <code>limit</code>.
+</ApiParam>
+<ApiParam name="price" type="object" id="price" required>
+   Provides pricing details for the limit order. This parameter is required if `order_type` is set to `limit`.
    <CollapsibleNestedParams>
     <ApiParam name='value' type='number' id='value' required>
       Price for limit order
     </ApiParam>
     </CollapsibleNestedParams>
-</CollapsibleApiParam>
+</ApiParam>
+</StickyLayout.Main>
 
-<h2> Parameters Response </h2>
-
-<p>If successful, the response includes an updated copy of the [SmartTrade](/docs/SmartTrade/1.%20SmartTrade%20entity.md) entity.</p>
-
-
-<h2> Example Request </h2>
-
-<div style={{ margin: '10px', padding: '10px' }}>
+<StickyLayout.Sticky>
+## Example Request 
 
 ```json title="POST /v2/smart_trades/12345678/reduce_funds"
 {
@@ -75,14 +68,23 @@ import TabItem from '@theme/TabItem';
    }
 }
 ```
-</div>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
 
-<h2> Example Response and Errors</h2>
-<div style={{ margin: '10px', padding: '10px' }}>
-<Tabs>
-  <TabItem value="201" label="201 Created" attributes={{className: "green"}}>
+<StickyLayout.Root>
+<StickyLayout.Main>
 
-```json
+## Parameters Response 
+If successful, the response includes an updated copy of the [SmartTrade](/docs/SmartTrade/1.%20SmartTrade%20entity.md) entity.
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+
+## Example Responses
+
+<ResponseTabs.Root>
+        <ResponseTabs.TabItem value="201" label="201 Created" default>
+            ```json
 {
     "id": 12345678,
     "version": 2,
@@ -244,29 +246,28 @@ import TabItem from '@theme/TabItem';
     "is_position_not_filled": false
 }
 ```
-</TabItem>
-  <TabItem value="422" label="422 Unprocessable Entity" attributes={{className: "red"}}>
-
-```json
-{
-    "error": "record_invalid",
-    "error_description": "Invalid parameters",
-    "error_attributes": {
-        "entered_amount": [
-            "Too small"
-        ]
-    }
-}
-```
-</TabItem>
-
-<TabItem value="400" label="400 Bad Request" attributes={{className: "red"}}>
-```json
-{
-    "error": "Wrong param(s)",
-    "error_description": "Reduce funds is not allowed in the current status"
-}
-```
- </TabItem>
-  </Tabs>
-</div>
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="400" label="400 Bad Request">
+        ```json
+        {
+            "error": "Wrong param(s)",
+            "error_description": "Reduce funds is not allowed in the current status"
+        }
+        ```
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="422" label="422 Unprocessable Entity">
+        ```json
+        {
+            "error": "record_invalid",
+            "error_description": "Invalid parameters",
+            "error_attributes": {
+                "entered_amount": [
+                    "Too small"
+                ]
+            }
+        }
+        ```
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
