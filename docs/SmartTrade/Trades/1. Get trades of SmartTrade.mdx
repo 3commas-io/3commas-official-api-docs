@@ -1,0 +1,130 @@
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import * as ResponseTabs from '@site/src/components/ResponseTabs'
+
+<Endpoint
+  url="/v2/smart_trades/:smart_trade_id/trades"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="SMART_TRADES_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Shows trades of existing SmartTrade
+
+<StickyLayout.Root>
+    <StickyLayout.Main>
+        ## Path Parameter
+        <ApiParam name='smart-trade_id' type='integer' id="smart-trade_id" required>
+        Unique 3Commas ID for this SmartTrade entity.
+        </ApiParam>
+    </StickyLayout.Main>
+    <StickyLayout.Sticky>
+    ## Example Request
+        ```json
+        GET /v2/smart_trades/30848974/trades
+        ```
+    </StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+    <StickyLayout.Main>
+        ## Response Parameters
+        If successful response, the response includes a copy of Trade entity. You can find a total description of all attributes on the page about [Trade](0.%20Trade%20entiry.mdx).
+    </StickyLayout.Main>
+    <StickyLayout.Sticky>
+        ## Example Responses
+        <ResponseTabs.Root>
+            	 <ResponseTabs.TabItem value="200" label="200 OK" default>
+
+                 ```json
+[
+    {
+        "id": 1006258046,
+        "average_price": "0.107068273092369477911646586345381526",
+        "follow_price_type": "ask",
+        "initial_amount": "15.0",
+        "initial_total": "1.5996",
+        "order_price": "0.10664",
+        "order_side": "buy",
+        "order_type": "limit",
+        "pair": "USDT_DOGE",
+        "position_percentage": null,
+        "realised_amount": "14.94",
+        "realised_total": "1.5996",
+        "status": "finished",
+        "take_profit_percentage": null,
+        "trade_purpose": "position",
+        "trail_percentage": null,
+        "trail_value": null,
+        "trailing_enabled": false,
+        "trailing_last_price": null,
+        "trailing_last_price_updated_at": null,
+        "trigger_condition": null,
+        "trigger_price": null,
+        "trigger_price_percentage": null,
+        "trigger_type": "none",
+        "created_at": "2024-08-12T16:24:38.384Z",
+        "updated_at": "2024-08-12T16:56:10.437Z",
+        "realised_percentage": "100.0",
+        "initial_price": "0.10664",
+        "realised_price": "0.10706",
+        "cancelable": false,
+        "force_processable": false
+    },
+    { ...
+    },
+    {
+        "id": 1006258056,
+        "average_price": null,
+        "follow_price_type": "last",
+        "initial_amount": "14.0",
+        "initial_total": "1.4182",
+        "order_price": null,
+        "order_side": "sell",
+        "order_type": "market",
+        "pair": "USDT_DOGE",
+        "position_percentage": "100.0",
+        "realised_amount": "0.0",
+        "realised_total": null,
+        "status": "to_process",
+        "take_profit_percentage": null,
+        "trade_purpose": "stop_loss",
+        "trail_percentage": null,
+        "trail_value": null,
+        "trailing_enabled": false,
+        "trailing_last_price": null,
+        "trailing_last_price_updated_at": null,
+        "trigger_condition": "less_or_equal",
+        "trigger_price": "0.1013",
+        "trigger_price_percentage": null,
+        "trigger_type": "conditional",
+        "created_at": "2024-08-12T16:24:38.461Z",
+        "updated_at": "2024-08-12T16:56:10.850Z",
+        "realised_percentage": "0.0",
+        "initial_price": "0.1013",
+        "realised_price": null,
+        "cancelable": true,
+        "force_processable": true
+    }
+]
+```
+</ResponseTabs.TabItem>
+                
+                 <ResponseTabs.TabItem value="404" label="404 Not Found">
+                    ```json
+                    {
+                        "error": "Not found",
+                        "error_description": "Smart Trade not found"
+                    }
+                    ```
+                 </ResponseTabs.TabItem>
+        </ResponseTabs.Root>
+    </StickyLayout.Sticky>
+</StickyLayout.Root>

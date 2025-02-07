@@ -1,0 +1,28 @@
+
+
+# Trades
+
+The Trade is a sub-entity of SmartTrade. Each trade entity includes the conditions set for its specific trade type.
+
+The Trade entity holds the following information about:
+
+* Order type
+* Trading pair
+* Trade status
+* Initial and realized amounts
+* Initial and realized total values
+* Price values, including initial, average, and realized prices
+* Position percentage for the trade
+* Conditions related to trailing and triggers (e.g. trailing enabled, trigger price)
+
+Each trade is created automatically by 3Commas based on the conditions set within the SmartTrade entity.
+
+Depending on the conditions set within SmartTrade, a trade can be one of the following types:
+
+- Position trade;
+- Take profit trade;
+- Stop-loss trade;
+- Reduce funds trade;
+- Market close trade.
+
+Here you will find a set of methods to manage these trades.
