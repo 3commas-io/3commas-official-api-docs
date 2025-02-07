@@ -1,72 +1,86 @@
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
-<div className="main-container-endpoint">
-    <div className="container-endpoint">
-            <div className="container-method-post">
-                <span className="endpoint-method">POST</span>
-            </div>
-              <div className="container-url">
-                <span className="endpoint-url">/v2/smart_trades/:id/add_funds</span>
-           </div>
-    </div>
-    <div className="container-permission">
-        <span className="permission-description"><strong>Permission: </strong>SMART_TRADES_WRITE</span>
-        <span className="permission-description"><strong>Security: </strong>SIGNED</span>
-    </div>
-</div>
+<Endpoint
+  url="/v2/smart_trades/:id/add_funds"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="SMART_TRADES_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
 
-<p className="p-method-discription">
-  Adds funds in SmartTrade, increasing the volume of the trade and averaging the price at any moment
-</p>
+Adds funds in SmartTrade, increasing the volume of the trade and averaging the price at any moment.
 
-<div class="alert alert--warning" role="alert" style={{ margin: '30px 20px 20px 20px', padding: '15px' }}>
+:::warning
    The endpoint is available for SmartTrades with statuses <code>waiting_position</code> and <code>waiting_targets</code>, but not for SmartTrades with trailing enabled, or for the types <code>simple_buy</code> and <code>simple_sell</code>.
-</div>
+:::
 
-<h2> Path Parameter </h2>
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Path Parameter
 <ApiParam name='id' type='integer' id="id" required>
-   Unique 3Commas ID for this SmartTrade entity
+   Unique 3Commas ID for this SmartTrade entity.
 </ApiParam>
 
-<h2> Body Parameters </h2>
+## Body Parameters
 <ApiParam name='order_type' type='integer' id="order_type" required>
    Order type for add funds in this SmartTrade: <code> market </code>, <code> limit </code>
 </ApiParam>
-<CollapsibleApiParam name="units" type="object" id="units" required>
+<ApiParam name="units" type="object" id="units" required>
     Defines the amount of units to add in this SmartTrade
    <CollapsibleNestedParams>
     <ApiParam name='value' type='number' id='value' required>
          Specifies the number of units to buy
     </ApiParam>
     </CollapsibleNestedParams>
-</CollapsibleApiParam>
-<CollapsibleApiParam name="price" type="object" id="price" required>
+</ApiParam>
+<ApiParam name="price" type="object" id="price" required>
    Provides pricing details for the limit order. This parameter is required if <code>order_type</code> is set to <code>limit</code>.
    <CollapsibleNestedParams>
     <ApiParam name='value' type='number' id='value' required>
       Price for limit order
     </ApiParam>
     </CollapsibleNestedParams>
-</CollapsibleApiParam>
+</ApiParam>
+</StickyLayout.Main>
+<StickyLayout.Sticky>
+        ## Example Request
+        
+```json title="POST /v2/smart_trades/30415988/add_funds"
+{
+   "order_type": "limit",
+   "units": [
+      {
+         "value": "14.60138226"
+      },
+      {
+         "value": "14.60138226"
+      }
+   ]
+}
+```
+ </StickyLayout.Sticky>
+</StickyLayout.Root>
 
-<h2> Parameter response </h2>
-<p>
-    If successful, the response includes an updated copy of the [SmartTrade](/docs/SmartTrade/1.%20SmartTrade%20entity.md) entity.
-</p>
+<StickyLayout.Root>
+<StickyLayout.Main>
+## Parameter response
 
-<div style={{ margin: '10px', padding: '10px' }}>
+If successful, the response includes an updated copy of the [SmartTrade](0.%20SmartTrade%20entity.mdx) entity.
+</StickyLayout.Main>
 
-</div>
-
-### Example Response and errors
-
-<div style={{ margin: '10px', padding: '10px' }}>
-<Tabs>
-  <TabItem value="201" label="201 Created" attributes={{className: "green"}}>
+<StickyLayout.Sticky>
+## Example Responses
+<ResponseTabs.Root>
+  <ResponseTabs.TabItem value="201" label="201 Created" default>
 
 ```json
 {
@@ -233,8 +247,8 @@ import TabItem from '@theme/TabItem';
     "is_position_not_filled": false
 }
 ```
-</TabItem>
-<TabItem value="400" label="400 Bad Request" attributes={{className: "red"}}>
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="400" label="400 Bad Request">
 
 ```json
 {
@@ -254,8 +268,9 @@ import TabItem from '@theme/TabItem';
     }
 }
 ```
-</TabItem>
-<TabItem value="422" label="422 Unprocessable Entity" attributes={{className: "red"}}>
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="422" label="422 Unprocessable Entity">
+
 ```json
 {
     "error": "record_invalid",
@@ -267,6 +282,7 @@ import TabItem from '@theme/TabItem';
     }
 }
 ```
-</TabItem>
-</Tabs>
-</div>
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
