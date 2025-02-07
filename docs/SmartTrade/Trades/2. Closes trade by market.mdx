@@ -1,43 +1,54 @@
-**Description:** Closes a specific take profit trade within a SmartTrade at market price using its ID
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import * as ResponseTabs from '@site/src/components/ResponseTabs'
+
+<Endpoint
+  url="/v2/smart_trades/:smart_trade_id/trades/:id/close_by_market"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="SMART_TRADES_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Closes a specific take profit trade within a SmartTrade at market price using its ID.
 
 :::warning
 The endpoint is available for Take Profit Trades for the statuses `to_process`, `order_placed`, and `trailing_activated`.
 :::
 
-**Permission:** SMART_TRADES_WRITE
-**Security:** SIGNED
+<StickyLayout.Root>
+    <StickyLayout.Main>
+        ## Path Parameters
+        <ApiParam name='smart-trade_id' type='integer' id="smart-trade_id" required>
+        Unique 3Commas ID for this SmartTrade entity.
+        </ApiParam>
+        <ApiParam name='id' type='integer' id="id" required>
+        Unique 3Commas ID for Trade entity.
+        </ApiParam>
+    </StickyLayout.Main>
+    <StickyLayout.Sticky>
+    ## Example Request
+        ```json
+        POST /v2/smart_trades/12345678/trades/1047934729/close_by_market
+        ```
+    </StickyLayout.Sticky>
+</StickyLayout.Root>
 
-----------
-
-<mark style={{ color: "green", backgroundColor: "white" }} > **POST**</mark>
-
-<mark style={{ color: "green", backgroundColor: "white" }} >`/v2/smart_trades/{smart_trade_id}/trades/{id}/close_by_market`</mark>
-
-----------
-
-### Path Parameters
-
-| Name | Type | Mandatory | Values | Description|
-|------|------|-----------|-----------------|------------|
-|**smart-trade_id** | `integer` | Yes |  | Unique 3Commas ID for this SmartTrade entity. |
-|**id** | `integer`| Yes |  | Unique 3Commas ID for Trade entity |
-
-### Response Parameters
-
-:::info
-If successful response, the response includes a copy of the updated SmartTrade entity. You can find a total description of all attributes on the page about [SmartTrade](./README.md).
-:::
-
-```json
-/v2/smart_trades/12345678/trades/1047934729/close_by_market
-```
-
-**Example Response and errors**
-
-<details>
-<summary>Status: 201 Created</summary>
-
-```json
+<StickyLayout.Root>
+    <StickyLayout.Main>
+        ## Response Parameters
+        If successful, the response includes a copy of the updated [SmartTrade](/docs/SmartTrade/0.%20SmartTrade%20entity.mdx) entity.
+    </StickyLayout.Main>
+    <StickyLayout.Sticky>
+        ## Example Response
+     <ResponseTabs.TabItem value="201" label="201 Created" default>
+        ```json
 {
     "id": 12345678,
     "version": 2,
@@ -232,5 +243,6 @@ If successful response, the response includes a copy of the updated SmartTrade e
 }
 
 ```
-
-</details>
+     </ResponseTabs.TabItem>
+    </StickyLayout.Sticky>
+</StickyLayout.Root>
