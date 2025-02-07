@@ -1,64 +1,62 @@
 
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
-<div className="main-container-endpoint">
-    <div className="container-endpoint">
-            <div className="container-method-post">
-                <span className="endpoint-method">POST</span>
-            </div>
-              <div className="container-url">
-                <span className="endpoint-url">/v2/smart_trades/:id/set_note</span>
-           </div>
-    </div>
-    <div className="container-permission">
-        <span className="permission-description"><strong>Permission: </strong>SMART_TRADES_WRITE</span>
-        <span className="permission-description"><strong>Security: </strong>SIGNED</span>
-    </div>
-</div>
+<Endpoint
+  url="/v2/smart_trades/:id/set_note"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="SMART_TRADES_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
 
-<p className="p-method-discription">
-  Adds a note to an existing SmartTrade
-</p>
+Adds a note to an existing SmartTrade.
 
-<h2> Path Parameter </h2>
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Path Parameter
 <ApiParam name='id' type='integer' id="id" required>
-   Unique 3Commas ID for this SmartTrade entity
+   Unique 3Commas ID for this SmartTrade entity.
 </ApiParam>
 
-<h2> Body Parameter </h2>
+## Body Parameter
 <ApiParam name='note' type='string' id="note" required>
-   <p> Short note for this SmarTrade </p>
-   <p> Minlength: <code>1</code>, Maxlength: <code>300</code> </p>
+   Short note for this SmarTrade.
+   
+   Minlength: `1`, Maxlength: `300`.
 </ApiParam>
+</StickyLayout.Main>
+<StickyLayout.Sticky>
 
-<h2> Response Parameter </h2>
-<p>
-    If successful, the response includes an updated copy of the [SmartTrade](/docs/SmartTrade/1.%20SmartTrade%20entity.md) entity.
-</p>
-
-
-<h2> Example Request </h2>
-<div style={{ margin: '10px', padding: '10px' }}>
+## Example Request
 
 ```json title="POST /v2/smart_trades/12345678/set_note"
-
 {
     "note": "You can add an any note to an existing SmartTrade, limited to 300 characters."
 }
-
 ```
-</div>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
 
+<StickyLayout.Root>
+<StickyLayout.Main>
+    ## Response Parameter
+    If successful, the response includes an updated copy of the [SmartTrade](/docs/SmartTrade/0.%20SmartTrade%20entity.mdx) entity.
+</StickyLayout.Main>
 
-<h2>  Example Response and Errors </h2> 
+<StickyLayout.Sticky>
 
-<div style={{ margin: '10px', padding: '10px' }}>
-<Tabs>
-<TabItem value="201" label="201 Created" attributes={{className: "green"}}>
+##  Example Responses
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="201" label="201 Created" default>
 
 ```json
 {
@@ -244,19 +242,8 @@ import TabItem from '@theme/TabItem';
 }
 
 ```
-</TabItem>
-<TabItem value="401" label="401 Unauthorized" attributes={{className: "red"}}>
-
-```json
-{
-    "error": "signature_invalid",
-    "error_description": "Provided signature is invalid"
-}
-```
-</TabItem>
-<TabItem value="400" label="400 Bad Request" attributes={{className: "red"}}>
-
-
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="400" label="400 Bad Request">
 ```json
 {
     "error": "record_invalid",
@@ -268,15 +255,23 @@ import TabItem from '@theme/TabItem';
     }
 }
 ```
-</TabItem>
-<TabItem value="404" label="404 Not Found" attributes={{className: "red"}}>
-
-```json
-{
-    "error": "Not found",
-    "error_description": "Smart Trade not found"
-}
-```
-</TabItem>
-</Tabs>
-</div>
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="401" label="401 Unauthorized">
+        ```json
+        {
+            "error": "signature_invalid",
+            "error_description": "Provided signature is invalid"
+        }
+        ```
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="404" label="404 Not Found">
+        ```json
+        {
+            "error": "Not found",
+            "error_description": "Smart Trade not found"
+        }
+        ```
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
