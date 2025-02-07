@@ -1,44 +1,46 @@
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout';
 
-<h3>Attributes</h3>
-
-<ApiParam name='id' type='integer' id="id">
-    Unique 3Commas ID for this SmartTrade entity
-</ApiParam>
-
-<ApiParam name='pair' type='string' id="pair">
-     Trading pair in 3Commas format
-</ApiParam>
-
-<ApiParam name='instant' type='boolean' id="instant">
-     TBD
-</ApiParam>
-
-<CollapsibleApiParam name="account" type="object">
-<p>Details about user account</p>
-  <CollapsibleNestedParams>
-    <ApiParam name='id' type="integer">
-        Unique 3Commas ID for this exchange account entity
-    </ApiParam>    
-    <ApiParam name='type' type='string'>
-        The type of the exchange account where this SmartTrade was created
+<StickyLayout.Root>
+   <StickyLayout.Main>
+    ## Attributes
+    <ApiParam name='id' type='integer' id="id">
+        Unique 3Commas ID for this SmartTrade entity.
     </ApiParam>
-    <ApiParam name='name' type='string'>
-        The name of the exchange account as specified by the user or system
+      <ApiParam name='pair' type='string' id="pair">
+          Trading pair in 3Commas format.
+      </ApiParam>
+    <ApiParam name='instant' type='boolean' id="instant">
+     TBD 
     </ApiParam>
-    <ApiParam name='market' type='string'>
-        Market type of this exchange account
+    <ApiParam name="account" type="object">
+      Details about user account.
+      <CollapsibleNestedParams>
+        <ApiParam name='id' type="integer">
+            Unique 3Commas ID for this exchange account entity.
+        </ApiParam>    
+        <ApiParam name='type' type='string'>
+            The type of the exchange account where this SmartTrade was created.
+        </ApiParam>
+        <ApiParam name='name' type='string'>
+            The name of the exchange account as specified by the user or system.
+        </ApiParam>
+        <ApiParam name='market' type='string'>
+            Market type of this exchange account.
+        </ApiParam>
+        <ApiParam name='link' type='string'>
+            The URL of the account where this SmartTrade was created.
+        </ApiParam>
+      </CollapsibleNestedParams>
     </ApiParam>
-    <ApiParam name='link' type='string'>
-        The URL of the account where this SmartTrade was created
-    </ApiParam>
-  </CollapsibleNestedParams>
-</CollapsibleApiParam>
 
+<CollapseAll>
+<CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
 <CollapsibleApiParam name="status" type="object">
-<p>The common status and information about this status for this SmartTrade entity</p>
+The common status and information about this status for this SmartTrade entity.
   <CollapsibleNestedParams>
     <ApiParam name='basic_type' type="string">
         3Commas status for this SmartTrade
@@ -51,12 +53,11 @@ import ApiParam from '@site/src/components/ApiParam';
     </ApiParam>
   </CollapsibleNestedParams>
 </CollapsibleApiParam>
-
 <CollapsibleApiParam name="leverage" type="object">
-<p>Details of the Leverage applied to this SmartTrade</p>
+Details of the Leverage applied to this SmartTrade.
   <CollapsibleNestedParams>
     <ApiParam name='enabled' type="boolean">
-     Indicates whether leverage is enabled (<code>true</code>) or disabled (<code>false</code>) for this SmartTrade
+     Indicates whether leverage is enabled (`true`) or disabled (`false`) for this SmartTrade
     </ApiParam>
     <ApiParam name='type' type="string">
         Shows the leverage type that was set when creating for this SmartTrade
@@ -65,7 +66,7 @@ import ApiParam from '@site/src/components/ApiParam';
         Indicates the leverage value that was set when creating for this SmartTrade
     </ApiParam>
     <ApiParam name='type_editable' type="boolean">
-        Indicates whether the user can modify the <code>leverage[type]</code> setting when editing a SmartTrade (<code>true</code>) or not (<code>false</code>)
+        Indicates whether the user can modify the `leverage[type]` setting when editing a SmartTrade (`true`) or not (`false`)
     </ApiParam>
   </CollapsibleNestedParams>
 </CollapsibleApiParam>
@@ -535,3 +536,172 @@ Detailed information about the status and any errors for this Market Clode
 <ApiParam name='is_position_not_filled' type='boolean' id="is_position_not_filled">
     Indicates whether a position has been successfully entered for this SmartTrade (<code>true</code>) or not (<code>false</code>)
 </ApiParam>
+</CollapseAll>
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+```json title="SmartTrade entity"
+{
+    "id": 12345678,
+    "version": 2,
+    "account": {
+        "id": 32199203,
+        "type": "paper_trading",
+        "name": "Paper Account 1251857",
+        "market": "Binance Spot account simulator",
+        "link": "/accounts/32199203"
+    },
+    "pair": "BTC_ETH",
+    "instant": false,
+    "status": {
+        "type": "pending_reduce_funds",
+        "basic_type": "pending_reduce_funds",
+        "title": "Pending reduce funds"
+    },
+    "leverage": {
+        "enabled": false
+    },
+    "position": {
+        "type": "buy",
+        "editable": false,
+        "units": {
+            "value": "4.0",
+            "editable": false
+        },
+        "price": {
+            "value": "0.03719",
+            "value_without_commission": "0.03716",
+            "editable": false
+        },
+        "total": {
+            "value": "0.14878864"
+        },
+        "order_type": "market",
+        "status": {
+            "type": "finished",
+            "basic_type": "finished",
+            "title": "Finished"
+        }
+    },
+    "take_profit": {
+        "enabled": true,
+        "price_type": "value",
+        "steps": [
+            {
+                "id": 1224972676,
+                "order_type": "limit",
+                "editable": true,
+                "units": {
+                    "value": "4.0"
+                },
+                "price": {
+                    "type": "last",
+                    "value": "0.04088",
+                    "percent": null
+                },
+                "volume": "100.0",
+                "total": "0.16352",
+                "trailing": {
+                    "enabled": false,
+                    "percent": null
+                },
+                "status": {
+                    "type": "order_placed",
+                    "basic_type": "order_placed",
+                    "title": "Placed"
+                },
+                "closed_at": null,
+                "data": {
+                    "cancelable": true,
+                    "panic_sell_available": true
+                },
+                "position": 1
+            }
+        ]
+    },
+    "stop_loss": {
+        "enabled": false
+    },
+    "reduce_funds": {
+        "steps": [
+            {
+                "id": 1224983548,
+                "type": "market",
+                "status": {
+                    "type": "idle",
+                    "basic_type": "idle",
+                    "title": "Pending"
+                },
+                "units": {
+                    "value": "0.3995"
+                },
+                "price": {
+                    "value": "0.03702",
+                    "value_without_commission": "0.03702"
+                },
+                "total": {
+                    "value": "0.01478949"
+                },
+                "closed_at": null,
+                "data": {
+                    "cancelable": false,
+                    "panic_sell_available": false
+                }
+            }
+        ]
+    },
+    "market_close": {},
+    "note": "",
+    "note_raw": null,
+    "skip_enter_step": false,
+    "data": {
+        "editable": false,
+        "current_price": {
+            "day_change_percent": "-0.162",
+            "bid": "0.03702",
+            "ask": "0.03703",
+            "last": "0.03703",
+            "quote_volume": "1626.01355238"
+        },
+        "target_price_type": "price",
+        "orderbook_price_currency": "BTC",
+        "base_order_finished": true,
+        "missing_funds_to_close": "0.0",
+        "liquidation_price": null,
+        "average_enter_price": "0.03719",
+        "average_close_price": null,
+        "average_enter_price_without_commission": "0.03716",
+        "average_close_price_without_commission": null,
+        "panic_sell_available": true,
+        "add_funds_available": false,
+        "reduce_funds_available": false,
+        "force_start_available": false,
+        "force_process_available": true,
+        "cancel_available": true,
+        "finished": false,
+        "base_position_step_finished": true,
+        "entered_amount": "4.0",
+        "entered_total": "0.14878864",
+        "closed_amount": "0.0",
+        "closed_total": "0.0",
+        "commission": 0.001,
+        "created_at": "2024-12-17T15:44:49.405Z",
+        "updated_at": "2024-12-17T15:52:33.169Z",
+        "type": "smart_trade"
+    },
+    "profit": {
+        "volume": "-0.00085672",
+        "usd": "-91.0173245288",
+        "percent": "-0.58",
+        "roe": null
+    },
+    "margin": {
+        "amount": null,
+        "total": null
+    },
+    "is_position_not_filled": false
+}
+```
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
