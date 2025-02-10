@@ -5,6 +5,7 @@ import ApiParam from '@site/src/components/ApiParam';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout'
 import * as ResponseTabs from '@site/src/components/ResponseTabs'
+import { Informer } from '@site/src/components/Informer/Informer'
 
 <Endpoint
   url="/ver1/grid_bots/:id/required_balances"
@@ -19,9 +20,9 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs'
 
 Returns the amount of funds required to launch the Grid Bot and details about the current balance state.
 
-<div class="alert alert--danger" role="alert" style={{ margin: '30px 20px 20px 0px', padding: '15px' }}>
+<Informer variant="danger">
 This endpoint works only for the spot exchange.
-</div>
+</Informer>
 
 <StickyLayout.Root>
 <StickyLayout.Main>
