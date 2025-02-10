@@ -5,13 +5,15 @@ import styles from './Endpoint.module.css'
 import { Tooltip } from '@site/src/components/Tooltip'
 
 type Props = {
-  url: string
+  url?: string
   method?: Method
   permissions?: ReactNode
+  endpointsList?: Props[]
 }
 
-export function Endpoint({ url, method, permissions }: Props) {
+export function Endpoint({ url, method, permissions, endpointsList }: Props) {
   const [copied, setCopied] = useState(false)
+  let endpointContent: ReactNode
 
   const handleOpenChange = (open: boolean) => {
     if (!open) {
@@ -19,24 +21,45 @@ export function Endpoint({ url, method, permissions }: Props) {
     }
   }
 
-  const handleCopy = () => {
+  const handleCopy = (url: string) => {
     navigator.clipboard.writeText(url).then(() => {
       setCopied(true)
     })
   }
 
-  return (
-    <div className={styles.root}>
-      <div className={styles.container}>
+  if (endpointsList) {
+    endpointContent = endpointsList.map(endpoint =>
+      <>
+        {endpoint.method ? <Method variant="text" align="right">{endpoint.method}</Method> : null}
+
+        <Tooltip
+          onOpenChange={handleOpenChange}
+          content={copied ? 'Copied!' : 'Copy'}>
+          <span className={styles.url} onClick={() => handleCopy(endpoint.url)}>
+            {endpoint.url}
+          </span>
+        </Tooltip>
+      </>
+    );
+  } else {
+    endpointContent =
+      <>
         {method ? <Method>{method}</Method> : null}
 
         <Tooltip
           onOpenChange={handleOpenChange}
           content={copied ? 'Copied!' : 'Copy'}>
-          <span className={styles.url} onClick={handleCopy}>
+          <span className={styles.url} onClick={() => handleCopy(url)}>
             {url}
           </span>
         </Tooltip>
+      </>
+  }
+
+  return (
+    <div className={styles.root}>
+      <div className={`${styles.container} ${endpointsList && styles.endpointsListContainer}`}>
+        {endpointContent}
       </div>
 
       <div>{permissions}</div>

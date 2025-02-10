@@ -19,6 +19,14 @@
   color: white;
 }
 
+.text {
+  color: var(--accent);
+}
+
+.right {
+  justify-content: end;
+}
+
 .put {
   --accent: #ff9800;
 }
