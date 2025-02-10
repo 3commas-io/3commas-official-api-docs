@@ -11,7 +11,8 @@
 }
 
 .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
   padding: 8px 6px;
   min-width: 400px;
@@ -23,6 +24,18 @@
   font-size: 14px;
   word-break: break-word;
   line-height: 1.5;
+}
+
+.endpointsListContainer {
+  min-width: auto;
+  padding-right: 14px;
+  gap: 4px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .permissions {

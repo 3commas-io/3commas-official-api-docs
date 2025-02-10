@@ -1,3 +1,4 @@
+import Endpoint from '@site/src/components/Endpoint'
 
 # DCA Bot
 
@@ -24,4 +25,21 @@
 <p>
    The process starts with configuring a <strong>DCA Bot</strong>, where all trading conditions, such as base and safety orders, take profit, and stop loss, are set. The bot automatically creates and manages deals based on the configured strategy.
 </p>
+## Endpoints list
+<Endpoint
+  endpointsList={[
+    {
+      url: "/ver1/bots/strategy_list",
+      method: 'POST'
+    },
+    {
+      url: "/ver1/bots/strategy_list1",
+      method: 'GET'
+    },
+    {
+      url: "/ver1/bots/strategy_list2",
+      method: 'PUT'
+    }
+  ]}
+/>
 </div>

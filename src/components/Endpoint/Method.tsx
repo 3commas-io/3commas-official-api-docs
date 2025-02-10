@@ -8,6 +8,7 @@ type Props = {
   children: string
   variant?: 'filled' | 'text'
   size?: 'medium'
+  align?: 'center' | 'right'
 }
 
 const colors: Record<Method, string> = {
@@ -23,6 +24,7 @@ export function Method({
   children,
   variant = 'filled',
   size = 'medium',
+  align = 'center'
 }: Props) {
   if (typeof children !== 'string' || !(children.toUpperCase() in colors)) {
     return null
@@ -36,7 +38,9 @@ export function Method({
         styles.container,
         colors[color],
         variant === 'filled' && styles.filled,
-        size === 'medium' && styles.medium
+        variant === 'text' && styles.text,
+        size === 'medium' && styles.medium,
+        align === 'right' && styles.right
       )}>
       {color}
     </div>
