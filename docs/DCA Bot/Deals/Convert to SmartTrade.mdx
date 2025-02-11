@@ -1,44 +1,65 @@
-**Description:** Allows to convert the deal entity into SmarTrade entity
+import ApiParam from '@site/src/components/ApiParam';
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import { Informer } from '@site/src/components/Informer/Informer';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
-:::warning
-After this action, 3Commas will automatically set the final status to **Cancelled** for this deal.
-:::
+<Endpoint
+  url="/ver1/deals/:deal_id/convert_to_smart_trade"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="SMART_TRADE_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
 
-**Permission:** SMART_TRADE_WRITE
-**Security** SIGNED
+Allows to convert the deal entity into SmarTrade entity.
 
-<blockquote>
+<Informer variant="warning">
+    After this action, 3Commas will automatically set the final status to **Cancelled** for this deal.
+</Informer>
 
-<code><mark style={{ color: "green" }}> POST </mark></code>
+<StickyLayout.Root>
+<StickyLayout.Main>
 
-<code>`/ver1/deals/{deal_id}/convert_to_smart_trade`</code>
+## Path Parameter
+<ApiParam name='deal_id' type='integer' id="deal_id" required>
+  Unique 3Commas ID Deal entity.
+</ApiParam>
+   
 
-</blockquote>
+## Body Parameter
 
-### Path Parameter
+<ApiParam name='stop_bot' type='boolean' id="stop_bot" required>
+  Indicates whether to disable the DCA Bot (`true`) or not (`false`).
+</ApiParam>
+</StickyLayout.Main>
+<StickyLayout.Sticky>
 
-   deal_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
-   Unique 3Commas ID Deal entity
-
-### Body Parameter
-
-   stop_bot&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>boolean</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
-   Indicates whether to disable the DCA Bot (<code>true</code>) or not (<code>false</code>)
-
-### Response Parameters
-
-If successful, the response includes a copy of [SmartTrade](./README.md) entity.
-
-### Example Request
+## Example Request
 
 ```json
 POST /ver1/deals/1234567890/convert_to_smart_trade?stop_bot=false
 ```
+</StickyLayout.Sticky>
+</StickyLayout.Root>
 
-### Example Response and errors
+<StickyLayout.Root>
+<StickyLayout.Main>
 
-<details>
-<summary>Status: 201 Created</summary>
+## Response Parameters
+
+If successful, the response includes a copy of [SmartTrade](/docs/SmartTrade/0.%20SmartTrade%20entity.mdx) entity.
+
+</StickyLayout.Main>
+<StickyLayout.Sticky>
+
+## Example Response
+
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="201" label="201 Created" default>
 
 ```json
 {
@@ -210,5 +231,7 @@ POST /ver1/deals/1234567890/convert_to_smart_trade?stop_bot=false
     "is_position_not_filled": true
 }
 ```
-
-</details>
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
