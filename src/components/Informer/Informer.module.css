@@ -1,0 +1,64 @@
+.root {
+  box-sizing: border-box;
+  padding: 16px;
+  display: flex;
+  border-radius: 8px;
+  gap: 4px 8px;
+  align-items: flex-start;
+  padding: 16px;
+  margin: 20px 0;
+}
+
+.info {
+  background-color: rgb(230, 239, 249);
+}
+
+.info .iconBlock {
+  color: rgb(30, 114, 210);
+}
+
+.warning {
+  background-color: rgb(255, 243, 214);
+}
+
+.warning .iconBlock {
+  color: rgb(255, 155, 26);
+}
+
+.danger {
+  background-color: rgb(251, 239, 240);
+}
+
+.danger .iconBlock {
+  color: rgb(231, 89, 106);
+}
+
+.accent {
+  background-color: rgb(234, 245, 245);
+}
+
+.accent .iconBlock {
+  color: rgb(19, 168, 161);
+}
+
+.container {
+  display: contents;
+}
+
+.content {
+  display: flex;
+  gap: inherit;
+  align-items: flex-start;
+  flex: 1;
+  flex-direction: column;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.iconBlock {
+    display: flex;
+}
+
+.content p:last-child {
+  margin-bottom: 0;
+}

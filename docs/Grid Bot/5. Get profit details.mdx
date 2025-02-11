@@ -5,6 +5,7 @@ import ApiParam from '@site/src/components/ApiParam';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout'
 import * as ResponseTabs from '@site/src/components/ResponseTabs'
+import { Informer } from '@site/src/components/Informer/Informer'
 
 <Endpoint
   url="/ver1/grid_bots/:id/profits"
@@ -36,9 +37,9 @@ Returns profit details of existing Grid Bot using its ID.
    Filters the Grid Bots created before a specific date in ISO 8601 format.
 </ApiParam>
 
-<div class="alert alert--info" role="alert" style={{ margin: '30px 20px 20px 0px', padding: '15px' }}>
- If the **from** and **to** values are not set, the response will include all records ordered in descending (`[DESC]`) order by ID parameter.
-</div>
+<Informer variant="info">
+  If the **from** and **to** values are not set, the response will include all records ordered in descending (`[DESC]`) order by ID parameter.
+</Informer>
 
 </StickyLayout.Main>
 <StickyLayout.Sticky>

@@ -5,6 +5,7 @@ import ApiParam from '@site/src/components/ApiParam';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import { Informer } from '@site/src/components/Informer/Informer'
 
 <Endpoint
   url="/ver1/accounts/new"
@@ -19,9 +20,9 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 Adds a new exchange account. 
 
-<div class="alert alert--warning" role="alert">
-Please note that connections using manually created API keys are available only to Expert plan subscribers and exclusively for Binance sub-accounts.
-</div>
+<Informer variant="warning">
+   Please note that connections using manually created API keys are available only to Expert plan subscribers and exclusively for Binance sub-accounts.
+</Informer>
 
 
 <StickyLayout.Root>
