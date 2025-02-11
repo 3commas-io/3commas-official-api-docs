@@ -5,6 +5,7 @@ import ApiParam from '@site/src/components/ApiParam';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import { Informer } from '@site/src/components/Informer/Informer';
 
 <Endpoint
   url="/ver1/deals/:deal_id/update_deal"
@@ -19,9 +20,10 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 Edits an existing deal of DCA Bot using its ID.
 
-:::warning
+
+<Informer variant="warning">
 The endpoint is available for Deal for the statuses `bought` and `close_strategy_activated`.
-:::
+</Informer>
 
 <StickyLayout.Root>
    <StickyLayout.Main>
@@ -119,8 +121,7 @@ The minimum profit percentage which need to reach  for this DCA Bot to complete 
 </CollapsibleApiParam>
 </CollapseAll>    
 
-:::note[Additional Information]
-
+<Informer variant="info">
 **take_profit_steps** 
 
 You should allocate 100% of your position volume across different targets. In total, the maximum number of targets is 4.
@@ -157,7 +158,7 @@ Below is an example demonstrating how to fill this parameter with several steps 
 ]
 
 ```
-:::
+</Informer>
 
 </StickyLayout.Main>
 
