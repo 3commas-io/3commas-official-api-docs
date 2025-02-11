@@ -1,8 +1,10 @@
----
-sidebar_position: 3
----
+import Endpoint from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
 
 # Market data
+
+<StickyLayout.Root>
+<StickyLayout.Main>
 
 The Market data section provides access to various endpoints that deliver essential information about cryptocurrency exchanges, trading pairs, and market rules.
 This data is crucial for understanding the available markets and their specific conditions.
@@ -16,3 +18,30 @@ This data is crucial for understanding the available markets and their specific 
 * **Current market conditions:** Including price movements, liquidity, and volumes.
 
 3Commas allows users to retrieve comprehensive market data through these endpoints, ensuring up-to-date and accurate information for effective trading strategies.
+
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+<Endpoint
+  endpointsList={[
+    {
+      url: "/ver1/accounts/market_list",
+      method: 'GET'
+    },
+    {
+      url: "/ver1/accounts/market_pairs",
+      method: 'GET'
+    },
+    {
+      url: "/ver1/accounts/currency_rates",
+      method: 'GET'
+    },
+    {
+      url: "/ver1/accounts/currency_rates_with_leverage_data",
+      method: 'GET'
+    }
+  ]}
+/>
+
+</StickyLayout.Sticky>
+</StickyLayout.Root>
