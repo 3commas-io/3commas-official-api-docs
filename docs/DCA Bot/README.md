@@ -1,0 +1,93 @@
+import Endpoint from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+
+# DCA Bot
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+The **DCA Bot** allows users to automate trading on the exchange by following a Dollar Cost Averaging strategy.
+
+DCA Bot entity contains a set of parameters and conditions that manage deals.
+3Commas provides methods to create and manage DCA Bot entities and their associated deals.
+ 
+Each **DCA Bot** entity holds information, including: 
+
+* Exchange account and trading pairs;
+* Strategy configuration and active deals;
+* Take Profit and Stop Loss settings;
+* Safety Orders configuration for risk management;
+* Trading cooldowns and limits.
+
+
+The process starts with configuring a **DCA Bot**, where all trading conditions, such as base and safety orders, take profit, and stop loss, are set. The bot automatically creates and manages deals based on the configured strategy.
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+<Endpoint
+  endpointsList={[
+    {
+      url: "/ver1/bots/strategy_list1",
+      method: 'GET'
+    },
+    {
+      url: "/ver1/bots/create_bot",
+      method: 'POST'
+    },
+    {
+      url: "/ver1/bots/:bot_id/update",
+      method: 'PATCH'
+    },
+    {
+      url: "/ver1/bots/:bot_id/show",
+      method: 'GET'
+    },
+    {
+      url: "/ver1/bots",
+      method: 'GET'
+    },
+     {
+      url: "/ver1/bots/:bot_id/disable",
+      method: 'POST'
+    },
+     {
+      url: "/ver1/bots/:bot_id/enable",
+      method: 'POST'
+    },
+    {
+      url: "/ver1/bots/:bot_id/delete",
+      method: 'POST'
+    },
+    {
+      url: "/ver1/bots/:bot_id/panic_sell_all_deals",
+      method: 'POST'
+    },
+     {
+      url: "/ver1/bots/:bot_id/cancel_all_deals",
+      method: 'POST'
+    },
+    {
+      url: "ver1/bots/update_pairs_black_list",
+      method: 'POST'
+    },
+    {
+      url: "/ver1/bots/pairs_black_list",
+      method: 'GET'
+    },
+    {
+      url: "/ver1/bots/:id/profit_by_day",
+      method: 'GET'
+    },
+     {
+      url: "/ver1/bots/stats",
+      method: 'GET'
+    },
+      {
+      url: "/ver1/bots/stats_by_date",
+      method: 'GET'
+    }
+  ]}
+/>
+
+</StickyLayout.Sticky>
+</StickyLayout.Root>
