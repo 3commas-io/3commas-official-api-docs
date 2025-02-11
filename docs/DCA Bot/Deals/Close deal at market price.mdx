@@ -1,39 +1,59 @@
-**Description:** Closes a specific deal within a DCA Bot by market using its ID
+import ApiParam from '@site/src/components/ApiParam';
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import { Informer } from '@site/src/components/Informer/Informer';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
-:::warning
-After this action, the final status **Panic_sold** will be automatically set by 3Commas.
-:::
+<Endpoint
+  url="/ver1/deals/:deal_id/panic_sell"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="BOTS_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
 
-**Permission:** BOTS_WRITE
-**Security:** SIGNED
+Closes a specific deal within a DCA Bot by market using its ID.
 
-<blockquote>
+<Informer variant="warning">
+    After this action, the final status **Panic_sold** will be automatically set by 3Commas.
+</Informer>
 
-<code><mark style={{ color: "green" }}> POST </mark></code>
+<StickyLayout.Root>
+<StickyLayout.Main>
 
-<code>`/ver1/deals/{deal_id}/panic_sell`</code>
+## Path Parameters
+<ApiParam name='deal_id' type='integer' id="deal_id" required>
+  Unique 3Commas ID Deal entity.
+</ApiParam>
+</StickyLayout.Main>
+<StickyLayout.Sticky>
 
-</blockquote>
-
-### Path Parameters
-
-   deal_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
-   Unique 3Commas ID Deal entity
-
-### Response Parameters
-
-If successful, the response includes an updated copy of the [Deals](./README.md) entity.
-
-### Example request
+## Example request
 
 ```
 POST /ver1/deals/1234567890/panic_sell
 ```
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Response Parameters
+
+If successful, the response includes an updated copy of the [Deals](0.%20Deal%20entity.mdx) entity.
+
+</StickyLayout.Main>
+<StickyLayout.Sticky>
+
 
 ### Example Response and errors
 
-<details>
-<summary>Status: 201 Created</summary>
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="201" label="201 Created" default>
 
 ```json
 {
@@ -206,5 +226,7 @@ POST /ver1/deals/1234567890/panic_sell
     ]
 }
 ```
-
-</details>
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
