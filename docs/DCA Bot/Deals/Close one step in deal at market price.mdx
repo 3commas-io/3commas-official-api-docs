@@ -1,37 +1,42 @@
-**Description:** Closes a specific Trade within the Deal by market using its ID
+import ApiParam from '@site/src/components/ApiParam';
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import { Informer } from '@site/src/components/Informer/Informer';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
-:::warning
-After this action, the final status **Panic_sold** will be automatically set by 3Commas.
-:::
+<Endpoint
+  url="/ver1/deals/:deal_id/panic_sell_step"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="BOTS_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
 
-**Permission:** BOTS_WRITE
-**Security:** SIGNED
+Closes a specific Trade within the Deal by market using its ID.
 
-<blockquote>
+<Informer variant="warning">
+    After this action, the final status **Panic_sold** will be automatically set by 3Commas.
+</Informer>
 
-<code><mark style={{ color: "green" }}> POST </mark></code>
+<StickyLayout.Root>
+<StickyLayout.Main>
 
-<code>`/ver1/deals/{deal_id}/panic_sell_step`</code>
+## Path Parameter
+<ApiParam name='deal_id' type='integer' id="deal_id" required>
+  Unique 3Commas ID Deal entity.
+</ApiParam>
 
-</blockquote>
 
-### Path Parameter
+## Body Parameter
 
-   deal_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
-   Unique 3Commas ID Deal entity
-
-### Body Parameter
-
-   trade_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>integer</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark style={{color: "orange"}}>required</mark>
-   Unique 3Commas ID Trade of the deal that should be sold
-
-:::info
-Use endpoint [Get Deal](DCA%20Bot/Deals/Get%20Deal.md) to get value for parameter 'trade_id'.
-:::
-
-### Parameter response
-
-If successful, the response includes an updated copy of the [Deals](./README.md) entity.
+<ApiParam name='trade_id' type='integer' id="trade_id" required>
+  Unique 3Commas ID Trade of the deal that should be sold. Use endpoint [Get Deal](DCA%20Bot/Deals/Get%20Deal.md) to get value for parameter 'trade_id'.
+</ApiParam>
+</StickyLayout.Main>
+<StickyLayout.Sticky>
 
 ### Example request
 
@@ -39,11 +44,23 @@ If successful, the response includes an updated copy of the [Deals](./README.md)
 POST
 /ver1/deals/12345678/panic_sell_step?trade_id=1123324654
 ```
+</StickyLayout.Sticky>
+</StickyLayout.Root>
 
-### Example Response and errors
+<StickyLayout.Root>
+<StickyLayout.Main>
 
-<details>
-<summary>Status: 201 Created</summary>
+### Parameter response
+
+If successful, the response includes an updated copy of the [Deals](./README.md) entity.
+
+</StickyLayout.Main>
+<StickyLayout.Sticky>
+
+### Example Response
+
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="201" label="201 Created" default>
 
 ```json
 {
@@ -277,5 +294,7 @@ POST
     ]
 }
 ```
-
-</details>
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
