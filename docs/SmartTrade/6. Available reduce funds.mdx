@@ -4,6 +4,7 @@ import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import { Informer } from '@site/src/components/Informer/Informer';
 
 <Endpoint
   url="/v2/smart_trades/:id/reduce_funds_info"
@@ -18,9 +19,11 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 Shows information about available amount to reduce funds.
 
-:::tip
-    The endpoint is available for SmartTrades with status `waiting_targets`. Use the endpoint Get SmartTrade to check a status SmartTrade.
-:::
+
+<Informer variant="info">
+ The endpoint is available for SmartTrades with status **waiting_targets**. Use the endpoint Get SmartTrade to check a status SmartTrade.
+</Informer>
+
 
 <StickyLayout.Root>
         <StickyLayout.Main>

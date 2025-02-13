@@ -4,6 +4,7 @@ import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParam
 import ApiParam from '@site/src/components/ApiParam';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import { Informer } from '@site/src/components/Informer/Informer';
 
 
 <Endpoint
@@ -19,9 +20,9 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 Returns the data of deposit for a specific account using its ID.
 
-:::info[ Additional Information]
-  This endpoint works for the following exchanges: *Binance Spot*, *Binance US*, *OKX Spot*, *Binance Broker*
-:::
+<Informer variant="info">
+ This endpoint works for the following exchanges: *Binance Spot*, *Binance US*, *OKX Spot*, *Binance Broker*.
+</Informer>
 
 <StickyLayout.Root>
 <StickyLayout.Main>
@@ -57,20 +58,20 @@ GET /ver1/accounts/76543210/deposit_data?currency=BTC&network=BTC
 
 ## Response Parameters 
 
-<CollapsibleApiParam name='address' type='string' id="address">
+<ApiParam name='address' type='string' id="address">
    The cryptocurrency wallet address for deposits and withdrawals
-</CollapsibleApiParam>
-<CollapsibleApiParam name='network' type='string' id="network">
+</ApiParam>
+<ApiParam name='network' type='string' id="network">
    Tag of address for this deposits
-</CollapsibleApiParam>
+</ApiParam>
 
-<CollapsibleApiParam name='currency' type='string' id="currency">
+<ApiParam name='currency' type='string' id="currency">
    The amount of this currency currently locked in active orders
-</CollapsibleApiParam>
+</ApiParam>
 
-<CollapsibleApiParam name='total_balance' type='string' id="total_balance">
+<ApiParam name='total_balance' type='string' id="total_balance">
    The total balance in this currency and account
-</CollapsibleApiParam>
+</ApiParam>
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>

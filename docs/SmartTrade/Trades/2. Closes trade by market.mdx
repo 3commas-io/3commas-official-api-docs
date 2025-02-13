@@ -3,10 +3,11 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
-import * as ResponseTabs from '@site/src/components/ResponseTabs'
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import { Informer } from '@site/src/components/Informer/Informer';
 
 <Endpoint
-  url="/v2/smart_trades/:smart_trade_id/trades/:id/close_by_market"
+  url="/v2/smart_trades/:smart_trade_id/trades/:trade_id/close_by_market"
   method="POST"
   permissions={
     <>
@@ -18,17 +19,17 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs'
 
 Closes a specific take profit trade within a SmartTrade at market price using its ID.
 
-:::warning
-The endpoint is available for Take Profit Trades for the statuses `to_process`, `order_placed`, and `trailing_activated`.
-:::
+<Informer variant="warning">
+The endpoint is available for Take Profit Trades for the statuses **to_process**, **order_placed**, and **trailing_activated**.
+</Informer>
 
 <StickyLayout.Root>
     <StickyLayout.Main>
         ## Path Parameters
-        <ApiParam name='smart-trade_id' type='integer' id="smart-trade_id" required>
+        <ApiParam name='smart_trade_id' type='integer' id="smart_trade_id" required>
         Unique 3Commas ID for this SmartTrade entity.
         </ApiParam>
-        <ApiParam name='id' type='integer' id="id" required>
+        <ApiParam name='trade_id' type='integer' id="trade_id" required>
         Unique 3Commas ID for Trade entity.
         </ApiParam>
     </StickyLayout.Main>

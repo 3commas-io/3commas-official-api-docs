@@ -4,6 +4,7 @@ import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParam
 import ApiParam from '@site/src/components/ApiParam';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import { Informer } from '@site/src/components/Informer/Informer';
 
 <Endpoint
   url="/ver1/accounts/:account_id/remove"
@@ -16,7 +17,11 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
   }
 />
 
-Deletes a user's exchange account from their personal account in the 3Commas system. Keep in mind that an exchange account cannot be deleted if it has any active entities (Grid Bot, SmartTrade, Deals, Trades, or Signal Bot).
+Deletes a user's exchange account from their personal account in the 3Commas system.
+
+<Informer variant="warning">
+Keep in mind that an exchange account cannot be deleted if it has any active entities (Grid Bot, SmartTrade, Deals, Trades, or Signal Bot).
+</Informer>
 
 <StickyLayout.Root>
 <StickyLayout.Main>

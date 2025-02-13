@@ -4,6 +4,7 @@ import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import { Informer } from '@site/src/components/Informer/Informer';
 
 <Endpoint
   url="/v2/smart_trades/:id/add_funds"
@@ -18,9 +19,9 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 Adds funds in SmartTrade, increasing the volume of the trade and averaging the price at any moment.
 
-:::warning
-   The endpoint is available for SmartTrades with statuses <code>waiting_position</code> and <code>waiting_targets</code>, but not for SmartTrades with trailing enabled, or for the types <code>simple_buy</code> and <code>simple_sell</code>.
-:::
+<Informer variant="warning">
+    The endpoint is available for SmartTrades with statuses **waiting_position** and **waiting_targets**, but not for SmartTrades with trailing enabled, or for the types **simple_buy** and **simple_sell**.
+</Informer>
 
 <StickyLayout.Root>
 <StickyLayout.Main>
@@ -32,7 +33,7 @@ Adds funds in SmartTrade, increasing the volume of the trade and averaging the p
 
 ## Body Parameters
 <ApiParam name='order_type' type='integer' id="order_type" required>
-   Order type for add funds in this SmartTrade: <code> market </code>, <code> limit </code>
+   Order type for add funds in this SmartTrade: `market`, `limit`.
 </ApiParam>
 <ApiParam name="units" type="object" id="units" required>
     Defines the amount of units to add in this SmartTrade
@@ -43,7 +44,7 @@ Adds funds in SmartTrade, increasing the volume of the trade and averaging the p
     </CollapsibleNestedParams>
 </ApiParam>
 <ApiParam name="price" type="object" id="price" required>
-   Provides pricing details for the limit order. This parameter is required if <code>order_type</code> is set to <code>limit</code>.
+   Provides pricing details for the limit order. This parameter is required if `order_type` is set to `limit`.
    <CollapsibleNestedParams>
     <ApiParam name='value' type='number' id='value' required>
       Price for limit order
