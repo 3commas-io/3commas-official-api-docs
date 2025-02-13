@@ -25,36 +25,24 @@ Account entities hold information like:
 <Endpoint
   endpointsList={[
     {
-      url: "/ver1/accounts/types_to_connect",
-      method: 'GET'
-    },
-    {
       url: "/ver1/accounts/new",
       method: 'POST'
-    },
-    {
-      url: "/ver1/accounts/:account_id",
-      method: 'GET'
     },
     {
       url: "/ver1/accounts/update",
       method: 'POST'
     },
     {
+      url: "/ver1/accounts/types_to_connect",
+      method: 'GET'
+    },
+    {
       url: "/ver1/accounts",
       method: 'GET'
     },
-     {
-      url: "/ver1/accounts/:account_id/active_trading_entities",
-      method: 'GET'
-    },
-     {
+    {
       url: "/ver1/accounts/:account_id/rename",
       method: 'POST'
-    },
-    {
-      url: "/ver1/accounts/:account_id/balance_chart_data",
-      method: 'GET'
     },
     {
       url: "/ver1/accounts/:account_id/load_balances",
@@ -73,14 +61,6 @@ Account entities hold information like:
       method: 'POST'
     },
     {
-      url: "/ver1/accounts/:account_id/networks_info",
-      method: 'GET'
-    },
-     {
-      url: "/ver1/accounts/:account_id/deposit_data",
-      method: 'GET'
-    },
-      {
       url: "/ver1/accounts/:account_id/remove",
       method: 'POST'
     },
@@ -91,6 +71,26 @@ Account entities hold information like:
     {
       url: "ver1/accounts/:account_id/account_table_data",
       method: 'POST'
+    },
+    {
+      url: "/ver1/accounts/:account_id",
+      method: 'GET'
+    },
+     {
+      url: "/ver1/accounts/:account_id/active_trading_entities",
+      method: 'GET'
+    },
+    {
+      url: "/ver1/accounts/:account_id/balance_chart_data",
+      method: 'GET'
+    },
+    {
+      url: "/ver1/accounts/:account_id/networks_info",
+      method: 'GET'
+    },
+     {
+      url: "/ver1/accounts/:account_id/deposit_data",
+      method: 'GET'
     }
   ]}
 />
