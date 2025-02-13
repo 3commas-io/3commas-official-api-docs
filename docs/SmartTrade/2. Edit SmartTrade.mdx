@@ -1,0 +1,262 @@
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import { Informer } from '@site/src/components/Informer/Informer';
+
+<Endpoint
+  url="/v2/smart_trades/:id"
+  method="PATCH"
+  permissions={
+    <>
+      <Permission title="Permission" description="SMART_TRADES_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Updates a existing SmartTrade in place using its ID.
+
+<Informer variant="warning">
+Update SmartTrade is available for SmartTrade with status: **waiting_position** and **waiting_targets**.
+</Informer>
+
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Path Parameter
+<ApiParam name='id' type='integer' id="id" required>
+   Unique 3Commas ID for this SmartTrade entity
+</ApiParam>
+
+## Body Parameters
+
+<ApiParam name='leverage' type="object">
+Details of the Leverage applied to this SmartTrade.
+  <CollapsibleNestedParams>
+    <ApiParam name='enabled' type="boolean" id="enabled" required>
+     Sets leverage settings for a SmartTrade created on a futures account (`true` or `false`).
+     Default: `false`.
+    </ApiParam>
+    <ApiParam name='type' type="string" id="type">
+      Leverage type for the futures account: `cros` or `isolated`.
+    </ApiParam>
+    <ApiParam name='value' type="integer" id="value">
+        Cross or isolated leverage value. Leverage value is dependent on the exchange. It should be based on [the rules of the exchange regarding currency rates, limits, and leverage data](/docs/Market%20data/4.%20Currency%20rates%20and%20limits%20with%20leverage%20data.mdx).
+    </ApiParam>
+  </CollapsibleNestedParams>
+</ApiParam>
+
+<ApiParam name='position' type="object" id="position">
+  Settings of the position applied to this SmartTrade.
+  <CollapsibleNestedParams>
+    <ApiParam name="units" type="object" id="units">
+      Details of the units applied to this SmartTrade.
+    </ApiParam>
+      <CollapsibleNestedParams>
+        <ApiParam name="value" type="number" id="value">
+          The amount of units for the position trade.
+
+          It should be based on [the rules of the exchange regarding currency rates, limits, and leverage data](/docs/Market%20data/4.%20Currency%20rates%20and%20limits%20with%20leverage%20data.mdx).
+        </ApiParam>
+      </CollapsibleNestedParams>
+    <ApiParam name="price" type="object" id="price">
+      Details of the price applied to this SmartTrade
+    </ApiParam>
+      <CollapsibleNestedParams>
+        <ApiParam name="value" type="number" id="value">
+          The price of the position order.
+
+          It should be based on [the rules of the exchange regarding currency rates, limits, and leverage data](/docs/Market%20data/4.%20Currency%20rates%20and%20limits%20with%20leverage%20data.mdx).
+        </ApiParam>
+      </CollapsibleNestedParams>
+    <ApiParam name="conditional" type="object" id="conditional">
+      Settings of the conditional order applied to this SmartTrade.
+    </ApiParam>
+    <CollapsibleNestedParams>
+      <ApiParam name="order_type" type="string" id="order_type">
+        The type of position trade for this SmartTrade. Possible values: `market`, `limit`, or `conditional`.
+      </ApiParam>
+      <ApiParam name="price" type="object" id="price">
+        TBD
+      </ApiParam>
+      <CollapsibleNestedParams>
+        <ApiParam name="type" type="string" id="type">
+          The type of price for using for this conditional order.
+        </ApiParam>
+        <ApiParam name="value" type="number" id="value">
+          The conditional trigger price value.
+        </ApiParam>
+      </CollapsibleNestedParams>  
+      <ApiParam name="trailing" type="object" id="trailing">
+        Details of the trailing applied for position trade.
+      </ApiParam>
+      <CollapsibleNestedParams>
+        <ApiParam name="enabled" type="boolean" id="enabled">
+          Indicates whether trailing is enabled for the conditional order.
+        </ApiParam>
+        <ApiParam name="percent" type="number" id="percent">
+          The percentage distance from the market price at which the trailing entry activates.
+        </ApiParam>
+      </CollapsibleNestedParams>
+    </CollapsibleNestedParams>
+    </CollapsibleNestedParams>
+</ApiParam>
+
+<ApiParam name="take_profit" type="object">
+Details of Take Profit settings and the steps applied to this SmartTrade.
+<CollapsibleNestedParams>
+    <ApiParam name='enabled' type="boolean" id="enabled" required>
+     Enables Take Profit for this SmartTrade. Set to `true` to activate the parameter group.
+     Default: `false`.
+    </ApiParam>
+    <ApiParam name='steps' type="array" id="steps">
+      Detailed information about each Take Profit step.
+    </ApiParam>
+      <CollapsibleNestedParams>
+        <ApiParam name="order_type" type="string" id="order_type">
+          Take Profit order type for this SmartTrade: `market` or `limit`.
+          
+          This parameter is required when `take_profit[enabled]` is set to `true`.
+        </ApiParam>
+        <ApiParam name="volume" type="number" id="volume">
+          Take Profit order volume. 
+          
+          This parameter is required when `take_profit[enabled]` is set to `true`
+        </ApiParam>
+        <ApiParam name="price" type="object" id="price">
+          Settings for the price of Take Profit.
+        </ApiParam>
+          <CollapsibleNestedParams>
+            <ApiParam name="type" type="string" id="type">
+             Type of price for Take Profit: `bid`, `ask`, or `last`.
+            </ApiParam>
+            <ApiParam name="value" type="number" id="value">
+             Specific price value for Take Profit. Applied only if position has no trailing or trailing is finished.
+            </ApiParam>
+            <ApiParam name="percent" type="number" id="percent">
+             Percentage-based price level for Take Profit. Applies only if position has no trailing or position trailing is finished.
+            </ApiParam>
+          </CollapsibleNestedParams>
+        <ApiParam name="trailing" type="object" id="trailing">
+          Trailing settings for the last Take Profit step.
+        </ApiParam>  
+          <CollapsibleNestedParams>
+            <ApiParam name="enabled" type="boolean" id="enabled">
+              Enables trailing for the last Take Profit step. Applies only to the last step of Take Profit.
+              
+              Default: `false` 
+            </ApiParam>
+            <ApiParam name="percent" type="number" id="percent">
+              Trailing percentage for Take Profit order. Minimum: `0,01`, Maximum: `100`.
+              This parameter is required when `take_profit[steps][trailing][enabled]` is set to `true`.
+            </ApiParam>
+          </CollapsibleNestedParams>
+      </CollapsibleNestedParams>
+  </CollapsibleNestedParams>
+</ApiParam>
+
+<ApiParam name="stop_loss" type="object">
+Details of Stop Loss settings applied to this SmartTrade.
+  <CollapsibleNestedParams>
+    <ApiParam name='enabled' type="boolean" id="enabled" required>
+      Enables Sto Loss for this SmartTrade. Set to `true` to activate the parameter group.
+
+      Default: `false`.
+    </ApiParam>
+    <ApiParam name='breakeven' type="boolean" id="breakeven">
+      Enables the Move to Breakeven feature in SmartTrades. To use this feature, you must have at least two Take Profit steps.
+
+      Default: `false`.
+    </ApiParam>
+    <ApiParam name='order_type' type="string" id="order_type" required>
+      Stop Loss type for this SmartTrade: `market` or `limit`.
+      This parameter is required when `stop_loss[enabled]` is set to `true`.
+    </ApiParam>
+    <ApiParam name='price' type="object" id="price">
+      Details of the Stop Loss price value configuration.
+    </ApiParam>
+      <CollapsibleNestedParams>
+        <ApiParam name='value' type="number" id="value">
+        The price of the Stop Loss trade.
+       </ApiParam>
+      </CollapsibleNestedParams>
+    <ApiParam name='conditional' type="object" id="conditional">
+      Detailed information about each Take Profit step.
+        <CollapsibleNestedParams>
+          <ApiParam name='price' type="object" id="price">
+           tbd
+          </ApiParam>
+            <CollapsibleNestedParams>
+              <ApiParam name='type' type="string" id="type">
+               The type of price for the stop loss order used to close the position: `bid`, `ask`, `last`.	
+              </ApiParam>
+              <ApiParam name='value' type="number" id="value">
+               The specific price value set to trigger the Stop Loss order.
+              </ApiParam>
+              <ApiParam name='percent' type="number" id="percent">
+               Represents a percentage-based stop-loss condition that is part of a more complex stop-loss order setup.
+               Only if position has trailing and position trailing is not finished.
+              </ApiParam>
+            </CollapsibleNestedParams>
+          <ApiParam name='trailing' type="object" id="trailing">
+           Details of the trailing configuration for conditional Stop Loss order.
+          </ApiParam>
+            <CollapsibleNestedParams>
+              <ApiParam name='enabled' type="boolean" id="enabled">
+               Enables a trailing price settings for a conditional Stop Loss order.
+              </ApiParam>
+            </CollapsibleNestedParams>
+        </CollapsibleNestedParams>
+    </ApiParam>
+    <ApiParam name='timeout' type="object" id="timeout">
+      Details of the timeout configuration.
+    </ApiParam>
+      <CollapsibleNestedParams>
+        <ApiParam name='enabled' type="boolean" id="enabled">
+         Indicates whether the timeout setting for the stop loss is enabled.
+        </ApiParam>
+        <ApiParam name='value' type="integer" id="value">
+         The value of the timeout setting for the Stop Loss trade.
+        </ApiParam>
+      </CollapsibleNestedParams>
+  </CollapsibleNestedParams>
+</ApiParam>
+
+
+
+
+
+
+
+
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+
+### Example request
+
+```json title="PATCH /v2/smart_trades/12345678"
+...
+```
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+  ## Parameters response
+  If successful, the response includes an updated copy of [SmartTrade](/docs/SmartTrade/1.%20SmartTrade%20entity.md) entity.
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+    ## Example Response
+   <ResponseTabs.Root>
+      <ResponseTabs.TabItem value="200" label="200 OK" default>
+
+      </ResponseTabs.TabItem>
+  </ResponseTabs.Root>
+  </StickyLayout.Sticky>
+</StickyLayout.Root>
