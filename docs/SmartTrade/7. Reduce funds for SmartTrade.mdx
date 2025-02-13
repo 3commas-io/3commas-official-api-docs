@@ -4,6 +4,7 @@ import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import { Informer } from '@site/src/components/Informer/Informer';
 
 <Endpoint
   url="/v2/smart_trades/:id/reduce_funds"
@@ -18,9 +19,9 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 Starts the process of creating reduced funds.
 
-:::info
+<Informer variant="info">
  New trades and orders will be created on the exchange once the process begins.
-:::
+</Informer>
 
 <StickyLayout.Root>
 <StickyLayout.Main>

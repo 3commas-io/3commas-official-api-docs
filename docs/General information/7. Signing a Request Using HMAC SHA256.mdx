@@ -2,6 +2,7 @@ import { Steps, Step } from '@site/src/components/VerticalStepper'
 import Endpoint, { Permission } from '@site/src/components/Endpoint'
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { Informer } from '@site/src/components/Informer/Informer';
 
 
 `SIGNED` endpoints require an additional `Signature` header to verify the authenticity of the request.
@@ -45,9 +46,9 @@ Once the signature is computed, include it in the API request as follows:
   />
 </Steps>
 
-:::note
-Keep in mind, the signature is not case sensitive.
-:::
+<Informer variant="warning">
+  Keep in mind, the signature is not case sensitive.
+</Informer>
 
 ### Look [here](https://3commas-io.github.io/public-api-signature-calculator-example/) for some examples
 
@@ -83,16 +84,18 @@ mode | paper
 
 <Tabs>
   <TabItem value="Request via Query String" label="Request via Query String">
-  * **queryString:** `mode=paper`
-  * **HMAC SHA256 signature:**
+  
+  ```json title="queryString"
+  mode=paper
+  ```
 
-    ```
+    ```json title="HMAC SHA256 signature"
     [linux]$ echo -n "/public/api/ver1/users/change_mode?mode=paper" | openssl dgst -sha256 -hmac "NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j"
     (stdin)= bca8d8c10acfbe8e76c5335d3efbe0a550487170a8bb7aaea0a13efabab55316
     ```
-  * **curl command:**
 
-    ```
+
+    ```json title="curl command"
     (HMAC SHA256)
     [linux]$ curl -H "Apikey: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -H "Signature: bca8d8c10acfbe8e76c5335d3efbe0a550487170a8bb7aaea0a13efabab55316" -X POST 'https://api.3commas.io/public/api/ver1/users/change_mode?mode=paper'
     ```
@@ -140,7 +143,17 @@ Here is a step-by-step example of how to call your endpoint through Postman. Onc
   method="GET"
 />
 
-* Set up GET url
+<Steps>
+  <Step title="Set up GET url" description={<>With include_events: <code>https://api.3commas.io/public/api/ver1/bots/EnterBotIdHere/show?include_events=true</code> </>}
+  />
+  <Step title="Generate the binary signature" description= {<>Use the HMAC SHA256 algorithm with your secretKey as the key and totalParams as the data.</>}
+  />
+  <Step title="Encode the signature" description={<>Convert the binary output of the HMAC operation to a hexadecimal string.</>}
+  />
+</Steps>
+
+
+* 
 
 - With include_events:
 `<https://api.3commas.io/public/api/ver1/bots/EnterBotIdHere/show?include_events=true>`

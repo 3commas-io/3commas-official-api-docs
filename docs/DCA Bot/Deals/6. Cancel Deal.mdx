@@ -4,6 +4,7 @@ import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParam
 import ApiParam from '@site/src/components/ApiParam';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import { Informer } from '@site/src/components/Informer/Informer';
 
 <Endpoint
   url="/ver1/deals/:deal_id/cancel"
@@ -18,9 +19,10 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 Cancels a specific deal within the DCA Bot using its ID.
 
-:::warning
+<Informer variant="warning">
 After this action, 3Commas will automatically set the final status to **Cancelled** for this deal.
-:::
+</Informer>
+
 
 <StickyLayout.Root>
 <StickyLayout.Main>
