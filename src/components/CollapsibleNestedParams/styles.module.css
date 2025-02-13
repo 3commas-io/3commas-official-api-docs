@@ -26,6 +26,7 @@
   background: none;
   border: 1px solid var(--ifm-blockquote-border-color);
   box-shadow: none;
+  margin-top: .75rem;
 
   ::before {
     display: none;
@@ -40,18 +41,22 @@
     border-bottom: 1px solid transparent;
   }
 
-  > summary + div > * {
-    border: none;
-    margin-top: 0;
-    padding-top: 0;
-    padding: var(--gap);
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap);
+  > summary + div {
+    transition-duration: 50ms!important;
 
-    /* & > div + div {
-      border-top: 1px solid var(--ifm-toc-border-color);
-    } */
+    > * {
+      border: none;
+      margin-top: 0;
+      padding: var(--gap);
+      padding-left: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap);
+
+      /* & > div + div {
+        border-top: 1px solid var(--ifm-toc-border-color);
+      } */
+    }
   }
 
   .collapseIcon {
@@ -75,5 +80,9 @@
         transform: rotate(45deg);
       }
     }
+  }
+
+  &[data-collapsed="true"] {
+    align-self: start;
   }
 }

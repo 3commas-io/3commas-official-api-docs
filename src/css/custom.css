@@ -21,6 +21,8 @@
   --ifm-table-cell-padding: 0.5rem;
   --ifm-list-left-padding: 1rem;
   --ifm-link-color: #13a8a1;
+  --ifm-code-padding-vertical: 2px;
+  --ifm-code-padding-horizontal: 4px;
 
   @media (min-width: 997px) {
     --ifm-global-spacing: 1.5rem;
@@ -257,4 +259,17 @@ body ul {
 
 body ol {
   list-style: decimal;
+}
+
+.tabs {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #fff;
+  margin-bottom: -.75rem;
+  padding-bottom: .75rem;
+
+  [data-theme="dark"] & {
+    background: var(--ifm-background-color);
+  }
 }
