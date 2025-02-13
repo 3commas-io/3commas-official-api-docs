@@ -27,30 +27,38 @@ The process starts with configuring a **DCA Bot**, where all trading conditions,
 <Endpoint
   endpointsList={[
     {
-      url: "/ver1/bots/strategy_list1",
-      method: 'GET'
-    },
-    {
       url: "/ver1/bots/create_bot",
       method: 'POST'
     },
     {
-      url: "/ver1/bots/:bot_id/update",
-      method: 'PATCH'
+      url: "ver1/bots/update_pairs_black_list",
+      method: 'POST'
     },
     {
-      url: "/ver1/bots/:bot_id/show",
+      url: "/ver1/bots/pairs_black_list",
+      method: 'GET'
+    },
+    {
+      url: "/ver1/bots/strategy_list",
       method: 'GET'
     },
     {
       url: "/ver1/bots",
       method: 'GET'
     },
+    {
+      url: "/ver1/bots/stats",
+      method: 'GET'
+    },
+      {
+      url: "/ver1/bots/stats_by_date",
+      method: 'GET'
+    },
      {
       url: "/ver1/bots/:bot_id/disable",
       method: 'POST'
     },
-     {
+    {
       url: "/ver1/bots/:bot_id/enable",
       method: 'POST'
     },
@@ -67,23 +75,15 @@ The process starts with configuring a **DCA Bot**, where all trading conditions,
       method: 'POST'
     },
     {
-      url: "ver1/bots/update_pairs_black_list",
-      method: 'POST'
+      url: "/ver1/bots/:bot_id/update",
+      method: 'PATCH'
     },
     {
-      url: "/ver1/bots/pairs_black_list",
+      url: "/ver1/bots/:bot_id/show",
       method: 'GET'
     },
     {
       url: "/ver1/bots/:id/profit_by_day",
-      method: 'GET'
-    },
-     {
-      url: "/ver1/bots/stats",
-      method: 'GET'
-    },
-      {
-      url: "/ver1/bots/stats_by_date",
       method: 'GET'
     }
   ]}
