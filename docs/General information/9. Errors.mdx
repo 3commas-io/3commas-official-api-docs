@@ -8,11 +8,11 @@ When a request fails, 3Commas API returns an error object with a relevant HTTP r
 
 Errors generally return a 4xx response code:
 
-* `4XX`: Malformed requests (issue is on the sender's side);
-* `429`: Request rate limit exceeded;
-* `418`: IP auto-banned for continuing to send requests after receiving `429` codes;
-* `5XX`: Internal errors (issue is on 3Commas's side);
-* `504`: Gateway timeout, indicating the API couldn’t get a timely response.
+* `4XX` Malformed requests (issue is on the sender's side);
+* `429` Request rate limit exceeded;
+* `418` IP auto-banned for continuing to send requests after receiving `429` codes;
+* `5XX` Internal errors (issue is on 3Commas's side);
+* `504` Gateway timeout, indicating the API couldn’t get a timely response.
 
 Success responses return a 2xx status code.
 
@@ -23,15 +23,15 @@ Success responses return a 2xx status code.
 ## Attributes
 
 <ApiParam name='error' type='string' id="error" required>
-   Specific error codes and messages defined in another document
+   Specific error codes and messages defined in another document.
 </ApiParam>
 
 <ApiParam name='error_description' type='string' id="error_description">
-   Localized, extended description of the error
+   Localized, extended description of the error.
 </ApiParam>
 
 <ApiParam name='error_attributes' type='string' id="error_attributes">
-   Lists fields that did not pass validation
+   Lists fields that did not pass validation.
 </ApiParam>
 
 </StickyLayout.Main>
