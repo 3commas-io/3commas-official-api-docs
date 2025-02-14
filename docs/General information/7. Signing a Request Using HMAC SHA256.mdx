@@ -2,6 +2,7 @@ import { Steps, Step } from '@site/src/components/VerticalStepper'
 import Endpoint, { Permission } from '@site/src/components/Endpoint'
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
 import { Informer } from '@site/src/components/Informer/Informer';
 
 
@@ -84,51 +85,137 @@ mode | paper
 
 <Tabs>
   <TabItem value="Request via Query String" label="Request via Query String">
-  
-  ```json title="queryString"
-  mode=paper
-  ```
-
-    ```json title="HMAC SHA256 signature"
-    [linux]$ echo -n "/public/api/ver1/users/change_mode?mode=paper" | openssl dgst -sha256 -hmac "NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j"
-    (stdin)= bca8d8c10acfbe8e76c5335d3efbe0a550487170a8bb7aaea0a13efabab55316
-    ```
-
-
-    ```json title="curl command"
-    (HMAC SHA256)
-    [linux]$ curl -H "Apikey: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -H "Signature: bca8d8c10acfbe8e76c5335d3efbe0a550487170a8bb7aaea0a13efabab55316" -X POST 'https://api.3commas.io/public/api/ver1/users/change_mode?mode=paper'
-    ```
+  <Steps>
+  <Step title="Request Preparation"
+      description={
+      <>
+            <CodeBlock language="json" title="path" showLineNumbers>
+            {`/public/api/ver1/users/change_mode`}
+            </CodeBlock>
+            <CodeBlock language="json" title="queryString" showLineNumbers>
+            {`mode=paper`}
+            </CodeBlock>
+            <CodeBlock language="json" title="payload" showLineNumbers>
+            {`/public/api/ver1/users/change_mode?mode=paper`}
+            </CodeBlock>
+            </>
+            }
+  />
+<Step title="Generating the HMAC SHA256 Signature"
+      description= {
+      <>    
+            <CodeBlock language="bash" showLineNumbers>
+            {`echo -n "/public/api/ver1/users/change_mode?mode=paper" | openssl dgst -sha256 -hmac "NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j"`}
+            </CodeBlock>
+            <p>After running the command, you'll get the signature:</p>
+            <CodeBlock language="bash" showLineNumbers>
+            {`bca8d8c10acfbe8e76c5335d3efbe0a550487170a8bb7aaea0a13efabab55316`}
+            </CodeBlock>
+      </>
+            }
+  />
+<Step title="Making the API Call"
+      description= {
+      <>
+            <CodeBlock language="bash" showLineNumbers>
+            {`curl
+-H "Apikey: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A"
+-H "Signature: bca8d8c10acfbe8e76c5335d3efbe0a550487170a8bb7aaea0a13efabab55316"
+-X POST 'https://api.3commas.io/public/api/ver1/users/change_mode?mode=paper'`}
+            </CodeBlock>
+            </>
+            }
+  />
+</Steps>
 </TabItem>
 <TabItem value="Request via Request Body" label="Request via Request Body">
-  * **requestBody:** `mode=paper`
-  * **HMAC SHA256 signature:**
-
-    ```
-    [linux]$ echo -n "/public/api/ver1/users/change_mode?mode=paper" | openssl dgst -sha256 -hmac "NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j"
-    (stdin)= bca8d8c10acfbe8e76c5335d3efbe0a550487170a8bb7aaea0a13efabab55316
-    ```
-  * **curl command:**
-
-    ```
-    (HMAC SHA256)
-    [linux]$ curl -H "Apikey: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -H "Signature: bca8d8c10acfbe8e76c5335d3efbe0a550487170a8bb7aaea0a13efabab55316" -X POST 'https://api.3commas.io/public/api/ver1/users/change_mode' -d 'mode=paper' 
-    ```
+<Steps>
+  <Step title="Request Preparation"
+      description={
+      <>
+            <CodeBlock language="json" title="path" showLineNumbers>
+            {`/public/api/ver1/users/change_mode`}
+            </CodeBlock>
+            <CodeBlock language="json" title="requestBody" showLineNumbers>
+            {`mode=paper`}
+            </CodeBlock>
+            <CodeBlock language="json" title="payload" showLineNumbers>
+            {`/public/api/ver1/users/change_mode?mode=paper`}
+            </CodeBlock>
+            </>
+            }
+  />
+<Step title="Generating the HMAC SHA256 Signature"
+      description= {
+      <>    
+            <CodeBlock language="bash" showLineNumbers>
+            {`echo -n "/public/api/ver1/users/change_mode?mode=paper" | openssl dgst -sha256 -hmac "NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j"`}
+            </CodeBlock>
+            <p>After running the command, you'll get the signature:</p>
+            <CodeBlock language="bash" showLineNumbers>
+            {`bca8d8c10acfbe8e76c5335d3efbe0a550487170a8bb7aaea0a13efabab55316`}
+            </CodeBlock>
+      </>
+            }
+  />
+<Step title="Making the API Call"
+      description= {
+      <>
+            <CodeBlock language="bash" showLineNumbers>
+            {`curl
+-H "Apikey: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" 
+-H "Signature: bca8d8c10acfbe8e76c5335d3efbe0a550487170a8bb7aaea0a13efabab55316"
+-X POST 'https://api.3commas.io/public/api/ver1/users/change_mode' -d 'mode=paper'`}
+            </CodeBlock>
+            </>
+            }
+  />
+</Steps>
 </TabItem>
 <TabItem value="Request via Raw JSON" label="Request via Raw JSON">
-  * **requestBody:** ```json'{"mode": "paper"}'```
-  * **HMAC SHA256 signature:**
-
-    ```
-    [linux]$ echo -n "/public/api/ver1/users/change_mode?{\"mode\": \"paper\"}" | openssl dgst -sha256 -hmac "NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j"
-    (stdin)= 0475b407ba6f2388d213134e478b330f74073388a232737837f79018694ae373
-    ```
-  * **curl command:**
-
-    ```
-    (HMAC SHA256)
-    [linux]$ curl -H "Apikey: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -H "Signature: 0475b407ba6f2388d213134e478b330f74073388a232737837f79018694ae373" -H "Content-Type: application/json" -X POST 'https://api.3commas.io/public/api/ver1/users/change_mode' --data-raw '{"mode": "paper"}' 
-    ```
+<Steps>
+<Step title="Request Preparation"
+      description={
+      <>
+            <CodeBlock language="json" title="path" showLineNumbers>
+            {`/public/api/ver1/users/change_mode`}
+            </CodeBlock>
+            <CodeBlock language="json" title="requestBody" showLineNumbers>
+            {`{"mode": "paper"}`}
+            </CodeBlock>
+            <CodeBlock language="json" title="payload" showLineNumbers>
+            {`/public/api/ver1/users/change_mode?{\"mode\": \"paper\"}`}
+            </CodeBlock>
+            </>
+            }
+  />
+<Step title="Generating the HMAC SHA256 Signature"
+      description= {
+      <>    
+            <CodeBlock language="bash" showLineNumbers>
+            {`echo -n "/public/api/ver1/users/change_mode?{\"mode\": \"paper\"}" | openssl dgst -sha256 -hmac "NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j"`}
+            </CodeBlock>
+            <p>After running the command, you'll get the signature:</p>
+            <CodeBlock language="bash" showLineNumbers>
+            {`0475b407ba6f2388d213134e478b330f74073388a232737837f79018694ae373`}
+            </CodeBlock>
+      </>
+            }
+  /> 
+  <Step title="Making the API Call"
+      description= {
+      <>
+            <CodeBlock language="bash" showLineNumbers>
+            {`curl
+-H "Apikey: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" 
+-H "Signature: 0475b407ba6f2388d213134e478b330f74073388a232737837f79018694ae373" 
+-H "Content-Type: application/json" 
+-X POST 'https://api.3commas.io/public/api/ver1/users/change_mode' --data-raw '{"mode": "paper"}'`}
+            </CodeBlock>
+            </>
+            }
+  />
+</Steps>
 </TabItem>
 </Tabs>
 
@@ -144,40 +231,63 @@ Here is a step-by-step example of how to call your endpoint through Postman. Onc
 />
 
 <Steps>
-  <Step title="Set up GET url" description={<>With include_events: <code>https://api.3commas.io/public/api/ver1/bots/EnterBotIdHere/show?include_events=true</code> </>}
+  <Step title="Set up GET url"
+        description={<>
+        <p> With include_events <code>https://api.3commas.io/public/api/ver1/bots/EnterBotIdHere/show?include_events=true</code> </p> 
+        <p> By using <code>include_events</code> in the query string, in Postman, your Params field will be automatically filled in.</p> 
+        </>
+        }
   />
-  <Step title="Generate the binary signature" description= {<>Use the HMAC SHA256 algorithm with your secretKey as the key and totalParams as the data.</>}
+  <Step title="Calculate your Signature" 
+        description= {<>
+        Use a HMAC SHA256 generator tool.
+        <table>
+          <thead>
+            <tr>
+              <th>Input value</th>
+              <th>Secret Key</th>
+              <th>Hashed Output</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>/public/api/ver1/bots/84512/show?include_events=true</td>
+              <td>Use your secret API key from 3commas</td>
+              <td>Signature result to be used in Step 3</td>
+            </tr>
+          </tbody>
+        </table>
+        </>
+        }
   />
-  <Step title="Encode the signature" description={<>Convert the binary output of the HMAC operation to a hexadecimal string.</>}
+  <Step title="Set up Headers"
+        description={<>
+          <table>
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Apikey</td>
+                <td>3commas API key goes here</td>
+              </tr>
+              <tr>
+                <td>Signature</td>
+                <td>Calculated Signature from Step 2 goes here</td>
+              </tr>
+            </tbody>
+          </table>
+        These 2 key/value pairs can be entered in Postman under Headers (which is located under the GET url field).
+        </>
+        }
+  />
+  <Step title="Receive JSON object"
+        description={<>
+        If you have followed these steps you should now receive a status 200 OK with your JSON data.
+        </>
+        }
   />
 </Steps>
-
-
-* 
-
-- With include_events:
-`<https://api.3commas.io/public/api/ver1/bots/EnterBotIdHere/show?include_events=true>`
-
-By using include_events in the query string, in Postman, your Params field will be automatically filled in
-
-* Calculate your Signature
-
-Use a HMAC SHA256 generator tool.
-
-| Input value | Secret Key | Hashed Output |
------------- | ------------|-----------
-| /public/api/ver1/bots/84512/show?include_events=true | Use your secret API key from 3commas | Signature result to be used in Step 3 |
-
-* Set up Headers
-
-Key | Value
------------- | ------------
-Apikey | 3commas API key goes here
-Signature | Calculated Signature from Step 2 goes here
-
-These 2 key/value pairs can be entered in Postman under Headers (which is located under the GET url field)
-
-* Receive JSON object
-
-If you have followed these steps you should now receive a status 200 OK with your JSON data.
-
