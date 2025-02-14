@@ -206,7 +206,7 @@ mode | paper
             {`{"mode": "paper"}`}
             </CodeBlock>
             <CodeBlock language="json" title="payload" showLineNumbers>
-            {`/public/api/ver1/users/change_mode?{\"mode\": \"paper\"}`}
+            {`/public/api/ver1/users/change_mode`}
             </CodeBlock>
             </>
             }
@@ -215,7 +215,7 @@ mode | paper
       description= {
       <>    
             <CodeBlock language="bash" showLineNumbers>
-            {`echo -n "/public/api/ver1/users/change_mode?{\"mode\": \"paper\"}" | openssl dgst -sha256 -hmac "NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j"`}
+            {`echo -n "/public/api/ver1/users/change_mode" | openssl dgst -sha256 -hmac "NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j"`}
             </CodeBlock>
             <p>After running the command, you'll get the signature:</p>
             <CodeBlock language="bash" showLineNumbers>
