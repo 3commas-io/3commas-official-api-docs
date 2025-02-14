@@ -12,23 +12,35 @@ Follow the steps below to compute a signature using `HMAC SHA256`.
 
 ## How to compute the signature with HMAC SHA256
 
-The signature is generated using the `HMAC SHA256` algorithm. This method combines your `SecretKey` and the `uri?totalParams` to produce a unique code.
+The signature is generated using the `HMAC SHA256` algorithm. This method combines your `SecretKey` and the `uri?totalParams` to produce a unique code. The generated signature is not case sensitive.
 
 `totalParams` consists of the `query string` (parameters in the URL) concatenated with the `request body` (payload).
 
-    Important notes:
-    * The signature is **not case sensitive**.
-    * Your `secretKey` should remain private and never be included in the request.
+<Informer variant="danger">
+Your `secretKey` should remain private and never be included in the request.
+</Informer>
 
 This ensures the security of your API interactions by validating the sender and protecting against unauthorized requests.
 
 <Steps>
-  <Step title="Prepare the payload" description={<>Concatenate the query string and the request body to create the signature payload <code>totalParams</code>.
-Ensure the data is formatted consistently.</>}
+  <Step title="Prepare the payload" description= {
+    <>
+    Concatenate the query string and the request body to create the signature payload <code>totalParams</code>.
+Ensure the data is formatted consistently.
+    </>
+    }
   />
-  <Step title="Generate the binary signature" description= {<>Use the HMAC SHA256 algorithm with your secretKey as the key and totalParams as the data.</>}
+  <Step title="Generate the binary signature" description= {
+    <>
+    Use the HMAC SHA256 algorithm with your secretKey as the key and totalParams as the data.
+    </>
+    }
   />
-  <Step title="Encode the signature" description={<>Convert the binary output of the HMAC operation to a hexadecimal string.</>}
+  <Step title="Encode the signature" description={
+    <>
+    Convert the binary output of the HMAC operation to a hexadecimal string.
+    </>
+    }
   />
 </Steps>
 
@@ -38,12 +50,22 @@ Ensure the data is formatted consistently.</>}
 Once the signature is computed, include it in the API request as follows:
 
 <Steps>
-  <Step title="Add the Signature to the request header" description={<>Include the computed signature in the Signature header of your request.</>}
+  <Step title="Add the Signature to the request header" description= {
+   <>
+   Include the computed signature in the Signature header of your request.
+   </>
+   }
   />
-  <Step title="Include your API Key" description= {<>Add your 3Commas APIKey in the request header.</>}
+  <Step title="Include your API Key" description= {
+    <>
+    Add your 3Commas APIKey in the request header.
+    </>
+  }
   />
-  <Step title="Send the request" description={<>Ensure the request method, headers, and payload are identical to those used during signature computation to avoid mismatches.
-</>}
+  <Step title="Send the request" description={
+    <>
+   Ensure the request method, headers, and payload are identical to those used during signature computation to avoid mismatches.
+    </>}
   />
 </Steps>
 
