@@ -56,28 +56,25 @@ No parameters.
 ## Example Responses
 <ResponseTabs.Root>
 <ResponseTabs.TabItem value="201" label="201 Created" default>
-
-  ```json
+```json
   true
-  ```
+```
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="404" label="404 Not Found">
-
-  ```json
+```json
   {
       "error": "not_found",
       "error_description": "Not Found"
   }
-  ```
+```
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="422" label="422 Unprocessable Entity">
-
-  ```json
+```json
   {
       "error": "account_not_deletable",
       "error_description": "There are active trading deals on this exchange. Close all trading operations and try again"
   }
-  ```
+```
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>

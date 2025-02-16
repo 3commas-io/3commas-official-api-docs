@@ -17,7 +17,7 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
   }
 />
 
-Returns the list of active bots, deals and smarttrades using an ID account.
+Returns the number of active trading entities (bots, deals, and SmartTrades) associated with the account using its ID.
 
 <StickyLayout.Root>
 <StickyLayout.Main>
@@ -31,7 +31,7 @@ Returns the list of active bots, deals and smarttrades using an ID account.
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>
-## Example request
+## Example Request
 
 ```json
 GET /ver1/accounts/12345678/active_trading_entities
@@ -68,7 +68,7 @@ GET /ver1/accounts/12345678/active_trading_entities
 </StickyLayout.Main>      
 
 <StickyLayout.Sticky>
-## Example Response and errors
+## Example Responses
 
 <ResponseTabs.Root>
 <ResponseTabs.TabItem value="200" label="200 OK" default>
@@ -84,7 +84,22 @@ GET /ver1/accounts/12345678/active_trading_entities
     }
 }
 ```
-
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="404" label="404 Not Found" default>
+```json
+{
+    "error": "not_found",
+    "error_description": "Not Found"
+}
+```
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="422" label="422 Unprocessable Entity" default>
+```json
+{
+    "error_description": "API keys are no longer valid or incorrect.",
+    "error": "invalid_api_key"
+}
+```
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>

@@ -2,6 +2,7 @@ import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
@@ -24,13 +25,13 @@ Returns information about currency balances of a specific account using its ID, 
 ## Path Parameter 
 
 <ApiParam name='account_id' type='integer' id="account_id" required>
-    Unique 3Commas ID of this exchange account entity.
+Unique 3Commas ID of this exchange account entity.
 </ApiParam>
 
 </StickyLayout.Main>
 <StickyLayout.Sticky>
 
-## Example request
+## Example Request
 
 ```json
 POST /ver1/accounts/32402783/pie_chart_data
@@ -43,21 +44,24 @@ POST /ver1/accounts/32402783/pie_chart_data
 
 ## Response Parameters
 
-<CollapsibleApiParam name='account_id' type='integer' id="account_id">
+<ApiParam name='account_id' type='integer' id="account_id">
 ID of the exchange account entity.
-</CollapsibleApiParam>
+</ApiParam>
 
-<CollapsibleApiParam name='code' type='string' id="code">
+<ApiParam name='code' type='string' id="code">
 The cryptocurrency code symbol.
-</CollapsibleApiParam>
+</ApiParam>
 
-<CollapsibleApiParam name='coinmarketcapid' type='string' id="coinmarketcapid">
+<ApiParam name='coinmarketcapid' type='string' id="coinmarketcapid">
 Unique identifier of the cryptocurrency on CoinMarketCap.
-</CollapsibleApiParam>
+</ApiParam>
 
-<CollapsibleApiParam name='name' type='string' id="name">
+<ApiParam name='name' type='string' id="name">
 Full name of the cryptocurrency.
-</CollapsibleApiParam>
+</ApiParam>
+
+<CollapseAll>
+<CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
 
 <CollapsibleApiParam name='y' type='string' id="y">
 TBD
@@ -90,6 +94,7 @@ The equivalent value of this cryptocurrency in USD.
       </ApiParam>   
    </CollapsibleNestedParams>
 </CollapsibleApiParam>
+</CollapseAll>
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>
@@ -98,8 +103,7 @@ The equivalent value of this cryptocurrency in USD.
 
 <ResponseTabs.Root>
 <ResponseTabs.TabItem value="201" label="201 Created" default>
-
-    ```json
+```json
     [
         {
             "code": "BTC",
@@ -116,7 +120,6 @@ The equivalent value of this cryptocurrency in USD.
             },
             "account_id": 32402783
         },
-    ...
         {
             "code": "USDT",
             "coinmarketcapid": "825",
@@ -148,7 +151,7 @@ The equivalent value of this cryptocurrency in USD.
             "account_id": 32402783
         }
     ]
-    ```
+```
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>
