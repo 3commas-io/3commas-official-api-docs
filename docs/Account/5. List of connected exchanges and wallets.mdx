@@ -29,20 +29,21 @@ Returns the list of exchange accounts and wallets connecting to a user account.
 </ApiParam>
 
 <ApiParam name='page' type='integer' id="page">
-  Page number for pagination. Default: ` 1 `.
+  Page number for pagination. 
+  
+  Default: `1`
 </ApiParam>
 
 <ApiParam name='per_page' type='integer' id="page">
    Quantity of records on one page.
 
-   Minimum: `1`; Maximum: `100`; Default:  `100`.
+   Minimum: `1`, Maximum: `100`, Default: `100`
 </ApiParam>
-
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>
 
-## Example request
+## Example Request
 
 ```json
 GET /ver1/accounts
@@ -53,7 +54,7 @@ GET /ver1/accounts
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-## Parameters response
+## Parameters Response
 
 If successful, the response includes a copy of [Account](0.%20Account%20entity.mdx) entity.
 
@@ -61,7 +62,7 @@ If successful, the response includes a copy of [Account](0.%20Account%20entity.m
 
 
 <StickyLayout.Sticky>
-## Example Response and errors
+## Example Response
 <ResponseTabs.Root>
 <ResponseTabs.TabItem value="200" label="200 OK" default>
 
