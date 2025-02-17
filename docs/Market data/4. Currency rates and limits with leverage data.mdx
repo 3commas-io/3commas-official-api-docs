@@ -50,151 +50,149 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 <StickyLayout.Root>
    <StickyLayout.Main>
 
-### Response Parameters
+## Response Parameters
 
 <ApiParam name='last' type='integer' id="last">
-    Last price
+    Last price.
 </ApiParam>
 
 <ApiParam name='bid' type='string' id="bid">
-    Bid price
+    Bid price.
 </ApiParam>
 
 <ApiParam name='ask' type='string' id="ask">
-    Ask price
+    Ask price.
 </ApiParam>
 
 <ApiParam name='orderbook_ask' type='string' id="orderbook_ask">
-    Ask price of ticker
-</ApiParam>
-
-<ApiParam name='orderbook_bid' type='string' id="orderbook_bid">
-   Bid price of ticker
+    Ask price of ticker.
 </ApiParam>
 
 <CollapseAll>
    <CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
 
+<CollapsibleApiParam name='orderbook_bid' type='string' id="orderbook_bid">
+   Bid price of ticker.
+</CollapsibleApiParam>
+
 <CollapsibleApiParam name='orderbook_last' type='string' id="orderbook_last">
-   Last price of ticker
+   Last price of ticker.
 </CollapsibleApiParam> 
 
 <CollapsibleApiParam name='orderbook_price_currency' type='string' id="orderbook_price_currency">
-   Currency price of ticker
+   Currency price of ticker.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='strategy_name' type='string' id="strategy_name">
-   The name of trading strategy
+   The name of trading strategy.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='leverage_data' type='array[object]' id="leverage_data">
-  <p>Represents a leverage data for this pair</p>
+  Represents a leverage data for this pair.
     <ApiParam name='code' type="string" id="code">
-      The type of leverage available
+      The type of leverage available.
     </ApiParam>
     <ApiParam name='name' type="string" id="name">
-      Name of the leverage option available for this contract
+      Name of the leverage option available for this contract.
     </ApiParam>
      <ApiParam name='can_set_leverage_value' type="boolean" id="can_set_leverage_value">
-      Indicates whether a custom leverage value can be set
+      Indicates whether a custom leverage value can be set.
     </ApiParam>
       <ApiParam name='available_leverage_values' type="boolean" id="available_leverage_values">
-      Available leverage values for settings for this pair and exchange
+      Available leverage values for settings for this pair and exchange.
     </ApiParam>
       <ApiParam name='max_leverage' type="string" id="max_leverage">
-      The maximum leverage value allowed for this contract
+      The maximum leverage value allowed for this contract.
     </ApiParam>
     <CollapsibleApiParam name='value' type='string' id="value">
-      Contains minimum and maximum leverage value that can be applied for this pair
+      Contains minimum and maximum leverage value that can be applied for this pair.
         <CollapsibleNestedParams>
              <ApiParam name='min'type='string' id="min">
-              The minimum leverage value that can be applied to this contract
+              The minimum leverage value that can be applied to this contract.
             </ApiParam>
              <ApiParam name='max'type='string' id="max">
-              The maximum leverage value that can be applied to this contract
+              The maximum leverage value that can be applied to this contract.
             </ApiParam>
         </CollapsibleNestedParams>
      </CollapsibleApiParam>
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='contract_strategy_name' type='string' id="stratcontract_strategy_nameegy_name">
-   The strategy by which the contract price is calculated
+   The strategy by which the contract price is calculated.
 </CollapsibleApiParam>  
 
 <CollapsibleApiParam name='instrumentKind' type='string' id="instrumentKind">
-   The type of exchange instrument
+   The type of exchange instrument.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='minPrice' type='string' id="minPrice">
-   Minimum price order
+   Minimum price order.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='maxPrice' type='string' id="maxPrice">
-   Maximum price order
+   Maximum price order.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='priceStep' type='string' id="priceStep">
-   The minimum step for changing the price
+   The minimum step for changing the price.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='minLotSize' type='string' id="maxminLotSizePrice">
-   The minimum lot size for order in Base currency
+   The minimum lot size for order in Base currency.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='lotStep' type='string' id="lotStep">
-   Order of changing the size in Base currency
+   Order of changing the size in Base currency.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='maxMarketBuyAmount' type='string' id="maxMarketBuyAmount">
-   Maximum order size in Base currency for buy
+   Maximum order size in Base currency for buy.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='maxMarketSellAmount' type='string' id="maxMarketSellAmount">
-   Maximum order size in Base currency for sell
+   Maximum order size in Base currency for sell.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='bidMultiplierDown' type='string' id="bidMultiplierDown">
-   A multiplier applied to decrease the bid price
+   A multiplier applied to decrease the bid price.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='bidMultiplierUp' type='string' id="bidMultiplierUp">
-   A multiplier applied to increase the bid price
+   A multiplier applied to increase the bid price.
 </CollapsibleApiParam>   
    
 <CollapsibleApiParam name='askMultiplierUp' type='string' id="askMultiplierUp">
-   A multiplier applied to increase the ask price
+   A multiplier applied to increase the ask price.
 </CollapsibleApiParam>
    
 <CollapsibleApiParam name='askMultiplierDown' type='string' id="askMultiplierDown">
-   A multiplier applied to decrease the ask price
+   A multiplier applied to decrease the ask price.
 </CollapsibleApiParam> 
 
 <CollapsibleApiParam name='minTotal' type='string' id="minTotal">
-   Minimum order size in Quote
+   Minimum order size in Quote.
 </CollapsibleApiParam>  
 
 <CollapsibleApiParam name='minMarketTotal' type='string' id="minMarketTotal">
-   Minimum order size in Quote for market order
+   Minimum order size in Quote for market order.
 </CollapsibleApiParam>   
    
 <CollapsibleApiParam name='maxTotal' type='string' id="maxTotal">
-   Maximum order size in Quote
+   Maximum order size in Quote.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='maxLotSize' type='string' id="maxLotSize">
-   Maximum order size in Base
+   Maximum order size in Base.
 </CollapsibleApiParam>
 </CollapseAll>
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>
 
-## Example Response and errors
-
+## Example Responses
 <ResponseTabs.Root>
       <ResponseTabs.TabItem value="200" label="200 OK" default>
-
-    ```JSON
+```json
 {
   "last": "0.3039",
   "bid": "0.3039",
@@ -238,14 +236,13 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 ```
 </ResponseTabs.TabItem>
 
-   <ResponseTabs.TabItem value="400" label="400 Bad Request" default>
-
-      ```json
+<ResponseTabs.TabItem value="400" label="400 Bad Request" default>
+```json
       {
       "error": "Unknown pair"
        }
-   ```
-  </ResponseTabs.TabItem>
+```
+</ResponseTabs.TabItem>
 </ResponseTabs.Root>
 
 </StickyLayout.Sticky>

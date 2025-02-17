@@ -22,10 +22,10 @@ import * as StickyLayout from '@site/src/components/StickyLayout'
 <StickyLayout.Root>
    <StickyLayout.Main>
 
-## Query Parameters
+## Query Parameter
 
 <ApiParam name='market_code' type='integer' id="market_code" required>
-    Unique exchange code in the 3Commas system. 
+    Unique exchange code in the 3Commas system.
     
     Use endpoint [Supported markets list](/docs/Market%20data/1.%20Supported%20markets%20list.mdx) to get value for parameter <code>market_code</code>.
 </ApiParam>
@@ -33,13 +33,13 @@ import * as StickyLayout from '@site/src/components/StickyLayout'
 </StickyLayout.Main>
    <StickyLayout.Sticky>
    
-## Example request
+## Example Request
 
 ```json
 GET /ver1/accounts/market_pairs?market_code=binance_us
 ```
 
-## Response
+## Example Response
 <ResponseTabs.Root>
       <ResponseTabs.TabItem value="200" label="200 OK" default>
 
@@ -61,6 +61,5 @@ GET /ver1/accounts/market_pairs?market_code=binance_us
 ```
    </ResponseTabs.TabItem>
   </ResponseTabs.Root>
-
 </StickyLayout.Sticky>
 </StickyLayout.Root>
