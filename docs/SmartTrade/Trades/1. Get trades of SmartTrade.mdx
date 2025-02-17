@@ -19,7 +19,7 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs'
   }
 />
 
-Shows trades of existing SmartTrade
+Shows trades of existing SmartTrade.
 
 <StickyLayout.Root>
     <StickyLayout.Main>
@@ -37,16 +37,16 @@ Shows trades of existing SmartTrade
 </StickyLayout.Root>
 
 <StickyLayout.Root>
-    <StickyLayout.Main>
-        ## Response Parameters
-        If successful response, the response includes a copy of Trade entity. You can find a total description of all attributes on the page about [Trade](0.%20Trade%20entiry.mdx).
-    </StickyLayout.Main>
-    <StickyLayout.Sticky>
-        ## Example Responses
-        <ResponseTabs.Root>
-            	 <ResponseTabs.TabItem value="200" label="200 OK" default>
+<StickyLayout.Main>
+## Response Parameters
+If successful response, the response includes a copy of Trade entity. You can find a total description of all attributes on the page about [Trade](0.%20Trade%20entiry.mdx).
+</StickyLayout.Main>
+<StickyLayout.Sticky>
+## Example Responses
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="200" label="200 OK" default>
 
-                 ```json
+```json
 [
     {
         "id": 1006258046,
@@ -80,8 +80,6 @@ Shows trades of existing SmartTrade
         "realised_price": "0.10706",
         "cancelable": false,
         "force_processable": false
-    },
-    { ...
     },
     {
         "id": 1006258056,
@@ -119,15 +117,14 @@ Shows trades of existing SmartTrade
 ]
 ```
 </ResponseTabs.TabItem>
-                
-                 <ResponseTabs.TabItem value="404" label="404 Not Found">
-                    ```json
-                    {
-                        "error": "Not found",
-                        "error_description": "Smart Trade not found"
-                    }
-                    ```
-                 </ResponseTabs.TabItem>
-        </ResponseTabs.Root>
-    </StickyLayout.Sticky>
+<ResponseTabs.TabItem value="404" label="404 Not Found">
+```json
+{
+    "error": "Not found",
+    "error_description": "Smart Trade not found"
+}
+```
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
 </StickyLayout.Root>
