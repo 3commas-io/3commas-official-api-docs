@@ -1,0 +1,29 @@
+import { Informer } from '@site/src/components/Informer/Informer'
+
+## Ways to generate API Key
+
+We offer two ways to generate API Key:
+
+1. **3Commas system generated:** Works in a symmetric encryption method. A Secret Key will be provided to you. Please keep this Key secure and treat it like your password. Do not share the Key with any third parties.
+
+2. **Self generated:** Works in a RSA asymmetric encryption method. You will have to create your ow Public and Private Keys via software. Then you will only have to provide the Public Key.
+
+We recommend a second way because it's most secure method to connect your apps.
+
+
+## How to get an API Key
+
+To create and manage an API Key, [sign in](https://app.3commas.io/en/auth/login) to 3Commas and select 3Commas API from the right-side menu.
+
+On the page, click the **<span style={{ color: "#13a8a1" }}>New API access token</span>** button and select the method for generating the API Key. Then, complete the form fields. If you select Self-generated, you need to provide an RSA Private Key.
+
+<Informer variant="info">
+  For instructions on how to generate an RSA Private Key, refer to the article <a href="/docs/General20%information/5.20%How20%to20%create20%a20%RSA20%Key20%pair.mdx"> How to create an RSA Key pair</a>.
+</Informer>
+
+Select the appropriate permissions for the API Key and create your API Key.
+
+<Informer variant="danger">
+    After creating an API Key, store the information securely.
+</Informer>
+

@@ -1,0 +1,63 @@
+import { Steps, Step } from '@site/src/components/VerticalStepper'
+import Endpoint, { Permission } from '@site/src/components/Endpoint'
+
+All requests to the 3Commas API require authentication unless explicitly stated.
+
+<Steps>
+  <Step title="Get Your 3Commas API Key"
+        description= {
+        <>
+        We offer two ways to generate API Key:
+        <ul>
+          <li>System generated;</li>
+          <li>Self-generated using an RSA asymmetric encryption method.</li>
+        </ul>
+        We recommend the second method as it provides a more secure connection for your apps.
+        </>
+        }
+  />
+  <Step title="Create Signature"
+        description= {
+          <>
+          <code>SIGNED</code> endpoints require an additional <code>Signature</code> header to ensure the authenticity of the request.
+          </>
+          }
+  />
+  <Step title="Signed Endpoint" 
+        description= {
+        <>
+        To authenticate, pass your 3Commas <code>API Key</code> and the <code>Signature</code> header in the request.
+        </>
+        }
+  />
+</Steps>
+
+
+## Test authentication
+The quickest way to test your authentication setup is by sending a request to the `/ver1/validate` endpoint. This endpoint verifies the validity of your API credentials and returns the status of your authentication.
+
+**API credentials validity check**
+
+<Endpoint
+  url="/ver1/validate"
+  method="GET"
+/>
+
+**Responce**
+
+ If successful, 3Commas returns:
+
+```json
+{
+    "valid": true
+}
+```
+
+  If authentication fails, 3Commas returns a `401` Unauthorized error with the following payload:
+
+```json
+{
+    "error": "signature_invalid",
+    "error_description": "Provided signature is invalid"
+}
+```

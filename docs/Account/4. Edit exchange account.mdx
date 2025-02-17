@@ -1,0 +1,180 @@
+---
+sidebar_class_name: post
+---
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+
+<Endpoint
+  url="/ver1/accounts/update"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="ACCOUNTS_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Updates an exchange account using its ID, including updating API keys for reconnecting the account.
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Parameters Request
+
+<ApiParam name='account_id' type='integer' id="account_id" required>
+   Unique 3Commas ID of this exchange account entity.
+</ApiParam>
+
+<ApiParam name='name' type='string' id="name">
+    Name of this exchange account.
+</ApiParam>
+
+<ApiParam name='api_key' type='string' id="api_key">
+   API-key from this exchange account.
+</ApiParam>
+
+<ApiParam name='secret' type='string' id="secret">
+   Secret-key from this exchange account.
+</ApiParam>
+
+<CollapseAll>
+<CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
+
+<CollapsibleApiParam name="customer_id" type="string" id="customer_id">
+  Unique customer ID provided by the Bitstamp exchange.
+  This parameter is required when `type` is set to `Bitstamp`.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="passphrase" type="string" id="passphrase">
+   Secret phrase from this exchange account. This parameter is required when `type` is set to `Coinbase`.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="address" type="string" id="address">
+   Address of wallet. This parameter is required when `type` is set to `ethereumwallet`.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="include_in_summary" type="boolean" id="include_in_summary">
+   Indicates whether this account should be included in the summary statistics (`true`) or not(`false`).
+</CollapsibleApiParam>
+</CollapseAll>
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+
+## Example Request
+```
+POST /ver1/accounts/update?account_id=12345678&name=New%20name%20exchange
+```
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Parameters Response
+If successful, the response includes a copy of [Account](0.%20Account%20entity.mdx) entity.
+
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+
+## Example Response
+
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="201" label="201 Created" default>
+
+```json
+{
+    "id": 12345678,
+    "auto_balance_period": 12,
+    "auto_balance_portfolio_id": null,
+    "auto_balance_currency_change_limit": null,
+    "autobalance_enabled": false,
+    "hedge_mode_available": false,
+    "hedge_mode_enabled": false,
+    "is_locked": false,
+    "smart_trading_supported": true,
+    "smart_selling_supported": true,
+    "available_for_trading": {},
+    "stats_supported": true,
+    "trading_supported": true,
+    "market_buy_supported": true,
+    "market_sell_supported": true,
+    "conditional_buy_supported": true,
+    "bots_allowed": true,
+    "bots_ttp_allowed": true,
+    "bots_tsl_allowed": true,
+    "gordon_bots_available": true,
+    "multi_bots_allowed": true,
+    "created_at": "2024-08-29T14:16:10.830Z",
+    "updated_at": "2024-09-12T21:17:05.627Z",
+    "last_auto_balance": null,
+    "fast_convert_available": true,
+    "grid_bots_allowed": true,
+    "api_key_invalid": false,
+    "market_icon": "https://3commas.io/img/exchanges/bybit.png",
+    "deposit_enabled": false,
+    "include_in_summary": true,
+    "supported_market_types": [
+        "spot"
+    ],
+    "primary_display_currency_profit_percentage": {
+        "currency": "USD",
+        "amount": "1.27"
+    },
+    "primary_display_currency_profit": {
+        "currency": "USD",
+        "amount": "0.41977392126027012455593960354579615351317609077582"
+    },
+    "day_profit_primary_display_currency_percentage": {
+        "currency": "USD",
+        "amount": "2.1862"
+    },
+    "day_profit_primary_display_currency": {
+        "currency": "USD",
+        "amount": "0.71497909537100944606510928410135170906899572324142"
+    },
+    "primary_display_currency_amount": {
+        "currency": "USD",
+        "amount": "33.41938674385577012455593960354579615351317609077582"
+    },
+    "total_primary_display_currency_profit": {
+        "currency": "USD",
+        "amount": 0.4197739212602701
+    },
+    "available_include_in_summary": true,
+    "api_key": "gyTAiGCgRe1hctsA1J",
+    "name": "New name exchange",
+    "auto_balance_method": null,
+    "auto_balance_error": null,
+    "customer_id": null,
+    "subaccount_name": null,
+    "lock_reason": null,
+    "btc_amount": "0.000576100372659584112793557824740668987777435277",
+    "usd_amount": "33.41938674385577012455593960354579615351317609077582",
+    "day_profit_btc": "0.000008477241194296886998580144867983802592279153250469",
+    "day_profit_usd": "0.71497909537100944606510928410135170906899572324142",
+    "day_profit_btc_percentage": "1.49",
+    "day_profit_usd_percentage": "2.19",
+    "btc_profit": "0.000032527150138595112793557824740668987777435277",
+    "usd_profit": "0.41977392126027012455593960354579615351317609077582",
+    "usd_profit_percentage": "1.27",
+    "btc_profit_percentage": "5.98",
+    "total_btc_profit": "3.2527150138595115e-05",
+    "total_usd_profit": "0.41977392126027013",
+    "pretty_display_type": "BybitSpot",
+    "exchange_name": "Bybit Spot",
+    "market_code": "bybit_spot",
+    "api_keys_state": "ok"
+}
+```
+  </ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>

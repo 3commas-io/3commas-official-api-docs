@@ -1,0 +1,67 @@
+.steps {
+  display: flex;
+  flex-direction: column;
+  counter-reset: step;
+  margin-bottom: 1.75rem;
+}
+
+.step {
+  --circle-size: 2rem;
+
+  display: flex;
+  align-items: flex-start;
+  counter-increment: step;
+  position: relative;
+}
+
+.stepIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border-radius: 9999px;
+  background: var(--ifm-color-success-contrast-background);
+  font-size: 0.875rem;
+  font-weight: bold;
+  position: relative;
+}
+
+.circle::before {
+  content: counter(step);
+}
+
+.connector {
+  display: none;
+  width: 1px;
+  position: absolute;
+  background: var(--ifm-color-emphasis-200);
+  flex: 1;
+  height: calc(100% - var(--circle-size) - 10px - 0.75rem);
+  top: calc(var(--circle-size) + 0.75rem);
+}
+
+.step:not(:last-child) .connector {
+  display: block;
+}
+
+.content {
+  flex: 1;
+  padding-top: 0.25rem;
+}
+
+.content h3 {
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.content p {
+  color: var(--ifm-toc-link-color);
+}

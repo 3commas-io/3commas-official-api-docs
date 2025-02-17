@@ -1,0 +1,124 @@
+---
+sidebar_class_name: get
+---
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+
+
+<Endpoint
+  url="/ver1/accounts/:account_id/balance_chart_data"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="ACCOUNTS_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Returns the balance history for a specific account using its ID.
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Path Parameter
+<ApiParam name='account_id' type='integer' id="account_id" required>
+    Unique 3Commas ID of this exchange account entity.
+</ApiParam>
+
+## Query Parameters
+<ApiParam name='date_from' type='string' id="date_from" required>
+    Specifying the start date in ISO 8601 format for the required records.
+</ApiParam>
+
+<ApiParam name='date_to' type='integer' id="date_to" required>
+    Specifies the end date for the required records.
+</ApiParam>
+
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+
+## Example Request
+
+    ```json
+    GET /ver1/accounts/12345678/balance_chart_data?date_from=2024-09-18T18:58:55.469Z
+    ```
+
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Response Parameters
+
+<ApiParam name='date_to' type='string' id="date_to">
+    Timestamp (UNIX time) in seconds representing a specific date.
+</ApiParam>
+
+<ApiParam name='usd' type='string' id="usd">
+   The value in USD for a specific date.
+</ApiParam>
+      
+<ApiParam name='btc' type='string' id="btc">
+   The value in BTC for a specific date.
+</ApiParam>
+
+<ApiParam name='btc_deposit_amount' type='string' id="btc_deposit_amount">
+   The deposited amount in BTC on a specific date.
+</ApiParam>
+
+<ApiParam name='usd_deposit_amount' type='string' id="usd_deposit_amount">
+   The deposited amount in USD on a specific date.
+</ApiParam>   
+</StickyLayout.Main>
+
+
+<StickyLayout.Sticky>
+## Example Responses
+
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="200" label="200 OK">
+
+```json
+[
+    {
+        "date": 1726617600,
+        "usd": 28.59,
+        "btc": 0.000475,
+        "btc_deposit_amount": 0.0,
+        "usd_deposit_amount": 0.0
+    },
+    {
+        "date": 1727873800,
+        "usd": 29.31,
+        "btc": 0.000481,
+        "btc_deposit_amount": 0.0,
+        "usd_deposit_amount": 0.0
+    }
+]
+```
+</ResponseTabs.TabItem>
+  <ResponseTabs.TabItem value="400" label="400 Bad Request">
+
+    ```json
+    {
+        "error": "record_invalid",
+        "error_description": "Invalid parameters",
+        "error_attributes": {
+            "date_from": [
+                "is invalid"
+            ]
+     }
+    }
+    ```
+  </ResponseTabs.TabItem>
+    </ResponseTabs.Root>
+    </StickyLayout.Sticky>
+</StickyLayout.Root>

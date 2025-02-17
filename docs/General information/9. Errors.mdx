@@ -1,0 +1,59 @@
+import ApiParam from '@site/src/components/ApiParam';
+import CodeBlock from '@theme/CodeBlock';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+
+When a request fails, 3Commas API returns an error object with a relevant HTTP response code and additional information to help identify and resolve the issue.
+
+## HTTP Status Codes
+
+Errors generally return a 4xx response code:
+
+* `4XX` Malformed requests (issue is on the sender's side);
+* `429` Request rate limit exceeded;
+* `418` IP auto-banned for continuing to send requests after receiving `429` codes;
+* `5XX` Internal errors (issue is on 3Commas's side);
+* `504` Gateway timeout, indicating the API couldn’t get a timely response.
+
+Success responses return a 2xx status code.
+
+
+<StickyLayout.Root>
+   <StickyLayout.Main>
+
+## Attributes
+
+<ApiParam name='error' type='string' id="error" required>
+   Specific error codes and messages defined in another document.
+</ApiParam>
+
+<ApiParam name='error_description' type='string' id="error_description">
+   Localized, extended description of the error.
+</ApiParam>
+
+<ApiParam name='error_attributes' type='string' id="error_attributes">
+   Lists fields that did not pass validation.
+</ApiParam>
+
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+
+## Error Object
+   When an error occurs, the API returns an error object instead of a data object or array. 
+   
+   Error responses have the following payload format:
+
+```json title="Error Object"
+{
+   "error": "record_invalid",
+   "error_description": "Invalid parameters",
+   "error_attributes": {
+      "api_key": ["is too short (minimum is 5 characters)"],
+      "secret": ["is too short (minimum is 5 characters)"],
+      "name": ["is too short (minimum is 2 characters)"]
+   }
+}
+```
+</StickyLayout.Sticky>
+
+</StickyLayout.Root>

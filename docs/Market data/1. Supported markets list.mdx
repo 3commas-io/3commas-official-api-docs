@@ -1,0 +1,198 @@
+---
+sidebar_class_name: get
+---
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import ApiParam from '@site/src/components/ApiParam';
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+
+<Endpoint
+  url="/ver1/accounts/market_list"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="NONE" />
+      <Permission title="Security" description="NONE" />
+    </>
+  }
+/>
+
+Returns the list of markets supported by 3Commas.
+
+
+## Request parameters
+
+No parameters.
+
+<StickyLayout.Root>
+   <StickyLayout.Main>
+
+## Response parameters
+
+<ApiParam name='market_name' type='string' id="market_name">
+Name of the exchange in the 3Commas system.
+</ApiParam>
+
+<ApiParam name='market_url' type='string' id="market_url">
+The referral link to the exchange website.
+</ApiParam>
+
+<ApiParam name='market_icon' type='string' id="market_icon">
+The URL link to the icon for this exchange.
+</ApiParam>
+
+<ApiParam name='help_link' type='string' id="help_link">
+The URL link to the icon for this exchange.
+</ApiParam>
+
+<CollapseAll>
+<CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
+
+<CollapsibleApiParam name='form_fields' type='object' id="form_fields">
+    Contains required and optional fields necessary for connecting to the exchange.
+    <CollapsibleNestedParams>
+    <ApiParam name='required' type='array[object]' id="required">
+      Shows required fields necessary for connecting to the exchange.
+        <CollapsibleNestedParams>
+             <ApiParam name='field'type='string' id="field">
+              The parameter needs to connect a new exchange account.
+
+              Example: `api_key`, `secret`
+            </ApiParam>
+             <ApiParam name='localized_name'type='string' id="localized_name">
+              Display name of the field, localized for user convenience.
+            </ApiParam>
+        </CollapsibleNestedParams>
+     </ApiParam>
+    <ApiParam name='optional' type='array[object]' id="optional">
+      Shows optinal fields need for connecting to the exchange.
+        <CollapsibleNestedParams>
+             <ApiParam name='field'type='string' id="field">
+             The parameter needs to connect a new exchange account.
+
+              Example: `api_key`, `secret`
+            </ApiParam>
+             <ApiParam name='localized_name'type='string' id="localized_name">
+              Display name of the field, localized for user convenience.
+            </ApiParam>
+        </CollapsibleNestedParams>
+     </ApiParam>
+  </CollapsibleNestedParams>   
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='connection_type' type='string' id="connection_type">
+This exchange provides a service to connect third-party apps. `false` - if the exchange does not support.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='available_connection_flows' type='array' id="available_connection_flows">
+Available exchange connection types in 3Commas.
+    <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **form** - connection through a web form option;
+      * **fast_connect** - quick connection option.
+     </CollapsibleNestedParams>
+</CollapsibleApiParam>
+  
+<CollapsibleApiParam name='third_party_allowed' type='boolean' id="third_party_allowed">
+  This exchange provides a service for connecting third-party apps. If `false`, the exchange does not support this functionality.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='trusted_ips' type='array[string]' id="trusted_ips">
+  The list of IP addresses needs to be whitelisted on the exchange's website for 3Commas to work with the exchange.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='trusted_ips_input_type' type='string' id="trusted_ips_input_type">
+  Input type for trusted IP addresses.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='fast_connect_action_name' type='string' id="fast_connect_action_name">
+  Name of the exchange for fast connection option in the 3Commas system.
+</CollapsibleApiParam>   
+</CollapseAll>
+
+</StickyLayout.Main>
+   <StickyLayout.Sticky>
+
+## Example Response
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="200" label="200 OK" default>
+```json
+[
+   {
+      "market_name": "Coinbase Advanced",
+      "market_url": "http://coinbase-consumer.sjv.io/eKE3GD",
+      "market_icon": "https://3commas.io/img/exchanges/gdax.png",
+      "market_trust_message": "3Commas will not have access to transfer or withdraw your assets. Each exchange connects with encrypted API keys",
+      "default_trust_message": "3Commas will not have access to transfer or withdraw your assets. Each exchange connects with encrypted API keys",
+      "help_link": "https://help.3commas.io/en/articles/3822851",
+      "market_code": "coinbase_advanced",
+      "form_fields": {
+         "required": [
+            {
+               "field": "secret",
+               "localized_name": "API Secret:"
+            },
+            {
+               "field": "api_key",
+               "localized_name": "API Key:"
+            }
+         ],
+         "optional": []
+      },
+      "connection_type": "fields",
+      "available_connection_flows": [
+         "form"
+      ],
+      "optional": [
+        
+      ]
+    },
+    "connection_type": "fields",
+    "available_connection_flows": [
+      "fast_connect",
+      "form"
+    ],
+    "third_party_allowed": false,
+    "trusted_ips": [
+      "193.31.111.100",
+      "193.31.111.158",
+      "193.31.111.43",
+      "193.31.111.6"
+    ],
+    "trusted_ips_input_type": "inline",
+    "fast_connect_action_name": "binance"
+  },
+  {
+    "market_name": "OKX",
+    "market_url": "https://app.3commas.io/users/auth/okx_auth_reg?redirect_to=https%3A%2F%2Fapp.3commas.io%2Faccounts",
+    "market_icon": "https://3commas.io/img/exchanges/okex.png",
+    "market_trust_message": "1. Log in to your exchange account and go to API Settings \n2. Select third-party apps and choose 3Commas \n3. Paste generated data in inputs below.",
+    "default_trust_message": "3Commas will not have access to transfer or withdraw your assets. Each exchange connects with encrypted API keys",
+    "help_link": "https://help.3commas.io/en/articles/3109057",
+    "market_code": "okex",
+    "form_fields": {
+      "required": [
+        {
+          "field": "secret",
+          "localized_name": "API Secret:"
+        },
+        {
+          "field": "api_key",
+          "localized_name": "API Key:"
+        },
+        {
+          "field": "passphrase",
+          "localized_name": "Passphrase:"
+        }
+      ],
+      "trusted_ips_input_type": "inline",
+      "fast_connect_action_name": "coinbase_advanced"
+   }
+]
+```
+   </ResponseTabs.TabItem>
+  </ResponseTabs.Root>
+   </StickyLayout.Sticky>
+</StickyLayout.Root>

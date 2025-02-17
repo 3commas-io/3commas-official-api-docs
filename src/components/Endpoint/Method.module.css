@@ -1,0 +1,52 @@
+.container {
+  font-weight: bold;
+  font-family: Graphik, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.medium {
+  height: 28px;
+  border-radius: 6px;
+  padding: 0 8px;
+}
+
+.filled {
+  background-color: var(--accent);
+  color: white;
+}
+
+.text {
+  color: var(--accent);
+}
+
+.right {
+  justify-content: end;
+}
+
+.put {
+  --accent: #ff9800;
+}
+
+.get {
+  --accent: #17b26a;
+}
+
+.post {
+  --accent: #2196f3;
+}
+
+.delete {
+  --accent: #f44336;
+}
+
+.patch {
+  --accent: #9c27b0;
+}
+
+.head {
+  --accent: #607d8b;
+}

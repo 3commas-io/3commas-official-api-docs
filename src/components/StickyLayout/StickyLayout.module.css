@@ -1,0 +1,38 @@
+:is(.root, .sticky) {
+  > div *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.sticky {
+  height: fit-content;
+  overflow: auto;
+  border-radius: 8px;
+  max-height: 50vh;
+  width: 100%;
+  position: static;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 997px) {
+    position: sticky;
+    /* top: calc(var(--ifm-navbar-height) + 1rem); */
+    /* max-height: calc(100vh - (var(--ifm-navbar-height) + 2rem)); */
+    top: 1rem;
+    max-height: calc(100vh - 2rem);
+  }
+}
+
+.root {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: calc(
+    var(--ifm-heading-vertical-rhythm-bottom) * var(--ifm-leading)
+  );
+  margin-top: calc(var(--ifm-h2-vertical-rhythm-top) * var(--ifm-leading));
+
+  @media (min-width: 997px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}

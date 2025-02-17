@@ -1,0 +1,277 @@
+---
+sidebar_class_name: post
+---
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import { Informer } from '@site/src/components/Informer/Informer';
+
+<Endpoint
+  url="/v2/smart_trades/:id/reduce_funds"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="SMART_TRADES_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Starts the process of creating reduced funds.
+
+<Informer variant="info">
+ New trades and orders will be created on the exchange once the process begins.
+</Informer>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Path Parameter
+
+<ApiParam name='id' type='integer' id="id" required>
+   Unique 3Commas ID for this SmartTrade entity.
+</ApiParam>
+
+## Body Parameters 
+<ApiParam name='order_type' type='integer' id="order_type" required>
+   Order type for reducing funds in this SmartTrade:  `market`, `limit`.
+</ApiParam>
+
+<ApiParam name="units" type="object" id="units" required>
+    Defines the amount of units to reduce in this SmartTrade.
+   <CollapsibleNestedParams>
+    <ApiParam name='value' type='number' id='value' required>
+         Specifies the number of units to sell.
+    </ApiParam>
+    </CollapsibleNestedParams>
+</ApiParam>
+<ApiParam name="price" type="object" id="price" required>
+   Provides pricing details for the limit order. This parameter is required if `order_type` is set to `limit`.
+   <CollapsibleNestedParams>
+    <ApiParam name='value' type='number' id='value' required>
+      Price for limit order
+    </ApiParam>
+    </CollapsibleNestedParams>
+</ApiParam>
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+## Example Request 
+
+```json title="POST /v2/smart_trades/12345678/reduce_funds"
+{
+   "order_type": "limit",
+   "units": {
+      "value": "0.04"
+   },
+   "price": {
+      "value": "0.03711"
+   }
+}
+```
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Parameters Response 
+If successful, the response includes an updated copy of the [SmartTrade](/docs/SmartTrade/1.%20SmartTrade%20entity.md) entity.
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+
+## Example Responses
+
+<ResponseTabs.Root>
+        <ResponseTabs.TabItem value="201" label="201 Created" default>
+            ```json
+{
+    "id": 12345678,
+    "version": 2,
+    "account": {
+        "id": 32199203,
+        "type": "paper_trading",
+        "name": "Paper Account 1251857",
+        "market": "Binance Spot account simulator",
+        "link": "/accounts/32199203"
+    },
+    "pair": "BTC_ETH",
+    "instant": false,
+    "status": {
+        "type": "pending_reduce_funds",
+        "basic_type": "pending_reduce_funds",
+        "title": "Pending reduce funds"
+    },
+    "leverage": {
+        "enabled": false
+    },
+    "position": {
+        "type": "buy",
+        "editable": false,
+        "units": {
+            "value": "4.0",
+            "editable": false
+        },
+        "price": {
+            "value": "0.03719",
+            "value_without_commission": "0.03716",
+            "editable": false
+        },
+        "total": {
+            "value": "0.14878864"
+        },
+        "order_type": "market",
+        "status": {
+            "type": "finished",
+            "basic_type": "finished",
+            "title": "Finished"
+        }
+    },
+    "take_profit": {
+        "enabled": true,
+        "price_type": "value",
+        "steps": [
+            {
+                "id": 1224972676,
+                "order_type": "limit",
+                "editable": true,
+                "units": {
+                    "value": "4.0"
+                },
+                "price": {
+                    "type": "last",
+                    "value": "0.04088",
+                    "percent": null
+                },
+                "volume": "100.0",
+                "total": "0.16352",
+                "trailing": {
+                    "enabled": false,
+                    "percent": null
+                },
+                "status": {
+                    "type": "order_placed",
+                    "basic_type": "order_placed",
+                    "title": "Placed"
+                },
+                "closed_at": null,
+                "data": {
+                    "cancelable": true,
+                    "panic_sell_available": true
+                },
+                "position": 1
+            }
+        ]
+    },
+    "stop_loss": {
+        "enabled": false
+    },
+    "reduce_funds": {
+        "steps": [
+            {
+                "id": 1224983548,
+                "type": "market",
+                "status": {
+                    "type": "idle",
+                    "basic_type": "idle",
+                    "title": "Pending"
+                },
+                "units": {
+                    "value": "0.3995"
+                },
+                "price": {
+                    "value": "0.03702",
+                    "value_without_commission": "0.03702"
+                },
+                "total": {
+                    "value": "0.01478949"
+                },
+                "closed_at": null,
+                "data": {
+                    "cancelable": false,
+                    "panic_sell_available": false
+                }
+            }
+        ]
+    },
+    "market_close": {},
+    "note": "",
+    "note_raw": null,
+    "skip_enter_step": false,
+    "data": {
+        "editable": false,
+        "current_price": {
+            "day_change_percent": "-0.162",
+            "bid": "0.03702",
+            "ask": "0.03703",
+            "last": "0.03703",
+            "quote_volume": "1626.01355238"
+        },
+        "target_price_type": "price",
+        "orderbook_price_currency": "BTC",
+        "base_order_finished": true,
+        "missing_funds_to_close": "0.0",
+        "liquidation_price": null,
+        "average_enter_price": "0.03719",
+        "average_close_price": null,
+        "average_enter_price_without_commission": "0.03716",
+        "average_close_price_without_commission": null,
+        "panic_sell_available": true,
+        "add_funds_available": false,
+        "reduce_funds_available": false,
+        "force_start_available": false,
+        "force_process_available": true,
+        "cancel_available": true,
+        "finished": false,
+        "base_position_step_finished": true,
+        "entered_amount": "4.0",
+        "entered_total": "0.14878864",
+        "closed_amount": "0.0",
+        "closed_total": "0.0",
+        "commission": 0.001,
+        "created_at": "2024-12-17T15:44:49.405Z",
+        "updated_at": "2024-12-17T15:52:33.169Z",
+        "type": "smart_trade"
+    },
+    "profit": {
+        "volume": "-0.00085672",
+        "usd": "-91.0173245288",
+        "percent": "-0.58",
+        "roe": null
+    },
+    "margin": {
+        "amount": null,
+        "total": null
+    },
+    "is_position_not_filled": false
+}
+```
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="400" label="400 Bad Request">
+        ```json
+        {
+            "error": "Wrong param(s)",
+            "error_description": "Reduce funds is not allowed in the current status"
+        }
+        ```
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="422" label="422 Unprocessable Entity">
+        ```json
+        {
+            "error": "record_invalid",
+            "error_description": "Invalid parameters",
+            "error_attributes": {
+                "entered_amount": [
+                    "Too small"
+                ]
+            }
+        }
+        ```
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>

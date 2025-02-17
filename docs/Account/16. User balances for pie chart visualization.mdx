@@ -1,0 +1,161 @@
+---
+sidebar_class_name: post
+---
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+
+<Endpoint
+  url="ver1/accounts/:account_id/pie_chart_data"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="ACCOUNTS_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Returns information about currency balances of a specific account using its ID, for visualization in a pie chart.
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Path Parameter 
+
+<ApiParam name='account_id' type='integer' id="account_id" required>
+Unique 3Commas ID of this exchange account entity.
+</ApiParam>
+
+</StickyLayout.Main>
+<StickyLayout.Sticky>
+
+## Example Request
+
+```json
+POST /ver1/accounts/32402783/pie_chart_data
+```
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Response Parameters
+
+<ApiParam name='account_id' type='integer' id="account_id">
+ID of the exchange account entity.
+</ApiParam>
+
+<ApiParam name='code' type='string' id="code">
+The cryptocurrency code symbol.
+</ApiParam>
+
+<ApiParam name='coinmarketcapid' type='string' id="coinmarketcapid">
+Unique identifier of the cryptocurrency on CoinMarketCap.
+</ApiParam>
+
+<ApiParam name='name' type='string' id="name">
+Full name of the cryptocurrency.
+</ApiParam>
+
+<CollapseAll>
+<CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
+
+<CollapsibleApiParam name='y' type='string' id="y">
+TBD
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='percentage' type='string' id="percentage">
+The exact percentage share of this cryptocurrency in the account's portfolio.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='amount' type='string' id="amount">
+The amount of cryptocurrency held in this account.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='btc_value' type='string' id="btc_value">
+The equivalent value of this cryptocurrency in BTC.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='usd_value' type='string' id="usd_value">
+The equivalent value of this cryptocurrency in USD.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='primary_display_currency' type='object' id="primary_display_currency">
+   TBD
+    <CollapsibleNestedParams>
+      <ApiParam name='currency' type="string" id="currency">
+           The currency code used to display values for this cryptocurrency.
+      </ApiParam> 
+      <ApiParam name='amount' type="string" id="amount">
+           The amount of the cryptocurrency in the primary display currency.
+      </ApiParam>   
+   </CollapsibleNestedParams>
+</CollapsibleApiParam>
+</CollapseAll>
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+
+## Example Response
+
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="201" label="201 Created" default>
+```json
+    [
+        {
+            "code": "BTC",
+            "coinmarketcapid": "1",
+            "name": "Bitcoin (BTC)",
+            "y": 65.1,
+            "percentage": 65.1,
+            "amount": 0.00031872,
+            "btc_value": "0.00031872",
+            "usd_value": "20.31",
+            "primary_display_currency": {
+                "currency": "USD",
+                "amount": "20.3146900992"
+            },
+            "account_id": 32402783
+        },
+        {
+            "code": "USDT",
+            "coinmarketcapid": "825",
+            "name": "Tether USDt (USDT)",
+            "y": 0.91,
+            "percentage": 0.91,
+            "amount": 0.28478606,
+            "btc_value": "0.00000447",
+            "usd_value": "0.28",
+            "primary_display_currency": {
+                "currency": "USD",
+                "amount": "0.28478606"
+            },
+            "account_id": 32402783
+        },
+        {
+            "code": "ETH",
+            "coinmarketcapid": "1027",
+            "name": "Ethereum (ETH)",
+            "y": 0.79,
+            "percentage": 0.79,
+            "amount": 9.52e-05,
+            "btc_value": "0.00000388",
+            "usd_value": "0.25",
+            "primary_display_currency": {
+                "currency": "USD",
+                "amount": "0.247266593784"
+            },
+            "account_id": 32402783
+        }
+    ]
+```
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>

@@ -1,0 +1,215 @@
+---
+sidebar_class_name: get
+---
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import { Informer } from '@site/src/components/Informer/Informer';
+
+<Endpoint
+  url="/ver1/accounts/:account_id/networks_info"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="ACCOUNTS_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Shows information about the currency and each supported network for deposits and withdrawals available on the exchange account.
+
+<Informer variant="info">
+ This endpoint works for the following exchanges: **Binance Spot**, **Binance US**, **OKX Spot**, **Binance Broker**.
+</Informer>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Path Parameter 
+
+<ApiParam name='account_id' type='integer' id="account_id" required>
+    Unique 3Commas ID of this exchange account entity.
+</ApiParam>
+
+##  Query Parameter 
+
+<ApiParam name='purpose' type='integer' id="purpose" required>
+    Filter currencies with `deposit` or `withdraw` enabled.
+</ApiParam>
+
+</StickyLayout.Main>
+<StickyLayout.Sticky>
+
+##  Example Request
+```
+GET /ver1/accounts/12345678/networks_info
+```
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+##  Parameters response  
+
+<ApiParam name="currency" type="integer" id="currency">
+   The name of currency.
+</ApiParam> 
+
+<ApiParam name="name" type="integer" id="name">
+   The full name of the currency.
+</ApiParam>
+
+<ApiParam name="deposit_enable" type="boolean" id="deposit_enable">
+   Indicates whether currency deposit is available for this account.
+</ApiParam>
+
+<ApiParam name="withdraw_enable" type="boolean" id="withdraw_enable">
+   Indicates whether currency withdrawal is available for this account.
+</ApiParam>
+
+<ApiParam name="network_list" type="object" id='network_list'>
+  Details about available networks for deposits and withdrawals.
+  <CollapsibleNestedParams>
+    <ApiParam name='network' type='string' id='network'>
+      The name of the network.
+    </ApiParam>
+    <ApiParam name='default' type='boolean' id='default'>
+      Indicates whether this network is the main one for deposits and withdrawals.
+    </ApiParam>
+    <ApiParam name='deposit_enable' type='boolean' id='deposit_enable'>
+      Indicates whether currency deposit is available for this network.
+    </ApiParam>
+    <ApiParam name='withdraw_enable' type='boolean' id='withdraw_enable'>
+      Indicates whether currency withdrawal is available for this network.
+    </ApiParam>
+    <ApiParam name='deposit_tip' type='string or null' id='deposit_tip'>
+      Tip or notice related to deposits.
+    </ApiParam>
+    <ApiParam name='withdraw_tip' type='string or null' id='withdraw_tip'>
+      Tip or notice related to withdrawals.
+    </ApiParam>
+    <ApiParam name='special_tip' type='string or null' id='special_tip'>
+      Additional information regarding specific network requirements.
+    </ApiParam>
+    <ApiParam name='network_name' type='string or null' id='network_name'>
+      The full name of the network.
+    </ApiParam>
+    <ApiParam name='network_url' type='string or null' id='network_url'>
+      The URL of the network.
+    </ApiParam>
+    <ApiParam name='address_regexp' type='string or null' id='address_regexp'>
+      Regular expression (regex) used to validate addresses.
+    </ApiParam>
+    <ApiParam name='withdraw_fee' type='string or null' id='withdraw_fee'>
+      Fee charged for withdrawals.
+    </ApiParam>
+    <ApiParam name='withdraw_min' type='string or null' id='withdraw_min'>
+      Minimum withdrawal amount.
+    </ApiParam>
+    <ApiParam name='withdrawMax' type='string or null' id='withdrawMax'>
+      The maximum possible withdrawal amount.
+    </ApiParam>
+    <ApiParam name='withdrawMultiple' type='string or null' id='withdrawMultiple'>
+      Minimum increment for withdrawal amount.
+    </ApiParam>
+    <ApiParam name='memo_regexp' type='string or null' id='memo_regexp'>
+      Regular expression (regex) used to validate MEMO.
+    </ApiParam>
+    <ApiParam name='label' type='string or null' id='label'>
+      Label for the additional field. For example, `MEMO` or `Tag`
+    </ApiParam>
+    <ApiParam name='require_address_tag' type='boolean' id='require_address_tag'>
+      Specifies whether an additional field is required when depositing or withdrawing. For example, `MEMO` or `Tag`.
+    </ApiParam>
+  </CollapsibleNestedParams>
+</ApiParam>
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+
+## Example Responses
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="200" label="200 OK" default>
+
+```json
+{
+   "currency": "BTC",
+   "name": "Bitcoin",
+   "deposit_enable": true,
+   "withdraw_enable": true,
+   "network_list": [
+      {
+         "network": "BNB",
+         "default": false,
+         "deposit_enable": false,
+         "withdraw_enable": false,
+         "deposit_tip": "Wallet Maintenance, Deposit Suspended",
+         "withdraw_tip": "Wallet Maintenance, Withdrawal Suspended",
+         "special_tip": "Both a MEMO and an Address are required to successfully deposit your BEP2-BTCB tokens to Binance.",
+         "network_name": "BNB Beacon Chain (BEP2)",
+         "network_url": null,
+         "address_regexp": "^(bnb1)[0-9a-z]{38}$",
+         "withdraw_fee": "0.0000093",
+         "withdraw_min": "0.000019",
+         "withdrawMax": "10000000000",
+         "withdrawMultiple": "0.00000001",
+         "memo_regexp": "^[0-9A-Za-z\\-_]{1,120}$",
+         "label": "MEMO/Tag",
+         "require_address_tag": false
+      },
+      {
+         "network": "BTC",
+         "default": true,
+         "deposit_enable": true,
+         "withdraw_enable": true,
+         "deposit_tip": "",
+         "withdraw_tip": "",
+         "special_tip": "",
+         "network_name": "Bitcoin",
+         "network_url": null,
+         "address_regexp": "^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$|^[(bc1q)|(bc1p)][0-9A-Za-z]{37,62}$",
+         "withdraw_fee": "0.0004",
+         "withdraw_min": "0.0008",
+         "withdrawMax": "10000000000",
+         "withdrawMultiple": "0.00000001",
+         "memo_regexp": "",
+         "label": "",
+         "require_address_tag": false
+      }
+   ]
+}
+```
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="400" label="400 Bad Request">
+
+```json
+{
+    "error": "record_invalid",
+    "error_description": "Invalid parameters",
+    "error_attributes": {
+        "currency": [
+            "is missing"
+        ],
+        "network": [
+            "is missing"
+        ]
+    }
+}
+```
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="403" label="403 Forbidden">
+
+```json
+{
+    "error": "Forbidden. Unavailable for this account."
+}
+```
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>

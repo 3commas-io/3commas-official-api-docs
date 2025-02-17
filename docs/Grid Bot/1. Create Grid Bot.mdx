@@ -1,0 +1,325 @@
+---
+sidebar_class_name: post
+---
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout'
+import * as ResponseTabs from '@site/src/components/ResponseTabs'
+
+<Endpoint
+  url="/ver1/grid_bots/manual"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="BOTS_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+Creates a new Grid Bot.
+
+<StickyLayout.Root>
+   <StickyLayout.Main>
+
+## Body parameters
+
+<ApiParam name='name' type='integer' id="name" required>
+   Grid bot name specified by the user. If not specified, the system will generate a default name automatically.
+
+   Characters: `[1 ... 40]`
+</ApiParam>
+
+<ApiParam name='account_id' type='integer' id="account_id" required>
+   ID of the exchange account entity where the Grid Bot is created.
+</ApiParam>   
+
+<ApiParam name='pair' type='string' id="pair" required>
+   Trading pair in 3Commas format. Use the [All market pairs](Market%20data/All%20market%20pairs.md) endpoint to retrieve the list of supported pairs and their format.
+</ApiParam>
+
+<ApiParam name='upper_price' type='number' id="upper_price" required>
+   The maximum price of the trading range, above which the bot will not place sell orders.
+</ApiParam>
+
+<ApiParam name='pair' type='string' id="pair" required>
+   Trading pair in 3Commas format.
+</ApiParam>
+
+
+<CollapseAll>
+<CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
+
+<CollapsibleApiParam name="lower_price" type="string" id="lower_price" required>
+  The minimum price of the trading range, below which the bot will not place buy orders.
+</CollapsibleApiParam>
+   
+<CollapsibleApiParam name="grids_quantity" type="number" id="grids_quantity" required>
+  The number of grid levels between the upper and lower price boundaries.
+</CollapsibleApiParam>   
+
+<CollapsibleApiParam name="grid_type" type="string" id="grid_type">
+  Type of Grid Bot configuration: `geometric` or `arithmetic`.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="quantity_per_grid" type="number" id="quantity_per_grid" required>
+  Quantity of the asset allocated per Grid Bot level order.
+</CollapsibleApiParam>
+   
+<CollapsibleApiParam name="order_currency_type" type="string" id="order_currency_type">
+  The currency type used for placing orders: `base` or `quote`.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="profit_currency_type" type="string" id="profit_currency_type">
+  The currency in which the bot will generate profit: `base` or `quote`.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="upper_stop_loss_enabled" type="boolean" id="upper_stop_loss_enabled">
+  Indicates if upper stop-loss settings are enabled (`true`) or not(`false`).
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="upper_stop_loss_action" type="string" id="upper_stop_loss_action">
+  The action to perform if the asset price reaches or exceeds the set upper stop-loss level
+  <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **stop_bot**;
+      * **stop_bot_and_sell**;
+      * **stop_bot_and_close_position**;
+     </CollapsibleNestedParams>
+</CollapsibleApiParam>
+   
+<CollapsibleApiParam name="upper_stop_loss_price" type="number" id="upper_stop_loss_price">
+  The price level that triggers the upper stop-loss action.
+</CollapsibleApiParam> 
+
+<CollapsibleApiParam name="lower_stop_loss_enabled" type="boolean" id="lower_stop_loss_enabled">
+   Indicates if lower stop-loss settings are enabled (`true`) or not (`false`).
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="lower_stop_loss_action" type="string" id="lower_stop_loss_action">
+   The action to perform if the asset price reaches or falls below the set lower stop-loss level.
+   <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **stop_bot**;
+      * **stop_bot_and_sell**;
+      * **stop_bot_and_close_position**;
+     </CollapsibleNestedParams>
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="lower_stop_loss_price" type="number" id="lower_stop_loss_price">
+   The price level that triggers the lower stop-loss action.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="leverage_type" type="string" id="leverage_type">
+Type of leverage applied for this Grid Bot.
+    <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **cross** - uses all available funds in your account as collateral for your trades;
+      * **isolated** - the margin is limited to a specific position;
+      * **not_specified** - no leverage type specified for this DCA Bot;
+   </CollapsibleNestedParams>
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="lower_stop_loss_price" type="number" id="lower_stop_loss_price">
+   The price level that triggers the lower stop-loss action.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="leverage_custom_value" type="number" id="leverage_custom_value">
+   Custom leverage value set for the Grid Bot.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="mode" type="string" id="mode">
+   Type of strategy used by the bot.
+    <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **reversal** - a strategy where the bot trades based on market trend reversals;
+      * **long** - a strategy where the bot opens positions expecting the price to increase;
+      * **short** - a strategy where the bot opens positions expecting the price to decrease;
+   </CollapsibleNestedParams>
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="max_active_sell_lines" type="integer" id="max_active_sell_lines">
+   Maximum number of active sell orders that can be placed simultaneously.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="trailing_up_enabled" type="boolean" id="trailing_up_enabled">
+   Indicates if the trailing-up feature is enabled (`true`) or not (`false`).
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="trailing_down_enabled" type="boolean" id="trailing_down_enabled">
+   Indicates if the trailing-down feature is enabled (`true`) or not (`false`).
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="expansion_down_enabled" type="boolean" id="expansion_down_enabled">
+   Indicates if the grid expansion downwards is enabled (`true`) or not (`false`).
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="expansion_down_stop_price" type="number" id="expansion_down_stop_price" required>
+   The price at which the downward grid expansion should stop.
+   This parameter is required when `expansion_down_enabled` is set to `true`.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="expansion_up_enabled" type="boolean" id="expansion_up_stop_price">
+   Indicates if the grid expansion upwards is enabled (`true`) or not (`false`).
+</CollapsibleApiParam>  
+
+<CollapsibleApiParam name="expansion_up_stop_price" type="boolean" id="expansion_up_stop_price" required>
+   The price at which the upward grid expansion should stop.
+   This parameter is required when `expansion_up_enabled` is set to `true`.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="ignore_warnings" type="boolean" id="ignore_warnings">
+   Ignores warnings and forces the creation of the Grid Bot (`true`) or not (`false`).
+</CollapsibleApiParam>
+   
+<CollapsibleApiParam name="note" type="integer" id="note">
+   Optional user-defined note for the Grid Bot.
+   `[1 ... 300]` characters.
+</CollapsibleApiParam>
+</CollapseAll>
+
+</StickyLayout.Main>
+
+
+<StickyLayout.Sticky>
+
+## Example Request
+
+```json title="POST /ver1/grid_bots/manual"
+{
+   "account_id": 12345678,
+   "pair": "USDT_ETH",
+   "name": "Test GRID",
+   "upper_price": 1.1,
+   "lower_price": 0.56,
+   "quantity_per_grid": 40,
+   "grids_quantity": 28,
+   "max_active_buy_lines": 28,
+   "max_active_sell_lines": 28,
+   "order_currency_type": "base",
+   "profit_currency_type": "base",
+   "ignore_warnings": false,
+   "trailing_up_enabled": false,
+   "trailing_down_enabled": true,
+   "grid_type": "arithmetic",
+   "expansion_down_enabled": false,
+   "expansion_up_enabled": true,
+   "expansion_up_stop_price": 1.57
+}
+```
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Parameters response
+
+If successful, the response includes a copy of [Grid Bot](./0.%20Grid%20Bot%20entity.mdx) entity.
+
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+## Example Responses
+
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="201" label="201 Created" default>
+
+```json
+{
+   "id": 2291723,
+   "account_id": 73223,
+   "account_name": "binance",
+   "is_enabled": false,
+   "grids_quantity": "50",
+   "created_at": "2024-07-17T14:46:46.414Z",
+   "updated_at": "2024-07-17T14:46:46.505Z",
+   "strategy_type": "manual",
+   "upper_stop_loss_enabled": true,
+   "lower_stop_loss_enabled": true,
+   "note": "Example bot",
+   "editable": true,
+   "lower_price": "56000.0",
+   "lower_stop_loss_price": "50000.0",
+   "lower_stop_loss_action": "stop_bot_and_sell",
+   "upper_price": "72000.0",
+   "upper_stop_loss_price": "75000.0",
+   "upper_stop_loss_action": "stop_bot",
+   "quantity_per_grid": "15.0",
+   "leverage_type": "not_specified",
+   "leverage_custom_value": null,
+   "name": "USDT_BTC EXAMPLE",
+   "pair": "USDT_BTC",
+   "start_price": null,
+   "grid_price_step": "326.530612244897959183673469387755102041",
+   "current_profit": "0.0",
+   "current_profit_usd": "0.0",
+   "total_profits_count": "0",
+   "bought_volume": "0.0",
+   "sold_volume": "0.0",
+   "profit_percentage": "0.0",
+   "current_price": "65229.37",
+   "max_active_buy_lines": "50",
+   "max_active_sell_lines": "50",
+   "order_currency_type": "quote",
+   "profit_currency_type": "quote",
+   "trailing_up_enabled": "true",
+   "grid_type": "arithmetic",
+   "investment_base_currency": "0.0",
+   "investment_quote_currency": "0.0",
+   "unrealized_profit_loss": "0",
+   "current_profit_loss": null,
+   "current_profit_loss_percent": null,
+   "orderbook_price_currency": "USDT",
+   "expansion_down_enabled": "true",
+   "expansion_down_stop_price": "54000.0",
+   "grid_lines": [
+      {
+         "id": 253750214,
+         "price": "65142.86",
+         "side": null,
+         "order_placed": false
+      },
+      {
+         "id": 253750235,
+         "price": "72000.0",
+         "side": "sell",
+         "order_placed": false
+      },
+      ...
+      
+      {
+         "id": 253750213,
+         "price": "64816.33",
+         "side": "buy",
+         "order_placed": false
+      }
+   ]
+}
+```
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="400" label="400 Bad Request">
+
+```json
+{
+    "error": "record_invalid",
+    "error_description": "Invalid parameters",
+    "error_attributes": {
+        "quantity_per_grid": [
+            "is missing",
+            "is empty"
+        ]
+    }
+}
+
+```
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="404" label="404 Not Found">
+```json
+{
+   "error": "not_found",
+   "error_description": "Not Found"
+}
+```
+  </ResponseTabs.TabItem>
+  </ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>

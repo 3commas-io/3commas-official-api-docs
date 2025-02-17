@@ -1,8 +1,7 @@
 .root {
   display: flex;
   flex-direction: column;
-  padding-left: calc(0.5rem + 12px);
-  margin: 0;
+  margin-bottom: var(--api-param-margin-bottom);
   scroll-margin-top: var(--ifm-navbar-height);
 
   p {
@@ -28,9 +27,14 @@
 
 .anchor {
   position: absolute;
-  left: 0;
-  transform: translateX(calc(-100% - 0.5rem));
+  right: 100%;
   opacity: 0;
+  padding-right: .5rem;
+  color: inherit;
+}
+
+.anchor svg {
+  fill: currentColor
 }
 
 .header {

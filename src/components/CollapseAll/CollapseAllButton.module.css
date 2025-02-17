@@ -1,0 +1,14 @@
+.button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ifm-menu-color);
+  height: 32px;
+  padding: 0 var(--ifm-menu-link-padding-horizontal);
+  border-radius: 0.25rem;
+
+  &:hover {
+    background: var(--ifm-menu-color-background-hover);
+  }
+}

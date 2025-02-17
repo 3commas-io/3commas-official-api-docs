@@ -1,0 +1,10 @@
+.content {
+  background: var(--ifm-color-content);
+  color: var(--ifm-color-content-inverse);
+  padding: 2px 8px;
+  border-radius: 8px;
+}
+
+.arrow {
+  fill: var(--ifm-color-content);
+}

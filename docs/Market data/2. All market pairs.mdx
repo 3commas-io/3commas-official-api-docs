@@ -1,0 +1,67 @@
+---
+sidebar_class_name: get
+---
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import * as ResponseTabs from '@site/src/components/ResponseTabs'
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout'
+
+<Endpoint
+  url="/ver1/accounts/market_pairs"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="NONE" />
+      <Permission title="Security" description="NONE" />
+    </>
+  }
+/>
+
+The method allows getting the list of pairs supported by the exchange in 3Commas format.
+
+<StickyLayout.Root>
+   <StickyLayout.Main>
+
+## Query Parameter
+
+<ApiParam name='market_code' type='integer' id="market_code" required>
+    Unique exchange code in the 3Commas system.
+    
+    Use endpoint [Supported markets list](/docs/Market%20data/1.%20Supported%20markets%20list.mdx) to get value for parameter <code>market_code</code>.
+</ApiParam>
+
+</StickyLayout.Main>
+   <StickyLayout.Sticky>
+   
+## Example Request
+
+```json
+GET /ver1/accounts/market_pairs?market_code=binance_us
+```
+
+## Example Response
+<ResponseTabs.Root>
+      <ResponseTabs.TabItem value="200" label="200 OK" default>
+
+```json
+[
+"BTC_ETH",
+"BTC_LTC",
+"BTC_BNB",
+"BTC_NEO",
+"ETH_QTUM",
+"ETH_EOS",
+"ETH_SNT",
+"ETH_BNT",
+"BTC_GAS",
+"ETH_BNB",
+"USDT_BTC",
+...
+]
+```
+   </ResponseTabs.TabItem>
+  </ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>

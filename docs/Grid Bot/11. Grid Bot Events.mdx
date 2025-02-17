@@ -1,0 +1,127 @@
+---
+sidebar_class_name: get
+---
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+
+<Endpoint
+  url="/ver1/grid_bots/:id/events"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="BOTS_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Getting a list of events by Grid Bot.
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Path Parameter
+<ApiParam name='id' type='integer' id="id" required>
+   Unique 3Commas ID for this Grid Bot entity.
+</ApiParam>
+
+## Query Parameters
+<ApiParam name='page' type='integer' id="page" required>
+    Page number for pagination.
+
+    Default: `1`
+</ApiParam>
+<ApiParam name='per_page' type='integer' id="per_page" required>
+    Quantity of records on one page.
+
+    Minimum: `1`, Maximum: `100`, Default: `100`
+</ApiParam>
+
+</StickyLayout.Main>
+<StickyLayout.Sticky>
+  
+## Example Request
+
+```json
+GET /ver1/grid_bots/2338357/events?page=1&per_page=10
+```
+
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Response Parameters
+<ApiParam name='message' type='string' id="message">   
+    The description of the event.
+</ApiParam>
+<ApiParam name='created_at' type='string' id="created_at">   
+    ISO 8601 datetime string indicating when the event was recorded.
+</ApiParam>
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+## Example Responses
+
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="201" label="201 Created" default>
+
+```json
+[
+    {
+        "message": "Start command received",
+        "created_at": "2024-10-03T19:53:38.178Z"
+    },
+    {
+        "message": "Bot is turned on",
+        "created_at": "2024-10-03T19:53:38.305Z"
+    },
+    {
+        "message": "Setting leverage: cross 10.0, Success.",
+        "created_at": "2024-10-03T19:53:39.569Z"
+    },
+    {
+        "message": "Creating balancing order, Price: 0.021967 BNFCR, Size: 98.741665 BNFCR (4495.0 VETUSDT).",
+        "created_at": "2024-10-03T19:53:39.853Z"
+    },
+    {
+        "message": "Balancing order filled, Price: 0.021974 BNFCR, Size: 98.77216807 BNFCR (4495.0 VETUSDT).",
+        "created_at": "2024-10-03T19:53:41.750Z"
+    },
+    ...
+    {
+        "message": "Creating LIMIT BUY order, Price: 0.02171 BNFCR, Size: 19.99491 BNFCR (921.0 VETUSDT), Current price: 0.021969 BNFCR, Success.",
+        "created_at": "2024-10-03T19:53:44.070Z"
+    }
+]
+```
+</ResponseTabs.TabItem>
+
+<ResponseTabs.TabItem value="400" label="400 Bad Request" default>
+
+```json
+{
+    "error": "record_invalid",
+    "error_description": "Invalid parameters",
+    "error_attributes": {
+        "page": [
+            "is missing",
+            "does not have a valid value"
+        ],
+        "per_page": [
+            "is missing",
+            "does not have a valid value"
+        ]
+    }
+}
+```
+  </ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+

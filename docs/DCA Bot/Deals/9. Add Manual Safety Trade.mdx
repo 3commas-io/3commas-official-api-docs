@@ -1,0 +1,187 @@
+---
+sidebar_class_name: post
+---
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import ApiParam from '@site/src/components/ApiParam';
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Endpoint
+  url="/ver1/deals/:deal_id/add_funds"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="BOTS_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Creates a new additional safety manual trade entry.
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Path Parameter
+
+<ApiParam name='deal_id' type='integer' id="deal_id" required>
+  Unique 3Commas ID Deal entity.
+</ApiParam>
+
+## Body Parameters
+
+<ApiParam name='quantity' type='number' id="quantity" required>
+  Specifies the amount for the manual safety trade.
+</ApiParam>
+<ApiParam name='is_market' type='boolean' id="is_market" required>
+  Indicates the type of order: `true` for a market order, `false` for a limit order.
+</ApiParam>
+<ApiParam name='response_type' type='string' id="response_type">
+  Defines the response format: `deal`; `market_order`; `empty`.
+
+  Value `deal` is using only for 1 pair bot. Default: `empty`.
+</ApiParam>
+<ApiParam name='rate' type='number' id="rate" required>
+  Sets the rate for the safety order. Required if a limit order is used.
+</ApiParam>
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+
+## Example Request
+
+```json title="POST /ver1/deals/2295672969/add_funds"
+{
+   "quantity": 0.01,
+   "is_market": false,
+   "response_type": "market_order",
+   "rate": 0.2970
+}
+```
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Response Parameters
+
+Response format depends on choosing `response_type`:
+
+<Tabs>
+<TabItem value="market_order" label="market_order" default>
+
+<ApiParam name='order_id' type='integer' id="order_id">
+  Unique 3Commas Trade entity ID.
+</ApiParam>
+<ApiParam name='order_type' type='string' id="order_type">
+  The side of the order to be created by this trade: `Buy` or `Sell`.
+</ApiParam>
+<ApiParam name='deal_order_type' type='string' id="deal_order_type">
+  The type of the order to be created by this trade.
+  <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **Base**;
+      * **Take profit**;
+      * **Stop Loss**;
+      * **Safety**;
+      * **Manual Safety**;
+     </CollapsibleNestedParams>
+</ApiParam>
+<ApiParam name='cancellable' type='boolean' id="cancellable">
+  Indicates whether this trade can be canceled (`true`) or not (`false`).
+</ApiParam>
+
+<ApiParam name='status_string' type='string' id="status_string">
+  3Commas status for this Trade.
+  <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **Active** - the trade is currently open, waiting to be filled;
+      * **Filled** - the trade has been fully executed;
+      * **Finished** - the trade process is complete;
+      * **Cancelled** - the trade was canceled before it could be fully executed;
+     </CollapsibleNestedParams>
+</ApiParam>
+
+<CollapseAll>
+<CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
+<CollapsibleApiParam name='created_at' type='string' id="created_at">
+     ISO 8601 datetime string of when this Trade entity was created.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='updated_at' type='string' id="updated_at">
+     ISO 8601 datetime string of when this Trade entity was updated.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='quantity' type='string' id="quantity">
+     Total quantity of the asset in this order.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='quantity_remaining' type='string' id="quantity_remaining">
+     Remaining quantity of the asset left to be filled in this order.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='total' type='string' id="total">
+     Total value of the order based on `quantity` and `rate`.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='rate' type='string' id="rate">
+     Price per unit of the asset in the order.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='average_price' type='string' id="average_price">
+     The weighted average price at which the asset was bought or sold during the execution of the trades.
+</CollapsibleApiParam>
+</CollapseAll>
+</TabItem>
+<TabItem value="deal" label="deal">
+    If successful, the response includes an updated copy of the [Deals](./README.md) entity.
+  </TabItem>
+  <TabItem value="empty" label="empty">
+```
+None
+```
+</TabItem>
+</Tabs>
+
+
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+
+## Example Responses
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="201" label="201 Created" default>
+```json
+{
+    "order_id": "1110817001",
+    "order_type": "SELL",
+    "deal_order_type": "Manual Safety",
+    "cancellable": true,
+    "status_string": "Active",
+    "created_at": "2024-11-11T16:46:59.479Z",
+    "updated_at": "2024-11-11T16:46:59.479Z",
+    "quantity": "0.0",
+    "quantity_remaining": "0.0",
+    "total": "0.0",
+    "rate": "0.297",
+    "average_price": "0.0"
+}
+```
+
+</ResponseTabs.TabItem>
+
+<ResponseTabs.TabItem value="400" label="400 Bad Request">
+
+```json
+{
+    "error": "record_invalid",
+    "error_description": "Invalid parameters",
+    "error_attributes": {
+        "rate": [
+            "is missing"
+        ]
+    }
+}
+```
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>

@@ -1,0 +1,84 @@
+---
+sidebar_class_name: post
+---
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import { Informer } from '@site/src/components/Informer/Informer';
+
+<Endpoint
+  url="/ver1/accounts/:account_id/remove"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="ACCOUNTS_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Deletes a user's exchange account from their personal account in the 3Commas system.
+
+<Informer variant="warning">
+Keep in mind that an exchange account cannot be deleted if it has any active entities (Grid Bot, SmartTrade, Deals, Trades, or Signal Bot).
+</Informer>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Path Parameter 
+
+<ApiParam name='account_id' type='integer' id="account_id" required>
+    Unique 3Commas ID of this exchange account entity.
+</ApiParam>
+
+</StickyLayout.Main>   
+
+<StickyLayout.Sticky>
+## Example request 
+
+```json
+POST /ver1/accounts/12345678/remove
+```
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Response Parameters
+No parameters.
+
+</StickyLayout.Main>   
+
+<StickyLayout.Sticky>
+
+## Example Responses
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="201" label="201 Created" default>
+```json
+  true
+```
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="404" label="404 Not Found">
+```json
+  {
+      "error": "not_found",
+      "error_description": "Not Found"
+  }
+```
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="422" label="422 Unprocessable Entity">
+```json
+  {
+      "error": "account_not_deletable",
+      "error_description": "There are active trading deals on this exchange. Close all trading operations and try again"
+  }
+```
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
