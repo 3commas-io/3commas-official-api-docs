@@ -9,7 +9,6 @@ import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
-
 <Endpoint
   url="/ver1/accounts/market_list"
   method="GET"
@@ -21,7 +20,7 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
   }
 />
 
-Returns the list of markets supported by 3Commas
+Returns the list of markets supported by 3Commas.
 
 
 ## Request parameters
@@ -34,62 +33,66 @@ No parameters.
 ## Response parameters
 
 <ApiParam name='market_name' type='string' id="market_name">
-Name of the exchange in the 3Commas system
+Name of the exchange in the 3Commas system.
 </ApiParam>
 
 <ApiParam name='market_url' type='string' id="market_url">
-The referral link to the exchange website
+The referral link to the exchange website.
 </ApiParam>
 
 <ApiParam name='market_icon' type='string' id="market_icon">
-The URL link to the icon for this exchange
+The URL link to the icon for this exchange.
+</ApiParam>
+
+<ApiParam name='help_link' type='string' id="help_link">
+The URL link to the icon for this exchange.
 </ApiParam>
 
 <CollapseAll>
 <CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
 
-<CollapsibleApiParam name='help_link' type='string' id="help_link">
-The URL link to the icon for this exchange
-</CollapsibleApiParam>
-
 <CollapsibleApiParam name='form_fields' type='object' id="form_fields">
-    <p>Contains required and optional fields necessary for connecting to the exchange</p>
-    <CollapsibleApiParam name='required' type='array[object]' id="required">
-      Shows required fields necessary for connecting to the exchange
+    Contains required and optional fields necessary for connecting to the exchange.
+    <CollapsibleNestedParams>
+    <ApiParam name='required' type='array[object]' id="required">
+      Shows required fields necessary for connecting to the exchange.
         <CollapsibleNestedParams>
              <ApiParam name='field'type='string' id="field">
-              <p>The parameter needs to connect a new exchange account.</p>
-              <p>Example: `api_key`; `secret`</p>
+              The parameter needs to connect a new exchange account.
+
+              Example: `api_key`, `secret`
             </ApiParam>
              <ApiParam name='localized_name'type='string' id="localized_name">
-              Display name of the field, localized for user convenience
+              Display name of the field, localized for user convenience.
             </ApiParam>
         </CollapsibleNestedParams>
-     </CollapsibleApiParam>
-    <CollapsibleApiParam name='optional' type='array[object]' id="optional">
-      Shows optinal fields need for connecting to the exchange
+     </ApiParam>
+    <ApiParam name='optional' type='array[object]' id="optional">
+      Shows optinal fields need for connecting to the exchange.
         <CollapsibleNestedParams>
              <ApiParam name='field'type='string' id="field">
-              <p>The parameter needs to connect a new exchange account.</p>
-              <p>Example: `api_key`; `secret`</p>
+             The parameter needs to connect a new exchange account.
+
+              Example: `api_key`, `secret`
             </ApiParam>
              <ApiParam name='localized_name'type='string' id="localized_name">
-              Display name of the field, localized for user convenience
+              Display name of the field, localized for user convenience.
             </ApiParam>
         </CollapsibleNestedParams>
-     </CollapsibleApiParam>
+     </ApiParam>
+  </CollapsibleNestedParams>   
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='connection_type' type='string' id="connection_type">
-This exchange provides a service to connect third-party apps.`false` - if the exchange does not support
+This exchange provides a service to connect third-party apps. `false` - if the exchange does not support.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='available_connection_flows' type='array' id="available_connection_flows">
-Available exchange connection types in 3Commas
-    <CollapsibleApiParam name="Allowed values">
+Available exchange connection types in 3Commas.
+    <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
       * **form** - connection through a web form option;
-      * **fast_connect** - quick connection option;
-     </CollapsibleApiParam>
+      * **fast_connect** - quick connection option.
+     </CollapsibleNestedParams>
 </CollapsibleApiParam>
   
 <CollapsibleApiParam name='third_party_allowed' type='boolean' id="third_party_allowed">
@@ -97,25 +100,25 @@ Available exchange connection types in 3Commas
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='trusted_ips' type='array[string]' id="trusted_ips">
-  The list of IP addresses needs to be whitelisted on the exchange's website for 3Commas to work with the exchange
+  The list of IP addresses needs to be whitelisted on the exchange's website for 3Commas to work with the exchange.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='trusted_ips_input_type' type='string' id="trusted_ips_input_type">
-  Input type for trusted IP addresses
+  Input type for trusted IP addresses.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='fast_connect_action_name' type='string' id="fast_connect_action_name">
-  Name of the exchange for fast connection option in the 3Commas system
+  Name of the exchange for fast connection option in the 3Commas system.
 </CollapsibleApiParam>   
 </CollapseAll>
 
 </StickyLayout.Main>
    <StickyLayout.Sticky>
 
-## Response
+## Example Response
 <ResponseTabs.Root>
-      <ResponseTabs.TabItem value="200" label="200 OK" default>
-    ```json
+<ResponseTabs.TabItem value="200" label="200 OK" default>
+```json
 [
    {
       "market_name": "Coinbase Advanced",
@@ -186,9 +189,7 @@ Available exchange connection types in 3Commas
       ],
       "trusted_ips_input_type": "inline",
       "fast_connect_action_name": "coinbase_advanced"
-   },
-   { ... 
-   },
+   }
 ]
 ```
    </ResponseTabs.TabItem>

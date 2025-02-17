@@ -32,7 +32,7 @@ Update SmartTrade is available for SmartTrade with status: **waiting_position** 
 
 ## Path Parameter
 <ApiParam name='id' type='integer' id="id" required>
-   Unique 3Commas ID for this SmartTrade entity
+   Unique 3Commas ID for this SmartTrade entity.
 </ApiParam>
 
 ## Body Parameters
@@ -41,8 +41,9 @@ Update SmartTrade is available for SmartTrade with status: **waiting_position** 
 Details of the Leverage applied to this SmartTrade.
   <CollapsibleNestedParams>
     <ApiParam name='enabled' type="boolean" id="enabled" required>
-     Sets leverage settings for a SmartTrade created on a futures account (`true` or `false`).
-     Default: `false`.
+     Enables leverage settings for this SmartTrade. Set to `true` to activate the parameter group.
+     
+     Default: `false`
     </ApiParam>
     <ApiParam name='type' type="string" id="type">
       Leverage type for the futures account: `cros` or `isolated`.
@@ -81,14 +82,14 @@ Details of the Leverage applied to this SmartTrade.
     </ApiParam>
     <CollapsibleNestedParams>
       <ApiParam name="order_type" type="string" id="order_type">
-        The type of position trade for this SmartTrade. Possible values: `market`, `limit`, or `conditional`.
+        The type of position trade for this SmartTrade. Possible values: `market`, `limit`.
       </ApiParam>
       <ApiParam name="price" type="object" id="price">
         TBD
       </ApiParam>
       <CollapsibleNestedParams>
         <ApiParam name="type" type="string" id="type">
-          The type of price for using for this conditional order.
+          Defines the price type used as a trigger for the conditional order. Possible values: `bid`, `ask`, `last`.
         </ApiParam>
         <ApiParam name="value" type="number" id="value">
           The conditional trigger price value.
@@ -114,7 +115,7 @@ Details of Take Profit settings and the steps applied to this SmartTrade.
 <CollapsibleNestedParams>
     <ApiParam name='enabled' type="boolean" id="enabled" required>
      Enables Take Profit for this SmartTrade. Set to `true` to activate the parameter group.
-     Default: `false`.
+     Default: `false`
     </ApiParam>
     <ApiParam name='steps' type="array" id="steps">
       Detailed information about each Take Profit step.
@@ -240,10 +241,53 @@ Details of Stop Loss settings applied to this SmartTrade.
 
 <StickyLayout.Sticky>
 
-### Example request
-
+## Example request
 ```json title="PATCH /v2/smart_trades/12345678"
-...
+{
+    "position": {
+        "type": "buy",
+        "units": {
+            "value": "34.0"
+        },
+        "price": {
+            "value": "0.00000442"
+        }
+    },
+    "take_profit": {
+        "enabled": true,
+        "steps": [
+            {
+                "id": 1225026814,
+                "order_type": "limit",
+                "units": {
+                    "value": "34.0"
+                },
+                "price": {
+                    "type": "last",
+                    "value": "0.00000508"
+                },
+                "volume": "100.0",
+                "total": "0.00017272",
+                "trailing": {
+                    "enabled": false
+                }
+            }
+        ]
+    },
+    "stop_loss": {
+        "enabled": true,
+        "order_type": "market",
+        "conditional": {
+            "price": {
+                "type": "last",
+                "value": "0.00000280"
+            },
+            "trailing": {
+                "enabled": false
+            }
+        }
+    }
+}
 ```
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -255,11 +299,198 @@ Details of Stop Loss settings applied to this SmartTrade.
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>
-    ## Example Response
+## Example Responses
    <ResponseTabs.Root>
       <ResponseTabs.TabItem value="200" label="200 OK" default>
-
+  ```json
+  {
+    "id": 32037964,
+    "version": 2,
+    "account": {
+        "id": 32199203,
+        "type": "paper_trading",
+        "name": "Paper Account 1251857",
+        "market": "Binance Spot account simulator",
+        "link": "/accounts/32199203"
+    },
+    "pair": "BTC_1INCH",
+    "instant": false,
+    "status": {
+        "type": "waiting_targets",
+        "basic_type": "waiting_targets",
+        "title": "Waiting Targets"
+    },
+    "leverage": {
+        "enabled": false
+    },
+    "position": {
+        "type": "buy",
+        "editable": false,
+        "units": {
+            "value": "34.0",
+            "editable": false
+        },
+        "price": {
+            "value": "0.00000442",
+            "value_without_commission": "0.00000442",
+            "editable": false
+        },
+        "total": {
+            "value": "0.00015043"
+        },
+        "order_type": "limit",
+        "status": {
+            "type": "finished",
+            "basic_type": "finished",
+            "title": "Finished"
+        }
+    },
+    "take_profit": {
+        "enabled": true,
+        "price_type": "value",
+        "steps": [
+            {
+                "id": 1317007688,
+                "order_type": "limit",
+                "editable": true,
+                "units": {
+                    "value": null
+                },
+                "price": {
+                    "type": "last",
+                    "value": "0.00000508",
+                    "percent": null
+                },
+                "volume": "100.0",
+                "total": null,
+                "trailing": {
+                    "enabled": false,
+                    "percent": null
+                },
+                "status": {
+                    "type": "idle",
+                    "basic_type": "idle",
+                    "title": "Pending"
+                },
+                "closed_at": null,
+                "data": {
+                    "cancelable": true,
+                    "panic_sell_available": false
+                },
+                "position": 1
+            }
+        ]
+    },
+    "stop_loss": {
+        "enabled": true,
+        "price_type": "value",
+        "breakeven": false,
+        "order_type": "market",
+        "editable": true,
+        "status": {
+            "type": "idle",
+            "basic_type": "idle",
+            "title": "Pending"
+        },
+        "units": {
+            "value": null
+        },
+        "total": {
+            "value": null
+        },
+        "price": {
+            "value": null,
+            "percent": null
+        },
+        "closed_at": null,
+        "conditional": {
+            "price": {
+                "value": "0.0000028",
+                "type": "last",
+                "percent": null
+            },
+            "trailing": {
+                "enabled": false,
+                "percent": null
+            }
+        },
+        "timeout": {
+            "enabled": false,
+            "value": null
+        }
+    },
+    "reduce_funds": {
+        "steps": []
+    },
+    "market_close": {},
+    "note": "",
+    "note_raw": null,
+    "skip_enter_step": false,
+    "data": {
+        "editable": true,
+        "current_price": {
+            "day_change_percent": "1.799",
+            "bid": "0.00000283",
+            "ask": "0.00000284",
+            "last": "0.00000283",
+            "quote_volume": "0.19732848"
+        },
+        "target_price_type": "price",
+        "orderbook_price_currency": "BTC",
+        "base_order_finished": true,
+        "missing_funds_to_close": "0.0",
+        "liquidation_price": null,
+        "average_enter_price": "0.00000442",
+        "average_close_price": null,
+        "average_enter_price_without_commission": "0.00000442",
+        "average_close_price_without_commission": null,
+        "panic_sell_available": true,
+        "add_funds_available": true,
+        "reduce_funds_available": true,
+        "force_start_available": false,
+        "force_process_available": true,
+        "cancel_available": true,
+        "finished": false,
+        "base_position_step_finished": true,
+        "entered_amount": "34.0",
+        "entered_total": "0.00015043028",
+        "closed_amount": "0.0",
+        "closed_total": "0.0",
+        "commission": 0.001,
+        "created_at": "2024-12-17T16:08:51.237Z",
+        "updated_at": "2025-02-13T18:12:44.122Z",
+        "type": "smart_trade"
+    },
+    "profit": {
+        "volume": "-0.0000543065",
+        "usd": "-5.188117714065",
+        "percent": "-36.1",
+        "roe": null
+    },
+    "margin": {
+        "amount": null,
+        "total": null
+    },
+    "is_position_not_filled": false
+}
+  ```
       </ResponseTabs.TabItem>
+      <ResponseTabs.TabItem value="400" label="400 Bad Request">
+      ```json
+      {
+    "error": "record_invalid",
+    "error_description": "Invalid parameters",
+    "error_attributes": {
+        "take_profit[steps][0][price][value],take_profit[steps][0][price][percent]": [
+            "are mutually exclusive"
+        ],
+        "stop_loss[order_type]": [
+            "is missing"
+        ]
+    }
+}
+      ```
+</ResponseTabs.TabItem>
   </ResponseTabs.Root>
   </StickyLayout.Sticky>
 </StickyLayout.Root>
