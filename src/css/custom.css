@@ -347,3 +347,15 @@ body ol {
 a {
   font-weight: 500;
 }
+
+.breadcrumbs__item--active .breadcrumbs__link {
+  color: var(--ifm-link-color);
+}
+
+.navbar__link:hover, .navbar__link--active {
+  color: var(--ifm-link-color);
+}
+
+.navbar__items--right .navbar__link > svg[class*="ExternalLink"] {
+  display: none;
+}
