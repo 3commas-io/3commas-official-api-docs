@@ -1,3 +1,6 @@
+---
+sidebar_class_name: post
+---
 ## Convert dust coins to BNB
 
 **Description:** TBD
