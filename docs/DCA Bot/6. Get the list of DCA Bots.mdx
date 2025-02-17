@@ -34,20 +34,21 @@ Returns a list of DCA Bots by user. Use the query parameters to filter the resul
 </ApiParam>
 
 <ApiParam name="strategy" type="string" id="strategy">
-  Filters bots by trading strategy type: `long` or `short`
+  Filters bots by trading strategy type: `long` or `short`.
 </ApiParam>
 
 <ApiParam name="order_direction" type="string" id="order_direction">
   Sets the direction of order (`ASC` or `DESC`).
-  **Default:** `DESC`
+
+  Default: `DESC`
 </ApiParam>
 
 <CollapseAll>
 <CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
 <CollapsibleApiParam name="limit" type="integer" id="limit">
-  Limits the number of records returned. Maximum: ` 100 `.
-   
-   Default: `50`.
+  Limits the number of records returned. 
+
+  Maximum: ` 100 `, Default: `50`
 </CollapsibleApiParam>
 <CollapsibleApiParam name="offset" type="integer" id="offset">
   Skips the first N records in the results.
@@ -56,17 +57,19 @@ Returns a list of DCA Bots by user. Use the query parameters to filter the resul
   Returns entities created after a specific time.
 </CollapsibleApiParam>
 <CollapsibleApiParam name="scope" type="string" id="scope">
-  Filters bots by their status. **Default: ** `null`
-    <CollapsibleApiParam name="Allowed values">
-      * ***enable** - Returns bots where the state is active;
+  Filters bots by their status.
+  
+  Default: `null`
+    <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **enable** - Returns bots where the state is active;
       * **disabled** - Returns bots where the state is stopped;
       * **null** - Returns all bots;
-     </CollapsibleApiParam>
+     </CollapsibleNestedParams>
 </CollapsibleApiParam>
 <CollapsibleApiParam name="sort_by" type="string" id="sort_by">
   Specifies the field used to order the results: `created_at`, `updated_at`, `profit`.
 
-  Default: `created_at`.
+  Default: `created_at`
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="quote" type="string" id="quote">
@@ -98,7 +101,7 @@ GET /ver1/bots/12345678/show?include_events=true
 
 <ResponseTabs.Root>
 	 <ResponseTabs.TabItem value="200" label="200 OK" default>
-  ```json
+```json
 [
     {
         "id": 15565014,
@@ -179,11 +182,10 @@ GET /ver1/bots/12345678/show?include_events=true
         "reinvested_volume_usd": null,
         "min_price_percentage": null,
         "max_price_percentage": null
-    },
-    ...
+    }
 ]
 ```
-	</ResponseTabs.TabItem>
+</ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>
 </StickyLayout.Root>

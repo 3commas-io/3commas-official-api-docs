@@ -36,16 +36,8 @@ Here, you can find methods and attributes to monitor, update, or analyze the det
 <Endpoint
   endpointsList={[
     {
-      url: "/ver1/deals/:deal_id/show",
-      method: 'GET'
-    },
-    {
       url: "/ver1/deals",
       method: 'GET'
-    },
-    {
-      url: "/ver1/deals/:deal_id/update_deal",
-      method: 'PATCH'
     },
     {
       url: "/ver1/deals/:deal_id/panic_sell",
@@ -58,14 +50,6 @@ Here, you can find methods and attributes to monitor, update, or analyze the det
      {
       url: "/ver1/deals/:deal_id/cancel",
       method: 'POST'
-    },
-     {
-      url: "/ver1/deals/:deal_id/market_orders",
-      method: 'GET'
-    },
-    {
-      url: "/ver1/deals/:deal_id/data_for_adding_funds",
-      method: 'GET'
     },
     {
       url: "/ver1/deals/:deal_id/add_funds",
@@ -82,9 +66,24 @@ Here, you can find methods and attributes to monitor, update, or analyze the det
     {
       url: "/ver1/deals/:deal_id/convert_to_smart_trade",
       method: 'POST'
+    },
+    {
+      url: "/ver1/deals/:deal_id/update_deal",
+      method: 'PATCH'
+    },
+    {
+      url: "/ver1/deals/:deal_id/show",
+      method: 'GET'
+    },
+     {
+      url: "/ver1/deals/:deal_id/market_orders",
+      method: 'GET'
+    },
+    {
+      url: "/ver1/deals/:deal_id/data_for_adding_funds",
+      method: 'GET'
     }
   ]}
 />
-
 </StickyLayout.Sticky>
 </StickyLayout.Root>
