@@ -343,3 +343,7 @@ body ol {
 .head a::after{
   content: 'HEAD';
 }
+
+a {
+  font-weight: 500;
+}
