@@ -271,6 +271,22 @@ body ol {
   list-style: decimal;
 }
 
+nav.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+}
+
+.menu::after {
+  content: '© 2017-2025 3Commas';
+  display: block;
+  font-size: 12px;
+  text-align: center;
+  color: var(--ifm-menu-color);
+  margin: calc(var(--ifm-spacing-vertical) * .5) 0 -4px;
+}
+
 .tabs {
   position: sticky;
   top: 0;
