@@ -48,7 +48,7 @@ export default function CollapsibleApiParam({
         [styles.marginBottom]: marginBottom,
       })}>
       <Trigger asChild>
-        <summary>
+        <summary className={styles.summary}>
           {id ? (
             <Link to={`#${id}`} className={styles.anchor} onClick={handleCopy}>
               <svg width="14" height="14" viewBox="0 0 13 13">

@@ -1,0 +1,114 @@
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+
+<Endpoint
+  url="/ver1/bots/:bot_id/deals_stats"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="BOTS_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Returns data on active and created deals, as well as profit data for the entire period for the DCA Bot.
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+## Path Parameters
+<ApiParam name='bot_id' type='integer' id="bot_id" required>
+   Unique 3Commas ID for this DCA Bot entity.
+</ApiParam>
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+## Example Request 
+```json
+GET /ver1/bots/12345678/deals_stats
+```
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+## Parameters response
+<ApiParam name='active' type='integer' id="active">
+The number of currently active deals.
+</ApiParam>
+
+<ApiParam name='completed' type='integer' id="completed">
+The total number of completed deals.
+</ApiParam>
+
+<ApiParam name='panic_sold' type='integer' id="panic_sold">
+The number of deals closed at market price.
+</ApiParam>
+
+<ApiParam name='from_currency_is_dollars' type='boolean' id="from_currency_is_dollars">
+Shows whether the base currency for profit calculation is USD.
+</ApiParam>
+
+<CollapseAll>
+<CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
+<CollapsibleApiParam name='completed_deals_usd_profit' type='string' id="completed_deals_usd_profit">
+The total profit from completed deals in USD.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='completed_deals_btc_profit' type='string' id="completed_deals_btc_profit">
+The total profit from completed deals in BTC.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='funds_locked_in_active_deals' type='string' id="funds_locked_in_active_deals">
+The total funds currently locked in active deals, in USD.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='btc_funds_locked_in_active_deals' type='string' id="btc_funds_locked_in_active_deals">
+The total funds currently locked in active deals, in BTC.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='active_deals_usd_profit' type='string' id="active_deals_usd_profit">
+The current profit or loss from active deals in USD.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='active_deals_btc_profit' type='string' id="active_deals_btc_profit">
+The current profit or loss from active deals in BTC.
+</CollapsibleApiParam>
+</CollapseAll>
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+    ## Example Response
+    <ResponseTabs.Root>
+      <ResponseTabs.TabItem value="200" label="200 OK" default>
+```json
+{
+    "active": 1,
+    "completed": 83,
+    "panic_sold": 0,
+    "from_currency_is_dollars": true,
+    "completed_deals_usd_profit": "10.75875754",
+    "completed_deals_btc_profit": "0.00014222663277458617764387880566349063980977",
+    "funds_locked_in_active_deals": "169.701896364",
+    "btc_funds_locked_in_active_deals": "0.001762864967028976210730336302468929",
+    "active_deals_usd_profit": "-11.150934036",
+    "active_deals_btc_profit": "-0.000115836012342202235229626437817425"
+}
+```
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="400" label="400 No Found">
+```json
+{
+    "error": "not_found",
+    "error_description": "Not Found"
+}
+```
+</ResponseTabs.TabItem>
+    </ResponseTabs.Root>
+   </StickyLayout.Sticky>
+</StickyLayout.Root>

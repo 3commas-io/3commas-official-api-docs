@@ -1,3 +1,6 @@
+---
+sidebar_class_name: get
+---
 import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
@@ -38,7 +41,7 @@ Returns profit details of existing Grid Bot using its ID.
 </ApiParam>
 
 <Informer variant="info">
-  If the **from** and **to** values are not set, the response will include all records ordered in descending **([DESC])** order by ID parameter.
+  If the **from** and **to** values are not set, the response will include all records ordered in descending order by ID parameter.
 </Informer>
 
 </StickyLayout.Main>
@@ -103,7 +106,6 @@ Details about a specific Grid line event.
 
 <ResponseTabs.Root>
 <ResponseTabs.TabItem value="201" label="201 Created" default>
-
 ```json
 [
     {
@@ -130,7 +132,6 @@ Details about a specific Grid line event.
             "order_placed": false
         }
     },
-    ...
 ]
 ```
 </ResponseTabs.TabItem>

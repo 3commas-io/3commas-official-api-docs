@@ -14,7 +14,7 @@
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
-  padding: 8px 6px;
+  padding: 8px;
   min-width: 400px;
   gap: 8px;
   border-radius: 8px;
@@ -29,6 +29,7 @@
 .endpointsListContainer {
   min-width: auto;
   padding-right: 14px;
+  padding-left: 6px;
   gap: 4px;
 }
 
