@@ -2,8 +2,8 @@ import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
 import Endpoint, { Permission } from '@site/src/components/Endpoint';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 <Endpoint
   url="ver1/bots/update_pairs_black_list"
@@ -18,39 +18,40 @@ import TabItem from '@theme/TabItem';
 
 Adds specified pair(s) to the blacklist, preventing all DCA bots from opening deals with these pairs.
 
+<StickyLayout.Root>
+<StickyLayout.Main>
 
-<h2>Body parameter</h2>
+## Body Parameter
 
 <ApiParam name='pairs' type='string' id="pairs" required>
-  <p>Trading pair(s) in 3Commas format.</p>
-  <p> Use the endpoint [All Market Pairs](Market%20data/2.All%20market%20pairs.md) to get the value for parameter pair in 3Commas format. </p>
+  Trading pair(s) in 3Commas format.
+  
+  Use the endpoint [All Market Pairs](Market%20data/2.All%20market%20pairs.md) to get the value for parameter pair in 3Commas format.
 </ApiParam>
+</StickyLayout.Main>
 
-
-
-<h2> Response Parameter </h2>
-
-<ApiParam name='pairs' type='array' id="pairs">
-  The list of pairs that was added to the blacklist
-</ApiParam>
-
-   
-
-<h2> Example Request </h2>
-
-<div style={{ margin: '10px', padding: '10px' }}>
-
+<StickyLayout.Sticky>
+## Example Request
 ```json
 POST /ver1/bots/update_pairs_black_list?pairs=1INCH_1INCH-USD-SWAP
 ```
-</div>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
 
+<StickyLayout.Root>
+<StickyLayout.Main>
+## Response Parameter
 
-<h2> Example Response and errors </h2>
+<ApiParam name='pairs' type='array' id="pairs">
+  The list of pairs that was added to the blacklist.
+</ApiParam>
+</StickyLayout.Main>
 
-<div style={{ margin: '10px', padding: '10px' }}>
-<Tabs>
-    <TabItem value="201" label="201 Created" attributes={{className: "green"}}>
+<StickyLayout.Sticky>
+
+## Example Response
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="201" label="201 Created" default>
 
 ```json
 {
@@ -59,6 +60,7 @@ POST /ver1/bots/update_pairs_black_list?pairs=1INCH_1INCH-USD-SWAP
     ]
 }
 ```
-  </TabItem>
-  </Tabs>
-</div>
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
