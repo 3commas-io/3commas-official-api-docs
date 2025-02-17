@@ -115,3 +115,7 @@ Desktop.ini
 # Other editor and IDE settings
 *.sublime-project
 *.sublime-workspace
+
+
+# Build
+build
