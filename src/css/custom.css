@@ -271,10 +271,11 @@ body ol {
   list-style: decimal;
 }
 
-.menu {
+nav.menu {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding-bottom: 2rem;
 }
 
 .menu::after {
@@ -283,7 +284,7 @@ body ol {
   font-size: 12px;
   text-align: center;
   color: var(--ifm-menu-color);
-  margin-top: calc(var(--ifm-spacing-vertical) * .5);
+  margin: calc(var(--ifm-spacing-vertical) * .5) 0 -4px;
 }
 
 .tabs {
