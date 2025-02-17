@@ -32,7 +32,7 @@ This endpoint works only for the spot exchange.
 
 ## Path Parameter
 <ApiParam name='id' type='integer' id="id" required>
-   Unique 3Commas ID for this Grid Bot entity
+   Unique 3Commas ID for this Grid Bot entity.
 </ApiParam>
 
 </StickyLayout.Main>
@@ -51,77 +51,77 @@ GET /ver1/grid_bots/12345678/required_balances
 
 ## Response Parameters
 
-<CollapsibleApiParam name="missing_balance" type="object" id="missing_balance">
-   TBD
+<ApiParam name="missing_balance" type="object" id="missing_balance">
+   The amount of funds missing in the base and quote currencies for the Grid Bot to operate as intended.
     <CollapsibleNestedParams>
     <ApiParam name='base' type='object' id='base'>
-      Details of the missing amount in the base currency
+      Details of the missing amount in the base currency.
     </ApiParam>
       <CollapsibleNestedParams>
          <ApiParam name='quantity' type='string' id='quantity'>
              The amount of the base currency that is missing
          </ApiParam>
          <ApiParam name='currency' type='string' id='currency'>
-            The name or symbol of the base currency
+            The name or symbol of the base currency.
          </ApiParam>
       </CollapsibleNestedParams>
     <ApiParam name='quote' type='object' id='quote'>
-      Details of the missing amount in the quote currency
+      Details of the missing amount in the quote currency.
     </ApiParam>
       <CollapsibleNestedParams>
          <ApiParam name='quantity' type='string' id='quantity'>
-             The amount of the quote currency that is missing
+             The amount of the quote currency that is missing.
          </ApiParam>
          <ApiParam name='currency' type='string' id='currency'>
-            The name or symbol of the quote currency
+            The name or symbol of the quote currency.
          </ApiParam>
       </CollapsibleNestedParams>
     </CollapsibleNestedParams>
-</CollapsibleApiParam>
-<CollapsibleApiParam name="required_balance" type="object" id="required_balance">
-   The total amount of funds required in base and quote currencies to launch the Grid Bot
+</ApiParam>
+<ApiParam name="required_balance" type="object" id="required_balance">
+   The total amount of funds required in base and quote currencies to launch the Grid Bot.
    <CollapsibleNestedParams>
       <ApiParam name='base' type='object' id='base'>
-         Details of the required amount in the base currency
+         Details of the required amount in the base currency.
       </ApiParam>
          <CollapsibleNestedParams>
           <ApiParam name='quantity' type='string' id='quantity'>
-                The total amount of the base currency required
+                The total amount of the base currency required.
             </ApiParam>
             <ApiParam name='currency' type='string' id='currency'>
-            The name or symbol of the base currency
+            The name or symbol of the base currency.
             </ApiParam>
          </CollapsibleNestedParams>
     <ApiParam name='quote' type='object' id='quote'>
-      Details of the required amount in the quote currency
+      Details of the required amount in the quote currency.
     </ApiParam>
       <CollapsibleNestedParams>
          <ApiParam name='quantity' type='string' id='quantity'>
-             The total amount of the quote currency required
+             The total amount of the quote currency required.
          </ApiParam>
          <ApiParam name='currency' type='string' id='currency'>
-            The name or symbol of the quote currency
+            The name or symbol of the quote currency.
          </ApiParam>
       </CollapsibleNestedParams>
     </CollapsibleNestedParams>
-</CollapsibleApiParam>
-<CollapsibleApiParam name="need_balancing" type="boolean" id="need_balancing">
-   Indicates whether additional funds are required to balance the Grid Bot (`true`) or not (`false`)
-</CollapsibleApiParam>
-<CollapsibleApiParam name="balancing_available" type="boolean" id="balancing_available">
-   Indicates whether the bot can be balanced with the current available funds (`true`) or not (`false`)
-</CollapsibleApiParam>
-<CollapsibleApiParam name="necessary_quantities" type="object" id="necessary_quantities">
-   Details of the exact amount and currency required to balance the Grid Bot
+</ApiParam>
+<ApiParam name="need_balancing" type="boolean" id="need_balancing">
+   Indicates whether additional funds are required to balance the Grid Bot (`true`) or not (`false`).
+</ApiParam>
+<ApiParam name="balancing_available" type="boolean" id="balancing_available">
+   Indicates whether the bot can be balanced with the current available funds (`true`) or not (`false`).
+</ApiParam>
+<ApiParam name="necessary_quantities" type="object" id="necessary_quantities">
+   Details of the exact amount and currency required to balance the Grid Bot.
    <CollapsibleNestedParams>
     <ApiParam name='quantity' type='string' id='quantity'>
-      The specific amount of the required currency needed to balance the bot
+      The specific amount of the required currency needed to balance the bot.
     </ApiParam>
     <ApiParam name='currency' type='string' id='currency'>
-      The symbol of the currency required for balancing
+      The symbol of the currency required for balancing.
     </ApiParam>
     </CollapsibleNestedParams>
-</CollapsibleApiParam>
+</ApiParam>
 
 </StickyLayout.Main>
 

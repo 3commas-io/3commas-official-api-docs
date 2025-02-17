@@ -27,32 +27,28 @@ Grid Bot entities hold information such as:
       method: 'POST'
     },
     {
-      url: "/ver1/grid_bots/:id/manual",
-      method: 'PATCH'
-    },
-    {
-      url: "/ver1/grid_bots/:id",
-      method: 'GET'
-    },
-    {
       url: "/ver1/grid_bots",
       method: 'GET'
-    },
-    {
-      url: "/ver1/grid_bots/:id/disable",
-      method: 'POST'
     },
     {
       url: "/ver1/grid_bots/:id/enable",
       method: 'POST'
     },
     {
-      url: "/ver1/grid_bots/:id",
-      method: 'DELETE'
+      url: "/ver1/grid_bots/:id/disable",
+      method: 'POST'
     },
     {
       url: "/ver1/grid_bots/:id/note",
       method: 'POST'
+    },
+    {
+      url: "/ver1/grid_bots/:id/manual",
+      method: 'PATCH'
+    },
+    {
+      url: "/ver1/grid_bots/:id",
+      method: 'GET'
     },
     {
       url: "/ver1/grid_bots/:id/required_balances",
@@ -65,6 +61,10 @@ Grid Bot entities hold information such as:
     {
       url: "/ver1/grid_bots/:id/market_orders",
       method: 'GET'
+    },
+    {
+      url: "/ver1/grid_bots/:id",
+      method: 'DELETE'
     }
   ]}
 />

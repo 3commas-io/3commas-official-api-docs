@@ -27,13 +27,14 @@ Adds a note to an existing Grid Bot.
 
 ## Path Parameter
 <ApiParam name='id' type='integer' id="id" required>
-   Unique 3Commas ID for this Grid Bot entity
+   Unique 3Commas ID for this Grid Bot entity.
 </ApiParam>
 
 ## Body Parameter
 <ApiParam name='note' type='integer' id="note" required>
-   <p>Short note for this Grid Bot</p>
-   <p>Minlength: <code>1</code>; Maxlength: <code>300</code></p>
+   Short note for this Grid Bot.
+
+   Minlength: `1`, Maxlength: `300`
 </ApiParam>
 </StickyLayout.Main>
 
@@ -43,9 +44,7 @@ Adds a note to an existing Grid Bot.
 ## Example Request
 
 ```json title="POST  /ver1/grid_bots/2345678/note"
-
-{ "note": "Welcome to my 3Commas" } 
-
+{ "note": "Welcome to 3Commas" }
 ```
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -55,7 +54,7 @@ Adds a note to an existing Grid Bot.
 
 ## Response Parameters 
 
-If successful, the response includes a copy of the updated [Grid bot](./README.md) entity.
+If successful, the response includes a copy of the updated [Grid bot](./0.%20Grid%20Bot%20entity.mdx) entity.
 
 </StickyLayout.Main>
 <StickyLayout.Sticky>

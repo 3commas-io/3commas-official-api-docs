@@ -20,21 +20,20 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs'
   }
 />
 
-
-  Returns the list of Grid Bots. Use the body parameters to filter results
+Returns the list of Grid Bots. Use the body parameters to filter results.
 
 <StickyLayout.Root>
    <StickyLayout.Main>
 
 ## Query Parameters 
 <ApiParam name='account_id' type='string' id="account_id">
-    Unique 3Commas ID for this Grid Bot entity. 
-    Use a comma-separated list to specify multiple `account_id` values 
+    Unique 3Commas ID for this Grid Bot entity.
+    Use a comma-separated list to specify multiple `account_id` values.
 </ApiParam>
 
 <ApiParam name='state' type='string' id="state">
     Return entities that match the specified state.
-    Use `enabled` to get active bots and `disabled` to get inactive bots 
+    Use `enabled` to get active bots and `disabled` to get inactive bots.
 </ApiParam>
 
 <ApiParam name='sort_by' type='string' id="sort_by">
@@ -42,7 +41,8 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs'
 </ApiParam>
 
 <ApiParam name='sort_direction' type='string' id="sort_direction">
-   Sets the direction of order (`[ASC]` or `[DESC]`)
+   Sets the direction of order `[ASC]` or `[DESC]`.
+
    Default: `[DESC]`
 </ApiParam>
 
@@ -51,24 +51,26 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs'
 
 <CollapsibleApiParam name="limit" type="string" id="limit">
    Quantity of the records you want to get in response.
-    Minimum: `1`, Maximum: `1000`; Default: `10` 
+
+    Minimum: `1`, Maximum: `1000`, Default: `10` 
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="offset" type="integer" id="offset">
    Used to specify the starting point for a set of records to return in a paginated list.
-    Default: `0` 
+   
+   Default: `0` 
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="from" type="string" id="from">
-   Parameter for a filter by created date
+   Parameter for a filter by created date.
 </CollapsibleApiParam>
       
 <CollapsibleApiParam name="base" type="string" id="base">
-   Return entities that match the base currency of the trading pair (e.g., `BTC` for BTC/USDT)
+   Return entities that match the base currency of the trading pair (e.g., `BTC` for BTC/USDT).
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="quote" type="string" id="quote">
-   Return entities that match the quote currency of the trading pair (e.g., `USDT` for BTC/USDT)
+   Return entities that match the quote currency of the trading pair (e.g., `USDT` for BTC/USDT).
 </CollapsibleApiParam>
 </CollapseAll>
 </StickyLayout.Main>
@@ -88,7 +90,7 @@ GET  /ver1/grid_bots?account_ids[]=32833909&account_ids[]32864603
 
 ## Response Parameters 
 
-If successful, the response includes an array of [Grid Bot](./README.md) entities.
+If successful, the response includes an array of [Grid Bot](./0.%20Grid%20Bot%20entity.mdx) entities.
 
 </StickyLayout.Main>
 <StickyLayout.Sticky>
@@ -154,7 +156,6 @@ If successful, the response includes an array of [Grid Bot](./README.md) entitie
                 "side": "buy",
                 "order_placed": false
             },
-            ...
             {
                 "id": 256427674,
                 "price": "0.021884",
@@ -217,7 +218,6 @@ If successful, the response includes an array of [Grid Bot](./README.md) entitie
                 "side": null,
                 "order_placed": false
             },
-            ...
             {
                 "id": 256564761,
                 "price": "0.11477",
@@ -225,77 +225,11 @@ If successful, the response includes an array of [Grid Bot](./README.md) entitie
                 "order_placed": false
             }
         ]
-    },
-    {
-        "id": 2340683,
-        "account_id": 32864603,
-        "account_name": "My Gate.io",
-        "is_enabled": true,
-        "grids_quantity": "81",
-        "created_at": "2024-10-07T19:25:19.985Z",
-        "updated_at": "2024-10-08T06:09:06.596Z",
-        "strategy_type": "manual",
-        "upper_stop_loss_enabled": false,
-        "lower_stop_loss_enabled": false,
-        "note": null,
-        "editable": true,
-        "lower_price": "0.10709",
-        "lower_stop_loss_price": null,
-        "lower_stop_loss_action": "stop_bot",
-        "upper_price": "0.14743",
-        "upper_stop_loss_price": null,
-        "upper_stop_loss_action": "stop_bot",
-        "quantity_per_grid": "1.525",
-        "leverage_type": "cross",
-        "leverage_custom_value": "2.0",
-        "name": "DOGE_USDT/USDT",
-        "pair": "USDT_DOGE_USDT",
-        "start_price": "0.11039",
-        "grid_price_step": "1.00400404340336061876774988824634211028445743211701796",
-        "current_profit": "0.014301075",
-        "current_profit_usd": "0.014301075",
-        "total_profits_count": "6",
-        "bought_volume": "0.0",
-        "sold_volume": "0.0",
-        "profit_percentage": "0.0117628032189822567750298571790476629149161",
-        "current_price": "0.10658",
-        "max_active_buy_lines": "81",
-        "max_active_sell_lines": "81",
-        "order_currency_type": "quote",
-        "profit_currency_type": "quote",
-        "trailing_up_enabled": "false",
-        "grid_type": "geometric",
-        "investment_base_currency": "95.373316645187509287670722538",
-        "investment_quote_currency": "0.0",
-        "unrealized_profit_loss": "0.0",
-        "current_profit_loss": null,
-        "current_profit_loss_percent": null,
-        "orderbook_price_currency": "USDT",
-        "expansion_down_enabled": "false",
-        "expansion_down_stop_price": null,
-        "grid_lines": [
-            {
-                "id": 256574543,
-                "price": "0.1084",
-                "side": "sell",
-                "order_placed": false
-            },
-           ...
-            {
-                "id": 256563805,
-                "price": "0.11283",
-                "side": "sell",
-                "order_placed": true
-            }
-        ]
     }
 ]
 ```
-
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="500" label="500 Internal Server Error">
-
-
 ```json
 {
     "error": "unknown_error",
