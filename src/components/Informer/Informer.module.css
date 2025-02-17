@@ -6,39 +6,58 @@
   gap: 4px 8px;
   align-items: flex-start;
   padding: 16px;
-  margin: 20px 0;
+  margin: var(--ifm-leading) 0;
+  --info-bg: rgb(230, 239, 249);
+  --warning-bg: rgb(255, 243, 214);
+  --danger-bg: rgb(251, 239, 240);
+  --accent-bg: rgb(234, 245, 245);
+  --info-icon-color: rgb(30, 114, 210);
+  --warning-icon-color: rgb(255, 155, 26);
+  --danger-icon-color: rgb(231, 89, 106);
+  --accent-icon-color: rgb(19, 168, 161);
+}
+
+[data-theme="dark"] .root {
+  --info-bg: rgb(29, 44, 58);
+  --warning-bg: rgb(35, 40, 39);
+  --danger-bg: rgb(45, 40, 49);
+  --accent-bg: rgb(23, 40, 47);
+  --info-icon-color: rgb(75, 151, 236);
+  --warning-icon-color: rgb(235, 164, 0);
+  --danger-icon-color: rgb(236, 105, 120);
+  --accent-icon-color: rgb(13, 166, 158);
 }
 
 .info {
-  background-color: rgb(230, 239, 249);
+  background-color: var(--info-bg);
 }
 
 .info .iconBlock {
-  color: rgb(30, 114, 210);
+  color: var(--info-icon-color);
 }
 
 .warning {
-  background-color: rgb(255, 243, 214);
+  background-color: var(--warning-bg);
 }
 
 .warning .iconBlock {
-  color: rgb(255, 155, 26);
+  color: var(--warning-icon-color);
 }
 
 .danger {
-  background-color: rgb(251, 239, 240);
+  background-color: var(--danger-bg);
 }
 
 .danger .iconBlock {
-  color: rgb(231, 89, 106);
+  color: var(--danger-icon-color);
 }
 
 .accent {
-  background-color: rgb(234, 245, 245);
+  background-color: var(--accent-bg);
 }
 
 .accent .iconBlock {
-  color: rgb(19, 168, 161);
+  color: var(--accent-icon-color);
 }
 
 .container {

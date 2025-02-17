@@ -1,7 +1,8 @@
 .heading {
   display: flex;
   align-items: center;
-  margin-top: 30px;
+  margin-top: var(--ifm-spacing-vertical);
+  margin-bottom: calc(var(--ifm-spacing-vertical) * .5);
 
   button {
     margin-left: auto;
