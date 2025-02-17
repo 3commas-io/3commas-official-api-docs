@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import styles from './Steps.module.css'
 import Heading from '@theme/Heading'
 
 type Props = {
   title: string
-  description: string
+  description: ReactNode
 }
 
 export const Step = ({ title, description }: Props) => (
