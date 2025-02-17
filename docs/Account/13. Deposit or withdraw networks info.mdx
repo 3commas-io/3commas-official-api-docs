@@ -23,7 +23,7 @@ import { Informer } from '@site/src/components/Informer/Informer';
 Shows information about the currency and each supported network for deposits and withdrawals available on the exchange account.
 
 <Informer variant="info">
- This endpoint works for the following exchanges: *Binance Spot*, *Binance US*, *OKX Spot*, *Binance Broker*
+ This endpoint works for the following exchanges: **Binance Spot**, **Binance US**, **OKX Spot**, **Binance Broker**.
 </Informer>
 
 <StickyLayout.Root>
@@ -38,13 +38,13 @@ Shows information about the currency and each supported network for deposits and
 ##  Query Parameter 
 
 <ApiParam name='purpose' type='integer' id="purpose" required>
-    Filter currencies with `deposit` or `withdraw` enabled
+    Filter currencies with `deposit` or `withdraw` enabled.
 </ApiParam>
 
 </StickyLayout.Main>
 <StickyLayout.Sticky>
 
-##  Example request
+##  Example Request
 ```
 GET /ver1/accounts/12345678/networks_info
 ```
@@ -137,54 +137,52 @@ GET /ver1/accounts/12345678/networks_info
 <ResponseTabs.TabItem value="200" label="200 OK" default>
 
 ```json
-
-    {
-        "currency": "BTC",
-        "name": "Bitcoin",
-        "deposit_enable": true,
-        "withdraw_enable": true,
-        "network_list": [
-            {
-                "network": "BNB",
-                "default": false,
-                "deposit_enable": false,
-                "withdraw_enable": false,
-                "deposit_tip": "Wallet Maintenance, Deposit Suspended",
-                "withdraw_tip": "Wallet Maintenance, Withdrawal Suspended",
-                "special_tip": "Both a MEMO and an Address are required to successfully deposit your BEP2-BTCB tokens to Binance.",
-                "network_name": "BNB Beacon Chain (BEP2)",
-                "network_url": null,
-                "address_regexp": "^(bnb1)[0-9a-z]{38}$",
-                "withdraw_fee": "0.0000093",
-                "withdraw_min": "0.000019",
-                "withdrawMax": "10000000000",
-                "withdrawMultiple": "0.00000001",
-                "memo_regexp": "^[0-9A-Za-z\\-_]{1,120}$",
-                "label": "MEMO/Tag",
-                "require_address_tag": false
-            },
-            {
-                "network": "BTC",
-                "default": true,
-                "deposit_enable": true,
-                "withdraw_enable": true,
-                "deposit_tip": "",
-                "withdraw_tip": "",
-                "special_tip": "",
-                "network_name": "Bitcoin",
-                "network_url": null,
-                "address_regexp": "^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$|^[(bc1q)|(bc1p)][0-9A-Za-z]{37,62}$",
-                "withdraw_fee": "0.0004",
-                "withdraw_min": "0.0008",
-                "withdrawMax": "10000000000",
-                "withdrawMultiple": "0.00000001",
-                "memo_regexp": "",
-                "label": "",
-                "require_address_tag": false
-            }
-        ]
-    },
-...
+{
+   "currency": "BTC",
+   "name": "Bitcoin",
+   "deposit_enable": true,
+   "withdraw_enable": true,
+   "network_list": [
+      {
+         "network": "BNB",
+         "default": false,
+         "deposit_enable": false,
+         "withdraw_enable": false,
+         "deposit_tip": "Wallet Maintenance, Deposit Suspended",
+         "withdraw_tip": "Wallet Maintenance, Withdrawal Suspended",
+         "special_tip": "Both a MEMO and an Address are required to successfully deposit your BEP2-BTCB tokens to Binance.",
+         "network_name": "BNB Beacon Chain (BEP2)",
+         "network_url": null,
+         "address_regexp": "^(bnb1)[0-9a-z]{38}$",
+         "withdraw_fee": "0.0000093",
+         "withdraw_min": "0.000019",
+         "withdrawMax": "10000000000",
+         "withdrawMultiple": "0.00000001",
+         "memo_regexp": "^[0-9A-Za-z\\-_]{1,120}$",
+         "label": "MEMO/Tag",
+         "require_address_tag": false
+      },
+      {
+         "network": "BTC",
+         "default": true,
+         "deposit_enable": true,
+         "withdraw_enable": true,
+         "deposit_tip": "",
+         "withdraw_tip": "",
+         "special_tip": "",
+         "network_name": "Bitcoin",
+         "network_url": null,
+         "address_regexp": "^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$|^[(bc1q)|(bc1p)][0-9A-Za-z]{37,62}$",
+         "withdraw_fee": "0.0004",
+         "withdraw_min": "0.0008",
+         "withdrawMax": "10000000000",
+         "withdrawMultiple": "0.00000001",
+         "memo_regexp": "",
+         "label": "",
+         "require_address_tag": false
+      }
+   ]
+}
 ```
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="400" label="400 Bad Request">

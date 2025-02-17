@@ -25,7 +25,7 @@ Updates an exchange account using its ID, including updating API keys for reconn
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-## Parameters request
+## Parameters Request
 
 <ApiParam name='account_id' type='integer' id="account_id" required>
    Unique 3Commas ID of this exchange account entity.
@@ -60,15 +60,14 @@ Updates an exchange account using its ID, including updating API keys for reconn
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="include_in_summary" type="boolean" id="include_in_summary">
-   Indicates whether this account should be included in the summary statistics (`true`) or not(`false`)
+   Indicates whether this account should be included in the summary statistics (`true`) or not(`false`).
 </CollapsibleApiParam>
 </CollapseAll>
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>
 
-## Example request
-
+## Example Request
 ```
 POST /ver1/accounts/update?account_id=12345678&name=New%20name%20exchange
 ```
@@ -77,8 +76,8 @@ POST /ver1/accounts/update?account_id=12345678&name=New%20name%20exchange
 
 <StickyLayout.Root>
 <StickyLayout.Main>
-## Parameters response
 
+## Parameters Response
 If successful, the response includes a copy of [Account](0.%20Account%20entity.mdx) entity.
 
 </StickyLayout.Main>

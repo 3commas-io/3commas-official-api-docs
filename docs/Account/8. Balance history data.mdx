@@ -21,7 +21,7 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
   }
 />
 
-Returns the balance history for a specific account using its ID
+Returns the balance history for a specific account using its ID.
 
 <StickyLayout.Root>
 <StickyLayout.Main>
@@ -56,27 +56,27 @@ Returns the balance history for a specific account using its ID
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-## Parameters response
+## Response Parameters
 
-<CollapsibleApiParam name='date_to' type='string' id="date_to">
+<ApiParam name='date_to' type='string' id="date_to">
     Timestamp (UNIX time) in seconds representing a specific date.
-</CollapsibleApiParam>
+</ApiParam>
 
-<CollapsibleApiParam name='usd' type='string' id="usd">
+<ApiParam name='usd' type='string' id="usd">
    The value in USD for a specific date.
-</CollapsibleApiParam>
+</ApiParam>
       
-<CollapsibleApiParam name='btc' type='string' id="btc">
+<ApiParam name='btc' type='string' id="btc">
    The value in BTC for a specific date.
-</CollapsibleApiParam>
+</ApiParam>
 
-<CollapsibleApiParam name='btc_deposit_amount' type='string' id="btc_deposit_amount">
+<ApiParam name='btc_deposit_amount' type='string' id="btc_deposit_amount">
    The deposited amount in BTC on a specific date.
-</CollapsibleApiParam>
+</ApiParam>
 
-<CollapsibleApiParam name='usd_deposit_amount' type='string' id="usd_deposit_amount">
+<ApiParam name='usd_deposit_amount' type='string' id="usd_deposit_amount">
    The deposited amount in USD on a specific date.
-</CollapsibleApiParam>   
+</ApiParam>   
 </StickyLayout.Main>
 
 
@@ -95,7 +95,6 @@ Returns the balance history for a specific account using its ID
         "btc_deposit_amount": 0.0,
         "usd_deposit_amount": 0.0
     },
-    ...
     {
         "date": 1727873800,
         "usd": 29.31,

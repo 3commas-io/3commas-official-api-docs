@@ -19,7 +19,7 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
   }
 />
 
-Returns a list of leverages that the exchange market is using
+Returns a list of leverages that the exchange market is using.
 
 <StickyLayout.Root>
 <StickyLayout.Main>
@@ -33,14 +33,15 @@ Returns a list of leverages that the exchange market is using
 ## Query Parameter
 
 <ApiParam name='page' type='integer' id="page" required>
-   Page number for pagination. Default: `1`.
+   Page number for pagination. 
+   
+   Default: `1`
 </ApiParam>
 
 </StickyLayout.Main>
 <StickyLayout.Sticky>
 
-## Example request
-
+## Example Request
 ```json
 GET /ver1/accounts/32833910/leverage_data?pair=USDC_DOGE
 ```
@@ -71,7 +72,7 @@ GET /ver1/accounts/32833910/leverage_data?pair=USDC_DOGE
 </ApiParam>
 
 <ApiParam name="valid" type="object" id="valid">
-   TBD
+ Contains the minimum and maximum allowable leverage values for this type.
     <CollapsibleNestedParams>
       <ApiParam name='min' type="string or null" id="min">
            Minimum allowable leverage value
@@ -124,7 +125,6 @@ GET /ver1/accounts/32833910/leverage_data?pair=USDC_DOGE
     }
 ]
 ```
-
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>

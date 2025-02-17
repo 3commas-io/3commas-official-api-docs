@@ -21,26 +21,26 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
   }
 />
 
-Updates a name for the exchange account entity
+Updates a name for the exchange account entity using its ID
 
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-<h2> Path Parameter </h2>
+## Path Parameter
 
 <ApiParam name='account_id' type='integer' id="account_id" required>
-    Unique 3Commas ID of this exchange account entity
+    Unique 3Commas ID of this exchange account entity.
 </ApiParam>
 
-<h2> Query Parameter </h2>
+## Query Parameter
 
 <ApiParam name='name' type='integer' id="name" required>
-    New name for this exchange account
+    New name for this exchange account.
 </ApiParam>
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>
-## Example request
+## Example Request
 
 ```json
 POST  /ver1/accounts/11223344/rename?name=new%20name
@@ -51,7 +51,7 @@ POST  /ver1/accounts/11223344/rename?name=new%20name
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-## Parameters response
+## Parameters Response
 
 If successful, the response includes a copy of [Account](0.%20Account%20entity.mdx) entity.
 
@@ -148,11 +148,9 @@ If successful, the response includes a copy of [Account](0.%20Account%20entity.m
     "market_code": "bybit_spot",
     "api_keys_state": "ok"
 }
-
 ```
-
-  </ResponseTabs.TabItem>
-  <ResponseTabs.TabItem value="401" label="401 Unauthorized">
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="401" label="401 Unauthorized">
   
 ```json
 {
