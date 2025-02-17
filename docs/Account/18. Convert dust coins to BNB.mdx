@@ -1,6 +1,8 @@
 
 import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import ApiParam from '@site/src/components/ApiParam';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import { Informer } from '@site/src/components/Informer/Informer';
 import * as StickyLayout from '@site/src/components/StickyLayout'
 import * as ResponseTabs from '@site/src/components/ResponseTabs'
@@ -43,7 +45,7 @@ This endpoint is applicable to the Binance Spot exchange.
 
 ```json title="POST /ver1/accounts/12345678/convert_dust_to_bnb"
 {
-  "codes": ["USDT", "BTC", "ETH"]
+  "codes": ["USDT"]
 }
 ```
 </StickyLayout.Sticky>
@@ -54,12 +56,67 @@ This endpoint is applicable to the Binance Spot exchange.
 
 ## Response Parameters
 
+<ApiParam name='totalTransfered' type='string' id="totalTransfered">
+The total amount successfully converted to BNB.
+</ApiParam>
+
+<ApiParam name='totalServiceCharge' type='string' id="totalServiceCharge">
+The total service fee deducted during the conversion.
+</ApiParam>
+
+<ApiParam name='transferResult' type='array' id="transferResult">
+A list of details for each asset conversion.
+</ApiParam>
+  <CollapsibleNestedParams>
+<ApiParam name='tranId' type='integer' id="transferResult.tranId">
+The transaction ID of the dust-to-BNB conversion.
+</ApiParam>
+
+<ApiParam name='fromAsset' type='string' id="transferResult.fromAsset">
+The currency code of the converted asset.
+</ApiParam>
+
+<ApiParam name='amount' type='string' id="transferResult.amount">
+The initial amount of the asset before conversion.
+</ApiParam>
+
+<ApiParam name='transferedAmount' type='string' id="transferResult.transferedAmount">
+The amount of the asset successfully converted to BNB.
+</ApiParam>
+
+<ApiParam name='serviceChargeAmount' type='string' id="transferResult.serviceChargeAmount">
+The service fee deducted for converting the asset to BNB.
+</ApiParam>
+
+<ApiParam name='operateTime' type='integer' id="transferResult.operateTime">
+The timestamp of the conversion operation in milliseconds since epoch.
+</ApiParam>
+</CollapsibleNestedParams>
+
 </StickyLayout.Main>
 
 
 <StickyLayout.Sticky>
 ## Example Responses
 <ResponseTabs.Root>
+<ResponseTabs.TabItem value="201" label="201 Created" default>
+```json
+{
+    "totalTransfered": "0.00076178",
+    "totalServiceCharge": "0.00001523",
+    "transferResult": [
+        {
+            "tranId": 243385046044,
+            "fromAsset": "USDT",
+            "amount": "0.51389388",
+            "transferedAmount": "0.00076178",
+            "serviceChargeAmount": "0.00001523",
+            "operateTime": 1739799333228
+        }
+    ]
+}
+```
+</ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="400" label="400 Bad Request">
 ```
 {
