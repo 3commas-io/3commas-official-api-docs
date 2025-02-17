@@ -226,14 +226,16 @@ table {
   thead th {
     font-size: 11px;
     text-transform: uppercase;
-    padding: 0.3rem;
+    padding: 0.25rem 0.5rem;
     border: 0;
+    text-align: left;
   }
 
   tbody td {
     border: 1px solid var(--ifm-table-border-color);
     border-top: none;
     border-left: none;
+    padding: 0.25rem 0.5rem;
   }
 
   tbody td:first-child {
