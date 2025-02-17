@@ -23,17 +23,19 @@ Getting a list of events by Grid Bot.
 
 ## Path Parameter
 <ApiParam name='id' type='integer' id="id" required>
-   Unique 3Commas ID for this Grid Bot entity
+   Unique 3Commas ID for this Grid Bot entity.
 </ApiParam>
 
-<h2> Query Parameters </h2>
+## Query Parameters
 <ApiParam name='page' type='integer' id="page" required>
-    Page number for pagination
+    Page number for pagination.
+
     Default: `1`
 </ApiParam>
 <ApiParam name='per_page' type='integer' id="per_page" required>
-    Quantity of records on one page
-    Minimum: `1`, Maximum: `100`; Default: `100`
+    Quantity of records on one page.
+
+    Minimum: `1`, Maximum: `100`, Default: `100`
 </ApiParam>
 
 </StickyLayout.Main>
@@ -53,10 +55,10 @@ GET /ver1/grid_bots/2338357/events?page=1&per_page=10
 
 ## Response Parameters
 <ApiParam name='message' type='string' id="message">   
-    The description of the event
+    The description of the event.
 </ApiParam>
 <ApiParam name='created_at' type='string' id="created_at">   
-    ISO 8601 datetime string indicating when the event was recorded
+    ISO 8601 datetime string indicating when the event was recorded.
 </ApiParam>
 </StickyLayout.Main>
 

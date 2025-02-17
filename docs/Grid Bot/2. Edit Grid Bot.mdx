@@ -17,14 +17,14 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs'
   }
 />
 
-  Updates an existing Grid Bot using its ID
+  Updates an existing Grid Bot using its ID.
 
 <StickyLayout.Root>
    <StickyLayout.Main>
 
 ## Path Parameter 
 <ApiParam name='id' type='integer' id="id" required>
-   Unique 3Commas ID for this Grid Bot entity
+   Unique 3Commas ID for this Grid Bot entity.
 </ApiParam>
 
 ## Body Parameters 
@@ -143,9 +143,7 @@ Type of leverage applied for this Grid Bot.
    Optional user-defined note for the Grid Bot.
    `[1 ... 300]` characters.
 </CollapsibleApiParam>
-
 </CollapseAll>
-
 </StickyLayout.Main>
 
 
@@ -181,7 +179,6 @@ PATCH /ver1/grid_bots/2291725/manual
     "leverage_custom_value": 10,
     "mode": "long"
 }
-
 ```
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -191,19 +188,19 @@ PATCH /ver1/grid_bots/2291725/manual
 
 ## Parameters response 
 
-If successful, the response includes a copy of the updated [Grid Bot](./README.md) entity.
-
+If successful, the response includes a copy of the updated [Grid Bot](./0.%20Grid%20Bot%20entity.mdx) entity.
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>
 
-## Response
+## Example Response
 
 <ResponseTabs.Root>
 <ResponseTabs.TabItem value="200" label="200 OK" default>
 
 ```json
-{"id"=>2291725,
+{
+   "id"=>2291725,
  "account_id"=>12555712,
  "account_name"=>"Binance Futures",
  "is_enabled"=>false,
