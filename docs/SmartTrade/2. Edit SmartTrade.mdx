@@ -244,49 +244,49 @@ Details of Stop Loss settings applied to this SmartTrade.
 ## Example request
 ```json title="PATCH /v2/smart_trades/12345678"
 {
-    "position": {
-        "type": "buy",
-        "units": {
-            "value": "34.0"
-        },
-        "price": {
-            "value": "0.00000442"
-        }
-    },
-    "take_profit": {
-        "enabled": true,
-        "steps": [
-            {
-                "id": 1225026814,
-                "order_type": "limit",
-                "units": {
-                    "value": "34.0"
-                },
-                "price": {
-                    "type": "last",
-                    "value": "0.00000508"
-                },
-                "volume": "100.0",
-                "total": "0.00017272",
-                "trailing": {
-                    "enabled": false
-                }
-            }
-        ]
-    },
-    "stop_loss": {
-        "enabled": true,
-        "order_type": "market",
-        "conditional": {
-            "price": {
-                "type": "last",
-                "value": "0.00000280"
+   "position": {
+      "type": "buy",
+      "units": {
+         "value": "34.0"
+      },
+      "price": {
+         "value": "0.00000442"
+      }
+   },
+   "take_profit": {
+      "enabled": true,
+      "steps": [
+         {
+            "id": 1225026814,
+            "order_type": "limit",
+            "units": {
+               "value": "34.0"
             },
+            "price": {
+               "type": "last",
+               "value": "0.00000508"
+            },
+            "volume": "100.0",
+            "total": "0.00017272",
             "trailing": {
-                "enabled": false
+               "enabled": false
             }
-        }
-    }
+         }
+      ]
+   },
+   "stop_loss": {
+      "enabled": true,
+      "order_type": "market",
+      "conditional": {
+         "price": {
+            "type": "last",
+            "value": "0.00000280"
+         },
+         "trailing": {
+            "enabled": false
+         }
+      }
+   }
 }
 ```
 </StickyLayout.Sticky>
@@ -294,7 +294,7 @@ Details of Stop Loss settings applied to this SmartTrade.
 
 <StickyLayout.Root>
 <StickyLayout.Main>
-  ## Parameters response
+  ## Parameters Response
   If successful, the response includes an updated copy of [SmartTrade](/docs/SmartTrade/1.%20SmartTrade%20entity.md) entity.
 </StickyLayout.Main>
 
