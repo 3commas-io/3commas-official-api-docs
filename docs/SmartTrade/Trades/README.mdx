@@ -38,15 +38,15 @@ Here you will find a set of methods to manage these trades.
 <Endpoint
   endpointsList={[
     {
+      url: "/v2/smart_trades/:smart_trade_id/trades/:trade_id/close_by_market",
+      method: 'POST'
+    },
+    {
       url: "/v2/smart_trades/:smart_trade_id/trades",
       method: 'GET'
     },
     {
-      url: "/v2/smart_trades/:smart_trade_id/trades/:id/close_by_market",
-      method: 'POST'
-    },
-    {
-      url: "/v2/smart_trades/{smart_trade_id}/trades/:id",
+      url: "/v2/smart_trades/:smart_trade_id/trades/:trade_id",
       method: 'DELETE'
     }
   ]}
