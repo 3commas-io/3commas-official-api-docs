@@ -18,7 +18,7 @@ You can use command line to create RSA Key pair:
         <p>Run this command to generate a 4096-bit private key: </p>
         <CodeBlock
           showLineNumbers>
-          {`$ openssl genrsa`}
+          {`openssl genrsa`}
         </CodeBlock>
       </>
     }
@@ -30,7 +30,7 @@ You can use command line to create RSA Key pair:
             </p>
           <CodeBlock
           showLineNumbers>
-          {`$ openssl genrsa -out private.pem 2048`}
+          {`openssl genrsa -out private.pem 2048`}
           </CodeBlock>
          </>
         }
@@ -41,7 +41,7 @@ You can use command line to create RSA Key pair:
          <p> To generate the public key from the private key, run this command:</p>
          <CodeBlock
           showLineNumbers>
-          {`$ openssl rsa -in private.pem -pubout -out public.pem`}
+          {`openssl rsa -in private.pem -pubout -out public.pem`}
           </CodeBlock>
          </>
          }
@@ -52,7 +52,7 @@ You can use command line to create RSA Key pair:
          <p> Run this command to view the public key:</p>
          <CodeBlock
           showLineNumbers>
-          {`$ cat public.pem`}
+          {`cat public.pem`}
           </CodeBlock>
          </>
          }

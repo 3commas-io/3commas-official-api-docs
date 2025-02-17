@@ -1,3 +1,6 @@
+---
+sidebar_class_name: post
+---
 import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
@@ -17,14 +20,14 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs'
   }
 />
 
-Stops an existing Grid Bot using its ID
+Stops an existing Grid Bot using its ID.
 
 <StickyLayout.Root>
 <StickyLayout.Main>
 
 ## Path Parameter 
 <ApiParam name='id' type='integer' id="id" required>
-   Unique 3Commas ID for this Grid Bot entity
+   Unique 3Commas ID for this Grid Bot entity.
 </ApiParam>
 
 </StickyLayout.Main>
@@ -44,7 +47,7 @@ POST /ver1/grid_bots/2338357/disable
 
 ## Response Parameters 
 
-If successful, the response includes a copy of the updated [Grid bot](./README.md) entity.
+If successful, the response includes a copy of the updated [Grid bot](./0.%20Grid%20Bot%20entity.mdx) entity.
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>
@@ -119,7 +122,6 @@ If successful, the response includes a copy of the updated [Grid bot](./README.m
     ]
 }
 ```
-
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>

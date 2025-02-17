@@ -1,3 +1,6 @@
+---
+sidebar_class_name: post
+---
 import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
@@ -16,7 +19,7 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs'
     </>
   }
 />
-Creates a new Grid Bot
+Creates a new Grid Bot.
 
 <StickyLayout.Root>
    <StickyLayout.Main>
@@ -30,19 +33,19 @@ Creates a new Grid Bot
 </ApiParam>
 
 <ApiParam name='account_id' type='integer' id="account_id" required>
-   ID of the exchange account entity where the Grid Bot is created
+   ID of the exchange account entity where the Grid Bot is created.
 </ApiParam>   
 
 <ApiParam name='pair' type='string' id="pair" required>
-   Trading pair in 3Commas format. Use the [All market pairs](Market%20data/All%20market%20pairs.md) endpoint to retrieve the list of supported pairs and their format
+   Trading pair in 3Commas format. Use the [All market pairs](Market%20data/All%20market%20pairs.md) endpoint to retrieve the list of supported pairs and their format.
 </ApiParam>
 
 <ApiParam name='upper_price' type='number' id="upper_price" required>
-   The maximum price of the trading range, above which the bot will not place sell orders
+   The maximum price of the trading range, above which the bot will not place sell orders.
 </ApiParam>
 
 <ApiParam name='pair' type='string' id="pair" required>
-   Trading pair in 3Commas format
+   Trading pair in 3Commas format.
 </ApiParam>
 
 
@@ -50,31 +53,31 @@ Creates a new Grid Bot
 <CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
 
 <CollapsibleApiParam name="lower_price" type="string" id="lower_price" required>
-  The minimum price of the trading range, below which the bot will not place buy orders
+  The minimum price of the trading range, below which the bot will not place buy orders.
 </CollapsibleApiParam>
    
 <CollapsibleApiParam name="grids_quantity" type="number" id="grids_quantity" required>
-  The number of grid levels between the upper and lower price boundaries
+  The number of grid levels between the upper and lower price boundaries.
 </CollapsibleApiParam>   
 
 <CollapsibleApiParam name="grid_type" type="string" id="grid_type">
-  Type of Grid Bot configuration: `geometric` or `arithmetic`
+  Type of Grid Bot configuration: `geometric` or `arithmetic`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="quantity_per_grid" type="number" id="quantity_per_grid" required>
-  Quantity of the asset allocated per Grid Bot level order
+  Quantity of the asset allocated per Grid Bot level order.
 </CollapsibleApiParam>
    
 <CollapsibleApiParam name="order_currency_type" type="string" id="order_currency_type">
-  The currency type used for placing orders: `base` or `quote`
+  The currency type used for placing orders: `base` or `quote`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="profit_currency_type" type="string" id="profit_currency_type">
-  The currency in which the bot will generate profit: `base` or `quote`
+  The currency in which the bot will generate profit: `base` or `quote`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="upper_stop_loss_enabled" type="boolean" id="upper_stop_loss_enabled">
-  Indicates if upper stop-loss settings are enabled (`true`) or not(`false`)
+  Indicates if upper stop-loss settings are enabled (`true`) or not(`false`).
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="upper_stop_loss_action" type="string" id="upper_stop_loss_action">
@@ -87,11 +90,11 @@ Creates a new Grid Bot
 </CollapsibleApiParam>
    
 <CollapsibleApiParam name="upper_stop_loss_price" type="number" id="upper_stop_loss_price">
-  The price level that triggers the upper stop-loss action
+  The price level that triggers the upper stop-loss action.
 </CollapsibleApiParam> 
 
 <CollapsibleApiParam name="lower_stop_loss_enabled" type="boolean" id="lower_stop_loss_enabled">
-   Indicates if lower stop-loss settings are enabled (`true`) or not (`false`)
+   Indicates if lower stop-loss settings are enabled (`true`) or not (`false`).
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="lower_stop_loss_action" type="string" id="lower_stop_loss_action">
@@ -104,11 +107,11 @@ Creates a new Grid Bot
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="lower_stop_loss_price" type="number" id="lower_stop_loss_price">
-   The price level that triggers the lower stop-loss action
+   The price level that triggers the lower stop-loss action.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="leverage_type" type="string" id="leverage_type">
-Type of leverage applied for this Grid Bot
+Type of leverage applied for this Grid Bot.
     <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
       * **cross** - uses all available funds in your account as collateral for your trades;
       * **isolated** - the margin is limited to a specific position;
@@ -117,15 +120,15 @@ Type of leverage applied for this Grid Bot
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="lower_stop_loss_price" type="number" id="lower_stop_loss_price">
-   The price level that triggers the lower stop-loss action
+   The price level that triggers the lower stop-loss action.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="leverage_custom_value" type="number" id="leverage_custom_value">
-   Custom leverage value set for the Grid Bot
+   Custom leverage value set for the Grid Bot.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="mode" type="string" id="mode">
-   Type of strategy used by the bot
+   Type of strategy used by the bot.
     <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
       * **reversal** - a strategy where the bot trades based on market trend reversals;
       * **long** - a strategy where the bot opens positions expecting the price to increase;
@@ -134,19 +137,19 @@ Type of leverage applied for this Grid Bot
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="max_active_sell_lines" type="integer" id="max_active_sell_lines">
-   Maximum number of active sell orders that can be placed simultaneously
+   Maximum number of active sell orders that can be placed simultaneously.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="trailing_up_enabled" type="boolean" id="trailing_up_enabled">
-   Indicates if the trailing-up feature is enabled (`true`) or not (`false`)
+   Indicates if the trailing-up feature is enabled (`true`) or not (`false`).
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="trailing_down_enabled" type="boolean" id="trailing_down_enabled">
-   Indicates if the trailing-down feature is enabled (`true`) or not (`false`)
+   Indicates if the trailing-down feature is enabled (`true`) or not (`false`).
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="expansion_down_enabled" type="boolean" id="expansion_down_enabled">
-   Indicates if the grid expansion downwards is enabled (`true`) or not (`false`)
+   Indicates if the grid expansion downwards is enabled (`true`) or not (`false`).
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="expansion_down_stop_price" type="number" id="expansion_down_stop_price" required>
@@ -210,12 +213,12 @@ Type of leverage applied for this Grid Bot
 
 ## Parameters response
 
-If successful, the response includes a copy of [Grid Bot](./README.md) entity.
+If successful, the response includes a copy of [Grid Bot](./0.%20Grid%20Bot%20entity.mdx) entity.
 
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>
-## Example Response and errors
+## Example Responses
 
 <ResponseTabs.Root>
 <ResponseTabs.TabItem value="201" label="201 Created" default>
@@ -310,7 +313,6 @@ If successful, the response includes a copy of [Grid Bot](./README.md) entity.
 ```
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="404" label="404 Not Found">
-
 ```json
 {
    "error": "not_found",

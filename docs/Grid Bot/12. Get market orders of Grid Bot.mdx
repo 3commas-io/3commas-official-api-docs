@@ -1,3 +1,6 @@
+---
+sidebar_class_name: get
+---
 import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
@@ -24,19 +27,21 @@ Returns a list of market orders for a Grid Bot using its ID
 
 ## Path Parameter
 <ApiParam name='id' type='integer' id="id" required>
-   Unique 3Commas ID for this Grid Bot entity
+   Unique 3Commas ID for this Grid Bot entity.
 </ApiParam>
 
 ## Query Parameters
 
 <ApiParam name='limit' type='integer' id="limit">
-   <p>Quantity of the records you want to get in response</p>
-   <p>Minimum: <code>1</code>, Maximum: <code>1000</code>; Default: <code>100</code> </p>
+   Quantity of the records you want to get in response.
+   
+   Minimum: <code>1</code>, Maximum: <code>1000</code>, Default: <code>100</code>
 </ApiParam>
 
 <ApiParam name='offset' type='integer' id="offset">
-   <p> Used to specify the starting point for a set of records to return in a paginated list </p>
-   <p> Default: <code>0</code> </p>
+   Used to specify the starting point for a set of records to return in a paginated list.
+   
+   Default: <code>0</code>
 </ApiParam>
 </StickyLayout.Main>
 <StickyLayout.Sticky>
@@ -54,76 +59,76 @@ POST /ver1/grid_bots/2338357/market_orders
 
 ## Response Parameters
 
-<CollapsibleApiParam name="grid_lines_orders" type="object" id="grid_lines_orders">
-An array of grid line orders associated with this trading strategy
+<ApiParam name="grid_lines_orders" type="object" id="grid_lines_orders">
+An array of grid line orders associated with this trading strategy.
     <CollapsibleNestedParams>
     <ApiParam name='order_id' type='integer' id='order_id'>
-      ID of Trade entity
+      ID of Trade entity.
     </ApiParam>
     <ApiParam name='order_type' type='string' id='order_type'>
-        The side of the order to be created by this trade: <code>Buy</code> or <code>Sell</code>
+        The side of the order to be created by this trade: `Buy` or `Sell`.
     </ApiParam>
     <ApiParam name='status_string' type='string' id='status_string'>
-      3Commas status for this Trade
+      3Commas status for this Trade.
     </ApiParam>
     <ApiParam name='created_at' type='string' id='created_at'>
-      ISO 8601 datetime string of when this Trade entity was created
+      ISO 8601 datetime string of when this Trade entity was created.
     </ApiParam>
     <ApiParam name='updated_at' type='string' id='updated_at'>
-      ISO 8601 datetime string of when this Trade entity was created
+      ISO 8601 datetime string of when this Trade entity was created.
     </ApiParam>
     <ApiParam name='quantity' type='string' id='quantity'>
-      The total amount of the asset involved in the order
+      The total amount of the asset involved in the order.
     </ApiParam>
     <ApiParam name='quantity_remaining' type='string' id='quantity_remaining'>
-      The amount of the asset that remains unfulfilled from the total order quantity
+      The amount of the asset that remains unfulfilled from the total order quantity.
     </ApiParam>
     <ApiParam name='total' type='string' id='total'>
-      The total value of the order based on the executed quantity and rate
+      The total value of the order based on the executed quantity and rate.
     </ApiParam>
     <ApiParam name='rate' type='string' id='rate'>
-      The rate at which the asset was bought or sold for this order
+      The rate at which the asset was bought or sold for this order.
     </ApiParam>
     <ApiParam name='average_price' type='string' id='average_price'>
-      Weighted average price of the asset during trade execution
+      Weighted average price of the asset during trade execution.
     </ApiParam>
     </CollapsibleNestedParams>
-</CollapsibleApiParam>
-<CollapsibleApiParam name="balancing_orders" type="object" id="balancing_orders">
-An array of grid line orders associated with this trading strategy
+</ApiParam>
+<ApiParam name="balancing_orders" type="object" id="balancing_orders">
+An array of grid line orders associated with this trading strategy.
     <CollapsibleNestedParams>
     <ApiParam name='order_id' type='integer' id='order_id'>
-      ID of Trade entity
+      ID of Trade entity.
     </ApiParam>
     <ApiParam name='order_type' type='string' id='order_type'>
-        The side of the order to be created by this trade: <code>Buy</code> or <code>Sell</code>
+        The side of the order to be created by this trade: `Buy` or `Sell`.
     </ApiParam>
     <ApiParam name='status_string' type='string' id='status_string'>
-      3Commas status for this Trade
+      3Commas status for this Trade.
     </ApiParam>
     <ApiParam name='created_at' type='string' id='created_at'>
-      ISO 8601 datetime string of when this Trade entity was created
+      ISO 8601 datetime string of when this Trade entity was created.
     </ApiParam>
     <ApiParam name='updated_at' type='string' id='updated_at'>
-      ISO 8601 datetime string of when this Trade entity was created
+      ISO 8601 datetime string of when this Trade entity was created.
     </ApiParam>
     <ApiParam name='quantity' type='string' id='quantity'>
-      The total amount of the asset involved in the order
+      The total amount of the asset involved in the order.
     </ApiParam>
     <ApiParam name='quantity_remaining' type='string' id='quantity_remaining'>
-      The amount of the asset that remains unfulfilled from the total order quantity
+      The amount of the asset that remains unfulfilled from the total order quantity.
     </ApiParam>
     <ApiParam name='total' type='string' id='total'>
-      The total value of the order based on the executed quantity and rate
+      The total value of the order based on the executed quantity and rate.
     </ApiParam>
     <ApiParam name='rate' type='string' id='rate'>
-      The rate at which the asset was bought or sold for this order
+      The rate at which the asset was bought or sold for this order.
     </ApiParam>
     <ApiParam name='average_price' type='string' id='average_price'>
-      Weighted average price of the asset during trade execution
+      Weighted average price of the asset during trade execution.
     </ApiParam>
     </CollapsibleNestedParams>
-</CollapsibleApiParam>
+</ApiParam>
 
 </StickyLayout.Main>
 
@@ -132,7 +137,6 @@ An array of grid line orders associated with this trading strategy
 
 <ResponseTabs.Root>
 <ResponseTabs.TabItem value="200" label="200 OK" default>
-
 ```json
 {
     "grid_lines_orders": [
@@ -160,7 +164,6 @@ An array of grid line orders associated with this trading strategy
             "rate": "0.016352",
             "average_price": "0.0"
         },
-        ...
     ],
     "balancing_orders": [
         {
@@ -178,7 +181,7 @@ An array of grid line orders associated with this trading strategy
     ]
 }
 ```
-  </ResponseTabs.TabItem>
+</ResponseTabs.TabItem>
 </ResponseTabs.Root>
 
 </StickyLayout.Sticky>

@@ -40,14 +40,6 @@ SmartTrade can include the following trade types:
       method: 'POST'
     },
     {
-      url: "/v2/smart_trades/:id",
-      method: 'PATCH'
-    },
-    {
-      url: "/v2/smart_trades/:id",
-      method: 'GET'
-    },
-    {
       url: "/v2/smart_trades",
       method: 'GET'
     },
@@ -55,10 +47,6 @@ SmartTrade can include the following trade types:
       url: "/v2/smart_trades/:id/add_funds",
       method: 'POST'
     },
-    {
-      url: "/v2/smart_trades/:id/reduce_funds_info",
-      method: 'GET'
-    }, 
     {
       url: "/v2/smart_trades/:id/reduce_funds",
       method: 'POST'
@@ -72,12 +60,24 @@ SmartTrade can include the following trade types:
       method: 'POST'
     },
     {
-      url: "/v2/smart_trades/:id",
-      method: 'DELETE'
-    },
-    {
       url: "/v2/smart_trades/:id/force_start",
       method: 'POST'
+    },
+    {
+      url: "/v2/smart_trades/:id",
+      method: 'PATCH'
+    },
+    {
+      url: "/v2/smart_trades/:id",
+      method: 'GET'
+    },
+    {
+      url: "/v2/smart_trades/:id/reduce_funds_info",
+      method: 'GET'
+    },
+    {
+      url: "/v2/smart_trades/:id",
+      method: 'DELETE'
     }
   ]}
 />

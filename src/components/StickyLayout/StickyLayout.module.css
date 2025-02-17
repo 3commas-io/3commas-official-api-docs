@@ -1,3 +1,9 @@
+:is(.root, .sticky) {
+  > div *:last-child {
+    margin-bottom: 0;
+  }
+}
+
 .sticky {
   height: fit-content;
   overflow: auto;
