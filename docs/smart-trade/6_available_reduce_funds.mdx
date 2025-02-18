@@ -58,24 +58,24 @@ Shows information about available amount to reduce funds.
         <ResponseTabs.Root>
         <ResponseTabs.TabItem value="200" label="200 OK" default>
         ```json
-            {
-            "max_reduce_funds_amount": "28.819532219570405727923627685"
-            }
-            ```
+        {
+          "max_reduce_funds_amount": "28.819532219570405727923627685"
+        }
+        ```
         </ResponseTabs.TabItem>
         <ResponseTabs.TabItem value="400" label="400 Bad Request">
             ```json
             {
-                "error": "Wrong param(s)",
-                "error_description": "Reduce funds is not allowed in the current status"
+              "error": "Wrong param(s)",
+              "error_description": "Reduce funds is not allowed in the current status"
             }
             ```       
         </ResponseTabs.TabItem>
         <ResponseTabs.TabItem value="404" label="404 Not Found">
             ```json
             {
-                "error": "Not found",
-                "error_description": "Smart Trade not found"
+              "error": "Not found",
+              "error_description": "Smart Trade not found"
             }
             ```
         </ResponseTabs.TabItem>

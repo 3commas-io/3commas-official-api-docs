@@ -60,10 +60,10 @@ Creates a new additional safety manual trade entry.
 
 ```json title="POST /ver1/deals/2295672969/add_funds"
 {
-   "quantity": 0.01,
-   "is_market": false,
-   "response_type": "market_order",
-   "rate": 0.2970
+  "quantity": 0.01,
+  "is_market": false,
+  "response_type": "market_order",
+  "rate": 0.2970
 }
 ```
 </StickyLayout.Sticky>
@@ -154,18 +154,18 @@ None
 <ResponseTabs.TabItem value="201" label="201 Created" default>
 ```json
 {
-    "order_id": "1110817001",
-    "order_type": "SELL",
-    "deal_order_type": "Manual Safety",
-    "cancellable": true,
-    "status_string": "Active",
-    "created_at": "2024-11-11T16:46:59.479Z",
-    "updated_at": "2024-11-11T16:46:59.479Z",
-    "quantity": "0.0",
-    "quantity_remaining": "0.0",
-    "total": "0.0",
-    "rate": "0.297",
-    "average_price": "0.0"
+  "order_id": "1110817001",
+  "order_type": "SELL",
+  "deal_order_type": "Manual Safety",
+  "cancellable": true,
+  "status_string": "Active",
+  "created_at": "2024-11-11T16:46:59.479Z",
+  "updated_at": "2024-11-11T16:46:59.479Z",
+  "quantity": "0.0",
+  "quantity_remaining": "0.0",
+  "total": "0.0",
+  "rate": "0.297",
+  "average_price": "0.0"
 }
 ```
 
@@ -175,13 +175,13 @@ None
 
 ```json
 {
-    "error": "record_invalid",
-    "error_description": "Invalid parameters",
-    "error_attributes": {
-        "rate": [
-            "is missing"
-        ]
-    }
+  "error": "record_invalid",
+  "error_description": "Invalid parameters",
+  "error_attributes": {
+    "rate": [
+      "is missing"
+    ]
+  }
 }
 ```
 </ResponseTabs.TabItem>

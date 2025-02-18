@@ -53,10 +53,9 @@ Copies the bot from or to another linked exchange account connected to 3Commas.
 ## Example Request
 
 ```json title="POST /ver1/bots/12345678/copy_and_create"
-
 {
-   "name": "Name DCA Bot",
-   "secret": "ab7b22d2f1"
+  "name": "Name DCA Bot",
+  "secret": "ab7b22d2f1"
 }
 ```
 </StickyLayout.Sticky>
@@ -83,29 +82,29 @@ Copies the bot from or to another linked exchange account connected to 3Commas.
         <ResponseTabs.TabItem value="201" label="201 Created" default>
 ```json
 {
-    "bot_id": 23456789,
-    "bot_required_amount": 240
+  "bot_id": 23456789,
+  "bot_required_amount": 240
 }
 ```
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="400" label="400 Bad Request">
 ```json
 {
-    "error": "record_invalid",
-    "error_description": "Invalid parameters",
-    "error_attributes": {
-        "name": [
-            "is missing"
-        ]
-    }
+  "error": "record_invalid",
+  "error_description": "Invalid parameters",
+  "error_attributes": {
+    "name": [
+      "is missing"
+    ]
+  }
 }
 ```
   </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="401" label="401 Unauthorized">
 ```json
 {
-    "error": "signature_invalid",
-    "error_description": "Provided signature is invalid"
+  "error": "signature_invalid",
+  "error_description": "Provided signature is invalid"
 }
 ```
 </ResponseTabs.TabItem>

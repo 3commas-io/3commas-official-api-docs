@@ -264,7 +264,7 @@ Details of Stop Loss settings applied to this SmartTrade.
 </StickyLayout.Main>
 <StickyLayout.Sticky>
 
-## Example Request
+## Example request
 
 ```json title="POST /v2/smart_trades"
 {
@@ -415,19 +415,20 @@ If successful, the response includes an updated copy of the [SmartTrade](/smart-
 
 ```json
 {
-    "error": "record_invalid",
-    "error_description": "Invalid parameters",
-    "error_attributes": {
-        "position": [
-            "is invalid"
-        ],
-        "position.total": [
-            "must be less than or equal to 9000000.0"
-        ],
-        "units_to_buy": [
-            "must be less than or equal to 9000.0"
-        ]
-    }
+  "error": "record_invalid",
+  "error_description": "Invalid parameters",
+  "error_attributes": {
+    "position": [
+      "is invalid"
+    ],
+    "position.total": [
+      "must be less than or equal to 9000000.0"
+    ],
+    "units_to_buy": [
+      "must be less than or equal to 9000.0"
+    ]
+  }
+}
 ```
 
 </ResponseTabs.TabItem>

@@ -105,115 +105,115 @@ Returns the list of SmartTrade. Use the query parameters to filter the results.
 ## Example Response
 <ResponseTabs.Root>
 <ResponseTabs.TabItem value="200" label="200 OK" default>
-        ```json
+```json
 [
-    {
-        "id": 28934742,
-        "version": 2,
-        "account": {
-            "id": 32435557,
-            "type": "kucoin",
-            "name": "My Kucoin",
-            "market": "Kucoin Spot",
-            "link": "/accounts/32435557"
-        },
-        "pair": "USDT_DOGE",
-        "instant": false,
-        "status": {
-            "type": "failed",
-            "basic_type": "failed",
-            "title": "Failed",
-            "error": "You need to pass KYC on the exchange to trade on this pair"
-        },
-        "leverage": {
-            "enabled": false
-        },
-        "position": {
-            "type": "buy",
-            "editable": false,
-            "units": {
-                "value": "10.0",
-                "editable": false
-            },
-            "price": {
-                "value": "0.1038",
-                "value_without_commission": "0.1038",
-                "editable": true
-            },
-            "total": {
-                "value": "1.7542"
-            },
-            "order_type": "market",
-            "status": {
-                "type": "failed",
-                "basic_type": "failed",
-                "title": "Failed",
-                "error": "You need to pass KYC on the exchange to trade on this pair"
-            }
-        },
-        "take_profit": {
-            "enabled": true,
-            "price_type": "value",
-            "steps": []
-        },
-        "stop_loss": {
-            "enabled": false
-        },
-        "reduce_funds": {
-            "steps": []
-        },
-        "market_close": {},
-        "note": "",
-        "note_raw": null,
-        "skip_enter_step": false,
-        "data": {
-            "editable": false,
-            "current_price": {
-                "bid": "0.10379",
-                "ask": "0.1038",
-                "last": "0.10379",
-                "quote_volume": "4062766.6804568596516",
-                "day_change_percent": "1.2"
-            },
-            "target_price_type": "price",
-            "orderbook_price_currency": "USDT",
-            "base_order_finished": true,
-            "missing_funds_to_close": "0.0",
-            "liquidation_price": null,
-            "average_enter_price": null,
-            "average_close_price": null,
-            "average_enter_price_without_commission": null,
-            "average_close_price_without_commission": null,
-            "panic_sell_available": false,
-            "add_funds_available": false,
-            "reduce_funds_available": false,
-            "force_start_available": false,
-            "force_process_available": false,
-            "cancel_available": false,
-            "finished": false,
-            "base_position_step_finished": true,
-            "entered_amount": "0.0",
-            "entered_total": "0.0",
-            "closed_amount": "0.0",
-            "closed_total": "0.0",
-            "commission": "0.001",
-            "created_at": "2024-04-05T02:53:32.225Z",
-            "updated_at": "2024-04-05T02:54:39.074Z",
-            "closed_at": "2024-04-05T02:54:39.045Z",
-            "type": "smart_trade"
-        },
-        "profit": {
-            "volume": null,
-            "usd": null,
-            "percent": "0.0",
-            "roe": null
-        },
-        "margin": {
-            "amount": null,
-            "total": null
-        },
-        "is_position_not_filled": true
-    }
+  {
+    "id": 28934742,
+    "version": 2,
+    "account": {
+      "id": 32435557,
+      "type": "kucoin",
+      "name": "My Kucoin",
+      "market": "Kucoin Spot",
+      "link": "/accounts/32435557"
+    },
+    "pair": "USDT_DOGE",
+    "instant": false,
+    "status": {
+      "type": "failed",
+      "basic_type": "failed",
+      "title": "Failed",
+      "error": "You need to pass KYC on the exchange to trade on this pair"
+    },
+    "leverage": {
+      "enabled": false
+    },
+    "position": {
+      "type": "buy",
+      "editable": false,
+      "units": {
+        "value": "10.0",
+        "editable": false
+      },
+      "price": {
+        "value": "0.1038",
+        "value_without_commission": "0.1038",
+        "editable": true
+      },
+      "total": {
+        "value": "1.7542"
+      },
+      "order_type": "market",
+      "status": {
+        "type": "failed",
+        "basic_type": "failed",
+        "title": "Failed",
+        "error": "You need to pass KYC on the exchange to trade on this pair"
+      }
+    },
+    "take_profit": {
+      "enabled": true,
+      "price_type": "value",
+      "steps": []
+    },
+    "stop_loss": {
+      "enabled": false
+    },
+    "reduce_funds": {
+      "steps": []
+    },
+    "market_close": {},
+    "note": "",
+    "note_raw": null,
+    "skip_enter_step": false,
+    "data": {
+      "editable": false,
+      "current_price": {
+        "bid": "0.10379",
+        "ask": "0.1038",
+        "last": "0.10379",
+        "quote_volume": "4062766.6804568596516",
+        "day_change_percent": "1.2"
+      },
+      "target_price_type": "price",
+      "orderbook_price_currency": "USDT",
+      "base_order_finished": true,
+      "missing_funds_to_close": "0.0",
+      "liquidation_price": null,
+      "average_enter_price": null,
+      "average_close_price": null,
+      "average_enter_price_without_commission": null,
+      "average_close_price_without_commission": null,
+      "panic_sell_available": false,
+      "add_funds_available": false,
+      "reduce_funds_available": false,
+      "force_start_available": false,
+      "force_process_available": false,
+      "cancel_available": false,
+      "finished": false,
+      "base_position_step_finished": true,
+      "entered_amount": "0.0",
+      "entered_total": "0.0",
+      "closed_amount": "0.0",
+      "closed_total": "0.0",
+      "commission": "0.001",
+      "created_at": "2024-04-05T02:53:32.225Z",
+      "updated_at": "2024-04-05T02:54:39.074Z",
+      "closed_at": "2024-04-05T02:54:39.045Z",
+      "type": "smart_trade"
+    },
+    "profit": {
+      "volume": null,
+      "usd": null,
+      "percent": "0.0",
+      "roe": null
+    },
+    "margin": {
+      "amount": null,
+      "total": null
+    },
+    "is_position_not_filled": true
+  }
 ]
 ```
 </ResponseTabs.TabItem>

@@ -375,36 +375,36 @@ or
 
 ```json title="POST /ver1/bots/create_bot"
 {
-   "account_id": 32833909,
-   "name": "name DCA Bot",
-   "pairs": "BNFCR_1INCHUSDT",
-   "strategy_list": [
-      {
-         "options": {},
-         "strategy": "nonstop"
-      }
-   ],
-   "base_order_volume": "100.0",
-   "max_safety_orders": 4,
-   "take_profit": null,
-   "take_profit_steps": [
+  "account_id": 32833909,
+  "name": "name DCA Bot",
+  "pairs": "BNFCR_1INCHUSDT",
+  "strategy_list": [
     {
-        "amount_percentage": 50,
-        "profit_percentage": 10
-        },
-    {
-        "amount_percentage": 50,
-        "profit_percentage": 20
+      "options": {},
+      "strategy": "nonstop"
     }
-],
-   "close_deals_timeout": "60",
-   "active_safety_orders_count": 1,
-   "safety_order_volume": "30.0",
-   "safety_order_step_percentage": "1.0",
-   "take_profit_type": "total",
-   "min_profit_type": null,
-   "martingale_volume_coefficient": "2",
-   "martingale_step_coefficient": "4.0"
+  ],
+  "base_order_volume": "100.0",
+  "max_safety_orders": 4,
+  "take_profit": null,
+  "take_profit_steps": [
+    {
+      "amount_percentage": 50,
+      "profit_percentage": 10
+    },
+    {
+      "amount_percentage": 50,
+      "profit_percentage": 20
+    }
+  ],
+  "close_deals_timeout": "60",
+  "active_safety_orders_count": 1,
+  "safety_order_volume": "30.0",
+  "safety_order_step_percentage": "1.0",
+  "take_profit_type": "total",
+  "min_profit_type": null,
+  "martingale_volume_coefficient": "2",
+  "martingale_step_coefficient": "4.0"
 }
 ```
 
@@ -423,102 +423,105 @@ or
 
 ## Example Responses
 
-   <ResponseTabs.Root>
-      <ResponseTabs.TabItem value="201" label="201 Created" default>
-   ```json
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="201" label="201 Created" default>
+```json
 {
-    "id": 15564828,
-    "account_id": 32833909,
-    "is_enabled": false,
-    "max_safety_orders": 4,
-    "active_safety_orders_count": 1,
-    "pairs": [
-        "BNFCR_1INCHUSDT"
-    ],
-    "strategy_list": [
-        {
-            "strategy": "nonstop",
-            "options": {}
-        }
-    ],
-    "close_strategy_list": [],
-    "safety_strategy_list": [],
-    "max_active_deals": 1,
-    "active_deals_count": 0,
-    "deletable?": true,
-    "created_at": "2024-10-24T19:57:43.635Z",
-    "updated_at": "2024-10-24T19:57:43.635Z",
-    "trailing_enabled": null,
-    "tsl_enabled": false,
-    "deal_start_delay_seconds": null,
-    "stop_loss_timeout_enabled": false,
-    "stop_loss_timeout_in_seconds": 0,
-    "disable_after_deals_count": null,
-    "deals_counter": null,
-    "allowed_deals_on_same_pair": null,
-    "easy_form_supported": false,
-    "close_deals_timeout": null,
-    "url_secret": "738d600eb4",
-    "take_profit_steps": [],
-    "name": "test 24 oct",
-    "take_profit": "2.0",
-    "min_profit_percentage": null,
-    "base_order_volume": "15.0",
-    "safety_order_volume": "30.0",
-    "safety_order_step_percentage": "1.0",
-    "take_profit_type": "total",
-    "min_profit_type": null,
-    "type": "Bot::SingleBot",
-    "martingale_volume_coefficient": "2.0",
-    "martingale_step_coefficient": "4.0",
-    "stop_loss_percentage": "0.0",
-    "cooldown": "0",
-    "btc_price_limit": "0.0",
-    "strategy": "long",
-    "min_volume_btc_24h": "0.0",
-    "profit_currency": "quote_currency",
-    "min_price": null,
-    "max_price": null,
-    "stop_loss_type": "stop_loss",
-    "safety_order_volume_type": "quote_currency",
-    "base_order_volume_type": "quote_currency",
-    "account_name": "My Binance",
-    "trailing_deviation": "0.2",
-    "finished_deals_profit_usd": "0.0",
-    "finished_deals_count": "0",
-    "leverage_type": "not_specified",
-    "leverage_custom_value": null,
-    "start_order_type": "limit",
-    "active_deals_usd_profit": "0.0",
-    "reinvesting_percentage": null,
-    "risk_reduction_percentage": null,
-    "reinvested_volume_usd": null,
-    "min_price_percentage": null,
-    "max_price_percentage": null
-}
-```
-  </ResponseTabs.TabItem>
-<ResponseTabs.TabItem value="400" label="400 Bad Request">
-   ```json
-{
-    "error": "record_invalid",
-    "error_description": "Invalid parameters",
-    "error_attributes": {
-        "name": [
-            "is missing"
-        ]
+  "id": 15564828,
+  "account_id": 32833909,
+  "is_enabled": false,
+  "max_safety_orders": 4,
+  "active_safety_orders_count": 1,
+  "pairs": [
+    "BNFCR_1INCHUSDT"
+  ],
+  "strategy_list": [
+    {
+      "strategy": "nonstop",
+      "options": {}
     }
+  ],
+  "close_strategy_list": [],
+  "safety_strategy_list": [],
+  "max_active_deals": 1,
+  "active_deals_count": 0,
+  "deletable?": true,
+  "created_at": "2024-10-24T19:57:43.635Z",
+  "updated_at": "2024-10-24T19:57:43.635Z",
+  "trailing_enabled": null,
+  "tsl_enabled": false,
+  "deal_start_delay_seconds": null,
+  "stop_loss_timeout_enabled": false,
+  "stop_loss_timeout_in_seconds": 0,
+  "disable_after_deals_count": null,
+  "deals_counter": null,
+  "allowed_deals_on_same_pair": null,
+  "easy_form_supported": false,
+  "close_deals_timeout": null,
+  "url_secret": "738d600eb4",
+  "take_profit_steps": [],
+  "name": "test 24 oct",
+  "take_profit": "2.0",
+  "min_profit_percentage": null,
+  "base_order_volume": "15.0",
+  "safety_order_volume": "30.0",
+  "safety_order_step_percentage": "1.0",
+  "take_profit_type": "total",
+  "min_profit_type": null,
+  "type": "Bot::SingleBot",
+  "martingale_volume_coefficient": "2.0",
+  "martingale_step_coefficient": "4.0",
+  "stop_loss_percentage": "0.0",
+  "cooldown": "0",
+  "btc_price_limit": "0.0",
+  "strategy": "long",
+  "min_volume_btc_24h": "0.0",
+  "profit_currency": "quote_currency",
+  "min_price": null,
+  "max_price": null,
+  "stop_loss_type": "stop_loss",
+  "safety_order_volume_type": "quote_currency",
+  "base_order_volume_type": "quote_currency",
+  "account_name": "My Binance",
+  "trailing_deviation": "0.2",
+  "finished_deals_profit_usd": "0.0",
+  "finished_deals_count": "0",
+  "leverage_type": "not_specified",
+  "leverage_custom_value": null,
+  "start_order_type": "limit",
+  "active_deals_usd_profit": "0.0",
+  "reinvesting_percentage": null,
+  "risk_reduction_percentage": null,
+  "reinvested_volume_usd": null,
+  "min_price_percentage": null,
+  "max_price_percentage": null
 }
 ```
-   </ResponseTabs.TabItem>
-   <ResponseTabs.TabItem value="404" label="404 Not Found">
-   ```json
+</ResponseTabs.TabItem>
+
+<ResponseTabs.TabItem value="400" label="400 Bad Request">
+```json
 {
-    "error": "not_found",
-    "error_description": "Not Found"
+  "error": "record_invalid",
+  "error_description": "Invalid parameters",
+  "error_attributes": {
+    "name": [
+      "is missing"
+    ]
+  }
 }
 ```
-   </ResponseTabs.TabItem>
+</ResponseTabs.TabItem>
+
+<ResponseTabs.TabItem value="404" label="404 Not Found">
+```json
+{
+  "error": "not_found",
+  "error_description": "Not Found"
+}
+```
+</ResponseTabs.TabItem>
 </ResponseTabs.Root>
+
 </StickyLayout.Sticky>
 </StickyLayout.Root>

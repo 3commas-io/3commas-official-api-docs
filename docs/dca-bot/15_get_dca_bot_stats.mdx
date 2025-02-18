@@ -37,7 +37,7 @@ Returns profit and locked amount data on deals for all DCA Bots or an existing b
     </ApiParam>
    </StickyLayout.Main>
     <StickyLayout.Sticky>
-      ## Example Request
+      ## Example request 
       ```json
       GET /ver1/bots/stats
       ```
@@ -75,18 +75,18 @@ Returns profit and locked amount data on deals for all DCA Bots or an existing b
       <ResponseTabs.TabItem value="200" label="200 OK" default>
             ```json
             {
-                "overall_stats": {
-                    "USDT": "-47.47740906"
-                },
-                "today_stats": {
-                    "USDT": "10.98885705"
-                },
-                "profits_in_usd": {
-                    "overall_usd_profit": -47.48,
-                    "today_usd_profit": 10.99,
-                    "active_deals_usd_profit": 1.366505088,
-                    "funds_locked_in_active_deals": 300.843218676
-                }
+              "overall_stats": {
+                "USDT": "-47.47740906"
+              },
+              "today_stats": {
+                "USDT": "10.98885705"
+              },
+              "profits_in_usd": {
+                "overall_usd_profit": -47.48,
+                "today_usd_profit": 10.99,
+                "active_deals_usd_profit": 1.366505088,
+                "funds_locked_in_active_deals": 300.843218676
+              }
             }
             ```
       </ResponseTabs.TabItem>
