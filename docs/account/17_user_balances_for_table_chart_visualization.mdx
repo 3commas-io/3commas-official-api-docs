@@ -1,0 +1,212 @@
+---
+id: user-balances-for-table-chart-visualization
+title: User balances for table chart visualization
+sidebar_class_name: post
+---
+
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+
+<Endpoint
+  url="ver1/accounts/:account_id/account_table_data"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="ACCOUNTS_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Returns information about currency balances of a specific account using its ID, for visualization in a table chart.
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+  ## Path Parameter 
+
+  <ApiParam name='account_id' type='integer' id="account_id" required>
+      Unique 3Commas ID of this exchange account entity.
+  </ApiParam>
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+
+  ## Example Request
+
+  ```json
+  POST /ver1/accounts/12345678/account_table_data
+  ```
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Response Parameters 
+
+<ApiParam name='currency_code' type='string' id='currency_code'>
+  Code symbol for the cryptocurrency.
+</ApiParam>
+<ApiParam name='currency_name' type='string' id='currency_name'>
+  Full name of the cryptocurrency.
+</ApiParam>
+<ApiParam name='currency_icon' type='string' id='currency_icon'>
+  URL link to the icon image of the cryptocurrency.
+</ApiParam>
+<ApiParam name='currency_slug' type='string' id='currency_slug'>
+  Slug or identifier used for the cryptocurrency in URLs.
+</ApiParam>
+
+
+<CollapseAll>
+<CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
+<CollapsibleApiParam name='percentage' type='string' id='percentage'>
+  The percentage share of this cryptocurrency in the account.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='position' type='string' id='position'>
+  Total position (amount) of this cryptocurrency held in the account.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='position_available' type='string' id='position_available'>
+  The available position (amount) of this cryptocurrency that is not on orders or borrowed
+</CollapsibleApiParam>
+<CollapsibleApiParam name='position_type' type='string' id='position_type'>
+  TBD
+</CollapsibleApiParam>
+<CollapsibleApiParam name='borrowed' type='string' id='borrowed'>
+  Amount of this cryptocurrency that is borrowed.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='on_orders' type='string' id='on_orders'>
+  Amount of this cryptocurrency currently placed on orders.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='on_orders_with_leverage' type='string' id='on_orders_with_leverage'>
+  Amount on orders with leverage applied.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='on_orders_long' type='string' id='on_orders_long'>
+  The amount of this cryptocurrency placed on orders with a long strategy.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='on_orders_short' type='string' id='on_orders_short'>
+  The amount of this cryptocurrency placed on orders with a short strategy.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='equity' type='string' id='equity'>
+  Total equity of this cryptocurrency in the account.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='current_price' type='string' id='current_price'>
+  Current price of this cryptocurrency in BTC.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='current_price_usd' type='string' id='current_price_usd'>
+  Current price of this cryptocurrency in USD.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='day_change_percent' type='string' id='day_change_percent'>
+  Daily price change percentage of this cryptocurrency in the primary display currency.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='day_change_percent_btc' type='string' id='day_change_percent_btc'>
+  Daily price change percentage of this cryptocurrency in BTC.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='day_change_percent_usd' type='string' id='day_change_percent_usd'>
+  Daily price change percentage of this cryptocurrency in USD.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='btc_value' type='string' id='btc_value'>
+  Total equivalent value of this cryptocurrency in BTC.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='usd_value' type='string' id='usd_value'>
+  Total equivalent value of this cryptocurrency in USD.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='available_long' type='string' id='available_long'>
+  Amount available for long positions.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='available_short' type='string' id='available_short'>
+  Amount available for short positions.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='available_with_leverage_long' type='string' id='available_with_leverage_long'>
+  Amount available for long positions with leverage included.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='available_with_leverage_short' type='string' id='available_with_leverage_short'>
+  Amount available for short positions with leverage included.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='account_id' type='integer' id='account_id'>
+  Unique 3Commas ID of the exchange account entity.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='is_wallet' type='boolean' id='is_wallet'>
+  Indicates whether this account is as a wallet.
+</CollapsibleApiParam>
+</CollapseAll>
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+## Example Response
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="201" label="201 Created" default>
+
+```json
+[
+   {
+      "currency_code": "ETH",
+      "currency_name": "Ethereum",
+      "currency_icon": "https://app.3commas.io/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbnNRIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f7e20d2abb9f03965b29c091e5ca77a8fc4ade51/1027.png",
+      "currency_slug": "ethereum",
+      "percentage": 0.7908972825805544,
+      "position": 9.52E-5,
+      "position_available": 9.52E-5,
+      "position_type": 0,
+      "borrowed": 0,
+      "on_orders": 0,
+      "on_orders_with_leverage": 0,
+      "on_orders_long": 0,
+      "on_orders_short": 0,
+      "equity": 9.52E-5,
+      "current_price": 0.04085,
+      "current_price_usd": 2611.4959735,
+      "day_change_percent": 1.036,
+      "day_change_percent_btc": 1.036,
+      "day_change_percent_usd": -1.418,
+      "btc_value": 3.88892E-6,
+      "usd_value": 0.2486144166772,
+      "available_long": 0,
+      "available_short": 0,
+      "available_with_leverage_long": 0,
+      "available_with_leverage_short": 0,
+      "account_id": 32402783,
+      "is_wallet": false
+   },
+   {
+      "currency_code": "DOGE",
+      "currency_name": "Dogecoin",
+      "currency_icon": "https://app.3commas.io/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNW5KQVE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--d8f3102172a7531aa8e21cc8687e40bc07073889/74.png",
+      "currency_slug": "dogecoin",
+      "percentage": 10.24208849013634,
+      "position": 27.076,
+      "position_available": 27.076,
+      "position_type": 0,
+      "borrowed": 0,
+      "on_orders": 0,
+      "on_orders_with_leverage": 0,
+      "on_orders_long": 0,
+      "on_orders_short": 0,
+      "equity": 27.076,
+      "current_price": 1.86E-6,
+      "current_price_usd": 0.1189077726,
+      "day_change_percent": -2.094,
+      "day_change_percent_btc": -2.094,
+      "day_change_percent_usd": -4.886,
+      "btc_value": 5.036136E-5,
+      "usd_value": 3.2195468509176,
+      "available_long": 0,
+      "available_short": 0,
+      "available_with_leverage_long": 0,
+      "available_with_leverage_short": 0,
+      "account_id": 32402783,
+      "is_wallet": false
+   }
+]
+```
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>

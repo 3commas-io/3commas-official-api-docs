@@ -1,0 +1,102 @@
+---
+title: Account
+sidebar_position: 2
+---
+
+import Endpoint from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+
+# Account
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+**Account** entities hold information about the cryptocurrency portfolio, their balances, and the set of tools that are available for this account.
+
+Account entities hold information like:
+
+* Details about the connected exchange, including its type, name, and current status;
+* Profit and currency information, such as the account's balance and daily and total profit;
+* Available trading features for this account.
+
+3Commas provides a set of methods to create new exchange account connections and manage existing accounts.
+
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+
+<Endpoint
+  endpointsList={[
+    {
+      url: "/ver1/accounts/new",
+      method: 'POST'
+    },
+    {
+      url: "/ver1/accounts/update",
+      method: 'POST'
+    },
+    {
+      url: "/ver1/accounts/types_to_connect",
+      method: 'GET'
+    },
+    {
+      url: "/ver1/accounts",
+      method: 'GET'
+    },
+    {
+      url: "/ver1/accounts/:account_id/rename",
+      method: 'POST'
+    },
+    {
+      url: "/ver1/accounts/:account_id/load_balances",
+      method: 'POST'
+    },
+     {
+      url: "/ver1/accounts/:account_id/sell_all_to_btc",
+      method: 'POST'
+    },
+    {
+      url: "/ver1/accounts/:account_id/sell_all_to_usd",
+      method: 'POST'
+    },
+    {
+      url: "/ver1/accounts/:account_id/leverage_data",
+      method: 'POST'
+    },
+    {
+      url: "/ver1/accounts/:account_id/remove",
+      method: 'POST'
+    },
+    {
+      url: "ver1/accounts/:account_id/pie_chart_data",
+      method: 'POST'
+    },
+    {
+      url: "ver1/accounts/:account_id/account_table_data",
+      method: 'POST'
+    },
+    {
+      url: "/ver1/accounts/:account_id",
+      method: 'GET'
+    },
+     {
+      url: "/ver1/accounts/:account_id/active_trading_entities",
+      method: 'GET'
+    },
+    {
+      url: "/ver1/accounts/:account_id/balance_chart_data",
+      method: 'GET'
+    },
+    {
+      url: "/ver1/accounts/:account_id/networks_info",
+      method: 'GET'
+    },
+     {
+      url: "/ver1/accounts/:account_id/deposit_data",
+      method: 'GET'
+    }
+  ]}
+/>
+
+</StickyLayout.Sticky>
+</StickyLayout.Root>

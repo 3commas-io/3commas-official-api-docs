@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic'
 
 const config: Config = {
   title: '3Commas API Platform',
-  tagline: 'Dinosaurs are cool',
+  tagline: 'Official 3Commas API documentation',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
