@@ -40,7 +40,7 @@ Creates a new SmartTrade.
     ID of the exchange account entity.
 </ApiParam>
 <ApiParam name='pair' type='string' id="pair" required>
-    Trading pair in 3Commas format. Use endpoint [All market pairs](/docs/Market%20data/All%20market%20pairs.md) to get value for parameter.
+    Trading pair in 3Commas format. Use endpoint [All market pairs](/market-data/1_all_market_pairs.mdx) to get value for parameter.
 </ApiParam>
 <ApiParam name='instant' type='boolean' id="instant">
     Uses for creating SmartTrade type `Simple Buy` or `Simple Sell`. Set to `true` for creating of either.
@@ -68,7 +68,7 @@ Details of the Leverage applied to this SmartTrade.
       Default: `false`
     </ApiParam>
     <ApiParam name='value' type="integer" id="value">
-      Cross or isolated leverage value. Leverage value is dependent on the exchange. It should be based on [the rules of the exchange regarding currency rates, limits, and leverage data](/docs/Market%20data/4.%20Currency%20rates%20and%20limits%20with%20leverage%20data.mdx).
+      Cross or isolated leverage value. Leverage value is dependent on the exchange. It should be based on [the rules of the exchange regarding currency rates, limits, and leverage data](/market-data/3_currency_rates_and_limits_with_leverage_data.mdx).
     </ApiParam>
    </CollapsibleNestedParams>
 </ApiParam>
@@ -89,7 +89,7 @@ Details of the Leverage applied to this SmartTrade.
     </ApiParam>
     <CollapsibleNestedParams>
       <ApiParam name="value" type="string" id="value" required>
-        Amount of units for position trade. It should be based on [the rules of the exchange regarding currency rates, limits, and leverage data](/docs/Market%20data/4.%20Currency%20rates%20and%20limits%20with%20leverage%20data.mdx).
+        Amount of units for position trade. It should be based on [the rules of the exchange regarding currency rates, limits, and leverage data](/market-data/3_currency_rates_and_limits_with_leverage_data.mdx).
       </ApiParam>
     </CollapsibleNestedParams>
     <ApiParam name="price" type="object">
@@ -293,7 +293,7 @@ Details of Stop Loss settings applied to this SmartTrade.
 
 ## Response Parameters
 
-If successful, the response includes an updated copy of the [SmartTrade](/docs/SmartTrade/1.%20SmartTrade%20entity.md) entity.
+If successful, the response includes an updated copy of the [SmartTrade](/smart-trade/0_smart_trade_entity.mdx) entity.
 
 </StickyLayout.Main>
 <StickyLayout.Sticky>
