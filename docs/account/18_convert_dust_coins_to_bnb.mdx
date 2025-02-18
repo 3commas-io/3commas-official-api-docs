@@ -107,46 +107,46 @@ The timestamp of the conversion operation in milliseconds since epoch.
 <ResponseTabs.TabItem value="201" label="201 Created" default>
 ```json
 {
-    "totalTransfered": "0.00076178",
-    "totalServiceCharge": "0.00001523",
-    "transferResult": [
-        {
-            "tranId": 243385046044,
-            "fromAsset": "USDT",
-            "amount": "0.51389388",
-            "transferedAmount": "0.00076178",
-            "serviceChargeAmount": "0.00001523",
-            "operateTime": 1739799333228
-        }
-    ]
+  "totalTransfered": "0.00076178",
+  "totalServiceCharge": "0.00001523",
+  "transferResult": [
+    {
+      "tranId": 243385046044,
+      "fromAsset": "USDT",
+      "amount": "0.51389388",
+      "transferedAmount": "0.00076178",
+      "serviceChargeAmount": "0.00001523",
+      "operateTime": 1739799333228
+    }
+  ]
 }
 ```
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="400" label="400 Bad Request">
-```
+```json
 {
-    "error": "record_invalid",
-    "error_description": "Invalid parameters",
-    "error_attributes": {
-        "codes": [
-            "is invalid"
-        ]
-    }
+  "error": "record_invalid",
+  "error_description": "Invalid parameters",
+  "error_attributes": {
+    "codes": [
+      "is invalid"
+    ]
+  }
 }
 ```
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="403" label="403 Forbidden" default>
 ```json
 {
-    "error": "Forbidden. Unavailable for this account type."
+  "error": "Forbidden. Unavailable for this account type."
 }
 ```
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="422" label="422 Unprocessable Entity">
 ```json
 {
-    "error_description": "Small balances can be converted only once every 6h",
-    "error": "bnb_dust_limit_error"
+  "error_description": "Small balances can be converted only once every 6h",
+  "error": "bnb_dust_limit_error"
 }
 ```
 </ResponseTabs.TabItem>

@@ -45,7 +45,7 @@ The method returns the current trading rules and ticket information with data ab
     </StickyLayout.Main>
 
     <StickyLayout.Sticky>
-        ## Example Request
+        ## Example request
 
         ```json
         GET /ver1/accounts/currency_rates_with_leverage_data?market_code=binance_futures_eea&pair=BNFCR_1INCHUSDT
@@ -200,42 +200,42 @@ The method returns the current trading rules and ticket information with data ab
             <ResponseTabs.TabItem value="200" label="200 OK" default>
                 ```json
                 {
-                    "last": "0.3039",
-                    "bid": "0.3039",
-                    "ask": "0.304",
-                    "orderbook_ask": "0.304",
-                    "orderbook_bid": "0.3039",
-                    "orderbook_last": "0.3039",
-                    "orderbook_price_currency": "BNFCR",
-                    "strategy_name": "orderbook_price",
-                    "contract_strategy_name": "orderbook_price",
-                    "leverage_data": [
-                       {
-                        "code": "cross",
-                        "name": "Cross",
-                        "can_set_leverage_value": true,
-                        "available_leverage_values": [],
-                        "max_leverage": "25.0",
-                        "valid": {
-                            "min": 1,
-                            "max": "25.0"
-                          }
-                       }
-                    ],
-                    "instrumentKind": "linear_futures",
-                    "priceStep": "0.0001",
-                    "minLotSize": "1.0",
-                    "maxLotSize": "5000000.0",
-                    "lotStep": "1.0",
-                    "maxMarketBuyAmount": "500000.0",
-                    "maxMarketSellAmount": "500000.0",
-                    "minMarketBuyAmount": "1.0",
-                    "minMarketSellAmount": "1.0",
-                    "minTotal": "5.0",
-                    "bidMultiplierUp": "1.1",
-                    "askMultiplierDown": "0.9",
-                    "minPrice": "0.0613",
-                    "maxPrice": "100000.0"
+                  "last": "0.3039",
+                  "bid": "0.3039",
+                  "ask": "0.304",
+                  "orderbook_ask": "0.304",
+                  "orderbook_bid": "0.3039",
+                  "orderbook_last": "0.3039",
+                  "orderbook_price_currency": "BNFCR",
+                  "strategy_name": "orderbook_price",
+                  "contract_strategy_name": "orderbook_price",
+                  "leverage_data": [
+                    {
+                      "code": "cross",
+                      "name": "Cross",
+                      "can_set_leverage_value": true,
+                      "available_leverage_values": [],
+                      "max_leverage": "25.0",
+                      "valid": {
+                        "min": 1,
+                        "max": "25.0"
+                      }
+                    }
+                  ],
+                  "instrumentKind": "linear_futures",
+                  "priceStep": "0.0001",
+                  "minLotSize": "1.0",
+                  "maxLotSize": "5000000.0",
+                  "lotStep": "1.0",
+                  "maxMarketBuyAmount": "500000.0",
+                  "maxMarketSellAmount": "500000.0",
+                  "minMarketBuyAmount": "1.0",
+                  "minMarketSellAmount": "1.0",
+                  "minTotal": "5.0",
+                  "bidMultiplierUp": "1.1",
+                  "askMultiplierDown": "0.9",
+                  "minPrice": "0.0613",
+                  "maxPrice": "100000.0"
                 }
                 ```
             </ResponseTabs.TabItem>

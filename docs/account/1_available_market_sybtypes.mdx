@@ -91,45 +91,45 @@ GET /ver1/accounts/types_to_connect?type=binance&name=binance123&api_key=6q4zuON
 <ResponseTabs.TabItem value="200" label="200 OK" default>
 
 ```json
- [
-   {
-      "type": "binance",
-      "connected": false,
-      "available": true,
-      "unified": false
-   },
-   {
-      "type": "binance_margin",
-      "connected": false,
-      "available": true,
-      "unified": false
-   },
-   {
-      "type": "binance_futures",
-      "connected": true,
-      "available": true,
-      "unified": false
-   },
-   {
-      "type": "binance_futures_coin",
-      "connected": true,
-      "available": true,
-      "unified": false
-   }
+[
+  {
+    "type": "binance",
+    "connected": false,
+    "available": true,
+    "unified": false
+  },
+  {
+    "type": "binance_margin",
+    "connected": false,
+    "available": true,
+    "unified": false
+  },
+  {
+    "type": "binance_futures",
+    "connected": true,
+    "available": true,
+    "unified": false
+  },
+  {
+    "type": "binance_futures_coin",
+    "connected": true,
+    "available": true,
+    "unified": false
+  }
 ]
 ```
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="40O" label="400 Bad Request">
 
-  ```json
+```json
 {
-    "error": "record_invalid",
-    "error_description": "Invalid parameters",
-    "error_attributes": {
-        "type": [
-            "does not have a valid value"
-        ]
-    }
+  "error": "record_invalid",
+  "error_description": "Invalid parameters",
+  "error_attributes": {
+    "type": [
+      "does not have a valid value"
+    ]
+  }
 }
 ```
 </ResponseTabs.TabItem>

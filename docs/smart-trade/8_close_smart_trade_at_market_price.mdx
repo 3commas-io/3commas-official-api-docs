@@ -56,128 +56,128 @@ If successful, the response includes an updated copy of the [SmartTrade](/smart-
 <ResponseTabs.TabItem value="201" label="201 Created" default>
 ```json
 {
-    "id": 12345678,
-    "version": 2,
-    "account": {
-        "id": 32402783,
-        "type": "binance_us",
-        "name": "My Binance US",
-        "market": "Binance US Spot",
-        "link": "/accounts/32402783"
+  "id": 12345678,
+  "version": 2,
+  "account": {
+    "id": 32402783,
+    "type": "binance_us",
+    "name": "My Binance US",
+    "market": "Binance US Spot",
+    "link": "/accounts/32402783"
+  },
+  "pair": "USDT_1INCH",
+  "instant": false,
+  "status": {
+    "type": "panic_sell_pending",
+    "basic_type": "panic_sell_pending",
+    "title": "Closing at Market Price"
+  },
+  "leverage": {
+    "enabled": false
+  },
+  "position": {
+    "type": "sell",
+    "editable": false,
+    "units": {
+      "value": "7.8",
+      "editable": false
     },
-    "pair": "USDT_1INCH",
-    "instant": false,
-    "status": {
-        "type": "panic_sell_pending",
-        "basic_type": "panic_sell_pending",
-        "title": "Closing at Market Price"
+    "price": {
+      "value": "0.2534",
+      "value_without_commission": "0.255",
+      "editable": false
     },
-    "leverage": {
-        "enabled": false
+    "total": {
+      "value": "1.977066"
     },
-    "position": {
-        "type": "sell",
-        "editable": false,
-        "units": {
-            "value": "7.8",
-            "editable": false
-        },
-        "price": {
-            "value": "0.2534",
-            "value_without_commission": "0.255",
-            "editable": false
-        },
-        "total": {
-            "value": "1.977066"
-        },
-        "order_type": "conditional",
-        "conditional": {
-            "editable": false,
-            "price": {
-                "value": "0.255",
-                "type": "bid"
-            },
-            "order_type": "limit",
-            "trailing": {
-                "enabled": false,
-                "percent": null
-            }
-        },
-        "status": {
-            "type": "finished",
-            "basic_type": "finished",
-            "title": "Finished"
-        }
-    },
-    "take_profit": {
+    "order_type": "conditional",
+    "conditional": {
+      "editable": false,
+      "price": {
+        "value": "0.255",
+        "type": "bid"
+      },
+      "order_type": "limit",
+      "trailing": {
         "enabled": false,
-        "price_type": "value",
-        "steps": []
+        "percent": null
+      }
     },
-    "stop_loss": {
-        "enabled": false
+    "status": {
+      "type": "finished",
+      "basic_type": "finished",
+      "title": "Finished"
+    }
+  },
+  "take_profit": {
+    "enabled": false,
+    "price_type": "value",
+    "steps": []
+  },
+  "stop_loss": {
+    "enabled": false
+  },
+  "reduce_funds": {
+    "steps": []
+  },
+  "market_close": {},
+  "note": "",
+  "note_raw": null,
+  "skip_enter_step": false,
+  "data": {
+    "editable": false,
+    "current_price": {
+      "day_change_percent": "-0.72",
+      "bid": "0.2582",
+      "ask": "0.264",
+      "last": "0.2621",
+      "quote_volume": "1550.73315"
     },
-    "reduce_funds": {
-        "steps": []
-    },
-    "market_close": {},
-    "note": "",
-    "note_raw": null,
-    "skip_enter_step": false,
-    "data": {
-        "editable": false,
-        "current_price": {
-            "day_change_percent": "-0.72",
-            "bid": "0.2582",
-            "ask": "0.264",
-            "last": "0.2621",
-            "quote_volume": "1550.73315"
-        },
-        "target_price_type": "price",
-        "orderbook_price_currency": "USDT",
-        "base_order_finished": true,
-        "missing_funds_to_close": "0.0",
-        "liquidation_price": null,
-        "average_enter_price": "0.2534",
-        "average_close_price": null,
-        "average_enter_price_without_commission": "0.255",
-        "average_close_price_without_commission": null,
-        "panic_sell_available": false,
-        "add_funds_available": false,
-        "reduce_funds_available": false,
-        "force_start_available": false,
-        "force_process_available": true,
-        "cancel_available": false,
-        "finished": false,
-        "base_position_step_finished": true,
-        "entered_amount": "7.8",
-        "entered_total": "1.977066",
-        "closed_amount": "0.0",
-        "closed_total": "0.0",
-        "commission": 0.001,
-        "created_at": "2024-09-10T14:44:22.416Z",
-        "updated_at": "2024-09-10T17:53:29.049Z",
-        "type": "smart_cover"
-    },
-    "profit": {
-        "volume": "-0.0841932",
-        "usd": "-0.0841932",
-        "percent": "-4.26",
-        "roe": null
-    },
-    "margin": {
-        "amount": null,
-        "total": null
-    },
-    "is_position_not_filled": false
+    "target_price_type": "price",
+    "orderbook_price_currency": "USDT",
+    "base_order_finished": true,
+    "missing_funds_to_close": "0.0",
+    "liquidation_price": null,
+    "average_enter_price": "0.2534",
+    "average_close_price": null,
+    "average_enter_price_without_commission": "0.255",
+    "average_close_price_without_commission": null,
+    "panic_sell_available": false,
+    "add_funds_available": false,
+    "reduce_funds_available": false,
+    "force_start_available": false,
+    "force_process_available": true,
+    "cancel_available": false,
+    "finished": false,
+    "base_position_step_finished": true,
+    "entered_amount": "7.8",
+    "entered_total": "1.977066",
+    "closed_amount": "0.0",
+    "closed_total": "0.0",
+    "commission": 0.001,
+    "created_at": "2024-09-10T14:44:22.416Z",
+    "updated_at": "2024-09-10T17:53:29.049Z",
+    "type": "smart_cover"
+  },
+  "profit": {
+    "volume": "-0.0841932",
+    "usd": "-0.0841932",
+    "percent": "-4.26",
+    "roe": null
+  },
+  "margin": {
+    "amount": null,
+    "total": null
+  },
+  "is_position_not_filled": false
 }
 ```
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="404" label="404 Not Found">
 ```json
 {
-    "error": "Not found",
-    "error_description": "Smart Trade not found"
+  "error": "Not found",
+  "error_description": "Smart Trade not found"
 }
 ```
 </ResponseTabs.TabItem>

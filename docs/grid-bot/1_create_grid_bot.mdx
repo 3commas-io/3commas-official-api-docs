@@ -26,7 +26,7 @@ Creates a new Grid Bot.
 <StickyLayout.Root>
    <StickyLayout.Main>
 
-## Body Parameters
+## Body parameters
 
 <ApiParam name='name' type='integer' id="name" required>
    Grid bot name specified by the user. If not specified, the system will generate a default name automatically.
@@ -187,24 +187,24 @@ Type of leverage applied for this Grid Bot.
 
 ```json title="POST /ver1/grid_bots/manual"
 {
-   "account_id": 12345678,
-   "pair": "USDT_ETH",
-   "name": "Test GRID",
-   "upper_price": 1.1,
-   "lower_price": 0.56,
-   "quantity_per_grid": 40,
-   "grids_quantity": 28,
-   "max_active_buy_lines": 28,
-   "max_active_sell_lines": 28,
-   "order_currency_type": "base",
-   "profit_currency_type": "base",
-   "ignore_warnings": false,
-   "trailing_up_enabled": false,
-   "trailing_down_enabled": true,
-   "grid_type": "arithmetic",
-   "expansion_down_enabled": false,
-   "expansion_up_enabled": true,
-   "expansion_up_stop_price": 1.57
+  "account_id": 12345678,
+  "pair": "USDT_ETH",
+  "name": "Test GRID",
+  "upper_price": 1.1,
+  "lower_price": 0.56,
+  "quantity_per_grid": 40,
+  "grids_quantity": 28,
+  "max_active_buy_lines": 28,
+  "max_active_sell_lines": 28,
+  "order_currency_type": "base",
+  "profit_currency_type": "base",
+  "ignore_warnings": false,
+  "trailing_up_enabled": false,
+  "trailing_down_enabled": true,
+  "grid_type": "arithmetic",
+  "expansion_down_enabled": false,
+  "expansion_up_enabled": true,
+  "expansion_up_stop_price": 1.57
 }
 ```
 </StickyLayout.Sticky>
@@ -227,74 +227,73 @@ If successful, the response includes a copy of [Grid Bot](/grid-bot/0_grid_bot_e
 
 ```json
 {
-   "id": 2291723,
-   "account_id": 73223,
-   "account_name": "binance",
-   "is_enabled": false,
-   "grids_quantity": "50",
-   "created_at": "2024-07-17T14:46:46.414Z",
-   "updated_at": "2024-07-17T14:46:46.505Z",
-   "strategy_type": "manual",
-   "upper_stop_loss_enabled": true,
-   "lower_stop_loss_enabled": true,
-   "note": "Example bot",
-   "editable": true,
-   "lower_price": "56000.0",
-   "lower_stop_loss_price": "50000.0",
-   "lower_stop_loss_action": "stop_bot_and_sell",
-   "upper_price": "72000.0",
-   "upper_stop_loss_price": "75000.0",
-   "upper_stop_loss_action": "stop_bot",
-   "quantity_per_grid": "15.0",
-   "leverage_type": "not_specified",
-   "leverage_custom_value": null,
-   "name": "USDT_BTC EXAMPLE",
-   "pair": "USDT_BTC",
-   "start_price": null,
-   "grid_price_step": "326.530612244897959183673469387755102041",
-   "current_profit": "0.0",
-   "current_profit_usd": "0.0",
-   "total_profits_count": "0",
-   "bought_volume": "0.0",
-   "sold_volume": "0.0",
-   "profit_percentage": "0.0",
-   "current_price": "65229.37",
-   "max_active_buy_lines": "50",
-   "max_active_sell_lines": "50",
-   "order_currency_type": "quote",
-   "profit_currency_type": "quote",
-   "trailing_up_enabled": "true",
-   "grid_type": "arithmetic",
-   "investment_base_currency": "0.0",
-   "investment_quote_currency": "0.0",
-   "unrealized_profit_loss": "0",
-   "current_profit_loss": null,
-   "current_profit_loss_percent": null,
-   "orderbook_price_currency": "USDT",
-   "expansion_down_enabled": "true",
-   "expansion_down_stop_price": "54000.0",
-   "grid_lines": [
-      {
-         "id": 253750214,
-         "price": "65142.86",
-         "side": null,
-         "order_placed": false
-      },
-      {
-         "id": 253750235,
-         "price": "72000.0",
-         "side": "sell",
-         "order_placed": false
-      },
-      ...
-      
-      {
-         "id": 253750213,
-         "price": "64816.33",
-         "side": "buy",
-         "order_placed": false
-      }
-   ]
+  "id": 2291723,
+  "account_id": 73223,
+  "account_name": "binance",
+  "is_enabled": false,
+  "grids_quantity": "50",
+  "created_at": "2024-07-17T14:46:46.414Z",
+  "updated_at": "2024-07-17T14:46:46.505Z",
+  "strategy_type": "manual",
+  "upper_stop_loss_enabled": true,
+  "lower_stop_loss_enabled": true,
+  "note": "Example bot",
+  "editable": true,
+  "lower_price": "56000.0",
+  "lower_stop_loss_price": "50000.0",
+  "lower_stop_loss_action": "stop_bot_and_sell",
+  "upper_price": "72000.0",
+  "upper_stop_loss_price": "75000.0",
+  "upper_stop_loss_action": "stop_bot",
+  "quantity_per_grid": "15.0",
+  "leverage_type": "not_specified",
+  "leverage_custom_value": null,
+  "name": "USDT_BTC EXAMPLE",
+  "pair": "USDT_BTC",
+  "start_price": null,
+  "grid_price_step": "326.530612244897959183673469387755102041",
+  "current_profit": "0.0",
+  "current_profit_usd": "0.0",
+  "total_profits_count": "0",
+  "bought_volume": "0.0",
+  "sold_volume": "0.0",
+  "profit_percentage": "0.0",
+  "current_price": "65229.37",
+  "max_active_buy_lines": "50",
+  "max_active_sell_lines": "50",
+  "order_currency_type": "quote",
+  "profit_currency_type": "quote",
+  "trailing_up_enabled": "true",
+  "grid_type": "arithmetic",
+  "investment_base_currency": "0.0",
+  "investment_quote_currency": "0.0",
+  "unrealized_profit_loss": "0",
+  "current_profit_loss": null,
+  "current_profit_loss_percent": null,
+  "orderbook_price_currency": "USDT",
+  "expansion_down_enabled": "true",
+  "expansion_down_stop_price": "54000.0",
+  "grid_lines": [
+    {
+      "id": 253750214,
+      "price": "65142.86",
+      "side": null,
+      "order_placed": false
+    },
+    {
+      "id": 253750235,
+      "price": "72000.0",
+      "side": "sell",
+      "order_placed": false
+    },
+    ...
+    {
+      "id": 253750213,
+      "price": "64816.33",
+      "side": "buy",
+      "order_placed": false
+    }
+  ]
 }
 ```
 </ResponseTabs.TabItem>
@@ -302,23 +301,22 @@ If successful, the response includes a copy of [Grid Bot](/grid-bot/0_grid_bot_e
 
 ```json
 {
-    "error": "record_invalid",
-    "error_description": "Invalid parameters",
-    "error_attributes": {
-        "quantity_per_grid": [
-            "is missing",
-            "is empty"
-        ]
-    }
+  "error": "record_invalid",
+  "error_description": "Invalid parameters",
+  "error_attributes": {
+    "quantity_per_grid": [
+      "is missing",
+      "is empty"
+    ]
+  }
 }
-
 ```
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="404" label="404 Not Found">
 ```json
 {
-   "error": "not_found",
-   "error_description": "Not Found"
+  "error": "not_found",
+  "error_description": "Not Found"
 }
 ```
   </ResponseTabs.TabItem>

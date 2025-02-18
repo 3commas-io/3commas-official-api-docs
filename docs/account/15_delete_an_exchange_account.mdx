@@ -41,7 +41,7 @@ Keep in mind that an exchange account cannot be deleted if it has any active ent
 </StickyLayout.Main>   
 
 <StickyLayout.Sticky>
-## Example Request
+## Example request 
 
 ```json
 POST /ver1/accounts/12345678/remove
@@ -68,18 +68,18 @@ No parameters.
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="404" label="404 Not Found">
 ```json
-  {
-      "error": "not_found",
-      "error_description": "Not Found"
-  }
+{
+  "error": "not_found",
+  "error_description": "Not Found"
+}
 ```
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="422" label="422 Unprocessable Entity">
 ```json
-  {
-      "error": "account_not_deletable",
-      "error_description": "There are active trading deals on this exchange. Close all trading operations and try again"
-  }
+{
+  "error": "account_not_deletable",
+  "error_description": "There are active trading deals on this exchange. Close all trading operations and try again"
+}
 ```
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>

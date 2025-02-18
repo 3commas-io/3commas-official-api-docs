@@ -136,32 +136,32 @@ GET /ver1/grid_bots/12345678/required_balances
 
 ```json
 {
-   "missing_balance": {
-      "base": {
-         "quantity": "0.0",
-         "currency": "BTC"
-      },
-      "quote": {
-         "quantity": "8500.0",
-         "currency": "USDT"
-      }
-   },
-   "required_balance": {
-      "base": {
-         "quantity": "2.0",
-         "currency": "BTC"
-      },
-      "quote": {
-         "quantity": "18500.0",
-         "currency": "USDT"
-      }
-   },
-   "need_balancing": true,
-   "balancing_available": true,
-   "necessary_quantities": {
+  "missing_balance": {
+    "base": {
+      "quantity": "0.0",
+      "currency": "BTC"
+    },
+    "quote": {
       "quantity": "8500.0",
       "currency": "USDT"
-   }
+    }
+  },
+  "required_balance": {
+    "base": {
+      "quantity": "2.0",
+      "currency": "BTC"
+    },
+    "quote": {
+      "quantity": "18500.0",
+      "currency": "USDT"
+    }
+  },
+  "need_balancing": true,
+  "balancing_available": true,
+  "necessary_quantities": {
+    "quantity": "8500.0",
+    "currency": "USDT"
+  }
 }
 ```
 </ResponseTabs.TabItem>
@@ -169,8 +169,8 @@ GET /ver1/grid_bots/12345678/required_balances
 
 ```json
 {
-    "error": "not_found",
-    "error_description": "Not Found"
+  "error": "not_found",
+  "error_description": "Not Found"
 }
 ```
 </ResponseTabs.TabItem>
@@ -178,8 +178,8 @@ GET /ver1/grid_bots/12345678/required_balances
 
 ```json
 {
-    "error": "grid_lines_not_marked",
-    "error_description": "Grid lines empty or not marked"
+  "error": "grid_lines_not_marked",
+  "error_description": "Grid lines empty or not marked"
 }
 ```
   </ResponseTabs.TabItem>

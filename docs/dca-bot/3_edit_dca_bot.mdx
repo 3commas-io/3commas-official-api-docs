@@ -353,37 +353,37 @@ or
 
 ```json title="PATCH /ver1/bots/12345678/update"
 {
-   "account_id": 32199203,
-   "name": "name DCA Bot",
-   "pairs": "USDT_ETH",
-   "strategy_list": [
-      {
-         "options": {},
-         "strategy": "nonstop"
-      }
-   ],
-   "base_order_volume": "100.0",
-   "take_profit_type": "total",
-   "take_profit": null,
-   "take_profit_steps": [
+  "account_id": 32199203,
+  "name": "name DCA Bot",
+  "pairs": "USDT_ETH",
+  "strategy_list": [
     {
-        "amount_percentage": 50,
-        "profit_percentage": 10
-        },
-    {
-        "amount_percentage": 50,
-        "profit_percentage": 20
+      "options": {},
+      "strategy": "nonstop"
     }
-],
-   "stop_loss_percentage": "8",
-   "close_deals_timeout": "100",
-   "max_safety_orders": 3,
-   "active_safety_orders_count": 3,
-   "safety_order_volume": "20.0",
-   "safety_order_step_percentage": "1.0",
-   "min_profit_type": null,
-   "martingale_volume_coefficient": "2",
-   "martingale_step_coefficient": "2"
+  ],
+  "base_order_volume": "100.0",
+  "take_profit_type": "total",
+  "take_profit": null,
+  "take_profit_steps": [
+    {
+      "amount_percentage": 50,
+      "profit_percentage": 10
+    },
+    {
+      "amount_percentage": 50,
+      "profit_percentage": 20
+    }
+  ],
+  "stop_loss_percentage": "8",
+  "close_deals_timeout": "100",
+  "max_safety_orders": 3,
+  "active_safety_orders_count": 3,
+  "safety_order_volume": "20.0",
+  "safety_order_step_percentage": "1.0",
+  "min_profit_type": null,
+  "martingale_volume_coefficient": "2",
+  "martingale_step_coefficient": "2"
 }
 ```
 </StickyLayout.Sticky>
@@ -400,103 +400,106 @@ If successful, the response includes a copy of [DCA Bot](/dca-bot/0_dca_bot_enti
 
 <StickyLayout.Sticky>
 
-## Example Responses
-  <ResponseTabs.Root>
-  <ResponseTabs.TabItem value="200" label="200 OK" default>
+## Example responses
 
-  ```json
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="200" label="200 OK" default>
+
+```json
 {
-    "id": 15656489,
-    "account_id": 32199203,
-    "is_enabled": false,
-    "max_safety_orders": 3,
-    "active_safety_orders_count": 3,
-    "pairs": [
-        "USDT_ETH"
-    ],
-    "strategy_list": [
-        {
-            "options": {},
-            "strategy": "nonstop"
-        }
-    ],
-    "close_strategy_list": [],
-    "safety_strategy_list": [],
-    "max_active_deals": 1,
-    "active_deals_count": 0,
-    "deletable?": true,
-    "created_at": "2024-11-19T21:04:11.299Z",
-    "updated_at": "2024-11-21T15:22:24.557Z",
-    "trailing_enabled": null,
-    "tsl_enabled": false,
-    "deal_start_delay_seconds": null,
-    "stop_loss_timeout_enabled": false,
-    "stop_loss_timeout_in_seconds": 0,
-    "disable_after_deals_count": null,
-    "deals_counter": null,
-    "allowed_deals_on_same_pair": null,
-    "easy_form_supported": false,
-    "close_deals_timeout": 100,
-    "url_secret": "5e334993e6",
-    "take_profit_steps": [
-        {
-            "amount_percentage": 50,
-            "profit_percentage": 10,
-            "id": 0
-        },
-        {
-            "amount_percentage": 50,
-            "profit_percentage": 20,
-            "id": 1
-        }
-    ],
-    "name": "name DCA Bot",
-    "take_profit": null,
-    "min_profit_percentage": null,
-    "base_order_volume": "100.0",
-    "safety_order_volume": "20.0",
-    "safety_order_step_percentage": "1.0",
-    "take_profit_type": "total",
-    "min_profit_type": null,
-    "type": "Bot::SingleBot",
-    "martingale_volume_coefficient": "2.0",
-    "martingale_step_coefficient": "2.0",
-    "stop_loss_percentage": "8.0",
-    "cooldown": "0",
-    "btc_price_limit": "0.0",
-    "strategy": "long",
-    "min_volume_btc_24h": "0.0",
-    "profit_currency": "quote_currency",
-    "min_price": null,
-    "max_price": null,
-    "stop_loss_type": "stop_loss",
-    "safety_order_volume_type": "quote_currency",
-    "base_order_volume_type": "quote_currency",
-    "account_name": "Paper Account 1251857",
-    "trailing_deviation": "0.2",
-    "finished_deals_profit_usd": "0.0",
-    "finished_deals_count": "0",
-    "leverage_type": "not_specified",
-    "leverage_custom_value": null,
-    "start_order_type": "limit",
-    "active_deals_usd_profit": "0.0",
-    "reinvesting_percentage": null,
-    "risk_reduction_percentage": null,
-    "reinvested_volume_usd": null,
-    "min_price_percentage": null,
-    "max_price_percentage": null
+  "id": 15656489,
+  "account_id": 32199203,
+  "is_enabled": false,
+  "max_safety_orders": 3,
+  "active_safety_orders_count": 3,
+  "pairs": [
+    "USDT_ETH"
+  ],
+  "strategy_list": [
+    {
+      "options": {},
+      "strategy": "nonstop"
+    }
+  ],
+  "close_strategy_list": [],
+  "safety_strategy_list": [],
+  "max_active_deals": 1,
+  "active_deals_count": 0,
+  "deletable?": true,
+  "created_at": "2024-11-19T21:04:11.299Z",
+  "updated_at": "2024-11-21T15:22:24.557Z",
+  "trailing_enabled": null,
+  "tsl_enabled": false,
+  "deal_start_delay_seconds": null,
+  "stop_loss_timeout_enabled": false,
+  "stop_loss_timeout_in_seconds": 0,
+  "disable_after_deals_count": null,
+  "deals_counter": null,
+  "allowed_deals_on_same_pair": null,
+  "easy_form_supported": false,
+  "close_deals_timeout": 100,
+  "url_secret": "5e334993e6",
+  "take_profit_steps": [
+    {
+      "amount_percentage": 50,
+      "profit_percentage": 10,
+      "id": 0
+    },
+    {
+      "amount_percentage": 50,
+      "profit_percentage": 20,
+      "id": 1
+    }
+  ],
+  "name": "name DCA Bot",
+  "take_profit": null,
+  "min_profit_percentage": null,
+  "base_order_volume": "100.0",
+  "safety_order_volume": "20.0",
+  "safety_order_step_percentage": "1.0",
+  "take_profit_type": "total",
+  "min_profit_type": null,
+  "type": "Bot::SingleBot",
+  "martingale_volume_coefficient": "2.0",
+  "martingale_step_coefficient": "2.0",
+  "stop_loss_percentage": "8.0",
+  "cooldown": "0",
+  "btc_price_limit": "0.0",
+  "strategy": "long",
+  "min_volume_btc_24h": "0.0",
+  "profit_currency": "quote_currency",
+  "min_price": null,
+  "max_price": null,
+  "stop_loss_type": "stop_loss",
+  "safety_order_volume_type": "quote_currency",
+  "base_order_volume_type": "quote_currency",
+  "account_name": "Paper Account 1251857",
+  "trailing_deviation": "0.2",
+  "finished_deals_profit_usd": "0.0",
+  "finished_deals_count": "0",
+  "leverage_type": "not_specified",
+  "leverage_custom_value": null,
+  "start_order_type": "limit",
+  "active_deals_usd_profit": "0.0",
+  "reinvesting_percentage": null,
+  "risk_reduction_percentage": null,
+  "reinvested_volume_usd": null,
+  "min_price_percentage": null,
+  "max_price_percentage": null
+}
 ```
   </ResponseTabs.TabItem>
+  
   <ResponseTabs.TabItem value="400" label="400 Bad Request">
-    ```json
+```json
 {
-    "error": "record_invalid",
-    "error_description": "Invalid parameters",
-    "error_attributes": {
-        "stop_loss_percentage": [
-            "Stop Loss should be below the last safety order (7.0)"
-        ]
-    }
+  "error": "record_invalid",
+  "error_description": "Invalid parameters",
+  "error_attributes": {
+    "stop_loss_percentage": [
+      "Stop Loss should be below the last safety order (7.0)"
+    ]
+  }
 }
 ```
    </ResponseTabs.TabItem>

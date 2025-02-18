@@ -81,29 +81,29 @@ GET /ver1/accounts/12345678/active_trading_entities
 
 ```json
 {
-    "data": {
-        "active_bots_count": 5,
-        "active_deals_count": 4,
-        "active_smart_trades_count": 3,
-        "active_orders_count": 2,
-        "active_grid_bots_count": 0
-    }
+  "data": {
+    "active_bots_count": 5,
+    "active_deals_count": 4,
+    "active_smart_trades_count": 3,
+    "active_orders_count": 2,
+    "active_grid_bots_count": 0
+  }
 }
 ```
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="404" label="404 Not Found" default>
 ```json
 {
-    "error": "not_found",
-    "error_description": "Not Found"
+  "error": "not_found",
+  "error_description": "Not Found"
 }
 ```
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="422" label="422 Unprocessable Entity" default>
 ```json
 {
-    "error_description": "API keys are no longer valid or incorrect.",
-    "error": "invalid_api_key"
+  "error_description": "API keys are no longer valid or incorrect.",
+  "error": "invalid_api_key"
 }
 ```
 </ResponseTabs.TabItem>
