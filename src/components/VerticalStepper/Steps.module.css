@@ -55,6 +55,7 @@
 .content {
   flex: 1;
   padding-top: 0.25rem;
+  overflow: auto;
 }
 
 .content h3 {
