@@ -1,7 +1,7 @@
 ---
-id:
-title:
-sidebar_class_name: get
+id: cancel-manual-safety-order
+title: Cancel manual safety order
+sidebar_class_name: post
 ---
 
 import ApiParam from '@site/src/components/ApiParam';
@@ -9,21 +9,26 @@ import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import { Informer } from '@site/src/components/Informer/Informer';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 <Endpoint
-  url="/ver1/deals/:deal_id/market_orders"
-  method="GET"
+  url="/ver1/deals/:deal_id/cancel_order"
+  method="POST"
   permissions={
     <>
-      <Permission title="Permission" description="BOTS_READ" />
+      <Permission title="Permission" description="BOTS_WRITE" />
       <Permission title="Security" description="SIGNED" />
     </>
   }
 />
 
-Returns all type of trades for a specific deal.
+Cancels a specific manual safety trade within the DCA Bot using its ID.
+
+<Informer variant="warning">
+After this action, 3Commas will automatically set the final status to **Cancelled** for this trade.
+</Informer>
 
 <StickyLayout.Root>
 <StickyLayout.Main>
@@ -33,13 +38,19 @@ Returns all type of trades for a specific deal.
 <ApiParam name='deal_id' type='integer' id="deal_id" required>
   Unique 3Commas ID Deal entity.
 </ApiParam>
+
+## Body Parameter
+<ApiParam name='order_id' type='integer' id="order_id" required>
+  Unique 3Commas Trade entity ID. Use the [Get Trades of Deal](7.%20Get%20Trades%20of%20Deal.md) endpoint to retrieve the value for the `order_id` parameter.
+</ApiParam>   
+
 </StickyLayout.Main>
 <StickyLayout.Sticky>
 
 ## Example Request
 
 ```json
-GET /ver1/deals/1234567890/market_orders
+POST  /ver1/deals/2345678901/cancel_order
 ```
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -48,6 +59,7 @@ GET /ver1/deals/1234567890/market_orders
 <StickyLayout.Main>
 
 ## Response Parameters
+
 <ApiParam name='order_id' type='integer' id="order_id">
   Unique 3Commas Trade entity ID.
 </ApiParam>
@@ -102,144 +114,182 @@ GET /ver1/deals/1234567890/market_orders
      The weighted average price at which the asset was bought or sold during the execution of the trades.
 </CollapsibleApiParam>
 </CollapseAll>
+   
+   
 </StickyLayout.Main>
-
 <StickyLayout.Sticky>
 
 ## Example Responses
 
 <ResponseTabs.Root>
-<ResponseTabs.TabItem value="200" label="200 OK" default>
+<ResponseTabs.TabItem value="201" label="201 Created" default>
 
 ```json
 [
     {
-        "order_id": "1110863869",
-        "order_type": "SELL",
-        "deal_order_type": "Manual Safety",
-        "cancellable": false,
-        "status_string": "Inactive",
-        "created_at": "2024-11-11T17:02:50.001Z",
-        "updated_at": "2024-11-11T17:02:50.166Z",
-        "quantity": "0.0",
-        "quantity_remaining": "0.0",
-        "total": "0.0",
-        "rate": "0.297",
-        "average_price": "0.0"
-    },
-    {
-        "order_id": "1110817001",
-        "order_type": "SELL",
-        "deal_order_type": "Manual Safety",
-        "cancellable": false,
-        "status_string": "Inactive",
-        "created_at": "2024-11-11T16:46:59.479Z",
-        "updated_at": "2024-11-11T16:46:59.643Z",
-        "quantity": "0.0",
-        "quantity_remaining": "0.0",
-        "total": "0.0",
-        "rate": "0.297",
-        "average_price": "0.0"
-    },
-    {
-        "order_id": "1110812940",
-        "order_type": "SELL",
-        "deal_order_type": "Manual Safety",
-        "cancellable": false,
-        "status_string": "Inactive",
-        "created_at": "2024-11-11T16:45:38.751Z",
-        "updated_at": "2024-11-11T16:45:38.892Z",
-        "quantity": "0.0",
-        "quantity_remaining": "0.0",
-        "total": "0.0",
-        "rate": "0.297",
-        "average_price": "0.0"
-    },
-    {
-        "order_id": "1110811846",
-        "order_type": "SELL",
-        "deal_order_type": "Manual Safety",
-        "cancellable": false,
-        "status_string": "Inactive",
-        "created_at": "2024-11-11T16:45:21.014Z",
-        "updated_at": "2024-11-11T16:45:21.156Z",
-        "quantity": "0.0",
-        "quantity_remaining": "0.0",
-        "total": "0.0",
-        "rate": "0.2971",
-        "average_price": "0.0"
-    },
-    {
-        "order_id": "1110706583",
-        "order_type": "SELL",
-        "deal_order_type": "Manual Safety",
-        "cancellable": false,
-        "status_string": "Inactive",
-        "created_at": "2024-11-11T16:22:01.176Z",
-        "updated_at": "2024-11-11T16:22:01.391Z",
-        "quantity": "0.0",
-        "quantity_remaining": "0.0",
-        "total": "0.0",
-        "rate": "0.0",
-        "average_price": "0.0"
-    },
-    {
-        "order_id": "1110645798",
-        "order_type": "SELL",
-        "deal_order_type": "Manual Safety",
-        "cancellable": false,
-        "status_string": "Inactive",
-        "created_at": "2024-11-11T16:04:51.619Z",
-        "updated_at": "2024-11-11T16:04:51.750Z",
-        "quantity": "0.0",
-        "quantity_remaining": "0.0",
-        "total": "0.0",
-        "rate": "0.0",
-        "average_price": "0.0"
-    },
-    {
-        "order_id": "1102488856",
+        "order_id": "1123077930",
         "order_type": "BUY",
+        "deal_order_type": "Manual Safety",
+        "cancellable": true,
+        "status_string": "Active",
+        "created_at": "2024-11-14T14:30:09.760Z",
+        "updated_at": "2024-11-14T14:30:10.641Z",
+        "quantity": "0.2583",
+        "quantity_remaining": "0.2583",
+        "total": "0.0",
+        "rate": "3016.56",
+        "average_price": "0.0"
+    },
+    {
+        "order_id": "1123077331",
+        "order_type": "BUY",
+        "deal_order_type": "Manual Safety",
+        "cancellable": false,
+        "status_string": "Cancelled",
+        "created_at": "2024-11-14T14:29:49.936Z",
+        "updated_at": "2024-11-14T14:30:49.015Z",
+        "quantity": "0.1773",
+        "quantity_remaining": "0.1773",
+        "total": "0.0",
+        "rate": "3116.81",
+        "average_price": "0.0"
+    },
+    {
+        "order_id": "1123069475",
+        "order_type": "BUY",
+        "deal_order_type": "Manual Safety",
+        "cancellable": false,
+        "status_string": "Cancelled",
+        "created_at": "2024-11-14T14:26:41.582Z",
+        "updated_at": "2024-11-14T14:27:52.706Z",
+        "quantity": "0.1462",
+        "quantity_remaining": "0.1462",
+        "total": "0.0",
+        "rate": "3150.44",
+        "average_price": "0.0"
+    },
+    {
+        "order_id": "1123065576",
+        "order_type": "SELL",
         "deal_order_type": "Take Profit",
         "cancellable": true,
         "status_string": "Active",
-        "created_at": "2024-11-08T20:39:06.340Z",
-        "updated_at": "2024-11-08T21:54:34.204Z",
-        "quantity": "25.9",
-        "quantity_remaining": "25.9",
+        "created_at": "2024-11-14T14:24:05.894Z",
+        "updated_at": "2024-11-14T14:24:06.919Z",
+        "quantity": "0.0032",
+        "quantity_remaining": "0.0032",
         "total": "0.0",
-        "rate": "0.25",
+        "rate": "3310.69",
         "average_price": "0.0"
     },
     {
-        "order_id": "1102488858",
+        "order_id": "1123065567",
         "order_type": "SELL",
-        "deal_order_type": "Safety",
-        "cancellable": false,
-        "status_string": "Filled",
-        "created_at": "2024-11-08T20:39:06.443Z",
-        "updated_at": "2024-11-08T21:54:33.294Z",
-        "quantity": "15.0",
-        "quantity_remaining": "0.0",
-        "total": "3.894858",
-        "rate": "0.2607",
-        "average_price": "0.2596572"
+        "deal_order_type": "Take Profit",
+        "cancellable": true,
+        "status_string": "Active",
+        "created_at": "2024-11-14T14:24:05.836Z",
+        "updated_at": "2024-11-14T14:24:06.819Z",
+        "quantity": "0.0157",
+        "quantity_remaining": "0.0157",
+        "total": "0.0",
+        "rate": "3278.86",
+        "average_price": "0.0"
     },
     {
-        "order_id": "1102488849",
+        "order_id": "1123065560",
         "order_type": "SELL",
+        "deal_order_type": "Take Profit",
+        "cancellable": true,
+        "status_string": "Active",
+        "created_at": "2024-11-14T14:24:05.768Z",
+        "updated_at": "2024-11-14T14:24:06.602Z",
+        "quantity": "0.0126",
+        "quantity_remaining": "0.0126",
+        "total": "0.0",
+        "rate": "3247.02",
+        "average_price": "0.0"
+    },
+    {
+        "order_id": "1123065589",
+        "order_type": "BUY",
+        "deal_order_type": "Safety",
+        "cancellable": true,
+        "status_string": "Active",
+        "created_at": "2024-11-14T14:24:06.095Z",
+        "updated_at": "2024-11-14T14:24:06.813Z",
+        "quantity": "0.0173",
+        "quantity_remaining": "0.0173",
+        "total": "0.0",
+        "rate": "2512.33",
+        "average_price": "0.0"
+    },
+    {
+        "order_id": "1123065587",
+        "order_type": "BUY",
+        "deal_order_type": "Safety",
+        "cancellable": true,
+        "status_string": "Active",
+        "created_at": "2024-11-14T14:24:06.029Z",
+        "updated_at": "2024-11-14T14:24:07.024Z",
+        "quantity": "0.0085",
+        "quantity_remaining": "0.0085",
+        "total": "0.0",
+        "rate": "3021.15",
+        "average_price": "0.0"
+    },
+    {
+        "order_id": "1123065582",
+        "order_type": "BUY",
+        "deal_order_type": "Safety",
+        "cancellable": true,
+        "status_string": "Active",
+        "created_at": "2024-11-14T14:24:05.971Z",
+        "updated_at": "2024-11-14T14:24:07.201Z",
+        "quantity": "0.0048",
+        "quantity_remaining": "0.0048",
+        "total": "0.0",
+        "rate": "3148.36",
+        "average_price": "0.0"
+    },
+    {
+        "order_id": "1123064629",
+        "order_type": "BUY",
         "deal_order_type": "Base",
         "cancellable": false,
         "status_string": "Filled",
-        "created_at": "2024-11-08T20:39:05.801Z",
-        "updated_at": "2024-11-08T20:39:06.147Z",
-        "quantity": "10.0",
+        "created_at": "2024-11-14T14:23:24.576Z",
+        "updated_at": "2024-11-14T14:24:05.525Z",
+        "quantity": "0.0315",
         "quantity_remaining": "0.0",
-        "total": "2.580424",
-        "rate": "0.2596",
-        "average_price": "0.2580424"
+        "total": "100.175260185",
+        "rate": "3176.99",
+        "average_price": "3180.16699"
     }
 ]
+```
+</ResponseTabs.TabItem>
+
+<ResponseTabs.TabItem value="400" label="400 Bad Request">
+
+```json
+{
+    "error": "record_invalid",
+    "error_description": "Invalid parameters",
+    "error_attributes": {
+        "order_id": [
+            "is missing"
+        ]
+    }
+}
+```
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="422" label="422 Unprocessable Entity">
+
+```
+{
+    "error": "Cant be cancelled"
+}
 ```
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>

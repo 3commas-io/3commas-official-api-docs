@@ -1,31 +1,28 @@
 ---
-id:
-title:
+id: modify-maximum-safety-orders-count
+title: Modify maximum safety orders count
 sidebar_class_name: post
 ---
 
-import ApiParam from '@site/src/components/ApiParam';
 import Endpoint, { Permission } from '@site/src/components/Endpoint';
-import { Informer } from '@site/src/components/Informer/Informer';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 <Endpoint
-  url="/ver1/deals/:deal_id/panic_sell_step"
+  url="/ver1/deals/:deal_id/update_max_safety_orders"
   method="POST"
   permissions={
     <>
-      <Permission title="Permission" description="BOTS_WRITE" />
+      <Permission title="Permission" description="BOTS_READ" />
       <Permission title="Security" description="SIGNED" />
     </>
   }
 />
 
-Closes a specific Trade within the Deal by market using its ID.
-
-<Informer variant="warning">
-    After this action, the final status **Panic_sold** will be automatically set by 3Commas.
-</Informer>
+Updates a value for parameter `max_safety_orders` for a specific deal of DCA Bot using its ID.
 
 <StickyLayout.Root>
 <StickyLayout.Main>
@@ -35,20 +32,17 @@ Closes a specific Trade within the Deal by market using its ID.
   Unique 3Commas ID Deal entity.
 </ApiParam>
 
-
 ## Body Parameter
-
-<ApiParam name='trade_id' type='integer' id="trade_id" required>
-  Unique 3Commas ID Trade of the deal that should be sold. Use endpoint [Get Deal](DCA%20Bot/Deals/Get%20Deal.md) to get value for parameter 'trade_id'.
+<ApiParam name='max_safety_orders' type='integer' id="max_safety_orders" required>
+  New maximum safety orders value.
 </ApiParam>
 </StickyLayout.Main>
+
 <StickyLayout.Sticky>
+## Example Request
 
-### Example request
-
-```
-POST
-/ver1/deals/12345678/panic_sell_step?trade_id=1123324654
+```json
+POST /ver1/deals/:deal_id/update_max_safety_orders?max_safety_orders=6
 ```
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -56,15 +50,15 @@ POST
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-### Parameter response
+## Response Parameters
 
-If successful, the response includes an updated copy of the [Deals](./README.md) entity.
+If successful, the response includes an updated copy of [Deals](./README.md) entity.
 
 </StickyLayout.Main>
+
 <StickyLayout.Sticky>
 
-### Example Response
-
+## Example Responses
 <ResponseTabs.Root>
 <ResponseTabs.TabItem value="201" label="201 Created" default>
 
@@ -103,13 +97,13 @@ If successful, the response includes an updated copy of the [Deals](./README.md)
             "id": 0,
             "amount_percentage": 40.0,
             "profit_percentage": 2.0,
-            "editable": false,
-            "panic_sellable": false,
+            "editable": true,
+            "panic_sellable": true,
             "trade_id": 1123324654,
             "execution_timestamp": null,
             "initial_amount": "0.0149",
             "price": "3159.89",
-            "status": "Panic closing"
+            "status": "Placed"
         },
         {
             "id": 1,
@@ -165,8 +159,8 @@ If successful, the response includes an updated copy of the [Deals](./README.md)
     "to_currency": "ETH",
     "final_profit_percentage": "0",
     "usd_final_profit": "-1.23",
-    "actual_profit": "0.263602741",
-    "actual_usd_profit": "0.263602741",
+    "actual_profit": "-0.260683448",
+    "actual_usd_profit": "-0.260683448",
     "failed_message": null,
     "reserved_base_coin": "115.437080759",
     "reserved_second_coin": "0.0373",
@@ -185,10 +179,10 @@ If successful, the response includes an updated copy of the [Deals](./README.md)
     "bot_name": "ETH/USDT Classic trading",
     "account_name": "Paper Account 1251857",
     "market_type": "spot",
-    "current_price": "3105.0",
-    "take_profit_price": "3105.0",
+    "current_price": "3090.93",
+    "take_profit_price": "3090.93",
     "stop_loss_price": "2974.555584",
-    "actual_profit_percentage": "0.33",
+    "actual_profit_percentage": "-0.13",
     "reserved_quote_funds": "0.0",
     "reserved_base_funds": "0.0",
     "orderbook_price_currency": "USDT",
@@ -196,7 +190,7 @@ If successful, the response includes an updated copy of the [Deals](./README.md)
         "progressAccuracy": 2,
         "TTPАctivated": false,
         "buyPrice": "3094.827902386058981233243967828",
-        "currentPrice": "3105.0",
+        "currentPrice": "3090.93",
         "inverted": false,
         "stopLosses": [
             [
@@ -298,6 +292,15 @@ If successful, the response includes an updated copy of the [Deals](./README.md)
             "created_at": "2024-11-14T15:30:16.039Z"
         }
     ]
+}
+```
+</ResponseTabs.TabItem>
+<ResponseTabs.TabItem value="404" label="404 Not Found">
+
+```json
+{
+    "error": "not_found",
+    "error_description": "Not Found"
 }
 ```
 </ResponseTabs.TabItem>
