@@ -1,18 +1,19 @@
 ---
-id: load-balances-for-specified-exchange
-title: Load balances for specified exchange
+id: sell-all-to-btc
+title: Sell all to BTC
 sidebar_class_name: post
 ---
+
 import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
-import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import { Informer } from '@site/src/components/Informer/Informer';
 
 <Endpoint
-  url="/ver1/accounts/:account_id/load_balances"
+  url="/ver1/accounts/:account_id/sell_all_to_btc"
   method="POST"
   permissions={
     <>
@@ -22,11 +23,22 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
   }
 />
 
-Updates a balance for exchange account using its ID.
+Sells all assets on the exchange account in BTC, creating orders on the exchange.
+
+<Informer variant="info">
+ This endpoint works for the following exchanges:
+  **Binance Spot**, **Binance Margin**, **Binance US**, **Coinbase Advanced Spot**, **Gemini Spot**, **Kraken Spot**, **Bybit Spot**, **GateIo**, **OKX Spot**, **Huobi Spot**, **Bitfinex Spot**, **Kucoin Spot**, **Bitstamp Spot**.
+</Informer>
+
+<Informer variant="danger">
+When executing this request, all trading entities (bots, SmartTrade, trades, deals, and orders—except for Signal Bot) will be stopped and closed both in 3Commas and on the exchange.
+</Informer>
 
 <StickyLayout.Root>
 <StickyLayout.Main>
+
 ## Path Parameter
+
 <ApiParam name='account_id' type='integer' id="account_id" required>
     Unique 3Commas ID of this exchange account entity.
 </ApiParam>
@@ -37,7 +49,7 @@ Updates a balance for exchange account using its ID.
 ## Example Request
 
 ```
- POST /ver1/accounts/12345678/load_balances
+POST /ver1/accounts/32833900/sell_all_to_usd
 ```
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -50,15 +62,15 @@ Updates a balance for exchange account using its ID.
 If successful, the response includes a copy of the updated [Account](0.%20Account%20entity.mdx) entity.
 
 </StickyLayout.Main>
-
 <StickyLayout.Sticky>
+
 ## Example Responses
 
 <ResponseTabs.Root>
 <ResponseTabs.TabItem value="201" label="201 Created" default>
 ```json
 {
-   "id": 12345678,
+   "id": 32402783,
    "auto_balance_period": 12,
    "auto_balance_portfolio_id": null,
    "auto_balance_currency_change_limit": null,
@@ -93,27 +105,27 @@ If successful, the response includes a copy of the updated [Account](0.%20Accoun
    ],
    "primary_display_currency_profit_percentage": {
       "currency": "USD",
-      "amount": "9.21"
+      "amount": "4.08"
    },
    "primary_display_currency_profit": {
       "currency": "USD",
-      "amount": "2.631561723423248885262841890509448379906959328"
+      "amount": "1.1904074327111530753265032408092397310973795168"
    },
    "day_profit_primary_display_currency_percentage": {
       "currency": "USD",
-      "amount": "-2.1226"
+      "amount": "1.0106"
    },
    "day_profit_primary_display_currency": {
       "currency": "USD",
-      "amount": "-0.6768638169586133911173202842590701388480615227093"
+      "amount": "0.303798359197846162240938425994424916390118897162"
    },
    "primary_display_currency_amount": {
       "currency": "USD",
-      "amount": "31.210986753244348885262841890509448379906959328"
+      "amount": "30.3654836868311530753265032408092397310973795168"
    },
    "total_primary_display_currency_profit": {
       "currency": "USD",
-      "amount": 7.210986753244349
+      "amount": 6.365483686831153
    },
    "available_include_in_summary": true,
    "api_key": "yzNYzv8a0VEBwsrhc3MDpHZ7XMqa1vJqSqHzpfjjKpdFF9SbQsVQKRl3hKNyZU45",
@@ -123,34 +135,34 @@ If successful, the response includes a copy of the updated [Account](0.%20Accoun
    "customer_id": null,
    "subaccount_name": null,
    "lock_reason": null,
-   "btc_amount": "0.00048979846479077665182507861307944101622368",
-   "usd_amount": "31.210986753244348885262841890509448379906959328",
-   "day_profit_btc": "-0.000003149786432365067713059300253892317108212763457088",
-   "day_profit_usd": "-0.6768638169586133911173202842590701388480615227093",
-   "day_profit_btc_percentage": "-0.64",
-   "day_profit_usd_percentage": "-2.12",
-   "btc_profit": "0.00000694712754069765182507861307944101622368",
-   "usd_profit": "2.631561723423248885262841890509448379906959328",
-   "usd_profit_percentage": "9.21",
-   "btc_profit_percentage": "1.44",
-   "total_btc_profit": "-0.00033874027595461834",
-   "total_usd_profit": "7.210986753244349",
+   "btc_amount": "0.00048354921680019174575329053051358334806752",
+   "usd_amount": "30.3654836868311530753265032408092397310973795168",
+   "day_profit_btc": "0.000004484441392636909809798397735805570289805668147599",
+   "day_profit_usd": "0.303798359197846162240938425994424916390118897162",
+   "day_profit_btc_percentage": "0.94",
+   "day_profit_usd_percentage": "1.01",
+   "btc_profit": "-0.00000742390628421825424670946948641665193248",
+   "usd_profit": "1.1904074327111530753265032408092397310973795168",
+   "usd_profit_percentage": "4.08",
+   "btc_profit_percentage": "-1.51",
+   "total_btc_profit": "-0.0003449895239452033",
+   "total_usd_profit": "6.365483686831153",
    "pretty_display_type": "BinanceUs",
    "exchange_name": "Binance US Spot",
    "market_code": "binance_us",
    "api_keys_state": "ok"
 }
 ```
-  </ResponseTabs.TabItem>
-<ResponseTabs.TabItem value="422" label="422 Unprocessable Entity">
+</ResponseTabs.TabItem>
+
+<ResponseTabs.TabItem value="403" label="403 Forbidden">
 
 ```json
 {
-    "error_description": "API keys are no longer valid or incorrect.",
-    "error": "invalid_api_key"
+    "error": "Forbidden. Unavailable for this account."
 }
 ```
-  </ResponseTabs.TabItem>
-   </ResponseTabs.Root>
-    </StickyLayout.Sticky>
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
 </StickyLayout.Root>
