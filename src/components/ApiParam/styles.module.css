@@ -16,7 +16,11 @@
 }
 
 .name {
-  font-weight: 500;
+  font-weight: 600;
+
+  [data-theme="dark"] & {
+    color: #fff;
+  }
 }
 
 .type {
