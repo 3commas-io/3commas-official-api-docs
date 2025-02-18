@@ -86,38 +86,38 @@ GET /ver1/accounts/76543210/deposit_data?currency=BTC&network=BTC
 <ResponseTabs.Root>
 <ResponseTabs.TabItem value="200" label="200 OK" default>
 ```json
-    {
-        "address": "1J6jZDFSeGfwfwJpS4SLqhVo7eo2DgkT9Q",
-        "address_tag": "",
-        "available_balance": "0.00031872",
-        "in_orders": "0.0",
-        "total_balance": "0.00031872"
-    }
+{
+  "address": "1J6jZDFSeGfwfwJpS4SLqhVo7eo2DgkT9Q",
+  "address_tag": "",
+  "available_balance": "0.00031872",
+  "in_orders": "0.0",
+  "total_balance": "0.00031872"
+}
 ```
 </ResponseTabs.TabItem>
 
 <ResponseTabs.TabItem value="400" label="400 Bad Request">
 ```json
-    {
-        "error": "record_invalid",
-        "error_description": "Invalid parameters",
-        "error_attributes": {
-            "currency": [
-                "is missing"
-            ],
-            "network": [
-                "is missing"
-            ]
-        }
-    }
+{
+  "error": "record_invalid",
+  "error_description": "Invalid parameters",
+  "error_attributes": {
+    "currency": [
+      "is missing"
+    ],
+    "network": [
+      "is missing"
+    ]
+  }
+}
 ```
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="422" label="422 Unprocessable Entity">
 ```json
-    {
-        "error_description": "{\"code\"=>-9000, \"msg\"=>\"Deposits for this network are currently closed\"}",
-        "error": "unknown_market_api_error"
-    }
+{
+  "error_description": "{\"code\"=>-9000, \"msg\"=>\"Deposits for this network are currently closed\"}",
+  "error": "unknown_market_api_error"
+}
 ```
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
