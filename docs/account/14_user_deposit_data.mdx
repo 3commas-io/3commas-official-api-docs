@@ -41,7 +41,8 @@ Returns the data of deposit for a specific account using its ID.
 
 <ApiParam name='currency' type='string' id="currency" required>
    Currency code for what you want to get a data.
-   Example: `BTC`.
+
+   Example: `BTC`
 </ApiParam>
 
 <ApiParam name='network' type='string' id="network" required>
@@ -64,18 +65,18 @@ GET /ver1/accounts/76543210/deposit_data?currency=BTC&network=BTC
 ## Response Parameters 
 
 <ApiParam name='address' type='string' id="address">
-   The cryptocurrency wallet address for deposits and withdrawals
+   The cryptocurrency wallet address for deposits and withdrawals.
 </ApiParam>
 <ApiParam name='network' type='string' id="network">
-   Tag of address for this deposits
+   Tag of address for this deposits.
 </ApiParam>
 
 <ApiParam name='currency' type='string' id="currency">
-   The amount of this currency currently locked in active orders
+   The amount of this currency currently locked in active orders.
 </ApiParam>
 
 <ApiParam name='total_balance' type='string' id="total_balance">
-   The total balance in this currency and account
+   The total balance in this currency and account.
 </ApiParam>
 </StickyLayout.Main>
 
@@ -84,8 +85,7 @@ GET /ver1/accounts/76543210/deposit_data?currency=BTC&network=BTC
 ##  Example Responses
 <ResponseTabs.Root>
 <ResponseTabs.TabItem value="200" label="200 OK" default>
-
-    ```json
+```json
     {
         "address": "1J6jZDFSeGfwfwJpS4SLqhVo7eo2DgkT9Q",
         "address_tag": "",
@@ -93,12 +93,11 @@ GET /ver1/accounts/76543210/deposit_data?currency=BTC&network=BTC
         "in_orders": "0.0",
         "total_balance": "0.00031872"
     }
-    ```
+```
 </ResponseTabs.TabItem>
 
 <ResponseTabs.TabItem value="400" label="400 Bad Request">
-
-    ```json
+```json
     {
         "error": "record_invalid",
         "error_description": "Invalid parameters",
@@ -111,16 +110,15 @@ GET /ver1/accounts/76543210/deposit_data?currency=BTC&network=BTC
             ]
         }
     }
-    ```
+```
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="422" label="422 Unprocessable Entity">
-
-    ```json
+```json
     {
         "error_description": "{\"code\"=>-9000, \"msg\"=>\"Deposits for this network are currently closed\"}",
         "error": "unknown_market_api_error"
     }
-    ```
+```
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>
