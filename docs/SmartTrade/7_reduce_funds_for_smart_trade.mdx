@@ -1,6 +1,6 @@
 ---
-id: add-funds-for-smarttrade
-title: Add funds for SmartTrades
+id: reduce-funds-for-smart-trade
+title: Reduce funds for SmartTrade
 sidebar_class_name: post
 ---
 
@@ -13,7 +13,7 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 import { Informer } from '@site/src/components/Informer/Informer';
 
 <Endpoint
-  url="/v2/smart_trades/:id/add_funds"
+  url="/v2/smart_trades/:id/reduce_funds"
   method="POST"
   permissions={
     <>
@@ -23,29 +23,31 @@ import { Informer } from '@site/src/components/Informer/Informer';
   }
 />
 
-Adds funds in SmartTrade, increasing the volume of the trade and averaging the price at any moment.
+Starts the process of creating reduced funds.
 
-<Informer variant="warning">
-    The endpoint is available for SmartTrades with statuses **waiting_position** and **waiting_targets**, but not for SmartTrades with trailing enabled, or for the types **simple_buy** and **simple_sell**.
+<Informer variant="info">
+ New trades and orders will be created on the exchange once the process begins.
 </Informer>
 
 <StickyLayout.Root>
 <StickyLayout.Main>
 
 ## Path Parameter
+
 <ApiParam name='id' type='integer' id="id" required>
    Unique 3Commas ID for this SmartTrade entity.
 </ApiParam>
 
-## Body Parameters
+## Body Parameters 
 <ApiParam name='order_type' type='integer' id="order_type" required>
-   Order type for add funds in this SmartTrade: `market`, `limit`.
+   Order type for reducing funds in this SmartTrade:  `market`, `limit`.
 </ApiParam>
+
 <ApiParam name="units" type="object" id="units" required>
-    Defines the amount of units to add in this SmartTrade
+    Defines the amount of units to reduce in this SmartTrade.
    <CollapsibleNestedParams>
     <ApiParam name='value' type='number' id='value' required>
-         Specifies the number of units to buy
+         Specifies the number of units to sell.
     </ApiParam>
     </CollapsibleNestedParams>
 </ApiParam>
@@ -58,75 +60,74 @@ Adds funds in SmartTrade, increasing the volume of the trade and averaging the p
     </CollapsibleNestedParams>
 </ApiParam>
 </StickyLayout.Main>
+
 <StickyLayout.Sticky>
-        ## Example Request
-        
-```json title="POST /v2/smart_trades/30415988/add_funds"
+## Example Request 
+
+```json title="POST /v2/smart_trades/12345678/reduce_funds"
 {
    "order_type": "limit",
-   "units": [
-      {
-         "value": "14.60138226"
-      },
-      {
-         "value": "14.60138226"
-      }
-   ]
+   "units": {
+      "value": "0.04"
+   },
+   "price": {
+      "value": "0.03711"
+   }
 }
 ```
- </StickyLayout.Sticky>
+</StickyLayout.Sticky>
 </StickyLayout.Root>
 
 <StickyLayout.Root>
 <StickyLayout.Main>
-## Parameter response
 
-If successful, the response includes an updated copy of the [SmartTrade](0.%20SmartTrade%20entity.mdx) entity.
+## Response Parameters 
+If successful, the response includes an updated copy of the [SmartTrade](/docs/SmartTrade/1.%20SmartTrade%20entity.md) entity.
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>
-## Example Responses
-<ResponseTabs.Root>
-  <ResponseTabs.TabItem value="201" label="201 Created" default>
 
-```json
+## Example Responses
+
+<ResponseTabs.Root>
+        <ResponseTabs.TabItem value="201" label="201 Created" default>
+            ```json
 {
-    "id": 30415988,
+    "id": 12345678,
     "version": 2,
     "account": {
-        "id": 32402783,
-        "type": "binance_us",
-        "name": "My Binance US",
-        "market": "Binance US Spot",
-        "link": "/accounts/32402783"
+        "id": 32199203,
+        "type": "paper_trading",
+        "name": "Paper Account 1251857",
+        "market": "Binance Spot account simulator",
+        "link": "/accounts/32199203"
     },
-    "pair": "USDT_DOGE",
+    "pair": "BTC_ETH",
     "instant": false,
     "status": {
-        "type": "waiting_targets",
-        "basic_type": "waiting_targets",
-        "title": "Waiting Targets"
+        "type": "pending_reduce_funds",
+        "basic_type": "pending_reduce_funds",
+        "title": "Pending reduce funds"
     },
     "leverage": {
         "enabled": false
     },
     "position": {
         "type": "buy",
-        "order_type": "market",
         "editable": false,
         "units": {
-            "value": "43.736",
+            "value": "4.0",
             "editable": false
         },
         "price": {
-            "value": "0.10457",
-            "value_without_commission": "0.10394",
+            "value": "0.03719",
+            "value_without_commission": "0.03716",
             "editable": false
         },
         "total": {
-            "value": "4.57371",
-            "value_without_commission": "4.54626774"
+            "value": "0.14878864"
         },
+        "order_type": "market",
         "status": {
             "type": "finished",
             "basic_type": "finished",
@@ -138,19 +139,19 @@ If successful, the response includes an updated copy of the [SmartTrade](0.%20Sm
         "price_type": "value",
         "steps": [
             {
-                "id": 1007239535,
+                "id": 1224972676,
                 "order_type": "limit",
                 "editable": true,
                 "units": {
-                    "value": "43.0"
+                    "value": "4.0"
                 },
                 "price": {
                     "type": "last",
-                    "value": "0.1098",
-                    "percent": "5.0"
+                    "value": "0.04088",
+                    "percent": null
                 },
                 "volume": "100.0",
-                "total": "4.7214",
+                "total": "0.16352",
                 "trailing": {
                     "enabled": false,
                     "percent": null
@@ -160,6 +161,7 @@ If successful, the response includes an updated copy of the [SmartTrade](0.%20Sm
                     "basic_type": "order_placed",
                     "title": "Placed"
                 },
+                "closed_at": null,
                 "data": {
                     "cancelable": true,
                     "panic_sell_available": true
@@ -169,82 +171,79 @@ If successful, the response includes an updated copy of the [SmartTrade](0.%20Sm
         ]
     },
     "stop_loss": {
-        "enabled": true,
-        "price_type": "value",
-        "breakeven": false,
-        "order_type": "market",
-        "editable": true,
-        "price": {
-            "value": null,
-            "percent": null
-        },
-        "conditional": {
-            "price": {
-                "value": "0.10056",
-                "type": "last",
-                "percent": null
-            },
-            "trailing": {
-                "enabled": false,
-                "percent": null
-            }
-        },
-        "timeout": {
-            "enabled": false,
-            "value": null
-        },
-        "status": {
-            "type": "to_process",
-            "basic_type": "to_process",
-            "title": "Pending"
-        }
+        "enabled": false
     },
     "reduce_funds": {
-        "steps": []
+        "steps": [
+            {
+                "id": 1224983548,
+                "type": "market",
+                "status": {
+                    "type": "idle",
+                    "basic_type": "idle",
+                    "title": "Pending"
+                },
+                "units": {
+                    "value": "0.3995"
+                },
+                "price": {
+                    "value": "0.03702",
+                    "value_without_commission": "0.03702"
+                },
+                "total": {
+                    "value": "0.01478949"
+                },
+                "closed_at": null,
+                "data": {
+                    "cancelable": false,
+                    "panic_sell_available": false
+                }
+            }
+        ]
     },
     "market_close": {},
     "note": "",
     "note_raw": null,
     "skip_enter_step": false,
     "data": {
-        "editable": true,
+        "editable": false,
         "current_price": {
-            "bid": "0.10244",
-            "ask": "0.10265",
-            "last": "0.1025",
-            "quote_volume": "255295.82542",
-            "day_change_percent": "-2.539"
+            "day_change_percent": "-0.162",
+            "bid": "0.03702",
+            "ask": "0.03703",
+            "last": "0.03703",
+            "quote_volume": "1626.01355238"
         },
         "target_price_type": "price",
-        "orderbook_price_currency": "USDT",
+        "orderbook_price_currency": "BTC",
         "base_order_finished": true,
         "missing_funds_to_close": "0.0",
         "liquidation_price": null,
-        "average_enter_price": "0.10457",
+        "average_enter_price": "0.03719",
         "average_close_price": null,
-        "average_enter_price_without_commission": "0.10394",
+        "average_enter_price_without_commission": "0.03716",
         "average_close_price_without_commission": null,
         "panic_sell_available": true,
-        "add_funds_available": true,
-        "reduce_funds_available": true,
+        "add_funds_available": false,
+        "reduce_funds_available": false,
         "force_start_available": false,
         "force_process_available": true,
         "cancel_available": true,
         "finished": false,
         "base_position_step_finished": true,
-        "entered_amount": "43.736",
-        "entered_total": "4.57371",
+        "entered_amount": "4.0",
+        "entered_total": "0.14878864",
         "closed_amount": "0.0",
         "closed_total": "0.0",
         "commission": 0.001,
-        "created_at": "2024-08-13T16:19:42.870Z",
-        "updated_at": "2024-08-14T15:06:56.792Z",
+        "created_at": "2024-12-17T15:44:49.405Z",
+        "updated_at": "2024-12-17T15:52:33.169Z",
         "type": "smart_trade"
     },
     "profit": {
-        "volume": "-0.09787447584",
-        "usd": "-0.09787447584",
-        "percent": "-2.14",
+        "volume": "-0.00085672",
+        "usd": "-91.0173245288",
+        "percent": "-0.58",
         "roe": null
     },
     "margin": {
@@ -256,39 +255,25 @@ If successful, the response includes an updated copy of the [SmartTrade](0.%20Sm
 ```
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="400" label="400 Bad Request">
-
-```json
-{
-    "error": "record_invalid",
-    "error_description": "Invalid parameters",
-    "error_attributes": {
-        "order_type": [
-            "is missing",
-            "does not have a valid value"
-        ],
-        "units": [
-            "is missing"
-        ],
-        "units[value]": [
-            "is missing"
-        ]
-    }
-}
-```
+        ```json
+        {
+            "error": "Wrong param(s)",
+            "error_description": "Reduce funds is not allowed in the current status"
+        }
+        ```
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="422" label="422 Unprocessable Entity">
-
-```json
-{
-    "error": "record_invalid",
-    "error_description": "Invalid parameters",
-    "error_attributes": {
-        "total": [
-            "must be greater than or equal to 1.125"
-        ]
-    }
-}
-```
+        ```json
+        {
+            "error": "record_invalid",
+            "error_description": "Invalid parameters",
+            "error_attributes": {
+                "entered_amount": [
+                    "Too small"
+                ]
+            }
+        }
+        ```
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>

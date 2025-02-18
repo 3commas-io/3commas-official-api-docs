@@ -1,7 +1,7 @@
 ---
-id: cancel_smarttrade
-title: Cancel SmartTrade
-sidebar_class_name: delete
+id: get-smart-trade
+title: Get SmartTrade
+sidebar_class_name: get
 ---
 
 import Endpoint, { Permission } from '@site/src/components/Endpoint';
@@ -13,44 +13,45 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 <Endpoint
   url="/v2/smart_trades/:id"
-  method="DELETE"
+  method="GET"
   permissions={
     <>
-      <Permission title="Permission" description="SMART_TRADES_WRITE" />
+      <Permission title="Permission" description="SMART_TRADES_READ" />
       <Permission title="Security" description="SIGNED" />
     </>
   }
 />
 
-Cancels an existing SmartTrade in place using its ID.
+Shows information about a specific SmartTrade using its ID.
 
 <StickyLayout.Root>
-    <StickyLayout.Main>
-        ## Path Parameter
-        <ApiParam name='id' type='integer' id="id" required>
-        Unique 3Commas ID for this SmartTrade entity.
-        </ApiParam>
-    </StickyLayout.Main>
-    <StickyLayout.Sticky>
-        ## Example Request
+<StickyLayout.Main>
+## Path Parameter
+<ApiParam name='id' type='integer' id="id" required>
+   Unique 3Commas ID for this SmartTrade entity
+</ApiParam>
+</StickyLayout.Main>
 
-        ```json
-        DELETED /v2/smart_trades/12345678
-        ```
-    </StickyLayout.Sticky>
+<StickyLayout.Sticky>
+## Example Request
+
+```json
+GET /v2/smart_trades/12345678
+```
+</StickyLayout.Sticky>
 </StickyLayout.Root>
 
 <StickyLayout.Root>
 <StickyLayout.Main>
-    ## Response Parameters
-    If successful, the response includes an updated copy of the [SmartTrade](0.%20SmartTrade%20entity.mdx) entity.
-</StickyLayout.Main>
 
+## Response Parameters
+ If successful, the response includes a copy of the [SmartTrade](0.%20SmartTrade%20entity.mdx) entity.
+
+</StickyLayout.Main>
 <StickyLayout.Sticky>
 ## Example Responses
-
- <ResponseTabs.Root>
-    <ResponseTabs.TabItem value="200" label="200 OK" default>
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="200" label="200 OK" default>
 
 ```json
 {
@@ -66,9 +67,9 @@ Cancels an existing SmartTrade in place using its ID.
     "pair": "USDT_DOGE",
     "instant": false,
     "status": {
-        "type": "cancellation_pending",
-        "basic_type": "cancellation_pending",
-        "title": "Cancelling"
+        "type": "cancelled",
+        "basic_type": "cancelled",
+        "title": "Cancelled"
     },
     "leverage": {
         "enabled": false
@@ -98,37 +99,7 @@ Cancels an existing SmartTrade in place using its ID.
     "take_profit": {
         "enabled": true,
         "price_type": "value",
-        "steps": [
-            {
-                "id": 1006090636,
-                "order_type": "limit",
-                "editable": true,
-                "units": {
-                    "value": "14.0"
-                },
-                "price": {
-                    "type": "last",
-                    "value": "0.11627",
-                    "percent": null
-                },
-                "volume": "100.0",
-                "total": "1.62778",
-                "trailing": {
-                    "enabled": false,
-                    "percent": null
-                },
-                "status": {
-                    "type": "order_placed",
-                    "basic_type": "order_placed",
-                    "title": "Placed"
-                },
-                "data": {
-                    "cancelable": true,
-                    "panic_sell_available": true
-                },
-                "position": 1
-            }
-        ]
+        "steps": []
     },
     "stop_loss": {
         "enabled": false
@@ -143,11 +114,11 @@ Cancels an existing SmartTrade in place using its ID.
     "data": {
         "editable": false,
         "current_price": {
-            "bid": "0.10613",
-            "ask": "0.10637",
-            "last": "0.10636",
-            "quote_volume": "181260.82083",
-            "day_change_percent": "0.806"
+            "bid": "0.10701",
+            "ask": "0.10717",
+            "last": "0.10704",
+            "quote_volume": "173476.71714",
+            "day_change_percent": "2.45"
         },
         "target_price_type": "price",
         "orderbook_price_currency": "USDT",
@@ -162,7 +133,7 @@ Cancels an existing SmartTrade in place using its ID.
         "add_funds_available": false,
         "reduce_funds_available": false,
         "force_start_available": false,
-        "force_process_available": true,
+        "force_process_available": false,
         "cancel_available": false,
         "finished": false,
         "base_position_step_finished": true,
@@ -172,13 +143,14 @@ Cancels an existing SmartTrade in place using its ID.
         "closed_total": "0.0",
         "commission": 0.001,
         "created_at": "2024-08-12T14:35:21.632Z",
-        "updated_at": "2024-08-12T14:47:43.054Z",
+        "updated_at": "2024-08-12T14:47:43.782Z",
+        "closed_at": "2024-08-12T14:47:43.777Z",
         "type": "smart_trade"
     },
     "profit": {
-        "volume": "-0.0030340983",
-        "usd": "-0.0030340983",
-        "percent": "-0.19",
+        "volume": null,
+        "usd": null,
+        "percent": "0.0",
         "roe": null
     },
     "margin": {
@@ -189,14 +161,14 @@ Cancels an existing SmartTrade in place using its ID.
 }
 ```
 </ResponseTabs.TabItem>
-        <ResponseTabs.TabItem value="400" label="400 Bad Request">
-                ```json
-                {
-                    "error": "Not found",
-                    "error_description": "Smart Trade not found"
-                }
-                ```
-        </ResponseTabs.TabItem>
- </ResponseTabs.Root>
- </StickyLayout.Sticky>
- </StickyLayout.Root>
+<ResponseTabs.TabItem value="400" label="400 Bad Request">
+```json
+{
+    "error": "Not found",
+    "error_description": "Smart Trade not found"
+}
+```
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
