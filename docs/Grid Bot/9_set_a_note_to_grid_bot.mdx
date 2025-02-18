@@ -1,6 +1,9 @@
 ---
+id: set-a-note-to-grid-bot
+title: Set a note to Grid Bot
 sidebar_class_name: post
 ---
+
 import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
@@ -10,7 +13,7 @@ import * as StickyLayout from '@site/src/components/StickyLayout'
 import * as ResponseTabs from '@site/src/components/ResponseTabs'
 
 <Endpoint
-  url="/ver1/grid_bots/:id/enable"
+  url="/ver1/grid_bots/:id/note"
   method="POST"
   permissions={
     <>
@@ -20,7 +23,7 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs'
   }
 />
 
-Activates an existing Grid Bot using its ID.
+Adds a note to an existing Grid Bot.
 
 <StickyLayout.Root>
 <StickyLayout.Main>
@@ -30,96 +33,104 @@ Activates an existing Grid Bot using its ID.
    Unique 3Commas ID for this Grid Bot entity.
 </ApiParam>
 
+## Body Parameter
+<ApiParam name='note' type='integer' id="note" required>
+   Short note for this Grid Bot.
+
+   Minlength: `1`, Maxlength: `300`
+</ApiParam>
 </StickyLayout.Main>
+
+
 <StickyLayout.Sticky>
 
 ## Example Request
 
-```json
-POST /ver1/grid_bots/2338357/disable
+```json title="POST  /ver1/grid_bots/2345678/note"
+{ "note": "Welcome to 3Commas" }
 ```
 </StickyLayout.Sticky>
 </StickyLayout.Root>
 
 <StickyLayout.Root>
 <StickyLayout.Main>
-## Response Parameters
+
+## Response Parameters 
 
 If successful, the response includes a copy of the updated [Grid bot](./0.%20Grid%20Bot%20entity.mdx) entity.
-</StickyLayout.Main>
 
+</StickyLayout.Main>
 <StickyLayout.Sticky>
 
 ## Example Response
-
 <ResponseTabs.Root>
 <ResponseTabs.TabItem value="201" label="201 Created" default>
 
 ```json
 {
-    "id": 2338357,
-    "account_id": 32833909,
-    "account_name": "My Binance",
+    "id": 2345678,
+    "account_id": 12345678,
+    "account_name": "My Gate.io",
     "is_enabled": true,
     "grids_quantity": "81",
-    "created_at": "2024-10-03T19:53:35.530Z",
-    "updated_at": "2024-10-04T13:57:55.547Z",
+    "created_at": "2024-10-07T19:25:19.985Z",
+    "updated_at": "2024-10-09T14:13:39.557Z",
     "strategy_type": "manual",
     "upper_stop_loss_enabled": false,
     "lower_stop_loss_enabled": false,
-    "note": null,
+    "note": "Welcome to my 3Commas",
     "editable": true,
-    "lower_price": "0.016352",
+    "lower_price": "0.10666",
     "lower_stop_loss_price": null,
     "lower_stop_loss_action": "stop_bot",
-    "upper_price": "0.022503",
+    "upper_price": "0.14684",
     "upper_stop_loss_price": null,
     "upper_stop_loss_action": "stop_bot",
-    "quantity_per_grid": "20.0",
+    "quantity_per_grid": "1.525",
     "leverage_type": "cross",
-    "leverage_custom_value": "10.0",
-    "name": "VETUSDT/BNFCR",
-    "pair": "BNFCR_VETUSDT",
-    "start_price": "0.022395",
-    "grid_price_step": "1.00399920581210916146041542739112586575949572812639182",
-    "current_profit": "1.9739482002440976",
-    "current_profit_usd": "1.9739482002440976",
-    "total_profits_count": "17",
+    "leverage_custom_value": "2.0",
+    "name": "DOGE_USDT/USDT",
+    "pair": "USDT_DOGE_USDT",
+    "start_price": "0.11039",
+    "grid_price_step": "1.00400421244009637656317025927833165569247348802034686",
+    "current_profit": "0.0525794080425",
+    "current_profit_usd": "0.0525794080425",
+    "total_profits_count": "11",
     "bought_volume": "0.0",
     "sold_volume": "0.0",
-    "profit_percentage": "0.1234688657622554423137524222839342",
-    "current_price": "0.022394",
+    "profit_percentage": "0.0432471845769986214701905266378677861600871",
+    "current_price": "0.10845",
     "max_active_buy_lines": "81",
     "max_active_sell_lines": "81",
     "order_currency_type": "quote",
     "profit_currency_type": "quote",
-    "trailing_up_enabled": "true",
+    "trailing_up_enabled": "false",
     "grid_type": "geometric",
-    "investment_base_currency": "0.0",
-    "investment_quote_currency": "0.0",
-    "unrealized_profit_loss": "0.0",
-    "current_profit_loss": null,
-    "current_profit_loss_percent": null,
-    "orderbook_price_currency": "BNFCR",
+    "investment_base_currency": "187.866461151707395146189982951",
+    "investment_quote_currency": "6.1",
+    "unrealized_profit_loss": "0.05167074832",
+    "current_profit_loss": "0.1042501563625",
+    "current_profit_loss_percent": "0.0857469857923420859557751844894011126939894",
+    "orderbook_price_currency": "USDT",
     "expansion_down_enabled": "false",
     "expansion_down_stop_price": null,
     "grid_lines": [
         {
-            "id": 256427680,
-            "price": "0.022414",
-            "side": null,
+            "id": 256570088,
+            "price": "0.10972",
+            "side": "sell",
             "order_placed": false
         },
         {
-            "id": 256427679,
-            "price": "0.022325",
-            "side": "buy",
-            "order_placed": false
+            "id": 256563805,
+            "price": "0.11283",
+            "side": "sell",
+            "order_placed": true
         }
     ]
 }
 ```
-</ResponseTabs.TabItem>
+  </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>
 </StickyLayout.Root>
