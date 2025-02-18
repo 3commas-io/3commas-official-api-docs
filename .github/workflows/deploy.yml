@@ -26,7 +26,7 @@ jobs:
         run: npm run build
 
       - name: Install Wrangler CLI
-        run: npm install -g @cloudflare/wrangler
+        run: npm install -g wrangler
 
       - name: Deploy to Cloudflare Pages
         env:
