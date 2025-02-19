@@ -158,8 +158,9 @@ Details of Take Profit settings and the steps applied to this SmartTrade.
               Default: `false` 
             </ApiParam>
             <ApiParam name="percent" type="number" id="percent">
-              Trailing percentage for Take Profit order. Minimum: `0,01`, Maximum: `100`.
-              This parameter is required when `take_profit[steps][trailing][enabled]` is set to `true`.
+              Trailing percentage for Take Profit order. This parameter is required when `take_profit[steps][trailing][enabled]` is set to `true`.
+
+              Minimum: `0,01`, Maximum: `100`
             </ApiParam>
           </CollapsibleNestedParams>
       </CollapsibleNestedParams>
@@ -170,12 +171,12 @@ Details of Take Profit settings and the steps applied to this SmartTrade.
 Details of Stop Loss settings applied to this SmartTrade.
   <CollapsibleNestedParams>
     <ApiParam name='enabled' type="boolean" id="enabled" required>
-      Enables Sto Loss for this SmartTrade. Set to `true` to activate the parameter group.
+      Enables Stop Loss for this SmartTrade. Set to `true` to activate the parameter group.
 
       Default: `false`.
     </ApiParam>
     <ApiParam name='breakeven' type="boolean" id="breakeven">
-      Enables the Move to Breakeven feature in SmartTrades. To use this feature, you must have at least two Take Profit steps.
+      Enables the move to Breakeven feature for this SmartTrade. To use this feature, you must have at least two Take Profit steps.
 
       Default: `false`.
     </ApiParam>
@@ -192,10 +193,10 @@ Details of Stop Loss settings applied to this SmartTrade.
        </ApiParam>
       </CollapsibleNestedParams>
     <ApiParam name='conditional' type="object" id="conditional">
-      Detailed information about each Take Profit step.
+      Detailed information about conditional Stop Loss order.
         <CollapsibleNestedParams>
           <ApiParam name='price' type="object" id="price">
-           tbd
+           Details of the price configuration for a conditional Stop Loss order.
           </ApiParam>
             <CollapsibleNestedParams>
               <ApiParam name='type' type="string" id="type">
@@ -205,8 +206,7 @@ Details of Stop Loss settings applied to this SmartTrade.
                The specific price value set to trigger the Stop Loss order.
               </ApiParam>
               <ApiParam name='percent' type="number" id="percent">
-               Represents a percentage-based stop-loss condition that is part of a more complex stop-loss order setup.
-               Only if position has trailing and position trailing is not finished.
+               Represents a percentage-based Stop Loss condition used when the position has an active trailing that has not yet completed.
               </ApiParam>
             </CollapsibleNestedParams>
           <ApiParam name='trailing' type="object" id="trailing">
@@ -214,7 +214,7 @@ Details of Stop Loss settings applied to this SmartTrade.
           </ApiParam>
             <CollapsibleNestedParams>
               <ApiParam name='enabled' type="boolean" id="enabled">
-               Enables a trailing price settings for a conditional Stop Loss order.
+               Enables trailing for a conditional Stop Loss order.
               </ApiParam>
             </CollapsibleNestedParams>
         </CollapsibleNestedParams>
@@ -227,7 +227,7 @@ Details of Stop Loss settings applied to this SmartTrade.
          Indicates whether the timeout setting for the stop loss is enabled.
         </ApiParam>
         <ApiParam name='value' type="integer" id="value">
-         The value of the timeout setting for the Stop Loss trade.
+         The timeout duration for the Stop Loss order, in seconds.
         </ApiParam>
       </CollapsibleNestedParams>
   </CollapsibleNestedParams>
