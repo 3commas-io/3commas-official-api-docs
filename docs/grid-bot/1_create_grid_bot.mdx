@@ -46,18 +46,14 @@ Creates a new Grid Bot.
    The maximum price of the trading range, above which the bot will not place sell orders.
 </ApiParam>
 
-<ApiParam name='pair' type='string' id="pair" required>
-   Trading pair in 3Commas format.
+<ApiParam name="lower_price" type="string" id="lower_price" required>
+  The minimum price of the trading range, below which the bot will not place buy orders.
 </ApiParam>
 
 
 <CollapseAll>
 <CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
 
-<CollapsibleApiParam name="lower_price" type="string" id="lower_price" required>
-  The minimum price of the trading range, below which the bot will not place buy orders.
-</CollapsibleApiParam>
-   
 <CollapsibleApiParam name="grids_quantity" type="number" id="grids_quantity" required>
   The number of grid levels between the upper and lower price boundaries.
 </CollapsibleApiParam>   
@@ -172,9 +168,10 @@ Type of leverage applied for this Grid Bot.
    Ignores warnings and forces the creation of the Grid Bot (`true`) or not (`false`).
 </CollapsibleApiParam>
    
-<CollapsibleApiParam name="note" type="integer" id="note">
+<CollapsibleApiParam name="note" type="string" id="note">
    Optional user-defined note for the Grid Bot.
-   `[1 ... 300]` characters.
+
+  `[1 ... 300]` characters.
 </CollapsibleApiParam>
 </CollapseAll>
 
