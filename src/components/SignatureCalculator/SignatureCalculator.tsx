@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import SignatureCalculatorForm from "./SignatureCalculatorForm/SignatureCalculatorForm";
+import { SignatureCalculatorForm } from "./SignatureCalculatorForm/SignatureCalculatorForm";
 
 import { Informer } from "@site/src/components/Informer/Informer";
 import CodeBlock from "@theme/CodeBlock";
@@ -12,7 +12,7 @@ export interface GenerateSignatureArgs {
   params: { query: string | null; requestBody: string | null };
 }
 
-const SignatureCalculator = () => {
+export const SignatureCalculator = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [headersObj, setHeadersObj] = useState("");
 
@@ -95,5 +95,3 @@ const SignatureCalculator = () => {
     </div>
   );
 };
-
-export default SignatureCalculator;

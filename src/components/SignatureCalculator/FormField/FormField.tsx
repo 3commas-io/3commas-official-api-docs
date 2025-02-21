@@ -15,7 +15,7 @@ type TextareaProps = BaseProps & TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 type FormFieldProps = InputProps | TextareaProps;
 
-const FormField = ({
+export const FormField = ({
   id,
   label,
   placeholder = "",
@@ -47,5 +47,3 @@ const FormField = ({
     </div>
   );
 };
-
-export default FormField;

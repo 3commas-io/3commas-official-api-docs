@@ -6,8 +6,8 @@ import {
   useState,
 } from "react";
 
-import FormButton from "../FormButton/FormButton";
-import FormField from "../FormField/FormField";
+import { FormButton } from "../FormButton/FormButton";
+import { FormField } from "../FormField/FormField";
 
 import { GenerateSignatureArgs } from "../SignatureCalculator";
 
@@ -27,7 +27,7 @@ const initialState = {
   path: "",
 };
 
-const SignatureCalculatorForm = ({
+export const SignatureCalculatorForm = ({
   isLoading,
   setIsLoading,
   generateSignature,
@@ -140,5 +140,3 @@ hobbies=reading, gaming, coding
     </form>
   );
 };
-
-export default SignatureCalculatorForm;
