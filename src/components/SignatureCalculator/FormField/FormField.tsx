@@ -1,21 +1,27 @@
+import { InputHTMLAttributes, TextareaHTMLAttributes } from "react";
+
 import styles from "./FormField.module.css";
 
-interface FormFieldProps {
+interface BaseProps {
   id: string;
   label: string;
   placeholder?: string;
   isRequired?: boolean;
-  type?: "text" | "password";
   isTextarea?: boolean;
 }
+
+type InputProps = BaseProps & InputHTMLAttributes<HTMLInputElement>;
+type TextareaProps = BaseProps & TextareaHTMLAttributes<HTMLTextAreaElement>;
+
+type FormFieldProps = InputProps | TextareaProps;
 
 const FormField = ({
   id,
   label,
   placeholder = "",
   isRequired = true,
-  type = "text",
   isTextarea = false,
+  ...props
 }: FormFieldProps) => {
   return (
     <div className={styles.wrapper}>
@@ -24,13 +30,18 @@ const FormField = ({
         {isRequired && <span> *</span>}
       </label>
       {isTextarea ? (
-        <textarea className={styles.field} id={id} placeholder={placeholder} />
+        <textarea
+          className={styles.field}
+          id={id}
+          placeholder={placeholder}
+          {...(props as TextareaProps)}
+        />
       ) : (
         <input
           className={styles.field}
           id={id}
           placeholder={placeholder}
-          type={type}
+          {...(props as InputProps)}
         />
       )}
     </div>
