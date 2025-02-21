@@ -29,7 +29,6 @@ export const SignatureCalculator = () => {
       ? sortQuery(query, "&")
       : sortQuery(requestBody, "\n");
 
-    console.log(sortedQuery);
     const data = encoder.encode(requestPath + sortedQuery);
 
     const key = await crypto.subtle.importKey(

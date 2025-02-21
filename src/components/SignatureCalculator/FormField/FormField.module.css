@@ -31,7 +31,6 @@ textarea.field:focus-visible {
   display: inline;
   font-size: 1rem;
   font-weight: 500;
-  color: var();
 }
 
 .label span {
