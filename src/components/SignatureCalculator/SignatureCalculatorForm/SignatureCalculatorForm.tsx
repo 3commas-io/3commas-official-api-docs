@@ -9,17 +9,14 @@ import {
 import FormButton from "../FormButton/FormButton";
 import FormField from "../FormField/FormField";
 
+import { GenerateSignatureArgs } from "../SignatureCalculator";
+
 import styles from "./SignatureCalculatorForm.module.css";
 
 interface SignatureCalculatorFormProps {
   isLoading: boolean;
   setIsLoading: Dispatch<SetStateAction<boolean>>;
-  generateSignature: (
-    apiSecret: string,
-    apiKey: string,
-    requestPath: string,
-    params: { query: string | null; requestBody: string | null }
-  ) => Promise<void>;
+  generateSignature: (args: GenerateSignatureArgs) => Promise<void>;
 }
 
 const initialState = {
@@ -35,14 +32,7 @@ const SignatureCalculatorForm = ({
   setIsLoading,
   generateSignature,
 }: SignatureCalculatorFormProps) => {
-  const [formState, setFormState] = useState({
-    searchParams: "?mode=paper",
-    requestBody: "",
-    apiKey: "vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A",
-    apiSecret:
-      "NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j",
-    path: "/public/api/ver1/users/change_mode",
-  });
+  const [formState, setFormState] = useState(initialState);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -56,17 +46,17 @@ const SignatureCalculatorForm = ({
     setIsLoading(true);
 
     try {
-      await generateSignature(
-        formState.apiSecret,
-        formState.apiKey,
-        formState.path,
-        {
+      await generateSignature({
+        apiSecret: formState.apiSecret,
+        apiKey: formState.apiKey,
+        requestPath: formState.path,
+        params: {
           query:
             formState.searchParams.length > 0 ? formState.searchParams : null,
           requestBody:
             formState.requestBody.length > 0 ? formState.requestBody : null,
-        }
-      );
+        },
+      });
 
       setFormState(initialState);
     } finally {
@@ -81,24 +71,27 @@ const SignatureCalculatorForm = ({
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <FormField
-        onChange={handleChange}
-        value={formState.apiKey}
-        id="apiSecret"
-        isRequired
-        label="Secret Key"
-        type="password"
-        placeholder="Your API secret key"
-      />
-      <FormField
-        onChange={handleChange}
-        value={formState.apiSecret}
-        id="apiKey"
-        isRequired
-        label="API Key"
-        type="password"
-        placeholder="Your API key"
-      />
+      <div className={styles["form-row"]}>
+        <FormField
+          onChange={handleChange}
+          value={formState.apiSecret}
+          id="apiSecret"
+          isRequired
+          label="Secret Key"
+          type="password"
+          placeholder="Your API secret key"
+        />
+        <FormField
+          onChange={handleChange}
+          value={formState.apiKey}
+          id="apiKey"
+          isRequired
+          label="API Key"
+          type="password"
+          placeholder="Your API key"
+        />
+      </div>
+
       <div className={styles["form-row"]}>
         <FormField
           onChange={handleChange}
@@ -136,10 +129,10 @@ hobbies=reading, gaming, coding
       />
       <FormButton
         disabled={
-          isLoading ||
+          !allowGeneration ||
           (formState.searchParams.length > 0 &&
             formState.requestBody.length > 0) ||
-          !allowGeneration
+          isLoading
         }
       >
         Generate SHA signature

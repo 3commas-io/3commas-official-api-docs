@@ -5,20 +5,32 @@ import SignatureCalculatorForm from "./SignatureCalculatorForm/SignatureCalculat
 import { Informer } from "@site/src/components/Informer/Informer";
 import CodeBlock from "@theme/CodeBlock";
 
+export interface GenerateSignatureArgs {
+  apiSecret: string;
+  apiKey: string;
+  requestPath: string;
+  params: { query: string | null; requestBody: string | null };
+}
+
 const SignatureCalculator = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [headersObj, setHeadersObj] = useState("");
 
-  const generateHMACSHA256Signature = async (
-    apiSecret: string,
-    apiKey: string,
-    requestPath: string,
-    { query, requestBody }: { query: string | null; requestBody: string | null }
-  ): Promise<void> => {
-    console.log(query, requestBody);
+  const generateHMACSHA256Signature = async ({
+    apiKey,
+    apiSecret,
+    requestPath,
+    params: { query, requestBody },
+  }: GenerateSignatureArgs): Promise<void> => {
     const encoder = new TextEncoder();
     const keyData = encoder.encode(apiSecret);
-    const data = encoder.encode(requestPath + (query ?? `?${requestBody}`));
+
+    const sortedQuery = query
+      ? sortQuery(query, "&")
+      : sortQuery(requestBody, "\n");
+
+    console.log(sortedQuery);
+    const data = encoder.encode(requestPath + sortedQuery);
 
     const key = await crypto.subtle.importKey(
       "raw",
@@ -41,6 +53,28 @@ const SignatureCalculator = () => {
   Apikey: "${apiKey}",
   Signature: "${signatureHex}"
 }`);
+  };
+
+  const sortQuery = (queryString: string, separator: "&" | "\n"): string => {
+    if (queryString.startsWith("?") && separator === "&") {
+      queryString = queryString.slice(1);
+    }
+
+    const paramsArray = queryString.split(separator);
+    const paramsObject = paramsArray.reduce((acc, param) => {
+      const [key, value] = param.split("=");
+      acc[key] = value;
+      return acc;
+    }, {});
+
+    const sortedParams = Object.keys(paramsObject)
+      .sort()
+      .map(
+        (key) =>
+          `${encodeURIComponent(key)}=${encodeURIComponent(paramsObject[key])}`
+      );
+
+    return `?${sortedParams.join("&")}`;
   };
 
   return (
