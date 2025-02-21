@@ -75,7 +75,7 @@ Lower stop-loss price, if set.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="lower_stop_loss_action" type="string" id="lower_stop_loss_action">
-Action to take if the lower stop-loss is triggered (e.g., stop_bot).
+Action to take if the lower stop-loss is triggered: `stop_bot`, `stop_bot_and_buy`, or `stop_bot_and_sell` for spot exchange accounts, and `stop_bot_and_close_position` for futures exchange accounts.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="upper_price" type="string" id="upper_price">
@@ -87,7 +87,7 @@ Upper stop-loss price, if set.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="upper_stop_loss_action" type="string" id="upper_stop_loss_action">
-Action to take if the upper stop-loss is triggered (e.g., stop_bot).
+Action to take if the upper stop-loss is triggered: `stop_bot`, `stop_bot_and_buy`, or `stop_bot_and_sell` for spot exchange accounts, and `stop_bot_and_close_position` for futures exchange accounts.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="quantity_per_grid" type="string" id="quantity_per_grid">
@@ -95,7 +95,7 @@ Quantity of the asset per grid line.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="leverage_type" type="string" id="leverage_type">
-Shows the leverage type that was set when creating a Grid Bot (e.g., cross).
+Shows the leverage type that was set when creating a Grid Bot: `cross`, `isolated`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="leverage_custom_value" type="string" id="leverage_custom_value">
@@ -111,7 +111,7 @@ Trading pair in 3Commas format for the bot.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="start_price" type="string" id="start_price">
-Starting price of the asset when the bot was created.
+Starting price of the asset when the bot was launched.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="grid_price_step" type="string" id="grid_price_step">
@@ -119,7 +119,7 @@ Price step value between each grid line.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="current_profit" type="string" id="current_profit">
-Current profit in base currency.
+Current profit in the base or quote currency.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="current_profit_usd" type="string" id="current_profit_usd">
@@ -147,11 +147,11 @@ Maximum number of active sell orders allowed.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="order_currency_type" type="string" id="order_currency_type">
-Currency type used for orders (e.g., quote).
+Currency type used for orders: `quote`, `base`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="profit_currency_type" type="string" id="profit_currency_type">
-Currency type used for profit calculation (e.g., quote).
+Currency type used for profit calculation: `quote`, `base`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="trailing_up_enabled" type="boolean" id="trailing_up_enabled">
@@ -171,11 +171,11 @@ Investment amount in the quote currency.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="unrealized_profit_loss" type="string" id="unrealized_profit_loss">
-Unrealized profit or loss in base currency.
+Unrealized profit or loss in the base or quote currency.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="current_profit_loss" type="string" id="current_profit_loss">
-Current profit or loss in base currency.
+Current profit or loss in the base or quote currency.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="current_profit_loss_percent" type="string" id="current_profit_loss_percent">
