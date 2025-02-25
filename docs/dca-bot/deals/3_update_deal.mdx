@@ -18,7 +18,7 @@ import { Informer } from '@site/src/components/Informer/Informer';
   method="PATCH"
   permissions={
     <>
-      <Permission title="Permission" description="BOTS_READ" />
+      <Permission title="Permission" description="BOTS_WRITE" />
       <Permission title="Security" description="SIGNED" />
     </>
   }
@@ -43,21 +43,21 @@ The endpoint is available for Deal for the statuses **bought** and **close_strat
 
 ## Body parameters
 
-<ApiParam name='take_profit' type='number' id="take_profit" required>
+<ApiParam name='take_profit' type='number' id="take_profit">
   Percentage value for the bot’s Take Profit.
 
   If multiple steps are specified in `take_profit_steps settings`, this parameter should be set to `0`.
 </ApiParam>
 
-<ApiParam name='take_profit_steps' type='array[json]' id="take_profit_steps" required>
+<ApiParam name='take_profit_steps' type='array[json]' id="take_profit_steps">
   Contains multiple steps with conditions for Taking Profit in this deal.
 </ApiParam>
 
-<ApiParam name='profit_currency' type='string' id="profit_currency" required>
+<ApiParam name='profit_currency' type='string' id="profit_currency">
   Profit currency used for calculating the profit from the trades executed by this DCA Bot: `quite_currency` or `base_currency`.
 </ApiParam>
 
-<ApiParam name='take_profit_type' type='string' id="take_profit_type" required>
+<ApiParam name='take_profit_type' type='string' id="take_profit_type">
   Take Profit order type for this DCA Bot.
    <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
       * **base** - from base order;
@@ -65,12 +65,13 @@ The endpoint is available for Deal for the statuses **bought** and **close_strat
      </CollapsibleNestedParams>
 </ApiParam>
 
-<ApiParam name='trailing_enabled' type='boolean' id="trailing_enabled" required>
-  Indicates whether trailing is enabled for Take Profit (`true`) or not (`false`).
-</ApiParam>
 
 <CollapseAll>
 <CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
+
+<CollapsibleApiParam name='trailing_enabled' type='boolean' id="trailing_enabled">
+  Indicates whether trailing is enabled for Take Profit (`true`) or not (`false`).
+</CollapsibleApiParam>
 
 <CollapsibleApiParam name='sl_to_breakeven_enabled' type='boolean' id="sl_to_breakeven_enabled">
      Enables (`true`) or disable (`false`) the Move to Breakeven feature for this Deal. To use this feature, you must have at least two Take Profit steps.
@@ -115,7 +116,7 @@ The endpoint is available for Deal for the statuses **bought** and **close_strat
 <CollapsibleApiParam name='close_timeout' type='integer' id="close_timeout">
      The time in seconds after which this deal will close automatically.
      
-     Minimum: `60`.
+     Minimum: `60`
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='note' type='string' id="note">
