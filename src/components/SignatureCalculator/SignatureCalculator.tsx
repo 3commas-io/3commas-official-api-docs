@@ -87,7 +87,7 @@ export const SignatureCalculator = () => {
         You can either pass Search Params or Request Body
       </Informer>
       <SignatureCalculatorForm
-        isLoading={isLoading}
+        loading={isLoading}
         setIsLoading={setIsLoading}
         generateSignature={generateHMACSHA256Signature}
       />

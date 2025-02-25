@@ -13,8 +13,8 @@ import { GenerateSignatureArgs } from "../SignatureCalculator";
 
 import styles from "./SignatureCalculatorForm.module.css";
 
-interface SignatureCalculatorFormProps {
-  isLoading: boolean;
+interface Props {
+  loading: boolean;
   setIsLoading: Dispatch<SetStateAction<boolean>>;
   generateSignature: (args: GenerateSignatureArgs) => Promise<void>;
 }
@@ -28,10 +28,10 @@ const initialState = {
 };
 
 export const SignatureCalculatorForm = ({
-  isLoading,
+  loading,
   setIsLoading,
   generateSignature,
-}: SignatureCalculatorFormProps) => {
+}: Props) => {
   const [formState, setFormState] = useState(initialState);
 
   const handleChange = (
@@ -132,7 +132,7 @@ hobbies=reading, gaming, coding
           !allowGeneration ||
           (formState.searchParams.length > 0 &&
             formState.requestBody.length > 0) ||
-          isLoading
+          loading
         }
       >
         Generate SHA signature
