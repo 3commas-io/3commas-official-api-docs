@@ -35,7 +35,7 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs'
 ## Body Parameters 
 
 <ApiParam name='name' type='integer' id="name" required>
-  Grid bot name specified by the user.
+  Grid Bot name specified by the user.
 </ApiParam>
 
 <ApiParam name='upper_price' type='number' id="upper_price" required>
@@ -144,8 +144,9 @@ Type of leverage applied for this Grid Bot.
    Ignores warnings and forces the creation of the Grid Bot (`true`) or not (`false`).
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="note" type="integer" id="note">
+<CollapsibleApiParam name="note" type="string" id="note">
    Optional user-defined note for the Grid Bot.
+   
    `[1 ... 300]` characters.
 </CollapsibleApiParam>
 </CollapseAll>

@@ -41,12 +41,21 @@ Returns the list of Grid Bots. Use the body parameters to filter results.
 
 <ApiParam name='sort_by' type='string' id="sort_by">
    Specifies the field by which to sort the response.
+   <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **current_profit**
+      * **profit**
+      * **bot_id**
+      * **pair**
+      * **created_at**
+      * **updated_at**
+      * **name**
+     </CollapsibleNestedParams>
 </ApiParam>
 
 <ApiParam name='sort_direction' type='string' id="sort_direction">
-   Sets the direction of order `[ASC]` or `[DESC]`.
+   Sets the direction of order `ASC` or `DESC`.
 
-   Default: `[DESC]`
+   Default: `DESC`
 </ApiParam>
 
 <CollapseAll>
