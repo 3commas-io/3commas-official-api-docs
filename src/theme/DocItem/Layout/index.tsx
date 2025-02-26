@@ -46,7 +46,7 @@ export default function DocItemLayout({ children }: Props): JSX.Element {
 
   return (
     <div className="row">
-      {/*<ScrollStylingManager/>*/}
+      <ScrollStylingManager/>
       <span className={styles.breadcrumbsContainer}><DocBreadcrumbs /></span>
       <div className={clsx('col')}>
         <ContentVisibility metadata={metadata} />
