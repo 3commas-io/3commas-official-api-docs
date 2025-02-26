@@ -13,7 +13,6 @@ import ContentVisibility from '@theme/ContentVisibility'
 import type { Props } from '@theme/DocItem/Layout'
 
 import styles from './styles.module.css'
-import ScrollStylingManager from "@site/src/components/ScrollStylingManager/ScrollStylingManager";
 import PaginatorNavLink from '../../PaginatorNavLink'
 
 /**
@@ -58,8 +57,8 @@ export default function DocItemLayout({ children }: Props): JSX.Element {
             <DocItemFooter />
           </article>
           <div className={styles.pagination}>
-            <PaginatorNavLink isNext={false} permalink={previous.permalink} title={previous.title} />
-            <PaginatorNavLink isNext={true} permalink={next.permalink} title={next.title}/>
+            <PaginatorNavLink isNext={false} permalink={previous?.permalink} title={previous?.title} />
+            <PaginatorNavLink isNext={true} permalink={next?.permalink} title={next?.title}/>
           </div>
         </div>
       </div>
