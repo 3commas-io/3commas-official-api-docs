@@ -4,6 +4,25 @@
   gap: 1.5rem;
 }
 
+.pagination-item--disabled {
+  pointer-events: none;
+  opacity: 0;
+  width: 0;
+}
+
+.pagination-item:hover .pagination__arrow {
+  transform: scale(1.05);
+  filter: brightness(0.975);
+}
+
+[data-theme="dark"] .pagination-item:hover .pagination__arrow {
+  filter: brightness(1.15);
+}
+
+.pagination-item:active .pagination__arrow {
+  transform: scale(0.95);
+}
+
 .pagination-item--next {
   flex-direction: row-reverse;
 }
@@ -32,6 +51,7 @@ a:hover {
   align-items: center;
   background-color: var(--pagination-button-color);
   border-radius: 0.5rem;
+  transition: transform, 0.2s ease-in-out;
 }
 
 .pagination__info {

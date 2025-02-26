@@ -244,9 +244,6 @@ table {
 
   thead {
     background: #F8F8F8;
-    border-top-left-radius: 0.6rem;
-    border-top-right-radius: 0.6rem;
-    overflow: hidden;
   }
 
   thead th {
@@ -258,6 +255,10 @@ table {
     padding: 0.25rem 0.5rem;
     border: 0;
     text-align: left;
+  }
+
+  [data-theme="dark"] & tbody td {
+    color: var(--ifm-heading-color);
   }
 
   tbody tr {
@@ -278,13 +279,18 @@ table {
     background-color: transparent;
   }
 
+  tbody tr:nth-child(odd) {
+    background-color: transparent;
+  }
+
   tbody td > code {
+    color: var(--ifm-heading-color);
     font-size: var(--text-size) !important;
   }
 
   tbody td:first-child {
     font-weight: 600;
-    color: #242424;
+    color: var(--ifm-heading-color);
   }
 
   tbody tr:last-child td:first-child {
