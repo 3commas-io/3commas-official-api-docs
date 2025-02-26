@@ -33,7 +33,6 @@
   --text-size: 0.8125rem;
   --text-emphasis-size: 0.825rem;
 
-  --url-path-color: #707070;
   --separator-color: #ECECEC;
   --pagination-button-color: #F8F8F8;
 
@@ -54,7 +53,6 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 
   --ifm-heading-color: #fff;
-  --url-path-color: #9FA2A8;
   --separator-color: #9FA2A8;
   --pagination-button-color: #2C2E30;
 }
@@ -303,7 +301,7 @@ table {
 }
 
 body ul {
-  list-style: disc;
+  list-style-image: url('/img/bullet.svg');
 }
 
 body ol {
