@@ -14,7 +14,6 @@ import ContentVisibility from '@theme/ContentVisibility'
 import type { Props } from '@theme/DocItem/Layout'
 
 import styles from './styles.module.css'
-import ScrollStylingManager from "@site/src/components/ScrollStylingManager/ScrollStylingManager";
 
 /**
  * Decide if the toc should be rendered, on mobile or desktop viewports
@@ -46,14 +45,12 @@ export default function DocItemLayout({ children }: Props): JSX.Element {
 
   return (
     <div className="row">
-      {/*<ScrollStylingManager/>*/}
-      <span className={styles.breadcrumbsContainer}><DocBreadcrumbs /></span>
       <div className={clsx('col')}>
         <ContentVisibility metadata={metadata} />
         <DocVersionBanner />
         <div className={styles.docItemContainer}>
           <article>
-
+            <DocBreadcrumbs />
             <DocVersionBadge />
             {docTOC.mobile}
             <DocItemContent>{children}</DocItemContent>
@@ -66,6 +63,3 @@ export default function DocItemLayout({ children }: Props): JSX.Element {
     </div>
   )
 }
-
-// questionable feature
-
