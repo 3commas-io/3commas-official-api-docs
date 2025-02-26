@@ -32,7 +32,7 @@
   border-radius: 0.25rem;
   color: var(--step-color);
   background: var(--step-background-color);
-  font-size: 0.8125rem;
+  font-size: var(--text-size);
   font-weight: bold;
   position: relative;
 }
@@ -61,11 +61,13 @@
   flex-direction: column;
   gap: 0.375rem;
   overflow: auto;
+  font-size: var(--text-size);
 }
 
 .content h3 {
   font-weight: 600;
   margin-bottom: 0;
+  font-size: var(--text-size);
 }
 
 .content p {

@@ -30,6 +30,8 @@
 
   --ifm-heading-color: #242424;
   --ifm-h2-font-size: 1.25rem;
+  --text-size: 0.8125rem;
+  --text-emphasis-size: 0.825rem;
 
   --url-path-color: #707070;
   --separator-color: #ECECEC;
@@ -235,41 +237,54 @@ h3 {
 
 table {
   border-collapse: separate;
-  border-spacing: 0;
+  border-spacing: 0px;
+  width: fit-content;
+  border-radius: 0.6rem;
+  border: 1px solid #F8F8F8;
 
   thead {
-    background: none;
+    background: #F8F8F8;
+    border-top-left-radius: 0.6rem;
+    border-top-right-radius: 0.6rem;
+    overflow: hidden;
   }
 
   thead th {
-    font-size: 11px;
+    color: #707070;
+    font-size: 0.625rem;
+    font-weight: 600;
+    line-height: 1.6;
     text-transform: uppercase;
     padding: 0.25rem 0.5rem;
     border: 0;
     text-align: left;
   }
 
+  tbody tr {
+    background: #fff;
+  }
+
   tbody td {
-    border: 1px solid var(--ifm-table-border-color);
-    border-top: none;
+    font-size: 0.75rem;
+    border: none;
+    border-bottom: 1px solid #F8F8F8;
     border-left: none;
+    color: #707070;
     padding: 0.25rem 0.5rem;
+    background: transparent !important;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: transparent;
+  }
+
+  tbody td > code {
+    font-size: var(--text-size) !important;
   }
 
   tbody td:first-child {
-    border-left: 1px solid var(--ifm-table-border-color);
-  }
-
-  tbody tr:first-child td {
-    border-top: 1px solid var(--ifm-table-border-color);
-  }
-
-  tbody tr:first-child td:first-child {
-    border-top-left-radius: 0.6rem;
-  }
-
-  tbody tr:first-child td:last-child {
-    border-top-right-radius: 0.6rem;
+    font-weight: 600;
+    color: #242424;
   }
 
   tbody tr:last-child td:first-child {
@@ -405,6 +420,26 @@ a {
 .col {
   padding: 0 2.5rem;
   background: var(--ifm-background-color);
+}
+
+code {
+  font-size: var(--text-emphasis-size) !important;
+}
+
+p {
+  font-size: var(--text-size);
+}
+
+p > code {
+  font-size: var(--text-size) ;
+}
+
+main li {
+  font-size: var(--text-size);
+}
+
+main li > code {
+  font-size: var(--text-emphasis-size);
 }
 
 .navbar__link:hover, .navbar__link--active {
