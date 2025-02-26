@@ -2,7 +2,6 @@ import React from 'react'
 import clsx from 'clsx'
 import { useWindowSize } from '@docusaurus/theme-common'
 import { useDoc } from '@docusaurus/plugin-content-docs/client'
-import DocItemPaginator from '@theme/DocItem/Paginator'
 import DocVersionBanner from '@theme/DocVersionBanner'
 import DocVersionBadge from '@theme/DocVersionBadge'
 import DocItemFooter from '@theme/DocItem/Footer'
@@ -14,6 +13,8 @@ import ContentVisibility from '@theme/ContentVisibility'
 import type { Props } from '@theme/DocItem/Layout'
 
 import styles from './styles.module.css'
+import ScrollStylingManager from "@site/src/components/ScrollStylingManager/ScrollStylingManager";
+import PaginatorNavLink from '../../PaginatorNavLink'
 
 /**
  * Decide if the toc should be rendered, on mobile or desktop viewports
@@ -42,6 +43,7 @@ function useDocTOC() {
 export default function DocItemLayout({ children }: Props): JSX.Element {
   const docTOC = useDocTOC()
   const { metadata } = useDoc()
+  const { previous, next } = metadata;
 
   return (
     <div className="row">
@@ -50,13 +52,15 @@ export default function DocItemLayout({ children }: Props): JSX.Element {
         <DocVersionBanner />
         <div className={styles.docItemContainer}>
           <article>
-            <DocBreadcrumbs />
             <DocVersionBadge />
             {docTOC.mobile}
             <DocItemContent>{children}</DocItemContent>
             <DocItemFooter />
           </article>
-          <DocItemPaginator />
+          <div className={styles.pagination}>
+            <PaginatorNavLink isNext={false} permalink={previous.permalink} title={previous.title} />
+            <PaginatorNavLink isNext={true} permalink={next.permalink} title={next.title}/>
+          </div>
         </div>
       </div>
       {docTOC.desktop && <div className={styles.toc}>{docTOC.desktop}</div>}

@@ -62,7 +62,7 @@ export function Endpoint({ url, method, permissions, endpointsList }: Props) {
         {endpointContent}
       </div>
 
-      <div>{permissions}</div>
+      <div className={styles.permissions}>{permissions}</div>
     </div>
   )
 }
