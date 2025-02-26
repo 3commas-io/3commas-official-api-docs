@@ -497,7 +497,17 @@ li.theme-doc-sidebar-item-category > div.menu__list-item-collapsible > a.menu__l
     left: auto !important;
   }
 
+  .theme-doc-markdown header h1.scrolledClassMain {
+    position: fixed !important;
+    left: 340px;
+    top: 20px;
+    z-index: 10000;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
 
+  }
   /*.theme-doc-markdown header h1.scrolledClass {*/
   /*  position: fixed !important;*/
   /*  left: 559px !important;*/
@@ -513,7 +523,7 @@ li.theme-doc-sidebar-item-category > div.menu__list-item-collapsible > a.menu__l
     position: fixed !important;
     left: 316px !important;
     top: 12px;
-    z-index: 10000;
+    z-index: 10001;
     width: clamp(233px, 23vw, 400px);
     min-width: 0px;
     padding: 4px;
