@@ -8,7 +8,6 @@ const ScrollStylingManager = () => {
                 '.theme-doc-markdown header h1',
                 '.container_eK_a'
             ];
-            console.log(window.scrollY)
             const targetElements = document.querySelectorAll(selectors.join(', '));
 
             if (window.scrollY >= 140) {
@@ -19,7 +18,6 @@ const ScrollStylingManager = () => {
         };
 
         window.addEventListener('scroll', handleScroll);
-        // Перевірка одразу при завантаженні
         handleScroll();
 
         return () => window.removeEventListener('scroll', handleScroll);
