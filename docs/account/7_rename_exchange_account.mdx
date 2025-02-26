@@ -8,10 +8,10 @@ import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
-
 
 <Endpoint
   url="/ver1/accounts/:account_id/rename"
@@ -25,6 +25,8 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 />
 
 Updates a name for the exchange account entity using its ID
+
+<Separator />
 
 <StickyLayout.Root>
 <StickyLayout.Main>

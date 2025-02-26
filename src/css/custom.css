@@ -428,6 +428,7 @@ a {
 
 code {
   font-size: var(--text-emphasis-size) !important;
+  border: none;
 }
 
 p {

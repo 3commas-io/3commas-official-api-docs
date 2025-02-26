@@ -8,6 +8,7 @@ import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
@@ -29,6 +30,9 @@ Shows information about a specific account using its ID.
 <Informer variant="info">
 By replacing **account_id** with **summary**, you can use the **/v2/smart_trades/summary** endpoint to retrieve aggregated data for all accounts where **available_include_in_summary** is set to **true**.
 </Informer>
+
+<Separator />
+
 
 <StickyLayout.Root>
 <StickyLayout.Main>
