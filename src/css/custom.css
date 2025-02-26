@@ -437,12 +437,14 @@ li.theme-doc-sidebar-item-category > div.menu__list-item-collapsible > a.menu__l
 .menu__link--active:not(.menu__link--sublist){
   background: transparent;
 }
-.menu__link--sublist-caret:after{
-  background: var(--arrow-svg);
-  background-repeat: no-repeat;
+.clean-btn::before{
+  display: inline-block;
   width: 12px !important;
   height: 12px !important;
+  background: transparent var(--arrow-svg) no-repeat;
+  background-size: 100% 100%;
 }
+
 .menu__link.menu__link--sublist{
   font-weight: 600;
   font-size: 13px;
@@ -464,6 +466,13 @@ li.theme-doc-sidebar-item-category > div.menu__list-item-collapsible > a.menu__l
   background-size: contain;
   background-repeat: no-repeat;
   vertical-align: middle;
+}
+.menu__list-item-collapsible:hover{
+  background: none;
+}
+.menu__link:hover{
+  color: var(--ifm-link-hover-color);
+  background: none;
 }
 @media (min-width: 997px) {
   .navbar {
@@ -526,7 +535,6 @@ li.theme-doc-sidebar-item-category > div.menu__list-item-collapsible > a.menu__l
     font-size: 13px;
     line-height: 20px;
     font-weight: 400;
-    color: #707070;
   ;
   }
   .toggle_vylO{
