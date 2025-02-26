@@ -5,6 +5,7 @@ title: Errors
 
 import ApiParam from '@site/src/components/ApiParam';
 import CodeBlock from '@theme/CodeBlock';
+import { Errors, ErrorText } from "@site/src/components/Errors";
 import * as StickyLayout from '@site/src/components/StickyLayout';
 
 When a request fails, 3Commas API returns an error object with a relevant HTTP response code and additional information to help identify and resolve the issue.
@@ -13,14 +14,15 @@ When a request fails, 3Commas API returns an error object with a relevant HTTP r
 
 Errors generally return a 4xx response code:
 
-* `4XX` Malformed requests (issue is on the sender's side);
-* `429` Request rate limit exceeded;
-* `418` IP auto-banned for continuing to send requests after receiving `429` codes;
-* `5XX` Internal errors (issue is on 3Commas's side);
-* `504` Gateway timeout, indicating the API couldn’t get a timely response.
+<Errors>
+  <ErrorText code="4XX">Malformed requests (issue is on the sender's side).</ErrorText>
+  <ErrorText code="429">Request rate limit exceeded.</ErrorText>
+  <ErrorText code="418">IP auto-banned for continuing to send requests after receiving `429` codes.</ErrorText>
+  <ErrorText code="5XX">Internal errors (issue is on 3Commas's side).</ErrorText>
+  <ErrorText code="504">Gateway timeout, indicating the API couldn’t get a timely response.</ErrorText>
+</Errors>
 
 Success responses return a 2xx status code.
-
 
 <StickyLayout.Root>
    <StickyLayout.Main>

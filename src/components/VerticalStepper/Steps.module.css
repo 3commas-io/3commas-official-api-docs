@@ -1,4 +1,8 @@
 .steps {
+  --circle-size: 2rem;
+  --step-color: #13A8A1;
+  --step-background-color: #EAF5F5;
+
   display: flex;
   flex-direction: column;
   counter-reset: step;
@@ -6,8 +10,6 @@
 }
 
 .step {
-  --circle-size: 2rem;
-
   display: flex;
   align-items: flex-start;
   counter-increment: step;
@@ -27,9 +29,10 @@
   justify-content: center;
   width: var(--circle-size);
   height: var(--circle-size);
-  border-radius: 9999px;
-  background: var(--ifm-color-success-contrast-background);
-  font-size: 0.875rem;
+  border-radius: 0.25rem;
+  color: var(--step-color);
+  background: var(--step-background-color);
+  font-size: 0.8125rem;
   font-weight: bold;
   position: relative;
 }
@@ -42,7 +45,7 @@
   display: none;
   width: 1px;
   position: absolute;
-  background: var(--ifm-color-emphasis-200);
+  background: var(--step-background-color);
   flex: 1;
   height: calc(100% - var(--circle-size) - 10px - 0.75rem);
   top: calc(var(--circle-size) + 0.75rem);
@@ -54,13 +57,15 @@
 
 .content {
   flex: 1;
-  padding-top: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
   overflow: auto;
 }
 
 .content h3 {
-  margin-bottom: 0.75rem;
-  font-weight: 500;
+  font-weight: 600;
+  margin-bottom: 0;
 }
 
 .content p {

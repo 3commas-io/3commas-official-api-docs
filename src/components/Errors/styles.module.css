@@ -1,0 +1,24 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.error {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.error > code {
+  color: #E7596A;
+  background-color: #FBEFF0;
+  border: none;
+  padding: 0.125rem 0.25rem;
+  font-weight: 600;
+}
+
+.error span {
+  color: #707070;
+}

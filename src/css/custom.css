@@ -189,6 +189,10 @@ h2 {
   );
 }
 
+.markdown > h2 {
+  --ifm-h2-font-size: 1.25rem;
+};
+
 h2:first-child {
   margin-top: 0;
 }
