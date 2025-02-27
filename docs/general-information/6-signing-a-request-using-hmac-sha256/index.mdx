@@ -6,6 +6,7 @@ title: Signing a Request Using HMAC SHA256
 import { Steps, Step } from '@site/src/components/VerticalStepper'
 import Endpoint, { Permission } from '@site/src/components/Endpoint'
 import Tabs from '@theme/Tabs';
+import RequestParameters from '@site/src/components/RequestParameters';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import { Informer } from '@site/src/components/Informer/Informer';
@@ -100,11 +101,17 @@ Key | Value
 api_key | vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A
 secret | NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j
 
-**Request Parameters:** 
 
-Parameter | Value
------------- | ------------
-mode | paper
+### Request Parameters:
+
+<RequestParameters
+  items={[
+    { 
+      key: "mode",
+      value: "paper"
+    }
+  ]}
+/>
 
 
 <Tabs>
