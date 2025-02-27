@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import styles from './Method.module.css'
 
 export type Method = 'PUT' | 'GET' | 'POST' | 'DELETE' | 'PATCH' | 'HEAD'
+export const METHODS: Method[] = ['PUT', 'GET', 'POST', 'DELETE', 'PATCH', 'HEAD'];
 
 type Props = {
   children: string

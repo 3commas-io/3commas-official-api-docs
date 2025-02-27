@@ -32,6 +32,8 @@
   --ifm-h2-font-size: 1.25rem;
   --text-size: 0.8125rem;
   --text-emphasis-size: 0.825rem;
+  --code-separator-color: #ECECEC;
+  --code-background-color: #f6f8fa;
 
   --separator-color: #ECECEC;
   --pagination-button-color: #F8F8F8;
@@ -55,6 +57,8 @@
   --ifm-heading-color: #fff;
   --separator-color: #9FA2A8;
   --pagination-button-color: #2C2E30;
+  --code-separator-color: #FFFFFFCC;
+  --code-background-color: #282a36;
 }
 
 /* CSS for endpoint and permission*/
