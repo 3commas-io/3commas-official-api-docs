@@ -4,7 +4,7 @@ title: Account leverage information
 sidebar_class_name: post
 ---
 
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
@@ -48,9 +48,9 @@ Returns a list of leverages that the exchange market is using.
 <StickyLayout.Sticky>
 
 ## Example Request
-```json
-GET /ver1/accounts/32833910/leverage_data?pair=USDC_DOGE
-```
+
+<NoContentEndpoint method="GET" endpoint="/ver1/accounts/32833910/leverage_data?pair=USDC_DOGE" />
+
 </StickyLayout.Sticky>
 </StickyLayout.Root>
 

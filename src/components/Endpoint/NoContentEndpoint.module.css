@@ -36,24 +36,20 @@
   position: absolute;
   /* rtl:ignore */
   right: calc(var(--ifm-pre-padding) / 2);
-  top: calc(var(--ifm-pre-padding) / 2);
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .buttonGroup button {
   display: flex;
   align-items: center;
-  background: var(--prism-background-color);
+  background-color: var(--code-background-color);
   color: var(--prism-color);
-  border: 1px solid var(--code-separator-color);
   border-radius: var(--ifm-global-radius);
   padding: 0.4rem;
   line-height: 0;
   transition: opacity var(--ifm-transition-fast) ease-in-out;
   opacity: 0;
-}
-
-.buttonGroup button {
-  background-color: var(--code-background-color);
 }
 
 .buttonGroup button:focus-visible,

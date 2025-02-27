@@ -4,7 +4,7 @@ title: Deposit or withdraw networks info
 sidebar_class_name: get
 ---
 
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
@@ -51,9 +51,9 @@ Shows information about the currency and each supported network for deposits and
 <StickyLayout.Sticky>
 
 ##  Example Request
-```
-GET /ver1/accounts/12345678/networks_info
-```
+
+<NoContentEndpoint method="GET" endpoint="/ver1/accounts/12345678/networks_info" />
+
 </StickyLayout.Sticky>
 </StickyLayout.Root>
 

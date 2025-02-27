@@ -80,7 +80,6 @@
   align-items: center;
   background: var(--prism-background-color);
   color: var(--prism-color);
-  border: 1px solid var(--code-separator-color);
   border-radius: var(--ifm-global-radius);
   padding: 0.4rem;
   line-height: 0;

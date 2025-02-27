@@ -4,7 +4,7 @@ title: Load balances for specified exchange
 sidebar_class_name: post
 ---
 
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
@@ -40,9 +40,8 @@ Updates a balance for exchange account using its ID.
 
 ## Example Request
 
-```
-POST /ver1/accounts/12345678/load_balances
-```
+<NoContentEndpoint method="POST" endpoint="/ver1/accounts/12345678/load_balances" />
+
 </StickyLayout.Sticky>
 </StickyLayout.Root>
 

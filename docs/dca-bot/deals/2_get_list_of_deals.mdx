@@ -4,7 +4,7 @@ title: Get list of deals
 sidebar_class_name: get
 ---
 
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
@@ -112,9 +112,8 @@ Returns the list of geals. Use the query parameters to page through results.
 
 ## Example Request
 
-```json
-GET /ver1/deals?bot_id=23456789
-```
+<NoContentEndpoint method="GET" endpoint="/ver1/deals?bot_id=23456789" />
+
 </StickyLayout.Sticky>
 </StickyLayout.Root>
 

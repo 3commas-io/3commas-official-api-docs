@@ -4,7 +4,7 @@ title: Edit exchange account
 sidebar_class_name: post
 ---
 
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
@@ -74,9 +74,9 @@ Updates an exchange account using its ID, including updating API keys for reconn
 <StickyLayout.Sticky>
 
 ## Example Request
-```
-POST /ver1/accounts/update?account_id=12345678&name=New%20name%20exchange
-```
+
+<NoContentEndpoint method="POST" endpoint="/ver1/accounts/update?account_id=12345678&name=New%20name%20exchange" />
+
 </StickyLayout.Sticky>
 </StickyLayout.Root>
 

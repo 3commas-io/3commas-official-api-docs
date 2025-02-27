@@ -8,7 +8,7 @@ import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
 import Separator from '@site/src/components/Separator';
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 
@@ -35,9 +35,9 @@ Returns the list of blacklist pair(s) that restricts all DCA bots from opening d
 
    <StickyLayout.Sticky>
     ## Example Request
-    ```json
-    GET /ver1/bots/pairs_black_list
-    ```
+
+    <NoContentEndpoint method="GET" endpoint="/ver1/bots/pairs_black_list" />
+
    </StickyLayout.Sticky>
 </StickyLayout.Root>
 

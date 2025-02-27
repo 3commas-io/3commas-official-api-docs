@@ -4,7 +4,7 @@ title: Cancel SmartTrade
 sidebar_class_name: delete
 ---
 
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
@@ -37,9 +37,8 @@ Cancels an existing SmartTrade in place using its ID.
     <StickyLayout.Sticky>
         ## Example Request
 
-        ```json
-        DELETED /v2/smart_trades/12345678
-        ```
+        <NoContentEndpoint method="DELETE" endpoint="/v2/smart_trades/12345678" />
+
     </StickyLayout.Sticky>
 </StickyLayout.Root>
 
