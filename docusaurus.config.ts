@@ -1,6 +1,7 @@
 import { themes as prismThemes } from 'prism-react-renderer'
 import type { Config } from '@docusaurus/types'
 import type * as Preset from '@docusaurus/preset-classic'
+import customLightTheme from "./src/utils/lightTheme"
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -66,7 +67,7 @@ const config: Config = {
       style: 'dark',
     },
     prism: {
-      theme: prismThemes.github,
+      theme: customLightTheme,
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
