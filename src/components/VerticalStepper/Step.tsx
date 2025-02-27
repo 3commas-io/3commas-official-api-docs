@@ -15,7 +15,7 @@ export const Step = ({ title, description }: Props) => (
     </div>
     <div className={styles.content}>
       <Heading as="h3">{title}</Heading>
-      <p>{description}</p>
+      <main>{description}</main>
     </div>
   </div>
 )

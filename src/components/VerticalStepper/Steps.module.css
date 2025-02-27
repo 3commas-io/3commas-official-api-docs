@@ -70,6 +70,7 @@
   font-size: var(--text-size);
 }
 
-.content p {
+.content main {
   color: var(--ifm-toc-link-color);
+  padding-bottom: 1.25rem;
 }

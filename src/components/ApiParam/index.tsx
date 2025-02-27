@@ -54,4 +54,4 @@ export default function ApiParam({
   )
 }
 
-export { default as ParameterRange } from "./ParameterRange";
+export { ParameterRange } from "./ParameterRange";

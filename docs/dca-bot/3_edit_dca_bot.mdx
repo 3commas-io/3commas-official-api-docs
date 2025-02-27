@@ -91,19 +91,19 @@ Edits an existing DCA Bot using its ID.
 <CollapsibleApiParam name='martingale_volume_coefficient' type='number' id="martingale_volume_coefficient" required>
     Coefficient for increasing safety order volume in Martingale strategy.
 
-    Minimum:`0,1`, Maximum:`10`
-  </CollapsibleApiParam>
+  <ParameterRange min={"0,1"} max={10} />
+</CollapsibleApiParam>
 
 <CollapsibleApiParam name='martingale_step_coefficient' type='number' id="martingale_step_coefficient" required>
     Coefficient for increasing safety order price (`safety_order_step_percentage`) in Martingale strategy.
     
-    Minimum:`0,1`, Maximum:`10`
+  <ParameterRange min={"0,1"} max={10} />
   </CollapsibleApiParam>
 
 <CollapsibleApiParam name='max_safety_orders' type='integer' id="max_safety_orders" required>
   The maximum total number of Safety Orders allowed per deal opened by this DCA Bot.
   
-  Minimum:`0`, Maximum:`200`
+  <ParameterRange min={0} max={200} />
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='active_safety_orders_count' type='integer' id="active_safety_orders_count" required>

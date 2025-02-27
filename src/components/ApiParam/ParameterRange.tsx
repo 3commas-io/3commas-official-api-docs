@@ -8,7 +8,7 @@ interface ParameterRangeProps {
   defaultVal?: number | string;
 }
 
-const ParameterRange = ({ defaultVal, max, min }: ParameterRangeProps) => {
+export const ParameterRange = ({ defaultVal, max, min }: ParameterRangeProps) => {
   return (
     <div className={styles['parameter-range']}>
       {min !== undefined && (
@@ -29,5 +29,3 @@ const ParameterRange = ({ defaultVal, max, min }: ParameterRangeProps) => {
     </div>
   );
 };
-
-export default ParameterRange;

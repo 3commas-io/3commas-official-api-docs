@@ -23,3 +23,7 @@
   color: #707070;
   font-size: var(--text-size);
 }
+
+.error span code {
+  color: var(--ifm-heading-color);
+}
