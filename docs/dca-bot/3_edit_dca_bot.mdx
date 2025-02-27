@@ -7,7 +7,7 @@ sidebar_class_name: patch
 import CodeBlock from '@theme/CodeBlock'
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
 import Separator from '@site/src/components/Separator';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout'
@@ -63,7 +63,7 @@ Edits an existing DCA Bot using its ID.
  <CollapsibleApiParam name='max_active_deals' type='boolean' id="max_active_deals">
     The maximum number of active deals available for this DCA Bot. 
     
-    Minimum: `1`, Maximum:`199`, Default: `1`
+   <ParameterRange min={1} max={199} defaultVal={1} />
   </CollapsibleApiParam>
 
 <CollapsibleApiParam name='base_order_volume_type' type='number' id="base_order_volume_type">
@@ -129,7 +129,7 @@ Edits an existing DCA Bot using its ID.
 <CollapsibleApiParam name='cooldown' type='number' id="cooldown">
   The time (in seconds) that the DCA Bot will wait after closing a deal before accepting a signal to start a new deal for the same asset pair
     
-  Minimum: `0`; Maximum: `2592000`
+  <ParameterRange min={0} max={2592000} />
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='trailing_enabled' type='boolean' id="trailing_enabled">
@@ -223,7 +223,7 @@ Edits an existing DCA Bot using its ID.
 <CollapsibleApiParam name='reinvesting_percentage' type='number' id="reinvesting_percentage">
   Set up a percentage of realized profit to be reinvested in each new deal.
   
-  Minimum: `0`; Maximum: `100`
+  <ParameterRange min={0} max={100} />
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='min_price_percentage' type='number' id="min_price_percentage">
@@ -237,7 +237,7 @@ Edits an existing DCA Bot using its ID.
 <CollapsibleApiParam name='close_deals_timeout' type='integer' id="close_deals_timeout">
   The time in seconds after which the deals will close automatically.
     
-  Minimum:  `60`
+  <ParameterRange min={60} />
 </CollapsibleApiParam> 
 </CollapseAll>
 

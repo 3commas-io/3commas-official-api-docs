@@ -61,3 +61,28 @@
   font-size: 85%;
   line-height: 1rem;
 }
+
+.parameter-range {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-size: var(--text-size);
+  line-height: 1.5;
+}
+
+.value code {
+  margin-left: 0.25rem;
+  color: var(--ifm-heading-color);
+}
+
+.min {
+  color: #13A8A1;
+}
+
+.max {
+  color: #E7596A;
+}
+
+.default {
+  color: #1E72D2;
+}

@@ -7,7 +7,7 @@ sidebar_class_name: get
 import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
 import Separator from '@site/src/components/Separator';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
@@ -44,7 +44,7 @@ Getting a list of events by Grid Bot.
 <ApiParam name='per_page' type='integer' id="per_page" required>
     Quantity of records on one page.
 
-    Minimum: `1`, Maximum: `100`, Default: `100`
+  <ParameterRange min={1} max={100} defaultVal={100} />
 </ApiParam>
 
 </StickyLayout.Main>

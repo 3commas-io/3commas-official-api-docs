@@ -7,7 +7,7 @@ sidebar_class_name: get
 import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
 import Separator from '@site/src/components/Separator';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout'
@@ -41,7 +41,7 @@ Returns a list of market orders for a Grid Bot using its ID.
 <ApiParam name='limit' type='integer' id="limit">
    Quantity of the records you want to get in response.
    
-   Minimum: <code>1</code>, Maximum: <code>1000</code>, Default: <code>100</code>
+   <ParameterRange min={1} max={1000} defaultVal={100} />
 </ApiParam>
 
 <ApiParam name='offset' type='integer' id="offset">

@@ -10,7 +10,7 @@ import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import Separator from '@site/src/components/Separator';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
-import ApiParam from '@site/src/components/ApiParam';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 <Endpoint
@@ -51,9 +51,8 @@ Returns the list of SmartTrade. Use the query parameters to filter the results.
         <CollapseAll>
        <CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
         <CollapsibleApiParam name='per_page' type='integer' id="per_page">
-        Quantity of records on one page. Minimum: `1`, Maximum: `100`.
-
-        Default: `10`
+          Quantity of records on one page. 
+          <ParameterRange min={1} max={100} defaultVal={10} />
         </CollapsibleApiParam>
         <CollapsibleApiParam name='status' type='string' id="status">
         Filters SmartTrades by their status.

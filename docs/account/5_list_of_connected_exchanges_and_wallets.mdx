@@ -7,7 +7,7 @@ sidebar_class_name: get
 import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
 import Separator from '@site/src/components/Separator';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout';
@@ -46,7 +46,7 @@ Returns the list of exchange accounts and wallets connecting to a user account.
 <ApiParam name='per_page' type='integer' id="page">
    Quantity of records on one page.
 
-   Minimum: `1`, Maximum: `100`, Default: `100`
+  <ParameterRange min={1} max={100} defaultVal={100} />
 </ApiParam>
 </StickyLayout.Main>
 

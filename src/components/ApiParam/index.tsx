@@ -53,3 +53,5 @@ export default function ApiParam({
     </div>
   )
 }
+
+export { default as ParameterRange } from "./ParameterRange";

@@ -7,7 +7,7 @@ sidebar_class_name: post
 import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
 import Separator from '@site/src/components/Separator';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
 import * as StickyLayout from '@site/src/components/StickyLayout';
@@ -182,7 +182,8 @@ Details of Take Profit settings and the steps applied to this SmartTrade.
               Default: `false` 
             </ApiParam>
             <ApiParam name="percent" type="number" id="percent">
-              Trailing percentage for Take Profit order. Minimum: `0,01`, Maximum: `100`.
+              Trailing percentage for Take Profit order.
+              <ParameterRange min={"0,01"} max={100} />
               This parameter is required when `take_profit[steps][trailing][enabled]` is set to `true`.
             </ApiParam>
           </CollapsibleNestedParams>

@@ -7,7 +7,7 @@ sidebar_class_name: post
 import CodeBlock from '@theme/CodeBlock'
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
 import Separator from '@site/src/components/Separator';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout'
@@ -58,7 +58,7 @@ Creates a new DCA Bot
 <CollapsibleApiParam name='max_active_deals' type='integer' id="max_active_deals">
      The maximum number of active deals available for this DCA Bot.
 
-     Minimum:`1`, Maximum: `199`; Default: `1`
+    <ParameterRange min={1} max={199} defaultVal={1} />
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='strategy' type='string' id="strategy">
@@ -134,7 +134,7 @@ Creates a new DCA Bot
 <CollapsibleApiParam name='reinvesting_percentage' type='string' id="reinvesting_percentage">
    Set up a percentage of realized profit to be reinvested in each new deal.
 
-   Minimum: `0`; Maximum: `100`
+   <ParameterRange min={0} max={100} />
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='stop_loss_percentage' type='number' id="stop_loss_percentage">
@@ -195,7 +195,7 @@ Creates a new DCA Bot
 <CollapsibleApiParam name='max_safety_orders' type='integer' id="max_safety_orders" required>
    The maximum total number of Safety Orders allowed per deal opened by this DCA Bot.
    
-   Minimum: `0`; Maximum: `200`
+   <ParameterRange min={0} max={200} />
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='active_safety_orders_count' type='integer' id="active_safety_orders_count" required>
@@ -205,13 +205,13 @@ Creates a new DCA Bot
 <CollapsibleApiParam name='martingale_volume_coefficient' type='number' id="martingale_volume_coefficient" required>
    Coefficient for increasing <em>safety order volume</em> in Martingale strategy.
    
-   Minimum: `0,1`; Maximum: `10`
+   <ParameterRange min={"0,1"} max={10} />
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='martingale_step_coefficient' type='number' id="martingale_step_coefficient" required> 
    Coefficient for increasing safety order price (`safety_order_step_percentage`) in Martingale strategy.
    
-   Minimum: `0,1`; Maximum: `10`
+   <ParameterRange min={"0,1"} max={10} />
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='min_volume_btc_24h' type='number' id="min_volume_btc_24h"> 
@@ -233,7 +233,7 @@ Creates a new DCA Bot
 <CollapsibleApiParam name='cooldown' type='number' id="cooldown"> 
    The time (in seconds) that the DCA Bot will wait after closing a deal before accepting a signal to start a new deal for the same asset pair.
    
-   Minimum: `0`; Maximum: `2592000`
+   <ParameterRange min={0} max={2592000} />
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='disable_after_deals_count' type='integer' id="disable_after_deals_count"> 
@@ -257,7 +257,7 @@ Creates a new DCA Bot
 <CollapsibleApiParam name='close_deals_timeout' type='integer' id="close_deals_timeout">
    The time in seconds after which the deals will close automatically.
    
-   Minimum: `60`
+   <ParameterRange min={60} />
 </CollapsibleApiParam>
 </CollapseAll>
 

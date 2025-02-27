@@ -7,7 +7,7 @@ sidebar_class_name: patch
 import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
 import Separator from '@site/src/components/Separator';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout';
@@ -89,7 +89,7 @@ The endpoint is available for Deal for the statuses **bought** and **close_strat
 <CollapsibleApiParam name='max_safety_orders' type='integer' id="max_safety_orders">
      The maximum total number of Safety Orders allowed for this deal.
     
-    Minimum: `0`; Maximum: `200`.
+    <ParameterRange min={0} max={200} />
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='active_safety_orders_count' type='integer' id="active_safety_orders">
@@ -119,7 +119,7 @@ The endpoint is available for Deal for the statuses **bought** and **close_strat
 <CollapsibleApiParam name='close_timeout' type='integer' id="close_timeout">
      The time in seconds after which this deal will close automatically.
      
-     Minimum: `60`
+    <ParameterRange min={60} />
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='note' type='string' id="note">
