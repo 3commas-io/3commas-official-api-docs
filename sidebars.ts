@@ -92,7 +92,6 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
     },
   ],
-  // But you can create a sidebar manually
   /*
   tutorialSidebar: [
     'intro',

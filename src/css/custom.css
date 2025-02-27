@@ -27,8 +27,10 @@
   --category-title-color-pprimary: #929DA8;
   --navigation-background-color: #F8F8F8;
   --navigation-border-color: #ECECEC;
+  --sidebar-divider-color: #ECECEC;
   --arrow-svg: url("data:image/svg+xml;utf8,<svg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M6.14142 8.10868C6.06332 8.18678 5.93668 8.18678 5.85858 8.10868L2.39142 4.64152C2.31332 4.56341 2.31332 4.43678 2.39142 4.35868L2.63358 4.11652C2.71168 4.03841 2.83832 4.03841 2.91642 4.11652L5.85858 7.05868C5.93668 7.13678 6.06332 7.13678 6.14142 7.05868L9.08358 4.11652C9.16168 4.03842 9.28832 4.03842 9.36642 4.11652L9.60858 4.35868C9.68668 4.43678 9.68668 4.56342 9.60858 4.64152L6.14142 8.10868Z' fill='%23707070'/></svg>");
   --menu-link-primary-color: #242424;
+  --sidebar-links-color: #707070;
   @media (min-width: 997px) {
     --ifm-global-spacing: 1.5rem;
   }
@@ -47,8 +49,10 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --navigation-background-color: #1E1E1F;
   --navigation-border-color: transparent;
+  --sidebar-divider-color: #2C2E30;
   --arrow-svg: url("data:image/svg+xml;utf8,<svg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M6.14142 8.10868C6.06332 8.18678 5.93668 8.18678 5.85858 8.10868L2.39142 4.64152C2.31332 4.56341 2.31332 4.43678 2.39142 4.35868L2.63358 4.11652C2.71168 4.03841 2.83832 4.03841 2.91642 4.11652L5.85858 7.05868C5.93668 7.13678 6.06332 7.13678 6.14142 7.05868L9.08358 4.11652C9.16168 4.03842 9.28832 4.03842 9.36642 4.11652L9.60858 4.35868C9.68668 4.43678 9.68668 4.56342 9.60858 4.64152L6.14142 8.10868Z' fill='%239FA2A8'/></svg>");
   --menu-link-primary-color: #FFFFFF;
+  --sidebar-links-color: #9FA2A8;
 }
 
 
@@ -401,13 +405,13 @@ li.menu__list-item > .category-title {
 li.menu__list-item > .category-title-hr {
   margin-top: 11px !important;
   margin-bottom: 19px !important;
-}
-li.theme-doc-sidebar-item-category > div.menu__list-item-collapsible > a.menu__link {
-  font-size: 13px !important;
+  background-color: var(--sidebar-divider-color);
 }
 
 .menu__list li.menu__list-item ul.menu__list > li.menu__list-item > .menu__link {
-  font-size: 12px !important;
+  font-size: 13px !important;
+  color: var(--sidebar-links-color);
+  font-weight: 400;
 }
 
 .menu__link--sublist-caret:after {
