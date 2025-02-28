@@ -243,7 +243,7 @@ table {
   border-radius: 0.6rem;
   border: 1px solid #F8F8F8;
 
-  thead {
+  [data-theme="light"] thead {
     background: #F8F8F8;
   }
 
@@ -258,10 +258,6 @@ table {
     text-align: left;
   }
 
-  [data-theme="dark"] & tbody td {
-    color: var(--ifm-heading-color);
-  }
-
   tbody tr {
     background: #fff;
   }
@@ -274,6 +270,11 @@ table {
     color: #707070;
     padding: 0.25rem 0.5rem;
     background: transparent !important;
+  }
+
+  [data-theme="dark"] & tbody td {
+    color: var(--ifm-heading-color);
+    border-bottom: 1px solid var(--ifm-table-stripe-background);
   }
 
   tbody tr:nth-child(even) {
@@ -301,6 +302,10 @@ table {
   tbody tr:last-child td:last-child {
     border-bottom-right-radius: 0.6rem;
   }
+}
+
+[data-theme="dark"] table {
+  border: 1px solid var(--ifm-table-stripe-background);
 }
 
 body ul {
