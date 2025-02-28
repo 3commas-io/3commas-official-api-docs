@@ -20,7 +20,7 @@
 }
 
 .error span {
-  color: #707070;
+  color: var(--text-content-color);
   font-size: var(--text-size);
 }
 

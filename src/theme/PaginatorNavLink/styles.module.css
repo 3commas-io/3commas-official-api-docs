@@ -71,10 +71,10 @@ a:hover {
 }
 
 .pagination__info span {
-  color: #707070;
+  color: var(--text-content-color);
   font-weight: 400;
   text-decoration: none;
-  font-size: 0.8125rem;
+  font-size: var(--text-size);
 }
 
 .pagination__info--next {
