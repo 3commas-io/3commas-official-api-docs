@@ -1,7 +1,40 @@
 .separator {
+    --separator-color: #ECECEC;
+
     height: 1px;
     width: 100%;
     background-color: var(--separator-color);
     margin-top: 38px;
     margin-bottom: 0;
+    position: relative;
+    overflow: visible;
+}
+
+[data-theme="dark"] .separator {
+  --separator-color: #9FA2A8;
+}
+
+.separator.example {
+  margin: 26px 0;
+}
+
+.separator::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: var(--separator-text-bg-dark);
+  padding: 0 0.625rem;
+  font-size: 0.625rem;
+  line-height: 2;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: var(--separator-color);
+  z-index: 10;
+}
+
+[data-theme="light"] .separator::after {
+  background-color: var(--separator-text-bg-light);
+  color: #B8B8B8;
 }

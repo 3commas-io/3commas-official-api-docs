@@ -8,7 +8,7 @@ import CodeBlock from '@theme/CodeBlock'
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
-import Separator from '@site/src/components/Separator';
+import Separator, { ADDITIONAL_INFORMATION_THEME } from '@site/src/components/Separator';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout'
 import * as ResponseTabs from '@site/src/components/ResponseTabs'
@@ -256,28 +256,28 @@ Edits an existing DCA Bot using its ID.
  * `amount_percentage`
  * `profit_percentage`
   
-      Keep in mind, you can create a maximum of 4 targets, allocating 100% of your position volume is allocated across them
+  Keep in mind, you can create a maximum of 4 targets, allocating 100% of your position volume is allocated across them
 
-     **For example:**
+  <Separator label='EXAMPLE' labelBg={ADDITIONAL_INFORMATION_THEME} />
 
-     <CodeBlock
-        language="json"
-        showLineNumbers>
-        {`
-        {
-          "take_profit_steps": [
-          {
-           "amount_percentage": 50,
-           "profit_percentage": 10
-          },
-         {
-           "amount_percentage": 50,
-           "profit_percentage": 20
-         }
-        ] 
-        }
-        `}
-      </CodeBlock>
+<CodeBlock
+  language="json"
+  showLineNumbers
+>
+{`{
+    "take_profit_steps": [
+      {
+        "amount_percentage": 50,
+        "profit_percentage": 10
+      },
+      {
+        "amount_percentage": 50,
+        "profit_percentage": 20
+      }
+    ] 
+  }
+`}
+</CodeBlock>
 
 **strategy list, close_strategy_list, safety_strategy_list**
 
