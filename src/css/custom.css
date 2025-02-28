@@ -23,7 +23,7 @@
   --ifm-link-color: #13a8a1;
   --ifm-code-padding-vertical: 2px;
   --ifm-code-padding-horizontal: 4px;
-  --api-param-margin-bottom: 10px;
+  --api-param-margin-bottom: 24px;
   --category-title-color-pprimary: #929DA8;
   --navigation-background-color: #F8F8F8;
   --navigation-border-color: #ECECEC;
@@ -32,6 +32,7 @@
   --ifm-h2-font-size: 1.25rem;
   --text-size: 0.8125rem;
   --text-emphasis-size: 0.825rem;
+  --text-content-color: #707070;
 
   --code-separator-color: #ECECEC;
   --code-background-color: #f6f8fa;
@@ -54,7 +55,8 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 
   --ifm-heading-color: #fff;
-  
+  --text-content-color: #9FA2A8;
+
   --pagination-button-color: #2C2E30;
   --code-separator-color: #FFFFFFCC;
   --code-background-color: #282a36;
@@ -273,7 +275,7 @@ table {
   }
 
   [data-theme="dark"] & tbody td {
-    color: var(--ifm-heading-color);
+    color: #9FA2A8;
     border-bottom: 1px solid var(--ifm-table-stripe-background);
   }
 
