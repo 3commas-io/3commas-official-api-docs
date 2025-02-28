@@ -46,7 +46,7 @@ Returns a list of DCA Bots by user. Use the query parameters to filter the resul
 <ApiParam name="order_direction" type="string" id="order_direction">
   Sets the direction of order (`ASC` or `DESC`).
 
-  Default: `DESC`
+   <ParameterRange defaultVal={"DESC"} />
 </ApiParam>
 
 <CollapseAll>
@@ -65,7 +65,7 @@ Returns a list of DCA Bots by user. Use the query parameters to filter the resul
 <CollapsibleApiParam name="scope" type="string" id="scope">
   Filters bots by their status.
   
-  Default: `null`
+   <ParameterRange defaultVal={"null"} />
     <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
       * **enable** - Returns bots where the state is active;
       * **disabled** - Returns bots where the state is stopped;
@@ -75,7 +75,7 @@ Returns a list of DCA Bots by user. Use the query parameters to filter the resul
 <CollapsibleApiParam name="sort_by" type="string" id="sort_by">
   Specifies the field used to order the results: `created_at`, `updated_at`, `profit`.
 
-  Default: `created_at`
+   <ParameterRange defaultVal={"created_at"} />
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="quote" type="string" id="quote">

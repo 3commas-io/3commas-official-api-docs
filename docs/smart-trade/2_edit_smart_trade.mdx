@@ -48,7 +48,7 @@ Details of the Leverage applied to this SmartTrade.
     <ApiParam name='enabled' type="boolean" id="enabled" required>
      Enables leverage settings for this SmartTrade. Set to `true` to activate the parameter group.
      
-     Default: `false`
+      <ParameterRange defaultVal={"false"} />
     </ApiParam>
     <ApiParam name='type' type="string" id="type">
       Leverage type for the futures account: `cros` or `isolated`.
@@ -121,7 +121,7 @@ Details of Take Profit settings and the steps applied to this SmartTrade.
     <ApiParam name='enabled' type="boolean" id="enabled" required>
      Enables Take Profit for this SmartTrade. Set to `true` to activate the parameter group.
      
-     Default: `false`
+    <ParameterRange defaultVal={"false"} />
     </ApiParam>
     <ApiParam name='steps' type="array" id="steps">
       Detailed information about each Take Profit step.
@@ -158,7 +158,8 @@ Details of Take Profit settings and the steps applied to this SmartTrade.
             <ApiParam name="enabled" type="boolean" id="enabled">
               Enables trailing for the last Take Profit step. Applies only to the last step of Take Profit.
               
-              Default: `false` 
+
+              <ParameterRange defaultVal={"false"} />
             </ApiParam>
             <ApiParam name="percent" type="number" id="percent">
               Trailing percentage for Take Profit order. This parameter is required when `take_profit[steps][trailing][enabled]` is set to `true`.
@@ -176,12 +177,12 @@ Details of Stop Loss settings applied to this SmartTrade.
     <ApiParam name='enabled' type="boolean" id="enabled" required>
       Enables Stop Loss for this SmartTrade. Set to `true` to activate the parameter group.
 
-      Default: `false`.
+      <ParameterRange defaultVal={"false"} />
     </ApiParam>
     <ApiParam name='breakeven' type="boolean" id="breakeven">
       Enables the move to Breakeven feature for this SmartTrade. To use this feature, you must have at least two Take Profit steps.
 
-      Default: `false`.
+      <ParameterRange defaultVal={"false"} />
     </ApiParam>
     <ApiParam name='order_type' type="string" id="order_type" required>
       Stop Loss type for this SmartTrade: `market` or `limit`.

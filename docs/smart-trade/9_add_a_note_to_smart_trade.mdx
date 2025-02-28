@@ -8,7 +8,7 @@ import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
 import Separator from '@site/src/components/Separator';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
@@ -39,7 +39,7 @@ Adds a note to an existing SmartTrade.
 <ApiParam name='note' type='string' id="note" required>
    Short note for this SmarTrade.
    
-   Minlength: `1`, Maxlength: `300`.
+   <ParameterRange min={1} max={300} labels={{min: "minlength", max: "maxlength"}} />
 </ApiParam>
 </StickyLayout.Main>
 <StickyLayout.Sticky>
