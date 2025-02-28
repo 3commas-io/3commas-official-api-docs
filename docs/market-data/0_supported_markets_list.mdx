@@ -25,10 +25,21 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 Returns the list of markets supported by 3Commas.
 
-
+<StickyLayout.Root>
+   <StickyLayout.Main>
 ## Request parameters
 
 No parameters.
+
+</StickyLayout.Main>
+<StickyLayout.Sticky>
+## Example Request
+
+```json
+GET /ver1/accounts/market_list
+```
+</StickyLayout.Sticky>
+</StickyLayout.Root>
 
 <StickyLayout.Root>
    <StickyLayout.Main>
@@ -48,7 +59,7 @@ The URL link to the icon for this exchange.
 </ApiParam>
 
 <ApiParam name='help_link' type='string' id="help_link">
-The URL link to the icon for this exchange.
+The public URL to the help page with detailed instructions on connecting the exchange.
 </ApiParam>
 
 <CollapseAll>
@@ -86,10 +97,6 @@ The URL link to the icon for this exchange.
   </CollapsibleNestedParams>   
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name='connection_type' type='string' id="connection_type">
-This exchange provides a service to connect third-party apps. `false` - if the exchange does not support.
-</CollapsibleApiParam>
-
 <CollapsibleApiParam name='available_connection_flows' type='array' id="available_connection_flows">
 Available exchange connection types in 3Commas.
     <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
@@ -124,13 +131,11 @@ Available exchange connection types in 3Commas.
 ```json
 [
   {
-    "market_name": "Coinbase Advanced",
-    "market_url": "http://coinbase-consumer.sjv.io/eKE3GD",
-    "market_icon": "https://3commas.io/img/exchanges/gdax.png",
-    "market_trust_message": "3Commas will not have access to transfer or withdraw your assets. Each exchange connects with encrypted API keys",
-    "default_trust_message": "3Commas will not have access to transfer or withdraw your assets. Each exchange connects with encrypted API keys",
-    "help_link": "https://help.3commas.io/en/articles/3822851",
-    "market_code": "coinbase_advanced",
+    "market_name": "Binance Futures USDT-M (EEA)",
+    "market_url": "https://www.binance.com/en/futures/ref/108190303",
+    "market_icon": "https://3commas.io/img/exchanges/binance.png",
+    "help_link": "https://help.3commas.io/en/articles/3568667",
+    "market_code": "binance_futures_eea",
     "form_fields": {
       "required": [
         {
@@ -142,36 +147,55 @@ Available exchange connection types in 3Commas.
           "localized_name": "API Key:"
         }
       ],
-      "optional": []
+      "optional": [
+        
+      ]
     },
-    "connection_type": "fields",
     "available_connection_flows": [
-       "form"
-    ],
-    "optional": []
-  },
-  {
-    "connection_type": "fields",
-    "available_connection_flows": [
-      "fast_connect",
       "form"
     ],
     "third_party_allowed": false,
     "trusted_ips": [
-      "193.31.111.100",
-      "193.31.111.158",
-      "193.31.111.43",
-      "193.31.111.6"
+      "103.26.9.7",
+      "103.26.9.15",
+      "103.26.9.23",
+      "103.26.9.31",
+      "103.26.9.39",
+      "103.26.9.47",
+      "103.26.9.55",
+      "103.26.9.63",
+      "103.26.9.71",
+      "103.26.9.79",
+      "103.26.9.87",
+      "103.26.9.95",
+      "103.26.9.103",
+      "103.26.9.111",
+      "103.26.9.119",
+      "103.26.9.127",
+      "103.26.9.135",
+      "103.26.9.143",
+      "103.26.9.151",
+      "103.26.9.159",
+      "103.26.9.167",
+      "103.26.9.175",
+      "103.26.9.183",
+      "103.26.9.191",
+      "103.26.9.199",
+      "103.26.9.207",
+      "103.26.9.215",
+      "103.26.9.223",
+      "103.26.9.231",
+      "103.26.9.239",
+      "103.26.9.247",
+      "103.26.9.255"
     ],
     "trusted_ips_input_type": "inline",
     "fast_connect_action_name": "binance"
   },
   {
     "market_name": "OKX",
-    "market_url": "https://app.3commas.io/users/auth/okx_auth_reg?redirect_to=https%3A%2F%2Fapp.3commas.io%2Faccounts",
+    "market_url": "https://www.okx.com/join/60047333",
     "market_icon": "https://3commas.io/img/exchanges/okex.png",
-    "market_trust_message": "1. Log in to your exchange account and go to API Settings \n2. Select third-party apps and choose 3Commas \n3. Paste generated data in inputs below.",
-    "default_trust_message": "3Commas will not have access to transfer or withdraw your assets. Each exchange connects with encrypted API keys",
     "help_link": "https://help.3commas.io/en/articles/3109057",
     "market_code": "okex",
     "form_fields": {
@@ -189,9 +213,20 @@ Available exchange connection types in 3Commas.
           "localized_name": "Passphrase:"
         }
       ],
-      "trusted_ips_input_type": "inline",
-      "fast_connect_action_name": "coinbase_advanced"
-    }
+      "optional": [
+        
+      ]
+    },
+    "available_connection_flows": [
+      "fast_connect",
+      "form"
+    ],
+    "third_party_allowed": false,
+    "trusted_ips": [
+      "103.26.9.0/24"
+    ],
+    "trusted_ips_input_type": "inline",
+    "fast_connect_action_name": "okex"
   }
 ]
 ```
