@@ -1,0 +1,38 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.field {
+  height: 2.25rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-pagination-nav-border-radius);
+  font-size: 1rem;
+  padding: 0px 0.625rem;
+}
+
+textarea.field {
+  padding: 0.625rem;
+  height: 193px;
+  resize: none;
+}
+
+.field:focus,
+.field:focus-visible,
+textarea.field:focus,
+textarea.field:focus-visible {
+  outline-offset: 0.5px !important;
+  outline: 2px solid var(--ifm-color-primary-lightest) !important;
+}
+
+.label {
+  display: inline;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.label span {
+  color: var(--ifm-color-danger);
+}
