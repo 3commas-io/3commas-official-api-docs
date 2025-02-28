@@ -7,7 +7,6 @@ sidebar_class_name: get
 import ApiParam from '@site/src/components/ApiParam';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import { Informer } from '@site/src/components/Informer/Informer';
 import * as StickyLayout from '@site/src/components/StickyLayout';
@@ -50,24 +49,21 @@ GET /ver1/deals/2295655961/data_for_adding_funds
 <StickyLayout.Main>
 
 ## Response Parameters
-<ApiParam name="orderbook_price" type="string" id="orderbook_price">
+<CollapsibleApiParam name="orderbook_price" type="string" id="orderbook_price">
    The current price from the exchange's order book for the pair.
-</ApiParam>
+</CollapsibleApiParam>
 
-<ApiParam name="price_per_one_unit_strategy_name" type="string" id="price_per_one_unit_strategy_name">
+<CollapsibleApiParam name="price_per_one_unit_strategy_name" type="string" id="price_per_one_unit_strategy_name">
    The name of the strategy used to determine the price per unit.
-</ApiParam>
+</CollapsibleApiParam>
 
-<ApiParam name="account_id" type="integer" id="account_id">
+<CollapsibleApiParam name="account_id" type="integer" id="account_id">
    ID of the exchange account entity where this DCA Bot's deal was created.
-</ApiParam>
+</CollapsibleApiParam>
 
-<ApiParam name="quote_currency" type="string" id="quote_currency">
+<CollapsibleApiParam name="quote_currency" type="string" id="quote_currency">
    The quote currency in the trading pair.
-</ApiParam>
-
-<CollapseAll>
-<CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
+</CollapsibleApiParam>
 
 <CollapsibleApiParam name="base_currency" type="string" id="base_currency">
    The base currency in the trading pair.
@@ -136,12 +132,12 @@ GET /ver1/deals/2295655961/data_for_adding_funds
 <CollapsibleApiParam name="leverage_type" type="string" id="paleverage_typeir">
   Type of leverage applied for this Deal.
    <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
-      * **cross** - uses all available funds in your account as collateral for your trades;
+       * **cross** - uses all available funds in your account as collateral for your trades;
       * **isolated** - the margin is limited to a specific position;
       * **not_specified** - no leverage type specified for deal.
     </CollapsibleNestedParams>
 </CollapsibleApiParam>
-</CollapseAll>
+   
 </StickyLayout.Main>
 <StickyLayout.Sticky>
 

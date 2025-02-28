@@ -68,10 +68,7 @@ GET /ver1/deals/1234567890/market_orders
   Indicates whether this trade can be canceled (`true`) or not (`false`).
 </ApiParam>
 
-<CollapseAll>
-<CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
-
-<CollapsibleApiParam name='status_string' type='string' id="status_string">
+<ApiParam name='status_string' type='string' id="status_string">
   3Commas status for this Trade.
   <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
       * **Active** - the trade is currently open, waiting to be filled;
@@ -79,8 +76,10 @@ GET /ver1/deals/1234567890/market_orders
       * **Finished** - the trade process is complete;
       * **Cancelled** - the trade was canceled before it could be fully executed;
      </CollapsibleNestedParams>
-</CollapsibleApiParam>
+</ApiParam>
 
+<CollapseAll>
+<CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
 <CollapsibleApiParam name='created_at' type='string' id="created_at">
      ISO 8601 datetime string of when this Trade entity was created.
 </CollapsibleApiParam>

@@ -1,17 +1,22 @@
 .root {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px 24px;
+  flex-direction: column;
+  align-items: start;
+  gap: 8px;
   margin-bottom: var(--ifm-heading-margin-bottom);
+
+  @media (min-width: 997px) {
+    flex-direction: row;
+  }
 }
 
 .container {
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
-  padding: 4px 8px 4px 4px;
-  gap: 12px;
+  padding: 8px;
+  min-width: 400px;
+  gap: 8px;
   border-radius: 8px;
   background: var(--ifm-code-background);
   font-style: normal;
@@ -36,15 +41,11 @@
 
 .permissions {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 12px 24px;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .url {
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--url-path-color);
   cursor: pointer;
   &:hover {
     text-decoration: underline;

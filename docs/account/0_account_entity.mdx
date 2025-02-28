@@ -26,6 +26,10 @@ import ApiParam from '@site/src/components/ApiParam';
   3Commas of exchange code entity.
 </ApiParam>
 
+<ApiParam name='api_key' type='string' id="api_key">
+  API key used for the account.
+</ApiParam>
+
 <ApiParam name='exchange_name' type='string' id="exchange_name">
   Name of this exchange account.
 </ApiParam>
@@ -39,6 +43,22 @@ import ApiParam from '@site/src/components/ApiParam';
 
 <CollapsibleApiParam name="market_icon" type="string" id="market_icon">
   Icon of the exchange.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='autobalance_enabled' type='boolean' id="autobalance_enabled">
+  Indicates whether auto balance mode is enabled for this account (`true`) or not(`false`).
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='auto_balance_period' type='integer' id="auto_balance_period">
+  The interval, in hours, at which automatic portfolio balancing occurs.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='auto_balance_portfolio_id' type='integer' id="auto_balance_portfolio_id">
+  ID of the portfolio for which automatic balancing has been initiated.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='auto_balance_error' type='string or null' id="auto_balance_error">
+  A description comes up to explain why autobalance failed.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='last_auto_balance' type='string or null' id="last_auto_balance">

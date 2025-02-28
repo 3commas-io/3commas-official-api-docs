@@ -11,7 +11,6 @@ import ApiParam from '@site/src/components/ApiParam';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
-import { Informer } from '@site/src/components/Informer/Informer';
 
 
 <Endpoint
@@ -27,10 +26,6 @@ import { Informer } from '@site/src/components/Informer/Informer';
 
 Returns the balance history for a specific account using its ID.
 
-<Informer variant="info">
-By replacing **account_id** with **summary**, you can use the **/v2/smart_trades/summary** endpoint to retrieve aggregated data for all accounts where **available_include_in_summary** is set to **true**.
-</Informer>
-
 <StickyLayout.Root>
 <StickyLayout.Main>
 
@@ -44,7 +39,7 @@ By replacing **account_id** with **summary**, you can use the **/v2/smart_trades
     Specifying the start date in ISO 8601 format for the required records.
 </ApiParam>
 
-<ApiParam name='date_to' type='integer' id="date_to">
+<ApiParam name='date_to' type='integer' id="date_to" required>
     Specifies the end date for the required records.
 </ApiParam>
 
@@ -66,7 +61,7 @@ GET /ver1/accounts/12345678/balance_chart_data?date_from=2024-09-18T18:58:55.469
 
 ## Response Parameters
 
-<ApiParam name='date' type='string' id="date">
+<ApiParam name='date_to' type='string' id="date_to">
     Timestamp (UNIX time) in seconds representing a specific date.
 </ApiParam>
 

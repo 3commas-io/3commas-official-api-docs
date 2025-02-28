@@ -11,7 +11,6 @@ import ApiParam from '@site/src/components/ApiParam';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
-import { Informer } from '@site/src/components/Informer/Informer';
 
 <Endpoint
   url="/ver1/accounts/:account_id"
@@ -26,9 +25,6 @@ import { Informer } from '@site/src/components/Informer/Informer';
 
 Shows information about a specific account using its ID.
 
-<Informer variant="info">
-By replacing **account_id** with **summary**, you can use the **/v2/smart_trades/summary** endpoint to retrieve aggregated data for all accounts where **available_include_in_summary** is set to **true**.
-</Informer>
 
 <StickyLayout.Root>
 <StickyLayout.Main>

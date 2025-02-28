@@ -65,8 +65,8 @@ export default function CollapsibleApiParam({
             viewBox="0 0 12 12"
             className={styles.collapseIcon}>
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M3.381.381a.875.875 0 0 1 1.238 0l5 5a.875.875 0 0 1 0 1.238l-5 5A.875.875 0 0 1 3.38 10.38L7.763 6 3.38 1.619a.875.875 0 0 1 0-1.238Z"
               fill="currentColor"
             />

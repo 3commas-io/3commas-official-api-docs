@@ -27,24 +27,14 @@
   --category-title-color-pprimary: #929DA8;
   --navigation-background-color: #F8F8F8;
   --navigation-border-color: #ECECEC;
-
-
-  --ifm-heading-color: #242424;
-  --ifm-h2-font-size: 1.25rem;
-
-  --url-path-color: #707070;
-  --separator-color: #ECECEC;
-  --pagination-button-color: #F8F8F8;
-
   --sidebar-divider-color: #ECECEC;
   --arrow-svg: url("data:image/svg+xml;utf8,<svg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M6.14142 8.10868C6.06332 8.18678 5.93668 8.18678 5.85858 8.10868L2.39142 4.64152C2.31332 4.56341 2.31332 4.43678 2.39142 4.35868L2.63358 4.11652C2.71168 4.03841 2.83832 4.03841 2.91642 4.11652L5.85858 7.05868C5.93668 7.13678 6.06332 7.13678 6.14142 7.05868L9.08358 4.11652C9.16168 4.03842 9.28832 4.03842 9.36642 4.11652L9.60858 4.35868C9.68668 4.43678 9.68668 4.56342 9.60858 4.64152L6.14142 8.10868Z' fill='%23707070'/></svg>");
   --breadcrumbs-arrow-svg: url("data:image/svg+xml;utf8,<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><mask id='mask0_146_10185' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='6' y='5' width='4' height='7'><path fill-rule='evenodd' clip-rule='evenodd' d='M6.36193 5.36225C6.10158 5.6226 6.10158 6.04471 6.36193 6.30506L8.22386 8.16699L6.36193 10.0289C6.10158 10.2893 6.10158 10.7114 6.36193 10.9717C6.62228 11.2321 7.04439 11.2321 7.30474 10.9717L9.63808 8.6384C9.89843 8.37805 9.89843 7.95594 9.63808 7.69559L7.30474 5.36225C7.04439 5.1019 6.62228 5.1019 6.36193 5.36225Z' fill='%2319191A'/></mask><g mask='url(%23mask0_146_10185)'><rect width='16' height='16' transform='matrix(1 0 0 -1 0 16)' fill='%23B8B8B8'/></g></svg>");
   --menu-link-primary-color: #242424;
   --sidebar-links-color: #707070;
-    --url-width: clamp(233px, 26vw, 400px);
   @media (min-width: 997px) {
     --ifm-global-spacing: 1.5rem;
-
+    --url-width: clamp(233px, 26vw, 400px);
   }
 }
 
@@ -57,6 +47,7 @@
   --ifm-color-primary-light: #29d5b0;
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
+  --category-title-color-pprimary: #929DA8;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --navigation-background-color: #1E1E1F;
   --navigation-border-color: transparent;
@@ -65,12 +56,8 @@
   --breadcrumbs-arrow-svg: url("data:image/svg+xml;utf8,<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><mask id='mask0_146_10185' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='6' y='5' width='4' height='7'><path fill-rule='evenodd' clip-rule='evenodd' d='M6.36193 5.36225C6.10158 5.6226 6.10158 6.04471 6.36193 6.30506L8.22386 8.16699L6.36193 10.0289C6.10158 10.2893 6.10158 10.7114 6.36193 10.9717C6.62228 11.2321 7.04439 11.2321 7.30474 10.9717L9.63808 8.6384C9.89843 8.37805 9.89843 7.95594 9.63808 7.69559L7.30474 5.36225C7.04439 5.1019 6.62228 5.1019 6.36193 5.36225Z' fill='%2319191A'/></mask><g mask='url(%23mask0_146_10185)'><rect width='16' height='16' transform='matrix(1 0 0 -1 0 16)' fill='%23B8B8B8'/></g></svg>");
   --menu-link-primary-color: #FFFFFF;
   --sidebar-links-color: #9FA2A8;
-
-  --ifm-heading-color: #fff;
-  --url-path-color: #9FA2A8;
-  --separator-color: #9FA2A8;
-  --pagination-button-color: #2C2E30;
 }
+
 
 /* CSS for endpoint and permission*/
 .main-container-endpoint {
@@ -148,7 +135,7 @@
   color: #0e1414;
   font-style: normal;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 14px;
 }
 
@@ -191,16 +178,17 @@
 h1 {
   font-size: 28px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   padding-left: 0px;
 }
 
 h2 {
+  font-size: 22px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   padding-left: 0px;
   margin: calc(var(--ifm-h2-vertical-rhythm-top) * var(--ifm-leading)) 0 calc(
-    var(--ifm-heading-vertical-rhythm-bottom) * var(--ifm-leading)
+          var(--ifm-heading-vertical-rhythm-bottom) * var(--ifm-leading)
   );
 }
 
@@ -212,7 +200,7 @@ h3 {
   font-size: 16px;
   font-style: normal;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   padding-left: 0;
 }
 
@@ -220,7 +208,7 @@ h3 {
   font-size: 16px;
   font-style: normal;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin-bottom: 30px;
 }
 
@@ -335,7 +323,7 @@ nav.menu {
   &::after {
     font-weight: bold;
     font-family: Graphik, Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 10px;
     padding-left: 8px;
     color: var(--accent);
   }
@@ -393,55 +381,10 @@ a {
   font-weight: 500;
 }
 
-.breadcrumbs {
-  margin: 0 2.5rem;
+.breadcrumbs__item--active .breadcrumbs__link {
+  color: var(--ifm-link-color);
 }
 
-.breadcrumbs__item a {
-  font-weight: 400;
-}
-
-.breadcrumbs__item .breadcrumbs__link {
-  padding: 0;
-}
-
-.breadcrumbs__item .breadcrumbs__link,
-.breadcrumbs__item--active .breadcrumbs__link,
-.breadcrumbs__item .breadcrumbs__link:hover,
-.breadcrumbs__item--active .breadcrumbs__link:hover {
-  color: #707070;
-  background-color: transparent;
-}
-
-.col {
-  padding: 0 2.5rem;
-  background: var(--ifm-background-color);
-}
-
-.breadcrumbs {
-    margin: 0 2.5rem;
-}
-
-.breadcrumbs__item a {
-    font-weight: 400;
-}
-
-.breadcrumbs__item .breadcrumbs__link {
-    padding: 0;
-}
-
-.breadcrumbs__item .breadcrumbs__link,
-.breadcrumbs__item--active .breadcrumbs__link,
-.breadcrumbs__item .breadcrumbs__link:hover,
-.breadcrumbs__item--active .breadcrumbs__link:hover {
-    color: #707070;
-    background-color: transparent;
-}
-
-.col {
-    padding: 0 2.5rem;
-    background: var(--ifm-background-color);
-}
 .navbar__link:hover, .navbar__link--active {
   color: var(--ifm-link-color);
 }

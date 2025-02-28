@@ -77,10 +77,12 @@ Details of the Leverage applied to this SmartTrade.
   Settings of the Position applied to this SmartTrade.
   <CollapsibleNestedParams>
     <ApiParam name="order_type" type="string" id="order_type" required>
-      The type of position trade for this SmartTrade: `market`, `limit`, or `conditional`.
+      The type of position trade for this SmartTrade. 
+      
+      Possible values: `market`, `limit`, or `conditional`
     </ApiParam>
     <ApiParam name="type" type="string" id="type" required>
-      The order side to enter a position: `buy` or `sell`.
+      The order side to enter a position: `buy`, `sell`.
     </ApiParam>
     <ApiParam name="units" type="object" id="units">
       Details of units applied to this SmartTrade.
@@ -216,7 +218,7 @@ Details of Stop Loss settings applied to this SmartTrade.
       Detailed information about each Take Profit step.
         <CollapsibleNestedParams>
           <ApiParam name='price' type="object" id="price">
-           Details of the price settings for the conditional Stop Loss order.
+           tbd
           </ApiParam>
             <CollapsibleNestedParams>
               <ApiParam name='type' type="string" id="type">

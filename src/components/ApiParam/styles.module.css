@@ -3,8 +3,6 @@
   flex-direction: column;
   margin-bottom: var(--api-param-margin-bottom);
   scroll-margin-top: var(--ifm-navbar-height);
-  font-size: 0.8125rem;
-  line-height: 1.5;
 
   p {
     margin: 0;

@@ -1,10 +1,7 @@
 .container {
   font-weight: bold;
   font-family: Graphik, Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 10px;
-  text-transform: uppercase;
-  line-height: 1.2;
-  font-weight: 600;
+  font-size: 13px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,12 +9,9 @@
 }
 
 .medium {
-  height: 26px;
+  height: 28px;
   border-radius: 6px;
-  padding: 6px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 0 8px;
 }
 
 .filled {
@@ -42,7 +36,7 @@
 }
 
 .post {
-  --accent: #1E72D2;
+  --accent: #2196f3;
 }
 
 .delete {
