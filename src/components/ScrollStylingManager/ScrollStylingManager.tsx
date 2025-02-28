@@ -67,7 +67,6 @@ const ScrollStylingManager = () => {
 
         window.addEventListener('scroll', handleScroll);
         handleScroll();
-        console.log(window.location.pathname)
 
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
