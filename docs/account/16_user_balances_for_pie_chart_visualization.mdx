@@ -11,6 +11,7 @@ import ApiParam from '@site/src/components/ApiParam';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import { Informer } from '@site/src/components/Informer/Informer';
 
 <Endpoint
   url="ver1/accounts/:account_id/pie_chart_data"
@@ -24,6 +25,10 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 />
 
 Returns information about currency balances of a specific account using its ID, for visualization in a pie chart.
+
+<Informer variant="info">
+By replacing **account_id** with **summary**, you can use the **ver1/accounts/summary/pie_chart_data** endpoint to retrieve aggregated data for all accounts where **available_include_in_summary** is set to **true**.
+</Informer>
 
 <StickyLayout.Root>
 <StickyLayout.Main>
@@ -69,10 +74,6 @@ Full name of the cryptocurrency.
 <CollapseAll>
 <CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
 
-<CollapsibleApiParam name='y' type='string' id="y">
-TBD
-</CollapsibleApiParam>
-
 <CollapsibleApiParam name='percentage' type='string' id="percentage">
 The exact percentage share of this cryptocurrency in the account's portfolio.
 </CollapsibleApiParam>
@@ -90,7 +91,7 @@ The equivalent value of this cryptocurrency in USD.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='primary_display_currency' type='object' id="primary_display_currency">
-   TBD
+   The user’s preferred currency for displaying all data, which can be changed at any time in their settings.
     <CollapsibleNestedParams>
       <ApiParam name='currency' type="string" id="currency">
            The currency code used to display values for this cryptocurrency.
@@ -111,51 +112,141 @@ The equivalent value of this cryptocurrency in USD.
 <ResponseTabs.TabItem value="201" label="201 Created" default>
 ```json
 [
-  {
-    "code": "BTC",
-    "coinmarketcapid": "1",
-    "name": "Bitcoin (BTC)",
-    "y": 65.1,
-    "percentage": 65.1,
-    "amount": 0.00031872,
-    "btc_value": "0.00031872",
-    "usd_value": "20.31",
-    "primary_display_currency": {
-      "currency": "USD",
-      "amount": "20.3146900992"
+    {
+        "code": "BTC",
+        "coinmarketcapid": "1",
+        "name": "Bitcoin (BTC)",
+        "y": 68.34,
+        "percentage": 68.34,
+        "amount": 0.00031296,
+        "btc_value": "0.00031296",
+        "usd_value": "24.68",
+        "primary_display_currency": {
+            "currency": "USD",
+            "amount": "24.6764171712"
+        },
+        "account_id": 32402783
     },
-    "account_id": 32402783
-  },
-  {
-    "code": "USDT",
-    "coinmarketcapid": "825",
-    "name": "Tether USDt (USDT)",
-    "y": 0.91,
-    "percentage": 0.91,
-    "amount": 0.28478606,
-    "btc_value": "0.00000447",
-    "usd_value": "0.28",
-    "primary_display_currency": {
-      "currency": "USD",
-      "amount": "0.28478606"
+    {
+        "code": "DOGE",
+        "coinmarketcapid": "74",
+        "name": "Dogecoin (DOGE)",
+        "y": 13.72,
+        "percentage": 13.72,
+        "amount": 27.076,
+        "btc_value": "0.00006282",
+        "usd_value": "4.95",
+        "primary_display_currency": {
+            "currency": "USD",
+            "amount": "4.9529707230304"
+        },
+        "account_id": 32402783
     },
-    "account_id": 32402783
-  },
-  {
-    "code": "ETH",
-    "coinmarketcapid": "1027",
-    "name": "Ethereum (ETH)",
-    "y": 0.79,
-    "percentage": 0.79,
-    "amount": 9.52e-05,
-    "btc_value": "0.00000388",
-    "usd_value": "0.25",
-    "primary_display_currency": {
-      "currency": "USD",
-      "amount": "0.247266593784"
+    {
+        "code": "USDT",
+        "coinmarketcapid": "825",
+        "name": "Tether USDt (USDT)",
+        "y": 13.01,
+        "percentage": 13.01,
+        "amount": 4.68331292,
+        "btc_value": "0.00005958",
+        "usd_value": "4.68",
+        "primary_display_currency": {
+            "currency": "USD",
+            "amount": "4.68331292"
+        },
+        "account_id": 32402783
     },
-    "account_id": 32402783
-  }
+    {
+        "code": "ROSE",
+        "coinmarketcapid": "7653",
+        "name": "Oasis (ROSE)",
+        "y": 3.61,
+        "percentage": 3.61,
+        "amount": 35.9544,
+        "btc_value": "0.00001653",
+        "usd_value": "1.3",
+        "primary_display_currency": {
+            "currency": "USD",
+            "amount": "1.30348787424204590518329923482879851047059592256"
+        },
+        "account_id": 32402783
+    },
+    {
+        "code": "ETH",
+        "coinmarketcapid": "1027",
+        "name": "Ethereum (ETH)",
+        "y": 0.99,
+        "percentage": 0.99,
+        "amount": 0.0001712,
+        "btc_value": "0.00000451",
+        "usd_value": "0.36",
+        "primary_display_currency": {
+            "currency": "USD",
+            "amount": "0.35596488714768"
+        },
+        "account_id": 32402783
+    },
+    {
+        "code": "1INCH",
+        "coinmarketcapid": "8104",
+        "name": "1inch Network (1INCH)",
+        "y": 0.2,
+        "percentage": 0.2,
+        "amount": 0.3232,
+        "btc_value": "0.00000093",
+        "usd_value": "0.07",
+        "primary_display_currency": {
+            "currency": "USD",
+            "amount": "0.0734679732435801152432338079388852393619419392"
+        },
+        "account_id": 32402783
+    },
+    {
+        "code": "FIL",
+        "coinmarketcapid": "2280",
+        "name": "Filecoin (FIL)",
+        "y": 0.07,
+        "percentage": 0.07,
+        "amount": 0.008,
+        "btc_value": "0.00000031",
+        "usd_value": "0.02",
+        "primary_display_currency": {
+            "currency": "USD",
+            "amount": "0.02409170165918348574713892533540734409704256"
+        },
+        "account_id": 32402783
+    },
+    {
+        "code": "ADA",
+        "coinmarketcapid": "2010",
+        "name": "Cardano (ADA)",
+        "y": 0.06,
+        "percentage": 0.06,
+        "amount": 0.04,
+        "btc_value": "0.0000003",
+        "usd_value": "0.02",
+        "primary_display_currency": {
+            "currency": "USD",
+            "amount": "0.023370686508"
+        },
+        "account_id": 32402783
+    },
+    {
+        "code": "RENDER",
+        "coinmarketcapid": "5690",
+        "name": "Render (RENDER)",
+        "y": 0.0,
+        "percentage": 0.0,
+        "amount": 0.00018,
+        "btc_value": "0.00000001",
+        "usd_value": "0.0",
+        "primary_display_currency": {
+            "currency": "USD",
+            "amount": "0.000620248964684924601826115820073382780446428"
+        },
+        "account_id": 32402783
+    }
 ]
 ```
 </ResponseTabs.TabItem>
