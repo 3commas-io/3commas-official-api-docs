@@ -54,24 +54,20 @@ Adds a new exchange account.
 </ApiParam>
 
 <ApiParam name='address' type='string' id="address">
-   Address of wallet. This parameter is required when `type` is set to `ethereumwallet`.
+   Address of wallet.
 </ApiParam>
 
 <ApiParam name='customer_id' type='string' id="customer_id">
     Unique customer ID provided by the Bitstamp exchange.
-    
-    This parameter is required when `type` is set to `Bitstamp`.
 </ApiParam>
 
 <ApiParam name='passphrase' type='string' id="passphrase">
    Secret phrase from this exchange account.
-
-   This parameter is required when `type` is set to `Coinbase`.
 </ApiParam>
 
 <ApiParam name='types_to_create' type='array[string]' id="types_to_create" required>
    Array of related account types to be created.
-   For example: [`binance_margin`]. 
+   For example: [`binance_margin`].
 
    Use the [Available market subtypes](/docs/account/1_available_market_sybtypes.mdx) endpoint to get the value from the `type` parameter for this parameter.
 </ApiParam>

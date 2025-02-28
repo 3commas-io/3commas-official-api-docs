@@ -12,6 +12,7 @@ import Separator from '@site/src/components/Separator';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import { Informer } from '@site/src/components/Informer/Informer';
 
 <Endpoint
   url="ver1/accounts/:account_id/account_table_data"
@@ -25,6 +26,10 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 />
 
 Returns information about currency balances of a specific account using its ID, for visualization in a table chart.
+
+<Informer variant="info">
+By replacing **account_id** with **summary**, you can use the **ver1/accounts/summary/account_table_data** endpoint to retrieve aggregated data for all accounts where **available_include_in_summary** is set to **true**.
+</Informer>
 
 <Separator />
 
@@ -79,7 +84,7 @@ Returns information about currency balances of a specific account using its ID, 
   The available position (amount) of this cryptocurrency that is not on orders or borrowed
 </CollapsibleApiParam>
 <CollapsibleApiParam name='position_type' type='string' id='position_type'>
-  TBD
+  Specifies the type of position held for this currency: `long`, `short` or `null` (0).
 </CollapsibleApiParam>
 <CollapsibleApiParam name='borrowed' type='string' id='borrowed'>
   Amount of this cryptocurrency that is borrowed.
