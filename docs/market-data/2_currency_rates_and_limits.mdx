@@ -41,12 +41,18 @@ The method returns the current trading rules and ticker information on exchange.
          
          Use endpoints [All Market Pairs](/market-data/1_all_market_pairs.mdx) to get value for parameter `pair` in 3Commas format.
       </ApiParam>
+
+      <ApiParam name='limit_type' type='string' id="limit_type">
+         Defines the type of trading limits returned based on the selected trading tool: `bot` or `smart_trade`:
+         * If set to `bot`, the response includes trading limits specific to DCA, Signal and Grid Bots;
+         * If set to `smart_trade`, the response includes trading limits for SmartTrade.
+      </ApiParam>
    </StickyLayout.Main>
 
    <StickyLayout.Sticky>
 ## Example Request
 ```json
-GET /ver1/accounts/currency_rates_with_leverage_data?market_code=binance&pair=BTC_ETH
+GET /ver1/accounts/currency_rates?market_code=binance&pair=BTC_ETH
 ```
 </StickyLayout.Sticky>
 </StickyLayout.Root>
