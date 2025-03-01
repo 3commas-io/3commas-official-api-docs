@@ -19,7 +19,7 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
           Trading pair in 3Commas format.
       </ApiParam>
     <ApiParam name='instant' type='boolean' id="instant">
-     Indicates whether a Simple Buy or Simple Sale of an asset has been executed (`true`) or not (`false`).
+     Indicates whether a Simple Buy or Simple Sale of an asset has been executed `true` or not `false`.
     </ApiParam>
     <ApiParam name="account" type="object">
       Details about user account.
@@ -62,7 +62,7 @@ The common status and information about this status for this SmartTrade entity.
   Details of the Leverage applied to this SmartTrade.
   <CollapsibleNestedParams>
     <ApiParam name='enabled' type="boolean">
-     Indicates whether leverage is enabled (`true`) or disabled (`false`) for this SmartTrade.
+     Indicates whether leverage is enabled `true` or disabled `false` for this SmartTrade.
     </ApiParam>
     <ApiParam name='type' type="string">
         Shows the leverage type that was set when creating for this SmartTrade.
@@ -71,7 +71,7 @@ The common status and information about this status for this SmartTrade entity.
         Indicates the leverage value that was set when creating for this SmartTrade.
     </ApiParam>
     <ApiParam name='type_editable' type="boolean">
-        Indicates whether the user can modify the `leverage[type]` setting when editing a SmartTrade (`true`) or not (`false`).
+        Indicates whether the user can modify the `leverage[type]` setting when editing a SmartTrade `true` or not `false`.
     </ApiParam>
   </CollapsibleNestedParams>
 </CollapsibleApiParam>
@@ -94,7 +94,7 @@ The common status and information about this status for this SmartTrade entity.
               Amount of units for position trade.
           </ApiParam>
              <ApiParam name='editable' type='boolean' id="editable">
-               Indicates whether the user can modify the value of unit when editing SmartTrade (`true`) or not (`false`).
+               Indicates whether the user can modify the value of unit when editing SmartTrade `true` or not `false`.
              </ApiParam>
             </CollapsibleNestedParams>
     <ApiParam name='price' type="object">
@@ -270,7 +270,7 @@ Details of the Stop Loss applied to this SmartTrade.
     The price type for the stop loss trade(s) that was set when creating the SmartTrade. Can be either `value` or `percentage`
     </ApiParam>
     <ApiParam name='breakeven' type='boolean' id="breakeven">
-    Indicates whether the stop loss has been set at the breakeven point (`true`) or not (`false`).
+    Indicates whether the stop loss has been set at the breakeven point `true` or not `false`.
     </ApiParam>
     <ApiParam name='order_type' type='string' id="order_type">
     The type of order for this trade's stop loss: `market` or `limit`.
@@ -419,10 +419,10 @@ Details of the Stop Loss applied to this SmartTrade.
           Available actions for a single Reduce Funds step.
             <CollapsibleNestedParams>
                 <ApiParam name='cancelable'type='boolean' id="cancelable">
-                 Indicates whether the reduce funds trade can be canceled (`true`) or not (`false`).
+                 Indicates whether the reduce funds trade can be canceled `true` or not `false`.
                 </ApiParam>
                 <ApiParam name='panic_sell_available'type='boolean' id="panic_sell_available">
-                 Indicates whether a drawdown transaction can be closed at market (`true`) or not (`false`).
+                 Indicates whether a drawdown transaction can be closed at market `true` or not `false`.
                 </ApiParam>
             </CollapsibleNestedParams>
           </ApiParam>
@@ -523,7 +523,7 @@ Available actions applicable to the entire SmartTrade entity.
       </ApiParam>
     </CollapsibleNestedParams>
     <ApiParam name='base_order_finished' type="boolean" id="base_order_finished">
-        Indicates whether the position trade has been executed (`true`) or not (`false`).
+        Indicates whether the position trade has been executed `true` or not `false`.
     </ApiParam>
     <ApiParam name='missing_funds_to_close' type="boolean" id="missing_funds_to_close">
       Shows how much funds are missing to close all SmartTrades.
@@ -545,30 +545,30 @@ Available actions applicable to the entire SmartTrade entity.
      The average closing price of the asset without accounting for any fees.
     </ApiParam>
     <ApiParam name='panic_sell_available' type="boolean" id="panic_sell_available">
-     Indicates whether the SmartTrade can be closed at market (`true`) or not (`false`) based on its current status
+     Indicates whether the SmartTrade can be closed at market `true` or not `false` based on its current status
     </ApiParam>
     <ApiParam name='add_funds_available' type="boolean" id="add_funds_available">
-     Indicates whether adding funds is available (`true`) or not (`false`) for this SmartTrade based on its current status
+     Indicates whether adding funds is available `true` or not `false` for this SmartTrade based on its current status
     </ApiParam>
     <ApiParam name='reduce_funds_available' type="boolean" id="reduce_funds_available">
-     Indicates whether reducing funds is available (`true`) or not (`false`) for this SmartTrade based on its current status
+     Indicates whether reducing funds is available `true` or not `false` for this SmartTrade based on its current status
     </ApiParam>
      <ApiParam name='force_start_available' type="boolean" id="force_start_available">
-        Indicates whether forcing a market entry is available (`true`) or not (`false`) for the SmartTrade, based on its current status.
+        Indicates whether forcing a market entry is available `true` or not `false` for the SmartTrade, based on its current status.
 
         This option is available for SmartTrades when `position[status][basic_type]` is `to_process`, `order_placed`, `trailing_activated`.
     </ApiParam>
      <ApiParam name='force_process_available' type="boolean" id="force_process_available">
-        Indicates whether the SmartTrade can be force processed (`true`) or not (`false`).
+        Indicates whether the SmartTrade can be force processed `true` or not `false`.
     </ApiParam>
     <ApiParam name='cancel_available' type="boolean" id="cancel_available">
-        Indicates whether the SmartTrade can be canceled (`true`) or not (`false`).
+        Indicates whether the SmartTrade can be canceled `true` or not `false`.
     </ApiParam>
     <ApiParam name='finished' type="boolean" id="finished">
-        Indicates whether the SmartTrade has been completed or finished (`true`) or not (`false`).
+        Indicates whether the SmartTrade has been completed or finished `true` or not `false`.
     </ApiParam>
     <ApiParam name='base_position_step_finished' type="boolean" id="base_position_step_finished">
-        Shows whether entry into the position has been completed (`true`) or not (`false`).
+        Shows whether entry into the position has been completed `true` or not `false`.
     </ApiParam>
     <ApiParam name='entered_amount' type="number" id="entered_amount">
         The total amount of funds used to enter the position for this SmartTrade, including all additional funds trades, specified in base.
@@ -628,7 +628,7 @@ Detailed information about the margin for this SmartTrade.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='is_position_not_filled' type='boolean' id="is_position_not_filled">
-    Indicates whether a position has been successfully entered for this SmartTrade (`true`) or not (`false`).
+    Indicates whether a position has been successfully entered for this SmartTrade `true` or not `false`.
 </CollapsibleApiParam>
 </CollapseAll>
 </StickyLayout.Main>
