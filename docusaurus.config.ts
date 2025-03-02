@@ -60,7 +60,7 @@ const config: Config = {
           position: 'right',
         },
       ],
-      hideOnScroll: true,
+      hideOnScroll: false,
     },
     footer: {
       style: 'dark',
@@ -71,5 +71,4 @@ const config: Config = {
     },
   } satisfies Preset.ThemeConfig,
 }
-
 export default config
