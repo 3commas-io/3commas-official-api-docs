@@ -9,6 +9,11 @@
   margin-bottom: 1.75rem;
 }
 
+[data-theme="dark"] .steps {
+  --step-color: #0E7C75;
+  --step-background-color: #C2ECEA;
+}
+
 .step {
   display: flex;
   align-items: flex-start;
@@ -71,6 +76,10 @@
 }
 
 .content main {
-  color: var(--ifm-toc-link-color);
+  color: var(--text-content-color);
   padding-bottom: 1.25rem;
+}
+
+.content main * {
+  margin-bottom: 6px;
 }
