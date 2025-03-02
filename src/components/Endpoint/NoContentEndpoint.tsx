@@ -16,7 +16,7 @@ export function NoContentEndpoint ({endpoint, method}: NoContentEndpointProps) {
         <Method variant="text" align="right">{method}</Method>
         <span>{endpoint}</span>
         <div className={styles.buttonGroup}>
-          <CopyButton code={`${method} ${endpoint}`}/>
+          <CopyButton code={endpoint}/>
         </div>
       </div>
     </div>

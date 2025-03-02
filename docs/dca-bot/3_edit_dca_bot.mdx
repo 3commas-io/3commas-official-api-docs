@@ -242,14 +242,15 @@ Edits an existing DCA Bot using its ID.
 </CollapseAll>
 
 
-:::note[Additional Information]
+## Additional Information
 
-**leverage_custom_value**
+<p className='additional__info__heading'>**leverage_custom_value**</p>
 
    Use endpoints [Currency rates and limits with leverage data](/market-data/3_currency_rates_and_limits_with_leverage_data.mdx) to check available value for this parameter.
 
---------
-**take_profit_steps** 
+<Separator type='additionalInformation' />
+
+<p className='additional__info__heading'>**take_profit_steps**</p> 
 
    When using multiple steps for Take Profit, each step should be represented as an object with the following properties:
 
@@ -258,11 +259,10 @@ Edits an existing DCA Bot using its ID.
   
   Keep in mind, you can create a maximum of 4 targets, allocating 100% of your position volume is allocated across them
 
-  <Separator label='EXAMPLE' labelBg={ADDITIONAL_INFORMATION_THEME} />
+<p className='additional__info__example'>For example:</p>
 
 <CodeBlock
   language="json"
-  showLineNumbers
 >
 {`{
     "take_profit_steps": [
@@ -279,7 +279,9 @@ Edits an existing DCA Bot using its ID.
 `}
 </CodeBlock>
 
-**strategy list, close_strategy_list, safety_strategy_list**
+<Separator type='additionalInformation' />
+
+<p className='additional__info__heading'>**strategy list, close_strategy_list, safety_strategy_list**</p>
 
 The data strategies are used to populate the `strategy_list` and `close_strategy_list` parameters. You can retrieve the full list of strategies available for this DCA Bot through the [Available strategy list for bot](/dca-bot/1_available_strategy_list.mdx) endpoint.
 
@@ -287,13 +289,13 @@ Below are several examples demonstrating how to fill these parameters with strat
 
 <Tabs>
   <TabItem value="Manual signals" label="Manual signals" default>
-   ```json
+```json
 [
-   {
-      "strategy": "manual"
-   }
+  {
+    "strategy": "manual"
+  }
 ]
-   ```
+```
 or 
 
    ```json
@@ -306,47 +308,46 @@ or
 
 ```json
 [
-   {
-      "strategy": "nonstop"
-   },
-   {
-      "options": {}
-   }
+  {
+    "strategy": "nonstop"
+  },
+  {
+    "options": {}
+  }
 ]
 ```
   </TabItem>
 
   <TabItem value="TradingView" label="TradingView">
 
-   ```json
-   [
-   {
-      "options": {
-         "time": "5m",
-         "type": "buy_or_strong_buy"
-      },
-      "strategy": "trading_view"
-   }
+```json
+[
+  {
+    "options": {
+      "time": "5m",
+      "type": "buy_or_strong_buy"
+    },
+    "strategy": "trading_view"
+  }
 ]
-   ```
+```
   </TabItem>
     <TabItem value="RSI" label="RSI">
-   ```json
-      [
-   {
-      "options": {
-         "time": "5m",
-         "points": 30,
-         "trigger_condition": "less",
-         "time_period": 7
-      },
-      "strategy": "rsi"
-   }
+```json
+[
+  {
+    "options": {
+      "time": "5m",
+      "points": 30,
+      "trigger_condition": "less",
+      "time_period": 7
+    },
+    "strategy": "rsi"
+  }
 ] 
-   ```
+```
    </TabItem>
 </Tabs>
-:::
 
 </StickyLayout.Main>
 

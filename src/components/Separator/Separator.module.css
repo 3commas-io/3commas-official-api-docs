@@ -11,12 +11,17 @@
 }
 
 [data-theme="dark"] .separator {
-  --separator-color: #9FA2A8;
+  --separator-color: #2C2E30;
+}
+
+[data-theme="light"] .separator.example {
+  --separator-color: #E6EFF9;
 }
 
 .separator.example {
   margin: 26px 0;
 }
+
 
 .separator::after {
   content: attr(data-label);
