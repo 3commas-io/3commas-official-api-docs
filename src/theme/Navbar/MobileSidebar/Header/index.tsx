@@ -34,10 +34,9 @@ export default function NavbarMobileSidebarHeader(): JSX.Element {
   return (
     <div className="navbar-sidebar__brand">
         <CloseButton />
-        <span style={{paddingLeft: '130px'}}>
-            <NavbarLogo />
-        </span>
-
+            <span className='span'>
+                <NavbarLogo />
+            </span>
         <div style={{display: 'flex'}}>
             <NavbarNavLink {...navLinkProps}/>
             <NavbarColorModeToggle/>
