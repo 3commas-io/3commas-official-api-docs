@@ -33,10 +33,12 @@
   --menu-link-primary-color: #242424;
   --sidebar-links-color: #707070;
   --menu-link-color-active: #13A8A1;
+  --home-page-icon-background-color: #F8F8F8;
   @media (min-width: 997px) {
     --ifm-global-spacing: 1.5rem;
     --url-width: clamp(233px, 26vw, 400px);
   }
+
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -57,6 +59,7 @@
   --breadcrumbs-arrow-svg: url("data:image/svg+xml;utf8,<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><mask id='mask0_146_10185' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='6' y='5' width='4' height='7'><path fill-rule='evenodd' clip-rule='evenodd' d='M6.36193 5.36225C6.10158 5.6226 6.10158 6.04471 6.36193 6.30506L8.22386 8.16699L6.36193 10.0289C6.10158 10.2893 6.10158 10.7114 6.36193 10.9717C6.62228 11.2321 7.04439 11.2321 7.30474 10.9717L9.63808 8.6384C9.89843 8.37805 9.89843 7.95594 9.63808 7.69559L7.30474 5.36225C7.04439 5.1019 6.62228 5.1019 6.36193 5.36225Z' fill='%2319191A'/></mask><g mask='url(%23mask0_146_10185)'><rect width='16' height='16' transform='matrix(1 0 0 -1 0 16)' fill='%23B8B8B8'/></g></svg>");
   --menu-link-primary-color: #FFFFFF;
   --sidebar-links-color: #9FA2A8;
+  --home-page-icon-background-color: #2C2E30;
 }
 
 

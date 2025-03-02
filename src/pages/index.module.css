@@ -35,7 +35,7 @@
   gap: 24px;
 }
 .homePageTitle{
-  color: #242424;
+  color: var(--menu-link-primary-color);
   /*font-family: "Open Sans", sans-serif;*/
   font-size: 36px;
   font-style: normal;
@@ -45,7 +45,7 @@
   margin: 0;
 }
 .homePageDescription{
-  color: #707070;
+  color: var(--sidebar-links-color);
   text-align: center;
   /*font-family: "Open Sans", sans-serif;*/
   font-size: 16px;
@@ -56,4 +56,14 @@
   max-width: 524px;
   width: 100%;
   margin: 0;
+}
+.navigationContainer {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 350px));
+  grid-template-rows: repeat(3, auto);
+  gap: 32px 80px;
+  max-width: 780px;
+  width: 100%;
+  margin-top: 60px;
+  justify-content: center;
 }
