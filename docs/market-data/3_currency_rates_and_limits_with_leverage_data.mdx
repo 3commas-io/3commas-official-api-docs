@@ -4,31 +4,24 @@ title: Currency rates and limits with leverage data
 sidebar_class_name: get
 ---
 
-import Endpoint, {
-  Permission,
-  NoContentEndpoint,
-} from "@site/src/components/Endpoint";
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import ApiParam from "@site/src/components/ApiParam";
-import Separator from "@site/src/components/Separator";
-import {
-  CollapseAll,
-  CollapseAllButton,
-  CollapseAllHeading,
-} from "@site/src/components/CollapseAll";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 <Endpoint
-  url="/ver1/accounts/currency_rates_with_leverage_data"
-  method="GET"
-  permissions={
-    <>
-      <Permission title="Permission" description="NONE" />
-      <Permission title="Security" description="NONE" />
-    </>
-  }
+    url="/ver1/accounts/currency_rates_with_leverage_data"
+    method="GET"
+    permissions={
+        <>
+            <Permission title="Permission" description="NONE" />
+            <Permission title="Security" description="NONE" />
+        </>
+    }
 />
 
 The method returns the current trading rules and ticket information with data about leverages on the futures exchange.
@@ -60,7 +53,6 @@ The method returns the current trading rules and ticket information with data ab
         <NoContentEndpoint method="GET" endpoint="/ver1/accounts/currency_rates_with_leverage_data?market_code=binance_futures_eea&pair=BNFCR_1INCHUSDT" />
 
     </StickyLayout.Sticky>
-
 </StickyLayout.Root>
 
 <StickyLayout.Root>
@@ -252,5 +244,4 @@ The method returns the current trading rules and ticket information with data ab
         </ResponseTabs.Root>
 
     </StickyLayout.Sticky>
-
 </StickyLayout.Root>

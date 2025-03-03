@@ -4,21 +4,14 @@ title: Get list of deals
 sidebar_class_name: get
 ---
 
-import Endpoint, {
-  Permission,
-  NoContentEndpoint,
-} from "@site/src/components/Endpoint";
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import ApiParam, { ParameterRange } from "@site/src/components/ApiParam";
-import Separator from "@site/src/components/Separator";
-import {
-  CollapseAll,
-  CollapseAllButton,
-  CollapseAllHeading,
-} from "@site/src/components/CollapseAll";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 <Endpoint
   url="/ver1/deals"
@@ -46,8 +39,7 @@ Returns the list of geals. Use the query parameters to page through results.
 <ApiParam name='account_id' type='integer' id="account_id">
   Filters entities linked to the specified 3Commas exchange account.
 
-Use endpoint [User connected exchanges and wallets list](/account/5_list_of_connected_exchanges_and_wallets.mdx) to get value for this parameter.
-
+  Use endpoint [User connected exchanges and wallets list](/account/5_list_of_connected_exchanges_and_wallets.mdx) to get value for this parameter.
 </ApiParam>
 <ApiParam name='limit' type='integer' id="limit">
   Limits the number of records returned.
@@ -61,31 +53,32 @@ Use endpoint [User connected exchanges and wallets list](/account/5_list_of_conn
 <CollapseAll>
 <CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
 
-<CollapsibleApiParam name="from" type="string" id="from">
+<CollapsibleApiParam name='from' type='string' id="from">
   Returns entities created after a specific time.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="to" type="string" id="to">
+<CollapsibleApiParam name='to' type='string' id="to">
   Returns entities created before a specific time.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="scope" type="string" id="scope">
+<CollapsibleApiParam name='scope' type='string' id="scope">
   Filters deals by their status.
+  
   <ParameterRange defaultVal="null" />
-  <CollapsibleNestedParams
-    openName="Hide allowed values"
-    collapsedName="Show allowed values"
-  >
-    * **active** - active deals * **finished** - finished deals * **completed**
-    - successfully completed * **cancelled** - cancelled deals * **failed** -
-    failed deals * **null** - all deals
-  </CollapsibleNestedParams>
+  <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **active** - active deals
+      * **finished** - finished deals
+      * **completed** - successfully completed
+      * **cancelled** - cancelled deals
+      * **failed** - failed deals
+      * **null** - all deals
+     </CollapsibleNestedParams>
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='order' type='string' id="order">
   Specifies the field used to order the results.
 
-<ParameterRange defaultVal="created_at" />
+  <ParameterRange defaultVal="created_at" />
 
   <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
       * **created_at**
@@ -103,11 +96,11 @@ Use endpoint [User connected exchanges and wallets list](/account/5_list_of_conn
    <ParameterRange defaultVal="DESC" />
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="base" type="string" id="base">
-  Filters by base currency.
+<CollapsibleApiParam name='base' type='string' id="base">
+ Filters by base currency.
 </CollapsibleApiParam>
-
-<CollapsibleApiParam name="quote" type="string" id="quote">
+   
+<CollapsibleApiParam name='quote' type='string' id="quote">
   Filters by quote currency.
 </CollapsibleApiParam>
 
@@ -131,13 +124,11 @@ Use endpoint [User connected exchanges and wallets list](/account/5_list_of_conn
 ## Response Parameters
 
 If successful, the response includes a copy of [Deals](/dca-bot/deals/0_deal_entity.mdx) entity.
-
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>
 
 ## Example response
-
 <ResponseTabs.Root>
 <ResponseTabs.TabItem value="200" label="200 OK" default>
 
@@ -265,7 +256,6 @@ If successful, the response includes a copy of [Deals](/dca-bot/deals/0_deal_ent
   }
 ]
 ```
-
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 

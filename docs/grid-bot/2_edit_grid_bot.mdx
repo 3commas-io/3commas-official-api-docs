@@ -3,19 +3,14 @@ id: edit-grid-bot
 title: Edit Grid Bot
 sidebar_class_name: patch
 ---
-
-import Endpoint, { Permission } from "@site/src/components/Endpoint";
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import ApiParam from "@site/src/components/ApiParam";
-import Separator from "@site/src/components/Separator";
-import {
-  CollapseAll,
-  CollapseAllButton,
-  CollapseAllHeading,
-} from "@site/src/components/CollapseAll";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout'
+import * as ResponseTabs from '@site/src/components/ResponseTabs'
 
 <Endpoint
   url="/ver1/grid_bots/:id/manual"
@@ -28,41 +23,38 @@ import * as ResponseTabs from "@site/src/components/ResponseTabs";
   }
 />
 
-Updates an existing Grid Bot using its ID.
+  Updates an existing Grid Bot using its ID.
 
 <Separator />
 
 <StickyLayout.Root>
    <StickyLayout.Main>
 
-## Path Parameter
-
-<ApiParam name="id" type="integer" id="id" required>
-  Unique 3Commas ID for this Grid Bot entity.
+## Path Parameter 
+<ApiParam name='id' type='integer' id="id" required>
+   Unique 3Commas ID for this Grid Bot entity.
 </ApiParam>
 
-## Body Parameters
+## Body Parameters 
 
-<ApiParam name="name" type="integer" id="name" required>
+<ApiParam name='name' type='integer' id="name" required>
   Grid Bot name specified by the user.
 </ApiParam>
 
-<ApiParam name="upper_price" type="number" id="upper_price" required>
-  The maximum price of the trading range, above which the bot will not place
-  sell orders.
+<ApiParam name='upper_price' type='number' id="upper_price" required>
+   The maximum price of the trading range, above which the bot will not place sell orders.
 </ApiParam>
 
-<ApiParam name="lower_price" type="number" id="lower_price" required>
-  The minimum price of the trading range, below which the bot will not place buy
-  orders.
+<ApiParam name='lower_price' type='number' id="lower_price" required>
+   The minimum price of the trading range, below which the bot will not place buy orders.
 </ApiParam>
 
 <ApiParam name='grids_quantity' type="number" id="grids_quantity" required>
   The number of grid levels between the upper and lower price boundaries.
 
-This value is limited based on [the exchange’s rules for rates, limits, and leverage](/market-data/3_currency_rates_and_limits_with_leverage_data.mdx).
+  This value is limited based on [the exchange’s rules for rates, limits, and leverage](/market-data/3_currency_rates_and_limits_with_leverage_data.mdx).
+</ApiParam> 
 
-</ApiParam>
 
 <CollapseAll>
 <CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
@@ -71,161 +63,88 @@ This value is limited based on [the exchange’s rules for rates, limits, and le
   Type of Grid Bot configuration: `geometric` or `arithmetic`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="quantity_per_grid"
-  type="number"
-  id="quantity_per_grid"
-  required
->
-  Quantity of the asset allocated per Grid Bot level order.
+<CollapsibleApiParam name="quantity_per_grid" type="number" id="quantity_per_grid" required>
+   Quantity of the asset allocated per Grid Bot level order.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="upper_stop_loss_enabled"
-  type="boolean"
-  id="upper_stop_loss_enabled"
->
-  Indicates if upper stop-loss settings are enabled `true` or not `false`. Use
-  `true` to activate the settings group.
+<CollapsibleApiParam name="upper_stop_loss_enabled" type="boolean" id="upper_stop_loss_enabled">
+  Indicates if upper stop-loss settings are enabled `true` or not `false`. Use `true` to activate the settings group.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="upper_stop_loss_action"
-  type="string"
-  id="upper_stop_loss_action"
->
-  The action to perform if the asset price reaches or exceeds the set upper
-  stop-loss level.
-  <CollapsibleNestedParams
-    openName="Hide allowed values"
-    collapsedName="Show allowed values"
-  >
-    * **stop_bot**; * **stop_bot_and_buy**; * **stop_bot_and_close_position**;
-  </CollapsibleNestedParams>
+<CollapsibleApiParam name="upper_stop_loss_action" type="string" id="upper_stop_loss_action">
+  The action to perform if the asset price reaches or exceeds the set upper stop-loss level.
+  <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **stop_bot**;
+      * **stop_bot_and_buy**;
+      * **stop_bot_and_close_position**;
+     </CollapsibleNestedParams>
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="upper_stop_loss_price"
-  type="number"
-  id="upper_stop_loss_price"
->
+<CollapsibleApiParam name="upper_stop_loss_price" type="number" id="upper_stop_loss_price">
   The price level that triggers the upper stop-loss action.
+</CollapsibleApiParam> 
+   
+<CollapsibleApiParam name="lower_stop_loss_enabled" type="boolean" id="lower_stop_loss_enabled">
+   Indicates if lower stop-loss settings are enabled `true` or not `false`. Use `true` to activate the settings group.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="lower_stop_loss_enabled"
-  type="boolean"
-  id="lower_stop_loss_enabled"
->
-  Indicates if lower stop-loss settings are enabled `true` or not `false`. Use
-  `true` to activate the settings group.
+<CollapsibleApiParam name="lower_stop_loss_action" type="string" id="lower_stop_loss_action">
+   The action to perform if the asset price reaches or falls below the set lower stop-loss level.
+   <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **stop_bot**;
+      * **stop_bot_and_sell**;
+      * **stop_bot_and_close_position**;
+     </CollapsibleNestedParams>
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="lower_stop_loss_action"
-  type="string"
-  id="lower_stop_loss_action"
->
-  The action to perform if the asset price reaches or falls below the set lower
-  stop-loss level.
-  <CollapsibleNestedParams
-    openName="Hide allowed values"
-    collapsedName="Show allowed values"
-  >
-    * **stop_bot**; * **stop_bot_and_sell**; * **stop_bot_and_close_position**;
-  </CollapsibleNestedParams>
-</CollapsibleApiParam>
-
-<CollapsibleApiParam
-  name="lower_stop_loss_price"
-  type="number"
-  id="lower_stop_loss_price"
->
-  The price level that triggers the lower stop-loss action.
+<CollapsibleApiParam name="lower_stop_loss_price" type="number" id="lower_stop_loss_price">
+   The price level that triggers the lower stop-loss action.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="leverage_type" type="string" id="leverage_type">
-  Type of leverage applied for this Grid Bot.
-  <CollapsibleNestedParams
-    openName="Hide allowed values"
-    collapsedName="Show allowed values"
-  >
-    * **cross** - uses all available funds in your account as collateral for
-    your trades; * **isolated** - the margin is limited to a specific position;
-  </CollapsibleNestedParams>
+Type of leverage applied for this Grid Bot.
+    <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **cross** - uses all available funds in your account as collateral for your trades;
+      * **isolated** - the margin is limited to a specific position;
+      </CollapsibleNestedParams>
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="leverage_custom_value"
-  type="number"
-  id="leverage_custom_value"
->
-  Custom leverage value set for the Grid Bot.
+<CollapsibleApiParam name="leverage_custom_value" type="number" id="leverage_custom_value">
+   Custom leverage value set for the Grid Bot.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="max_active_sell_lines"
-  type="integer"
-  id="max_active_sell_lines"
->
-  Maximum number of active sell orders that can be placed simultaneously.
+<CollapsibleApiParam name="max_active_sell_lines" type="integer" id="max_active_sell_lines">
+   Maximum number of active sell orders that can be placed simultaneously.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="trailing_up_enabled"
-  type="boolean"
-  id="trailing_up_enabled"
->
-  Indicates if the trailing-up feature is enabled `true` or not `false`.
+<CollapsibleApiParam name="trailing_up_enabled" type="boolean" id="trailing_up_enabled">
+   Indicates if the trailing-up feature is enabled `true` or not `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="trailing_down_enabled"
-  type="boolean"
-  id="trailing_down_enabled"
->
-  Indicates if the trailing-down feature is enabled `true` or not `false`.
+<CollapsibleApiParam name="trailing_down_enabled" type="boolean" id="trailing_down_enabled">
+   Indicates if the trailing-down feature is enabled `true` or not `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="expansion_down_enabled"
-  type="boolean"
-  id="expansion_down_enabled"
->
-  Indicates if the grid expansion downwards is enabled `true` or not `false`.
+<CollapsibleApiParam name="expansion_down_enabled" type="boolean" id="expansion_down_enabled">
+   Indicates if the grid expansion downwards is enabled `true` or not `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="expansion_down_stop_price"
-  type="number"
-  id="expansion_down_stop_price"
-  required
->
-  The price at which the downward grid expansion should stop. This parameter is
-  required when `expansion_down_enabled` is set to `true`.
+<CollapsibleApiParam name="expansion_down_stop_price" type="number" id="expansion_down_stop_price" required>
+   The price at which the downward grid expansion should stop.
+   This parameter is required when `expansion_down_enabled` is set to `true`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="expansion_up_enabled"
-  type="boolean"
-  id="expansion_up_stop_price"
->
-  Indicates if the grid expansion upwards is enabled `true` or not `false`.
-</CollapsibleApiParam>
+<CollapsibleApiParam name="expansion_up_enabled" type="boolean" id="expansion_up_stop_price">
+   Indicates if the grid expansion upwards is enabled `true` or not `false`.
+</CollapsibleApiParam>  
 
-<CollapsibleApiParam
-  name="expansion_up_stop_price"
-  type="boolean"
-  id="expansion_up_stop_price"
-  required
->
-  The price at which the upward grid expansion should stop. This parameter is
-  required when `expansion_up_enabled` is set to `true`.
+<CollapsibleApiParam name="expansion_up_stop_price" type="boolean" id="expansion_up_stop_price" required>
+   The price at which the upward grid expansion should stop.
+   This parameter is required when `expansion_up_enabled` is set to `true`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="ignore_warnings" type="boolean" id="ignore_warnings">
-  Ignores warnings and forces the creation of the Grid Bot `true` or not
-  `false`.
+   Ignores warnings and forces the creation of the Grid Bot `true` or not `false`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="note" type="string" id="note">
@@ -235,6 +154,7 @@ This value is limited based on [the exchange’s rules for rates, limits, and le
 </CollapsibleApiParam>
 </CollapseAll>
 </StickyLayout.Main>
+
 
 <StickyLayout.Sticky>
 
@@ -267,17 +187,15 @@ This value is limited based on [the exchange’s rules for rates, limits, and le
   "mode": "long"
 }
 ```
-
 </StickyLayout.Sticky>
 </StickyLayout.Root>
 
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-## Response Parameters
+## Response Parameters 
 
 If successful, the response includes a copy of the updated [Grid Bot](/grid-bot/0_grid_bot_entity.mdx) entity.
-
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>
@@ -336,250 +254,49 @@ If successful, the response includes a copy of the updated [Grid Bot](/grid-bot/
   "expansion_down_enabled": "true",
   "expansion_down_stop_price": "54000.0",
   "grid_lines": [
-    {
-      "id": 253750913,
-      "price": "64974.4",
-      "side": null,
-      "order_placed": false
-    },
-    {
-      "id": 253750927,
-      "price": "70000.0",
-      "side": "sell",
-      "order_placed": false
-    },
-    {
-      "id": 253750926,
-      "price": "69641.0",
-      "side": "sell",
-      "order_placed": false
-    },
-    {
-      "id": 253750925,
-      "price": "69282.1",
-      "side": "sell",
-      "order_placed": false
-    },
-    {
-      "id": 253750924,
-      "price": "68923.1",
-      "side": "sell",
-      "order_placed": false
-    },
-    {
-      "id": 253750923,
-      "price": "68564.1",
-      "side": "sell",
-      "order_placed": false
-    },
-    {
-      "id": 253750922,
-      "price": "68205.1",
-      "side": "sell",
-      "order_placed": false
-    },
-    {
-      "id": 253750921,
-      "price": "67846.2",
-      "side": "sell",
-      "order_placed": false
-    },
-    {
-      "id": 253750920,
-      "price": "67487.2",
-      "side": "sell",
-      "order_placed": false
-    },
-    {
-      "id": 253750919,
-      "price": "67128.2",
-      "side": "sell",
-      "order_placed": false
-    },
-    {
-      "id": 253750918,
-      "price": "66769.2",
-      "side": "sell",
-      "order_placed": false
-    },
-    {
-      "id": 253750917,
-      "price": "66410.3",
-      "side": "sell",
-      "order_placed": false
-    },
-    {
-      "id": 253750916,
-      "price": "66051.3",
-      "side": "sell",
-      "order_placed": false
-    },
-    {
-      "id": 253750915,
-      "price": "65692.3",
-      "side": "sell",
-      "order_placed": false
-    },
-    {
-      "id": 253750914,
-      "price": "65333.3",
-      "side": "sell",
-      "order_placed": false
-    },
-    {
-      "id": 253750888,
-      "price": "56000.0",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750889,
-      "price": "56359.0",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750890,
-      "price": "56717.9",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750891,
-      "price": "57076.9",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750892,
-      "price": "57435.9",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750893,
-      "price": "57794.9",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750894,
-      "price": "58153.8",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750895,
-      "price": "58512.8",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750896,
-      "price": "58871.8",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750897,
-      "price": "59230.8",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750898,
-      "price": "59589.7",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750899,
-      "price": "59948.7",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750900,
-      "price": "60307.7",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750901,
-      "price": "60666.7",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750902,
-      "price": "61025.6",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750903,
-      "price": "61384.6",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750904,
-      "price": "61743.6",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750905,
-      "price": "62102.6",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750906,
-      "price": "62461.5",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750907,
-      "price": "62820.5",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750908,
-      "price": "63179.5",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750909,
-      "price": "63538.5",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750910,
-      "price": "63897.4",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750911,
-      "price": "64256.4",
-      "side": "buy",
-      "order_placed": false
-    },
-    {
-      "id": 253750912,
-      "price": "64615.4",
-      "side": "buy",
-      "order_placed": false
-    }
+    {"id": 253750913, "price": "64974.4", "side": null, "order_placed": false},
+    {"id": 253750927, "price": "70000.0", "side": "sell", "order_placed": false},
+    {"id": 253750926, "price": "69641.0", "side": "sell", "order_placed": false},
+    {"id": 253750925, "price": "69282.1", "side": "sell", "order_placed": false},
+    {"id": 253750924, "price": "68923.1", "side": "sell", "order_placed": false},
+    {"id": 253750923, "price": "68564.1", "side": "sell", "order_placed": false},
+    {"id": 253750922, "price": "68205.1", "side": "sell", "order_placed": false},
+    {"id": 253750921, "price": "67846.2", "side": "sell", "order_placed": false},
+    {"id": 253750920, "price": "67487.2", "side": "sell", "order_placed": false},
+    {"id": 253750919, "price": "67128.2", "side": "sell", "order_placed": false},
+    {"id": 253750918, "price": "66769.2", "side": "sell", "order_placed": false},
+    {"id": 253750917, "price": "66410.3", "side": "sell", "order_placed": false},
+    {"id": 253750916, "price": "66051.3", "side": "sell", "order_placed": false},
+    {"id": 253750915, "price": "65692.3", "side": "sell", "order_placed": false},
+    {"id": 253750914, "price": "65333.3", "side": "sell", "order_placed": false},
+    {"id": 253750888, "price": "56000.0", "side": "buy", "order_placed": false},
+    {"id": 253750889, "price": "56359.0", "side": "buy", "order_placed": false},
+    {"id": 253750890, "price": "56717.9", "side": "buy", "order_placed": false},
+    {"id": 253750891, "price": "57076.9", "side": "buy", "order_placed": false},
+    {"id": 253750892, "price": "57435.9", "side": "buy", "order_placed": false},
+    {"id": 253750893, "price": "57794.9", "side": "buy", "order_placed": false},
+    {"id": 253750894, "price": "58153.8", "side": "buy", "order_placed": false},
+    {"id": 253750895, "price": "58512.8", "side": "buy", "order_placed": false},
+    {"id": 253750896, "price": "58871.8", "side": "buy", "order_placed": false},
+    {"id": 253750897, "price": "59230.8", "side": "buy", "order_placed": false},
+    {"id": 253750898, "price": "59589.7", "side": "buy", "order_placed": false},
+    {"id": 253750899, "price": "59948.7", "side": "buy", "order_placed": false},
+    {"id": 253750900, "price": "60307.7", "side": "buy", "order_placed": false},
+    {"id": 253750901, "price": "60666.7", "side": "buy", "order_placed": false},
+    {"id": 253750902, "price": "61025.6", "side": "buy", "order_placed": false},
+    {"id": 253750903, "price": "61384.6", "side": "buy", "order_placed": false},
+    {"id": 253750904, "price": "61743.6", "side": "buy", "order_placed": false},
+    {"id": 253750905, "price": "62102.6", "side": "buy", "order_placed": false},
+    {"id": 253750906, "price": "62461.5", "side": "buy", "order_placed": false},
+    {"id": 253750907, "price": "62820.5", "side": "buy", "order_placed": false},
+    {"id": 253750908, "price": "63179.5", "side": "buy", "order_placed": false},
+    {"id": 253750909, "price": "63538.5", "side": "buy", "order_placed": false},
+    {"id": 253750910, "price": "63897.4", "side": "buy", "order_placed": false},
+    {"id": 253750911, "price": "64256.4", "side": "buy", "order_placed": false},
+    {"id": 253750912, "price": "64615.4", "side": "buy", "order_placed": false}
   ]
 }
 ```
-
   </ResponseTabs.TabItem>
   </ResponseTabs.Root>
 </StickyLayout.Sticky>

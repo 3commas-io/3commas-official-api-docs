@@ -4,17 +4,14 @@ title: Delete an exchange account
 sidebar_class_name: post
 ---
 
-import Endpoint, {
-  Permission,
-  NoContentEndpoint,
-} from "@site/src/components/Endpoint";
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import ApiParam from "@site/src/components/ApiParam";
-import Separator from "@site/src/components/Separator";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
-import { Informer } from "@site/src/components/Informer/Informer";
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import { Informer } from '@site/src/components/Informer/Informer';
 
 <Endpoint
   url="/ver1/accounts/:account_id/remove"
@@ -30,8 +27,7 @@ import { Informer } from "@site/src/components/Informer/Informer";
 Deletes a user's exchange account from their personal account in the 3Commas system.
 
 <Informer variant="warning">
-  Keep in mind that an exchange account cannot be deleted if it has any active
-  entities (DCA Bot, Grid Bot, SmartTrade, Deals, Trades, or Signal Bot).
+Keep in mind that an exchange account cannot be deleted if it has any active entities (DCA Bot, Grid Bot, SmartTrade, Deals, Trades, or Signal Bot).
 </Informer>
 
 <Separator />
@@ -39,16 +35,16 @@ Deletes a user's exchange account from their personal account in the 3Commas sys
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-## Path Parameter
+## Path Parameter 
 
-<ApiParam name="account_id" type="integer" id="account_id" required>
-  Unique 3Commas ID of this exchange account entity.
+<ApiParam name='account_id' type='integer' id="account_id" required>
+    Unique 3Commas ID of this exchange account entity.
 </ApiParam>
 
-</StickyLayout.Main>
+</StickyLayout.Main>   
 
 <StickyLayout.Sticky>
-## Example request
+## Example request 
 
 <NoContentEndpoint method="POST" endpoint="/ver1/accounts/12345678/remove" />
 
@@ -59,15 +55,13 @@ Deletes a user's exchange account from their personal account in the 3Commas sys
 <StickyLayout.Main>
 
 ## Response Parameters
-
 No parameters.
 
-</StickyLayout.Main>
+</StickyLayout.Main>   
 
 <StickyLayout.Sticky>
 
 ## Example Responses
-
 <ResponseTabs.Root>
 <ResponseTabs.TabItem value="201" label="201 Created" default>
 ```json

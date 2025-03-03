@@ -4,15 +4,12 @@ title: Close one step in deal at market price
 sidebar_class_name: post
 ---
 
-import ApiParam from "@site/src/components/ApiParam";
-import Endpoint, {
-  Permission,
-  NoContentEndpoint,
-} from "@site/src/components/Endpoint";
-import Separator from "@site/src/components/Separator";
-import { Informer } from "@site/src/components/Informer/Informer";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import ApiParam from '@site/src/components/ApiParam';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import Separator from '@site/src/components/Separator';
+import { Informer } from '@site/src/components/Informer/Informer';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 <Endpoint
   url="/ver1/deals/:deal_id/panic_sell_step"
@@ -28,8 +25,7 @@ import * as ResponseTabs from "@site/src/components/ResponseTabs";
 Closes a specific Trade within the Deal by market using its ID.
 
 <Informer variant="warning">
-  After this action, the final status **Panic_sold** will be automatically set
-  by 3Commas.
+    After this action, the final status **Panic_sold** will be automatically set by 3Commas.
 </Informer>
 
 <Separator />
@@ -38,10 +34,10 @@ Closes a specific Trade within the Deal by market using its ID.
 <StickyLayout.Main>
 
 ## Path Parameter
-
-<ApiParam name="deal_id" type="integer" id="deal_id" required>
+<ApiParam name='deal_id' type='integer' id="deal_id" required>
   Unique 3Commas ID Deal entity.
 </ApiParam>
+
 
 ## Body Parameter
 
@@ -53,10 +49,7 @@ Closes a specific Trade within the Deal by market using its ID.
 
 ### Example request
 
-<NoContentEndpoint
-  method="POST"
-  endpoint="/ver1/deals/12345678/panic_sell_step?trade_id=1123324654"
-/>
+<NoContentEndpoint method="POST" endpoint="/ver1/deals/12345678/panic_sell_step?trade_id=1123324654" />
 
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -206,7 +199,12 @@ If successful, the response includes an updated copy of the [Deals](/dca-bot/dea
     "buyPrice": "3094.827902386058981233243967828",
     "currentPrice": "3105.0",
     "inverted": false,
-    "stopLosses": [["2974.555584", false]],
+    "stopLosses": [
+      [
+        "2974.555584",
+        false
+      ]
+    ],
     "LP": null,
     "buySteps": [],
     "marks": [
@@ -303,7 +301,6 @@ If successful, the response includes an updated copy of the [Deals](/dca-bot/dea
   ]
 }
 ```
-
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>

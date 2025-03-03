@@ -4,21 +4,14 @@ title: Get the list of active entities
 sidebar_class_name: get
 ---
 
-import Endpoint, {
-  Permission,
-  NoContentEndpoint,
-} from "@site/src/components/Endpoint";
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import ApiParam from "@site/src/components/ApiParam";
-import Separator from "@site/src/components/Separator";
-import {
-  CollapseAll,
-  CollapseAllButton,
-  CollapseAllHeading,
-} from "@site/src/components/CollapseAll";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 <Endpoint
   url="/ver1/accounts/:account_id/active_trading_entities"
@@ -40,8 +33,8 @@ Returns the number of active trading entities (bots, deals, and SmartTrades) ass
 
 ## Path Parameter
 
-<ApiParam name="account_id" type="integer" id="account_id" required>
-  Unique 3Commas ID of this exchange account entity.
+<ApiParam name='account_id' type='integer' id="account_id" required>
+    Unique 3Commas ID of this exchange account entity.
 </ApiParam>
 
 </StickyLayout.Main>
@@ -49,10 +42,8 @@ Returns the number of active trading entities (bots, deals, and SmartTrades) ass
 <StickyLayout.Sticky>
 ## Example Request
 
-<NoContentEndpoint
-  method="GET"
-  endpoint="/ver1/accounts/12345678/active_trading_entities"
-/>
+
+<NoContentEndpoint method="GET" endpoint="/ver1/accounts/12345678/active_trading_entities" />
 
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -83,7 +74,7 @@ Returns the number of active trading entities (bots, deals, and SmartTrades) ass
             </ApiParam>
         </CollapsibleNestedParams>
      </ApiParam>
-</StickyLayout.Main>
+</StickyLayout.Main>      
 
 <StickyLayout.Sticky>
 ## Example Responses
@@ -102,7 +93,6 @@ Returns the number of active trading entities (bots, deals, and SmartTrades) ass
   }
 }
 ```
-
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="404" label="404 Not Found" default>
 ```json

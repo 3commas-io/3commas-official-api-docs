@@ -4,16 +4,13 @@ title: Get SmartTrade
 sidebar_class_name: get
 ---
 
-import Endpoint, {
-  Permission,
-  NoContentEndpoint,
-} from "@site/src/components/Endpoint";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import ApiParam from "@site/src/components/ApiParam";
-import Separator from "@site/src/components/Separator";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 <Endpoint
   url="/v2/smart_trades/:id"
@@ -50,8 +47,7 @@ Shows information about a specific SmartTrade using its ID.
 <StickyLayout.Main>
 
 ## Response Parameters
-
-If successful, the response includes a copy of the [SmartTrade](/smart-trade/0_smart_trade_entity.mdx) entity.
+ If successful, the response includes a copy of the [SmartTrade](/smart-trade/0_smart_trade_entity.mdx) entity.
 
 </StickyLayout.Main>
 <StickyLayout.Sticky>
@@ -166,7 +162,6 @@ If successful, the response includes a copy of the [SmartTrade](/smart-trade/0_s
   "is_position_not_filled": false
 }
 ```
-
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="400" label="400 Bad Request">
 ```json

@@ -4,22 +4,15 @@ title: Get account info
 sidebar_class_name: get
 ---
 
-import Endpoint, {
-  Permission,
-  NoContentEndpoint,
-} from "@site/src/components/Endpoint";
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import ApiParam from "@site/src/components/ApiParam";
-import Separator from "@site/src/components/Separator";
-import {
-  CollapseAll,
-  CollapseAllButton,
-  CollapseAllHeading,
-} from "@site/src/components/CollapseAll";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
-import { Informer } from "@site/src/components/Informer/Informer";
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import { Informer } from '@site/src/components/Informer/Informer';
 
 <Endpoint
   url="/ver1/accounts/:account_id"
@@ -35,12 +28,11 @@ import { Informer } from "@site/src/components/Informer/Informer";
 Shows information about a specific account using its ID.
 
 <Informer variant="info">
-  By replacing **account_id** with **summary**, you can use the
-  **/ver1/accounts/summary** endpoint to retrieve aggregated data for all
-  accounts where **available_include_in_summary** is set to **true**.
+By replacing **account_id** with **summary**, you can use the **/ver1/accounts/summary** endpoint to retrieve aggregated data for all accounts where **available_include_in_summary** is set to **true**.
 </Informer>
 
 <Separator />
+
 
 <StickyLayout.Root>
 <StickyLayout.Main>
@@ -63,8 +55,7 @@ Shows information about a specific account using its ID.
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-## Response Parameters
-
+## Response Parameters 
 If successful, the response includes a copy of [Account](/account/0_account_entity.mdx) entity.
 
 </StickyLayout.Main>
@@ -108,7 +99,9 @@ If successful, the response includes a copy of [Account](/account/0_account_enti
   "market_icon": "https://3commas.io/img/exchanges/bybit.png",
   "deposit_enabled": false,
   "include_in_summary": true,
-  "supported_market_types": ["spot"],
+  "supported_market_types": [
+    "spot"
+  ],
   "primary_display_currency_profit_percentage": {
     "currency": "USD",
     "amount": "-0.16"
@@ -158,7 +151,6 @@ If successful, the response includes a copy of [Account](/account/0_account_enti
   "api_keys_state": "ok"
 }
 ```
-
   </ResponseTabs.TabItem>
   </ResponseTabs.Root>
    </StickyLayout.Sticky>

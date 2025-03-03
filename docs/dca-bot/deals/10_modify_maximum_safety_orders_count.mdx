@@ -4,16 +4,13 @@ title: Modify maximum safety orders count
 sidebar_class_name: post
 ---
 
-import Endpoint, {
-  Permission,
-  NoContentEndpoint,
-} from "@site/src/components/Endpoint";
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import ApiParam from "@site/src/components/ApiParam";
-import Separator from "@site/src/components/Separator";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 <Endpoint
   url="/ver1/deals/:deal_id/update_max_safety_orders"
@@ -34,13 +31,11 @@ Updates a value for parameter `max_safety_orders` for a specific deal of DCA Bot
 <StickyLayout.Main>
 
 ## Path Parameter
-
-<ApiParam name="deal_id" type="integer" id="deal_id" required>
+<ApiParam name='deal_id' type='integer' id="deal_id" required>
   Unique 3Commas ID Deal entity.
 </ApiParam>
 
 ## Body Parameter
-
 <ApiParam name='max_safety_orders' type='integer' id="max_safety_orders" required>
   New maximum safety orders value.
 </ApiParam>
@@ -49,10 +44,7 @@ Updates a value for parameter `max_safety_orders` for a specific deal of DCA Bot
 <StickyLayout.Sticky>
 ## Example Request
 
-<NoContentEndpoint
-  method="POST"
-  endpoint="/ver1/deals/:deal_id/update_max_safety_orders?max_safety_orders=6"
-/>
+<NoContentEndpoint method="POST" endpoint="/ver1/deals/:deal_id/update_max_safety_orders?max_safety_orders=6" />
 
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -69,7 +61,6 @@ If successful, the response includes an updated copy of [Deals](/dca-bot/deals/0
 <StickyLayout.Sticky>
 
 ## Example Responses
-
 <ResponseTabs.Root>
 <ResponseTabs.TabItem value="201" label="201 Created" default>
 
@@ -203,7 +194,12 @@ If successful, the response includes an updated copy of [Deals](/dca-bot/deals/0
     "buyPrice": "3094.827902386058981233243967828",
     "currentPrice": "3090.93",
     "inverted": false,
-    "stopLosses": [["2974.555584", false]],
+    "stopLosses": [
+      [
+        "2974.555584",
+        false
+      ]
+    ],
     "LP": null,
     "buySteps": [],
     "marks": [
@@ -300,7 +296,6 @@ If successful, the response includes an updated copy of [Deals](/dca-bot/deals/0
   ]
 }
 ```
-
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="404" label="404 Not Found">
 
@@ -310,7 +305,6 @@ If successful, the response includes an updated copy of [Deals](/dca-bot/deals/0
   "error_description": "Not Found"
 }
 ```
-
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>

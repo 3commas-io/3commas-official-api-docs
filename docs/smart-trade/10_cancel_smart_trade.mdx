@@ -4,16 +4,13 @@ title: Cancel SmartTrade
 sidebar_class_name: delete
 ---
 
-import Endpoint, {
-  Permission,
-  NoContentEndpoint,
-} from "@site/src/components/Endpoint";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import ApiParam from "@site/src/components/ApiParam";
-import Separator from "@site/src/components/Separator";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 <Endpoint
   url="/v2/smart_trades/:id"
@@ -43,7 +40,6 @@ Cancels an existing SmartTrade in place using its ID.
         <NoContentEndpoint method="DELETE" endpoint="/v2/smart_trades/12345678" />
 
     </StickyLayout.Sticky>
-
 </StickyLayout.Root>
 
 <StickyLayout.Root>
@@ -194,7 +190,6 @@ Cancels an existing SmartTrade in place using its ID.
   "is_position_not_filled": false
 }
 ```
-
 </ResponseTabs.TabItem>
         <ResponseTabs.TabItem value="400" label="400 Bad Request">
                 ```json

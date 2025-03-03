@@ -4,21 +4,14 @@ title: Get trades of deal
 sidebar_class_name: get
 ---
 
-import ApiParam from "@site/src/components/ApiParam";
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import {
-  CollapseAll,
-  CollapseAllButton,
-  CollapseAllHeading,
-} from "@site/src/components/CollapseAll";
-import Separator from "@site/src/components/Separator";
-import Endpoint, {
-  Permission,
-  NoContentEndpoint,
-} from "@site/src/components/Endpoint";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import ApiParam from '@site/src/components/ApiParam';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import Separator from '@site/src/components/Separator';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 <Endpoint
   url="/ver1/deals/:deal_id/market_orders"
@@ -48,10 +41,7 @@ Returns all type of trades for a specific deal.
 
 ## Example Request
 
-<NoContentEndpoint
-  method="GET"
-  endpoint="/ver1/deals/1234567890/market_orders"
-/>
+<NoContentEndpoint method="GET" endpoint="/ver1/deals/1234567890/market_orders" />
 
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -60,38 +50,34 @@ Returns all type of trades for a specific deal.
 <StickyLayout.Main>
 
 ## Response Parameters
-
-<ApiParam name="order_id" type="integer" id="order_id">
+<ApiParam name='order_id' type='integer' id="order_id">
   Unique 3Commas Trade entity ID.
 </ApiParam>
-<ApiParam name="order_type" type="string" id="order_type">
+<ApiParam name='order_type' type='string' id="order_type">
   The side of the order to be created by this trade: `Buy` or `Sell`.
 </ApiParam>
-<ApiParam name="deal_order_type" type="string" id="deal_order_type">
+<ApiParam name='deal_order_type' type='string' id="deal_order_type">
   The type of the order to be created by this trade.
-  <CollapsibleNestedParams
-    openName="Hide allowed values"
-    collapsedName="Show allowed values"
-  >
-    * **Base**; * **Take profit**; * **Stop Loss**; * **Safety**; * **Manual
-    Safety**;
-  </CollapsibleNestedParams>
+  <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **Base**;
+      * **Take profit**;
+      * **Stop Loss**;
+      * **Safety**;
+      * **Manual Safety**;
+     </CollapsibleNestedParams>
 </ApiParam>
-<ApiParam name="cancellable" type="boolean" id="cancellable">
+<ApiParam name='cancellable' type='boolean' id="cancellable">
   Indicates whether this trade can be canceled `true` or not `false`.
 </ApiParam>
 
-<ApiParam name="status_string" type="string" id="status_string">
+<ApiParam name='status_string' type='string' id="status_string">
   3Commas status for this Trade.
-  <CollapsibleNestedParams
-    openName="Hide allowed values"
-    collapsedName="Show allowed values"
-  >
-    * **Active** - the trade is currently open, waiting to be filled; *
-    **Filled** - the trade has been fully executed; * **Finished** - the trade
-    process is complete; * **Cancelled** - the trade was canceled before it
-    could be fully executed;
-  </CollapsibleNestedParams>
+  <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **Active** - the trade is currently open, waiting to be filled;
+      * **Filled** - the trade has been fully executed;
+      * **Finished** - the trade process is complete;
+      * **Cancelled** - the trade was canceled before it could be fully executed;
+     </CollapsibleNestedParams>
 </ApiParam>
 
 <CollapseAll>
@@ -257,7 +243,6 @@ Returns all type of trades for a specific deal.
   }
 ]
 ```
-
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>

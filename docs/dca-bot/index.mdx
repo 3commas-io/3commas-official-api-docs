@@ -4,8 +4,8 @@ sidebar_position: 4
 sidebar_class_name: hidden
 ---
 
-import Endpoint from "@site/src/components/Endpoint";
-import * as StickyLayout from "@site/src/components/StickyLayout";
+import Endpoint from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
 
 # DCA Bot
 
@@ -16,17 +16,17 @@ The **DCA Bot** allows users to automate trading on the exchange by following a 
 
 DCA Bot entity contains a set of parameters and conditions that manage deals.
 3Commas provides methods to create and manage DCA Bot entities and their associated deals.
+ 
+Each **DCA Bot** entity holds information, including: 
 
-Each **DCA Bot** entity holds information, including:
+* Exchange account and trading pairs;
+* Strategy configuration and active deals;
+* Take Profit and Stop Loss settings;
+* Safety Orders configuration for risk management;
+* Trading cooldowns and limits.
 
-- Exchange account and trading pairs;
-- Strategy configuration and active deals;
-- Take Profit and Stop Loss settings;
-- Safety Orders configuration for risk management;
-- Trading cooldowns and limits.
 
 The process starts with configuring a **DCA Bot**, where all trading conditions, such as base and safety orders, take profit, and stop loss, are set. The bot automatically creates and manages deals based on the configured strategy.
-
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>

@@ -3,14 +3,17 @@ id: overview
 title: Overview
 ---
 
-import CodeBlock from "@theme/CodeBlock";
-import Endpoint, { Permission } from "@site/src/components/Endpoint";
+import CodeBlock from '@theme/CodeBlock'
+import Endpoint, { Permission } from '@site/src/components/Endpoint'
 
 ## Base URL
 
 The base URL for the 3Commas API is consistent across all endpoints.
 
-<Endpoint url="https://api.3commas.io/public/api" />
+<Endpoint
+  url="https://api.3commas.io/public/api"
+/>
+
 
 ## Request Guidelines
 
@@ -20,28 +23,29 @@ Parameters must be sent in the request body.
 
 **GET Requests:**
 
-Parameters must be sent as a query string.
+   Parameters must be sent as a query string.
 
 **POST, PUT, DELETE Requests:**
 
-Parameters can be sent:
-_ As a query string;
-_ In the request body with content type `application/x-www-form-urlencoded` or `application/json`; \* Mixed between the query string and request body.
+   Parameters can be sent:
+     * As a query string;
+     * In the request body with content type `application/x-www-form-urlencoded` or `application/json`;
+     * Mixed between the query string and request body.
 
 **Parameter Order:**
 
-Parameters can be sent in any order.
+   Parameters can be sent in any order.
 
 **Parameter Conflict:**
 
-If a parameter is sent in both the query string and the request body, the value from the query string will be used.
+   If a parameter is sent in both the query string and the request body, the value from the query string will be used.
 
-## Official Channel
+##  Official Channel
 
-**Official Announcements:**
+   **Official Announcements:**
 
-Changes, downtime, etc., will be reported in this [Telegram channel](https://t.me/commas_API).
+   Changes, downtime, etc., will be reported in this [Telegram channel](https://t.me/commas_API).
 
-**Community Discussion:**
+   **Community Discussion:**
 
-Join our [Telegram group](https://t.me/xcommas_api) to discuss API-related questions or issues.
+   Join our [Telegram group](https://t.me/xcommas_api) to discuss API-related questions or issues.

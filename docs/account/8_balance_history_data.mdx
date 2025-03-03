@@ -4,22 +4,16 @@ title: Balance history data
 sidebar_class_name: get
 ---
 
-import Endpoint, {
-  Permission,
-  NoContentEndpoint,
-} from "@site/src/components/Endpoint";
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import ApiParam from "@site/src/components/ApiParam";
-import Separator from "@site/src/components/Separator";
-import {
-  CollapseAll,
-  CollapseAllButton,
-  CollapseAllHeading,
-} from "@site/src/components/CollapseAll";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
-import { Informer } from "@site/src/components/Informer/Informer";
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import { Informer } from '@site/src/components/Informer/Informer';
+
 
 <Endpoint
   url="/ver1/accounts/:account_id/balance_chart_data"
@@ -35,10 +29,7 @@ import { Informer } from "@site/src/components/Informer/Informer";
 Returns the balance history for a specific account using its ID.
 
 <Informer variant="info">
-  By replacing **account_id** with **summary**, you can use the
-  **/ver1/accounts/summary/balance_chart_data** endpoint to retrieve aggregated
-  data for all accounts where **available_include_in_summary** is set to
-  **true**.
+By replacing **account_id** with **summary**, you can use the **/ver1/accounts/summary/balance_chart_data** endpoint to retrieve aggregated data for all accounts where **available_include_in_summary** is set to **true**.
 </Informer>
 
 <Separator />
@@ -47,19 +38,17 @@ Returns the balance history for a specific account using its ID.
 <StickyLayout.Main>
 
 ## Path Parameter
-
-<ApiParam name="account_id" type="integer" id="account_id" required>
-  Unique 3Commas ID of this exchange account entity.
+<ApiParam name='account_id' type='integer' id="account_id" required>
+    Unique 3Commas ID of this exchange account entity.
 </ApiParam>
 
 ## Query Parameters
-
-<ApiParam name="date_from" type="string" id="date_from" required>
-  Specifying the start date in ISO 8601 format for the required records.
+<ApiParam name='date_from' type='string' id="date_from" required>
+    Specifying the start date in ISO 8601 format for the required records.
 </ApiParam>
 
-<ApiParam name="date_to" type="integer" id="date_to">
-  Specifies the end date for the required records.
+<ApiParam name='date_to' type='integer' id="date_to">
+    Specifies the end date for the required records.
 </ApiParam>
 
 </StickyLayout.Main>
@@ -68,10 +57,7 @@ Returns the balance history for a specific account using its ID.
 
 ## Example Request
 
-<NoContentEndpoint
-  method="GET"
-  endpoint="/ver1/accounts/12345678/balance_chart_data?date_from=2024-09-18T18:58:55.469Z"
-/>
+<NoContentEndpoint method="GET" endpoint="/ver1/accounts/12345678/balance_chart_data?date_from=2024-09-18T18:58:55.469Z" />
 
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -81,26 +67,27 @@ Returns the balance history for a specific account using its ID.
 
 ## Response Parameters
 
-<ApiParam name="date" type="string" id="date">
-  Timestamp (UNIX time) in seconds representing a specific date.
+<ApiParam name='date' type='string' id="date">
+    Timestamp (UNIX time) in seconds representing a specific date.
 </ApiParam>
 
-<ApiParam name="usd" type="string" id="usd">
-  The value in USD for a specific date.
+<ApiParam name='usd' type='string' id="usd">
+   The value in USD for a specific date.
+</ApiParam>
+      
+<ApiParam name='btc' type='string' id="btc">
+   The value in BTC for a specific date.
 </ApiParam>
 
-<ApiParam name="btc" type="string" id="btc">
-  The value in BTC for a specific date.
-</ApiParam>
-
-<ApiParam name="btc_deposit_amount" type="string" id="btc_deposit_amount">
-  The deposited amount in BTC on a specific date.
+<ApiParam name='btc_deposit_amount' type='string' id="btc_deposit_amount">
+   The deposited amount in BTC on a specific date.
 </ApiParam>
 
 <ApiParam name='usd_deposit_amount' type='string' id="usd_deposit_amount">
    The deposited amount in USD on a specific date.
 </ApiParam>   
 </StickyLayout.Main>
+
 
 <StickyLayout.Sticky>
 ## Example Responses

@@ -4,18 +4,14 @@ title: Set a note to Grid Bot
 sidebar_class_name: post
 ---
 
-import Endpoint, { Permission } from "@site/src/components/Endpoint";
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import ApiParam, { ParameterRange } from "@site/src/components/ApiParam";
-import Separator from "@site/src/components/Separator";
-import {
-  CollapseAll,
-  CollapseAllButton,
-  CollapseAllHeading,
-} from "@site/src/components/CollapseAll";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout'
+import * as ResponseTabs from '@site/src/components/ResponseTabs'
 
 <Endpoint
   url="/ver1/grid_bots/:id/note"
@@ -36,19 +32,18 @@ Adds a note to an existing Grid Bot.
 <StickyLayout.Main>
 
 ## Path Parameter
-
-<ApiParam name="id" type="integer" id="id" required>
-  Unique 3Commas ID for this Grid Bot entity.
+<ApiParam name='id' type='integer' id="id" required>
+   Unique 3Commas ID for this Grid Bot entity.
 </ApiParam>
 
 ## Body Parameter
-
 <ApiParam name='note' type='string' id="note" required>
    Short note for this Grid Bot.
 
    <ParameterRange min={1} max={300} labels={{min: "minlength", max: "maxlength"}} />
 </ApiParam>
 </StickyLayout.Main>
+
 
 <StickyLayout.Sticky>
 
@@ -59,14 +54,13 @@ Adds a note to an existing Grid Bot.
   "note": "Welcome to 3Commas"
 }
 ```
-
 </StickyLayout.Sticky>
 </StickyLayout.Root>
 
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-## Response Parameters
+## Response Parameters 
 
 If successful, the response includes a copy of the updated [Grid Bot](/grid-bot/0_grid_bot_entity.mdx) entity.
 
@@ -74,7 +68,6 @@ If successful, the response includes a copy of the updated [Grid Bot](/grid-bot/
 <StickyLayout.Sticky>
 
 ## Example Response
-
 <ResponseTabs.Root>
 <ResponseTabs.TabItem value="201" label="201 Created" default>
 
@@ -128,21 +121,20 @@ If successful, the response includes a copy of the updated [Grid Bot](/grid-bot/
   "expansion_down_stop_price": null,
   "grid_lines": [
     {
-      "id": 256570088,
-      "price": "0.10972",
-      "side": "sell",
-      "order_placed": false
+        "id": 256570088,
+        "price": "0.10972",
+        "side": "sell",
+        "order_placed": false
     },
     {
-      "id": 256563805,
-      "price": "0.11283",
-      "side": "sell",
-      "order_placed": true
+        "id": 256563805,
+        "price": "0.11283",
+        "side": "sell",
+        "order_placed": true
     }
   ]
 }
 ```
-
   </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>
