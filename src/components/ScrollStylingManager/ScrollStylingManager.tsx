@@ -27,6 +27,7 @@ const ScrollStylingManager = () => {
       "/smart-trade/smart-trade-entity",
       "/smart-trade/trades/trade-entity",
     ];
+
     const isLimitRoute = [
       "/general-information/limits",
       "/general-information/errors",
@@ -37,6 +38,7 @@ const ScrollStylingManager = () => {
       const isPlaceholderRoute = isLimitRoute.includes(
         window.location.pathname,
       );
+
       const breadcrumbs = document.querySelector(".breadcrumbsContainer_Ar0W");
       const container = document.querySelector(".container_eK_a");
       const h1 = document.querySelector(".theme-doc-markdown header h1");
