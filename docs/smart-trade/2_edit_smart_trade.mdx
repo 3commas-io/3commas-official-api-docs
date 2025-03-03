@@ -4,14 +4,14 @@ title: Edit SmartTrade
 sidebar_class_name: patch
 ---
 
-import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
-import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
-import Separator from '@site/src/components/Separator';
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
-import * as ResponseTabs from '@site/src/components/ResponseTabs';
-import * as StickyLayout from '@site/src/components/StickyLayout';
-import { Informer } from '@site/src/components/Informer/Informer';
+import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
+import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
+import ApiParam, { ParameterRange } from "@site/src/components/ApiParam";
+import Separator from "@site/src/components/Separator";
+import Endpoint, { Permission } from "@site/src/components/Endpoint";
+import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import * as StickyLayout from "@site/src/components/StickyLayout";
+import { Informer } from "@site/src/components/Informer/Informer";
 
 <Endpoint
   url="/v2/smart_trades/:id"
@@ -27,7 +27,8 @@ import { Informer } from '@site/src/components/Informer/Informer';
 Updates a existing SmartTrade in place using its ID.
 
 <Informer variant="warning">
-Update SmartTrade is available for SmartTrade with status: **waiting_position** and **waiting_targets**.
+  Update SmartTrade is available for SmartTrade with status:
+  **waiting_position** and **waiting_targets**.
 </Informer>
 
 <Separator />
@@ -36,25 +37,29 @@ Update SmartTrade is available for SmartTrade with status: **waiting_position** 
 <StickyLayout.Main>
 
 ## Path Parameter
-<ApiParam name='id' type='integer' id="id" required>
-   Unique 3Commas ID for this SmartTrade entity.
+
+<ApiParam name="id" type="integer" id="id" required>
+  Unique 3Commas ID for this SmartTrade entity.
 </ApiParam>
 
 ## Body Parameters
 
-<ApiParam name='leverage' type="object">
-Details of the Leverage applied to this SmartTrade.
+<ApiParam name="leverage" type="object">
+  Details of the Leverage applied to this SmartTrade.
   <CollapsibleNestedParams>
-    <ApiParam name='enabled' type="boolean" id="enabled" required>
-     Enables leverage settings for this SmartTrade. Set to `true` to activate the parameter group.
-     
+    <ApiParam name="enabled" type="boolean" id="enabled" required>
+      Enables leverage settings for this SmartTrade. Set to `true` to activate
+      the parameter group.
       <ParameterRange defaultVal={"false"} />
     </ApiParam>
-    <ApiParam name='type' type="string" id="type">
+    <ApiParam name="type" type="string" id="type">
       Leverage type for the futures account: `cros` or `isolated`.
     </ApiParam>
-    <ApiParam name='value' type="integer" id="value">
-        Cross or isolated leverage value. Leverage value is dependent on the exchange. It should be based on [the rules of the exchange regarding currency rates, limits, and leverage data](/market-data/3_currency_rates_and_limits_with_leverage_data.mdx).
+    <ApiParam name="value" type="integer" id="value">
+      Cross or isolated leverage value. Leverage value is dependent on the
+      exchange. It should be based on [the rules of the exchange regarding
+      currency rates, limits, and leverage
+      data](/market-data/3_currency_rates_and_limits_with_leverage_data.mdx).
     </ApiParam>
   </CollapsibleNestedParams>
 </ApiParam>
@@ -99,7 +104,7 @@ Details of the Leverage applied to this SmartTrade.
         <ApiParam name="value" type="number" id="value">
           The conditional trigger price value.
         </ApiParam>
-      </CollapsibleNestedParams>  
+      </CollapsibleNestedParams>
       <ApiParam name="trailing" type="object" id="trailing">
         Details of the trailing applied for position trade.
       </ApiParam>
@@ -113,6 +118,7 @@ Details of the Leverage applied to this SmartTrade.
       </CollapsibleNestedParams>
     </CollapsibleNestedParams>
     </CollapsibleNestedParams>
+
 </ApiParam>
 
 <ApiParam name="take_profit" type="object">
@@ -156,7 +162,7 @@ Details of Take Profit settings and the steps applied to this SmartTrade.
           <CollapsibleNestedParams>
             <ApiParam name="enabled" type="boolean" id="enabled">
               Enables trailing for the last Take Profit step. Applies only to the last step of Take Profit.
-              
+
 
               <ParameterRange defaultVal={"false"} />
             </ApiParam>
@@ -167,6 +173,7 @@ Details of Take Profit settings and the steps applied to this SmartTrade.
             </ApiParam>
           </CollapsibleNestedParams>
       </CollapsibleNestedParams>
+
   </CollapsibleNestedParams>
 </ApiParam>
 
@@ -203,7 +210,7 @@ Details of Stop Loss settings applied to this SmartTrade.
           </ApiParam>
             <CollapsibleNestedParams>
               <ApiParam name='type' type="string" id="type">
-               The type of price for the stop loss order used to close the position: `bid`, `ask`, `last`.	
+               The type of price for the stop loss order used to close the position: `bid`, `ask`, `last`.
               </ApiParam>
               <ApiParam name='value' type="number" id="value">
                The specific price value set to trigger the Stop Loss order.
@@ -233,21 +240,16 @@ Details of Stop Loss settings applied to this SmartTrade.
          The timeout duration for the Stop Loss order, in seconds.
         </ApiParam>
       </CollapsibleNestedParams>
+
   </CollapsibleNestedParams>
 </ApiParam>
-
-
-
-
-
-
-
 
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>
 
 ## Example Request
+
 ```json title="PATCH /v2/smart_trades/12345678"
 {
   "position": {
@@ -295,6 +297,7 @@ Details of Stop Loss settings applied to this SmartTrade.
   }
 }
 ```
+
 </StickyLayout.Sticky>
 </StickyLayout.Root>
 

@@ -4,13 +4,16 @@ title: Get DCA Bot stats
 sidebar_class_name: get
 ---
 
-import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
-import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
-import Separator from '@site/src/components/Separator';
-import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
-import * as StickyLayout from '@site/src/components/StickyLayout';
-import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
+import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
+import ApiParam from "@site/src/components/ApiParam";
+import Separator from "@site/src/components/Separator";
+import Endpoint, {
+  Permission,
+  NoContentEndpoint,
+} from "@site/src/components/Endpoint";
+import * as StickyLayout from "@site/src/components/StickyLayout";
+import * as ResponseTabs from "@site/src/components/ResponseTabs";
 
 <Endpoint
   url="/ver1/bots/stats"
@@ -40,11 +43,12 @@ Returns profit and locked amount data on deals for all DCA Bots or an existing b
     </ApiParam>
    </StickyLayout.Main>
     <StickyLayout.Sticky>
-      ## Example request 
+      ## Example request
 
       <NoContentEndpoint method='GET' endpoint='/ver1/bots/stats' />
 
       </StickyLayout.Sticky>
+
 </StickyLayout.Root>
 
 <StickyLayout.Root>
@@ -96,4 +100,3 @@ Returns profit and locked amount data on deals for all DCA Bots or an existing b
     </ResponseTabs.Root>
    </StickyLayout.Sticky>
 </StickyLayout.Root>
-

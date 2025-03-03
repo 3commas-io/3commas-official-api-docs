@@ -4,14 +4,17 @@ title: Cancel deal
 sidebar_class_name: post
 ---
 
-import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
-import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
-import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
-import Separator from '@site/src/components/Separator';
-import * as StickyLayout from '@site/src/components/StickyLayout';
-import * as ResponseTabs from '@site/src/components/ResponseTabs';
-import { Informer } from '@site/src/components/Informer/Informer';
+import Endpoint, {
+  Permission,
+  NoContentEndpoint,
+} from "@site/src/components/Endpoint";
+import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
+import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
+import ApiParam from "@site/src/components/ApiParam";
+import Separator from "@site/src/components/Separator";
+import * as StickyLayout from "@site/src/components/StickyLayout";
+import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import { Informer } from "@site/src/components/Informer/Informer";
 
 <Endpoint
   url="/ver1/deals/:deal_id/cancel"
@@ -27,7 +30,8 @@ import { Informer } from '@site/src/components/Informer/Informer';
 Cancels a specific deal within the DCA Bot using its ID.
 
 <Informer variant="warning">
-After this action, 3Commas will automatically set the final status to **Cancelled** for this deal.
+  After this action, 3Commas will automatically set the final status to
+  **Cancelled** for this deal.
 </Informer>
 
 <Separator />
@@ -37,7 +41,7 @@ After this action, 3Commas will automatically set the final status to **Cancelle
 
 ## Path Parameter
 
-<ApiParam name='deal_id' type='integer' id="deal_id" required>
+<ApiParam name="deal_id" type="integer" id="deal_id" required>
   Unique 3Commas ID Deal entity.
 </ApiParam>
 
@@ -220,6 +224,7 @@ If successful, the response includes an updated copy of the [Deals](/dca-bot/dea
   ]
 }
 ```
+
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>

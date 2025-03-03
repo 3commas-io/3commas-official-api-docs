@@ -4,14 +4,17 @@ title: Cancel trade
 sidebar_class_name: delete
 ---
 
-import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
-import * as StickyLayout from '@site/src/components/StickyLayout';
-import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
-import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
-import Separator from '@site/src/components/Separator';
-import * as ResponseTabs from '@site/src/components/ResponseTabs';
-import { Informer } from '@site/src/components/Informer/Informer';
+import Endpoint, {
+  Permission,
+  NoContentEndpoint,
+} from "@site/src/components/Endpoint";
+import * as StickyLayout from "@site/src/components/StickyLayout";
+import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
+import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
+import ApiParam from "@site/src/components/ApiParam";
+import Separator from "@site/src/components/Separator";
+import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import { Informer } from "@site/src/components/Informer/Informer";
 
 <Endpoint
   url="/v2/smart_trades/:smart_trade_id/trades/:trade_id"
@@ -27,7 +30,8 @@ import { Informer } from '@site/src/components/Informer/Informer';
 Cancels a specific trade within a SmartTrade using its ID.
 
 <Informer variant="warning">
-Keep in mind, to avoid canceling the SmartTrade, make sure to leave at least one step in the Take Profit trade and avoid deleting the Stop Loss trade.
+  Keep in mind, to avoid canceling the SmartTrade, make sure to leave at least
+  one step in the Take Profit trade and avoid deleting the Stop Loss trade.
 </Informer>
 
 <Separator />
@@ -45,11 +49,13 @@ Keep in mind, to avoid canceling the SmartTrade, make sure to leave at least one
     <StickyLayout.Sticky>
 ## Example Request
 
-<NoContentEndpoint method="DELETE" endpoint="/v2/smart_trades/30428625/trades/1008300673" />
+<NoContentEndpoint
+  method="DELETE"
+  endpoint="/v2/smart_trades/30428625/trades/1008300673"
+/>
 
 </StickyLayout.Sticky>
 </StickyLayout.Root>
-
 
 <StickyLayout.Root>
 <StickyLayout.Main>

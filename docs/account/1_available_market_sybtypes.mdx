@@ -2,16 +2,23 @@
 id: available-market-subtypes
 title: Available market subtypes
 sidebar_class_name: get
-
 ---
-import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
-import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
-import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import Separator from '@site/src/components/Separator';
-import ApiParam from '@site/src/components/ApiParam';
-import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
-import * as StickyLayout from '@site/src/components/StickyLayout';
-import * as ResponseTabs from '@site/src/components/ResponseTabs';
+
+import Endpoint, {
+  Permission,
+  NoContentEndpoint,
+} from "@site/src/components/Endpoint";
+import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
+import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
+import Separator from "@site/src/components/Separator";
+import ApiParam from "@site/src/components/ApiParam";
+import {
+  CollapseAll,
+  CollapseAllButton,
+  CollapseAllHeading,
+} from "@site/src/components/CollapseAll";
+import * as StickyLayout from "@site/src/components/StickyLayout";
+import * as ResponseTabs from "@site/src/components/ResponseTabs";
 
 <Endpoint
   url="/ver1/accounts/types_to_connect"
@@ -37,14 +44,15 @@ Returns the available account types for connection by user for specific exchange
     Name of the exchange in the 3Commas system.
 
     Use endpoint [Supported markets list](/market-data/0_supported_markets_list.mdx) and parameter `market_code` to get value for parameter.
+
 </ApiParam>
 
-<ApiParam name='name' type='string' id="name" required>
-    Name for exchange account.
+<ApiParam name="name" type="string" id="name" required>
+  Name for exchange account.
 </ApiParam>
 
-<ApiParam name='api_key' type='string' id="api_key" required>
-    API-key for this exchange account.
+<ApiParam name="api_key" type="string" id="api_key" required>
+  API-key for this exchange account.
 </ApiParam>
 
 <ApiParam name='secret' type='string' id="secret" required>
@@ -55,7 +63,10 @@ Returns the available account types for connection by user for specific exchange
 
 ## Example Request
 
-<NoContentEndpoint method="GET" endpoint="/ver1/accounts/types_to_connect?type=binance&name=binance123&api_key=...&secret=..." />
+<NoContentEndpoint
+  method="GET"
+  endpoint="/ver1/accounts/types_to_connect?type=binance&name=binance123&api_key=...&secret=..."
+/>
 
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -63,18 +74,18 @@ Returns the available account types for connection by user for specific exchange
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-## Response Parameters 
+## Response Parameters
 
-<ApiParam name='type' type='string' id="type">
-   The exchange code available to connect.
+<ApiParam name="type" type="string" id="type">
+  The exchange code available to connect.
 </ApiParam>
 
-<ApiParam name='connected' type='boolean' id="connected">
-   Indicates whether the exchange is currently connected `true` or not `false`
+<ApiParam name="connected" type="boolean" id="connected">
+  Indicates whether the exchange is currently connected `true` or not `false`
 </ApiParam>
 
-<ApiParam name='available' type='boolean' id="available">
-   Secret-key for this exchange account.
+<ApiParam name="available" type="boolean" id="available">
+  Secret-key for this exchange account.
 </ApiParam>
 
 <ApiParam name='unified' type='boolean' id="unified">
@@ -82,7 +93,7 @@ Returns the available account types for connection by user for specific exchange
   Using for Bybit exchange `true` is if it supports.
 </ApiParam>
 </StickyLayout.Main>
-   
+
 
 <StickyLayout.Sticky>
 
@@ -119,6 +130,7 @@ Returns the available account types for connection by user for specific exchange
   }
 ]
 ```
+
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="40O" label="400 Bad Request">
 
@@ -127,12 +139,11 @@ Returns the available account types for connection by user for specific exchange
   "error": "record_invalid",
   "error_description": "Invalid parameters",
   "error_attributes": {
-    "type": [
-      "does not have a valid value"
-    ]
+    "type": ["does not have a valid value"]
   }
 }
 ```
+
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>

@@ -18,8 +18,10 @@
   padding: 12px;
   margin-right: 10px;
   background-color: var(--ifm-color-emphasis-0);
-  box-shadow: rgba(15, 15, 15, 0.04) 0px 0px 0px 1px,
-    rgba(15, 15, 15, 0.03) 0px 3px 6px, rgba(15, 15, 15, 0.06) 0px 9px 24px;
+  box-shadow:
+    rgba(15, 15, 15, 0.04) 0px 0px 0px 1px,
+    rgba(15, 15, 15, 0.03) 0px 3px 6px,
+    rgba(15, 15, 15, 0.06) 0px 9px 24px;
   border: 1px solid var(--ifm-color-emphasis-0);
   border-radius: 14px;
   overflow-y: auto;
@@ -71,7 +73,7 @@
   }
 
   .outlineLink::after {
-    content: '';
+    content: "";
     position: absolute;
     inset-inline-start: 0;
     top: 0;

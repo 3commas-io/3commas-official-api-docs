@@ -4,13 +4,16 @@ title: Get DCA Bot
 sidebar_class_name: get
 ---
 
-import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
-import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
-import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
-import Separator from '@site/src/components/Separator';
-import * as StickyLayout from '@site/src/components/StickyLayout';
-import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import Endpoint, {
+  Permission,
+  NoContentEndpoint,
+} from "@site/src/components/Endpoint";
+import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
+import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
+import ApiParam from "@site/src/components/ApiParam";
+import Separator from "@site/src/components/Separator";
+import * as StickyLayout from "@site/src/components/StickyLayout";
+import * as ResponseTabs from "@site/src/components/ResponseTabs";
 
 <Endpoint
   url="/ver1/bots/:bot_id/show"
@@ -23,7 +26,7 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
   }
 />
 
- Shows information about a specific DCA Bot using its ID.
+Shows information about a specific DCA Bot using its ID.
 
 <Separator />
 
@@ -32,7 +35,7 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 ## Path Parameter
 
-<ApiParam name='bot_id' type='integer' id="bot_id" required>
+<ApiParam name="bot_id" type="integer" id="bot_id" required>
   Unique 3Commas ID for this DCA Bot entity.
 </ApiParam>
 
@@ -46,7 +49,10 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 ## Example Request
 
-<NoContentEndpoint method="GET" endpoint="/ver1/bots/12345678/show?include_events=true" />
+<NoContentEndpoint
+  method="GET"
+  endpoint="/ver1/bots/12345678/show?include_events=true"
+/>
 
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -56,7 +62,8 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 ## Response Parameters
 
- If successful, the response includes a copy of [DCA Bot](/dca-bot/0_dca_bot_entity.mdx) entity.
+If successful, the response includes a copy of [DCA Bot](/dca-bot/0_dca_bot_entity.mdx) entity.
+
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>

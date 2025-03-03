@@ -4,13 +4,16 @@ title: Account leverage information
 sidebar_class_name: post
 ---
 
-import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
-import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
-import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
-import Separator from '@site/src/components/Separator';
-import * as StickyLayout from '@site/src/components/StickyLayout';
-import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import Endpoint, {
+  Permission,
+  NoContentEndpoint,
+} from "@site/src/components/Endpoint";
+import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
+import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
+import ApiParam, { ParameterRange } from "@site/src/components/ApiParam";
+import Separator from "@site/src/components/Separator";
+import * as StickyLayout from "@site/src/components/StickyLayout";
+import * as ResponseTabs from "@site/src/components/ResponseTabs";
 
 <Endpoint
   url="/ver1/accounts/:account_id/leverage_data"
@@ -32,15 +35,14 @@ Returns a list of leverages that the exchange market is using.
 
 ## Path Parameter
 
-<ApiParam name='account_id' type='integer' id="account_id" required>
-    Unique 3Commas ID of this exchange account entity.
+<ApiParam name="account_id" type="integer" id="account_id" required>
+  Unique 3Commas ID of this exchange account entity.
 </ApiParam>
 
 ## Query Parameter
 
-<ApiParam name='page' type='integer' id="page" required>
-   Page number for pagination. 
-   
+<ApiParam name="page" type="integer" id="page" required>
+  Page number for pagination.
   <ParameterRange default={1} />
 </ApiParam>
 
@@ -49,7 +51,10 @@ Returns a list of leverages that the exchange market is using.
 
 ## Example Request
 
-<NoContentEndpoint method="GET" endpoint="/ver1/accounts/32833910/leverage_data?pair=USDC_DOGE" />
+<NoContentEndpoint
+  method="GET"
+  endpoint="/ver1/accounts/32833910/leverage_data?pair=USDC_DOGE"
+/>
 
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -60,33 +65,41 @@ Returns a list of leverages that the exchange market is using.
 ## Response Parameters
 
 <ApiParam name="code" type="string" id="code">
-   Unique code identifying the leverage type.
+  Unique code identifying the leverage type.
 </ApiParam>
 <ApiParam name="name" type="boolean" id="name">
-   Display name for the leverage type.
+  Display name for the leverage type.
 </ApiParam>
-<ApiParam name="can_set_leverage_value" type="boolean" id="can_set_leverage_value">
-   Indicates whether the leverage value can be set by the user.
+<ApiParam
+  name="can_set_leverage_value"
+  type="boolean"
+  id="can_set_leverage_value"
+>
+  Indicates whether the leverage value can be set by the user.
 </ApiParam>
 
 <ApiParam name="max_leverage" type="string or null" id="max_leverage">
-   Maximum allowable leverage value for this type, or null if there is no limit.
+  Maximum allowable leverage value for this type, or null if there is no limit.
 </ApiParam>
 
-<ApiParam name="available_leverage_values" type="array" id="available_leverage_values">
-   List of specific leverage values available for this type, if any
+<ApiParam
+  name="available_leverage_values"
+  type="array"
+  id="available_leverage_values"
+>
+  List of specific leverage values available for this type, if any
 </ApiParam>
 
 <ApiParam name="valid" type="object" id="valid">
- Contains the minimum and maximum allowable leverage values for this type.
-    <CollapsibleNestedParams>
-      <ApiParam name='min' type="string or null" id="min">
-           Minimum allowable leverage value
-      </ApiParam> 
-      <ApiParam name='max' type="string or null" id="max">
-           Maximum allowable leverage value
-      </ApiParam>   
-   </CollapsibleNestedParams>
+  Contains the minimum and maximum allowable leverage values for this type.
+  <CollapsibleNestedParams>
+    <ApiParam name="min" type="string or null" id="min">
+      Minimum allowable leverage value
+    </ApiParam>
+    <ApiParam name="max" type="string or null" id="max">
+      Maximum allowable leverage value
+    </ApiParam>
+  </CollapsibleNestedParams>
 </ApiParam>
 
 </StickyLayout.Main>
@@ -94,6 +107,7 @@ Returns a list of leverages that the exchange market is using.
 <StickyLayout.Sticky>
 
 ## Example Response
+
 <ResponseTabs.Root>
 <ResponseTabs.TabItem value="201" label="201 Created " default>
 
@@ -131,6 +145,7 @@ Returns a list of leverages that the exchange market is using.
   }
 ]
 ```
+
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>

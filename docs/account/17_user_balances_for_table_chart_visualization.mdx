@@ -4,15 +4,22 @@ title: User balances for table chart visualization
 sidebar_class_name: post
 ---
 
-import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
-import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
-import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
-import Separator from '@site/src/components/Separator';
-import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
-import * as StickyLayout from '@site/src/components/StickyLayout';
-import * as ResponseTabs from '@site/src/components/ResponseTabs';
-import { Informer } from '@site/src/components/Informer/Informer';
+import Endpoint, {
+  Permission,
+  NoContentEndpoint,
+} from "@site/src/components/Endpoint";
+import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
+import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
+import ApiParam from "@site/src/components/ApiParam";
+import Separator from "@site/src/components/Separator";
+import {
+  CollapseAll,
+  CollapseAllButton,
+  CollapseAllHeading,
+} from "@site/src/components/CollapseAll";
+import * as StickyLayout from "@site/src/components/StickyLayout";
+import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import { Informer } from "@site/src/components/Informer/Informer";
 
 <Endpoint
   url="ver1/accounts/:account_id/account_table_data"
@@ -28,7 +35,10 @@ import { Informer } from '@site/src/components/Informer/Informer';
 Returns information about currency balances of a specific account using its ID, for visualization in a table chart.
 
 <Informer variant="info">
-By replacing **account_id** with **summary**, you can use the **ver1/accounts/summary/account_table_data** endpoint to retrieve aggregated data for all accounts where **available_include_in_summary** is set to **true**.
+  By replacing **account_id** with **summary**, you can use the
+  **ver1/accounts/summary/account_table_data** endpoint to retrieve aggregated
+  data for all accounts where **available_include_in_summary** is set to
+  **true**.
 </Informer>
 
 <Separator />
@@ -36,7 +46,7 @@ By replacing **account_id** with **summary**, you can use the **ver1/accounts/su
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-  ## Path Parameter 
+## Path Parameter
 
   <ApiParam name='account_id' type='integer' id="account_id" required>
       Unique 3Commas ID of this exchange account entity.
@@ -47,7 +57,10 @@ By replacing **account_id** with **summary**, you can use the **ver1/accounts/su
 
 ## Example Request
 
-<NoContentEndpoint method="POST" endpoint="/ver1/accounts/12345678/account_table_data" />
+<NoContentEndpoint
+  method="POST"
+  endpoint="/ver1/accounts/12345678/account_table_data"
+/>
 
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -55,21 +68,20 @@ By replacing **account_id** with **summary**, you can use the **ver1/accounts/su
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-## Response Parameters 
+## Response Parameters
 
-<ApiParam name='currency_code' type='string' id='currency_code'>
+<ApiParam name="currency_code" type="string" id="currency_code">
   Code symbol for the cryptocurrency.
 </ApiParam>
-<ApiParam name='currency_name' type='string' id='currency_name'>
+<ApiParam name="currency_name" type="string" id="currency_name">
   Full name of the cryptocurrency.
 </ApiParam>
-<ApiParam name='currency_icon' type='string' id='currency_icon'>
+<ApiParam name="currency_icon" type="string" id="currency_icon">
   URL link to the icon image of the cryptocurrency.
 </ApiParam>
-<ApiParam name='currency_slug' type='string' id='currency_slug'>
+<ApiParam name="currency_slug" type="string" id="currency_slug">
   Slug or identifier used for the cryptocurrency in URLs.
 </ApiParam>
-
 
 <CollapseAll>
 <CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
@@ -159,21 +171,21 @@ By replacing **account_id** with **summary**, you can use the **ver1/accounts/su
     "currency_icon": "https://app.3commas.io/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbnNRIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f7e20d2abb9f03965b29c091e5ca77a8fc4ade51/1027.png",
     "currency_slug": "ethereum",
     "percentage": 0.7908972825805544,
-    "position": 9.52E-5,
-    "position_available": 9.52E-5,
+    "position": 9.52e-5,
+    "position_available": 9.52e-5,
     "position_type": 0,
     "borrowed": 0,
     "on_orders": 0,
     "on_orders_with_leverage": 0,
     "on_orders_long": 0,
     "on_orders_short": 0,
-    "equity": 9.52E-5,
+    "equity": 9.52e-5,
     "current_price": 0.04085,
     "current_price_usd": 2611.4959735,
     "day_change_percent": 1.036,
     "day_change_percent_btc": 1.036,
     "day_change_percent_usd": -1.418,
-    "btc_value": 3.88892E-6,
+    "btc_value": 3.88892e-6,
     "usd_value": 0.2486144166772,
     "available_long": 0,
     "available_short": 0,
@@ -197,12 +209,12 @@ By replacing **account_id** with **summary**, you can use the **ver1/accounts/su
     "on_orders_long": 0,
     "on_orders_short": 0,
     "equity": 27.076,
-    "current_price": 1.86E-6,
+    "current_price": 1.86e-6,
     "current_price_usd": 0.1189077726,
     "day_change_percent": -2.094,
     "day_change_percent_btc": -2.094,
     "day_change_percent_usd": -4.886,
-    "btc_value": 5.036136E-5,
+    "btc_value": 5.036136e-5,
     "usd_value": 3.2195468509176,
     "available_long": 0,
     "available_short": 0,
@@ -213,6 +225,7 @@ By replacing **account_id** with **summary**, you can use the **ver1/accounts/su
   }
 ]
 ```
+
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>

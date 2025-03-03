@@ -1,7 +1,7 @@
-import React from 'react';
-import {useThemeConfig} from '@docusaurus/theme-common';
-import {useNavbarMobileSidebar} from '@docusaurus/theme-common/internal';
-import NavbarItem, {type Props as NavbarItemConfig} from '@theme/NavbarItem';
+import React from "react";
+import { useThemeConfig } from "@docusaurus/theme-common";
+import { useNavbarMobileSidebar } from "@docusaurus/theme-common/internal";
+import NavbarItem, { type Props as NavbarItemConfig } from "@theme/NavbarItem";
 
 function useNavbarItems() {
   // TODO temporary casting until ThemeConfig type is improved

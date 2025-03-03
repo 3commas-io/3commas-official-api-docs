@@ -22,14 +22,14 @@
   position: absolute;
   right: 100%;
   opacity: 0;
-  padding-right: .5rem;
+  padding-right: 0.5rem;
   display: inline-grid;
   place-items: center;
   color: inherit;
 }
 
 .anchor svg {
-  fill: currentColor
+  fill: currentColor;
 }
 
 .required {
@@ -59,10 +59,10 @@
 .content {
   overflow: hidden;
 
-  &[data-state='open'] {
+  &[data-state="open"] {
     animation: slideDown 150ms ease-out;
   }
-  &[data-state='closed'] {
+  &[data-state="closed"] {
     animation: slideUp 150ms ease-out;
   }
 }
@@ -96,7 +96,7 @@
     height: var(--icon-size);
   }
 
-  &[data-state='open'] .collapseIcon {
+  &[data-state="open"] .collapseIcon {
     transform: rotate(90deg);
   }
 }

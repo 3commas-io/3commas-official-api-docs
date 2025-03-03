@@ -39,7 +39,7 @@ export const SignatureCalculator = () => {
         hash: "SHA-256",
       },
       false,
-      ["sign"]
+      ["sign"],
     );
 
     const signature = await crypto.subtle.sign("HMAC", key, data);
@@ -70,7 +70,7 @@ export const SignatureCalculator = () => {
       .sort()
       .map(
         (key) =>
-          `${encodeURIComponent(key)}=${encodeURIComponent(paramsObject[key])}`
+          `${encodeURIComponent(key)}=${encodeURIComponent(paramsObject[key])}`,
       );
 
     return `?${sortedParams.join("&")}`;

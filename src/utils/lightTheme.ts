@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {themes, type PrismTheme} from 'prism-react-renderer';
+import { themes, type PrismTheme } from "prism-react-renderer";
 
 const baseTheme = themes.github;
 
@@ -14,88 +14,88 @@ export default {
   styles: [
     ...baseTheme.styles,
     {
-      types: ['title'],
+      types: ["title"],
       style: {
-        color: '#0550AE',
-        fontWeight: 'bold',
+        color: "#0550AE",
+        fontWeight: "bold",
       },
     },
     {
-      types: ['parameter'],
+      types: ["parameter"],
       style: {
-        color: '#953800',
+        color: "#953800",
       },
     },
     {
-      types: ['boolean', 'rule', 'color', 'number', 'constant', 'property'],
+      types: ["boolean", "rule", "color", "number", "constant", "property"],
       style: {
-        color: '#005CC5',
+        color: "#005CC5",
       },
     },
     {
-      types: ['atrule', 'tag'],
+      types: ["atrule", "tag"],
       style: {
-        color: '#22863A',
+        color: "#22863A",
       },
     },
     {
-      types: ['script'],
+      types: ["script"],
       style: {
-        color: '#24292E',
+        color: "#24292E",
       },
     },
     {
-      types: ['operator', 'unit', 'rule'],
+      types: ["operator", "unit", "rule"],
       style: {
-        color: '#D73A49',
+        color: "#D73A49",
       },
     },
     {
-      types: ['font-matter', 'string', 'attr-value'],
+      types: ["font-matter", "string", "attr-value"],
       style: {
-        color: '#C6105F',
+        color: "#C6105F",
       },
     },
     {
-      types: ['class-name'],
+      types: ["class-name"],
       style: {
-        color: '#116329',
+        color: "#116329",
       },
     },
     {
-      types: ['attr-name'],
+      types: ["attr-name"],
       style: {
-        color: '#0550AE',
+        color: "#0550AE",
       },
     },
     {
-      types: ['keyword'],
+      types: ["keyword"],
       style: {
-        color: '#CF222E',
+        color: "#CF222E",
       },
     },
     {
-      types: ['function'],
+      types: ["function"],
       style: {
-        color: '#8250DF',
+        color: "#8250DF",
       },
     },
     {
-      types: ['selector'],
+      types: ["selector"],
       style: {
-        color: '#6F42C1',
+        color: "#6F42C1",
       },
     },
     {
-      types: ['variable'],
+      types: ["variable"],
       style: {
-        color: '#E36209',
+        color: "#E36209",
       },
     },
     {
-      types: ['comment'],
+      types: ["comment"],
       style: {
-        color: '#6B6B6B',
+        color: "#6B6B6B",
       },
     },
   ],

@@ -30,7 +30,7 @@
   color: var(--ifm-heading-color);
 
   [data-theme="dark"] & {
-    color: #DEE0E3;
+    color: #dee0e3;
   }
 }
 
@@ -45,12 +45,12 @@
   position: absolute;
   right: 100%;
   opacity: 0;
-  padding-right: .5rem;
+  padding-right: 0.5rem;
   color: inherit;
 }
 
 .anchor svg {
-  fill: currentColor
+  fill: currentColor;
 }
 
 .header {
@@ -88,13 +88,13 @@
 }
 
 .min {
-  color: #13A8A1;
+  color: #13a8a1;
 }
 
 .max {
-  color: #E7596A;
+  color: #e7596a;
 }
 
 .default {
-  color: #1E72D2;
+  color: #1e72d2;
 }

@@ -3,9 +3,8 @@ id: how-to-create-an-rsa-key-pair
 title: How to create an RSA Key pair
 ---
 
-import { Steps, Step } from '@site/src/components/VerticalStepper';
-import CodeBlock from '@theme/CodeBlock';
-
+import { Steps, Step } from "@site/src/components/VerticalStepper";
+import CodeBlock from "@theme/CodeBlock";
 
 3Commas now supports using RSA keys to create signed API requests.
 
@@ -16,63 +15,61 @@ All you need to do is generate an RSA Key pair and then **only** provide **the p
 You can use command line to create RSA Key pair:
 
 <Steps>
-   <Step 
-    title="Generate Private Key" 
+  <Step
+    title="Generate Private Key"
     description={
       <>
         <p>Run this command to generate a 4096-bit private key: </p>
-        <CodeBlock
-          showLineNumbers>
-          {`openssl genrsa`}
+        <CodeBlock showLineNumbers>{`openssl genrsa`}</CodeBlock>
+      </>
+    }
+  />
+  <Step
+    title="Save Private Key"
+    description={
+      <>
+        <p>
+          Output the private key to a file, such as private.pem. You can adjust
+          the key length and/or output file name as needed:
+        </p>
+        <CodeBlock showLineNumbers>
+          {`openssl genrsa -out private.pem 2048`}
         </CodeBlock>
       </>
     }
   />
-  <Step title="Save Private Key" 
-        description= {
-        <>
-         <p>Output the private key to a file, such as private.pem. You can adjust the key length and/or output file name as needed: 
-            </p>
-          <CodeBlock
-          showLineNumbers>
-          {`openssl genrsa -out private.pem 2048`}
-          </CodeBlock>
-         </>
-        }
-  />
-  <Step title="Generate Public Key" 
-        description={
-        <>
-         <p> To generate the public key from the private key, run this command:</p>
-         <CodeBlock
-          showLineNumbers>
+  <Step
+    title="Generate Public Key"
+    description={
+      <>
+        <p>
+          {" "}
+          To generate the public key from the private key, run this command:
+        </p>
+        <CodeBlock showLineNumbers>
           {`openssl rsa -in private.pem -pubout -out public.pem`}
-          </CodeBlock>
-         </>
-         }
+        </CodeBlock>
+      </>
+    }
   />
-  <Step title="View Public Key" 
-        description={
-        <>
-         <p> Run this command to view the public key:</p>
-         <CodeBlock
-          showLineNumbers>
-          {`cat public.pem`}
-          </CodeBlock>
-         </>
-         }
+  <Step
+    title="View Public Key"
+    description={
+      <>
+        <p> Run this command to view the public key:</p>
+        <CodeBlock showLineNumbers>{`cat public.pem`}</CodeBlock>
+      </>
+    }
   />
 </Steps>
 
 This public key needs to be registered on 3Commas.
-
 
 ## Binance RSA Key Generator
 
 You can use official Binance RSA key pair generator
 
 Go to the official [RSA Keys Generator](https://github.com/binance/asymmetric-key-generator/releases) website to download and install the latest version of the generator.
-
 
 ## Online RSA Key Generator
 

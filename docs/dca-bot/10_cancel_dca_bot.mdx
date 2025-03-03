@@ -4,13 +4,16 @@ title: Cancel DCA Bot
 sidebar_class_name: post
 ---
 
-import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
-import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
-import Separator from '@site/src/components/Separator';
-import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
-import * as ResponseTabs from '@site/src/components/ResponseTabs';
-import * as StickyLayout from '@site/src/components/StickyLayout';
+import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
+import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
+import ApiParam from "@site/src/components/ApiParam";
+import Separator from "@site/src/components/Separator";
+import Endpoint, {
+  Permission,
+  NoContentEndpoint,
+} from "@site/src/components/Endpoint";
+import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import * as StickyLayout from "@site/src/components/StickyLayout";
 
 <Endpoint
   url="/ver1/bots/:bot_id/cancel_all_deals"
@@ -22,7 +25,7 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
     </>
   }
 />
-    Cancels an existing DCA Bot and all active deals using the bot's ID.
+Cancels an existing DCA Bot and all active deals using the bot's ID.
 
 <Separator />
 
@@ -39,7 +42,10 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
 <StickyLayout.Sticky>
 ## Example Request
 
-<NoContentEndpoint method="POST" endpoint="/ver1/bots/15564495/cancel_all_deals" />
+<NoContentEndpoint
+  method="POST"
+  endpoint="/ver1/bots/15564495/cancel_all_deals"
+/>
 
    </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -48,6 +54,7 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
 <StickyLayout.Main>
 
 ## Response Parameters
+
     If successful, the response includes an updated copy of the [DCA Bot](/dca-bot/0_dca_bot_entity.mdx) entity.
 
 </StickyLayout.Main>
@@ -66,9 +73,7 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
   "is_enabled": false,
   "max_safety_orders": 3,
   "active_safety_orders_count": 3,
-  "pairs": [
-    "USDT_ETH"
-  ],
+  "pairs": ["USDT_ETH"],
   "strategy_list": [
     {
       "options": {},
@@ -221,8 +226,8 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
   ]
 }
 ```
+
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
    </StickyLayout.Sticky>
 </StickyLayout.Root>
-

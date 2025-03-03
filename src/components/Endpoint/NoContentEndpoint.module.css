@@ -10,7 +10,7 @@
   gap: 0.625rem;
   padding: 1rem var(--ifm-pre-padding);
   border-radius: var(--ifm-code-border-radius);
-  background-color: var( --code-background-color);
+  background-color: var(--code-background-color);
   white-space: nowrap;
 }
 
@@ -24,7 +24,7 @@
   font-weight: 600;
   font-size: 13px !important;
 }
-  
+
 .codeBlockTitle span {
   font-size: 14px !important;
   font-weight: 500;

@@ -4,15 +4,19 @@ title: Update deal
 sidebar_class_name: patch
 ---
 
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
-import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
-import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
-import Separator from '@site/src/components/Separator';
-import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
-import * as StickyLayout from '@site/src/components/StickyLayout';
-import * as ResponseTabs from '@site/src/components/ResponseTabs';
-import { Informer } from '@site/src/components/Informer/Informer';
+import Endpoint, { Permission } from "@site/src/components/Endpoint";
+import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
+import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
+import ApiParam, { ParameterRange } from "@site/src/components/ApiParam";
+import Separator from "@site/src/components/Separator";
+import {
+  CollapseAll,
+  CollapseAllButton,
+  CollapseAllHeading,
+} from "@site/src/components/CollapseAll";
+import * as StickyLayout from "@site/src/components/StickyLayout";
+import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import { Informer } from "@site/src/components/Informer/Informer";
 
 <Endpoint
   url="/ver1/deals/:deal_id/update_deal"
@@ -27,9 +31,9 @@ import { Informer } from '@site/src/components/Informer/Informer';
 
 Edits an existing deal of DCA Bot using its ID.
 
-
 <Informer variant="warning">
-The endpoint is available for Deal for the statuses **bought** and **close_strategy_activated**.
+  The endpoint is available for Deal for the statuses **bought** and
+  **close_strategy_activated**.
 </Informer>
 
 <Separator />
@@ -39,48 +43,65 @@ The endpoint is available for Deal for the statuses **bought** and **close_strat
 
 ## Path Parameter
 
-<ApiParam name='deal_id' type='integer' id="deal_id" required>
+<ApiParam name="deal_id" type="integer" id="deal_id" required>
   Unique 3Commas ID Deal entity.
 </ApiParam>
-
 
 ## Body parameters
 
 <ApiParam name='take_profit' type='number' id="take_profit" required>
   Percentage value for the bot’s Take Profit.
 
-  If multiple steps are specified in `take_profit_steps settings`, this parameter should be set to `0`.
+If multiple steps are specified in `take_profit_steps settings`, this parameter should be set to `0`.
+
 </ApiParam>
 
-<ApiParam name='take_profit_steps' type='array[json]' id="take_profit_steps" required>
+<ApiParam
+  name="take_profit_steps"
+  type="array[json]"
+  id="take_profit_steps"
+  required
+>
   Contains multiple steps with conditions for Taking Profit in this deal.
 </ApiParam>
 
-<ApiParam name='profit_currency' type='string' id="profit_currency" required>
-  Profit currency used for calculating the profit from the trades executed by this DCA Bot: `quite_currency` or `base_currency`.
+<ApiParam name="profit_currency" type="string" id="profit_currency" required>
+  Profit currency used for calculating the profit from the trades executed by
+  this DCA Bot: `quite_currency` or `base_currency`.
 </ApiParam>
 
-<ApiParam name='take_profit_type' type='string' id="take_profit_type" required>
+<ApiParam name="take_profit_type" type="string" id="take_profit_type" required>
   Take Profit order type for this DCA Bot.
-   <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
-      * **base** - from base order;
-      * **total** - from total volume.
-     </CollapsibleNestedParams>
+  <CollapsibleNestedParams
+    openName="Hide allowed values"
+    collapsedName="Show allowed values"
+  >
+    * **base** - from base order; * **total** - from total volume.
+  </CollapsibleNestedParams>
 </ApiParam>
 
-<ApiParam name='trailing_enabled' type='boolean' id="trailing_enabled" required>
+<ApiParam name="trailing_enabled" type="boolean" id="trailing_enabled" required>
   Indicates whether trailing is enabled for Take Profit `true` or not `false`.
 </ApiParam>
 
 <CollapseAll>
 <CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
 
-<CollapsibleApiParam name='trailing_enabled' type='boolean' id="trailing_enabled">
+<CollapsibleApiParam
+  name="trailing_enabled"
+  type="boolean"
+  id="trailing_enabled"
+>
   Indicates whether trailing is enabled for Take Profit `true` or not `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name='sl_to_breakeven_enabled' type='boolean' id="sl_to_breakeven_enabled">
-     Enables `true` or disable `false` the Move to Breakeven feature for this Deal. To use this feature, you must have at least two Take Profit steps.
+<CollapsibleApiParam
+  name="sl_to_breakeven_enabled"
+  type="boolean"
+  id="sl_to_breakeven_enabled"
+>
+  Enables `true` or disable `false` the Move to Breakeven feature for this Deal.
+  To use this feature, you must have at least two Take Profit steps.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='sl_to_breakeven_data' type='json' id="sl_to_breakeven_data">
@@ -89,88 +110,112 @@ The endpoint is available for Deal for the statuses **bought** and **close_strat
      Example: `{upper_breakeven_limit: 1}`
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name='max_safety_orders' type='integer' id="max_safety_orders">
-     The maximum total number of Safety Orders allowed for this deal.
-    
-    <ParameterRange min={0} max={200} />
+<CollapsibleApiParam
+  name="max_safety_orders"
+  type="integer"
+  id="max_safety_orders"
+>
+  The maximum total number of Safety Orders allowed for this deal.
+  <ParameterRange min={0} max={200} />
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name='active_safety_orders_count' type='integer' id="active_safety_orders">
-     The number of Safety Orders is allowed to place in advance on the exchange's order book.
+<CollapsibleApiParam
+  name="active_safety_orders_count"
+  type="integer"
+  id="active_safety_orders"
+>
+  The number of Safety Orders is allowed to place in advance on the exchange's
+  order book.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name='stop_loss_percentage' type='number' id="stop_loss_percentage">
-     The percentage by which the price needs to move in the opposite direction of your Take Profit target to trigger the Stop Loss, at which point the bot will execute a Market Order.
+<CollapsibleApiParam
+  name="stop_loss_percentage"
+  type="number"
+  id="stop_loss_percentage"
+>
+  The percentage by which the price needs to move in the opposite direction of
+  your Take Profit target to trigger the Stop Loss, at which point the bot will
+  execute a Market Order.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name='stop_loss_timeout_enabled' type='boolean' id="stop_loss_timeout_enabled">
-     Indicates whether the Stop Loss timeout is enabled `true` or disabled `false`.
+<CollapsibleApiParam
+  name="stop_loss_timeout_enabled"
+  type="boolean"
+  id="stop_loss_timeout_enabled"
+>
+  Indicates whether the Stop Loss timeout is enabled `true` or disabled `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name='stop_loss_timeout_in_seconds' type='integer' id="stop_loss_timeout_in_seconds">
-     Value timeout in seconds. This parameter is required when `stop_loss_timeout_enabled` is set to `true`.
+<CollapsibleApiParam
+  name="stop_loss_timeout_in_seconds"
+  type="integer"
+  id="stop_loss_timeout_in_seconds"
+>
+  Value timeout in seconds. This parameter is required when
+  `stop_loss_timeout_enabled` is set to `true`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name='tsl_enabled' type='boolean' id="tsl_enabled">
-     Indicates whether trailing is enabled `true` for Stop Loss or not `false`.
+<CollapsibleApiParam name="tsl_enabled" type="boolean" id="tsl_enabled">
+  Indicates whether trailing is enabled `true` for Stop Loss or not `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name='stop_loss_type' type='string' id="stop_loss_type">
-     The type of action the bot should perform after closing a deal due to the Stop Loss setting: `stop_loss` or `stop_loss_and_disable_bot`.
+<CollapsibleApiParam name="stop_loss_type" type="string" id="stop_loss_type">
+  The type of action the bot should perform after closing a deal due to the Stop
+  Loss setting: `stop_loss` or `stop_loss_and_disable_bot`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name='close_timeout' type='integer' id="close_timeout">
-     The time in seconds after which this deal will close automatically.
-     
-    <ParameterRange min={60} />
+<CollapsibleApiParam name="close_timeout" type="integer" id="close_timeout">
+  The time in seconds after which this deal will close automatically.
+  <ParameterRange min={60} />
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name='note' type='string' id="note">
-Optional user-defined note for this Deal.
+<CollapsibleApiParam name="note" type="string" id="note">
+  Optional user-defined note for this Deal.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='min_profit_percentage' type='number' id="min_profit_percentage">
 The minimum profit percentage which need to reach  for this DCA Bot to complete a deal.
 </CollapsibleApiParam>
-</CollapseAll>    
+</CollapseAll>
 
 <Informer variant="info">
-**take_profit_steps** 
+**take_profit_steps**
 
 You should allocate 100% of your position volume across different targets. In total, the maximum number of targets is 4.
 
 One target is one step. Each step is represented as an object with properties:
-* `id`
-* `amount_percentage`
-* `profit_percentage`
+
+- `id`
+- `amount_percentage`
+- `profit_percentage`
 
 Below is an example demonstrating how to fill this parameter with several steps of Take Profit:
 
 ```json
 [
-   {
-      "id": 1,
-      "amount_percentage": 10,
-      "profit_percentage": 10
-   },
-   {
-      "id": 2,
-      "amount_percentage": 20,
-      "profit_percentage": 15
-   },
-   {
-      "id": 3,
-      "amount_percentage": 30,
-      "profit_percentage": 20
-   },
-   {
-      "id": 4,
-      "amount_percentage": 40,
-      "profit_percentage": 23
-   }
+  {
+    "id": 1,
+    "amount_percentage": 10,
+    "profit_percentage": 10
+  },
+  {
+    "id": 2,
+    "amount_percentage": 20,
+    "profit_percentage": 15
+  },
+  {
+    "id": 3,
+    "amount_percentage": 30,
+    "profit_percentage": 20
+  },
+  {
+    "id": 4,
+    "amount_percentage": 40,
+    "profit_percentage": 23
+  }
 ]
-
 ```
+
 </Informer>
 
 </StickyLayout.Main>
@@ -187,6 +232,7 @@ Below is an example demonstrating how to fill this parameter with several steps 
   "max_safety_orders": 6
 }
 ```
+
 </StickyLayout.Sticky>
 </StickyLayout.Root>
 
@@ -196,6 +242,7 @@ Below is an example demonstrating how to fill this parameter with several steps 
 ## Response Parameters
 
 If successful, the response includes an updated copy of [Deals](/dca-bot/deals/0_deal_entity.mdx) entity.
+
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>
@@ -334,12 +381,7 @@ If successful, the response includes an updated copy of [Deals](/dca-bot/deals/0
     "buyPrice": "3098.4954",
     "currentPrice": "3079.65",
     "inverted": false,
-    "stopLosses": [
-      [
-        "2974.555584",
-        false
-      ]
-    ],
+    "stopLosses": [["2974.555584", false]],
     "LP": null,
     "buySteps": [
       {
@@ -410,6 +452,7 @@ If successful, the response includes an updated copy of [Deals](/dca-bot/deals/0
   ]
 }
 ```
+
 </ResponseTabs.TabItem>
 
 <ResponseTabs.TabItem value="400" label="400 Bad Request">
@@ -419,12 +462,11 @@ If successful, the response includes an updated copy of [Deals](/dca-bot/deals/0
   "error": "record_invalid",
   "error_description": "Invalid parameters",
   "error_attributes": {
-    "base": [
-      "Can't be edit"
-    ]
+    "base": ["Can't be edit"]
   }
 }
 ```
+
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>

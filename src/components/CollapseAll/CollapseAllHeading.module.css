@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   margin-top: var(--ifm-spacing-vertical);
-  margin-bottom: calc(var(--ifm-spacing-vertical) * .5);
+  margin-bottom: calc(var(--ifm-spacing-vertical) * 0.5);
 
   button {
     margin-left: auto;

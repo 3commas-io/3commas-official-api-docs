@@ -1,19 +1,19 @@
-import styles from './styles.module.css'
-import clsx from 'clsx'
-import Link from '@docusaurus/Link'
-import { useCollapseAllContext } from '@site/src/components/CollapseAll'
-import { Root, Content, Trigger } from '@radix-ui/react-collapsible'
-import { useEffect, useState } from 'react'
-import { useCopyAnchor } from '@site/src/hooks/useCopyAnchor'
+import styles from "./styles.module.css";
+import clsx from "clsx";
+import Link from "@docusaurus/Link";
+import { useCollapseAllContext } from "@site/src/components/CollapseAll";
+import { Root, Content, Trigger } from "@radix-ui/react-collapsible";
+import { useEffect, useState } from "react";
+import { useCopyAnchor } from "@site/src/hooks/useCopyAnchor";
 
 type Props = {
-  children: React.ReactNode
-  name: React.ReactNode
-  type?: React.ReactNode
-  required?: boolean
-  id?: string
-  marginBottom?: boolean
-}
+  children: React.ReactNode;
+  name: React.ReactNode;
+  type?: React.ReactNode;
+  required?: boolean;
+  id?: string;
+  marginBottom?: boolean;
+};
 
 export default function CollapsibleApiParam({
   children,
@@ -23,21 +23,21 @@ export default function CollapsibleApiParam({
   required,
   marginBottom,
 }: Props) {
-  const { collapsed: parentCollapsed } = useCollapseAllContext()
+  const { collapsed: parentCollapsed } = useCollapseAllContext();
 
-  const href = `#${id}`
+  const href = `#${id}`;
 
-  const [copied, handleCopy] = useCopyAnchor(href)
+  const [copied, handleCopy] = useCopyAnchor(href);
 
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (typeof parentCollapsed === 'undefined') {
-      return
+    if (typeof parentCollapsed === "undefined") {
+      return;
     }
 
-    setOpen(!parentCollapsed)
-  }, [parentCollapsed])
+    setOpen(!parentCollapsed);
+  }, [parentCollapsed]);
 
   return (
     <Root
@@ -46,7 +46,8 @@ export default function CollapsibleApiParam({
       onOpenChange={setOpen}
       className={clsx(styles.details, {
         [styles.marginBottom]: marginBottom,
-      })}>
+      })}
+    >
       <Trigger asChild>
         <summary className={styles.summary}>
           {id ? (
@@ -63,7 +64,8 @@ export default function CollapsibleApiParam({
             width="12"
             height="12"
             viewBox="0 0 12 12"
-            className={styles.collapseIcon}>
+            className={styles.collapseIcon}
+          >
             <path
               fillRule="evenodd"
               clipRule="evenodd"
@@ -75,7 +77,7 @@ export default function CollapsibleApiParam({
           <span className={styles.name}>{name}</span>
 
           {type || copied ? (
-            <span className={styles.type}>{copied ? 'copied!' : type}</span>
+            <span className={styles.type}>{copied ? "copied!" : type}</span>
           ) : null}
 
           {required ? <span className={styles.required}>required</span> : null}
@@ -83,5 +85,5 @@ export default function CollapsibleApiParam({
       </Trigger>
       <Content className={styles.content}>{children}</Content>
     </Root>
-  )
+  );
 }
