@@ -401,6 +401,10 @@ table {
   }
 }
 
+.table-size {
+  font-size: 13px;
+}
+
 body ul {
   list-style-image: url("/img/bullet.svg");
 }

@@ -16,6 +16,10 @@
   flex-shrink: 0;
 }
 
+.container.codeBlock {
+  line-height: 23px !important;
+}
+
 .medium {
   height: 26px;
   border-radius: 6px;

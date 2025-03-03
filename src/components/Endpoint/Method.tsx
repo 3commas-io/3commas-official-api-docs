@@ -17,6 +17,7 @@ type Props = {
   variant?: "filled" | "text";
   size?: "medium";
   align?: "center" | "right";
+  inCodeBlock?: boolean;
 };
 
 const colors: Record<Method, string> = {
@@ -33,6 +34,7 @@ export function Method({
   variant = "filled",
   size = "medium",
   align = "center",
+  inCodeBlock = false,
 }: Props) {
   if (typeof children !== "string" || !(children.toUpperCase() in colors)) {
     return null;
@@ -49,6 +51,7 @@ export function Method({
         variant === "text" && styles.text,
         size === "medium" && styles.medium,
         align === "right" && styles.right,
+        inCodeBlock && styles.codeBlock,
       )}
     >
       {color}

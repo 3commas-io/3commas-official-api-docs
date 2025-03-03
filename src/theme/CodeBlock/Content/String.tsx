@@ -71,7 +71,7 @@ export default function CodeBlockString({
         <div className={styles.codeBlockTitle}>
           {METHODS.includes(title.split(" ")[0] as Method) ? (
             <>
-              <Method variant="text" align="right">
+              <Method variant="text" align="right" inCodeBlock>
                 {title.split(" ")[0]}
               </Method>
               <span>{title.split(" ")[1]}</span>
