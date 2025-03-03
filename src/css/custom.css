@@ -329,7 +329,7 @@ table {
 
   thead th {
     color: #707070;
-    font-size: 0.625rem;
+    font-size: 13px;
     font-weight: 600;
     line-height: 1.6;
     text-transform: uppercase;
@@ -348,7 +348,7 @@ table {
   }
 
   tbody td {
-    font-size: 0.75rem;
+    font-size: var(--text-size);
     border: none;
     border-bottom: 1px solid #f8f8f8;
     border-left: none;
