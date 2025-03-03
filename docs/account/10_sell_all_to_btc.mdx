@@ -4,17 +4,14 @@ title: Sell all to BTC
 sidebar_class_name: post
 ---
 
-import Endpoint, {
-  Permission,
-  NoContentEndpoint,
-} from "@site/src/components/Endpoint";
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import ApiParam from "@site/src/components/ApiParam";
-import Separator from "@site/src/components/Separator";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
-import { Informer } from "@site/src/components/Informer/Informer";
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import { Informer } from '@site/src/components/Informer/Informer';
 
 <Endpoint
   url="/ver1/accounts/:account_id/sell_all_to_btc"
@@ -30,16 +27,12 @@ import { Informer } from "@site/src/components/Informer/Informer";
 Sells all assets on the exchange account in BTC, creating orders on the exchange.
 
 <Informer variant="info">
-  This endpoint works for the following exchanges: **Binance Spot**, **Binance
-  Margin**, **Binance US**, **Coinbase Advanced Spot**, **Gemini Spot**,
-  **Kraken Spot**, **Bybit Spot**, **GateIo**, **OKX Spot**, **Huobi Spot**,
-  **Bitfinex Spot**, **Kucoin Spot**, **Bitstamp Spot**.
+ This endpoint works for the following exchanges:
+  **Binance Spot**, **Binance Margin**, **Binance US**, **Coinbase Advanced Spot**, **Gemini Spot**, **Kraken Spot**, **Bybit Spot**, **GateIo**, **OKX Spot**, **Huobi Spot**, **Bitfinex Spot**, **Kucoin Spot**, **Bitstamp Spot**.
 </Informer>
 
 <Informer variant="danger">
-  When executing this request, all trading entities (bots, SmartTrade, trades,
-  deals, and orders—except for Signal Bot) will be stopped and closed both in
-  3Commas and on the exchange.
+When executing this request, all trading entities (bots, SmartTrade, trades, deals, and orders—except for Signal Bot) will be stopped and closed both in 3Commas and on the exchange.
 </Informer>
 
 <Separator />
@@ -58,10 +51,7 @@ Sells all assets on the exchange account in BTC, creating orders on the exchange
 
 ## Example Request
 
-<NoContentEndpoint
-  method="POST"
-  endpoint="/ver1/accounts/32833909/sell_all_to_btc"
-/>
+<NoContentEndpoint method="POST" endpoint="/ver1/accounts/32833909/sell_all_to_btc" />
 
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -173,7 +163,6 @@ If successful, the response includes a copy of the updated [Account](/account/0_
   "error": "Forbidden. Unavailable for this account."
 }
 ```
-
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>

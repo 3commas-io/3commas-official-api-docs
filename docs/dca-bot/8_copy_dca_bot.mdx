@@ -4,13 +4,13 @@ title: Copy DCA Bot
 sidebar_class_name: post
 ---
 
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import ApiParam from "@site/src/components/ApiParam";
-import Separator from "@site/src/components/Separator";
-import Endpoint, { Permission } from "@site/src/components/Endpoint";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 <Endpoint
   url="/ver1/bots/:bot_id/copy_and_create"
@@ -32,19 +32,18 @@ Copies the bot from or to another linked exchange account connected to 3Commas.
 
 ## Path Parameter
 
-<ApiParam name="bot_id" type="integer" id="bot_id" required>
+<ApiParam name='bot_id' type='integer' id="bot_id" required>
   Unique 3Commas ID for this DCA Bot entity you want to copy.
 </ApiParam>
 
 ## Body Parameters
 
-<ApiParam name="name" type="string" id="name" required>
-  The name for new DCA Bot specified by the user.
+<ApiParam name='name' type='string' id="name" required>
+   The name for new DCA Bot specified by the user.
 </ApiParam>
 
-<ApiParam name="secret" type="string" id="secret" required>
-  A unique code used for copying this bot, retrieved from the `url_secret`
-  parameter
+<ApiParam name='secret' type='string' id="secret" required>
+    A unique code used for copying this bot, retrieved from the `url_secret` parameter
 </ApiParam>
 
 <ApiParam name='amount' type='number' id="amount" required>
@@ -62,17 +61,16 @@ Copies the bot from or to another linked exchange account connected to 3Commas.
   "secret": "..."
 }
 ```
-
 </StickyLayout.Sticky>
 </StickyLayout.Root>
 
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-## Response Parameters
+## Response Parameters 
 
-<ApiParam name="bot_id" type="number" id="bot_id">
-  Unique 3Commas ID for this DCA Bot entity.
+<ApiParam name='bot_id' type='number' id="bot_id">
+    Unique 3Commas ID for this DCA Bot entity.
 </ApiParam>
 
 <ApiParam name='bot_required_amount' type='number' id="bot_required_amount">
@@ -83,7 +81,6 @@ Copies the bot from or to another linked exchange account connected to 3Commas.
 <StickyLayout.Sticky>
 
 ## Example Responses
-
   <ResponseTabs.Root>
         <ResponseTabs.TabItem value="201" label="201 Created" default>
 ```json
@@ -117,3 +114,4 @@ Copies the bot from or to another linked exchange account connected to 3Commas.
 </ResponseTabs.Root>
    </StickyLayout.Sticky>
 </StickyLayout.Root>
+

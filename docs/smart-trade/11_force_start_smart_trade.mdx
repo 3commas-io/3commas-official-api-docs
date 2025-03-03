@@ -4,16 +4,13 @@ title: Force start SmartTrade
 sidebar_class_name: post
 ---
 
-import Endpoint, {
-  Permission,
-  NoContentEndpoint,
-} from "@site/src/components/Endpoint";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import ApiParam from "@site/src/components/ApiParam";
-import Separator from "@site/src/components/Separator";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import * as ResponseTabs from '@site/src/components/ResponseTabs'
 
 <Endpoint
   url="/v2/smart_trades/:id/force_start"
@@ -40,11 +37,12 @@ Opens a position by market price.
     <StickyLayout.Sticky>
         ## Example Request
 
+
         <NoContentEndpoint method="POST" endpoint="/v2/smart_trades/12345678/force_start" />
 
     </StickyLayout.Sticky>
-
 </StickyLayout.Root>
+
 
 <StickyLayout.Root>
     <StickyLayout.Main>
@@ -195,3 +193,11 @@ Opens a position by market price.
         </ResponseTabs.Root>
     </StickyLayout.Sticky>
 </StickyLayout.Root>
+
+
+
+
+
+
+
+

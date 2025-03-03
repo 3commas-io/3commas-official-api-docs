@@ -10,17 +10,12 @@
   width: 0;
 }
 
-.pagination-item:hover .pagination__arrow {
-  transform: scale(1.05);
+.pagination__arrow:hover {
   filter: brightness(0.975);
 }
 
-[data-theme="dark"] .pagination-item:hover .pagination__arrow {
+[data-theme="dark"] .pagination__arrow:hover {
   filter: brightness(1.15);
-}
-
-.pagination-item:active .pagination__arrow {
-  transform: scale(0.95);
 }
 
 .pagination-item--next {

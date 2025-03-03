@@ -24,7 +24,7 @@
   padding: 0;
   height: auto;
   font-weight: 600;
-  font-size: 13px !important;
+  font-size: var(--text-size) !important;
 }
 
 .codeBlockTitle span {

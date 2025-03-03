@@ -4,22 +4,15 @@ title: Get profit details
 sidebar_class_name: get
 ---
 
-import Endpoint, {
-  Permission,
-  NoContentEndpoint,
-} from "@site/src/components/Endpoint";
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import ApiParam from "@site/src/components/ApiParam";
-import Separator from "@site/src/components/Separator";
-import {
-  CollapseAll,
-  CollapseAllButton,
-  CollapseAllHeading,
-} from "@site/src/components/CollapseAll";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
-import { Informer } from "@site/src/components/Informer/Informer";
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout'
+import * as ResponseTabs from '@site/src/components/ResponseTabs'
+import { Informer } from '@site/src/components/Informer/Informer'
 
 <Endpoint
   url="/ver1/grid_bots/:id/profits"
@@ -39,24 +32,22 @@ Returns profit details of existing Grid Bot using its ID.
 <StickyLayout.Root>
    <StickyLayout.Main>
 
-## Path Parameter
-
-<ApiParam name="id" type="integer" id="id" required>
-  Unique 3Commas ID for this Grid Bot entity.
+## Path Parameter 
+<ApiParam name='id' type='integer' id="id" required>
+   Unique 3Commas ID for this Grid Bot entity.
 </ApiParam>
 
 ## Query Parameters
 
-<ApiParam name="from" type="string" id="from">
-  Filters Grid Bots created after a specific date in ISO 8601 format.
+<ApiParam name='from' type='string' id="from">
+   Filters Grid Bots created after a specific date in ISO 8601 format.
 </ApiParam>
-<ApiParam name="to" type="string" id="to">
-  Filters the Grid Bots created before a specific date in ISO 8601 format.
+<ApiParam name='to' type='string' id="to">
+   Filters the Grid Bots created before a specific date in ISO 8601 format.
 </ApiParam>
 
 <Informer variant="info">
-  If the **from** and **to** values are not set, the response will include all
-  records ordered in descending order by ID parameter.
+  If the **from** and **to** values are not set, the response will include all records ordered in descending order by ID parameter.
 </Informer>
 
 </StickyLayout.Main>
@@ -64,10 +55,7 @@ Returns profit details of existing Grid Bot using its ID.
 
 ## Example Request
 
-<NoContentEndpoint
-  method="GET"
-  endpoint="/ver1/grid_bots/2338357/profits?from=2024-09-01T04:00:00.000Z&to=2024-10-11T03:59:59.000Z"
-/>
+<NoContentEndpoint method="GET" endpoint="/ver1/grid_bots/2338357/profits?from=2024-09-01T04:00:00.000Z&to=2024-10-11T03:59:59.000Z" />
 
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -75,22 +63,22 @@ Returns profit details of existing Grid Bot using its ID.
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-## Response Parameters
+## Response Parameters 
 
-<ApiParam name="grid_line_id" type="string" id="grid_line_id">
-  Unique 3Commas ID for this Grid line entity.
+<ApiParam name='grid_line_id' type='string' id="grid_line_id">   
+    Unique 3Commas ID for this Grid line entity.
 </ApiParam>
 
-<ApiParam name="profit" type="string" id="profit">
-  Profit amount from this Grid line event in the base currency.
+<ApiParam name='profit' type='string' id="profit">   
+    Profit amount from this Grid line event in the base currency.
 </ApiParam>
 
-<ApiParam name="usd_profit" type="string" id="usd_profit">
-  Profit amount in USD from this Grid line event.
+<ApiParam name='usd_profit' type='string' id="usd_profit">   
+    Profit amount in USD from this Grid line event.
 </ApiParam>
 
-<ApiParam name="created_at" type="string" id="created_at">
-  ISO 8601 datetime string indicating when the event was recorded.
+<ApiParam name='created_at' type='string' id="created_at">   
+    ISO 8601 datetime string indicating when the event was recorded.
 </ApiParam>
 
 <CollapseAll>

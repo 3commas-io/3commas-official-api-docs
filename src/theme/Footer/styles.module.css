@@ -3,7 +3,7 @@
   color: #dee0e3;
   padding: var(--ifm-footer-padding-vertical)
     var(--ifm-navbar-padding-horizontal);
-  font-size: 13px;
+  font-size: var(--text-size);
 }
 
 .container {

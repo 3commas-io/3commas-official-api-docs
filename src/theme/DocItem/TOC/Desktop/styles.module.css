@@ -28,7 +28,7 @@
 
   .tocLink {
     color: var(--ifm-menu-color);
-    font-size: 13px;
+    font-size: var(--text-size);
     border-radius: 4px;
     padding: 4px;
     width: 100%;

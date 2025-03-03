@@ -4,23 +4,17 @@ title: Create DCA Bot
 sidebar_class_name: post
 ---
 
-import CodeBlock from "@theme/CodeBlock";
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import ApiParam, { ParameterRange } from "@site/src/components/ApiParam";
-import Separator, {
-  ADDITIONAL_INFORMATION_THEME,
-} from "@site/src/components/Separator";
-import {
-  CollapseAll,
-  CollapseAllButton,
-  CollapseAllHeading,
-} from "@site/src/components/CollapseAll";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
-import Endpoint, { Permission } from "@site/src/components/Endpoint";
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
+import CodeBlock from '@theme/CodeBlock'
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
+import Separator, { ADDITIONAL_INFORMATION_THEME } from '@site/src/components/Separator';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout'
+import * as ResponseTabs from '@site/src/components/ResponseTabs'
+import Endpoint, { Permission } from '@site/src/components/Endpoint'
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 <Endpoint
   url="/ver1/bots/create_bot"
@@ -45,19 +39,18 @@ Creates a new DCA Bot
     User-defined name of the DCA Bot. If not specified, the system will generate a default name automatically.
 
     Characters: `[1 ... 200]`
-
 </ApiParam>
 
-<ApiParam name="account_id" type="integer" id="account_id" required>
-  ID of the exchange account entity where you want to creat DCA Bot.
+<ApiParam name='account_id' type='integer' id="account_id" required>
+    ID of the exchange account entity where you want to creat DCA Bot.
 </ApiParam>
 
 <ApiParam name='pairs' type='string' id="pairs" required>
    Trading pair(s) in 3Commas format. If a single pair is passed, a SingleBot is created. If two or more pairs are passed, a MultiBot is created.
 
-Use endpoint [All market pairs](/market-data/1_all_market_pairs.mdx) to get value for parameter.
-
+   Use endpoint [All market pairs](/market-data/1_all_market_pairs.mdx) to get value for parameter.
 </ApiParam>
+
 
 <CollapseAll>
 <CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
@@ -66,129 +59,76 @@ Use endpoint [All market pairs](/market-data/1_all_market_pairs.mdx) to get valu
      The maximum number of active deals available for this DCA Bot.
 
     <ParameterRange min={1} max={199} defaultVal={1} />
-
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="strategy" type="string" id="strategy">
-  The type of trading strategy used by this DCA Bot: `short` or `long`.
+<CollapsibleApiParam name='strategy' type='string' id="strategy">
+   The type of trading strategy used by this DCA Bot: `short` or `long`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="profit_currency" type="string" id="profit_currency">
-  Currency used for the profit from the trades executed by this bot:
-  `base_currency`; `quote_currency`.
+<CollapsibleApiParam name='profit_currency' type='string' id="profit_currency">
+   Currency used for the profit from the trades executed by this bot: `base_currency`; `quote_currency`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="base_order_volume_type"
-  type="number"
-  id="base_order_volume_type"
-  required
->
-  The volume type of the base order for this DCA Bot: `quote_currency`,
-  `base_currency` or `percent`
+<CollapsibleApiParam name='base_order_volume_type' type='number' id="base_order_volume_type" required>
+   The volume type of the base order for this DCA Bot: `quote_currency`, `base_currency` or `percent`
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="base_order_volume"
-  type="number"
-  id="base_order_volume"
-  required
->
-  The volume of the base order for this DCA Bot.
+<CollapsibleApiParam name='base_order_volume' type='number' id="base_order_volume" required>
+   The volume of the base order for this DCA Bot.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="start_order_type"
-  type="string"
-  id="start_order_type"
->
-  The start order type for this DCA Bot: `limit` or `market`.
+<CollapsibleApiParam name='start_order_type' type='string' id="start_order_type">
+   The start order type for this DCA Bot: `limit` or `market`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="strategy_list"
-  type="array[json]"
-  id="strategy_list"
-  required
->
-  Array of strategies specifically for opening deals in this DCA Bot.
+<CollapsibleApiParam name='strategy_list' type='array[json]' id="strategy_list" required>
+   Array of strategies specifically for opening deals in this DCA Bot.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="leverage_type" type="string" id="leverage_type">
-  Sets leverage settings for a futures account: `cross` or `isolated`.
+<CollapsibleApiParam name='leverage_type' type='string' id="leverage_type">
+   Sets leverage settings for a futures account: `cross` or `isolated`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="leverage_custom_value"
-  type="number"
-  id="leverage_custom_value"
->
-  Leverage value. Leverage value is dependent on the exchange and the pair.
+<CollapsibleApiParam name='leverage_custom_value' type='number' id="leverage_custom_value">
+   Leverage value. Leverage value is dependent on the exchange and the pair.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="trailing_enabled"
-  type="boolean"
-  id="trailing_enabled"
->
-  Indicates whether trailing is enabled for Take Profit `true` or not `false`.
+<CollapsibleApiParam name='trailing_enabled' type='boolean' id="trailing_enabled">
+   Indicates whether trailing is enabled for Take Profit `true` or not `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="trailing_deviation"
-  type="number"
-  id="trailing_deviation"
->
-  Percentage value of the trailing price, in percent. This parameter is required
-  when`trailing_enabled` is set to `true`.
+<CollapsibleApiParam name='trailing_deviation' type='number' id="trailing_deviation">
+   Percentage value of the trailing price, in percent. This parameter is required when`trailing_enabled` is set to `true`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="take_profit_type"
-  type="string"
-  id="take_profit_type"
-  required
->
-  The type of profit `base` or `total`, which sets the basis for profit
-  calculation in this DCA Bot.
+<CollapsibleApiParam name='take_profit_type' type='string' id="take_profit_type" required>
+   The type of profit `base` or `total`, which sets the basis for profit calculation in this DCA Bot.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='take_profit' type='number' id="take_profit" required>
    Percentage value for the bot’s Take Profit.
 
-If multiple steps are specified in `take_profit_steps settings`, this parameter should be set to `0`.
-
+   If multiple steps are specified in `take_profit_steps settings`, this parameter should be set to `0`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="take_profit_steps"
-  type="array[object]"
-  id="take_profit_steps"
->
-  Take Profit Steps, each represented as an object with properties: *
-  `amount_percentage`; * `profit_percentage`
+<CollapsibleApiParam name='take_profit_steps' type='array[object]' id="take_profit_steps">
+   Take Profit Steps, each represented as an object with properties:
+   
+      * `amount_percentage`;
+      * `profit_percentage`
+   
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="close_strategy_list"
-  type="array[json]"
-  id="close_strategy_list"
->
-  Array of strategies used for closing deals in this DCA Bot.
+<CollapsibleApiParam name='close_strategy_list' type='array[json]' id="close_strategy_list">
+   Array of strategies used for closing deals in this DCA Bot.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="min_profit_type" type="string" id="min_profit_type">
-  The type of minimum profit, which sets the basis for profit calculation in
-  this DCA Bot: `base_order_volume` or `total_bought_volume`.
+<CollapsibleApiParam name='min_profit_type' type='string' id="min_profit_type">
+   The type of minimum profit, which sets the basis for profit calculation in this DCA Bot: `base_order_volume` or `total_bought_volume`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="min_profit_percentage"
-  type="number"
-  id="min_profit_percentage"
->
-  The minimum profit percentage when it reaches the deal will be complete by the
-  chosen strategy.
+<CollapsibleApiParam name='min_profit_percentage' type='number' id="min_profit_percentage">
+  The minimum profit percentage when it reaches the deal will be complete by the chosen strategy.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='reinvesting_percentage' type='string' id="reinvesting_percentage">
@@ -197,208 +137,121 @@ If multiple steps are specified in `take_profit_steps settings`, this parameter 
    <ParameterRange min={0} max={100} />
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="stop_loss_percentage"
-  type="number"
-  id="stop_loss_percentage"
->
-  The percentage of price movement in the opposite direction of the Take Profit
-  target that triggers the Stop Loss.
+<CollapsibleApiParam name='stop_loss_percentage' type='number' id="stop_loss_percentage">
+   The percentage of price movement in the opposite direction of the Take Profit target that triggers the Stop Loss.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="stop_loss_type" type="string" id="stop_loss_type">
-  The type of action the bot should perform after closing a deal due to the Stop
-  Loss setting: `stop_loss` or `stop_loss_and_disable_bot`.
+<CollapsibleApiParam name='stop_loss_type' type='string' id="stop_loss_type">
+ The type of action the bot should perform after closing a deal due to the Stop Loss setting: `stop_loss` or `stop_loss_and_disable_bot`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="tsl_enabled" type="boolean" id="tsl_enabled">
-  Indicates whether trailing is enabled `true` for Stop Loss or not `false`.
+<CollapsibleApiParam name='tsl_enabled' type='boolean' id="tsl_enabled">
+   Indicates whether trailing is enabled `true` for Stop Loss or not `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="sl_to_breakeven_enabled"
-  type="boolean"
-  id="sl_to_breakeven_enabled"
->
-  Enables `true` or disables `false` the Move to Breakeven feature for this DCA
-  Bot. To use this feature, you must have at least two Take Profit steps.
-  <ParameterRange defaultVal={"false"} />
+<CollapsibleApiParam name='sl_to_breakeven_enabled' type='boolean' id="sl_to_breakeven_enabled">
+   Enables `true` or disables `false` the Move to Breakeven feature for this DCA Bot. To use this feature, you must have at least two Take Profit steps.
+   
+   <ParameterRange defaultVal={"false"} />
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="sl_to_breakeven_data"
-  type="json"
-  id="sl_to_breakeven_data"
->
-  Upper limit for Stop Loss to move to breakeven, where `0` is the base order
-  bought price, `1` is 1st step of TP, and `2` is 2nd step of TP. Example:
-  `upper_breakeven_limit: 1`
+<CollapsibleApiParam name='sl_to_breakeven_data' type='json' id="sl_to_breakeven_data">
+   Upper limit for Stop Loss to move to breakeven, where `0` is the base order bought price, `1` is 1st step of TP, and `2` is 2nd step of TP.
+   
+   Example: `upper_breakeven_limit: 1`
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="stop_loss_timeout_enabled"
-  type="boolean"
-  id="stop_loss_timeout_enabled"
->
-  Indicates whether the Stop Loss timeout is enabled `true` or disabled `false`.
-  <ParameterRange defaultVal={"false"} />
+<CollapsibleApiParam name='stop_loss_timeout_enabled' type='boolean' id="stop_loss_timeout_enabled">
+   Indicates whether the Stop Loss timeout is enabled `true` or disabled `false`.
+   <ParameterRange defaultVal={"false"} />
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='stop_loss_timeout_in_seconds' type='integer' id="stop_loss_timeout_in_seconds">
    Value timeout in seconds.
 
-This parameter is required when `stop_loss_timeout_enabled` is set to `true`.
-
+   This parameter is required when `stop_loss_timeout_enabled` is set to `true`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="risk_reduction_percentage"
-  type="string"
-  id="risk_reduction_percentage"
-  required
->
-  Percentage of losses that allows reducing the base order and Safety Orders
-  proportionally to losses.
+<CollapsibleApiParam name='risk_reduction_percentage' type='string' id="risk_reduction_percentage" required>
+   Percentage of losses that allows reducing the base order and Safety Orders proportionally to losses.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="safety_order_step_percentage"
-  type="number"
-  id="safety_order_step_percentage"
-  required
->
-  Price deviation in percentage to open Safety Trades.
+<CollapsibleApiParam name='safety_order_step_percentage' type='number' id="safety_order_step_percentage" required>
+   Price deviation in percentage to open Safety Trades.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="safety_order_volume_type"
-  type="string"
-  id="safety_order_volume_type"
->
-  The volume type of the Safety Order for this DCA Bot.
+<CollapsibleApiParam name='safety_order_volume_type' type='string' id="safety_order_volume_type">
+   The volume type of the Safety Order for this DCA Bot.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="safety_order_volume"
-  type="number"
-  id="safety_order_volume"
-  required
->
-  The volume of the Safety Order for this DCA Bot.
+<CollapsibleApiParam name='safety_order_volume' type='number' id="safety_order_volume" required>
+   The volume of the Safety Order for this DCA Bot.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="safety_strategy_list"
-  type="array[json]"
-  id="safety_strategy_list"
->
-  Array of strategies specifically for the execution of your safety orders in
-  this DCA Bot.
+<CollapsibleApiParam name='safety_strategy_list' type='array[json]' id="safety_strategy_list">
+   Array of strategies specifically for the execution of your safety orders in this DCA Bot.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="max_safety_orders"
-  type="integer"
-  id="max_safety_orders"
-  required
->
-  The maximum total number of Safety Orders allowed per deal opened by this DCA
-  Bot.
-  <ParameterRange min={0} max={200} />
+<CollapsibleApiParam name='max_safety_orders' type='integer' id="max_safety_orders" required>
+   The maximum total number of Safety Orders allowed per deal opened by this DCA Bot.
+   
+   <ParameterRange min={0} max={200} />
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="active_safety_orders_count"
-  type="integer"
-  id="active_safety_orders_count"
-  required
->
-  The number of active Safety Orders the DCA Bot is allowed to place at one
-  time.
+<CollapsibleApiParam name='active_safety_orders_count' type='integer' id="active_safety_orders_count" required>
+   The number of active Safety Orders the DCA Bot is allowed to place at one time.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="martingale_volume_coefficient"
-  type="number"
-  id="martingale_volume_coefficient"
-  required
->
-  Coefficient for increasing <em>safety order volume</em> in Martingale
-  strategy.
-  <ParameterRange min={"0,1"} max={10} />
+<CollapsibleApiParam name='martingale_volume_coefficient' type='number' id="martingale_volume_coefficient" required>
+   Coefficient for increasing <em>safety order volume</em> in Martingale strategy.
+   
+   <ParameterRange min={"0,1"} max={10} />
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="martingale_step_coefficient"
-  type="number"
-  id="martingale_step_coefficient"
-  required
->
-  Coefficient for increasing safety order price `safety_order_step_percentage`
-  in Martingale strategy.
-  <ParameterRange min={"0,1"} max={10} />
+<CollapsibleApiParam name='martingale_step_coefficient' type='number' id="martingale_step_coefficient" required> 
+   Coefficient for increasing safety order price `safety_order_step_percentage` in Martingale strategy.
+   
+   <ParameterRange min={"0,1"} max={10} />
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="min_volume_btc_24h"
-  type="number"
-  id="min_volume_btc_24h"
->
-  The minimum trading volume in BTC over the last 24 hours required to open a
-  deal.
+<CollapsibleApiParam name='min_volume_btc_24h' type='number' id="min_volume_btc_24h"> 
+   The minimum trading volume in BTC over the last 24 hours required to open a deal.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="min_price" type="number" id="min_price">
-  The minimum price to open a new deal for this DCA Bot.
+<CollapsibleApiParam name='min_price' type='number' id="min_price"> 
+   The minimum price to open a new deal for this DCA Bot.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="max_price" type="number" id="max_price">
-  The maximum price to open a new deal for this DCA Bot.
+<CollapsibleApiParam name='max_price' type='number' id="max_price"> 
+   The maximum price to open a new deal for this DCA Bot.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="deal_start_delay_seconds"
-  type="integer"
-  id="deal_start_delay_seconds"
->
-  Delay in seconds before a new deal starts.
+<CollapsibleApiParam name='deal_start_delay_seconds' type='integer' id="deal_start_delay_seconds"> 
+   Delay in seconds before a new deal starts.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="cooldown" type="number" id="cooldown">
-  The time (in seconds) that the DCA Bot will wait after closing a deal before
-  accepting a signal to start a new deal for the same asset pair.
-  <ParameterRange min={0} max={2592000} />
+<CollapsibleApiParam name='cooldown' type='number' id="cooldown"> 
+   The time (in seconds) that the DCA Bot will wait after closing a deal before accepting a signal to start a new deal for the same asset pair.
+   
+   <ParameterRange min={0} max={2592000} />
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="disable_after_deals_count"
-  type="integer"
-  id="disable_after_deals_count"
->
-  The number of opening deals after that DCA Bot will disabled.
+<CollapsibleApiParam name='disable_after_deals_count' type='integer' id="disable_after_deals_count"> 
+   The number of opening deals after that DCA Bot will disabled.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='allowed_deals_on_same_pair' type='integer' id="allowed_deals_on_same_pair"> 
    Allow to set up a specific number of deals on the same pair.
 
-It works only for bot where `type` is `Bot::MultiBot`
-
+   It works only for bot where `type` is `Bot::MultiBot`
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="min_price_percentage"
-  type="number"
-  id="min_price_percentage"
->
-  Min price percent. Must be greater then `-95` and lower then `1000`.
+<CollapsibleApiParam name='min_price_percentage' type='number' id="min_price_percentage">
+   Min price percent. Must be greater then `-95` and lower then `1000`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="max_price_percentage"
-  type="number"
-  id="max_price_percentage"
->
-  Max price percent. Must be greater then `-95` and lower then `1000`.
+<CollapsibleApiParam name='max_price_percentage' type='number' id="max_price_percentage">
+   Max price percent. Must be greater then `-95` and lower then `1000`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='close_deals_timeout' type='integer' id="close_deals_timeout">
@@ -408,27 +261,32 @@ It works only for bot where `type` is `Bot::MultiBot`
 </CollapsibleApiParam>
 </CollapseAll>
 
+
+
 ## Additional Information
 
-<p className="additional__info__heading">**leverage_custom_value**</p>
+ <p className='additional__info__heading'>**leverage_custom_value**</p>
 
 Use endpoints [Currency rates and limits with leverage data](/market-data/3_currency_rates_and_limits_with_leverage_data.mdx) to check available value for this parameter.
 
-<Separator type="additionalInformation" />
+<Separator type='additionalInformation' />
 
-<p className="additional__info__heading">**take_profit_steps**</p>
+<p className='additional__info__heading'>**take_profit_steps**</p>
 
-When using multiple steps for Take Profit, each step should be represented as an object with the following properties:
+   When using multiple steps for Take Profit, each step should be represented as an object with the following properties:
 
-- `amount_percentage`
-- `profit_percentage`
+ * `amount_percentage`
+ * `profit_percentage`
+  
 
 Keep in mind, you can create a maximum of 4 targets, allocating 100% of your position volume is allocated across them
 
-<p className="additional__info__example">For example:</p>
+<p className='additional__info__example'>For example:</p>
 
-<CodeBlock language="json">
-  {`{
+<CodeBlock
+  language="json"
+>
+{`{
     "take_profit_steps": [
       {
         "amount_percentage": 50,
@@ -442,11 +300,9 @@ Keep in mind, you can create a maximum of 4 targets, allocating 100% of your pos
 }`}
 </CodeBlock>
 
-<Separator type="additionalInformation" />
+<Separator type='additionalInformation' />
 
-<p className="additional__info__heading">
-  **strategy list, close_strategy_list, safety_strategy_list**
-</p>
+<p className='additional__info__heading'>**strategy list, close_strategy_list, safety_strategy_list**</p>
 
 The data strategies are used to populate the `strategy_list` and `close_strategy_list` parameters. You can retrieve the full list of strategies available for this DCA Bot through the [Available strategy list for bot](/dca-bot/1_available_strategy_list.mdx) endpoint.
 
@@ -461,12 +317,11 @@ Below are several examples demonstrating how to fill these parameters with strat
   }
 ]
 ```
-or
+or 
 
-```json
+   ```json
 []
-```
-
+   ```
   </TabItem>
   <TabItem value="Non-stop" label="Non-stop">
   
@@ -482,7 +337,6 @@ or
   }
 ]
 ```
-
   </TabItem>
 
   <TabItem value="TradingView" label="TradingView">
@@ -497,8 +351,7 @@ or
     "strategy": "trading_view"
   }
 ]
-```
-
+   ```
   </TabItem>
     <TabItem value="RSI" label="RSI">
 ```json
@@ -517,6 +370,7 @@ or
    </TabItem>
 </Tabs>
 </StickyLayout.Main>
+
 
 <StickyLayout.Sticky>
 
@@ -563,8 +417,7 @@ or
 <StickyLayout.Root>
    <StickyLayout.Main>
 
-## Response Parameter
-
+   ## Response Parameter
       If successful, the response includes a update copy of [DCA Bot](/dca-bot/0_dca_bot_entity.mdx) entity.
 
    </StickyLayout.Main>

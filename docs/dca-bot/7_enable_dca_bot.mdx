@@ -4,16 +4,13 @@ title: Enable DCA Bot
 sidebar_class_name: post
 ---
 
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import ApiParam from "@site/src/components/ApiParam";
-import Separator from "@site/src/components/Separator";
-import Endpoint, {
-  Permission,
-  NoContentEndpoint,
-} from "@site/src/components/Endpoint";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 <Endpoint
   url="/ver1/bots/:bot_id/enable"
@@ -26,7 +23,7 @@ import * as ResponseTabs from "@site/src/components/ResponseTabs";
   }
 />
 
-Enables an existing DCA Bot using its ID.
+ Enables an existing DCA Bot using its ID.
 
 <Separator />
 
@@ -60,7 +57,6 @@ If successful, the response includes a copy of [DCA Bot](/dca-bot/0_dca_bot_enti
 <StickyLayout.Sticky>
 
 ## Example Response
-
 <ResponseTabs.Root>
       <ResponseTabs.TabItem value="201" label="201 Created" default>
 ```json
@@ -256,3 +252,5 @@ If successful, the response includes a copy of [DCA Bot](/dca-bot/0_dca_bot_enti
 </ResponseTabs.Root>
 </StickyLayout.Sticky>
 </StickyLayout.Root>
+
+
