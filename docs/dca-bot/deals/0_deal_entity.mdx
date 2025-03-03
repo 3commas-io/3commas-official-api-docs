@@ -134,27 +134,27 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
 <CollapsibleApiParam name="status" type="string" id="status">
   3Commas status for this Deal.
     <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
-       * **Bought** - Asset bought;
-       * **Cancelled** - Deal canceled;
-       * **Completed** - Deal closed successfully;
-       * **Base_order_placed** - Base order placed;
-       * **Stop_loss_finished** - Closed by stop-loss;
-       * **Ttp_order_placed** - Trailing Take Profit order placed;
-       * **Panic_sold** - Deal closed manually at market;
-       * **Failed** - Deal failed due to an error;
-       * **Liquidated** - Position liquidated;
-       * **Settled** - Contract expired on the exchange;
-       * **Close_strategy_activated** - Close strategy executed.
+       * **bought** - asset bought
+       * **cancelled** - deal canceled
+       * **completed** - deal closed successfully
+       * **base_order_placed** - base order placed
+       * **stop_loss_finished** - closed by stop-loss
+       * **ttp_order_placed** - trailing Take Profit order placed
+       * **panic_sold** - deal closed manually at market
+       * **failed** - deal failed due to an error
+       * **liquidated** - position liquidated
+       * **settled** - contract expired on the exchange
+       * **close_strategy_activated** - close strategy executed
     </CollapsibleNestedParams>
 </CollapsibleApiParam>
 <CollapsibleApiParam name="localized_status" type="string" id="localized_status">
  Brief description of this status.
     <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
-       * **Active** - The Deal is currently active and in progress;
-       * **Cancelled** - Deal canceled;
-       * **Completed** - Deal closed successfully;
-       * **Closed at Market Price** - Deal closed manually at market;
-       * **Base order placed** - The base order for the Deal has been placed and is waiting to be filled;
+       * **Active** - the Deal is currently active and in progress
+       * **Cancelled** - deal canceled
+       * **Completed** - deal closed successfully
+       * **Closed at Market Price** - deal closed manually at market
+       * **Base order placed** - the base order for the Deal has been placed and is waiting to be filled
     </CollapsibleNestedParams>
 </CollapsibleApiParam> 
 <CollapsibleApiParam name="take_profit_type" type="string" id="take_profit_type">
@@ -211,8 +211,8 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
 <CollapsibleApiParam name="leverage_type" type="string" id="leverage_type">
   Type of leverage applied for this Deal.
     <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
-      * **cross** - uses all available funds in your account as collateral for your trades;
-      * **isolated** - the margin is limited to a specific position.
+      * **cross** - uses all available funds in your account as collateral for your trades
+      * **isolated** - the margin is limited to a specific position
     </CollapsibleNestedParams>
 </CollapsibleApiParam>
 
@@ -322,7 +322,7 @@ Volume type for base orders (e.g., `quote_currency`, `base_currency`, `percent`)
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="trailing_max_price" type="string or null" id="trailing_max_price">
-   TBD 
+  Last recorded maximum price reached during trailing.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="tsl_max_price" type="string or null" id="tsl_max_price">
@@ -358,11 +358,11 @@ Volume type for base orders (e.g., `quote_currency`, `base_currency`, `percent`)
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="smart_trade_convertable" type="boolean" id="smart_trade_convertable">
-    Indicates if this deal was converted to SmartTrade (`true`) or not (`false`).
+  Indicates if this deal was converted to SmartTrade (`true`) or not (`false`).
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="market_type" type="string" id="market_type">
-    The strategy type used by the bot: `spot`, `long`, `short`.
+  The type of exchange the bot operates on: `spot`, `futures`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="current_price" type="string" id="current_price">
@@ -374,11 +374,11 @@ Volume type for base orders (e.g., `quote_currency`, `base_currency`, `percent`)
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="actual_profit_percentage" type="string" id="actual_profit_percentage">
- [TBD]
+  Actual profit percentage based on the latest deal calculations.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="orderbook_price_currency" type="string" id="orderbook_price_currency">
- Specifies the currency used for price quotes in the Orderbook
+ Specifies the currency used for price quotes in the Orderbook.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="bot_events" type="array" id="bot_events">
