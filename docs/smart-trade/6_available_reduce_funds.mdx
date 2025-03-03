@@ -4,14 +4,17 @@ title: Available reduce funds
 sidebar_class_name: get
 ---
 
-import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
-import * as StickyLayout from '@site/src/components/StickyLayout';
-import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
-import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
-import Separator from '@site/src/components/Separator';
-import * as ResponseTabs from '@site/src/components/ResponseTabs';
-import { Informer } from '@site/src/components/Informer/Informer';
+import Endpoint, {
+  Permission,
+  NoContentEndpoint,
+} from "@site/src/components/Endpoint";
+import * as StickyLayout from "@site/src/components/StickyLayout";
+import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
+import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
+import ApiParam from "@site/src/components/ApiParam";
+import Separator from "@site/src/components/Separator";
+import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import { Informer } from "@site/src/components/Informer/Informer";
 
 <Endpoint
   url="/v2/smart_trades/:id/reduce_funds_info"
@@ -26,9 +29,9 @@ import { Informer } from '@site/src/components/Informer/Informer';
 
 Shows information about available amount to reduce funds.
 
-
 <Informer variant="info">
- The endpoint is available for SmartTrades with status **waiting_targets**. Use the endpoint Get SmartTrade to check a status SmartTrade.
+  The endpoint is available for SmartTrades with status **waiting_targets**. Use
+  the endpoint Get SmartTrade to check a status SmartTrade.
 </Informer>
 
 <Separator />
@@ -46,6 +49,7 @@ Shows information about available amount to reduce funds.
         <NoContentEndpoint method="GET" endpoint="/v2/smart_trades/12345678/reduce_funds_info" />
 
         </StickyLayout.Sticky>
+
 </StickyLayout.Root>
 
 <StickyLayout.Root>

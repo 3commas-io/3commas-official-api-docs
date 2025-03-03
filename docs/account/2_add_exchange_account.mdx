@@ -4,15 +4,19 @@ title: Add exchange account
 sidebar_class_name: post
 ---
 
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
-import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
-import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
-import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
-import Separator from '@site/src/components/Separator';
-import * as StickyLayout from '@site/src/components/StickyLayout';
-import * as ResponseTabs from '@site/src/components/ResponseTabs';
-import { Informer } from '@site/src/components/Informer/Informer'
+import Endpoint, { Permission } from "@site/src/components/Endpoint";
+import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
+import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
+import ApiParam from "@site/src/components/ApiParam";
+import {
+  CollapseAll,
+  CollapseAllButton,
+  CollapseAllHeading,
+} from "@site/src/components/CollapseAll";
+import Separator from "@site/src/components/Separator";
+import * as StickyLayout from "@site/src/components/StickyLayout";
+import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import { Informer } from "@site/src/components/Informer/Informer";
 
 <Endpoint
   url="/ver1/accounts/new"
@@ -24,10 +28,11 @@ import { Informer } from '@site/src/components/Informer/Informer'
     </>
   }
 />
-Adds a new exchange account. 
+Adds a new exchange account.
 
 <Informer variant="warning">
-   Please note that connections using manually created API keys are available only to Expert plan subscribers and exclusively for Binance sub-accounts.
+  Please note that connections using manually created API keys are available
+  only to Expert plan subscribers and exclusively for Binance sub-accounts.
 </Informer>
 
 <Separator />
@@ -37,50 +42,52 @@ Adds a new exchange account.
 
 ## Body Parameters
 
-<ApiParam name='type' type='string' id="type" required>
-   3Commas of exchange code entity.
+<ApiParam name="type" type="string" id="type" required>
+  3Commas of exchange code entity.
 </ApiParam>
 
-<ApiParam name='name' type='string' id="name" required>
-   Name of this exchange account.
+<ApiParam name="name" type="string" id="name" required>
+  Name of this exchange account.
 </ApiParam>
 
-<ApiParam name='api_key' type="string" id="api_key">
-   API-key from this exchange account.
+<ApiParam name="api_key" type="string" id="api_key">
+  API-key from this exchange account.
 </ApiParam>
 
-<ApiParam name='secret' type='string' id="secret">
-   Secret-key from this exchange account.
+<ApiParam name="secret" type="string" id="secret">
+  Secret-key from this exchange account.
 </ApiParam>
 
-<ApiParam name='address' type='string' id="address">
-   Address of wallet.
+<ApiParam name="address" type="string" id="address">
+  Address of wallet.
 </ApiParam>
 
-<ApiParam name='customer_id' type='string' id="customer_id">
-    Unique customer ID provided by the Bitstamp exchange.
+<ApiParam name="customer_id" type="string" id="customer_id">
+  Unique customer ID provided by the Bitstamp exchange.
 </ApiParam>
 
-<ApiParam name='passphrase' type='string' id="passphrase">
-   Secret phrase from this exchange account.
+<ApiParam name="passphrase" type="string" id="passphrase">
+  Secret phrase from this exchange account.
 </ApiParam>
 
 <ApiParam name='types_to_create' type='array[string]' id="types_to_create" required>
    Array of related account types to be created.
    For example: [`binance_margin`].
 
-   Use the [Available market subtypes](/docs/account/1_available_market_sybtypes.mdx) endpoint to get the value from the `type` parameter for this parameter.
+Use the [Available market subtypes](/docs/account/1_available_market_sybtypes.mdx) endpoint to get the value from the `type` parameter for this parameter.
+
 </ApiParam>
 
-
 <Informer variant="info">
-Use the [Supported markets list](/docs/market-data/0_supported_markets_list.mdx) endpoint to check the required parameters: **api_key**, **secret**, **address**, **customer_id**, **passphrase** in the **form_fields.required** block in this request for selecting an exchange.
+  Use the [Supported markets
+  list](/docs/market-data/0_supported_markets_list.mdx) endpoint to check the
+  required parameters: **api_key**, **secret**, **address**, **customer_id**,
+  **passphrase** in the **form_fields.required** block in this request for
+  selecting an exchange.
 </Informer>
 
 </StickyLayout.Main>
 <StickyLayout.Sticky>
-
-
 
 ## Example Request
 
@@ -92,6 +99,7 @@ Use the [Supported markets list](/docs/market-data/0_supported_markets_list.mdx)
   "secret": "..."
 }
 ```
+
 </StickyLayout.Sticky>
 </StickyLayout.Root>
 
@@ -100,195 +108,313 @@ Use the [Supported markets list](/docs/market-data/0_supported_markets_list.mdx)
 
 ## Response Parameters
 
-<ApiParam name='id' type='integer' id="id">
-   ID of the exchange account entity.
+<ApiParam name="id" type="integer" id="id">
+  ID of the exchange account entity.
 </ApiParam>
 
-<ApiParam name='name' type='string' id="name">
-   The name for the exchange account defined by the user.
+<ApiParam name="name" type="string" id="name">
+  The name for the exchange account defined by the user.
 </ApiParam>
 
-<ApiParam name='exchange_name' type='string' id="exchange_name">
-   Name of this exchange account.
+<ApiParam name="exchange_name" type="string" id="exchange_name">
+  Name of this exchange account.
 </ApiParam>
 
-<ApiParam name='market_icon' type='string' id="market_icon">
-   The URL link to the icon for this exchange.
+<ApiParam name="market_icon" type="string" id="market_icon">
+  The URL link to the icon for this exchange.
 </ApiParam>
 
-<ApiParam name='market_code' type='string' id="market_code">
-   3Commas of exchange code entity.
+<ApiParam name="market_code" type="string" id="market_code">
+  3Commas of exchange code entity.
 </ApiParam>
 
 <CollapseAll>
 <CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
 
-<CollapsibleApiParam name="auto_balance_period" type="integer" id="auto_balance_period">
-   The interval, in hours, at which automatic portfolio balancing occurs.
+<CollapsibleApiParam
+  name="auto_balance_period"
+  type="integer"
+  id="auto_balance_period"
+>
+  The interval, in hours, at which automatic portfolio balancing occurs.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="auto_balance_portfolio_id" type="integer" id="auto_balance_portfolio_id">
-   ID of the portfolio for which automatic balancing has been initiated.
+<CollapsibleApiParam
+  name="auto_balance_portfolio_id"
+  type="integer"
+  id="auto_balance_portfolio_id"
+>
+  ID of the portfolio for which automatic balancing has been initiated.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="autobalance_enabled" type="boolean" id="autobalance_enabled">
-   Indicates whether auto balance mode is enabled for this account `true` or not `false`.
+<CollapsibleApiParam
+  name="autobalance_enabled"
+  type="boolean"
+  id="autobalance_enabled"
+>
+  Indicates whether auto balance mode is enabled for this account `true` or not
+  `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="auto_balance_error" type="string or null" id="auto_balance_error">
-   A description comes up to explain why autobalance failed.
+<CollapsibleApiParam
+  name="auto_balance_error"
+  type="string or null"
+  id="auto_balance_error"
+>
+  A description comes up to explain why autobalance failed.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="last_auto_balance" type="string or null" id="last_auto_balance">
-   ISO 8601 datetime of when this Auto balance was last time.
+<CollapsibleApiParam
+  name="last_auto_balance"
+  type="string or null"
+  id="last_auto_balance"
+>
+  ISO 8601 datetime of when this Auto balance was last time.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="hedge_mode_available" type="boolean" id="hedge_mode_available">
-   Indicates whether hedge mode is available for this account `true` or not `false`.
+<CollapsibleApiParam
+  name="hedge_mode_available"
+  type="boolean"
+  id="hedge_mode_available"
+>
+  Indicates whether hedge mode is available for this account `true` or not
+  `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="hedge_mode_enabled" type="boolean" id="hedge_mode_enabled">
-   Indicates whether hedge mode is enabled for this account `true` or not `false`.
+<CollapsibleApiParam
+  name="hedge_mode_enabled"
+  type="boolean"
+  id="hedge_mode_enabled"
+>
+  Indicates whether hedge mode is enabled for this account `true` or not
+  `false`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="is_locked" type="boolean" id="is_locked">
-   Indicates if the account is locked `true` or not `false`.
+  Indicates if the account is locked `true` or not `false`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="lock_reason" type="string or null" id="lock_reason">
-   The reason for locking this account when `is_locked` is `true`
+  The reason for locking this account when `is_locked` is `true`
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="smart_trading_supported" type="boolean" id="smart_trading_supported">
-   Indicates if smart trading is supported `true` or not `false`.
+<CollapsibleApiParam
+  name="smart_trading_supported"
+  type="boolean"
+  id="smart_trading_supported"
+>
+  Indicates if smart trading is supported `true` or not `false`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="stats_supported" type="boolean" id="stats_supported">
-   Indicates whether statistic of profit are supported for this account `true` or not `false`.
+  Indicates whether statistic of profit are supported for this account `true` or
+  not `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="trading_supported" type="boolean" id="trading_supported">
-   Indicates if trading is supported at 3Commas `true` or not `false`.
+<CollapsibleApiParam
+  name="trading_supported"
+  type="boolean"
+  id="trading_supported"
+>
+  Indicates if trading is supported at 3Commas `true` or not `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="market_buy_supported" type="boolean" id="market_buy_supported">
-   Indicates whether creating a market buy order is supported on the exchange `true` or not `false`.
+<CollapsibleApiParam
+  name="market_buy_supported"
+  type="boolean"
+  id="market_buy_supported"
+>
+  Indicates whether creating a market buy order is supported on the exchange
+  `true` or not `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="market_sell_supported" type="boolean" id="market_sell_supported">
-   Indicates whether creating a market sell order is supported on the exchange `true` or not `false`.
+<CollapsibleApiParam
+  name="market_sell_supported"
+  type="boolean"
+  id="market_sell_supported"
+>
+  Indicates whether creating a market sell order is supported on the exchange
+  `true` or not `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="conditional_buy_supported" type="boolean" id="conditional_buy_supported">
-   Indicates whether creating a conditional buy order is supported on the exchange `true` or not `false`.
+<CollapsibleApiParam
+  name="conditional_buy_supported"
+  type="boolean"
+  id="conditional_buy_supported"
+>
+  Indicates whether creating a conditional buy order is supported on the
+  exchange `true` or not `false`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="bots_allowed" type="boolean" id="bots_allowed">
-   Indicates whether DCA Bot is enabled for this account `true` or not `false`.
+  Indicates whether DCA Bot is enabled for this account `true` or not `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="bots_ttp_allowed" type="boolean" id="bots_ttp_allowed">
-   Indicates whether the trailing take profit feature is enabled on this account `true` or not `false`.
+<CollapsibleApiParam
+  name="bots_ttp_allowed"
+  type="boolean"
+  id="bots_ttp_allowed"
+>
+  Indicates whether the trailing take profit feature is enabled on this account
+  `true` or not `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="bots_tsl_allowed" type="boolean" id="bots_tsl_allowed">
-   Indicates whether the trading stop loss feature is enabled on this account `true` or not `false`.
+<CollapsibleApiParam
+  name="bots_tsl_allowed"
+  type="boolean"
+  id="bots_tsl_allowed"
+>
+  Indicates whether the trading stop loss feature is enabled on this account
+  `true` or not `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="multi_bots_allowed" type="boolean" id="multi_bots_allowed">
-   Indicates whether the Multi-Pair feature is supported for this account `true` or not `false`.
+<CollapsibleApiParam
+  name="multi_bots_allowed"
+  type="boolean"
+  id="multi_bots_allowed"
+>
+  Indicates whether the Multi-Pair feature is supported for this account `true`
+  or not `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="fast_convert_available" type="boolean" id="fast_convert_available">
-   Indicates whether the "Sell All to BTC/USD" feature is enabled for this account `true` or not `false`.
+<CollapsibleApiParam
+  name="fast_convert_available"
+  type="boolean"
+  id="fast_convert_available"
+>
+  Indicates whether the "Sell All to BTC/USD" feature is enabled for this
+  account `true` or not `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="grid_bots_allowed" type="boolean" id="grid_bots_allowed">
-   Indicates whether Grid Bot is enabled for this account `true` or not `false`.
+<CollapsibleApiParam
+  name="grid_bots_allowed"
+  type="boolean"
+  id="grid_bots_allowed"
+>
+  Indicates whether Grid Bot is enabled for this account `true` or not `false`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="api_key" type="string" id="api_key">
-   API key used for the account.
+  API key used for the account.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="api_key_invalid" type="boolean" id="api_key_invalid">
-   Indicates whether the API key for this account is invalid `true` or not `false`.
+  Indicates whether the API key for this account is invalid `true` or not
+  `false`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="api_keys_state" type="string" id="api_keys_state">
-   Indicates the state of the API keys.
+  Indicates the state of the API keys.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="deposit_enabled" type="boolean" id="deposit_enabled">
-   Indicates whether the Deposit feature is enabled for this account `true` or not `false`.
+  Indicates whether the Deposit feature is enabled for this account `true` or
+  not `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="available_include_in_summary" type="boolean" id="available_include_in_summary">
-   Indicates whether this account is available to be included in the summary `true` or not `false`.
+<CollapsibleApiParam
+  name="available_include_in_summary"
+  type="boolean"
+  id="available_include_in_summary"
+>
+  Indicates whether this account is available to be included in the summary
+  `true` or not `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="include_in_summary" type="boolean" id="include_in_summary">
-   Indicates whether this account included in the summary `true` or not `false`.
+<CollapsibleApiParam
+  name="include_in_summary"
+  type="boolean"
+  id="include_in_summary"
+>
+  Indicates whether this account included in the summary `true` or not `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="supported_market_types" type="array" id="supported_market_types">
-   The type of market supported by the connected exchange account.
+<CollapsibleApiParam
+  name="supported_market_types"
+  type="array"
+  id="supported_market_types"
+>
+  The type of market supported by the connected exchange account.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="customer_id" type="string" id="customer_id">
-   Unique customer ID provided by the Bitstamp exchange.
+  Unique customer ID provided by the Bitstamp exchange.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="btc_amount" type="string" id="btc_amount">
-   Amount of Bitcoin in the account.
+  Amount of Bitcoin in the account.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="usd_amount" type="string" id="usd_amount">
-   Amount in USD in the account.
+  Amount in USD in the account.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="day_profit_btc" type="string" id="day_profit_btc">
-   Daily profit in BTC.
+  Daily profit in BTC.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="day_profit_usd" type="string" id="day_profit_usd">
-   Daily profit in USD.
+  Daily profit in USD.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="day_profit_btc_percentage" type="number" id="day_profit_btc_percentage">
-   Daily profit percentage in BTC.
+<CollapsibleApiParam
+  name="day_profit_btc_percentage"
+  type="number"
+  id="day_profit_btc_percentage"
+>
+  Daily profit percentage in BTC.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="day_profit_usd_percentage" type="number" id="day_profit_usd_percentage">
-   Daily profit percentage in USD.
+<CollapsibleApiParam
+  name="day_profit_usd_percentage"
+  type="number"
+  id="day_profit_usd_percentage"
+>
+  Daily profit percentage in USD.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="btc_profit" type="number" id="btc_profit">
-   Monthly profit in BTC.
+  Monthly profit in BTC.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="usd_profit" type="number" id="usd_profit">
-   Monthly profit in USD.
+  Monthly profit in USD.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="btc_profit_percentage" type="number" id="btc_profit_percentage">
-   Monthly profit percentage in BTC.
+<CollapsibleApiParam
+  name="btc_profit_percentage"
+  type="number"
+  id="btc_profit_percentage"
+>
+  Monthly profit percentage in BTC.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="usd_profit_percentage" type="number" id="usd_profit_percentage">
-   Monthly profit percentage in USD.
+<CollapsibleApiParam
+  name="usd_profit_percentage"
+  type="number"
+  id="usd_profit_percentage"
+>
+  Monthly profit percentage in USD.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="total_btc_profit" type="number" id="total_btc_profit">
-   Total profit in BTC.
+<CollapsibleApiParam
+  name="total_btc_profit"
+  type="number"
+  id="total_btc_profit"
+>
+  Total profit in BTC.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="total_usd_profit" type="number" id="total_usd_profit">
-   Total profit in USD.
+<CollapsibleApiParam
+  name="total_usd_profit"
+  type="number"
+  id="total_usd_profit"
+>
+  Total profit in USD.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="created_at" type="string" id="created_at">
-   ISO 8601 datetime of when this Account entity was created.
+  ISO 8601 datetime of when this Account entity was created.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="updated_at" type="string" id="updated_at">
@@ -393,12 +519,11 @@ Use the [Supported markets list](/docs/market-data/0_supported_markets_list.mdx)
   "error": "record_invalid",
   "error_description": "Invalid parameters",
   "error_attributes": {
-    "api_key": [
-      "This account is already connected!"
-    ]
+    "api_key": ["This account is already connected!"]
   }
 }
 ```
+
   </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>

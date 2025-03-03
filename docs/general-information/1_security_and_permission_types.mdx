@@ -9,11 +9,10 @@ Each endpoint in the 3Commas API has specific security and permission types, whi
 
 Security types define the authentication required to access API endpoints.
 
-| Security Type | Description |
-|---------------|--------------|
-| NONE | Endpoint can be accessed freely |
-| SIGNED | Requires a valid `APIKey` and a `Signature` for access |
-
+| Security Type | Description                                            |
+| ------------- | ------------------------------------------------------ |
+| NONE          | Endpoint can be accessed freely                        |
+| SIGNED        | Requires a valid `APIKey` and a `Signature` for access |
 
 ## Permission Types
 
@@ -21,12 +20,12 @@ Security types define the authentication required to access API endpoints.
 
     For example, one API Key might provide access to read-only statistics, while another could enable full control over bots and accounts.
 
-| Permission Type | Description |
-|---------------|--------------|
-| NONE | Endpoint can be accessed freely |
-| BOTS_READ | Allows viewing information associated with this permission |
-| BOTS_WRITE | Allows creating or modifying data associated with this permission |
-| ACCOUNTS_READ | Allows viewing information associated with this permission |
-| ACCOUNTS_WRITE | Allows creating or modifying data associated with this permission |
-| SMART_TRADES_READ | Allows viewing information associated with this permission |
+| Permission Type    | Description                                                       |
+| ------------------ | ----------------------------------------------------------------- |
+| NONE               | Endpoint can be accessed freely                                   |
+| BOTS_READ          | Allows viewing information associated with this permission        |
+| BOTS_WRITE         | Allows creating or modifying data associated with this permission |
+| ACCOUNTS_READ      | Allows viewing information associated with this permission        |
+| ACCOUNTS_WRITE     | Allows creating or modifying data associated with this permission |
+| SMART_TRADES_READ  | Allows viewing information associated with this permission        |
 | SMART_TRADES_WRITE | Allows creating or modifying data associated with this permission |

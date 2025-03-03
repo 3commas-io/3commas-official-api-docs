@@ -15,7 +15,9 @@
   border-radius: 8px;
   background: var(--ifm-code-background);
   font-style: normal;
-  font-family: JetBrains Mono, monospace;
+  font-family:
+    JetBrains Mono,
+    monospace;
   font-size: 14px;
   word-break: break-word;
   line-height: 1.5;

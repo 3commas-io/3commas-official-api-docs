@@ -4,13 +4,16 @@ title: Close SmartTrade at market price
 sidebar_class_name: post
 ---
 
-import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
-import * as StickyLayout from '@site/src/components/StickyLayout';
-import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
-import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
-import Separator from '@site/src/components/Separator';
-import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import Endpoint, {
+  Permission,
+  NoContentEndpoint,
+} from "@site/src/components/Endpoint";
+import * as StickyLayout from "@site/src/components/StickyLayout";
+import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
+import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
+import ApiParam from "@site/src/components/ApiParam";
+import Separator from "@site/src/components/Separator";
+import * as ResponseTabs from "@site/src/components/ResponseTabs";
 
 <Endpoint
   url="/v2/smart_trades/:id/close_by_market"
@@ -23,7 +26,7 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
   }
 />
 
- Cancels an existing SmartTrade in place using its ID.
+Cancels an existing SmartTrade in place using its ID.
 
 <Separator />
 
@@ -31,6 +34,7 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 <StickyLayout.Main>
 
 ## Path Parameter
+
 <ApiParam name='id' type='integer' id="id" required>
    Unique 3Commas ID for this SmartTrade entity.
 </ApiParam>
@@ -39,7 +43,10 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 <StickyLayout.Sticky>
 ## Example Request
 
-<NoContentEndpoint method="POST" endpoint="/v2/smart_trades/12345678/close_by_market" />
+<NoContentEndpoint
+  method="POST"
+  endpoint="/v2/smart_trades/12345678/close_by_market"
+/>
 
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -48,12 +55,15 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 <StickyLayout.Main>
 
 ## Response Parameter
+
 If successful, the response includes an updated copy of the [SmartTrade](/smart-trade/0_smart_trade_entity.mdx) entity.
+
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>
 
 ## Example Responses
+
 <ResponseTabs.Root>
 <ResponseTabs.TabItem value="201" label="201 Created" default>
 ```json

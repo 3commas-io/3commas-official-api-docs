@@ -4,14 +4,21 @@ title: Get the list of SmartTrades
 sidebar_class_name: get
 ---
 
-import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
-import * as StickyLayout from '@site/src/components/StickyLayout';
-import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
-import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import Separator from '@site/src/components/Separator';
-import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
-import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
-import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import Endpoint, {
+  Permission,
+  NoContentEndpoint,
+} from "@site/src/components/Endpoint";
+import * as StickyLayout from "@site/src/components/StickyLayout";
+import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
+import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
+import Separator from "@site/src/components/Separator";
+import {
+  CollapseAll,
+  CollapseAllButton,
+  CollapseAllHeading,
+} from "@site/src/components/CollapseAll";
+import ApiParam, { ParameterRange } from "@site/src/components/ApiParam";
+import * as ResponseTabs from "@site/src/components/ResponseTabs";
 
 <Endpoint
   url="/v2/smart_trades"
@@ -51,7 +58,7 @@ Returns the list of SmartTrade. Use the query parameters to filter the results.
         <CollapseAll>
        <CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
         <CollapsibleApiParam name='per_page' type='integer' id="per_page">
-          Quantity of records on one page. 
+          Quantity of records on one page.
           <ParameterRange min={1} max={100} defaultVal={10} />
         </CollapsibleApiParam>
         <CollapsibleApiParam name='status' type='string' id="status">
@@ -66,7 +73,7 @@ Returns the list of SmartTrade. Use the query parameters to filter the results.
                 </CollapsibleNestedParams>
         </CollapsibleApiParam>
         <CollapsibleApiParam name='order_by' type='string' id="order_by">
-            Specifies the field by which to sort the response. Choose one of value: `created_at`, `updated_at`, `closed_at`, `status`, `profit`, `profit_percentage`. 
+            Specifies the field by which to sort the response. Choose one of value: `created_at`, `updated_at`, `closed_at`, `status`, `profit`, `profit_percentage`.
 
           <ParameterRange defaultVal={"status"} />
         </CollapsibleApiParam>
@@ -88,6 +95,7 @@ Returns the list of SmartTrade. Use the query parameters to filter the results.
         Quote currency.
         </CollapsibleApiParam>
         </CollapseAll>
+
 </StickyLayout.Main>
 <StickyLayout.Sticky>
     ## Example Request
@@ -96,7 +104,6 @@ Returns the list of SmartTrade. Use the query parameters to filter the results.
 
 </StickyLayout.Sticky>
 </StickyLayout.Root>
-
 
 <StickyLayout.Root>
     <StickyLayout.Main>

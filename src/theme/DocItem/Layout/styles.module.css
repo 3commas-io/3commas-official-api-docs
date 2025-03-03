@@ -16,7 +16,7 @@
   }
 }
 
-.pagination{
+.pagination {
   display: flex;
   justify-content: space-between;
   gap: 1.5rem;
@@ -31,4 +31,3 @@
   right: 0;
   top: 130px;
 }
-

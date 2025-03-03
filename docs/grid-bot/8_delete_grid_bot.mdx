@@ -4,14 +4,21 @@ title: Delete Grid Bot
 sidebar_class_name: delete
 ---
 
-import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
-import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
-import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
-import Separator from '@site/src/components/Separator';
-import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
-import * as StickyLayout from '@site/src/components/StickyLayout'
-import * as ResponseTabs from '@site/src/components/ResponseTabs'
+import Endpoint, {
+  Permission,
+  NoContentEndpoint,
+} from "@site/src/components/Endpoint";
+import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
+import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
+import ApiParam from "@site/src/components/ApiParam";
+import Separator from "@site/src/components/Separator";
+import {
+  CollapseAll,
+  CollapseAllButton,
+  CollapseAllHeading,
+} from "@site/src/components/CollapseAll";
+import * as StickyLayout from "@site/src/components/StickyLayout";
+import * as ResponseTabs from "@site/src/components/ResponseTabs";
 
 <Endpoint
   url="/ver1/grid_bots/:id"
@@ -31,17 +38,16 @@ Deletes an existing Grid Bot in place using its ID.
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-## Path Parameter 
+## Path Parameter
 
-<ApiParam name='id' type='integer' id="id" required>
-   Unique 3Commas ID for this Grid Bot entity.
+<ApiParam name="id" type="integer" id="id" required>
+  Unique 3Commas ID for this Grid Bot entity.
 </ApiParam>
 
 </StickyLayout.Main>
 <StickyLayout.Sticky>
 
-## Example Request 
-
+## Example Request
 
 <NoContentEndpoint method="DELETE" endpoint="/ver1/grid_bots/2320287" />
 
@@ -51,28 +57,32 @@ Deletes an existing Grid Bot in place using its ID.
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-## Response Parameters 
+## Response Parameters
+
 No parameters.
 
 </StickyLayout.Main>
 <StickyLayout.Sticky>
 
 ## Example Responses
+
 <ResponseTabs.Root>
 <ResponseTabs.TabItem value="200" label="200 OK" default>
 
     ```
     NONE
     ```
+
   </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="401" label="401 Unauthorized" default>
 
-  ```json
-  {
-    "error": "signature_invalid",
-    "error_description": "Provided signature is invalid"
-  }
-  ```
+```json
+{
+  "error": "signature_invalid",
+  "error_description": "Provided signature is invalid"
+}
+```
+
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>

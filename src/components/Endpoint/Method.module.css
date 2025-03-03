@@ -1,6 +1,11 @@
 .container {
   font-weight: bold;
-  font-family: Graphik, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family:
+    Graphik,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
   font-size: 10px;
   text-transform: uppercase;
   line-height: 1.2;
@@ -42,7 +47,7 @@
 }
 
 .post {
-  --accent: #1E72D2;
+  --accent: #1e72d2;
 }
 
 .delete {

@@ -1,6 +1,6 @@
-import clsx from 'clsx';
+import clsx from "clsx";
 
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
 
 interface ParameterRangeProps {
   min?: number | string;
@@ -10,12 +10,17 @@ interface ParameterRangeProps {
     min?: string;
     max?: string;
     default?: string;
-  }
+  };
 }
 
-export const ParameterRange = ({ defaultVal, max, min, labels = { default: "default", min: "min", max: "max" } }: ParameterRangeProps) => {
+export const ParameterRange = ({
+  defaultVal,
+  max,
+  min,
+  labels = { default: "default", min: "min", max: "max" },
+}: ParameterRangeProps) => {
   return (
-    <div className={styles['parameter-range']}>
+    <div className={styles["parameter-range"]}>
       {min !== undefined && (
         <div className={clsx(styles.min, styles.value)}>
           {labels.min}: <code>{min}</code>

@@ -16,7 +16,7 @@
     }
   }
 
-  *[role='tablist'] {
+  *[role="tablist"] {
     flex-shrink: 0;
 
     & + * {

@@ -4,14 +4,21 @@ title: Disable Grid Bot
 sidebar_class_name: post
 ---
 
-import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
-import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
-import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
-import Separator from '@site/src/components/Separator';
-import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
-import * as StickyLayout from '@site/src/components/StickyLayout'
-import * as ResponseTabs from '@site/src/components/ResponseTabs'
+import Endpoint, {
+  Permission,
+  NoContentEndpoint,
+} from "@site/src/components/Endpoint";
+import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
+import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
+import ApiParam from "@site/src/components/ApiParam";
+import Separator from "@site/src/components/Separator";
+import {
+  CollapseAll,
+  CollapseAllButton,
+  CollapseAllHeading,
+} from "@site/src/components/CollapseAll";
+import * as StickyLayout from "@site/src/components/StickyLayout";
+import * as ResponseTabs from "@site/src/components/ResponseTabs";
 
 <Endpoint
   url="/ver1/grid_bots/:id/disable"
@@ -31,16 +38,17 @@ Stops an existing Grid Bot using its ID.
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-## Path Parameter 
-<ApiParam name='id' type='integer' id="id" required>
-   Unique 3Commas ID for this Grid Bot entity.
+## Path Parameter
+
+<ApiParam name="id" type="integer" id="id" required>
+  Unique 3Commas ID for this Grid Bot entity.
 </ApiParam>
 
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>
 
-## Example Request 
+## Example Request
 
 <NoContentEndpoint method="POST" endpoint="/ver1/grid_bots/2338357/disable" />
 
@@ -50,9 +58,10 @@ Stops an existing Grid Bot using its ID.
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-## Response Parameters 
+## Response Parameters
 
 If successful, the response includes a copy of the updated [Grid Bot](/grid-bot/0_grid_bot_entity.mdx) entity.
+
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>
@@ -126,6 +135,7 @@ If successful, the response includes a copy of the updated [Grid Bot](/grid-bot/
   ]
 }
 ```
+
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>

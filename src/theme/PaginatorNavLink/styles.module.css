@@ -29,15 +29,15 @@
 
 .pagination-item--next .pagination__arrow svg {
   transform: rotate(180deg);
-}  
+}
 
 .pagination-item .pagination__arrow svg path {
-  stroke: #2C2E30;
-}  
+  stroke: #2c2e30;
+}
 
 [data-theme="dark"] .pagination-item .pagination__arrow svg path {
   stroke: #fff;
-}  
+}
 
 a:hover {
   text-decoration: none;
@@ -51,7 +51,9 @@ a:hover {
   align-items: center;
   background-color: var(--pagination-button-color);
   border-radius: 0.5rem;
-  transition: transform, 0.2s ease-in-out;
+  transition:
+    transform,
+    0.2s ease-in-out;
 }
 
 .pagination__info {
@@ -63,7 +65,7 @@ a:hover {
   letter-spacing: 0.2px;
 }
 
-.pagination__info h3{
+.pagination__info h3 {
   font-size: 1rem;
   font-weight: 600;
   color: var(--ifm-heading-color);

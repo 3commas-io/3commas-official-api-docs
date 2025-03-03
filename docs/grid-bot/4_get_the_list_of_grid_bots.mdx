@@ -4,14 +4,21 @@ title: Get the list of Grid Bots
 sidebar_class_name: get
 ---
 
-import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
-import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
-import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
-import Separator from '@site/src/components/Separator';
-import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
-import * as StickyLayout from '@site/src/components/StickyLayout'
-import * as ResponseTabs from '@site/src/components/ResponseTabs'
+import Endpoint, {
+  Permission,
+  NoContentEndpoint,
+} from "@site/src/components/Endpoint";
+import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
+import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
+import ApiParam, { ParameterRange } from "@site/src/components/ApiParam";
+import Separator from "@site/src/components/Separator";
+import {
+  CollapseAll,
+  CollapseAllButton,
+  CollapseAllHeading,
+} from "@site/src/components/CollapseAll";
+import * as StickyLayout from "@site/src/components/StickyLayout";
+import * as ResponseTabs from "@site/src/components/ResponseTabs";
 
 <Endpoint
   url="/ver1/grid_bots"
@@ -31,28 +38,27 @@ Returns the list of Grid Bots. Use the body parameters to filter results.
 <StickyLayout.Root>
    <StickyLayout.Main>
 
-## Query Parameters 
-<ApiParam name='account_id' type='string' id="account_id">
-    Unique 3Commas ID for this Grid Bot entity.
-    Use a comma-separated list to specify multiple `account_id` values.
+## Query Parameters
+
+<ApiParam name="account_id" type="string" id="account_id">
+  Unique 3Commas ID for this Grid Bot entity. Use a comma-separated list to
+  specify multiple `account_id` values.
 </ApiParam>
 
-<ApiParam name='state' type='string' id="state">
-    Return entities that match the specified state.
-    Use `enabled` to get active bots and `disabled` to get inactive bots.
+<ApiParam name="state" type="string" id="state">
+  Return entities that match the specified state. Use `enabled` to get active
+  bots and `disabled` to get inactive bots.
 </ApiParam>
 
-<ApiParam name='sort_by' type='string' id="sort_by">
-   Specifies the field by which to sort the response.
-   <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
-      * **current_profit**
-      * **profit**
-      * **bot_id**
-      * **pair**
-      * **created_at**
-      * **updated_at**
-      * **name**
-     </CollapsibleNestedParams>
+<ApiParam name="sort_by" type="string" id="sort_by">
+  Specifies the field by which to sort the response.
+  <CollapsibleNestedParams
+    openName="Hide allowed values"
+    collapsedName="Show allowed values"
+  >
+    * **current_profit** * **profit** * **bot_id** * **pair** * **created_at** *
+    **updated_at** * **name**
+  </CollapsibleNestedParams>
 </ApiParam>
 
 <ApiParam name='sort_direction' type='string' id="sort_direction">
@@ -71,17 +77,18 @@ Returns the list of Grid Bots. Use the body parameters to filter results.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="offset" type="integer" id="offset">
-   Used to specify the starting point for a set of records to return in a paginated list.
-   
-   <ParameterRange defaultVal={0} />
+  Used to specify the starting point for a set of records to return in a
+  paginated list.
+  <ParameterRange defaultVal={0} />
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="from" type="string" id="from">
-   Parameter for a filter by created date.
+  Parameter for a filter by created date.
 </CollapsibleApiParam>
-      
+
 <CollapsibleApiParam name="base" type="string" id="base">
-   Return entities that match the base currency of the trading pair (e.g., `BTC` for BTC/USDT).
+  Return entities that match the base currency of the trading pair (e.g., `BTC`
+  for BTC/USDT).
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="quote" type="string" id="quote">
@@ -91,9 +98,12 @@ Returns the list of Grid Bots. Use the body parameters to filter results.
 </StickyLayout.Main>
 <StickyLayout.Sticky>
 
-## Example Request 
+## Example Request
 
-<NoContentEndpoint method="GET" endpoint="/ver1/grid_bots?account_ids[]=32833909&account_ids[]32864603" />
+<NoContentEndpoint
+  method="GET"
+  endpoint="/ver1/grid_bots?account_ids[]=32833909&account_ids[]32864603"
+/>
 
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -101,7 +111,7 @@ Returns the list of Grid Bots. Use the body parameters to filter results.
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-## Response Parameters 
+## Response Parameters
 
 If successful, the response includes an array of [Grid Bot](/grid-bot/0_grid_bot_entity.mdx) entities.
 
@@ -241,6 +251,7 @@ If successful, the response includes an array of [Grid Bot](/grid-bot/0_grid_bot
   }
 ]
 ```
+
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="500" label="500 Internal Server Error">
 ```json

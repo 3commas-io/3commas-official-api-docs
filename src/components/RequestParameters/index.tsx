@@ -1,13 +1,13 @@
-import styles from './RequestParameters.module.css';
+import styles from "./RequestParameters.module.css";
 
 interface RequestParametersProps {
-  items: {key: string, value: string}[];
+  items: { key: string; value: string }[];
 }
 
-const RequestParameters = ({items = []}: RequestParametersProps) => {
+const RequestParameters = ({ items = [] }: RequestParametersProps) => {
   return (
     <div className={styles.container}>
-      {items.map(({key, value}) => (
+      {items.map(({ key, value }) => (
         <div className={styles.row} key={key}>
           <div className={styles.label}>
             <span>Parameter:</span>
@@ -20,7 +20,7 @@ const RequestParameters = ({items = []}: RequestParametersProps) => {
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
 export default RequestParameters;

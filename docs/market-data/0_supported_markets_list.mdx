@@ -4,14 +4,18 @@ title: Supported markets list
 sidebar_class_name: get
 ---
 
-import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
-import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
-import ApiParam from '@site/src/components/ApiParam';
-import Separator from '@site/src/components/Separator';
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
-import * as StickyLayout from '@site/src/components/StickyLayout';
-import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
+import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
+import {
+  CollapseAll,
+  CollapseAllButton,
+  CollapseAllHeading,
+} from "@site/src/components/CollapseAll";
+import ApiParam from "@site/src/components/ApiParam";
+import Separator from "@site/src/components/Separator";
+import Endpoint, { Permission } from "@site/src/components/Endpoint";
+import * as StickyLayout from "@site/src/components/StickyLayout";
+import * as ResponseTabs from "@site/src/components/ResponseTabs";
 
 <Endpoint
   url="/ver1/accounts/market_list"
@@ -41,6 +45,7 @@ No parameters.
 ```json
 GET /ver1/accounts/market_list
 ```
+
 </StickyLayout.Sticky>
 </StickyLayout.Root>
 
@@ -49,20 +54,21 @@ GET /ver1/accounts/market_list
 
 ## Response parameters
 
-<ApiParam name='market_name' type='string' id="market_name">
-Name of the exchange in the 3Commas system.
+<ApiParam name="market_name" type="string" id="market_name">
+  Name of the exchange in the 3Commas system.
 </ApiParam>
 
-<ApiParam name='market_url' type='string' id="market_url">
-The referral link to the exchange website.
+<ApiParam name="market_url" type="string" id="market_url">
+  The referral link to the exchange website.
 </ApiParam>
 
-<ApiParam name='market_icon' type='string' id="market_icon">
-The URL link to the icon for this exchange.
+<ApiParam name="market_icon" type="string" id="market_icon">
+  The URL link to the icon for this exchange.
 </ApiParam>
 
-<ApiParam name='help_link' type='string' id="help_link">
-The public URL to the help page with detailed instructions on connecting the exchange.
+<ApiParam name="help_link" type="string" id="help_link">
+  The public URL to the help page with detailed instructions on connecting the
+  exchange.
 </ApiParam>
 
 <CollapseAll>
@@ -97,26 +103,44 @@ The public URL to the help page with detailed instructions on connecting the exc
             </ApiParam>
         </CollapsibleNestedParams>
      </ApiParam>
+
   </CollapsibleNestedParams>   
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name='available_connection_flows' type='array' id="available_connection_flows">
-Available exchange connection types in 3Commas.
-    <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
-      * **form** - connection through a web form option;
-      * **fast_connect** - quick connection option.
-     </CollapsibleNestedParams>
-</CollapsibleApiParam>
-  
-<CollapsibleApiParam name='third_party_allowed' type='boolean' id="third_party_allowed">
-  This exchange provides a service for connecting third-party apps. If `false`, the exchange does not support this functionality.
+<CollapsibleApiParam
+  name="available_connection_flows"
+  type="array"
+  id="available_connection_flows"
+>
+  Available exchange connection types in 3Commas.
+  <CollapsibleNestedParams
+    openName="Hide allowed values"
+    collapsedName="Show allowed values"
+  >
+    * **form** - connection through a web form option; * **fast_connect** -
+    quick connection option.
+  </CollapsibleNestedParams>
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name='trusted_ips' type='array[string]' id="trusted_ips">
-  The list of IP addresses needs to be whitelisted on the exchange's website for 3Commas to work with the exchange.
+<CollapsibleApiParam
+  name="third_party_allowed"
+  type="boolean"
+  id="third_party_allowed"
+>
+  This exchange provides a service for connecting third-party apps. If `false`,
+  the exchange does not support this functionality.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name='trusted_ips_input_type' type='string' id="trusted_ips_input_type">
+<CollapsibleApiParam name="trusted_ips" type="array[string]" id="trusted_ips">
+  The list of IP addresses needs to be whitelisted on the exchange's website for
+  3Commas to work with the exchange.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam
+  name="trusted_ips_input_type"
+  type="string"
+  id="trusted_ips_input_type"
+>
   Input type for trusted IP addresses.
 </CollapsibleApiParam>
 
@@ -129,6 +153,7 @@ Available exchange connection types in 3Commas.
    <StickyLayout.Sticky>
 
 ## Example Response
+
 <ResponseTabs.Root>
 <ResponseTabs.TabItem value="200" label="200 OK" default>
 ```json

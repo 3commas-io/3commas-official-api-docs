@@ -1,27 +1,26 @@
 .separator {
-    --separator-color: #ECECEC;
+  --separator-color: #ececec;
 
-    height: 1px;
-    width: 100%;
-    background-color: var(--separator-color);
-    margin-top: 38px;
-    margin-bottom: 0;
-    position: relative;
-    overflow: visible;
+  height: 1px;
+  width: 100%;
+  background-color: var(--separator-color);
+  margin-top: 38px;
+  margin-bottom: 0;
+  position: relative;
+  overflow: visible;
 }
 
 [data-theme="dark"] .separator {
-  --separator-color: #2C2E30;
+  --separator-color: #2c2e30;
 }
 
 [data-theme="light"] .separator.example {
-  --separator-color: #E6EFF9;
+  --separator-color: #e6eff9;
 }
 
 .separator.example {
   margin: 26px 0;
 }
-
 
 .separator::after {
   content: attr(data-label);
@@ -41,5 +40,5 @@
 
 [data-theme="light"] .separator::after {
   background-color: var(--separator-text-bg-light);
-  color: #B8B8B8;
+  color: #b8b8b8;
 }

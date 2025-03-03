@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 // import { Logo } from './Logo'
 
 // import styles from './styles.module.css'
@@ -18,7 +18,7 @@ function Footer(): JSX.Element | null {
     //     {copyright}
     //   </div>
     // </div>
-  )
+  );
 }
 
-export default React.memo(Footer)
+export default React.memo(Footer);

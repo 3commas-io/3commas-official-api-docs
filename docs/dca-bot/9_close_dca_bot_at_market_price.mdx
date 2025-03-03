@@ -4,14 +4,16 @@ title: Close DCA Bot at market price
 sidebar_class_name: post
 ---
 
-import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
-import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
-import Separator from '@site/src/components/Separator';
-import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
-import * as ResponseTabs from '@site/src/components/ResponseTabs';
-import * as StickyLayout from '@site/src/components/StickyLayout';
-
+import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
+import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
+import ApiParam from "@site/src/components/ApiParam";
+import Separator from "@site/src/components/Separator";
+import Endpoint, {
+  Permission,
+  NoContentEndpoint,
+} from "@site/src/components/Endpoint";
+import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import * as StickyLayout from "@site/src/components/StickyLayout";
 
 <Endpoint
   url="/ver1/bots/:bot_id/panic_sell_all_deals"
@@ -39,9 +41,12 @@ Closes all deals of the bot at market price and disables the DCA Bot.
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>
-##  Example request 
+##  Example request
 
-<NoContentEndpoint method="POST" endpoint="/ver1/bots/12345678/panic_sell_all_deals" />
+<NoContentEndpoint
+  method="POST"
+  endpoint="/ver1/bots/12345678/panic_sell_all_deals"
+/>
 
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -55,7 +60,7 @@ If successful, the response includes an updated copy of the [DCA Bot](/dca-bot/0
    </StickyLayout.Main>
 <StickyLayout.Sticky>
 
-##  Example Responses
+## Example Responses
 
 <ResponseTabs.Root>
       <ResponseTabs.TabItem value="201" label="201 Created" default>
@@ -250,6 +255,7 @@ If successful, the response includes an updated copy of the [DCA Bot](/dca-bot/0
   "error_description": "Not Found"
 }
 ```
+
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
    </StickyLayout.Sticky>

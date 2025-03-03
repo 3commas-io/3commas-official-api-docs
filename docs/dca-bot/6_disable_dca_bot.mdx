@@ -4,13 +4,16 @@ title: Disable DCA Bot
 sidebar_class_name: post
 ---
 
-import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
-import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
-import Separator from '@site/src/components/Separator';
-import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
-import * as StickyLayout from '@site/src/components/StickyLayout';
-import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
+import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
+import ApiParam from "@site/src/components/ApiParam";
+import Separator from "@site/src/components/Separator";
+import Endpoint, {
+  Permission,
+  NoContentEndpoint,
+} from "@site/src/components/Endpoint";
+import * as StickyLayout from "@site/src/components/StickyLayout";
+import * as ResponseTabs from "@site/src/components/ResponseTabs";
 
 <Endpoint
   url="/ver1/bots/:bot_id/disable"
@@ -31,8 +34,8 @@ Disables an existing DCA Bot using its ID.
    <StickyLayout.Main>
 
 ## Path Parameter
- 
-<ApiParam name='bot_id' type='integer' id="bot_id" required>
+
+<ApiParam name="bot_id" type="integer" id="bot_id" required>
   Unique 3Commas ID for this DCA Bot entity.
 </ApiParam>
 
@@ -52,7 +55,7 @@ Disables an existing DCA Bot using its ID.
 
 ## Response Parameters
 
-  If successful, the response includes a copy of [DCA Bot](/dca-bot/0_dca_bot_entity.mdx) entity.
+If successful, the response includes a copy of [DCA Bot](/dca-bot/0_dca_bot_entity.mdx) entity.
 
 </StickyLayout.Main>
 
@@ -70,9 +73,7 @@ Disables an existing DCA Bot using its ID.
   "is_enabled": false,
   "max_safety_orders": 3,
   "active_safety_orders_count": 2,
-  "pairs": [
-    "USDT_ETH"
-  ],
+  "pairs": ["USDT_ETH"],
   "strategy_list": [
     {
       "options": {},
@@ -226,12 +227,7 @@ Disables an existing DCA Bot using its ID.
         "buyPrice": "2516.288198099688473520249221184",
         "currentPrice": "2423.58",
         "inverted": false,
-        "stopLosses": [
-          [
-            "1998.1019058",
-            false
-          ]
-        ],
+        "stopLosses": [["1998.1019058", false]],
         "LP": null,
         "buySteps": [
           {
@@ -252,14 +248,17 @@ Disables an existing DCA Bot using its ID.
   ]
 }
 ```
+
      </ResponseTabs.TabItem>
+
 <ResponseTabs.TabItem value="403" label="403 Forbidden">
 
-   ```json
-   {
-     "error": "Forbidden"
-   }
-   ```
+```json
+{
+  "error": "Forbidden"
+}
+```
+
    </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>

@@ -1,7 +1,7 @@
 .steps {
   --circle-size: 2rem;
-  --step-color: #13A8A1;
-  --step-background-color: #EAF5F5;
+  --step-color: #13a8a1;
+  --step-background-color: #eaf5f5;
 
   display: flex;
   flex-direction: column;
@@ -10,8 +10,8 @@
 }
 
 [data-theme="dark"] .steps {
-  --step-color: #0E7C75;
-  --step-background-color: #C2ECEA;
+  --step-color: #0e7c75;
+  --step-background-color: #c2ecea;
 }
 
 .step {

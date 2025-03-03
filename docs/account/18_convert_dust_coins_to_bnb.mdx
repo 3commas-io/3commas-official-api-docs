@@ -4,14 +4,14 @@ title: Convert dust coins to BNB
 sidebar_class_name: post
 ---
 
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
-import ApiParam from '@site/src/components/ApiParam';
-import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
-import Separator from '@site/src/components/Separator';
-import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import { Informer } from '@site/src/components/Informer/Informer';
-import * as StickyLayout from '@site/src/components/StickyLayout'
-import * as ResponseTabs from '@site/src/components/ResponseTabs'
+import Endpoint, { Permission } from "@site/src/components/Endpoint";
+import ApiParam from "@site/src/components/ApiParam";
+import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
+import Separator from "@site/src/components/Separator";
+import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
+import { Informer } from "@site/src/components/Informer/Informer";
+import * as StickyLayout from "@site/src/components/StickyLayout";
+import * as ResponseTabs from "@site/src/components/ResponseTabs";
 
 <Endpoint
   url="/ver1/accounts/:account_id/convert_dust_to_bnb"
@@ -27,7 +27,7 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs'
 Conversion of any other currency into the specific BNB currency.
 
 <Informer variant="info">
-This endpoint is applicable to the Binance Spot exchange.
+  This endpoint is applicable to the Binance Spot exchange.
 </Informer>
 
 <Separator />
@@ -36,20 +36,20 @@ This endpoint is applicable to the Binance Spot exchange.
 <StickyLayout.Main>
 ## Path Parameter
 
-<ApiParam name='account_id' type='integer' id="account_id" required>
-    Unique 3Commas ID of this exchange account entity.
+<ApiParam name="account_id" type="integer" id="account_id" required>
+  Unique 3Commas ID of this exchange account entity.
 </ApiParam>
 
 ## Body Parameter
 
-<ApiParam name='codes' type='array[string]' id="codes">
-   Array of currency codes.
+<ApiParam name="codes" type="array[string]" id="codes">
+  Array of currency codes.
 </ApiParam>
 
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>
-## Example Request 
+## Example Request
 
 ```json title="POST /ver1/accounts/12345678/convert_dust_to_bnb"
 {
@@ -65,12 +65,12 @@ This endpoint is applicable to the Binance Spot exchange.
 
 ## Response Parameters
 
-<ApiParam name='totalTransfered' type='string' id="totalTransfered">
-The total amount successfully converted to BNB.
+<ApiParam name="totalTransfered" type="string" id="totalTransfered">
+  The total amount successfully converted to BNB.
 </ApiParam>
 
-<ApiParam name='totalServiceCharge' type='string' id="totalServiceCharge">
-The total service fee deducted during the conversion.
+<ApiParam name="totalServiceCharge" type="string" id="totalServiceCharge">
+  The total service fee deducted during the conversion.
 </ApiParam>
 
 <ApiParam name='transferResult' type='array' id="transferResult">
@@ -81,20 +81,28 @@ A list of details for each asset conversion.
 The transaction ID of the dust-to-BNB conversion.
 </ApiParam>
 
-<ApiParam name='fromAsset' type='string' id="transferResult.fromAsset">
-The currency code of the converted asset.
+<ApiParam name="fromAsset" type="string" id="transferResult.fromAsset">
+  The currency code of the converted asset.
 </ApiParam>
 
-<ApiParam name='amount' type='string' id="transferResult.amount">
-The initial amount of the asset before conversion.
+<ApiParam name="amount" type="string" id="transferResult.amount">
+  The initial amount of the asset before conversion.
 </ApiParam>
 
-<ApiParam name='transferedAmount' type='string' id="transferResult.transferedAmount">
-The amount of the asset successfully converted to BNB.
+<ApiParam
+  name="transferedAmount"
+  type="string"
+  id="transferResult.transferedAmount"
+>
+  The amount of the asset successfully converted to BNB.
 </ApiParam>
 
-<ApiParam name='serviceChargeAmount' type='string' id="transferResult.serviceChargeAmount">
-The service fee deducted for converting the asset to BNB.
+<ApiParam
+  name="serviceChargeAmount"
+  type="string"
+  id="transferResult.serviceChargeAmount"
+>
+  The service fee deducted for converting the asset to BNB.
 </ApiParam>
 
 <ApiParam name='operateTime' type='integer' id="transferResult.operateTime">
@@ -103,7 +111,6 @@ The timestamp of the conversion operation in milliseconds since epoch.
 </CollapsibleNestedParams>
 
 </StickyLayout.Main>
-
 
 <StickyLayout.Sticky>
 ## Example Responses

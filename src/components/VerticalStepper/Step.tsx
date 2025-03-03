@@ -1,11 +1,11 @@
-import React, { ReactNode } from 'react'
-import styles from './Steps.module.css'
-import Heading from '@theme/Heading'
+import React, { ReactNode } from "react";
+import styles from "./Steps.module.css";
+import Heading from "@theme/Heading";
 
 type Props = {
-  title: string
-  description: ReactNode
-}
+  title: string;
+  description: ReactNode;
+};
 
 export const Step = ({ title, description }: Props) => (
   <div className={styles.step}>
@@ -18,4 +18,4 @@ export const Step = ({ title, description }: Props) => (
       <main>{description}</main>
     </div>
   </div>
-)
+);

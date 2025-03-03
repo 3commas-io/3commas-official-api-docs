@@ -35,7 +35,7 @@ export const SignatureCalculatorForm = ({
   const [formState, setFormState] = useState(initialState);
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { id: key, value } = e.target;
     setFormState((prevData) => ({ ...prevData, [key]: value }));

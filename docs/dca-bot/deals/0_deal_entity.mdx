@@ -3,105 +3,153 @@ id: deal-entity
 title: Deal entity
 ---
 
-import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
-import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
-import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
-import * as StickyLayout from '@site/src/components/StickyLayout';
+import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
+import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
+import ApiParam from "@site/src/components/ApiParam";
+import {
+  CollapseAll,
+  CollapseAllButton,
+  CollapseAllHeading,
+} from "@site/src/components/CollapseAll";
+import * as StickyLayout from "@site/src/components/StickyLayout";
 
 <StickyLayout.Root>
 <StickyLayout.Main>
 
 ## Attributes
 
-<ApiParam name='id' type='integer' id="id">
-   Unique 3Commas ID for this Deal entity.
+<ApiParam name="id" type="integer" id="id">
+  Unique 3Commas ID for this Deal entity.
 </ApiParam>
 
-<ApiParam name='type' type='string' id="type">
-   The type of entity.
+<ApiParam name="type" type="string" id="type">
+  The type of entity.
 </ApiParam>
 
-<ApiParam name='bot_id' type='integer' id="bot_id">
-   Unique 3Commas ID for this DCA Bot entity.
+<ApiParam name="bot_id" type="integer" id="bot_id">
+  Unique 3Commas ID for this DCA Bot entity.
 </ApiParam>
 
-<ApiParam name='bot_name' type='string' id="bot_name">
-   DCA Bot name specified by the user.
+<ApiParam name="bot_name" type="string" id="bot_name">
+  DCA Bot name specified by the user.
 </ApiParam>
 
-<ApiParam name='deal_has_error' type='boolean' id="deal_has_error">
-   Indicates whether this Deal has encountered any errors `true` or not `false`.
+<ApiParam name="deal_has_error" type="boolean" id="deal_has_error">
+  Indicates whether this Deal has encountered any errors `true` or not `false`.
 </ApiParam>
 
 <CollapseAll>
 <CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
 
-<CollapsibleApiParam name='account_id' type='integer' id="account_id">
-   Unique 3Commas ID for this exchange account entity.
+<CollapsibleApiParam name="account_id" type="integer" id="account_id">
+  Unique 3Commas ID for this exchange account entity.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name='account_name' type='string' id="account_name">
-   The name for the exchange account set by the user.
+<CollapsibleApiParam name="account_name" type="string" id="account_name">
+  The name for the exchange account set by the user.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name='created_at' type='string' id="created_at">
-   ISO 8601 datetime string of when this Deal entity was created.
+<CollapsibleApiParam name="created_at" type="string" id="created_at">
+  ISO 8601 datetime string of when this Deal entity was created.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name='updated_at' type='string' id="updated_at">
-   ISO 8601 datetime string of when this Deal entity was updated last time.
+<CollapsibleApiParam name="updated_at" type="string" id="updated_at">
+  ISO 8601 datetime string of when this Deal entity was updated last time.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name='closed_at' type='string' id="closed_at">
-   ISO 8601 datetime string of when this Deal entity was closed.
+<CollapsibleApiParam name="closed_at" type="string" id="closed_at">
+  ISO 8601 datetime string of when this Deal entity was closed.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name='finished?' type='boolean' id="finished?">
-   Indicates whether this Deal is finished `true` or not `false`.
+<CollapsibleApiParam name="finished?" type="boolean" id="finished?">
+  Indicates whether this Deal is finished `true` or not `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name='max_safety_orders' type='integer' id="max_safety_orders">
-   The maximum number of Safety Orders allowed for this Deal.
+<CollapsibleApiParam
+  name="max_safety_orders"
+  type="integer"
+  id="max_safety_orders"
+>
+  The maximum number of Safety Orders allowed for this Deal.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name='active_safety_orders_count' type='integer' id="active_safety_orders_count">
-   The number of active Safety Orders of Deal is allowed to place at one time.
+<CollapsibleApiParam
+  name="active_safety_orders_count"
+  type="integer"
+  id="active_safety_orders_count"
+>
+  The number of active Safety Orders of Deal is allowed to place at one time.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="current_active_safety_orders_count" type="integer" id="current_active_safety_orders_count">
+<CollapsibleApiParam
+  name="current_active_safety_orders_count"
+  type="integer"
+  id="current_active_safety_orders_count"
+>
   The number of currently active safety orders, including manual ones.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="current_active_safety_orders" type="integer" id="current_active_safety_orders">
+<CollapsibleApiParam
+  name="current_active_safety_orders"
+  type="integer"
+  id="current_active_safety_orders"
+>
   Number of active Safety Orders at the current time.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="completed_safety_orders_count" type="integer" id="completed_safety_orders_count">
+<CollapsibleApiParam
+  name="completed_safety_orders_count"
+  type="integer"
+  id="completed_safety_orders_count"
+>
   Number of Safety Orders that have been completed.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="active_manual_safety_orders" type="integer" id="active_manual_safety_orders">
+<CollapsibleApiParam
+  name="active_manual_safety_orders"
+  type="integer"
+  id="active_manual_safety_orders"
+>
   Number of active manual Safety Orders at the current time.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="completed_manual_safety_orders_count" type="integer" id="completed_manual_safety_orders_count">
+<CollapsibleApiParam
+  name="completed_manual_safety_orders_count"
+  type="integer"
+  id="completed_manual_safety_orders_count"
+>
   Number of manually executed Safety Orders that have been completed.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="safety_order_volume" type="string" id="safety_order_volume">
+<CollapsibleApiParam
+  name="safety_order_volume"
+  type="string"
+  id="safety_order_volume"
+>
   The volume of the Safety Order for this Deal.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="safety_order_step_percentage" type="number" id="safety_order_step_percentage">
+<CollapsibleApiParam
+  name="safety_order_step_percentage"
+  type="number"
+  id="safety_order_step_percentage"
+>
   Price deviation in percentage to open Safety Orders.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="safety_order_volume_type" type="string" id="safety_order_volume_type">
+<CollapsibleApiParam
+  name="safety_order_volume_type"
+  type="string"
+  id="safety_order_volume_type"
+>
   The volume type for the Safety Order for this Deal.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="safety_strategy_list" type="array[json]" id="safety_strategy_list">
+<CollapsibleApiParam
+  name="safety_strategy_list"
+  type="array[json]"
+  id="safety_strategy_list"
+>
   Array of strategies specifically for the execution of your safety orders.
 </CollapsibleApiParam>
 
@@ -110,54 +158,78 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="panic_sellable?" type="boolean" id="panic_sellable?">
-  Indicates whether this Deal can be closed at market price `true` or not `false`.
+  Indicates whether this Deal can be closed at market price `true` or not
+  `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="trailing_enabled" type="boolean" id="trailing_enabled">
-  Indicates whether trailing is enabled for Take Profit of this bot `true` or not `false`.
+<CollapsibleApiParam
+  name="trailing_enabled"
+  type="boolean"
+  id="trailing_enabled"
+>
+  Indicates whether trailing is enabled for Take Profit of this bot `true` or
+  not `false`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="tsl_enabled" type="boolean" id="tsl_enabled">
-  Indicates whether trailing is enabled for Stop Loss `true` or not `false` for this Deal.
+  Indicates whether trailing is enabled for Stop Loss `true` or not `false` for
+  this Deal.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="stop_loss_timeout_enabled" type="boolean" id="stop_loss_timeout_enabled">
+<CollapsibleApiParam
+  name="stop_loss_timeout_enabled"
+  type="boolean"
+  id="stop_loss_timeout_enabled"
+>
   Indicates if the Stop Loss timeout is active `true` or not `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="stop_loss_timeout_in_seconds" type="integer" id="stop_loss_timeout_in_seconds">
+<CollapsibleApiParam
+  name="stop_loss_timeout_in_seconds"
+  type="integer"
+  id="stop_loss_timeout_in_seconds"
+>
   Duration of the Stop Loss timeout in seconds for this Deal.
 </CollapsibleApiParam>
 <CollapsibleApiParam name="pair" type="string" id="pair">
   Trading pair(s) in 3Commas format.
-</CollapsibleApiParam> 
+</CollapsibleApiParam>
 <CollapsibleApiParam name="status" type="string" id="status">
   3Commas status for this Deal.
-    <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
-       * **bought** - asset bought
-       * **cancelled** - deal canceled
-       * **completed** - deal closed successfully
-       * **base_order_placed** - base order placed
-       * **stop_loss_finished** - closed by stop-loss
-       * **ttp_order_placed** - trailing Take Profit order placed
-       * **panic_sold** - deal closed manually at market
-       * **failed** - deal failed due to an error
-       * **liquidated** - position liquidated
-       * **settled** - contract expired on the exchange
-       * **close_strategy_activated** - close strategy executed
-    </CollapsibleNestedParams>
+  <CollapsibleNestedParams
+    openName="Hide allowed values"
+    collapsedName="Show allowed values"
+  >
+    * **bought** - asset bought * **cancelled** - deal canceled * **completed**
+    - deal closed successfully * **base_order_placed** - base order placed *
+    **stop_loss_finished** - closed by stop-loss * **ttp_order_placed** -
+    trailing Take Profit order placed * **panic_sold** - deal closed manually at
+    market * **failed** - deal failed due to an error * **liquidated** -
+    position liquidated * **settled** - contract expired on the exchange *
+    **close_strategy_activated** - close strategy executed
+  </CollapsibleNestedParams>
 </CollapsibleApiParam>
-<CollapsibleApiParam name="localized_status" type="string" id="localized_status">
- Brief description of this status.
-    <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
-       * **Active** - the Deal is currently active and in progress
-       * **Cancelled** - deal canceled
-       * **Completed** - deal closed successfully
-       * **Closed at Market Price** - deal closed manually at market
-       * **Base order placed** - the base order for the Deal has been placed and is waiting to be filled
-    </CollapsibleNestedParams>
-</CollapsibleApiParam> 
-<CollapsibleApiParam name="take_profit_type" type="string" id="take_profit_type">
+<CollapsibleApiParam
+  name="localized_status"
+  type="string"
+  id="localized_status"
+>
+  Brief description of this status.
+  <CollapsibleNestedParams
+    openName="Hide allowed values"
+    collapsedName="Show allowed values"
+  >
+    * **Active** - the Deal is currently active and in progress * **Cancelled**
+    - deal canceled * **Completed** - deal closed successfully * **Closed at
+    Market Price** - deal closed manually at market * **Base order placed** -
+    the base order for the Deal has been placed and is waiting to be filled
+  </CollapsibleNestedParams>
+</CollapsibleApiParam>
+<CollapsibleApiParam
+  name="take_profit_type"
+  type="string"
+  id="take_profit_type"
+>
   Type of take profit calculation: `base`, `total`.
 </CollapsibleApiParam>
 
@@ -165,187 +237,302 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
   Percentage value for the deal’s Take Profit.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="take_profit_steps" type="object" id="take_profit_steps">
+<CollapsibleApiParam
+  name="take_profit_steps"
+  type="object"
+  id="take_profit_steps"
+>
   Details of the Take Profit and its steps applied to this Deal.
   <CollapsibleNestedParams>
-     <ApiParam name='id' type="string" id="id">
-       Step number.
-     </ApiParam>
-     <ApiParam name='amount_percentage' type="string" id="amount_percentage">
-       The percentage of the base order volume to be allocated for this Take Profit step
-     </ApiParam>
-     <ApiParam name="profit_percentage" type="string" id="profit_percentage">
-     The specific percentage of the price set to trigger this Take Profit trade.
-     </ApiParam>
-     <ApiParam name="editable" type="boolean" id="editable">
-     Indicates whether the user can modify the settings of the trade when editing a deal `true` or not `false`.
-     </ApiParam>
-     <ApiParam name="panic_sellable" type="boolean" id="panic_sellable">
-     Indicates whether this Take Profit step can be closed at market price.
-     </ApiParam>
-     <ApiParam name="trade_id" type="string" id="trade_id">
-     Unique 3Commas Trade entity ID.
-     </ApiParam>
-     <ApiParam name="execution_timestamp" type="string or null" id="execution_timestamp">
-     The timestamp of when the deal was executed, in ISO 8601 format, or <code>null</code> if not yet executed.
-     </ApiParam>
-     <ApiParam name="initial_amount" type="string" id="initial_amount">
-     The initial amount allocated for this Take Profit step.
-     </ApiParam>
-     <ApiParam name="price" type="string" id="price">
-     The trigger price at which this Take Profit step should be executed.
-     </ApiParam>
-     <ApiParam name="status" type="string" id="status">
-     The status of trade.
-     </ApiParam>
+    <ApiParam name="id" type="string" id="id">
+      Step number.
+    </ApiParam>
+    <ApiParam name="amount_percentage" type="string" id="amount_percentage">
+      The percentage of the base order volume to be allocated for this Take
+      Profit step
+    </ApiParam>
+    <ApiParam name="profit_percentage" type="string" id="profit_percentage">
+      The specific percentage of the price set to trigger this Take Profit
+      trade.
+    </ApiParam>
+    <ApiParam name="editable" type="boolean" id="editable">
+      Indicates whether the user can modify the settings of the trade when
+      editing a deal `true` or not `false`.
+    </ApiParam>
+    <ApiParam name="panic_sellable" type="boolean" id="panic_sellable">
+      Indicates whether this Take Profit step can be closed at market price.
+    </ApiParam>
+    <ApiParam name="trade_id" type="string" id="trade_id">
+      Unique 3Commas Trade entity ID.
+    </ApiParam>
+    <ApiParam
+      name="execution_timestamp"
+      type="string or null"
+      id="execution_timestamp"
+    >
+      The timestamp of when the deal was executed, in ISO 8601 format, or{" "}
+      <code>null</code> if not yet executed.
+    </ApiParam>
+    <ApiParam name="initial_amount" type="string" id="initial_amount">
+      The initial amount allocated for this Take Profit step.
+    </ApiParam>
+    <ApiParam name="price" type="string" id="price">
+      The trigger price at which this Take Profit step should be executed.
+    </ApiParam>
+    <ApiParam name="status" type="string" id="status">
+      The status of trade.
+    </ApiParam>
   </CollapsibleNestedParams>
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="take_profit_price" type="string" id="take_profit_price">
-   The trigger price for executing Take Profit when a single condition was set. If steps are set, this value is "0".
+<CollapsibleApiParam
+  name="take_profit_price"
+  type="string"
+  id="take_profit_price"
+>
+  The trigger price for executing Take Profit when a single condition was set.
+  If steps are set, this value is "0".
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="base_order_volume" type="number" id="base_order_volume">
+<CollapsibleApiParam
+  name="base_order_volume"
+  type="number"
+  id="base_order_volume"
+>
   The volume of the base order for this Deal Bot.
 </CollapsibleApiParam>
 <CollapsibleApiParam name="leverage_type" type="string" id="leverage_type">
   Type of leverage applied for this Deal.
-    <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
-      * **cross** - uses all available funds in your account as collateral for your trades
-      * **isolated** - the margin is limited to a specific position
-    </CollapsibleNestedParams>
+  <CollapsibleNestedParams
+    openName="Hide allowed values"
+    collapsedName="Show allowed values"
+  >
+    * **cross** - uses all available funds in your account as collateral for
+    your trades * **isolated** - the margin is limited to a specific position
+  </CollapsibleNestedParams>
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="leverage_custom_value" type="string or null" id="leverage_custom_value">
-   The leverage value set by the user.
+<CollapsibleApiParam
+  name="leverage_custom_value"
+  type="string or null"
+  id="leverage_custom_value"
+>
+  The leverage value set by the user.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="bought_amount" type="string" id="bought_amount">
-   The amount of the purchased asset.
+  The amount of the purchased asset.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="bought_volume" type="string" id="bought_volume">
-   The volume of purchased assets in the base currency.
+  The volume of purchased assets in the base currency.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="bought_average_price" type="string" id="bought_average_price">
-   The average price of the purchased asset.
+<CollapsibleApiParam
+  name="bought_average_price"
+  type="string"
+  id="bought_average_price"
+>
+  The average price of the purchased asset.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="base_order_average_price" type="string" id="base_order_average_price">
-   The average price of the base order.
+<CollapsibleApiParam
+  name="base_order_average_price"
+  type="string"
+  id="base_order_average_price"
+>
+  The average price of the base order.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="sold_amount" type="string" id="sold_amount">
-   The amount of the sold asset.
+  The amount of the sold asset.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="sold_volume" type="string" id="sold_volume">
-   The volume of sold assets in the base currency.
+  The volume of sold assets in the base currency.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="sold_average_price" type="string" id="sold_average_price">
-   The average price at which the asset was sold.
+<CollapsibleApiParam
+  name="sold_average_price"
+  type="string"
+  id="sold_average_price"
+>
+  The average price at which the asset was sold.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="final_profit" type="string" id="final_profit">
-   The final profit from the deal.
+  The final profit from the deal.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="martingale_volume_coefficient" type="number" id="martingale_volume_coefficient">
-   Coefficient for increasing *safety order volume* in the Martingale strategy.
+<CollapsibleApiParam
+  name="martingale_volume_coefficient"
+  type="number"
+  id="martingale_volume_coefficient"
+>
+  Coefficient for increasing *safety order volume* in the Martingale strategy.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="martingale_step_coefficient" type="number" id="martingale_step_coefficient">
-   Coefficient for increasing the safety order price in the Martingale strategy.
+<CollapsibleApiParam
+  name="martingale_step_coefficient"
+  type="number"
+  id="martingale_step_coefficient"
+>
+  Coefficient for increasing the safety order price in the Martingale strategy.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="stop_loss_percentage" type="number" id="stop_loss_percentage">
-   Stop loss percentage for this deal.
+<CollapsibleApiParam
+  name="stop_loss_percentage"
+  type="number"
+  id="stop_loss_percentage"
+>
+  Stop loss percentage for this deal.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="sl_to_breakeven_enabled" type="boolean" id="sl_to_breakeven_enabled">
-   Indicates whether the Move to Breakeven feature is enabled `true` or not `false`.
+<CollapsibleApiParam
+  name="sl_to_breakeven_enabled"
+  type="boolean"
+  id="sl_to_breakeven_enabled"
+>
+  Indicates whether the Move to Breakeven feature is enabled `true` or not
+  `false`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="sl_to_breakeven_data" type="json" id="sl_to_breakeven_data">
    The upper limit to which the stop loss will move.
 
-   Example:
-   ```
-   {upper_breakeven_limit: 1}
-   ```
+Example:
+
+```
+{upper_breakeven_limit: 1}
+```
+
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="error_message" type="string or null" id="error_message">
-Description of the error for this deal if it fails.
+<CollapsibleApiParam
+  name="error_message"
+  type="string or null"
+  id="error_message"
+>
+  Description of the error for this deal if it fails.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="profit_currency" type="string" id="profit_currency">
-Currency used for the profit from the trades executed by this bot.
+  Currency used for the profit from the trades executed by this bot.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="stop_loss_type" type="string" id="stop_loss_type">
-Specifies the type of action the deal performs when Stop Loss is triggered after closing a deal.
+  Specifies the type of action the deal performs when Stop Loss is triggered
+  after closing a deal.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="base_order_volume_type" type="string" id="base_order_volume_type">
-Volume type for base orders (e.g., `quote_currency`, `base_currency`, `percent`).
+<CollapsibleApiParam
+  name="base_order_volume_type"
+  type="string"
+  id="base_order_volume_type"
+>
+  Volume type for base orders (e.g., `quote_currency`, `base_currency`,
+  `percent`).
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="from_currency" type="string" id="from_currency">
-   The quote currency used in this deal.
+  The quote currency used in this deal.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="to_currency" type="string" id="to_currency">
-   The base currency used in this deal.
+  The base currency used in this deal.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="final_profit_percentage" type="string" id="final_profit_percentage">
-   The final profit percentage from the deal.
+<CollapsibleApiParam
+  name="final_profit_percentage"
+  type="string"
+  id="final_profit_percentage"
+>
+  The final profit percentage from the deal.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="usd_final_profit" type="string" id="usd_final_profit">
-   The final profit expressed in USD.
+<CollapsibleApiParam
+  name="usd_final_profit"
+  type="string"
+  id="usd_final_profit"
+>
+  The final profit expressed in USD.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="actual_profit" type="string or null" id="actual_profit">
-   The actual profit from the deal, reflecting real execution outcomes.
+<CollapsibleApiParam
+  name="actual_profit"
+  type="string or null"
+  id="actual_profit"
+>
+  The actual profit from the deal, reflecting real execution outcomes.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="actual_usd_profit" type="string or null" id="actual_usd_profit">
-   The actual profit from the deal expressed in USD.
+<CollapsibleApiParam
+  name="actual_usd_profit"
+  type="string or null"
+  id="actual_usd_profit"
+>
+  The actual profit from the deal expressed in USD.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="trailing_deviation" type="number" id="trailing_deviation">
-   The trailing deviation value as a percentage.
+<CollapsibleApiParam
+  name="trailing_deviation"
+  type="number"
+  id="trailing_deviation"
+>
+  The trailing deviation value as a percentage.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="trailing_max_price" type="string or null" id="trailing_max_price">
+<CollapsibleApiParam
+  name="trailing_max_price"
+  type="string or null"
+  id="trailing_max_price"
+>
   Last recorded maximum price reached during trailing.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="tsl_max_price" type="string or null" id="tsl_max_price">
-   The last fixed price recorded for Trailing Stop Loss (TSL).  
+<CollapsibleApiParam
+  name="tsl_max_price"
+  type="string or null"
+  id="tsl_max_price"
+>
+  The last fixed price recorded for Trailing Stop Loss (TSL).
 </CollapsibleApiParam>
-  
+
 <CollapsibleApiParam name="strategy" type="string" id="strategy">
-   Type of strategy used by the bot: `long` or `short`.
+  Type of strategy used by the bot: `long` or `short`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="last_known_position_info" type="string or null" id="last_known_position_info">
-      The last known position information from the exchange for this trading pair.
+<CollapsibleApiParam
+  name="last_known_position_info"
+  type="string or null"
+  id="last_known_position_info"
+>
+  The last known position information from the exchange for this trading pair.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="min_profit_percentage" type="string" id="min_profit_percentage">
-   The minimum profit percentage that needs to be reached to complete a deal, applicable to the Take Profit close strategy.
+<CollapsibleApiParam
+  name="min_profit_percentage"
+  type="string"
+  id="min_profit_percentage"
+>
+  The minimum profit percentage that needs to be reached to complete a deal,
+  applicable to the Take Profit close strategy.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="min_profit_type" type="string or null" id="min_profit_type">
-   The type of minimum profit used as the basis for profit calculation in this deal, applicable to the Take Profit close strategy.
+<CollapsibleApiParam
+  name="min_profit_type"
+  type="string or null"
+  id="min_profit_type"
+>
+  The type of minimum profit used as the basis for profit calculation in this
+  deal, applicable to the Take Profit close strategy.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="close_strategy_list" type="array[json]" id="close_strategy_list">
+<CollapsibleApiParam
+  name="close_strategy_list"
+  type="array[json]"
+  id="close_strategy_list"
+>
   An array of strategies used for closing deal.
 </CollapsibleApiParam>
 
@@ -357,7 +544,11 @@ Volume type for base orders (e.g., `quote_currency`, `base_currency`, `percent`)
   Indicates whether adding funds is available for this Deal `true` or `not`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="smart_trade_convertable" type="boolean" id="smart_trade_convertable">
+<CollapsibleApiParam
+  name="smart_trade_convertable"
+  type="boolean"
+  id="smart_trade_convertable"
+>
   Indicates if this deal was converted to SmartTrade `true` or not `false`.
 </CollapsibleApiParam>
 
@@ -366,19 +557,27 @@ Volume type for base orders (e.g., `quote_currency`, `base_currency`, `percent`)
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="current_price" type="string" id="current_price">
-    Shows the current market price for the traded asset.
+  Shows the current market price for the traded asset.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="stop_loss_price" type="string" id="stop_loss_price">
-    Indicates the price at which the stop-loss is triggered.
+  Indicates the price at which the stop-loss is triggered.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="actual_profit_percentage" type="string" id="actual_profit_percentage">
+<CollapsibleApiParam
+  name="actual_profit_percentage"
+  type="string"
+  id="actual_profit_percentage"
+>
   Actual profit percentage based on the latest deal calculations.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam name="orderbook_price_currency" type="string" id="orderbook_price_currency">
- Specifies the currency used for price quotes in the Orderbook.
+<CollapsibleApiParam
+  name="orderbook_price_currency"
+  type="string"
+  id="orderbook_price_currency"
+>
+  Specifies the currency used for price quotes in the Orderbook.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="bot_events" type="array" id="bot_events">
@@ -527,12 +726,7 @@ Volume type for base orders (e.g., `quote_currency`, `base_currency`, `percent`)
     "buyPrice": "3098.4954",
     "currentPrice": "3079.65",
     "inverted": false,
-    "stopLosses": [
-      [
-        "2974.555584",
-        false
-      ]
-    ],
+    "stopLosses": [["2974.555584", false]],
     "LP": null,
     "buySteps": [
       {
@@ -603,5 +797,6 @@ Volume type for base orders (e.g., `quote_currency`, `base_currency`, `percent`)
   ]
 }
 ```
+
 </StickyLayout.Sticky>
 </StickyLayout.Root>

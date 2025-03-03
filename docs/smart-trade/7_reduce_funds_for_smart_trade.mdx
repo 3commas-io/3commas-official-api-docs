@@ -4,14 +4,14 @@ title: Reduce funds for SmartTrade
 sidebar_class_name: post
 ---
 
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
-import * as StickyLayout from '@site/src/components/StickyLayout';
-import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
-import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
-import Separator from '@site/src/components/Separator';
-import * as ResponseTabs from '@site/src/components/ResponseTabs';
-import { Informer } from '@site/src/components/Informer/Informer';
+import Endpoint, { Permission } from "@site/src/components/Endpoint";
+import * as StickyLayout from "@site/src/components/StickyLayout";
+import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
+import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
+import ApiParam from "@site/src/components/ApiParam";
+import Separator from "@site/src/components/Separator";
+import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import { Informer } from "@site/src/components/Informer/Informer";
 
 <Endpoint
   url="/v2/smart_trades/:id/reduce_funds"
@@ -27,7 +27,7 @@ import { Informer } from '@site/src/components/Informer/Informer';
 Starts the process of creating reduced funds.
 
 <Informer variant="info">
- New trades and orders will be created on the exchange once the process begins.
+  New trades and orders will be created on the exchange once the process begins.
 </Informer>
 
 <Separator />
@@ -37,13 +37,14 @@ Starts the process of creating reduced funds.
 
 ## Path Parameter
 
-<ApiParam name='id' type='integer' id="id" required>
-   Unique 3Commas ID for this SmartTrade entity.
+<ApiParam name="id" type="integer" id="id" required>
+  Unique 3Commas ID for this SmartTrade entity.
 </ApiParam>
 
-## Body Parameters 
-<ApiParam name='order_type' type='integer' id="order_type" required>
-   Order type for reducing funds in this SmartTrade:  `market`, `limit`.
+## Body Parameters
+
+<ApiParam name="order_type" type="integer" id="order_type" required>
+  Order type for reducing funds in this SmartTrade: `market`, `limit`.
 </ApiParam>
 
 <ApiParam name="units" type="object" id="units" required>
@@ -65,7 +66,7 @@ Starts the process of creating reduced funds.
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>
-## Example Request 
+## Example Request
 
 ```json title="POST /v2/smart_trades/12345678/reduce_funds"
 {
@@ -78,14 +79,17 @@ Starts the process of creating reduced funds.
   }
 }
 ```
+
 </StickyLayout.Sticky>
 </StickyLayout.Root>
 
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-## Response Parameters 
+## Response Parameters
+
 If successful, the response includes an updated copy of the [SmartTrade](/smart-trade/0_smart_trade_entity.mdx) entity.
+
 </StickyLayout.Main>
 
 <StickyLayout.Sticky>
