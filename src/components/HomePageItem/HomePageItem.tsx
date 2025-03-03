@@ -17,13 +17,13 @@ type Props = {
 const HomePageItem = ({ data }: Props) => {
 
     useEffect(() => {
-        const paginatorNav = document.querySelector('nav.pagination-nav.docusaurus-mt-lg');
+        const paginatorNav = document.querySelector('.pagination_zBJ0');
         if (paginatorNav) {
-            paginatorNav.style.display = 'none';
+            (paginatorNav as HTMLElement).style.setProperty('display', 'none', 'important');
         }
         const breadcrumbs = document.querySelector('.breadcrumbsContainer_Ar0W');
         if (breadcrumbs) {
-            breadcrumbs.style.display = 'none';
+            (paginatorNav as HTMLElement).style.display = 'none';
         }
     }, []);
 
