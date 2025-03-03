@@ -25,10 +25,10 @@
 .homePageItemIconWrapper:hover {
   background-color: #13a8a1;
 }
-.homePageItemIconWrapper:hover > svg > path {
+.homePageItemIconWrapper:hover > div > svg > path {
   stroke: #ffffff;
 }
-.homePageItemIconWrapper:hover svg g rect {
+.homePageItemIconWrapper:hover div svg g rect {
   fill: #ffffff;
 }
 .homePageItemContentWrapper {
