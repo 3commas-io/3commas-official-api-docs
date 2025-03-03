@@ -7,6 +7,13 @@
   .docItemCol {
     max-width: 75% !important;
   }
+  .breadcrumbsContainer {
+    position: fixed;
+    z-index: 10000;
+    top: 16px;
+    left: 316px;
+    transition: all 0.3s ease;
+  }
 }
 
 .pagination{
@@ -24,3 +31,4 @@
   right: 0;
   top: 130px;
 }
+
