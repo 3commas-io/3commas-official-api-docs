@@ -32,8 +32,8 @@
 
   --ifm-heading-color: #242424;
   --ifm-h2-font-size: 1.25rem;
-  --text-size: 0.8125rem;
-  --text-emphasis-size: 0.825rem;
+  --text-size: 0.875rem;
+  --text-emphasis-size: 0.875rem;
   --text-content-color: #707070;
 
   --code-separator-color: #ececec;
@@ -194,7 +194,7 @@
     Helvetica,
     Arial,
     sans-serif;
-  font-size: 13px;
+  font-size: var(--text-size);
   display: flex;
   justify-content: center; /* Центрирование по горизонтали */
   align-items: center; /* Центрирование по вертикали */
@@ -598,7 +598,7 @@ li.menu__list-item > .category-title-hr {
   ul.menu__list
   > li.menu__list-item
   > .menu__link {
-  font-size: 13px !important;
+  font-size: var(--text-size) !important;
   color: var(--sidebar-links-color);
   font-weight: 400;
 }
@@ -645,7 +645,7 @@ li.menu__list-item > .category-title-hr {
 
 .menu__link.menu__link--sublist {
   font-weight: 600;
-  font-size: 13px;
+  font-size: var(--text-size);
   line-height: 20px;
   letter-spacing: 0.25px;
   color: var(--menu-link-primary-color);
@@ -782,7 +782,7 @@ li.menu__list-item > .category-title-hr {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 13px;
+    font-size: var(--text-size);
     line-height: 20px;
     font-weight: 400;
   }
