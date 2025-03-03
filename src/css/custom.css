@@ -538,11 +538,11 @@ strong {
 main
   a:not(.home-line):not(.breadcrumbs__link):not(.pagination-link):not(
     .hash-link
-  ),
+  ):not(.tocLink_wfFo),
 main
   a:not(.home-line):not(.breadcrumbs__link):not(.pagination-link):hover:not(
     .hash-link
-  ) {
+  ):not(.tocLink_wfFo) {
   text-decoration: underline !important;
   color: var(--text-content-color);
   font-weight: inherit;
