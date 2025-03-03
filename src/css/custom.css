@@ -914,8 +914,3 @@ li.menu__list-item > .category-title-hr {
   border-bottom-right-radius: 1rem !important;
   border-bottom-left-radius: 1rem !important;
 }
-
-pre.prism-code {
-  border-radius: 2rem !important;
-  overflow: hidden;
-}
