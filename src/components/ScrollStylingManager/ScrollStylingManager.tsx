@@ -36,10 +36,7 @@ const ScrollStylingManager = () => {
             const header = document.querySelector('.theme-doc-markdown header h1');
 
             if (window.scrollY >= 140) {
-                // breadcrumbsContainer_Ar0W завжди отримує scrolledClass
                 if (breadcrumbs) breadcrumbs.classList.add('scrolledClass');
-
-                // theme-doc-markdown header h1 отримує клас залежно від маршруту
                 if (header) {
                     if (isExcluded) {
                         header.classList.add('scrolledClassMain');
@@ -49,13 +46,10 @@ const ScrollStylingManager = () => {
                         header.classList.remove('scrolledClassMain');
                     }
                 }
-
-                // container_eK_a отримує клас тільки на дозволених маршрутах
                 if (!isExcluded && container) {
                     container.classList.add('scrolledClass');
                 }
             } else {
-                // Видаляємо класи при скролі вгору
                 if (breadcrumbs) breadcrumbs.classList.remove('scrolledClass');
                 if (header) {
                     header.classList.remove('scrolledClass');

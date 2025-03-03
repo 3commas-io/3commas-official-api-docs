@@ -521,6 +521,9 @@ menu__link:not(.menu__link--active){
 .theme-doc-sidebar-menu .menu__list-item > a.menu__link[href="/"] {
   display: none !important;
 }
+.menu{
+  padding: 8px 0 32px !important;
+}
 @media (min-width: 997px) {
   .navbar {
     padding: 0 24px 12px 0!important;

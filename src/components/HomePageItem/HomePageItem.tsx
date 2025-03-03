@@ -7,14 +7,14 @@ interface HomePageItemData {
     title: string;
     description: string;
     icon: string;
-    link: string; // URL категорії
+    link: string;
 }
 
-interface HomePageItemProps {
+type Props = {
     data: HomePageItemData;
 }
 
-const HomePageItem = ({ data }: HomePageItemProps): JSX.Element => {
+const HomePageItem = ({ data }: Props) => {
 
     useEffect(() => {
         const paginatorNav = document.querySelector('nav.pagination-nav.docusaurus-mt-lg');
