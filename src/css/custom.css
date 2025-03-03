@@ -908,6 +908,10 @@ li.menu__list-item > .category-title-hr {
   border-radius: 1rem !important;
 }
 
+.anchorWithStickyNavbar_LWe7#attributes {
+  margin-top: 0;
+}
+
 .prism-code {
   border-bottom-right-radius: 1rem !important;
   border-bottom-left-radius: 1rem !important;
