@@ -17,13 +17,13 @@ type Props = {
 const HomePageItem = ({ data }: Props) => {
 
     useEffect(() => {
-        const paginatorNav = document.querySelector('.pagination_zBJ0');
+        const paginatorNav = document.querySelector('.pagination_zBJ0') as HTMLElement;
         if (paginatorNav) {
-            (paginatorNav as HTMLElement).style.setProperty('display', 'none', 'important');
+            paginatorNav.style.setProperty('display', 'none', 'important');
         }
-        const breadcrumbs = document.querySelector('.breadcrumbsContainer_Ar0W');
+        const breadcrumbs = document.querySelector('.breadcrumbsContainer_Ar0W') as HTMLElement;
         if (breadcrumbs) {
-            (paginatorNav as HTMLElement).style.display = 'none';
+            breadcrumbs.style.display = 'none';
         }
     }, []);
 
