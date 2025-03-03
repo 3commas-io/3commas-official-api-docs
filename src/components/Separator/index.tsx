@@ -11,7 +11,7 @@ interface SeparatorProps {
 
 export const ADDITIONAL_INFORMATION_THEME: SeparatorProps["labelBg"] = {
   light: "#fdfdfe",
-  dark: "#474748",
+  dark: "#242526",
 };
 
 const Separator = ({
