@@ -329,7 +329,7 @@ table {
 
   thead th {
     color: #707070;
-    font-size: 0.625rem;
+    font-size: 13px;
     font-weight: 600;
     line-height: 1.6;
     text-transform: uppercase;
@@ -348,7 +348,7 @@ table {
   }
 
   tbody td {
-    font-size: 0.75rem;
+    font-size: var(--text-size);
     border: none;
     border-bottom: 1px solid #f8f8f8;
     border-left: none;
@@ -399,6 +399,10 @@ table {
   thead th {
     color: #9fa2a8;
   }
+}
+
+.table-size {
+  font-size: 13px;
 }
 
 body ul {
@@ -531,17 +535,17 @@ strong {
   margin: 0 0 12px;
 }
 
-.additional__info__heading + p > a,
-.additional__info__heading + p > a:hover {
-  text-decoration: underline;
+main
+  a:not(.home-line):not(.breadcrumbs__link):not(.pagination-link):not(
+    .hash-link
+  ),
+main
+  a:not(.home-line):not(.breadcrumbs__link):not(.pagination-link):hover:not(
+    .hash-link
+  ) {
+  text-decoration: underline !important;
   color: var(--text-content-color);
   font-weight: inherit;
-}
-
-.additional__info__example {
-  color: #13a8a1;
-  margin: 12px 0;
-  font-weight: 600;
 }
 
 p {

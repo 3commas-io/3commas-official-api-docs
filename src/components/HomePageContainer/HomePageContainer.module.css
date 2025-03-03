@@ -27,21 +27,7 @@
   width: 100%;
   margin: 0;
 }
-.homePageContainer ul {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(
-    2,
-    clamp(281px, calc((100% - 80px) / 2), 350px)
-  );
-  grid-template-rows: repeat(3, auto);
-  gap: 32px 80px;
-  max-width: 780px;
-  width: 100%;
-  margin-top: 60px;
-  justify-content: center;
-  padding: 0;
-}
+
 @media (min-width: 648px) and (max-width: 996px) {
   .homePageContainer > header > h1 {
     font-weight: 700;

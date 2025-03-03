@@ -15,6 +15,7 @@ export default function PaginatorNavLink(props: Props): JSX.Element {
         isNext && styles["pagination-item--next"],
         isNext && !permalink && styles["pagination-item--disabled"],
         !isNext && !permalink && styles["pagination-item--disabled"],
+        "pagination-link",
       )}
       to={permalink}
     >

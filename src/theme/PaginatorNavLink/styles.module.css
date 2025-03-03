@@ -10,11 +10,11 @@
   width: 0;
 }
 
-.pagination__arrow:hover {
+.pagination-item:hover .pagination__arrow {
   filter: brightness(0.975);
 }
 
-[data-theme="dark"] .pagination__arrow:hover {
+[data-theme="dark"] .pagination-item:hover .pagination__arrow {
   filter: brightness(1.15);
 }
 
