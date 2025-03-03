@@ -705,6 +705,13 @@ li.menu__list-item > .category-title-hr {
   padding: 8px 0 32px !important;
 }
 
+@media (min-width: 1100px) {
+  .breadcrumbsContainer_Ar0W.scrolledClass {
+    right: 156px !important;
+    left: auto !important;
+  }
+}
+
 @media (min-width: 997px) {
   .navbar {
     padding: 0 24px 12px 0 !important;
@@ -727,11 +734,6 @@ li.menu__list-item > .category-title-hr {
   .theme-doc-sidebar-container {
     background: var(--navigation-background-color);
     border-right: 1px solid var(--navigation-border-color) !important;
-  }
-
-  .breadcrumbsContainer_Ar0W.scrolledClass {
-    right: 156px !important;
-    left: auto !important;
   }
 
   .theme-doc-markdown header h1.scrolledClassMain {
