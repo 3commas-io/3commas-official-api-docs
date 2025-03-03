@@ -27,19 +27,18 @@ const ScrollStylingManager = () => {
       "/smart-trade/smart-trade-entity",
       "/smart-trade/trades/trade-entity",
     ];
-    const isLimitRoute = "/general-information/limits";
+    const isLimitRoute = ["/general-information/limits", "/general-information/errors",];
 
     const handleScroll = () => {
       const isExcluded = excludedRoutes.includes(window.location.pathname);
-      const isLimitRoute =
-        window.location.pathname === "/general-information/limits";
+      const isPlaceholderRoute = isLimitRoute.includes((window.location.pathname))
       const breadcrumbs = document.querySelector(".breadcrumbsContainer_Ar0W");
       const container = document.querySelector(".container_eK_a");
       const h1 = document.querySelector(".theme-doc-markdown header h1");
       const header = document.querySelector(".theme-doc-markdown header");
 
       if (window.scrollY >= 140) {
-        if (isLimitRoute) {
+        if (isPlaceholderRoute) {
           let placeholder = document.querySelector(
             ".placeholder",
           ) as HTMLElement;
@@ -64,7 +63,7 @@ const ScrollStylingManager = () => {
           container.classList.add("scrolledClass");
         }
       } else {
-        if (isLimitRoute) {
+        if (isPlaceholderRoute) {
           const placeholder = document.querySelector(".placeholder");
           if (placeholder) {
             placeholder.parentElement.removeChild(placeholder);
