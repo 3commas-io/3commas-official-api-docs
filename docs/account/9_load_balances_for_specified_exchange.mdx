@@ -4,21 +4,14 @@ title: Load balances for specified exchange
 sidebar_class_name: post
 ---
 
-import Endpoint, {
-  Permission,
-  NoContentEndpoint,
-} from "@site/src/components/Endpoint";
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import ApiParam from "@site/src/components/ApiParam";
-import Separator from "@site/src/components/Separator";
-import {
-  CollapseAll,
-  CollapseAllButton,
-  CollapseAllHeading,
-} from "@site/src/components/CollapseAll";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 <Endpoint
   url="/ver1/accounts/:account_id/load_balances"
@@ -47,10 +40,7 @@ Updates a balance for exchange account using its ID.
 
 ## Example Request
 
-<NoContentEndpoint
-  method="POST"
-  endpoint="/ver1/accounts/12345678/load_balances"
-/>
+<NoContentEndpoint method="POST" endpoint="/ver1/accounts/12345678/load_balances" />
 
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -162,7 +152,6 @@ If successful, the response includes a copy of the updated [Account](/account/0_
   "error": "invalid_api_key"
 }
 ```
-
   </ResponseTabs.TabItem>
    </ResponseTabs.Root>
     </StickyLayout.Sticky>

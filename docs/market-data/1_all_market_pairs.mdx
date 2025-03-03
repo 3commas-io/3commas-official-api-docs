@@ -4,16 +4,13 @@ title: All market pairs
 sidebar_class_name: get
 ---
 
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import ApiParam from "@site/src/components/ApiParam";
-import Separator from "@site/src/components/Separator";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
-import Endpoint, {
-  Permission,
-  NoContentEndpoint,
-} from "@site/src/components/Endpoint";
-import * as StickyLayout from "@site/src/components/StickyLayout";
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import * as ResponseTabs from '@site/src/components/ResponseTabs'
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout'
 
 <Endpoint
   url="/ver1/accounts/market_pairs"
@@ -35,10 +32,10 @@ The method allows getting the list of pairs supported by the exchange in 3Commas
 
 ## Query Parameter
 
-<ApiParam name="market_code" type="integer" id="market_code" required>
-  Unique exchange code in the 3Commas system. Use endpoint [Supported markets
-  list](/market-data/0_supported_markets_list.mdx) to get value for parameter
-  `market_code`.
+<ApiParam name='market_code' type='integer' id="market_code" required>
+    Unique exchange code in the 3Commas system.
+    
+    Use endpoint [Supported markets list](/market-data/0_supported_markets_list.mdx) to get value for parameter `market_code`.
 </ApiParam>
 
 </StickyLayout.Main>
@@ -46,13 +43,9 @@ The method allows getting the list of pairs supported by the exchange in 3Commas
    
 ## Example Request
 
-<NoContentEndpoint
-  method="GET"
-  endpoint="/ver1/accounts/market_pairs?market_code=binance_us"
-/>
+<NoContentEndpoint method="GET" endpoint="/ver1/accounts/market_pairs?market_code=binance_us" />
 
 ## Example Response
-
 <ResponseTabs.Root>
       <ResponseTabs.TabItem value="200" label="200 OK" default>
 
@@ -71,7 +64,6 @@ The method allows getting the list of pairs supported by the exchange in 3Commas
   "USDT_BTC"
 ]
 ```
-
    </ResponseTabs.TabItem>
   </ResponseTabs.Root>
 </StickyLayout.Sticky>

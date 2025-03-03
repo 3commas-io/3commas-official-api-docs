@@ -4,16 +4,13 @@ title: Get deal
 sidebar_class_name: get
 ---
 
-import Endpoint, {
-  Permission,
-  NoContentEndpoint,
-} from "@site/src/components/Endpoint";
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import ApiParam from "@site/src/components/ApiParam";
-import Separator from "@site/src/components/Separator";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 <Endpoint
   url="/ver1/deals/:deal_id/show"
@@ -156,7 +153,12 @@ If successful, the response includes a copy of [Deals](/dca-bot/deals/0_deal_ent
     "buyPrice": "2934.117357455919395465994962217",
     "currentPrice": "2959.74",
     "inverted": false,
-    "stopLosses": [["2294.5484562", false]],
+    "stopLosses": [
+      [
+        "2294.5484562",
+        false
+      ]
+    ],
     "LP": null,
     "buySteps": [
       {
@@ -223,7 +225,6 @@ If successful, the response includes a copy of [Deals](/dca-bot/deals/0_deal_ent
   ]
 }
 ```
-
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>

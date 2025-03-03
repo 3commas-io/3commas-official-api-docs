@@ -4,15 +4,15 @@ title: Available strategy list
 sidebar_class_name: get
 ---
 
-import CodeBlock from "@theme/CodeBlock";
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import ApiParam from "@site/src/components/ApiParam";
-import Separator from "@site/src/components/Separator";
-import Endpoint, { Permission } from "@site/src/components/Endpoint";
-import { Steps, Step } from "@site/src/components/VerticalStepper";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import CodeBlock from '@theme/CodeBlock'
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam'
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams'
+import ApiParam from '@site/src/components/ApiParam'
+import Separator from '@site/src/components/Separator';
+import Endpoint, { Permission } from '@site/src/components/Endpoint'
+import { Steps, Step } from '@site/src/components/VerticalStepper'
+import * as StickyLayout from '@site/src/components/StickyLayout'
+import * as ResponseTabs from '@site/src/components/ResponseTabs'
 
 <Endpoint
   url="/ver1/bots/strategy_list"
@@ -42,31 +42,24 @@ Returns available strategy list for DCA Bot. Use the query parameters to page th
 
 <ApiParam name="type" type="string" id="type">
   Specifies the strategy direction for the bot.
-  <CollapsibleNestedParams
-    openName="Hide allowed values"
-    collapsedName="Show allowed values"
-  >
-    * **long** - a strategy focused on buying low and selling high * **short** -
-    a strategy focused on selling high and buying low
-  </CollapsibleNestedParams>
+  <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **long** - a strategy focused on buying low and selling high
+      * **short** - a strategy focused on selling high and buying low
+     </CollapsibleNestedParams>
 </ApiParam>
 
 <ApiParam name="strategy" type="string" id="strategy">
   Specifies the type of strategy list.
-  <CollapsibleNestedParams
-    openName="Hide allowed values"
-    collapsedName="Show allowed values"
-  >
-    * **simple** - a single strategy type * **composite** - a combination of
-    multiple strategy types
-  </CollapsibleNestedParams>
+  <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **simple** - a single strategy type
+      * **composite** - a combination of multiple strategy types
+     </CollapsibleNestedParams>
 </ApiParam>
 
 </StickyLayout.Main>
 <StickyLayout.Sticky>
 
 ## Response
-
 <ResponseTabs.Root>
   <ResponseTabs.TabItem value="200" label="200 OK" default>
 ```json

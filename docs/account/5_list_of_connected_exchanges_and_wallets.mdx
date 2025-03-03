@@ -4,21 +4,14 @@ title: List of connected exchanges and wallets
 sidebar_class_name: get
 ---
 
-import Endpoint, {
-  Permission,
-  NoContentEndpoint,
-} from "@site/src/components/Endpoint";
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import ApiParam, { ParameterRange } from "@site/src/components/ApiParam";
-import Separator from "@site/src/components/Separator";
-import {
-  CollapseAll,
-  CollapseAllButton,
-  CollapseAllHeading,
-} from "@site/src/components/CollapseAll";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 <Endpoint
   url="/ver1/accounts"
@@ -40,12 +33,13 @@ Returns the list of exchange accounts and wallets connecting to a user account.
 
 ## Query Parameters
 
-<ApiParam name="api_key" type="string" id="api_key">
+<ApiParam name='api_key' type='string' id="api_key">
   Filter by API-key.
 </ApiParam>
 
-<ApiParam name="page" type="integer" id="page">
-  Page number for pagination.
+<ApiParam name='page' type='integer' id="page">
+  Page number for pagination. 
+  
   <ParameterRange default={1} />
 </ApiParam>
 
@@ -68,11 +62,12 @@ Returns the list of exchange accounts and wallets connecting to a user account.
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-## Response Parameters
+## Response Parameters 
 
 If successful, the response includes a copy of [Account](/account/0_account_entity.mdx) entity.
 
 </StickyLayout.Main>
+
 
 <StickyLayout.Sticky>
 ## Example Response
@@ -112,7 +107,9 @@ If successful, the response includes a copy of [Account](/account/0_account_enti
     "market_icon": "https://3commas.io/img/exchanges/binance.png",
     "deposit_enabled": true,
     "include_in_summary": true,
-    "supported_market_types": ["spot"],
+    "supported_market_types": [
+      "spot"
+    ],
     "primary_display_currency_profit_percentage": {
       "currency": "USD",
       "amount": "6.31"
@@ -192,7 +189,9 @@ If successful, the response includes a copy of [Account](/account/0_account_enti
     "market_icon": "https://3commas.io/img/exchanges/bybit.png",
     "deposit_enabled": false,
     "include_in_summary": true,
-    "supported_market_types": ["spot"],
+    "supported_market_types": [
+      "spot"
+    ],
     "primary_display_currency_profit_percentage": {
       "currency": "USD",
       "amount": "0.32"
@@ -243,7 +242,6 @@ If successful, the response includes a copy of [Account](/account/0_account_enti
   }
 ]
 ```
-
   </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>

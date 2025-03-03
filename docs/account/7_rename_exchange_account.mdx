@@ -4,21 +4,14 @@ title: Rename exchange account
 sidebar_class_name: post
 ---
 
-import Endpoint, {
-  Permission,
-  NoContentEndpoint,
-} from "@site/src/components/Endpoint";
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import ApiParam from "@site/src/components/ApiParam";
-import Separator from "@site/src/components/Separator";
-import {
-  CollapseAll,
-  CollapseAllButton,
-  CollapseAllHeading,
-} from "@site/src/components/CollapseAll";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 <Endpoint
   url="/ver1/accounts/:account_id/rename"
@@ -40,8 +33,8 @@ Updates a name for the exchange account entity using its ID.
 
 ## Path Parameter
 
-<ApiParam name="account_id" type="integer" id="account_id" required>
-  Unique 3Commas ID of this exchange account entity.
+<ApiParam name='account_id' type='integer' id="account_id" required>
+    Unique 3Commas ID of this exchange account entity.
 </ApiParam>
 
 ## Query Parameter
@@ -54,10 +47,7 @@ Updates a name for the exchange account entity using its ID.
 <StickyLayout.Sticky>
 ## Example Request
 
-<NoContentEndpoint
-  method="POST"
-  endpoint="/ver1/accounts/11223344/rename?name=new%20name"
-/>
+<NoContentEndpoint method="POST" endpoint="/ver1/accounts/11223344/rename?name=new%20name" />
 
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -65,11 +55,12 @@ Updates a name for the exchange account entity using its ID.
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-## Response Parameters
+## Response Parameters 
 
 If successful, the response includes a copy of [Account](/account/0_account_entity.mdx) entity.
 
 </StickyLayout.Main>
+
 
 <StickyLayout.Sticky>
 ## Example Responses
@@ -109,7 +100,9 @@ If successful, the response includes a copy of [Account](/account/0_account_enti
   "market_icon": "https://3commas.io/img/exchanges/bybit.png",
   "deposit_enabled": false,
   "include_in_summary": true,
-  "supported_market_types": ["spot"],
+  "supported_market_types": [
+    "spot"
+  ],
   "primary_display_currency_profit_percentage": {
     "currency": "USD",
     "amount": "-0.16"
@@ -159,7 +152,6 @@ If successful, the response includes a copy of [Account](/account/0_account_enti
   "api_keys_state": "ok"
 }
 ```
-
 </ResponseTabs.TabItem>
 <ResponseTabs.TabItem value="401" label="401 Unauthorized">
   

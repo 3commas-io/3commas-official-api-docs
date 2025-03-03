@@ -4,15 +4,12 @@ title: Converts the deal to SmartTrade
 sidebar_class_name: post
 ---
 
-import ApiParam from "@site/src/components/ApiParam";
-import Endpoint, {
-  Permission,
-  NoContentEndpoint,
-} from "@site/src/components/Endpoint";
-import { Informer } from "@site/src/components/Informer/Informer";
-import Separator from "@site/src/components/Separator";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import ApiParam from '@site/src/components/ApiParam';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import { Informer } from '@site/src/components/Informer/Informer';
+import Separator from '@site/src/components/Separator';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 <Endpoint
   url="/ver1/deals/:deal_id/convert_to_smart_trade"
@@ -28,8 +25,7 @@ import * as ResponseTabs from "@site/src/components/ResponseTabs";
 Allows to convert the deal entity into SmarTrade entity.
 
 <Informer variant="warning">
-  After this action, 3Commas will automatically set the final status to
-  **Cancelled** for this deal.
+    After this action, 3Commas will automatically set the final status to **Cancelled** for this deal.
 </Informer>
 
 <Separator />
@@ -38,10 +34,10 @@ Allows to convert the deal entity into SmarTrade entity.
 <StickyLayout.Main>
 
 ## Path Parameter
-
-<ApiParam name="deal_id" type="integer" id="deal_id" required>
+<ApiParam name='deal_id' type='integer' id="deal_id" required>
   Unique 3Commas ID Deal entity.
 </ApiParam>
+   
 
 ## Body Parameter
 
@@ -53,10 +49,7 @@ Allows to convert the deal entity into SmarTrade entity.
 
 ## Example Request
 
-<NoContentEndpoint
-  method="POST"
-  endpoint="/ver1/deals/1234567890/convert_to_smart_trade?stop_bot=false"
-/>
+<NoContentEndpoint method="POST" endpoint="/ver1/deals/1234567890/convert_to_smart_trade?stop_bot=false" />
 
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -246,7 +239,6 @@ If successful, the response includes a copy of [SmartTrade](/smart-trade/0_smart
   "is_position_not_filled": true
 }
 ```
-
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>

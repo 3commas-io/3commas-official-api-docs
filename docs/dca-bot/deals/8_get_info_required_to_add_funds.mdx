@@ -4,22 +4,16 @@ title: Get info required to add funds
 sidebar_class_name: get
 ---
 
-import ApiParam from "@site/src/components/ApiParam";
-import CollapsibleApiParam from "@site/src/components/CollapsibleApiParam";
-import CollapsibleNestedParams from "@site/src/components/CollapsibleNestedParams";
-import {
-  CollapseAll,
-  CollapseAllButton,
-  CollapseAllHeading,
-} from "@site/src/components/CollapseAll";
-import Endpoint, {
-  Permission,
-  NoContentEndpoint,
-} from "@site/src/components/Endpoint";
-import Separator from "@site/src/components/Separator";
-import { Informer } from "@site/src/components/Informer/Informer";
-import * as StickyLayout from "@site/src/components/StickyLayout";
-import * as ResponseTabs from "@site/src/components/ResponseTabs";
+import ApiParam from '@site/src/components/ApiParam';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import Separator from '@site/src/components/Separator';
+import { Informer } from '@site/src/components/Informer/Informer';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+
 
 <Endpoint
   url="/ver1/deals/:deal_id/data_for_adding_funds"
@@ -49,10 +43,7 @@ Returns the information required to add funds correctly.
 
 ## Example Request
 
-<NoContentEndpoint
-  method="GET"
-  endpoint="/ver1/deals/2295655961/data_for_adding_funds"
-/>
+<NoContentEndpoint method="GET" endpoint="/ver1/deals/2295655961/data_for_adding_funds" />
 
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -61,109 +52,80 @@ Returns the information required to add funds correctly.
 <StickyLayout.Main>
 
 ## Response Parameters
-
 <CollapsibleApiParam name="orderbook_price" type="string" id="orderbook_price">
-  The current price from the exchange's order book for the pair.
+   The current price from the exchange's order book for the pair.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="price_per_one_unit_strategy_name"
-  type="string"
-  id="price_per_one_unit_strategy_name"
->
-  The name of the strategy used to determine the price per unit.
+<CollapsibleApiParam name="price_per_one_unit_strategy_name" type="string" id="price_per_one_unit_strategy_name">
+   The name of the strategy used to determine the price per unit.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="account_id" type="integer" id="account_id">
-  ID of the exchange account entity where this DCA Bot's deal was created.
+   ID of the exchange account entity where this DCA Bot's deal was created.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="quote_currency" type="string" id="quote_currency">
-  The quote currency in the trading pair.
+   The quote currency in the trading pair.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="base_currency" type="string" id="base_currency">
-  The base currency in the trading pair.
+   The base currency in the trading pair.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="adding_funds_currency"
-  type="string"
-  id="adding_funds_currency"
->
-  Currency for additional funds.
+<CollapsibleApiParam name="adding_funds_currency" type="string" id="adding_funds_currency">
+   Currency for additional funds.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="available_amount"
-  type="string"
-  id="available_amount"
->
-  The amount of quote currency available for trading.
+<CollapsibleApiParam name="available_amount" type="string" id="available_amount">
+   The amount of quote currency available for trading.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="limits" type="object" id="limits">
-  Exchange trading limits applicable to the pair used in this DCA Bot.
+   Exchange trading limits applicable to the pair used in this DCA Bot.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="market_supported"
-  type="boolean"
-  id="market_supported"
->
-  Indicates if market orders are supported for this pair `true` or not `false`.
+<CollapsibleApiParam name="market_supported" type="boolean" id="market_supported">
+   Indicates if market orders are supported for this pair `true` or not `false`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="is_contract" type="boolean" id="is_contract">
-  Specifies if the trading instrument is a contract `true` or not `false`.
+   Specifies if the trading instrument is a contract `true` or not `false`.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="orderbook_price_currency"
-  type="string"
-  id="orderbook_price_currency"
->
-  Currency used for the order book price.
+<CollapsibleApiParam name="orderbook_price_currency" type="string" id="orderbook_price_currency">
+   Currency used for the order book price.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="take_profit_price"
-  type="string"
-  id="take_profit_price"
->
-  The set price at which to take profit for the bot's deals.
+<CollapsibleApiParam name="take_profit_price" type="string" id="take_profit_price">
+   The set price at which to take profit for the bot's deals.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="stop_loss_price" type="string" id="stop_loss_price">
-  The price set to trigger a stop loss for the bot's deals.
+   The price set to trigger a stop loss for the bot's deals.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="account_type" type="string" id="account_type">
-  Specifies the type of account.
+   Specifies the type of account.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="deal_type" type="string" id="deal_type">
-  Indicates the type of deal being executed: `long` or `short`.
+   Indicates the type of deal being executed: `long` or `short`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="pair" type="string" id="pair">
-  Trading pair in 3Commas format.
+   Trading pair in 3Commas format.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="limit" type="string" id="limit">
-  The limit price for buy or sell orders.
+   The limit price for buy or sell orders.
 </CollapsibleApiParam>
 
-<CollapsibleApiParam
-  name="market_buy_min_total"
-  type="string"
-  id="market_buy_min_total"
->
-  The minimum total amount for market buy orders.
+<CollapsibleApiParam name="market_buy_min_total" type="string" id="market_buy_min_total">
+   The minimum total amount for market buy orders.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="min_lot_size" type="string" id="min_lot_size">
-  The minimum amount of the base currency that can be traded per order.
+   The minimum amount of the base currency that can be traded per order.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="leverage_custom_value" type="string" id="leverage_custom_value">
@@ -227,7 +189,6 @@ Returns the information required to add funds correctly.
   "leverage_type": "not_specified"
 }
 ```
-
 </ResponseTabs.TabItem>
 </ResponseTabs.Root>
 </StickyLayout.Sticky>
