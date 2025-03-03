@@ -48,13 +48,13 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
 The common status and information about this status for this SmartTrade entity.
   <CollapsibleNestedParams>
     <ApiParam name='basic_type' type="string">
-        3Commas status for this SmartTrade
+        3Commas status for this SmartTrade.
     </ApiParam>
     <ApiParam name='title' type="string">
-        Brief description of this status
+        Brief description of this status.
     </ApiParam>
     <ApiParam name='error' type="string">
-        Description of the error for this SmartTrade if it fails
+        Description of the error for this SmartTrade if it fails.
     </ApiParam>
   </CollapsibleNestedParams>
 </CollapsibleApiParam>
@@ -83,10 +83,11 @@ The common status and information about this status for this SmartTrade entity.
       The side of the order to be created by this trade.
     </ApiParam>
     <ApiParam name='editable' type="boolean" id="editable">
-        Shows the leverage type that was set when creating for this SmartTrade.
+        Indicates whether the user can modify the position settings when editing a SmartTrade.
+`true` if editing is available.
     </ApiParam>
     <ApiParam name='units' type="object" id="units">
-        Details of Units applied to this SmartTrade.
+        Details of units applied to this SmartTrade.
     </ApiParam>
         <CollapsibleNestedParams>
           <ApiParam name='value' type='string' id="value">
@@ -107,7 +108,7 @@ The common status and information about this status for this SmartTrade entity.
                The price of the position order, excluding commission.
              </ApiParam>
              <ApiParam name='editable' type='boolean' id="editable">
-               Indicates whether the user can modify the group of price settings parameters when editing SmartTrade
+               Indicates whether the user can modify the group of price settings parameters when editing SmartTrade.
              </ApiParam>
             </CollapsibleNestedParams>        
     <ApiParam name='total' type="number" id="total">
@@ -121,13 +122,13 @@ The common status and information about this status for this SmartTrade entity.
       </ApiParam>
         <CollapsibleNestedParams>
             <ApiParam name='basic_type' type='string' id="tybasic_typepe">
-               3Commas status for this Position trade
+               3Commas status for this Position trade.
              </ApiParam>
              <ApiParam name='title' type='string' id="title">
-              Brief description of this status for this trade
+              Brief description of this status for this trade.
              </ApiParam>
              <ApiParam name='error' type='string' id="error">
-              Error description for this position trade if it fails
+              Error description for this position trade if it fails.
              </ApiParam>
              </CollapsibleNestedParams>
    <ApiParam name='conditional' type="object" id="conditional">
@@ -135,7 +136,7 @@ The common status and information about this status for this SmartTrade entity.
     </ApiParam>
         <CollapsibleNestedParams>
             <ApiParam name='editable' type='boolean' id="editable">
-               Indicates whether the user can modify the settings of conditional of position when editing SmartTrade
+               Indicates whether the user can modify the settings of conditional of position when editing SmartTrade.
              </ApiParam>
             <ApiParam name='order_type' type='string' id="order_type">
               The type of conditional order used to open the position: `market`, `limit`, `conditional`
@@ -145,21 +146,21 @@ The common status and information about this status for this SmartTrade entity.
                </ApiParam>
                   <CollapsibleNestedParams>
                     <ApiParam name='editable' type='boolean' id="editable">
-                    Indicates whether the trailing stop settings for the conditional order can be edited
+                    Indicates whether the trailing settings for the conditional order can be edited.
                     </ApiParam>
                     <ApiParam name='percent'type='number' id="percent">
                     The trailing stop percentage for the conditional order, specifying the distance from the market price at which the trailing stop is triggered
                     </ApiParam>
                   </CollapsibleNestedParams>
             <ApiParam name="price" type="object" id="price">
-                TBD
+                Details of the price condition for the conditional order applied to this SmartTrade.
                </ApiParam>
                   <CollapsibleNestedParams>
                     <ApiParam name='type' type='string' id="type">
-                    The type of price for the stop loss order used to close the position
+                    The type of price for the conditional order used to open the position.
                     </ApiParam>
  				            <ApiParam name='value' type='number' id="value">
-                    The specific price value set to trigger the Stop Loss order
+                    Conditional trigger price. Used with order type conditional. This parameter is required when `position[order_type]` is set to `conditional`.
                     </ApiParam>
                   </CollapsibleNestedParams>
              </CollapsibleNestedParams>
@@ -167,16 +168,107 @@ The common status and information about this status for this SmartTrade entity.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="take_profit" type="object">
-<p>Details of the Take Profit and its steps applied to this SmartTrade</p>
+Details of the Take Profit and its steps applied to this SmartTrade.
+  <CollapsibleNestedParams>
+    <ApiParam name='enabled' type='boolean' id="enabled">
+     Indicates whether the take profit settings for this SmartTrade can be edited.
+    </ApiParam>
+    <ApiParam name='price_type' type='string' id="price_type">
+    The price type for the take profit trade(s) that was set when creating the SmartTrade: `value` or `percentage`.
+    </ApiParam>
+     <ApiParam name='steps' type='array' id="steps">
+        Detailed conditions for each step of the Take Profit.
+        <CollapsibleNestedParams>
+          <ApiParam name='id' type='integer' id="id">
+            Unique 3Commas trade ID for this SmartTrade entity.
+          </ApiParam>
+          <ApiParam name='order_type' type='integer' id="order_type">
+            The type of order for this trade's take profit.
+          </ApiParam>
+          <ApiParam name='editable' type='boolean' id="editable">
+            Indicates whether the step of take profit settings for this SmartTrade can be edited.
+          </ApiParam>
+          <ApiParam name='units' type='object' id="units">
+            Details of the units configuration for this Take Profit trade.
+            <CollapsibleNestedParams>
+              <ApiParam name='value' type='boolean' id="value">
+               Amount of units for this trade.
+              </ApiParam>
+            </CollapsibleNestedParams>
+          </ApiParam>
+          <ApiParam name='price' type='object' id="price">
+            Details of the price applied for one step of Take Profit.
+            <CollapsibleNestedParams>
+              <ApiParam name='type' type='integer' id="type">
+              The type of price for the take profit order used to open the position.
+              </ApiParam>
+              <ApiParam name='value' type='number' id="value">
+              The specific price value set to trigger the take profit order.
+              </ApiParam>
+              <ApiParam name='percent' type='number' id="percent">
+              The specific percentage of the price set to trigger this take profit trade.
+              </ApiParam>
+            </CollapsibleNestedParams>
+          </ApiParam>
+          <ApiParam name='volume' type='string' id="volume">
+            Take Profit order volume for this step of Take Profit.
+          </ApiParam>
+          <ApiParam name='total' type='string' id="total">
+            The total value for this Take Profit step.
+          </ApiParam>
+          <ApiParam name='trailing' type='object' id="trailing">
+            Details of the trailing applied for one step of Take Profit.
+            <CollapsibleNestedParams>
+              <ApiParam name='editable' type='integer' id="editable">
+              Indicates whether the trailing settings for the take profit in this SmartTrade can be edited.
+              </ApiParam>
+              <ApiParam name='percent' type='number' id="percent">
+              The specific trailing percentage applied to the price for this take profit trade.
+              </ApiParam>
+            </CollapsibleNestedParams>
+          </ApiParam>
+          <ApiParam name='status' type='object' id="status">
+            Status of this the step of Take Profit. Set automatically by 3Commas.
+            <CollapsibleNestedParams>
+              <ApiParam name='basic_type' type='string' id="basic_type">
+              3Commas status for this take profit trade.
+              </ApiParam>
+              <ApiParam name='title' type='string' id="title">
+               Brief description of this status for this trade.
+              </ApiParam>
+              <ApiParam name='error' type='string' id="error">
+               Error description for this take profit trade if it fails.
+              </ApiParam>
+            </CollapsibleNestedParams>
+          </ApiParam>
+          <ApiParam name='data' type='object' id="data">
+            Available actions for one step Take Profit.
+            <CollapsibleNestedParams>
+              <ApiParam name='cancelable' type='integer' id="cancelable">
+              Indicates whether the take profit trade can be canceled.
+              </ApiParam>
+              <ApiParam name='panic_sell_available' type='boolean' id="panic_sell_available">
+               Indicates whether the one step of Take Profit can be closed at market based on its current status.
+              </ApiParam>
+            </CollapsibleNestedParams>
+          </ApiParam>
+          <ApiParam name='position' type='string' id="position">
+            Indicates the position of this take profit step for this SmartTrade.
+          </ApiParam>
+        </CollapsibleNestedParams>
+    </ApiParam>
+  </CollapsibleNestedParams>
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="stop_loss" type="object">
-Details of the Stop Loss applied to this SmartTrade
-   <CollapsibleApiParam name='enabled' type='boolean' id="enabled">
-    <p>Indicates whether the stop loss settings for this SmartTrade can be edited</p>
-    </CollapsibleApiParam>
-   <CollapsibleApiParam name='price_type' type='string' id="price_type">
+Details of the Stop Loss applied to this SmartTrade.
+  <CollapsibleNestedParams>
+   <ApiParam name='enabled' type='boolean' id="enabled">
+    Indicates whether the stop loss settings for this SmartTrade can be edited
+    </ApiParam>
+   <ApiParam name='price_type' type='string' id="price_type">
     The price type for the stop loss trade(s) that was set when creating the SmartTrade. Can be either `value` or `percentage`
+    </ApiParam>
     <ApiParam name='breakeven' type='boolean' id="breakeven">
     Indicates whether the stop loss has been set at the breakeven point `true` or not `false`.
     </ApiParam>
@@ -212,7 +304,7 @@ Details of the Stop Loss applied to this SmartTrade
               The total value of the stop loss trade.
           </ApiParam>
         </CollapsibleNestedParams>
-    </ApiParam>      
+    </ApiParam>
     <ApiParam name="conditional" type="object" id="conditional">
       Details of the conditional Stop Loss settings, including trailing and price configurations.
         <CollapsibleNestedParams>
@@ -254,101 +346,36 @@ Details of the Stop Loss applied to this SmartTrade
           </ApiParam>
         </CollapsibleNestedParams>
     </ApiParam>
+       <ApiParam name="status" type="object" id="status">
           Status of this the step of Stop Loss. Set automatically by 3Commas
         <CollapsibleNestedParams>
             <ApiParam name='basic_type'type='string' id="basic_type">
-              3Commas status for this Stop Loss trade
+              3Commas status for this Stop Loss trade.
             </ApiParam>
             <ApiParam name='title'type='string' id="title">
-              Brief description of this status for this trade
+              Brief description of this status for this trade.
             </ApiParam>
             <ApiParam name='error'type='string' id="error">
-              Error description for this stop loss trade if it fails
+              Error description for this stop loss trade if it fails.
             </ApiParam>
             </CollapsibleNestedParams>
-          </CollapsibleApiParam>
-          <CollapsibleApiParam name="units" type="object" id="units">
-          <p>TBD</p>
-            <CollapsibleNestedParams>
-                <ApiParam name='value'type='number' id="value">
-                 The specific price value set for the stope loss order trigger
-                </ApiParam>
-            </CollapsibleNestedParams>
-          </CollapsibleApiParam>
-          <CollapsibleApiParam name="total" type="object" id="total">
-          <p>TBD</p>
-            <CollapsibleNestedParams>
-                <ApiParam name='value'type='number' id="value">
-                 The total value of the stop loss trade
-                </ApiParam>
-            </CollapsibleNestedParams>
-          </CollapsibleApiParam>
-          <CollapsibleApiParam name="price" type="object" id="price">
-          <p>Details of the Stop Loss price configuration</p>
-            <CollapsibleNestedParams>
-                <ApiParam name='value' type='number' id="value">
-                 The price of the Stop Loss trade
-                </ApiParam>
-                <ApiParam name='percent' type='number' id="percent">
-                The specific percentage of the price set to trigger this Stop Loss trade
-                </ApiParam>
-            </CollapsibleNestedParams>
-          </CollapsibleApiParam>
-          <CollapsibleApiParam name="conditional" type="object" id="conditional">
-          TBD
-             <CollapsibleNestedParams>
-               <ApiParam name="trailing" type="object" id="trailing">
-                <p>Details of the trailing applied for one step of Stop Loss</p>
-               </ApiParam>
-                  <CollapsibleNestedParams>
-                    <ApiParam name='editable' type='boolean' id="editable">
-                    Indicates whether trailing is enabled for the conditional stop loss
-                    </ApiParam>
-                    <ApiParam name='percent'type='number' id="percent">
-                    The trailing percentage for the conditional stop loss
-                    </ApiParam>
-                  </CollapsibleNestedParams>
-              <ApiParam name="price" type="object" id="price">
-                <p>Details of the trailing applied for one step of Stop Loss</p>
-               </ApiParam>
-                  <CollapsibleNestedParams>
-                    <ApiParam name='type' type='string' id="type">
-                    The type of price for the stop loss order used to close the position
-                    </ApiParam>
- 				            <ApiParam name='value' type='number' id="value">
-                    The specific price value set to trigger the Stop Loss order
-                    </ApiParam>
-				            <ApiParam name='percent' type='number' id="percent">
-                    The specific percentage of the price set to trigger this Stop Loss trade
-                    </ApiParam>
-                  </CollapsibleNestedParams>
-             </CollapsibleNestedParams>
-          </CollapsibleApiParam>
-          <CollapsibleApiParam name="timeout" type="object" id="timeout">
-            Details of the timeout configuration.
-            <CollapsibleNestedParams>
-                <ApiParam name='enabled' type='number' id="enabled">
-                 Indicates whether the timeout setting for the stop loss is enabled
-                </ApiParam>
-                <ApiParam name='value'type='number' id="value">
-                 The value of the timeout setting for the Stop Loss trade
-                </ApiParam>
-            </CollapsibleNestedParams>
-          </CollapsibleApiParam>
+          </ApiParam>
+          </CollapsibleNestedParams>
     </CollapsibleApiParam>
+
   <CollapsibleApiParam name="reduce_funds" type="array">
-<p>Details of the Reduce Funds applied to this SmartTrade</p>
+  Details of the Reduce Funds applied to this SmartTrade
   <CollapsibleApiParam name='steps' type='array' id="steps">
     Detailed information about each Reduce Funds step.
     <CollapsibleNestedParams>
       <ApiParam name='id'type='integer' id="id">
         Unique 3Commas trade ID for this market close trade in the SmartTrade
       </ApiParam>
-      <ApiParam name='title'type='string' id="type">
+      <ApiParam name='order_type'type='string' id="order_type">
         The order type for this reduce funds trade
       </ApiParam>
-          <CollapsibleApiParam name="status" type="object" id="status">
-          <p>Detailed information about the status and any errors for a single Reduce Funds step</p>
+          <ApiParam name="status" type="object" id="status">
+          Detailed information about the status and any errors for a single Reduce Funds step.
             <CollapsibleNestedParams>
                 <ApiParam name='basic_type'type='string' id="basic_type">
                  3Commas status for this Reduce funds trade
@@ -360,17 +387,17 @@ Details of the Stop Loss applied to this SmartTrade
                  Error description for this reduce funds trade if it fails.
                 </ApiParam>
             </CollapsibleNestedParams>
-          </CollapsibleApiParam>
-          <CollapsibleApiParam name="units" type="object" id="units">
-          <p>TBD</p>
+          </ApiParam>
+          <ApiParam name="units" type="object" id="units">
+          Details of the unit amount specified for this Reduce Funds trade.
             <CollapsibleNestedParams>
                 <ApiParam name='value'type='number' id="value">
                  Amount of units for this reduce funds trade.
                 </ApiParam>
             </CollapsibleNestedParams>
-          </CollapsibleApiParam>
-          <CollapsibleApiParam name="price" type="object" id="price">
-          <p>TBD</p>
+          </ApiParam>
+          <ApiParam name="price" type="object" id="price">
+          Details of the price settings for this Reduce Funds trade, including values with and without commission.
             <CollapsibleNestedParams>
                 <ApiParam name='value'type='number' id="value">
                  The price of the reduce funds trade, including the commission.
@@ -379,16 +406,16 @@ Details of the Stop Loss applied to this SmartTrade
                  The price of the reduce funds trade, excluding commission.
                 </ApiParam>
             </CollapsibleNestedParams>
-          </CollapsibleApiParam>
-          <CollapsibleApiParam name="total" type="object" id="total">
-          <p>TBD</p>
+          </ApiParam>
+          <ApiParam name="total" type="object" id="total">
+          Total value details for this Reduce Funds trade.
             <CollapsibleNestedParams>
                 <ApiParam name='value'type='number' id="value">
                  The total value of the reduce funds trade, including all relevant factors such as price and quantity.
                 </ApiParam>
             </CollapsibleNestedParams>
-          </CollapsibleApiParam>
-           <CollapsibleApiParam name="data" type="object" id="data">
+          </ApiParam>
+           <ApiParam name="data" type="object" id="data">
           Available actions for a single Reduce Funds step.
             <CollapsibleNestedParams>
                 <ApiParam name='cancelable'type='boolean' id="cancelable">
@@ -398,21 +425,22 @@ Details of the Stop Loss applied to this SmartTrade
                  Indicates whether a drawdown transaction can be closed at market `true` or not `false`.
                 </ApiParam>
             </CollapsibleNestedParams>
-          </CollapsibleApiParam>
+          </ApiParam>
      </CollapsibleNestedParams>
       </CollapsibleApiParam>
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="market_close" type="object">
 Details of the Market Close applied to this SmartTrade.
+  <CollapsibleNestedParams>
     <ApiParam name='id' type='integer' id="id">
     Unique 3Commas trade ID for this market close trade in the SmartTrade.
     </ApiParam>
     <ApiParam name='type' type='integer' id="type">
     The type of order for this trade's market close.
     </ApiParam>
-    <CollapsibleApiParam name='status' type='object' id="status">
-    Detailed information about the status and any errors for this Market Clode.
+    <ApiParam name='status' type='object' id="status">
+    Detailed information about the status and any errors for this Market Close.
         <CollapsibleNestedParams>
              <ApiParam name='basic_type'type='string' id="basic_type">
                 The status type of the market close trade for this SmartTrade.
@@ -424,40 +452,39 @@ Details of the Market Close applied to this SmartTrade.
           Error description for this market close trade if it fails.
          </ApiParam>
      </CollapsibleNestedParams>
-</CollapsibleApiParam>
-
-<CollapsibleApiParam name='units' type='object' id="units">
-Detailed information about the status and any errors for this Market Clode
+</ApiParam>
+<ApiParam name='units' type='object' id="units">
+Detailed information about the status and any errors for this Market Close.
   <CollapsibleNestedParams>
     <ApiParam name='value'type='number' id="value">
-        Amount of units for position trade
+        Amount of units for market close trade.
     </ApiParam>
   </CollapsibleNestedParams>
-</CollapsibleApiParam>
-
-<CollapsibleApiParam name='price' type='object' id="price">
-Detailed information about the status and any errors for this Market Clode
+</ApiParam>
+<ApiParam name='price' type='object' id="price">
+Detailed information about the status and any errors for this Market Close.
   <CollapsibleNestedParams>
     <ApiParam name='value'type='number' id="value">
-     The price of the market close trade, including commission
+     The price of the market close trade, including commission.
     </ApiParam>
     <ApiParam name='value_without_commission'type='number' id="value_without_commission">
-     The price of the market close trade, excluding commission
+     The price of the market close trade, excluding commission.
     </ApiParam>
   </CollapsibleNestedParams>
-</CollapsibleApiParam>
-     <CollapsibleApiParam name='total' type='object' id="total">
-      Detailed information about the status and any errors for this Market Clode
+</ApiParam>
+     <ApiParam name='total' type='object' id="total">
+      Detailed information about the status and any errors for this Market Close.
         <CollapsibleNestedParams>
              <ApiParam name='value'type='number' id="value">
-              Indicates whether the reduce funds trade can be closed at market
+              Indicates whether the reduce funds trade can be closed at market.
             </ApiParam>
         </CollapsibleNestedParams>
-     </CollapsibleApiParam>
+     </ApiParam>
+  </CollapsibleNestedParams>
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='note' type='string' id="note">
-    Optional user-defined note for this SmartTrade
+    Optional user-defined note for this SmartTrade.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='note_raw' type='string' id="note_raw">
@@ -480,47 +507,42 @@ Available actions applicable to the entire SmartTrade entity.
     </ApiParam>
     <CollapsibleNestedParams>
       <ApiParam name='bid' type='number' id="bid">
-        The current highest bid price of the asset
+        The current highest bid price of the asset.
       </ApiParam>
       <ApiParam name='ask' type='number' id="ask">
-        The current lowest ask price of the asset
+        The current lowest ask price of the asset.
       </ApiParam>
       <ApiParam name='last' type='number' id="last">
-        The last traded price of the asset
+        The last traded price of the asset.
       </ApiParam>
       <ApiParam name='quote_volume' type='number' id="quote_volume">
-        TBD
+        Volume in quote.
       </ApiParam>
       <ApiParam name='day_change_percent' type='number' id="day_change_percent">
-        Percentage price change for the asset over the last 24 hours
+        Percentage price change for the asset over the last 24 hours.
       </ApiParam>
     </CollapsibleNestedParams>
-    <ApiParam name='target_price_type' type="string" id="target_price_type">
-        TBD
-    </ApiParam>
-    <ApiParam name='orderbook_price_currency' type="string" id="orderbook_price_currency">
-        TBD
-    </ApiParam>
     <ApiParam name='base_order_finished' type="boolean" id="base_order_finished">
         Indicates whether the position trade has been executed `true` or not `false`.
     </ApiParam>
     <ApiParam name='missing_funds_to_close' type="boolean" id="missing_funds_to_close">
-        TBD
+      Shows how much funds are missing to close all SmartTrades.
+       This value is calculated as the difference between the funds locked in SmartTrades and the balance available for trading.
     </ApiParam>
      <ApiParam name='liquidation_price' type="number" id="liquidation_price">
-     The liquidation price of the asset on the futures exchange
+     The liquidation price of the asset on the futures exchange.
     </ApiParam>
      <ApiParam name='average_enter_price' type="number" id="average_enter_price">
-     The average entering price of the asset with fees
+     The average entering price of the asset with fees.
     </ApiParam>
     <ApiParam name='average_close_price' type="number" id="average_close_price">
-     The average closing price of the asset with fees
+     The average closing price of the asset with fees.
     </ApiParam>
     <ApiParam name='average_enter_price_without_commission' type="number" id="average_enter_price_without_commission">
-     The average entering price of the asset without accounting for any fees
+     The average entering price of the asset without accounting for any fees.
     </ApiParam>
     <ApiParam name='average_close_price_without_commission' type="number" id="average_close_price_without_commission">
-     The average closing price of the asset without accounting for any fees
+     The average closing price of the asset without accounting for any fees.
     </ApiParam>
     <ApiParam name='panic_sell_available' type="boolean" id="panic_sell_available">
      Indicates whether the SmartTrade can be closed at market `true` or not `false` based on its current status
@@ -549,58 +571,58 @@ Available actions applicable to the entire SmartTrade entity.
         Shows whether entry into the position has been completed `true` or not `false`.
     </ApiParam>
     <ApiParam name='entered_amount' type="number" id="entered_amount">
-        The total amount of funds used to enter the position for this SmartTrade, including all additional funds trades, specified in base
+        The total amount of funds used to enter the position for this SmartTrade, including all additional funds trades, specified in base.
     </ApiParam>
     <ApiParam name='entered_total' type="number" id="entered_total">
-        Total amount of funds used to enter the position for this SmartTrade, specified in quote
+        Total amount of funds used to enter the position for this SmartTrade, specified in quote.
     </ApiParam>
     <ApiParam name='closed_amount' type="number" id="closed_amount">
-        Total amount of SmartTrade closing volume in base
+        Total closed amount of the SmartTrade in the base currency.
     </ApiParam>
     <ApiParam name='closed_total' type="number" id="closed_total">
-        Total amount of SmartTrade closing volume in quote
+        Total closed amount of the SmartTrade in the quote currency.
     </ApiParam>
     <ApiParam name='commission' type="number" id="commission">
-        The trading fee of exchange for transaction
+        The trading fee of exchange for transaction.
     </ApiParam>
       <ApiParam name='create_at' type="string" id="create_at">
-        ISO 8601 datetime string of when this SmartTrade entity was created
+        ISO 8601 datetime string of when this SmartTrade entity was created.
     </ApiParam>
     <ApiParam name='updated_at' type="string or null" id="updated_at">
-        ISO 8601 datetime string of when this SmartTrade entity was updated
+        ISO 8601 datetime string of when this SmartTrade entity was updated.
     </ApiParam>
      <ApiParam name='type' type="string" id="type">
-        Type of SmartTtade
+        Type of SmartTtade.
     </ApiParam>
   </CollapsibleNestedParams>
-</CollapsibleApiParam>   
-   
+</CollapsibleApiParam>
+
 <CollapsibleApiParam name="profit" type="object" id="profit">
 Detailed information about the profit received on this SmartTrade.
   <CollapsibleNestedParams>
     <ApiParam name='volume' type="number" id="volume">
-        The total profit volume generated by this SmartTrade in quote
+        The total profit volume generated by this SmartTrade in quote.
     </ApiParam>
     <ApiParam name='usd' type="number" id="usd">
-        The total profit volume generated by this SmartTrade in USD
+        The total profit volume generated by this SmartTrade in USD.
     </ApiParam>
      <ApiParam name='percent' type="number" id="percent">
-        The total profit volume generated by this SmartTrade in percent
+        The total profit volume generated by this SmartTrade in percent.
     </ApiParam>
      <ApiParam name='roe' type="number or null" id="roe">
-        The return on equity (ROE) for this SmartTrade's profit, applicable only for futures accounts
+        The return on equity (ROE) for this SmartTrade's profit, applicable only for futures accounts.
     </ApiParam>
   </CollapsibleNestedParams>
-</CollapsibleApiParam>   
+</CollapsibleApiParam>
 
 <CollapsibleApiParam name="margin" type="object" id="margin">
 Detailed information about the margin for this SmartTrade.
   <CollapsibleNestedParams>
     <ApiParam name='amount' type="number or null" id="amount">
-      3Commas status for this SmartTrade.
+      The total margin value for this SmartTrade (base).
     </ApiParam>
     <ApiParam name='total' type="number or null" id="total">
-        The total margin value for this SmartTrade (quote)
+        The total margin value for this SmartTrade (quote).
     </ApiParam>
   </CollapsibleNestedParams>
 </CollapsibleApiParam>
