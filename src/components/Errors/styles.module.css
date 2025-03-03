@@ -6,14 +6,21 @@
 }
 
 .error {
+  --error-background-color: #fbeff0;
+  --error-color: #e7596a;
+
   display: flex;
   gap: 0.75rem;
   align-items: center;
 }
 
+[data-theme="dark"] .error {
+  --error-background-color: #e7596a1a;
+}
+
 .error > code {
-  color: #e7596a;
-  background-color: #fbeff0;
+  color: var(--error-color);
+  background-color: var(--error-background-color);
   border: none;
   padding: 0.125rem 0.25rem;
   font-weight: 600;
@@ -22,6 +29,10 @@
 .error span {
   color: var(--text-content-color);
   font-size: var(--text-size);
+}
+
+.error span > p {
+  margin: 0;
 }
 
 .error span code {

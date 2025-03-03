@@ -2,6 +2,7 @@
   --circle-size: 2rem;
   --step-color: #13a8a1;
   --step-background-color: #eaf5f5;
+  --step-separator-color: #eaf5f5;
 
   display: flex;
   flex-direction: column;
@@ -10,8 +11,8 @@
 }
 
 [data-theme="dark"] .steps {
-  --step-color: #0e7c75;
-  --step-background-color: #c2ecea;
+  --step-background-color: #13a8a11a;
+  --step-separator-color: #2c2e30;
 }
 
 .step {
@@ -83,6 +84,10 @@
 .content main *,
 .content main li {
   margin: 0 0 6px;
+}
+
+.content pre > code {
+  margin: 0;
 }
 
 .content main code {

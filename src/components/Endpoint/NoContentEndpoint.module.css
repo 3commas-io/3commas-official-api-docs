@@ -9,7 +9,7 @@
   font-size: var(--ifm-code-font-size);
   gap: 0.625rem;
   padding: 1rem var(--ifm-pre-padding);
-  border-radius: var(--ifm-code-border-radius);
+  border-radius: 1rem;
   background-color: var(--code-background-color);
   white-space: nowrap;
 }

@@ -99,4 +99,8 @@ export default {
       },
     },
   ],
+  plain: {
+    ...baseTheme.plain,
+    backgroundColor: "#F8F8F8",
+  },
 } satisfies PrismTheme;
