@@ -17,6 +17,15 @@ const sidebars: SidebarsConfig = {
   tutorialSidebar: [
     {
       type: 'category',
+      label: 'Home',
+      link: {
+        type: 'doc',
+        id: 'index',
+      },
+      items: [], // Added empty items array to satisfy the required schema
+    },
+    {
+      type: 'category',
       label: 'General Information',
       link: {
         type: 'doc',

@@ -518,6 +518,9 @@ menu__link:not(.menu__link--active){
 .menu__link--active:hover, .menu__list-item-collapsible--active:hover{
   background-color: transparent !important;
 }
+.theme-doc-sidebar-menu .menu__list-item > a.menu__link[href="/"] {
+  display: none !important;
+}
 @media (min-width: 997px) {
   .navbar {
     padding: 0 24px 12px 0!important;
@@ -616,7 +619,7 @@ menu__link:not(.menu__link--active){
 @media (max-width: 767px) {
   .navbar,
   .navbar-sidebar__brand{
-    padding: 20px;
+    padding: 20px 8px 20px 20px;
   }
   .navbar-sidebar__brand > :nth-child(3) > .toggle_vylO {
     display: none;

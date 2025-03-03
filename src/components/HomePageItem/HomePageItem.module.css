@@ -1,21 +1,22 @@
-.homePageItemContainer{
+.homePageItemContainer a{
     display: flex;
     gap: 16px;
     cursor: pointer;
-    margin-bottom: 32px;
+    text-decoration: none;
+}
+.homePageItemContainer:nth-child(n+2){
     margin-right: 80px;
-    min-width: 350px;
-    width: 100%;
 }
 .homePageItemIconWrapper{
     width: 52px;
     height: 52px;
     border-radius: 8px;
     background-color: var(--home-page-icon-background-color);
-    transition: background-color 0.2s linear, stroke 0.2s linear;
+    transition: background-color 0.2s linear;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 .homePageItemIconWrapper svg mask{
     width: 20px;
@@ -53,4 +54,36 @@
     color: var(--sidebar-links-color);
     margin: 0;
 
+}
+@media (min-width: 648px) and (max-width: 996px){
+    .homePageItemTitle{
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 0.2px;
+    }
+    .homePageItemDescription{
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 0.2px;
+
+    }
+}
+@media (max-width: 647px){
+    .homePageItemTitle{
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 0.2px;
+
+    }
+    .homePageItemDescription{
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 20px;
+        letter-spacing: 0.25px;
+
+
+    }
 }
