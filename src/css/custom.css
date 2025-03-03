@@ -537,8 +537,8 @@ strong {
   font-weight: 600;
 }
 
-main a:not(.breadcrumbs__link),
-main a:not(.breadcrumbs__link):hover {
+main a:not(.home-line):not(.breadcrumbs__link),
+main a:not(.home-line):not(.breadcrumbs__link):hover {
   text-decoration: underline !important;
   color: var(--text-content-color);
   font-weight: inherit;

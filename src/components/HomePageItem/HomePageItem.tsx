@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Link from "@docusaurus/Link";
 import styles from "./HomePageItem.module.css";
 import HomePageIcons from "@site/src/icons/HomePageIcons";
+import clsx from "clsx";
 
 interface HomePageItemData {
   title: string;
@@ -33,17 +34,15 @@ const HomePageItem = ({ data }: Props) => {
   }, []);
 
   return (
-    <li className={styles.homePageItemContainer}>
-      <Link to={data.link} className={styles.homePageItemLink}>
-        <div className={styles.homePageItemIconWrapper}>
-          <HomePageIcons icon={data.icon} />
-        </div>
-        <div className={styles.homePageItemContentWrapper}>
-          <p className={styles.homePageItemTitle}>{data.title}</p>
-          <p className={styles.homePageItemDescription}>{data.description}</p>
-        </div>
-      </Link>
-    </li>
+    <Link to={data.link} className={clsx(styles.homePageItemLink, "home-line")}>
+      <div className={styles.homePageItemIconWrapper}>
+        <HomePageIcons icon={data.icon} />
+      </div>
+      <div className={styles.homePageItemContentWrapper}>
+        <p className={styles.homePageItemTitle}>{data.title}</p>
+        <p className={styles.homePageItemDescription}>{data.description}</p>
+      </div>
+    </Link>
   );
 };
 
