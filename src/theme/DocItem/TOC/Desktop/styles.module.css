@@ -57,9 +57,8 @@
   will-change: opacity;
   overflow: hidden;
   list-style: none;
-
   padding-bottom: 12px;
-  padding-right: 20px;
+  padding-right: 16px;
 
   .outlineLink {
     display: block;
@@ -105,6 +104,10 @@
 
   ul {
     list-style: none;
+
+    ul {
+      padding-left: 0 !important;
+    }
   }
 
   &:hover {
