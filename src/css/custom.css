@@ -68,7 +68,7 @@
   --ifm-heading-color: #fff;
   --text-content-color: #9FA2A8;
 
-  --ifm-background-color: #2C2E30;
+  --ifm-background-color: #242526 !important;
 
   --pagination-button-color: #2C2E30;
   --code-separator-color: #333437;
