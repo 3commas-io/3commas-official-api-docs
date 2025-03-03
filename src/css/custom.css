@@ -531,17 +531,17 @@ strong {
   margin: 0 0 12px;
 }
 
-.additional__info__heading + p > a,
-.additional__info__heading + p > a:hover {
-  text-decoration: underline;
-  color: var(--text-content-color);
-  font-weight: inherit;
-}
-
 .additional__info__example {
   color: #13a8a1;
   margin: 12px 0;
   font-weight: 600;
+}
+
+main a:not(.breadcrumbs__link),
+main a:not(.breadcrumbs__link):hover {
+  text-decoration: underline !important;
+  color: var(--text-content-color);
+  font-weight: inherit;
 }
 
 p {
