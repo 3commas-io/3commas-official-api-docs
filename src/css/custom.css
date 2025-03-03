@@ -496,3 +496,7 @@ main li > code {
 .navbar__items--right .navbar__link > svg[class*="ExternalLink"] {
   display: none;
 }
+
+.codeBlockContainer_Ckt0 {
+  margin: 0 0 1.25rem !important;
+}

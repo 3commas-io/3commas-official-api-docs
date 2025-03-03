@@ -80,6 +80,11 @@
   padding-bottom: 1.25rem;
 }
 
-.content main * {
-  margin-bottom: 6px;
+.content main *,
+.content main li {
+  margin: 0 0 6px;
+}
+
+.content main code {
+  color: var(--ifm-heading-color);
 }
