@@ -841,6 +841,10 @@ li.menu__list-item > .category-title-hr {
     padding-left: 12px;
   }
 
+  .breadcrumbs {
+    margin: 0 5px;
+  }
+
   .navbar {
     height: 68px;
   }
