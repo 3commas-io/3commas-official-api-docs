@@ -34,11 +34,11 @@
   line-height: 2;
   letter-spacing: 2px;
   font-weight: 600;
-  color: var(--separator-color);
+  color: #b8b8b8;
   z-index: 10;
 }
 
 [data-theme="light"] .separator::after {
   background-color: var(--separator-text-bg-light);
-  color: #b8b8b8;
+  color: #9fa2a8 !important;
 }

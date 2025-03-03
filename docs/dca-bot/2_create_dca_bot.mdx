@@ -9,6 +9,7 @@ import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
 import Separator, { ADDITIONAL_INFORMATION_THEME } from '@site/src/components/Separator';
+import { Informer } from '@site/src/components/Informer/Informer'
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout'
 import * as ResponseTabs from '@site/src/components/ResponseTabs'
@@ -156,7 +157,7 @@ Creates a new DCA Bot
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='sl_to_breakeven_data' type='json' id="sl_to_breakeven_data">
-   Upper limit for Stop Loss to move to breakeven, where `0` is the base order bought price, `1` is 1st step of TP, and `2` is 2nd step of TP.
+   Upper limit for Stop Loss to move to breakeven, where `0` is the average price, `1` is 1st step of TP, and `2` is 2nd step of TP.
    
    Example: `upper_breakeven_limit: 1`
 </CollapsibleApiParam>
@@ -281,7 +282,7 @@ Use endpoints [Currency rates and limits with leverage data](/market-data/3_curr
 
 Keep in mind, you can create a maximum of 4 targets, allocating 100% of your position volume is allocated across them
 
-<p className='additional__info__example'>For example:</p>
+<Separator label="EXAMPLE" labelBg={ADDITIONAL_INFORMATION_THEME} type="additionalInformation" />
 
 <CodeBlock
   language="json"
@@ -324,8 +325,6 @@ or
    ```
   </TabItem>
   <TabItem value="Non-stop" label="Non-stop">
-  
-   It's using only for 1 pair bot.
 
 ```json
 [
@@ -337,7 +336,12 @@ or
   }
 ]
 ```
-  </TabItem>
+
+<Informer type="info">
+   It's using only for 1 pair bot.
+</Informer>
+
+</TabItem>
 
   <TabItem value="TradingView" label="TradingView">
 
@@ -461,7 +465,7 @@ or
   "allowed_deals_on_same_pair": null,
   "easy_form_supported": false,
   "close_deals_timeout": null,
-  "url_secret": "738d600eb4",
+  "url_secret": "...",
   "take_profit_steps": [],
   "name": "test 24 oct",
   "take_profit": "2.0",

@@ -48,10 +48,10 @@ export default function DocItemLayout({ children }: Props): JSX.Element {
   return (
     <div className="row">
       <ScrollStylingManager />
-      <span className={styles.breadcrumbsContainer}>
-        <DocBreadcrumbs />
-      </span>
       <div className={clsx("col")}>
+        <span className={styles.breadcrumbsContainer}>
+          <DocBreadcrumbs />
+        </span>
         <ContentVisibility metadata={metadata} />
         <DocVersionBanner />
         <div className={styles.docItemContainer}>
@@ -61,6 +61,7 @@ export default function DocItemLayout({ children }: Props): JSX.Element {
             <DocItemContent>{children}</DocItemContent>
             <DocItemFooter />
           </article>
+
           <div className={styles.pagination}>
             <PaginatorNavLink
               isNext={false}

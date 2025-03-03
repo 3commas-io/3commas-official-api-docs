@@ -15,7 +15,7 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 import { Informer } from '@site/src/components/Informer/Informer';
 
 <Endpoint
-  url="ver1/accounts/:account_id/account_table_data"
+  url="/ver1/accounts/:account_id/account_table_data"
   method="POST"
   permissions={
     <>
@@ -28,7 +28,7 @@ import { Informer } from '@site/src/components/Informer/Informer';
 Returns information about currency balances of a specific account using its ID, for visualization in a table chart.
 
 <Informer variant="info">
-By replacing **account_id** with **summary**, you can use the **ver1/accounts/summary/account_table_data** endpoint to retrieve aggregated data for all accounts where **available_include_in_summary** is set to **true**.
+By replacing **account_id** with **summary**, you can use the **/ver1/accounts/summary/account_table_data** endpoint to retrieve aggregated data for all accounts where **available_include_in_summary** is set to **true**.
 </Informer>
 
 <Separator />

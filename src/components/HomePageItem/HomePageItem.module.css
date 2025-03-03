@@ -1,12 +1,10 @@
-.homePageItemContainer a {
+.homePageItemLink {
   display: flex;
   gap: 16px;
   cursor: pointer;
   text-decoration: none;
 }
-.homePageItemContainer:nth-child(n + 2) {
-  margin-right: 80px;
-}
+
 .homePageItemIconWrapper {
   width: 52px;
   height: 52px;
@@ -18,6 +16,7 @@
   justify-content: center;
   flex-shrink: 0;
 }
+
 .homePageItemIconWrapper svg mask {
   width: 20px;
   height: 20px;
@@ -26,10 +25,10 @@
 .homePageItemIconWrapper:hover {
   background-color: #13a8a1;
 }
-.homePageItemIconWrapper:hover > svg > path {
+.homePageItemIconWrapper:hover > div > svg > path {
   stroke: #ffffff;
 }
-.homePageItemIconWrapper:hover svg g rect {
+.homePageItemIconWrapper:hover div svg g rect {
   fill: #ffffff;
 }
 .homePageItemContentWrapper {

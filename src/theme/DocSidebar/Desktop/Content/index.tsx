@@ -5,7 +5,6 @@ import {
   useAnnouncementBar,
   useScrollPosition,
 } from "@docusaurus/theme-common/internal";
-import { useColorMode } from "@docusaurus/theme-common";
 import { translate } from "@docusaurus/Translate";
 import DocSidebarItems from "@theme/DocSidebarItems";
 import type { Props } from "@theme/DocSidebar/Desktop/Content";

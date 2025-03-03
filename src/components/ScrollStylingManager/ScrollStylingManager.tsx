@@ -28,16 +28,8 @@ const ScrollStylingManager = () => {
       "/smart-trade/trades/trade-entity",
     ];
 
-    const isLimitRoute = [
-      "/general-information/limits",
-      "/general-information/errors",
-    ];
-
     const handleScroll = () => {
       const isExcluded = excludedRoutes.includes(window.location.pathname);
-      const isPlaceholderRoute = isLimitRoute.includes(
-        window.location.pathname,
-      );
 
       const breadcrumbs = document.querySelector(".breadcrumbsContainer_Ar0W");
       const container = document.querySelector(".container_eK_a");
@@ -45,16 +37,12 @@ const ScrollStylingManager = () => {
       const header = document.querySelector(".theme-doc-markdown header");
 
       if (window.scrollY >= 140) {
-        if (isPlaceholderRoute) {
-          let placeholder = document.querySelector(
-            ".placeholder",
-          ) as HTMLElement;
-          if (!placeholder) {
-            placeholder = document.createElement("div");
-            placeholder.className = "placeholder";
-            placeholder.style.height = "60px";
-            header.appendChild(placeholder);
-          }
+        let placeholder = document.querySelector(".placeholder") as HTMLElement;
+        if (!placeholder) {
+          placeholder = document.createElement("div");
+          placeholder.className = "placeholder";
+          placeholder.style.height = "60px";
+          header.appendChild(placeholder);
         }
         if (breadcrumbs) breadcrumbs.classList.add("scrolledClass");
         if (h1) {
@@ -70,11 +58,9 @@ const ScrollStylingManager = () => {
           container.classList.add("scrolledClass");
         }
       } else {
-        if (isPlaceholderRoute) {
-          const placeholder = document.querySelector(".placeholder");
-          if (placeholder) {
-            placeholder.parentElement.removeChild(placeholder);
-          }
+        const placeholder = document.querySelector(".placeholder");
+        if (placeholder) {
+          placeholder.parentElement.removeChild(placeholder);
         }
         if (breadcrumbs) breadcrumbs.classList.remove("scrolledClass");
         if (h1) {

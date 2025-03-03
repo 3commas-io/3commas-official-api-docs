@@ -15,6 +15,7 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs'
 import Endpoint, { Permission } from '@site/src/components/Endpoint'
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { Informer } from '@site/src/components/Informer/Informer'
 
 <Endpoint
   url="/ver1/bots/:bot_id/update"
@@ -259,7 +260,7 @@ Edits an existing DCA Bot using its ID.
   
   Keep in mind, you can create a maximum of 4 targets, allocating 100% of your position volume is allocated across them
 
-<p className='additional__info__example'>For example:</p>
+<Separator label="EXAMPLE" labelBg={ADDITIONAL_INFORMATION_THEME} type="additionalInformation" />
 
 <CodeBlock
   language="json"
@@ -304,8 +305,6 @@ or
   </TabItem>
   <TabItem value="Non-stop" label="Non-stop">
   
-   It's using only for 1 pair bot.
-
 ```json
 [
   {
@@ -316,7 +315,12 @@ or
   }
 ]
 ```
-  </TabItem>
+
+<Informer type="info">
+   It's using only for 1 pair bot.
+</Informer>
+
+</TabItem>
 
   <TabItem value="TradingView" label="TradingView">
 
@@ -442,7 +446,7 @@ If successful, the response includes a copy of [DCA Bot](/dca-bot/0_dca_bot_enti
   "allowed_deals_on_same_pair": null,
   "easy_form_supported": false,
   "close_deals_timeout": 100,
-  "url_secret": "5e334993e6",
+  "url_secret": "...",
   "take_profit_steps": [
     {
       "amount_percentage": 50,
