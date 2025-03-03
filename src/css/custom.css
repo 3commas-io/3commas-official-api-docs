@@ -606,11 +606,6 @@ li.menu__list-item > .category-title-hr {
   color: var(--ifm-menu-color-active) !important;
 }
 
-.menu__link:hover {
-  color: var(--ifm-link-hover-color) !important;
-  background: none !important;
-}
-
 .menu__link--sublist-caret:after {
   width: 16px !important;
   height: 16px !important;
@@ -673,7 +668,6 @@ li.menu__list-item > .category-title-hr {
 
 .menu__link:hover {
   color: var(--ifm-link-hover-color);
-  background-color: #1a8870;
 }
 
 .menu__link,
