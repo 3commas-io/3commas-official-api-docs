@@ -37,7 +37,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'html',
-      value: '<hr class="category-title-hr"/><div class="category-title">Account</div>',
+      value: '<hr class="category-title-hr"/><div class="category-title">Accounts</div>',
       defaultStyle: true,
     },
     {
