@@ -1,11 +1,11 @@
 .root {
-  *[role='tab'] {
+  *[role="tab"] {
     border-radius: 6px;
     border: 0;
     font-size: 0.675rem;
     padding: 0.5rem;
 
-    &[aria-selected='true'] {
+    &[aria-selected="true"] {
       background-color: var(--ifm-hover-overlay);
       color: var(--ifm-tabs-color);
     }

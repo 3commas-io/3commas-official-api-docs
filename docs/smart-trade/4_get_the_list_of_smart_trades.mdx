@@ -4,12 +4,13 @@ title: Get the list of SmartTrades
 sidebar_class_name: get
 ---
 
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import Separator from '@site/src/components/Separator';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
-import ApiParam from '@site/src/components/ApiParam';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 <Endpoint
@@ -24,6 +25,8 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 />
 
 Returns the list of SmartTrade. Use the query parameters to filter the results.
+
+<Separator />
 
 <StickyLayout.Root>
    <StickyLayout.Main>
@@ -42,15 +45,14 @@ Returns the list of SmartTrade. Use the query parameters to filter the results.
         <ApiParam name='page' type='integer' id="page">
         Page number for pagination.
 
-        Default: `1`
+          <ParameterRange defaultVal={1} />
         </ApiParam>
 
         <CollapseAll>
        <CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
         <CollapsibleApiParam name='per_page' type='integer' id="per_page">
-        Quantity of records on one page. Minimum: `1`, Maximum: `100`.
-
-        Default: `10`
+          Quantity of records on one page. 
+          <ParameterRange min={1} max={100} defaultVal={10} />
         </CollapsibleApiParam>
         <CollapsibleApiParam name='status' type='string' id="status">
         Filters SmartTrades by their status.
@@ -66,12 +68,12 @@ Returns the list of SmartTrade. Use the query parameters to filter the results.
         <CollapsibleApiParam name='order_by' type='string' id="order_by">
             Specifies the field by which to sort the response. Choose one of value: `created_at`, `updated_at`, `closed_at`, `status`, `profit`, `profit_percentage`. 
 
-            Default: `status`
+          <ParameterRange defaultVal={"status"} />
         </CollapsibleApiParam>
         <CollapsibleApiParam name='order_direction' type='string' id="order_direction">
-        Sets the direction of order (`ASC` or `DESC`).
+        Sets the direction of order `ASC` or `DESC`.
 
-        Default: `DESC`
+        <ParameterRange defaultVal={"DESC"} />
         </CollapsibleApiParam>
         <CollapsibleApiParam name='from' type='string' id="from">
         Parameter for filtering by creation date.
@@ -89,9 +91,9 @@ Returns the list of SmartTrade. Use the query parameters to filter the results.
 </StickyLayout.Main>
 <StickyLayout.Sticky>
     ## Example Request
-    ```
-    GET /v2/smart_trades?type=smart_trade&order_by=status&from=2022-01-01T00:00:00.000Z&to=2023-01-01T00:00:00.000Z
-    ```
+
+    <NoContentEndpoint method="GET" endpoint="/v2/smart_trades?type=smart_trade&order_by=status&from=2022-01-01T00:00:00.000Z&to=2023-01-01T00:00:00.000Z" />
+
 </StickyLayout.Sticky>
 </StickyLayout.Root>
 

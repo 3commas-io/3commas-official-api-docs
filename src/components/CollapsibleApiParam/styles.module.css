@@ -1,11 +1,13 @@
 .collapseIcon {
   transform: rotate(0deg);
   transition: var(--transition);
-  color: var(--ifm-toc-link-color);
+  color: var(--text-content-color);
 }
 
 .name {
+  font-size: var(--text-size);
   font-weight: 600;
+  line-height: 1.5;
 
   [data-theme="dark"] & {
     color: #fff;
@@ -13,35 +15,36 @@
 }
 
 .type {
-  color: var(--ifm-toc-link-color);
-  font-size: 85%;
-  line-height: 1rem;
+  color: var(--text-content-color);
+  font-size: var(--text-size);
+  line-height: 1.5;
 }
 
 .anchor {
   position: absolute;
   right: 100%;
   opacity: 0;
-  padding-right: .5rem;
+  padding-right: 0.5rem;
   display: inline-grid;
   place-items: center;
   color: inherit;
 }
 
 .anchor svg {
-  fill: currentColor
+  fill: currentColor;
 }
 
 .required {
   color: var(--ifm-color-danger);
-  font-size: 85%;
-  line-height: 1rem;
+  font-size: var(--text-size);
+  line-height: 1.5;
 }
 
 @keyframes slideDown {
   from {
     height: 0;
   }
+
   to {
     height: var(--radix-collapsible-content-height);
   }
@@ -51,6 +54,7 @@
   from {
     height: var(--radix-collapsible-content-height);
   }
+
   to {
     height: 0;
   }
@@ -59,17 +63,18 @@
 .content {
   overflow: hidden;
 
-  &[data-state='open'] {
+  &[data-state="open"] {
     animation: slideDown 150ms ease-out;
   }
-  &[data-state='closed'] {
+
+  &[data-state="closed"] {
     animation: slideUp 150ms ease-out;
   }
 }
 
 .details {
   --transition: all 150ms ease-out;
-  --icon-size: 12px;
+  --icon-size: 10px;
   --gap: 0.5rem;
   margin-bottom: var(--api-param-margin-bottom);
   background: none;
@@ -96,7 +101,7 @@
     height: var(--icon-size);
   }
 
-  &[data-state='open'] .collapseIcon {
+  &[data-state="open"] .collapseIcon {
     transform: rotate(90deg);
   }
 }

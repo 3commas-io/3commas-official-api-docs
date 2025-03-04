@@ -4,10 +4,11 @@ title: Get DCA Bot
 sidebar_class_name: get
 ---
 
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
@@ -24,6 +25,8 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
  Shows information about a specific DCA Bot using its ID.
 
+<Separator />
+
 <StickyLayout.Root>
 <StickyLayout.Main>
 
@@ -36,16 +39,15 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 ## Query Parameter
 
 <ApiParam name='include_events' type='boolean' id="include_events" required>
-  Indicates whether to include information about events related to the entity (`true`) or not (`false`).
+  Indicates whether to include information about events related to the entity `true` or not `false`.
 </ApiParam>
 </StickyLayout.Main>
 <StickyLayout.Sticky>
 
 ## Example Request
 
-```json
-GET /ver1/bots/12345678/show?include_events=true
-```
+<NoContentEndpoint method="GET" endpoint="/ver1/bots/12345678/show?include_events=true" />
+
 </StickyLayout.Sticky>
 </StickyLayout.Root>
 

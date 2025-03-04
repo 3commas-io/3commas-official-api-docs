@@ -3,7 +3,7 @@
   flex-direction: column;
   margin-bottom: var(--api-param-margin-bottom);
   scroll-margin-top: var(--ifm-navbar-height);
-  font-size: 0.8125rem;
+  font-size: var(--text-size);
   line-height: 1.5;
 
   p {
@@ -17,30 +17,37 @@
   }
 }
 
+.root > p {
+  color: var(--text-content-color);
+}
+
+.root > p > code {
+  color: var(--ifm-heading-color);
+}
+
 .name {
   font-weight: 600;
-
-  [data-theme="dark"] & {
-    color: #fff;
-  }
+  color: var(--ifm-heading-color);
+  line-height: 1.5;
 }
 
 .type {
-  color: var(--ifm-toc-link-color);
-  font-size: 85%;
-  line-height: 1rem;
+  color: var(--text-content-color);
+  font-size: var(--text-size);
+  line-height: 1.5;
 }
 
 .anchor {
+  top: 3px;
   position: absolute;
   right: 100%;
   opacity: 0;
-  padding-right: .5rem;
+  padding-right: 0.5rem;
   color: inherit;
 }
 
 .anchor svg {
-  fill: currentColor
+  fill: currentColor;
 }
 
 .header {
@@ -48,8 +55,9 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 0.5rem;
-  min-height: 32px;
+  line-height: 1.5;
   position: relative;
+  margin-bottom: 0.4rem;
 }
 
 .marginBottom {
@@ -58,6 +66,32 @@
 
 .required {
   color: var(--ifm-color-danger);
-  font-size: 85%;
-  line-height: 1rem;
+  font-size: var(--text-size);
+  line-height: 1.5;
+}
+
+.parameter-range {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-size: var(--text-size);
+  line-height: 1.5;
+  margin-top: 0.5rem;
+}
+
+.value code {
+  margin-left: 0.25rem;
+  color: var(--ifm-heading-color);
+}
+
+.min {
+  color: #13a8a1;
+}
+
+.max {
+  color: #e7596a;
+}
+
+.default {
+  color: #2196f3;
 }

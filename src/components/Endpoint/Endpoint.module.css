@@ -13,9 +13,11 @@
   padding: 4px 8px 4px 4px;
   gap: 12px;
   border-radius: 8px;
-  background: var(--ifm-code-background);
+  background: var(--code-background-color);
   font-style: normal;
-  font-family: JetBrains Mono, monospace;
+  font-family:
+    JetBrains Mono,
+    monospace;
   font-size: 14px;
   word-break: break-word;
   line-height: 1.5;
@@ -26,6 +28,10 @@
   padding-right: 14px;
   padding-left: 6px;
   gap: 4px;
+}
+
+.urlOnly {
+  padding-left: 6px;
 }
 
 .item {
@@ -42,10 +48,10 @@
 }
 
 .url {
-  font-size: 13px;
+  font-size: var(--text-size);
   line-height: 1.5;
-  color: var(--url-path-color);
   cursor: pointer;
+
   &:hover {
     text-decoration: underline;
     text-decoration-style: dashed;

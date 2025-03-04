@@ -8,7 +8,8 @@ import ApiParam from '@site/src/components/ApiParam';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import Separator from '@site/src/components/Separator';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
@@ -25,6 +26,8 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 Returns all type of trades for a specific deal.
 
+<Separator />
+
 <StickyLayout.Root>
 <StickyLayout.Main>
 
@@ -38,9 +41,8 @@ Returns all type of trades for a specific deal.
 
 ## Example Request
 
-```json
-GET /ver1/deals/1234567890/market_orders
-```
+<NoContentEndpoint method="GET" endpoint="/ver1/deals/1234567890/market_orders" />
+
 </StickyLayout.Sticky>
 </StickyLayout.Root>
 
@@ -65,7 +67,7 @@ GET /ver1/deals/1234567890/market_orders
      </CollapsibleNestedParams>
 </ApiParam>
 <ApiParam name='cancellable' type='boolean' id="cancellable">
-  Indicates whether this trade can be canceled (`true`) or not (`false`).
+  Indicates whether this trade can be canceled `true` or not `false`.
 </ApiParam>
 
 <CollapseAll>

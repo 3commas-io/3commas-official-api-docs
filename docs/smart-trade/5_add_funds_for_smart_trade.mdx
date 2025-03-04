@@ -9,6 +9,7 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
 import { Informer } from '@site/src/components/Informer/Informer';
 
@@ -28,6 +29,8 @@ Adds funds in SmartTrade, increasing the volume of the trade and averaging the p
 <Informer variant="warning">
     The endpoint is available for SmartTrades with statuses **waiting_position** and **waiting_targets**, but not for SmartTrades with trailing enabled, or for the types **simple_buy** and **simple_sell**.
 </Informer>
+
+<Separator />
 
 <StickyLayout.Root>
 <StickyLayout.Main>

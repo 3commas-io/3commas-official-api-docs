@@ -7,7 +7,8 @@ sidebar_class_name: get
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import Separator from '@site/src/components/Separator';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 
@@ -24,6 +25,8 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
 
 Returns profit data for the specified DCA Bot(s) over a defined number of days.
 
+<Separator />
+
 <StickyLayout.Root>
    <StickyLayout.Main>
     ## Query Parameters
@@ -39,9 +42,9 @@ Returns profit data for the specified DCA Bot(s) over a defined number of days.
   </StickyLayout.Main>
   <StickyLayout.Sticky>
     ## Example Request
-    ```json
-    GET /ver1/bots/stats_by_date?date=2024-11-06T04:00:00.000Z&bot_id=15577628
-    ```
+
+    <NoContentEndpoint method='GET' endpoint='/ver1/bots/stats_by_date?date=2024-11-06T04:00:00.000Z&bot_id=15577628' />
+
   </StickyLayout.Sticky>
 </StickyLayout.Root>
 

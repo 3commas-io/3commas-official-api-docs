@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
-  color: #707070;
+  font-size: var(--text-size);
+  color: var(--text-content-color);
   letter-spacing: 0.25px;
 }
 

@@ -6,15 +6,13 @@
 .collapseIcon {
   transform: rotate(0deg);
   transition: var(--docusaurus-details-transition);
-  color: var(--ifm-toc-link-color);
+  color: var(--text-content-color);
 }
 
 .name {
-  font-weight: 600;
-
-  [data-theme="dark"] & {
-    color: #fff;
-  }
+  font-weight: 500;
+  font-size: var(--text-size);
+  color: var(--text-content-color);
 }
 
 .collapsedName {
@@ -26,7 +24,7 @@
 }
 
 .details {
-  --icon-size: 12px;
+  --icon-size: 11px;
   --gap: 0.5rem;
   --ifm-list-margin: 0rem;
   --ifm-code-background: revert; /* to revert .alert reassigning */
@@ -49,10 +47,10 @@
     gap: var(--gap);
     min-height: 32px;
     border-bottom: 1px solid transparent;
-  
+
     + div {
-      transition-duration: 50ms!important;
-  
+      transition-duration: 50ms !important;
+
       > * {
         border: none;
         margin-top: 0;
@@ -61,10 +59,7 @@
         display: flex;
         flex-direction: column;
         gap: var(--gap);
-  
-        /* & > div + div {
-          border-top: 1px solid var(--ifm-toc-border-color);
-        } */
+
         > * {
           margin: 0;
         }
@@ -81,7 +76,7 @@
     margin-top: 0;
   }
 
-  &[data-collapsed='false'] {
+  &[data-collapsed="false"] {
     > .summary {
       border-color: var(--ifm-blockquote-border-color);
 

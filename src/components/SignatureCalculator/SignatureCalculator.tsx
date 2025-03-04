@@ -39,7 +39,7 @@ export const SignatureCalculator = () => {
         hash: "SHA-256",
       },
       false,
-      ["sign"]
+      ["sign"],
     );
 
     const signature = await crypto.subtle.sign("HMAC", key, data);
@@ -70,7 +70,7 @@ export const SignatureCalculator = () => {
       .sort()
       .map(
         (key) =>
-          `${encodeURIComponent(key)}=${encodeURIComponent(paramsObject[key])}`
+          `${encodeURIComponent(key)}=${encodeURIComponent(paramsObject[key])}`,
       );
 
     return `?${sortedParams.join("&")}`;
@@ -78,14 +78,16 @@ export const SignatureCalculator = () => {
 
   return (
     <div>
-      <CodeBlock language="json" title="Headers" showLineNumbers>
+      <CodeBlock language="json" title="Headers">
         {headersObj
           ? headersObj
           : `No signature generated yet. Please fill out the form and generate one.`}
       </CodeBlock>
+      
       <Informer variant="warning">
         You can either pass Search Params or Request Body
       </Informer>
+
       <SignatureCalculatorForm
         loading={isLoading}
         setIsLoading={setIsLoading}

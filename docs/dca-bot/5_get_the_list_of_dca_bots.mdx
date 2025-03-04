@@ -6,9 +6,10 @@ sidebar_class_name: get
 
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 
@@ -24,6 +25,8 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
 />
 
 Returns a list of DCA Bots by user. Use the query parameters to filter the results.
+
+<Separator />
 
 <StickyLayout.Root>
    <StickyLayout.Main>
@@ -41,9 +44,9 @@ Returns a list of DCA Bots by user. Use the query parameters to filter the resul
 </ApiParam>
 
 <ApiParam name="order_direction" type="string" id="order_direction">
-  Sets the direction of order (`ASC` or `DESC`).
+  Sets the direction of order `ASC` or `DESC`.
 
-  Default: `DESC`
+   <ParameterRange defaultVal={"DESC"} />
 </ApiParam>
 
 <CollapseAll>
@@ -51,7 +54,7 @@ Returns a list of DCA Bots by user. Use the query parameters to filter the resul
 <CollapsibleApiParam name="limit" type="integer" id="limit">
   Limits the number of records returned. 
 
-  Maximum: ` 100 `, Default: `50`
+  <ParameterRange max={100} defaultVal={50} />
 </CollapsibleApiParam>
 <CollapsibleApiParam name="offset" type="integer" id="offset">
   Skips the first N records in the results.
@@ -62,7 +65,7 @@ Returns a list of DCA Bots by user. Use the query parameters to filter the resul
 <CollapsibleApiParam name="scope" type="string" id="scope">
   Filters bots by their status.
   
-  Default: `null`
+   <ParameterRange defaultVal={"null"} />
     <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
       * **enable** - Returns bots where the state is active
       * **disabled** - Returns bots where the state is stopped
@@ -72,7 +75,7 @@ Returns a list of DCA Bots by user. Use the query parameters to filter the resul
 <CollapsibleApiParam name="sort_by" type="string" id="sort_by">
   Specifies the field used to order the results: `created_at`, `updated_at`, `profit`.
 
-  Default: `created_at`
+   <ParameterRange defaultVal={"created_at"} />
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="quote" type="string" id="quote">
@@ -85,9 +88,8 @@ Returns a list of DCA Bots by user. Use the query parameters to filter the resul
 
 ## Example Request
 
-```json
-GET /ver1/bots/12345678/show?include_events=true
-```
+<NoContentEndpoint method="GET" endpoint="/ver1/bots/12345678/show?include_events=true" />
+
    </StickyLayout.Sticky>
    </StickyLayout.Root>
 

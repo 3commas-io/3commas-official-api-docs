@@ -1,18 +1,18 @@
-import React, { ComponentProps } from 'react'
-import * as Primitive from '@radix-ui/react-tooltip'
-import styles from './Tooltip.module.css'
+import React, { ComponentProps } from "react";
+import * as Primitive from "@radix-ui/react-tooltip";
+import styles from "./Tooltip.module.css";
 
 const preventDefault: React.EventHandler<any> = (event) => {
-  event.preventDefault()
-}
+  event.preventDefault();
+};
 
 type Props = {
-  children: React.ReactNode
-  content: React.ReactNode
+  children: React.ReactNode;
+  content: React.ReactNode;
 } & Pick<
   ComponentProps<typeof Primitive.Root>,
-  'open' | 'defaultOpen' | 'onOpenChange'
->
+  "open" | "defaultOpen" | "onOpenChange"
+>;
 
 export function Tooltip({
   children,
@@ -28,7 +28,8 @@ export function Tooltip({
         open={open}
         defaultOpen={defaultOpen}
         onOpenChange={onOpenChange}
-        delayDuration={100}>
+        delayDuration={100}
+      >
         <Primitive.Trigger asChild onClick={preventDefault}>
           {children}
         </Primitive.Trigger>
@@ -37,11 +38,12 @@ export function Tooltip({
           side="top"
           align="center"
           className={styles.content}
-          onPointerDownOutside={preventDefault}>
+          onPointerDownOutside={preventDefault}
+        >
           <Primitive.Arrow className={styles.arrow} offset={10} />
           {content}
         </Primitive.Content>
       </Primitive.Root>
     </Primitive.Provider>
-  )
+  );
 }

@@ -7,7 +7,8 @@ sidebar_class_name: post
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import Separator from '@site/src/components/Separator';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 
@@ -22,7 +23,10 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
     </>
   }
 />
-    Closes all deals of the bot at market price and disables the DCA Bot.
+
+Closes all deals of the bot at market price and disables the DCA Bot.
+
+<Separator />
 
 <StickyLayout.Root>
 <StickyLayout.Main>
@@ -37,9 +41,8 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
 <StickyLayout.Sticky>
 ##  Example request 
 
-```json
-POST /ver1/bots/12345678/panic_sell_all_deals
-```
+<NoContentEndpoint method="POST" endpoint="/ver1/bots/12345678/panic_sell_all_deals" />
+
 </StickyLayout.Sticky>
 </StickyLayout.Root>
 

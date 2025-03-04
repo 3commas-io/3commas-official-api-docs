@@ -1,16 +1,16 @@
-import Link from '@docusaurus/Link'
-import styles from './styles.module.css'
-import clsx from 'clsx'
-import { useCopyAnchor } from '@site/src/hooks/useCopyAnchor'
+import Link from "@docusaurus/Link";
+import styles from "./styles.module.css";
+import clsx from "clsx";
+import { useCopyAnchor } from "@site/src/hooks/useCopyAnchor";
 
 type Props = {
-  children: React.ReactNode
-  name: React.ReactNode
-  type?: React.ReactNode
-  required?: boolean
-  id?: string
-  marginBottom?: boolean
-}
+  children: React.ReactNode;
+  name: React.ReactNode;
+  type?: React.ReactNode;
+  required?: boolean;
+  id?: string;
+  marginBottom?: boolean;
+};
 
 export default function ApiParam({
   children,
@@ -20,16 +20,17 @@ export default function ApiParam({
   required,
   marginBottom,
 }: Props) {
-  const href = `#${id}`
+  const href = `#${id}`;
 
-  const [copied, handleCopy] = useCopyAnchor(href)
+  const [copied, handleCopy] = useCopyAnchor(href);
 
   return (
     <div
       id={id}
       className={clsx(styles.root, {
         [styles.marginBottom]: marginBottom,
-      })}>
+      })}
+    >
       <div className={styles.header}>
         {id ? (
           <Link to={href} className={styles.anchor} onClick={handleCopy}>
@@ -43,7 +44,7 @@ export default function ApiParam({
         <span className={styles.name}>{name}</span>
 
         {type || copied ? (
-          <span className={styles.type}>{copied ? 'copied!' : type}</span>
+          <span className={styles.type}>{copied ? "copied!" : type}</span>
         ) : null}
 
         {required ? <span className={styles.required}>required</span> : null}
@@ -51,5 +52,7 @@ export default function ApiParam({
 
       {children}
     </div>
-  )
+  );
 }
+
+export { ParameterRange } from "./ParameterRange";

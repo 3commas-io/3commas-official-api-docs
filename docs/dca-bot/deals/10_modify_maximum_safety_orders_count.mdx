@@ -4,10 +4,11 @@ title: Modify maximum safety orders count
 sidebar_class_name: post
 ---
 
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
@@ -23,6 +24,8 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 />
 
 Updates a value for parameter `max_safety_orders` for a specific deal of DCA Bot using its ID.
+
+<Separator />
 
 <StickyLayout.Root>
 <StickyLayout.Main>
@@ -41,9 +44,8 @@ Updates a value for parameter `max_safety_orders` for a specific deal of DCA Bot
 <StickyLayout.Sticky>
 ## Example Request
 
-```json
-POST /ver1/deals/:deal_id/update_max_safety_orders?max_safety_orders=6
-```
+<NoContentEndpoint method="POST" endpoint="/ver1/deals/:deal_id/update_max_safety_orders?max_safety_orders=6" />
+
 </StickyLayout.Sticky>
 </StickyLayout.Root>
 

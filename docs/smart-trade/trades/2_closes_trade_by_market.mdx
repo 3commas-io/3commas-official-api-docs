@@ -4,11 +4,12 @@ title: Closes trade by market
 sidebar_class_name: post
 ---
 
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
 import { Informer } from '@site/src/components/Informer/Informer';
 
@@ -29,6 +30,8 @@ Closes a specific take profit trade within a SmartTrade at market price using it
 The endpoint is available for Take Profit Trades for the statuses **to_process**, **order_placed**, and **trailing_activated**.
 </Informer>
 
+<Separator />
+
 <StickyLayout.Root>
     <StickyLayout.Main>
         ## Path Parameters
@@ -41,9 +44,9 @@ The endpoint is available for Take Profit Trades for the statuses **to_process**
     </StickyLayout.Main>
     <StickyLayout.Sticky>
     ## Example Request
-        ```json
-        POST /v2/smart_trades/12345678/trades/1047934729/close_by_market
-        ```
+
+    <NoContentEndpoint method="POST" endpoint="/v2/smart_trades/12345678/trades/1047934729/close_by_market" />
+
     </StickyLayout.Sticky>
 </StickyLayout.Root>
 

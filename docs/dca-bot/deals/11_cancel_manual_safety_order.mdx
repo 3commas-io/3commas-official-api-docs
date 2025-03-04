@@ -8,7 +8,8 @@ import ApiParam from '@site/src/components/ApiParam';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import Separator from '@site/src/components/Separator';
 import { Informer } from '@site/src/components/Informer/Informer';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
@@ -30,6 +31,8 @@ Cancels a specific manual safety trade within the DCA Bot using its ID.
 After this action, 3Commas will automatically set the final status to **Cancelled** for this trade.
 </Informer>
 
+<Separator />
+
 <StickyLayout.Root>
 <StickyLayout.Main>
 
@@ -49,9 +52,8 @@ After this action, 3Commas will automatically set the final status to **Cancelle
 
 ## Example Request
 
-```json
-POST  /ver1/deals/2345678901/cancel_order
-```
+<NoContentEndpoint method="POST" endpoint="/ver1/deals/2345678901/cancel_order" />
+
 </StickyLayout.Sticky>
 </StickyLayout.Root>
 
@@ -77,7 +79,7 @@ POST  /ver1/deals/2345678901/cancel_order
      </CollapsibleNestedParams>
 </ApiParam>
 <ApiParam name='cancellable' type='boolean' id="cancellable">
-  Indicates whether this trade can be canceled (`true`) or not (`false`).
+  Indicates whether this trade can be canceled `true` or not `false`.
 </ApiParam>
 
 <ApiParam name='status_string' type='string' id="status_string">

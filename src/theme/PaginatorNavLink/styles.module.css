@@ -4,21 +4,35 @@
   gap: 1.5rem;
 }
 
+.pagination-item--disabled {
+  pointer-events: none;
+  opacity: 0;
+  width: 0;
+}
+
+.pagination-item:hover .pagination__arrow {
+  filter: brightness(0.975);
+}
+
+[data-theme="dark"] .pagination-item:hover .pagination__arrow {
+  filter: brightness(1.15);
+}
+
 .pagination-item--next {
   flex-direction: row-reverse;
 }
 
 .pagination-item--next .pagination__arrow svg {
   transform: rotate(180deg);
-}  
+}
 
 .pagination-item .pagination__arrow svg path {
-  stroke: #2C2E30;
-}  
+  stroke: #2c2e30;
+}
 
 [data-theme="dark"] .pagination-item .pagination__arrow svg path {
   stroke: #fff;
-}  
+}
 
 a:hover {
   text-decoration: none;
@@ -32,6 +46,9 @@ a:hover {
   align-items: center;
   background-color: var(--pagination-button-color);
   border-radius: 0.5rem;
+  transition:
+    transform,
+    0.2s ease-in-out;
 }
 
 .pagination__info {
@@ -43,7 +60,7 @@ a:hover {
   letter-spacing: 0.2px;
 }
 
-.pagination__info h3{
+.pagination__info h3 {
   font-size: 1rem;
   font-weight: 600;
   color: var(--ifm-heading-color);
@@ -51,10 +68,10 @@ a:hover {
 }
 
 .pagination__info span {
-  color: #707070;
+  color: var(--text-content-color);
   font-weight: 400;
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: var(--text-size);
 }
 
 .pagination__info--next {

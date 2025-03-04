@@ -1,18 +1,18 @@
-import { createContext, useContext } from 'react'
+import { createContext, useContext } from "react";
 
 type CollapseContext = {
-  collapsed: boolean
-  toggle: () => void
-}
+  collapsed: boolean;
+  toggle: () => void;
+};
 
-export const CollapseContext = createContext<CollapseContext | null>(null)
+export const CollapseContext = createContext<CollapseContext | null>(null);
 
 export const useCollapseAllContext = () => {
-  const ctx = useContext(CollapseContext)
+  const ctx = useContext(CollapseContext);
 
   if (!ctx) {
-    return { collapsed: undefined }
+    return { collapsed: undefined };
   }
 
-  return ctx
-}
+  return ctx;
+};

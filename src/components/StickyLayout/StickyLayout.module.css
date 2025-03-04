@@ -30,7 +30,7 @@
   margin-bottom: calc(
     var(--ifm-heading-vertical-rhythm-bottom) * var(--ifm-leading)
   );
-  margin-top: calc(var(--ifm-h2-vertical-rhythm-top) * var(--ifm-leading));
+  /* margin-top: calc(var(--ifm-h2-vertical-rhythm-top) * var(--ifm-leading)); */
 
   @media (min-width: 997px) {
     grid-template-columns: 1fr 1fr;
