@@ -50,7 +50,15 @@
 
   @media (min-width: 997px) {
     --ifm-global-spacing: 1.5rem;
-    --url-width: clamp(233px, 26vw, 400px);
+    --url-width: min(525px, max(260px, fit-content(100%)));
+  }
+
+  @media (min-width: 1100px) {
+    --url-width: min(580px, max(260px, fit-content(100%)));
+  }
+
+  @media (min-width: 1261px) {
+    --url-width: clamp(233px, 28vw, 400px);
   }
 }
 
@@ -67,9 +75,10 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 
   --ifm-heading-color: #fff;
-  --text-content-color: #9fa2a8;
+  --text-content-color: #b5b5b5;
 
   --ifm-background-color: #242526 !important;
+  --ifm-navbar-shadow: 0 1px 2px 0 rgba(108, 106, 106, 0.1);
 
   --pagination-button-color: #2c2e30;
   --code-separator-color: #404144;
@@ -84,6 +93,16 @@
   --menu-link-primary-color: #ffffff;
   --sidebar-links-color: #9fa2a8;
   --home-page-icon-background-color: #2c2e30;
+}
+
+#__docusaurus {
+  padding-top: 60px;
+}
+
+@media (max-width: 996px) {
+  #__docusaurus {
+    padding-top: 68px;
+  }
 }
 
 html,
@@ -416,6 +435,12 @@ body ul {
   list-style-image: url("/img/bullet.svg");
 }
 
+
+body ul {
+  color: var(--text-content-color);
+}
+
+
 body ol {
   list-style: decimal;
 }
@@ -611,8 +636,12 @@ li.menu__list-item > .category-title {
 
 li.menu__list-item > .category-title-hr {
   margin-top: 6px !important;
-  margin-bottom: 18px !important;
+  margin-bottom: 6px !important;
   background-color: var(--sidebar-divider-color);
+}
+
+li.menu__list-item > .category-title-hr.titled {
+  margin-bottom: 18px !important;
 }
 
 .menu__list .menu__list {
@@ -778,11 +807,16 @@ li.menu__list-item > .category-title-hr {
   padding: 8px 0 32px !important;
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1261px) {
   .breadcrumbsContainer_Ar0W.scrolledClass {
     right: 156px !important;
     left: auto !important;
   }
+}
+
+.navbar {
+  position: fixed;
+  inset: 0 0 auto 0;
 }
 
 @media (min-width: 997px) {
@@ -837,6 +871,11 @@ li.menu__list-item > .category-title-hr {
     display: flex;
     gap: 12px;
     text-overflow: ellipsis;
+    max-width: 630px;
+
+    @media (max-width: 1100px) {
+      max-width: 525px;
+    }
   }
 
   .menu__link,

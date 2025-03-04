@@ -15,7 +15,7 @@
     "typecheck": "tsc",
     "lint:md": "markdownlint-cli2 'docs/**/*.md'",
     "lint:md:fix": "markdownlint-cli2 --fix 'docs/**/*.md'",
-    "format": "prettier --write 'docs/**/*.{md,mdx}' 'src/**/*.{ts,tsx,css}' 'docusaurus.config.ts'"
+    "format": "prettier --write 'src/**/*.{ts,tsx,css}' 'docusaurus.config.ts' 'sidebars.ts'"
   },
   "dependencies": {
     "@docusaurus/core": "3.6.3",
