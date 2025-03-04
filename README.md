@@ -1,4 +1,4 @@
-# Public API Documentation
+# 3Commas Public API Documentation
 
 Welcome to the repository for the 3Commas Public API documentation. All content is authored in MDX files for Docusaurus, and this repository serves as the source for our documentation website.
 
