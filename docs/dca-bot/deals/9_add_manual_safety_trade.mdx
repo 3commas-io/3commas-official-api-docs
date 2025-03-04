@@ -7,7 +7,8 @@ sidebar_class_name: post
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
-import ApiParam from '@site/src/components/ApiParam';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
 import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
@@ -26,6 +27,8 @@ import TabItem from '@theme/TabItem';
 />
 
 Creates a new additional safety manual trade entry.
+
+<Separator />
 
 <StickyLayout.Root>
 <StickyLayout.Main>
@@ -47,7 +50,8 @@ Creates a new additional safety manual trade entry.
 <ApiParam name='response_type' type='string' id="response_type">
   Defines the response format: `deal`; `market_order`; `empty`.
 
-  Value `deal` is using only for 1 pair bot. Default: `empty`.
+  Value `deal` is using only for 1 pair bot.
+  <ParameterRange defaultVal="empty" />
 </ApiParam>
 <ApiParam name='rate' type='number' id="rate" required>
   Sets the rate for the safety order. Required if a limit order is used.
@@ -96,7 +100,7 @@ Response format depends on choosing `response_type`:
      </CollapsibleNestedParams>
 </ApiParam>
 <ApiParam name='cancellable' type='boolean' id="cancellable">
-  Indicates whether this trade can be canceled (`true`) or not (`false`).
+  Indicates whether this trade can be canceled `true` or not `false`.
 </ApiParam>
 
 <CollapseAll>

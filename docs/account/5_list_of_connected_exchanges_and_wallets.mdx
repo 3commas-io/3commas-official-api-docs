@@ -4,10 +4,11 @@ title: List of connected exchanges and wallets
 sidebar_class_name: get
 ---
 
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
@@ -25,6 +26,8 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 Returns the list of exchange accounts and wallets connecting to a user account.
 
+<Separator />
+
 <StickyLayout.Root>
 <StickyLayout.Main>
 
@@ -37,13 +40,13 @@ Returns the list of exchange accounts and wallets connecting to a user account.
 <ApiParam name='page' type='integer' id="page">
   Page number for pagination. 
   
-  Default: `1`
+  <ParameterRange default={1} />
 </ApiParam>
 
 <ApiParam name='per_page' type='integer' id="page">
    Quantity of records on one page.
 
-   Minimum: `1`, Maximum: `100`, Default: `100`
+  <ParameterRange min={1} max={100} defaultVal={100} />
 </ApiParam>
 </StickyLayout.Main>
 
@@ -51,9 +54,8 @@ Returns the list of exchange accounts and wallets connecting to a user account.
 
 ## Example Request
 
-```json
-GET /ver1/accounts
-```
+<NoContentEndpoint method="GET" endpoint="/ver1/accounts" />
+
 </StickyLayout.Sticky>
 </StickyLayout.Root>
 

@@ -4,10 +4,11 @@ title: Get the list of Grid Bots
 sidebar_class_name: get
 ---
 
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout'
 import * as ResponseTabs from '@site/src/components/ResponseTabs'
@@ -24,6 +25,8 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs'
 />
 
 Returns the list of Grid Bots. Use the body parameters to filter results.
+
+<Separator />
 
 <StickyLayout.Root>
    <StickyLayout.Main>
@@ -55,7 +58,7 @@ Returns the list of Grid Bots. Use the body parameters to filter results.
 <ApiParam name='sort_direction' type='string' id="sort_direction">
    Sets the direction of order `ASC` or `DESC`.
 
-   Default: `DESC`
+   <ParameterRange defaultVal="DESC" />
 </ApiParam>
 
 <CollapseAll>
@@ -64,13 +67,13 @@ Returns the list of Grid Bots. Use the body parameters to filter results.
 <CollapsibleApiParam name="limit" type="string" id="limit">
    Quantity of the records you want to get in response.
 
-    Minimum: `1`, Maximum: `1000`, Default: `10` 
+  <ParameterRange min={1} max={1000} defaultVal={10} />
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="offset" type="integer" id="offset">
    Used to specify the starting point for a set of records to return in a paginated list.
    
-   Default: `0` 
+   <ParameterRange defaultVal={0} />
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="from" type="string" id="from">
@@ -90,9 +93,7 @@ Returns the list of Grid Bots. Use the body parameters to filter results.
 
 ## Example Request 
 
-```json
-GET /ver1/grid_bots?account_ids[]=32833909&account_ids[]32864603
-```
+<NoContentEndpoint method="GET" endpoint="/ver1/grid_bots?account_ids[]=32833909&account_ids[]32864603" />
 
 </StickyLayout.Sticky>
 </StickyLayout.Root>

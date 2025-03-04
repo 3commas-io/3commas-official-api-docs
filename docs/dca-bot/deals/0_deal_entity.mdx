@@ -12,7 +12,7 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-## Attributes
+<h2 className='entity-heading'>Attributes</h2>
 
 <ApiParam name='id' type='integer' id="id">
    Unique 3Commas ID for this Deal entity.
@@ -31,7 +31,7 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
 </ApiParam>
 
 <ApiParam name='deal_has_error' type='boolean' id="deal_has_error">
-   Indicates whether this Deal has encountered any errors (`true`) or not (`false`).
+   Indicates whether this Deal has encountered any errors `true` or not `false`.
 </ApiParam>
 
 <CollapseAll>
@@ -58,7 +58,7 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='finished?' type='boolean' id="finished?">
-   Indicates whether this Deal is finished (`true`) or not (`false`).
+   Indicates whether this Deal is finished `true` or not `false`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='max_safety_orders' type='integer' id="max_safety_orders">
@@ -106,23 +106,23 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="cancellable?" type="boolean" id="cancellable?">
-  Indicates whether this Deal can be canceled (`true`) or not (`false`).
+  Indicates whether this Deal can be canceled `true` or not `false`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="panic_sellable?" type="boolean" id="panic_sellable?">
-  Indicates whether this Deal can be closed at market price (`true`) or not (`false`).
+  Indicates whether this Deal can be closed at market price `true` or not `false`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="trailing_enabled" type="boolean" id="trailing_enabled">
-  Indicates whether trailing is enabled for Take Profit of this bot (`true`) or not (`false`).
+  Indicates whether trailing is enabled for Take Profit of this bot `true` or not `false`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="tsl_enabled" type="boolean" id="tsl_enabled">
-  Indicates whether trailing is enabled for Stop Loss (`true`) or not (`false`) for this Deal.
+  Indicates whether trailing is enabled for Stop Loss `true` or not `false` for this Deal.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="stop_loss_timeout_enabled" type="boolean" id="stop_loss_timeout_enabled">
-  Indicates if the Stop Loss timeout is active (`true`) or not (`false`).
+  Indicates if the Stop Loss timeout is active `true` or not `false`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="stop_loss_timeout_in_seconds" type="integer" id="stop_loss_timeout_in_seconds">
@@ -178,7 +178,7 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
      The specific percentage of the price set to trigger this Take Profit trade.
      </ApiParam>
      <ApiParam name="editable" type="boolean" id="editable">
-     Indicates whether the user can modify the settings of the trade when editing a deal (`true`) or not (`false`).
+     Indicates whether the user can modify the settings of the trade when editing a deal `true` or not `false`.
      </ApiParam>
      <ApiParam name="panic_sellable" type="boolean" id="panic_sellable">
      Indicates whether this Take Profit step can be closed at market price.
@@ -265,7 +265,7 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="sl_to_breakeven_enabled" type="boolean" id="sl_to_breakeven_enabled">
-   Indicates whether the Move to Breakeven feature is enabled (`true`) or not (`false`).
+   Indicates whether the Move to Breakeven feature is enabled `true` or not `false`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="sl_to_breakeven_data" type="json" id="sl_to_breakeven_data">
@@ -354,11 +354,11 @@ Volume type for base orders (e.g., `quote_currency`, `base_currency`, `percent`)
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="add_fundable" type="boolean" id="add_fundable">
-  Indicates whether adding funds is available for this Deal (`true`) or (`not`).
+  Indicates whether adding funds is available for this Deal `true` or `not`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="smart_trade_convertable" type="boolean" id="smart_trade_convertable">
-  Indicates if this deal was converted to SmartTrade (`true`) or not (`false`).
+  Indicates if this deal was converted to SmartTrade `true` or not `false`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="market_type" type="string" id="market_type">
@@ -397,7 +397,7 @@ Volume type for base orders (e.g., `quote_currency`, `base_currency`, `percent`)
 
 <StickyLayout.Sticky>
 
-```json title="Deal entity"
+```json
 {
   "from_currency_id": 0,
   "to_currency_id": 0,

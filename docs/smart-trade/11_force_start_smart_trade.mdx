@@ -4,11 +4,12 @@ title: Force start SmartTrade
 sidebar_class_name: post
 ---
 
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
 import * as ResponseTabs from '@site/src/components/ResponseTabs'
 
 <Endpoint
@@ -24,6 +25,8 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs'
 
 Opens a position by market price.
 
+<Separator />
+
 <StickyLayout.Root>
     <StickyLayout.Main>
         ## Path Parameter
@@ -34,9 +37,9 @@ Opens a position by market price.
     <StickyLayout.Sticky>
         ## Example Request
 
-        ```json
-        POST /v2/smart_trades/12345678/force_start
-        ```
+
+        <NoContentEndpoint method="POST" endpoint="/v2/smart_trades/12345678/force_start" />
+
     </StickyLayout.Sticky>
 </StickyLayout.Root>
 

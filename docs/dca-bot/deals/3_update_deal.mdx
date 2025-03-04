@@ -7,7 +7,8 @@ sidebar_class_name: patch
 import Endpoint, { Permission } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
@@ -30,6 +31,8 @@ Edits an existing deal of DCA Bot using its ID.
 <Informer variant="warning">
 The endpoint is available for Deal for the statuses **bought** and **close_strategy_activated**.
 </Informer>
+
+<Separator />
 
 <StickyLayout.Root>
    <StickyLayout.Main>
@@ -57,7 +60,7 @@ The endpoint is available for Deal for the statuses **bought** and **close_strat
   Profit currency used for calculating the profit from the trades executed by this DCA Bot: `quite_currency` or `base_currency`.
 </ApiParam>
 
-<ApiParam name='take_profit_type' type='string' id="take_profit_type">
+<ApiParam name='take_profit_type' type='string' id="take_profit_type" required>
   Take Profit order type for this DCA Bot.
    <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
       * **base** - from base order;
@@ -65,16 +68,15 @@ The endpoint is available for Deal for the statuses **bought** and **close_strat
      </CollapsibleNestedParams>
 </ApiParam>
 
-
 <CollapseAll>
 <CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
 
 <CollapsibleApiParam name='trailing_enabled' type='boolean' id="trailing_enabled">
-  Indicates whether trailing is enabled for Take Profit (`true`) or not (`false`).
+  Indicates whether trailing is enabled for Take Profit `true` or not `false`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='sl_to_breakeven_enabled' type='boolean' id="sl_to_breakeven_enabled">
-     Enables (`true`) or disable (`false`) the Move to Breakeven feature for this Deal. To use this feature, you must have at least two Take Profit steps.
+     Enables `true` or disable `false` the Move to Breakeven feature for this Deal. To use this feature, you must have at least two Take Profit steps.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='sl_to_breakeven_data' type='json' id="sl_to_breakeven_data">
@@ -86,7 +88,7 @@ The endpoint is available for Deal for the statuses **bought** and **close_strat
 <CollapsibleApiParam name='max_safety_orders' type='integer' id="max_safety_orders">
      The maximum total number of Safety Orders allowed for this deal.
     
-    Minimum: `0`; Maximum: `200`.
+    <ParameterRange min={0} max={200} />
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='active_safety_orders_count' type='integer' id="active_safety_orders">
@@ -98,7 +100,7 @@ The endpoint is available for Deal for the statuses **bought** and **close_strat
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='stop_loss_timeout_enabled' type='boolean' id="stop_loss_timeout_enabled">
-     Indicates whether the Stop Loss timeout is enabled (`true`) or disabled (`false`).
+     Indicates whether the Stop Loss timeout is enabled `true` or disabled `false`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='stop_loss_timeout_in_seconds' type='integer' id="stop_loss_timeout_in_seconds">
@@ -106,7 +108,7 @@ The endpoint is available for Deal for the statuses **bought** and **close_strat
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='tsl_enabled' type='boolean' id="tsl_enabled">
-     Indicates whether trailing is enabled (`true`) for Stop Loss or not (`false`).
+     Indicates whether trailing is enabled `true` for Stop Loss or not `false`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='stop_loss_type' type='string' id="stop_loss_type">
@@ -116,7 +118,7 @@ The endpoint is available for Deal for the statuses **bought** and **close_strat
 <CollapsibleApiParam name='close_timeout' type='integer' id="close_timeout">
      The time in seconds after which this deal will close automatically.
      
-     Minimum: `60`
+    <ParameterRange min={60} />
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='note' type='string' id="note">

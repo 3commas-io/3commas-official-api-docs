@@ -19,7 +19,7 @@
 
 [data-theme="dark"] .root {
   --info-bg: rgb(29, 44, 58);
-  --warning-bg: rgb(35, 40, 39);
+  --warning-bg: rgba(255, 243, 214, 0.051);
   --danger-bg: rgb(45, 40, 49);
   --accent-bg: rgb(23, 40, 47);
   --info-icon-color: rgb(75, 151, 236);
@@ -72,10 +72,14 @@
   flex-direction: column;
   font-size: 14px;
   line-height: 20px;
+
+  p {
+    color: var(--ifm-heading-color);
+  }
 }
 
 .iconBlock {
-    display: flex;
+  display: flex;
 }
 
 .content p:last-child {

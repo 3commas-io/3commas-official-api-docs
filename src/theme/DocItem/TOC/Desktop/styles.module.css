@@ -18,15 +18,17 @@
   padding: 12px;
   margin-right: 10px;
   background-color: var(--ifm-color-emphasis-0);
-  box-shadow: rgba(15, 15, 15, 0.04) 0px 0px 0px 1px,
-    rgba(15, 15, 15, 0.03) 0px 3px 6px, rgba(15, 15, 15, 0.06) 0px 9px 24px;
+  box-shadow:
+    rgba(15, 15, 15, 0.04) 0px 0px 0px 1px,
+    rgba(15, 15, 15, 0.03) 0px 3px 6px,
+    rgba(15, 15, 15, 0.06) 0px 9px 24px;
   border: 1px solid var(--ifm-color-emphasis-0);
   border-radius: 14px;
   overflow-y: auto;
 
   .tocLink {
     color: var(--ifm-menu-color);
-    font-size: 13px;
+    font-size: var(--text-size);
     border-radius: 4px;
     padding: 4px;
     width: 100%;
@@ -55,9 +57,8 @@
   will-change: opacity;
   overflow: hidden;
   list-style: none;
-
   padding-bottom: 12px;
-  padding-right: 20px;
+  padding-right: 16px;
 
   .outlineLink {
     display: block;
@@ -71,7 +72,7 @@
   }
 
   .outlineLink::after {
-    content: '';
+    content: "";
     position: absolute;
     inset-inline-start: 0;
     top: 0;
@@ -98,17 +99,25 @@
 .root {
   position: sticky;
   max-height: calc(100vh - (var(--ifm-navbar-height) + 2rem));
-  position: sticky;
   top: calc(var(--ifm-navbar-height) + 1rem);
 
   ul {
     list-style: none;
+
+    ul {
+      padding-left: 0 !important;
+
+      a {
+        padding-left: 24px !important;
+      }
+    }
   }
 
   &:hover {
     .outline {
       opacity: 0;
     }
+
     .toc {
       opacity: 1;
       pointer-events: auto;

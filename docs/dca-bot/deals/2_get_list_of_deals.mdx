@@ -4,10 +4,11 @@ title: Get list of deals
 sidebar_class_name: get
 ---
 
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
@@ -25,6 +26,8 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 Returns the list of geals. Use the query parameters to page through results.
 
+<Separator />
+
 <StickyLayout.Root>
 <StickyLayout.Main>
 
@@ -41,7 +44,7 @@ Returns the list of geals. Use the query parameters to page through results.
 <ApiParam name='limit' type='integer' id="limit">
   Limits the number of records returned.
 
-  Maximum: `1000`, Default: `50`.
+  <ParameterRange defaultVal="50" max="1000" />
 </ApiParam>
 <ApiParam name='offset' type='integer' id="offset">
   Skips the first N records in the results.
@@ -61,7 +64,7 @@ Returns the list of geals. Use the query parameters to page through results.
 <CollapsibleApiParam name='scope' type='string' id="scope">
   Filters deals by their status.
   
-  Default: `null`.
+  <ParameterRange defaultVal="null" />
   <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
       * **active** - active deals
       * **finished** - finished deals
@@ -75,7 +78,8 @@ Returns the list of geals. Use the query parameters to page through results.
 <CollapsibleApiParam name='order' type='string' id="order">
   Specifies the field used to order the results.
 
-  Default: <code>created_at</code>
+  <ParameterRange defaultVal="created_at" />
+
   <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
       * **created_at**
       * **updated_at**
@@ -88,7 +92,8 @@ Returns the list of geals. Use the query parameters to page through results.
    
  <CollapsibleApiParam name='order_direction' type='string' id="order_direction">
   Sets the direction of order: `ASC` or `DESC`.
-   Default: `DESC`.
+
+   <ParameterRange defaultVal="DESC" />
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name='base' type='string' id="base">
@@ -109,9 +114,8 @@ Returns the list of geals. Use the query parameters to page through results.
 
 ## Example Request
 
-```json
-GET /ver1/deals?bot_id=23456789
-```
+<NoContentEndpoint method="GET" endpoint="/ver1/deals?bot_id=23456789" />
+
 </StickyLayout.Sticky>
 </StickyLayout.Root>
 

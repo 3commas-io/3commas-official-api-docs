@@ -8,7 +8,8 @@ import ApiParam from '@site/src/components/ApiParam';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import Separator from '@site/src/components/Separator';
 import { Informer } from '@site/src/components/Informer/Informer';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
@@ -27,6 +28,8 @@ import * as ResponseTabs from '@site/src/components/ResponseTabs';
 
 Returns the information required to add funds correctly.
 
+<Separator />
+
 <StickyLayout.Root>
 <StickyLayout.Main>
 
@@ -40,9 +43,8 @@ Returns the information required to add funds correctly.
 
 ## Example Request
 
-```json
-GET /ver1/deals/2295655961/data_for_adding_funds
-```
+<NoContentEndpoint method="GET" endpoint="/ver1/deals/2295655961/data_for_adding_funds" />
+
 </StickyLayout.Sticky>
 </StickyLayout.Root>
 
@@ -67,7 +69,10 @@ GET /ver1/deals/2295655961/data_for_adding_funds
 </ApiParam>
 
 <CollapseAll>
-<CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
+<CollapseAllHeading>
+    More attributes
+    <CollapseAllButton />
+</CollapseAllHeading>
 
 <CollapsibleApiParam name="base_currency" type="string" id="base_currency">
    The base currency in the trading pair.
@@ -86,11 +91,11 @@ GET /ver1/deals/2295655961/data_for_adding_funds
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="market_supported" type="boolean" id="market_supported">
-   Indicates if market orders are supported for this pair (`true`) or not (`false`).
+   Indicates if market orders are supported for this pair `true` or not `false`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="is_contract" type="boolean" id="is_contract">
-   Specifies if the trading instrument is a contract (`true`) or not (`false`).
+   Specifies if the trading instrument is a contract `true` or not `false`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="orderbook_price_currency" type="string" id="orderbook_price_currency">
@@ -136,12 +141,12 @@ GET /ver1/deals/2295655961/data_for_adding_funds
 <CollapsibleApiParam name="leverage_type" type="string" id="paleverage_typeir">
   Type of leverage applied for this Deal.
    <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
-      * **cross** - uses all available funds in your account as collateral for your trades;
+       * **cross** - uses all available funds in your account as collateral for your trades;
       * **isolated** - the margin is limited to a specific position;
       * **not_specified** - no leverage type specified for deal.
     </CollapsibleNestedParams>
 </CollapsibleApiParam>
-</CollapseAll>
+  </CollapseAll>
 </StickyLayout.Main>
 <StickyLayout.Sticky>
 

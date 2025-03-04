@@ -1,3 +1,4 @@
-export { Endpoint as default } from './Endpoint'
-export { Method } from './Method'
-export { Permission } from './Permission'
+export { Endpoint as default } from "./Endpoint";
+export { Method } from "./Method";
+export { Permission } from "./Permission";
+export { NoContentEndpoint } from "./NoContentEndpoint";

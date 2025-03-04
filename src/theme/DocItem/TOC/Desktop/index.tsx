@@ -1,11 +1,11 @@
-import React from 'react'
-import { useDoc } from '@docusaurus/plugin-content-docs/client'
-import TOCItems from '@theme/TOCItems'
+import React from "react";
+import { useDoc } from "@docusaurus/plugin-content-docs/client";
+import TOCItems from "@theme/TOCItems";
 
-import styles from './styles.module.css'
+import styles from "./styles.module.css";
 
 export default function DocItemTOCDesktop(): JSX.Element {
-  const { toc, frontMatter } = useDoc()
+  const { toc, frontMatter } = useDoc();
 
   return (
     <div className={styles.root}>
@@ -26,5 +26,5 @@ export default function DocItemTOCDesktop(): JSX.Element {
         linkActiveClassName={styles.tocLinkActive}
       />
     </div>
-  )
+  );
 }

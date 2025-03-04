@@ -1,6 +1,7 @@
 ---
 title: Account
 sidebar_position: 2
+sidebar_class_name: hidden
 ---
 
 import Endpoint from '@site/src/components/Endpoint';
@@ -15,9 +16,9 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
 
 Account entities hold information like:
 
-* Details about the connected exchange, including its type, name, and current status;
-* Profit and currency information, such as the account's balance and daily and total profit;
-* Available trading features for this account.
+* Details about the connected exchange, including its type, name, and current status
+* Profit and currency information, such as the account's balance and daily and total profit
+* Available trading features for this account
 
 3Commas provides a set of methods to create new exchange account connections and manage existing accounts.
 
@@ -68,11 +69,11 @@ Account entities hold information like:
       method: 'POST'
     },
     {
-      url: "ver1/accounts/:account_id/pie_chart_data",
+      url: "/ver1/accounts/:account_id/pie_chart_data",
       method: 'POST'
     },
     {
-      url: "ver1/accounts/:account_id/account_table_data",
+      url: "/ver1/accounts/:account_id/account_table_data",
       method: 'POST'
     },
     {

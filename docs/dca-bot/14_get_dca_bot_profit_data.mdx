@@ -6,8 +6,9 @@ sidebar_class_name: get
 
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
-import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 
@@ -24,6 +25,8 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
 
 Returns daily profit data for a specified DCA Bot, grouped by date and identified by its unique ID.
 
+<Separator />
+
 <StickyLayout.Root>
    <StickyLayout.Main>
         ## Path Parameter
@@ -34,14 +37,14 @@ Returns daily profit data for a specified DCA Bot, grouped by date and identifie
         <ApiParam name='days' type='integer' id="days">
         Specifies the number of days for which profit data is requested for this bot.
         
-        Default: `30`.
+        <ParameterRange defaultVal={30} />
         </ApiParam>
      </StickyLayout.Main>
     <StickyLayout.Sticky>
         ## Example Request
-        ```json
-        GET /ver1/bots/15565014/profit_by_day
-        ```
+
+        <NoContentEndpoint method="GET" endpoint="/ver1/bots/15565014/profit_by_day" />
+
     </StickyLayout.Sticky>
 </StickyLayout.Root>
 

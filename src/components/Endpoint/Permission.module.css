@@ -1,6 +1,13 @@
 .permission {
   display: flex;
   align-items: center;
-  gap: 2px;
-  font-size: 13px;
+  gap: 8px;
+  font-size: var(--text-size);
+  color: var(--text-content-color);
+  letter-spacing: 0.25px;
+}
+
+.permission strong {
+  color: var(--ifm-heading-color);
+  font-weight: 600;
 }

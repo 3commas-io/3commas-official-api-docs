@@ -1,13 +1,21 @@
 .steps {
+  --circle-size: 2rem;
+  --step-color: #13a8a1;
+  --step-background-color: #eaf5f5;
+  --step-separator-color: #eaf5f5;
+
   display: flex;
   flex-direction: column;
   counter-reset: step;
   margin-bottom: 1.75rem;
 }
 
-.step {
-  --circle-size: 2rem;
+[data-theme="dark"] .steps {
+  --step-background-color: #13a8a11a;
+  --step-separator-color: #2c2e30;
+}
 
+.step {
   display: flex;
   align-items: flex-start;
   counter-increment: step;
@@ -27,9 +35,10 @@
   justify-content: center;
   width: var(--circle-size);
   height: var(--circle-size);
-  border-radius: 9999px;
-  background: var(--ifm-color-success-contrast-background);
-  font-size: 0.875rem;
+  border-radius: 0.25rem;
+  color: var(--step-color);
+  background: var(--step-background-color);
+  font-size: var(--text-size);
   font-weight: bold;
   position: relative;
 }
@@ -42,7 +51,7 @@
   display: none;
   width: 1px;
   position: absolute;
-  background: var(--ifm-color-emphasis-200);
+  background: var(--step-background-color);
   flex: 1;
   height: calc(100% - var(--circle-size) - 10px - 0.75rem);
   top: calc(var(--circle-size) + 0.75rem);
@@ -54,15 +63,33 @@
 
 .content {
   flex: 1;
-  padding-top: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   overflow: auto;
+  font-size: var(--text-size);
 }
 
 .content h3 {
-  margin-bottom: 0.75rem;
-  font-weight: 500;
+  font-weight: 600;
+  margin-bottom: 0;
+  font-size: var(--text-size);
 }
 
-.content p {
-  color: var(--ifm-toc-link-color);
+.content main {
+  color: var(--text-content-color);
+  padding-bottom: 1.25rem;
+}
+
+.content main *,
+.content main li {
+  margin: 0 0 6px;
+}
+
+.content pre > code {
+  margin: 0;
+}
+
+.content main code {
+  color: var(--ifm-heading-color);
 }

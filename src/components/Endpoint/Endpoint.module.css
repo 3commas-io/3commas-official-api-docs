@@ -1,26 +1,23 @@
 .root {
   display: flex;
-  flex-direction: column;
-  align-items: start;
-  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
   margin-bottom: var(--ifm-heading-margin-bottom);
-
-  @media (min-width: 997px) {
-    flex-direction: row;
-  }
 }
 
 .container {
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
-  padding: 8px;
-  min-width: 400px;
-  gap: 8px;
+  padding: 4px 8px 4px 4px;
+  gap: 12px;
   border-radius: 8px;
-  background: var(--ifm-code-background);
+  background: var(--code-background-color);
   font-style: normal;
-  font-family: JetBrains Mono, monospace;
+  font-family:
+    JetBrains Mono,
+    monospace;
   font-size: 14px;
   word-break: break-word;
   line-height: 1.5;
@@ -33,6 +30,10 @@
   gap: 4px;
 }
 
+.urlOnly {
+  padding-left: 6px;
+}
+
 .item {
   display: flex;
   align-items: center;
@@ -41,12 +42,16 @@
 
 .permissions {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px 24px;
 }
 
 .url {
+  font-size: var(--text-size);
+  line-height: 1.5;
   cursor: pointer;
+
   &:hover {
     text-decoration: underline;
     text-decoration-style: dashed;
