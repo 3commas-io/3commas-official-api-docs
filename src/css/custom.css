@@ -86,6 +86,10 @@
   --home-page-icon-background-color: #2c2e30;
 }
 
+body {
+  overscroll-behavior-y: none;
+}
+
 /* CSS for endpoint and permission*/
 .main-container-endpoint {
   display: flex;
