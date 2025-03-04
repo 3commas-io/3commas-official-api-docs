@@ -8,7 +8,7 @@ const HomePageWrapper = () => {
       <HomePageItem
         data={{
           title: "General information",
-          description: "Lorem ipsum dolor sit amet, consectetur",
+          description: "How to start.",
           icon: "generalInfo",
           link: "/general-information",
         }}
@@ -16,7 +16,7 @@ const HomePageWrapper = () => {
       <HomePageItem
         data={{
           title: "DCA Bot",
-          description: "Lorem ipsum dolor sit amet, consectetur",
+          description: "Automate trading on the exchange using a Dollar Cost Averaging (DCA) strategy.",
           icon: "dcaBot",
           link: "/dca-bot",
         }}
@@ -24,7 +24,7 @@ const HomePageWrapper = () => {
       <HomePageItem
         data={{
           title: "Account",
-          description: "Lorem ipsum dolor sit amet, consectetur",
+          description: "The set of tools available for an exchange account.",
           icon: "account",
           link: "/account",
         }}
@@ -32,7 +32,7 @@ const HomePageWrapper = () => {
       <HomePageItem
         data={{
           title: "Grid Bot",
-          description: "Lorem ipsum dolor sit amet, consectetur",
+          description: "Automate trading strategies by executing a series of buy and sell orders within predefined price ranges.",
           icon: "gridBot",
           link: "/grid-bot",
         }}
@@ -40,7 +40,7 @@ const HomePageWrapper = () => {
       <HomePageItem
         data={{
           title: "Market Data",
-          description: "Lorem ipsum dolor sit amet, consectetur",
+          description: "Essential information about cryptocurrency exchanges, trading pairs, and market rules.",
           icon: "marketData",
           link: "/market-data",
         }}
@@ -48,7 +48,7 @@ const HomePageWrapper = () => {
       <HomePageItem
         data={{
           title: "Smart Trade",
-          description: "Lorem ipsum dolor sit amet, consectetur",
+          description: "Open, manage, and close orders on the exchange with predefined conditions.",
           icon: "smartTrade",
           link: "/smart-trade",
         }}

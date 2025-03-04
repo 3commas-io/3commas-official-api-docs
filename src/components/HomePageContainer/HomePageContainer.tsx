@@ -6,5 +6,7 @@ type Props = {
 };
 
 export default function HomePageContainer({ children }: Props) {
-  return <div className={styles.homePageContainer}>{children}</div>;
+  return <div className={styles.homePageContainer}>
+    {children}
+  </div>;
 }
