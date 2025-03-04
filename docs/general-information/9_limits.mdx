@@ -8,7 +8,7 @@ import Endpoint, { Permission } from '@site/src/components/Endpoint';
 
 ## General Rules
 
-Our REST API enforces a maximum of 100 requests per minute.
+Our REST API enforces a maximum of **100 requests per minute**.
 
 If the rate limit is exceeded, the API will respond with an HTTP status code `429 Too Many Requests`, and access will be temporarily restricted for a mitigation period of 300 seconds.
 
@@ -19,7 +19,7 @@ If the rate limit is exceeded, the API will respond with an HTTP status code `42
   url="/ver1/deals"
   method="GET"
 />
-    
+
 120 requests per minute. If the rate limit is exceeded, the API will respond with an HTTP status code `429 Too Many Requests`, and access will be temporarily restricted for a mitigation period of 60 seconds.
 
 ---

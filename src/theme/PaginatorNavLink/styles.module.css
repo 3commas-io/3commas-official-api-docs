@@ -10,6 +10,10 @@
   width: 0;
 }
 
+.pagination__arrow {
+  flex-shrink: 0;
+}
+
 .pagination-item:hover .pagination__arrow {
   filter: brightness(0.975);
 }
@@ -65,6 +69,11 @@ a:hover {
   font-weight: 600;
   color: var(--ifm-heading-color);
   margin: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
 }
 
 .pagination__info span {
