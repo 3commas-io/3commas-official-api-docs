@@ -95,6 +95,16 @@
   --home-page-icon-background-color: #2c2e30;
 }
 
+#__docusaurus {
+  padding-top: 60px;
+}
+
+@media (max-width: 996px) {
+  #__docusaurus {
+    padding-top: 68px;
+  }
+}
+
 /* CSS for endpoint and permission*/
 .main-container-endpoint {
   display: flex;
@@ -786,6 +796,11 @@ li.menu__list-item > .category-title-hr {
     right: 156px !important;
     left: auto !important;
   }
+}
+
+.navbar {
+  position: fixed;
+  inset: 0 0 auto 0;
 }
 
 @media (min-width: 997px) {
