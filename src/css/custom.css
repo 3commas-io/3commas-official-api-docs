@@ -286,6 +286,14 @@ h2 {
   --ifm-h2-font-size: 1.25rem;
 }
 
+.markdown li + li {
+  margin-top: 0.4rem;
+}
+
+.markdown li > code {
+  color: var(--ifm-heading-color);
+}
+
 h3 {
   font-size: 16px;
   font-style: normal;
@@ -598,7 +606,7 @@ main li {
 }
 
 main li > code {
-  font-size: var(--text-emphasis-size);
+  font-size: var(--text-emphasis-size) !important;
 }
 
 .navbar__link:hover,
