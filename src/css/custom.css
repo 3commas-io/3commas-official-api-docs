@@ -624,8 +624,12 @@ li.menu__list-item > .category-title {
 
 li.menu__list-item > .category-title-hr {
   margin-top: 6px !important;
-  margin-bottom: 18px !important;
+  margin-bottom: 6px !important;
   background-color: var(--sidebar-divider-color);
+}
+
+li.menu__list-item > .category-title-hr.titled {
+  margin-bottom: 18px !important;
 }
 
 .menu__list .menu__list {
