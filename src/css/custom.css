@@ -86,6 +86,12 @@
   --home-page-icon-background-color: #2c2e30;
 }
 
+html,
+body {
+  overscroll-behavior: contain;
+  touch-action: pan-x pan-y;
+}
+
 /* CSS for endpoint and permission*/
 .main-container-endpoint {
   display: flex;
@@ -512,7 +518,6 @@ a {
   font-weight: 500;
 }
 
-
 code {
   font-size: var(--text-emphasis-size) !important;
   border: none;
@@ -546,7 +551,8 @@ main
   font-weight: inherit;
 }
 
-main a:not(.home-line):not(.breadcrumbs__link):not(.pagination-link):hover:not(
+main
+  a:not(.home-line):not(.breadcrumbs__link):not(.pagination-link):hover:not(
     .hash-link
   ):not(.tocLink_wfFo) {
   color: var(--ifm-heading-color);
