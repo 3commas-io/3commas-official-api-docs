@@ -70,6 +70,7 @@
   --text-content-color: #9fa2a8;
 
   --ifm-background-color: #242526 !important;
+  --ifm-navbar-shadow: 0 1px 2px 0 rgba(108, 106, 106, 0.1);
 
   --pagination-button-color: #2c2e30;
   --code-separator-color: #404144;
@@ -512,7 +513,6 @@ a {
   font-weight: 500;
 }
 
-
 code {
   font-size: var(--text-emphasis-size) !important;
   border: none;
@@ -546,7 +546,8 @@ main
   font-weight: inherit;
 }
 
-main a:not(.home-line):not(.breadcrumbs__link):not(.pagination-link):hover:not(
+main
+  a:not(.home-line):not(.breadcrumbs__link):not(.pagination-link):hover:not(
     .hash-link
   ):not(.tocLink_wfFo) {
   color: var(--ifm-heading-color);
