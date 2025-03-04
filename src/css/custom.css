@@ -75,7 +75,7 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 
   --ifm-heading-color: #fff;
-  --text-content-color: #9fa2a8;
+  --text-content-color: #b5b5b5;
 
   --ifm-background-color: #242526 !important;
   --ifm-navbar-shadow: 0 1px 2px 0 rgba(108, 106, 106, 0.1);
@@ -434,6 +434,12 @@ table {
 body ul {
   list-style-image: url("/img/bullet.svg");
 }
+
+
+body ul {
+  color: var(--text-content-color);
+}
+
 
 body ol {
   list-style: decimal;
