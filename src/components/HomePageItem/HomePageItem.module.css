@@ -3,6 +3,25 @@
   gap: 16px;
   cursor: pointer;
   text-decoration: none;
+
+
+  &:hover {
+    .homePageItemDescription {
+      color: var(--ifm-heading-color);
+    }
+
+    .homePageItemIconWrapper {
+      background-color: #13a8a1;
+
+      > div > svg > path {
+        stroke: #ffffff;
+      }
+
+      div svg g rect {
+        fill: #ffffff;
+      }
+    }
+  }
 }
 
 .homePageItemIconWrapper {
@@ -10,11 +29,19 @@
   height: 52px;
   border-radius: 8px;
   background-color: var(--home-page-icon-background-color);
-  transition: background-color 0.2s linear;
+  transition: background-color 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+
+  > div > svg > path {
+    transition: stroke 0.2s ease;
+  }
+
+  div svg g rect {
+    transition: fill 0.2s ease;
+  }
 }
 
 .homePageItemIconWrapper svg mask {
@@ -22,20 +49,13 @@
   height: 20px;
   fill: var(--menu-link-color-active);
 }
-.homePageItemIconWrapper:hover {
-  background-color: #13a8a1;
-}
-.homePageItemIconWrapper:hover > div > svg > path {
-  stroke: #ffffff;
-}
-.homePageItemIconWrapper:hover div svg g rect {
-  fill: #ffffff;
-}
+
 .homePageItemContentWrapper {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
+
 .homePageItemTitle {
   font-weight: 600;
   font-size: 16px;
@@ -44,6 +64,7 @@
   color: var(--menu-link-primary-color);
   margin: 0;
 }
+
 .homePageItemDescription {
   max-width: 300px;
   font-weight: 400;
@@ -52,7 +73,9 @@
   letter-spacing: 0.2px;
   color: var(--sidebar-links-color);
   margin: 0;
+  transition: color 0.2s ease;
 }
+
 @media (min-width: 648px) and (max-width: 996px) {
   .homePageItemTitle {
     font-weight: 600;
@@ -60,6 +83,7 @@
     line-height: 20px;
     letter-spacing: 0.2px;
   }
+
   .homePageItemDescription {
     font-weight: 400;
     font-size: 14px;
@@ -67,6 +91,7 @@
     letter-spacing: 0.2px;
   }
 }
+
 @media (max-width: 647px) {
   .homePageItemTitle {
     font-weight: 600;
@@ -74,6 +99,7 @@
     line-height: 20px;
     letter-spacing: 0.2px;
   }
+
   .homePageItemDescription {
     font-weight: 400;
     font-size: var(--text-size);
