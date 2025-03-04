@@ -1,5 +1,6 @@
 .container {
   position: relative;
+  font: var(--ifm-code-font-size) / var(--ifm-pre-line-height) var(--ifm-font-family-monospace);
 }
 
 .codeBlockTitle {
@@ -7,7 +8,7 @@
   overflow-x: auto;
   align-items: center;
   font-size: var(--ifm-code-font-size);
-  gap: 0.625rem;
+  gap: 0.52rem;
   padding: 1rem var(--ifm-pre-padding);
   border-radius: 1rem;
   background-color: var(--code-background-color);
@@ -22,12 +23,14 @@
   padding: 0;
   height: auto;
   font-weight: 600;
-  font-size: var(--text-size) !important;
+  font-size: 13px !important;
+  line-height: 1;
 }
 
 .codeBlockTitle span {
   font-size: 14px !important;
   font-weight: 500;
+  line-height: 1;
 }
 
 .buttonGroup {
