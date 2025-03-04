@@ -50,7 +50,15 @@
 
   @media (min-width: 997px) {
     --ifm-global-spacing: 1.5rem;
-    --url-width: clamp(233px, 26vw, 400px);
+    --url-width: min(525px, max(260px, fit-content(100%)));
+  }
+
+  @media (min-width: 1100px) {
+    --url-width: min(580px, max(260px, fit-content(100%)));
+  }
+
+  @media (min-width: 1261px) {
+    --url-width: clamp(233px, 28vw, 400px);
   }
 }
 
@@ -773,7 +781,7 @@ li.menu__list-item > .category-title-hr {
   padding: 8px 0 32px !important;
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1261px) {
   .breadcrumbsContainer_Ar0W.scrolledClass {
     right: 156px !important;
     left: auto !important;
@@ -832,6 +840,11 @@ li.menu__list-item > .category-title-hr {
     display: flex;
     gap: 12px;
     text-overflow: ellipsis;
+    max-width: 630px;
+
+    @media (max-width: 1100px) {
+      max-width: 525px;
+    }
   }
 
   .menu__link,

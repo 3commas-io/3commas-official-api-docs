@@ -2,7 +2,7 @@
 .docItemContainer article > *:first-child {
   margin-top: 0;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1261px) {
   .breadcrumbsContainer {
     position: fixed;
     z-index: 10000;
