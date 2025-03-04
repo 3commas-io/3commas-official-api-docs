@@ -588,7 +588,7 @@ main
   a:not(.home-line):not(.breadcrumbs__link):not(.pagination-link):hover:not(
     .hash-link
   ):not(.tocLink_wfFo) {
-  color: var(--ifm-heading-color);
+  color: var(--ifm-heading-color) !important;
 }
 
 p {
