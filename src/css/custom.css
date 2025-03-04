@@ -105,6 +105,12 @@
   }
 }
 
+html,
+body {
+  overscroll-behavior: contain;
+  touch-action: pan-x pan-y;
+}
+
 /* CSS for endpoint and permission*/
 .main-container-endpoint {
   display: flex;

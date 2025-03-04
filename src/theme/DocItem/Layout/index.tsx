@@ -45,13 +45,18 @@ export default function DocItemLayout({ children }: Props): JSX.Element {
   const { metadata } = useDoc();
   const { previous, next } = metadata;
 
+  const hidePaginationAndBreadcrumb =
+    previous === undefined || previous.title === "Home";
+
   return (
     <div className="row">
       <ScrollStylingManager />
       <div className={clsx("col")}>
-        <span className={styles.breadcrumbsContainer}>
-          <DocBreadcrumbs />
-        </span>
+        {!hidePaginationAndBreadcrumb && (
+          <span className={styles.breadcrumbsContainer}>
+            <DocBreadcrumbs />
+          </span>
+        )}
         <ContentVisibility metadata={metadata} />
         <DocVersionBanner />
         <div className={styles.docItemContainer}>
@@ -62,18 +67,20 @@ export default function DocItemLayout({ children }: Props): JSX.Element {
             <DocItemFooter />
           </article>
 
-          <div className={styles.pagination}>
-            <PaginatorNavLink
-              isNext={false}
-              permalink={previous?.permalink}
-              title={previous?.title}
-            />
-            <PaginatorNavLink
-              isNext={true}
-              permalink={next?.permalink}
-              title={next?.title}
-            />
-          </div>
+          {!hidePaginationAndBreadcrumb && (
+            <div className={styles.pagination}>
+              <PaginatorNavLink
+                isNext={false}
+                permalink={previous?.permalink}
+                title={previous?.title}
+              />
+              <PaginatorNavLink
+                isNext={true}
+                permalink={next?.permalink}
+                title={next?.title}
+              />
+            </div>
+          )}
         </div>
       </div>
       {docTOC.desktop && <div className={styles.toc}>{docTOC.desktop}</div>}
