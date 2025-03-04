@@ -28,16 +28,13 @@
 .name {
   font-weight: 600;
   color: var(--ifm-heading-color);
-
-  [data-theme="dark"] & {
-    color: #dee0e3;
-  }
+  line-height: 1.5;
 }
 
 .type {
   color: var(--text-content-color);
-  font-size: 85%;
-  line-height: 1rem;
+  font-size: var(--text-size);
+  line-height: 1.5;
 }
 
 .anchor {
@@ -60,7 +57,7 @@
   gap: 0.5rem;
   line-height: 1.5;
   position: relative;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.4rem;
 }
 
 .marginBottom {
@@ -69,8 +66,8 @@
 
 .required {
   color: var(--ifm-color-danger);
-  font-size: 85%;
-  line-height: 1rem;
+  font-size: var(--text-size);
+  line-height: 1.5;
 }
 
 .parameter-range {
@@ -96,5 +93,5 @@
 }
 
 .default {
-  color: #1e72d2;
+  color: #2196f3;
 }

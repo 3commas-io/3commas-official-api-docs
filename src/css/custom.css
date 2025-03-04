@@ -23,7 +23,7 @@
   --ifm-link-color: #13a8a1;
   --ifm-code-padding-vertical: 2px;
   --ifm-code-padding-horizontal: 4px;
-  --api-param-margin-bottom: 24px;
+  --api-param-margin-bottom: 20px;
   --category-title-color-pprimary: #929da8;
   --navigation-background-color: #f8f8f8;
   --navigation-border-color: #ececec;
@@ -544,6 +544,12 @@ main
   text-decoration: underline !important;
   color: var(--text-content-color);
   font-weight: inherit;
+}
+
+main a:not(.home-line):not(.breadcrumbs__link):not(.pagination-link):hover:not(
+    .hash-link
+  ):not(.tocLink_wfFo) {
+  color: var(--ifm-heading-color);
 }
 
 p {
