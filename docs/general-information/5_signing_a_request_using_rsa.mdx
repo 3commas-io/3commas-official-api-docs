@@ -86,7 +86,7 @@ Key | Value
 api_key | <div className="table-size">vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A</div>
 private key | <div className="table-size">-----BEGIN RSA PRIVATE KEY-----<br />MIIEpQIBAAKCAQEAspMfrKDl78gMWr4EO9Nr9LoZirPvkN93oGDO1LPnvDIwkmTV<br />QCXv9EAgzz4E36B9RuXIukMydrwCqtPOaweSAFgj9MZ0PFwIWsHk4x7flUJU3YI3<br />Ub2uc+jl2Mbtxfoei5cbY6iAwsp+HyeKrdonVHtEd9mFutd468+vO7+rx/M80onc<br />fduNVf/GRR2McTOO4Ptm4s68clY0dyXMRLidQjydPPYNjuzs47DVxNK+tXGS7QSH<br />LuC7VO/YBXWqZNzvii1KeCEIePJfz06ywZFTdNxZt2USoudAgUMBvJg0cLKqQJFx<br />p62Pez6aWC0lV9yDPHpUwp+RfrNiP213vKObnQIDAQABAoIBAQCf//KBWiirjzKC<br />m35vnB8+RwBbpp0f0Rn+OL8ZFZispsueX3oy38r/rfW3unnjZIja3UfcnBi7CfnZ<br />1a09eKr4ZADTcHz1GADkUJYkaaUqtyQS1Hl8Y9fLQwGuGY8xs8lqiRmhUXkNDyGy<br />CFvZKX3T1B6kw+FuZ2GQ56S6hCIGJApRCaIfMsBMlUPogJIh+oV5+13ft5EDvTFo<br />IDAb9YZQk+sp0sc38g3MIhqVAl7lqqpowFF5FnS4cRTcSIC1Wc5+R73LDRtNghQc<br />1kAFdM8aiw/dii2huGE+bRz3bjlCW6SOlsSPKOgvqFxVoJ/qjqkfytm1Platx4Ys<br />zAqr4EQBAoGBAOX3FUgUnoqybKOoa6ouSgFXmcADB6jLiXcPOxEg6JadBKSsI0Fx<br />YmqgRK7ddKVaiDmAgdL7RJQ4zyCyeFuGomr796ilsswORDucjNBNVKoxmea58ww+<br />c5pOXccDuiFR32/5hz0pwcmiIYg9tPVpFUMgiPBpjjhNPSajOSE1HJTlAoGBAMbK<br />oJTKhmT+/73BpTY8KSMAYSEbHX/uchsiFd+RlQDmHZ9KGd914UI8hGW4yOBmcvmi<br />u6Yjz5JT6ARqKNkhorbz9FvYhYGjDbLIIHxaDs/6vXOCs/ba3oAnHTFa7cQ5qMle<br />oyndAf4aVPY105yP2SlOW7oBoUUwxaqSOEgOPvhZAoGAMJBNXjt8f63OY4Fdu0Kr<br />Pj1Rqsr5Axx4mzwMLUHV3HisUlpH17oqHnpaBtOdno3P1tTclcGaafLVSwJliG6W<br />PiGX23WinJUms7ALzLGH/6kZ5y+9tAg8QYnrI+wVkpPHq832UWRQGFS04CCn5mua<br />oeJtCNhBwIIPN+mgVvLwZkECgYEAnWlgJNIF/71oVyMapsqWrG+leeiVwHLZCiFA<br />fssx2Qde135+5FLcr21qTX44GnElhAVXX+SlfjJQ3AYQGHeo+ARPL9dRSGkL9NDB<br />4JYTep8LG4eY59VCMOpIFIfzFNmvjN0SiJjH9iV1t4zB5wyFIk85FR4rTLWlID8u<br />r+gP9ukCgYEA3Z8WmO3NKk+eQMo2HcpJhgKl6LcliAFW1pa7Fbnu+lyNKhWQYzQP<br />ltp+HZluqeMrmtiiB33J9fYLIC4oXgEi/1UfPc0mpPRERYC8s5A4GKTdQFFoMn5v<br />wc4dnTdfBxKBacAoUWUZcRuipcgkkUQAQZxqUnGkGZQHf8UFjEzHD5k=<br />-----END RSA PRIVATE KEY-----</div>
 
-### Request Parameters:
+### Request Parameters
 
 <RequestParameters
   items={[
@@ -103,13 +103,13 @@ private key | <div className="table-size">-----BEGIN RSA PRIVATE KEY-----<br />M
   <Step title="Request Preparation"
       description={
       <>
-            <CodeBlock language="json" title="path" showLineNumbers>
+            <CodeBlock language="json" title="path">
             {`/public/api/ver1/users/change_mode`}
             </CodeBlock>
-            <CodeBlock language="json" title="queryString" showLineNumbers>
+            <CodeBlock language="json" title="queryString">
             {`mode=paper`}
             </CodeBlock>
-            <CodeBlock language="json" title="payload" showLineNumbers>
+            <CodeBlock language="json" title="payload">
             {`/public/api/ver1/users/change_mode?mode=paper`}
             </CodeBlock>
       </>
@@ -118,11 +118,11 @@ private key | <div className="table-size">-----BEGIN RSA PRIVATE KEY-----<br />M
 <Step title="Generating the Signature"
       description= {
       <>    
-            <CodeBlock language="bash" showLineNumbers>
+            <CodeBlock language="bash">
             {`echo -n "/public/api/ver1/users/change_mode?mode=paper" | openssl dgst -sha256 -sign private.pem | openssl enc -base64 -A`}
             </CodeBlock>
             <p>After running the command, you'll get the signature:</p>
-            <CodeBlock language="bash" showLineNumbers>
+            <CodeBlock language="bash">
             {`W+a26NiV6KkWP5zWoaDU9nSHmfObAtbbaq+xPIKwiKIz81Mlgrek/Z51qsAWNXEMCpIGW40IYDo7BTq4FSvOVSxdfrFK3lRqBveoXW+/50QOd3p+fDe5Ku7Z0U6MvXSUeFOguMBxP7er1SLGOb5RLYI/2GPMI5txLAoSsTLjGkWOc7S3ZhUpxEfxSCp8wCFp6E99biIX2MhIT1/AAl290ID76Wr1dj9Y3QxIl6KtQlbpEqhvWBaadYaYyZR5YjHAn5NWAE2cvxLkH+SQE1khzAdB6T9ZJ9sgMtY1bOzTTV/Cj9W0SABCYr4In12+uFY0lB+ANvgi8hLr2NCl775Wdw==`}
             </CodeBlock>
       </>
@@ -131,7 +131,7 @@ private key | <div className="table-size">-----BEGIN RSA PRIVATE KEY-----<br />M
 <Step title="Making the API Call"
       description= {
       <>
-            <CodeBlock language="bash" showLineNumbers>
+            <CodeBlock language="bash">
             {`curl
 -H "Apikey: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A"
 -H "Signature: W+a26NiV6KkWP5zWoaDU9nSHmfObAtbbaq+xPIKwiKIz81Mlgrek/Z51qsAWNXEMCpIGW40IYDo7BTq4FSvOVSxdfrFK3lRqBveoXW+/50QOd3p+fDe5Ku7Z0U6MvXSUeFOguMBxP7er1SLGOb5RLYI/2GPMI5txLAoSsTLjGkWOc7S3ZhUpxEfxSCp8wCFp6E99biIX2MhIT1/AAl290ID76Wr1dj9Y3QxIl6KtQlbpEqhvWBaadYaYyZR5YjHAn5NWAE2cvxLkH+SQE1khzAdB6T9ZJ9sgMtY1bOzTTV/Cj9W0SABCYr4In12+uFY0lB+ANvgi8hLr2NCl775Wdw=="
@@ -147,13 +147,13 @@ private key | <div className="table-size">-----BEGIN RSA PRIVATE KEY-----<br />M
   <Step title="Request Preparation"
       description={
       <>
-            <CodeBlock language="json" title="path" showLineNumbers>
+            <CodeBlock language="json" title="path">
             {`/public/api/ver1/users/change_mode`}
             </CodeBlock>
-            <CodeBlock language="json" title="requestBody" showLineNumbers>
+            <CodeBlock language="json" title="requestBody">
             {`mode=paper`}
             </CodeBlock>
-            <CodeBlock language="json" title="payload" showLineNumbers>
+            <CodeBlock language="json" title="payload">
             {`/public/api/ver1/users/change_mode?mode=paper`}
             </CodeBlock>
             </>
@@ -163,11 +163,11 @@ private key | <div className="table-size">-----BEGIN RSA PRIVATE KEY-----<br />M
 <Step title="Generating the Signature"
       description= {
       <>    
-            <CodeBlock language="bash" showLineNumbers>
+            <CodeBlock language="bash">
             {`echo -n "/public/api/ver1/users/change_mode?mode=paper" | openssl dgst -sha256 -sign private.pem | openssl enc -base64 -A`}
             </CodeBlock>
             <p>After running the command, you'll get the signature:</p>
-            <CodeBlock language="bash" showLineNumbers>
+            <CodeBlock language="bash">
             {`W+a26NiV6KkWP5zWoaDU9nSHmfObAtbbaq+xPIKwiKIz81Mlgrek/Z51qsAWNXEMCpIGW40IYDo7BTq4FSvOVSxdfrFK3lRqBveoXW+/50QOd3p+fDe5Ku7Z0U6MvXSUeFOguMBxP7er1SLGOb5RLYI/2GPMI5txLAoSsTLjGkWOc7S3ZhUpxEfxSCp8wCFp6E99biIX2MhIT1/AAl290ID76Wr1dj9Y3QxIl6KtQlbpEqhvWBaadYaYyZR5YjHAn5NWAE2cvxLkH+SQE1khzAdB6T9ZJ9sgMtY1bOzTTV/Cj9W0SABCYr4In12+uFY0lB+ANvgi8hLr2NCl775Wdw==`}
             </CodeBlock>
       </>
@@ -176,7 +176,7 @@ private key | <div className="table-size">-----BEGIN RSA PRIVATE KEY-----<br />M
 <Step title="Making the API Call"
       description= {
       <>
-            <CodeBlock language="bash" showLineNumbers>
+            <CodeBlock language="bash">
             {`curl
 -H "Apikey: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A"
 -H "Signature: W+a26NiV6KkWP5zWoaDU9nSHmfObAtbbaq+xPIKwiKIz81Mlgrek/Z51qsAWNXEMCpIGW40IYDo7BTq4FSvOVSxdfrFK3lRqBveoXW+/50QOd3p+fDe5Ku7Z0U6MvXSUeFOguMBxP7er1SLGOb5RLYI/2GPMI5txLAoSsTLjGkWOc7S3ZhUpxEfxSCp8wCFp6E99biIX2MhIT1/AAl290ID76Wr1dj9Y3QxIl6KtQlbpEqhvWBaadYaYyZR5YjHAn5NWAE2cvxLkH+SQE1khzAdB6T9ZJ9sgMtY1bOzTTV/Cj9W0SABCYr4In12+uFY0lB+ANvgi8hLr2NCl775Wdw=="
@@ -193,13 +193,13 @@ private key | <div className="table-size">-----BEGIN RSA PRIVATE KEY-----<br />M
   <Step title="Request Preparation"
       description={
       <>
-            <CodeBlock language="json" title="path" showLineNumbers>
+            <CodeBlock language="json" title="path">
             {`/public/api/ver1/users/change_mode`}
             </CodeBlock>
-            <CodeBlock language="json" title="requestBody" showLineNumbers>
+            <CodeBlock language="json" title="requestBody">
             {`{"mode": "paper"}`}
             </CodeBlock>
-            <CodeBlock language="json" title="payload" showLineNumbers>
+            <CodeBlock language="json" title="payload">
             {`/public/api/ver1/users/change_mode{"mode": "paper"}`}
             </CodeBlock>
             </>
@@ -209,11 +209,11 @@ private key | <div className="table-size">-----BEGIN RSA PRIVATE KEY-----<br />M
 <Step title="Generating the Signature"
       description= {
       <>    
-            <CodeBlock language="bash" showLineNumbers>
+            <CodeBlock language="bash">
             {`echo -n '/public/api/ver1/users/change_mode{"mode": "paper"}' | openssl dgst -sha256 -sign private.pem | openssl enc -base64 -A`}
             </CodeBlock>
             <p>After running the command, you'll get the signature:</p>
-            <CodeBlock language="bash" showLineNumbers>
+            <CodeBlock language="bash">
             {`EEVNxc6DLLb6PVNzc3jeNkVXVIfgHJVrfLws4Hm7wynLTLlDe6QpwPmOeT/5lAZDsft+sIN0nwo4SBNKmkea6mtxkcVz/8BuP3rhQVeGhRn3lAGy/nacsP35B50IMDx+ge1tnkjGGL4IbjtbfP5v+UVLMpJpWfVzQGlWpyLEL6PHAu7cuYs5Ug8lbfq4zgrpl1tSmemNVAedU4D4qYE/LaPB/z/urzoFYQZzobZbnXpLh4MRLaTjUgTNuiJawpk+j0K7Xk2AvHt+gY1TNOCmbRvjaP+ihgzZA0m4h32s7EdGMznI55C4CVftKQRVIfyR6TIifoljCG5nNJNZtTj98Q==`}
             </CodeBlock>
       </>
@@ -222,7 +222,7 @@ private key | <div className="table-size">-----BEGIN RSA PRIVATE KEY-----<br />M
 <Step title="Making the API Call"
       description= {
       <>
-            <CodeBlock language="bash" showLineNumbers>
+            <CodeBlock language="bash">
             {`curl
 -H "Apikey: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A"
 -H "Signature: EEVNxc6DLLb6PVNzc3jeNkVXVIfgHJVrfLws4Hm7wynLTLlDe6QpwPmOeT/5lAZDsft+sIN0nwo4SBNKmkea6mtxkcVz/8BuP3rhQVeGhRn3lAGy/nacsP35B50IMDx+ge1tnkjGGL4IbjtbfP5v+UVLMpJpWfVzQGlWpyLEL6PHAu7cuYs5Ug8lbfq4zgrpl1tSmemNVAedU4D4qYE/LaPB/z/urzoFYQZzobZbnXpLh4MRLaTjUgTNuiJawpk+j0K7Xk2AvHt+gY1TNOCmbRvjaP+ihgzZA0m4h32s7EdGMznI55C4CVftKQRVIfyR6TIifoljCG5nNJNZtTj98Q==" 

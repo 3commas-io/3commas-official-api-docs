@@ -78,14 +78,16 @@ export const SignatureCalculator = () => {
 
   return (
     <div>
-      <CodeBlock language="json" title="Headers" showLineNumbers>
+      <CodeBlock language="json" title="Headers">
         {headersObj
           ? headersObj
           : `No signature generated yet. Please fill out the form and generate one.`}
       </CodeBlock>
+      
       <Informer variant="warning">
         You can either pass Search Params or Request Body
       </Informer>
+
       <SignatureCalculatorForm
         loading={isLoading}
         setIsLoading={setIsLoading}
