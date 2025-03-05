@@ -1,0 +1,129 @@
+.collapseIcon {
+  transform: rotate(0deg);
+  transition: var(--transition);
+  color: var(--text-content-color);
+}
+
+.name {
+  font-size: var(--text-size);
+  font-weight: 600;
+  line-height: 1.5;
+
+  [data-theme="dark"] & {
+    color: #fff;
+  }
+}
+
+.type {
+  color: var(--text-content-color);
+  font-size: var(--text-size);
+  line-height: 1.5;
+}
+
+.anchor {
+  position: absolute;
+  right: 100%;
+  opacity: 0;
+  padding-right: 0.5rem;
+  display: inline-grid;
+  place-items: center;
+  color: inherit;
+}
+
+.anchor svg {
+  fill: currentColor;
+}
+
+.required {
+  color: var(--ifm-color-danger);
+  font-size: var(--text-size);
+  line-height: 1.5;
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: var(--radix-collapsible-content-height);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    height: var(--radix-collapsible-content-height);
+  }
+
+  to {
+    height: 0;
+  }
+}
+
+.content {
+  overflow: hidden;
+
+  &[data-state="open"] {
+    animation: slideDown 150ms ease-out;
+  }
+
+  &[data-state="closed"] {
+    animation: slideUp 150ms ease-out;
+  }
+}
+
+.details {
+  --transition: all 150ms ease-out;
+  --icon-size: 10px;
+  --gap: 0.5rem;
+  margin-bottom: var(--api-param-margin-bottom);
+  background: none;
+  border: none;
+  box-shadow: none;
+  scroll-margin-top: var(--ifm-navbar-height);
+
+  @media screen and (min-width: 997px) {
+    &:hover .anchor {
+      opacity: 1;
+    }
+  }
+
+  ::before {
+    display: none;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .collapseIcon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+  }
+
+  &[data-state="open"] .collapseIcon {
+    transform: rotate(90deg);
+  }
+}
+
+.summary {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  min-height: 32px;
+  cursor: pointer;
+  position: relative;
+
+  + div {
+    padding-left: calc(var(--icon-size) + var(--gap));
+
+    > * {
+      padding-top: 0;
+    }
+  }
+}
+
+.marginBottom {
+  margin-bottom: var(--ifm-spacing-vertical);
+}

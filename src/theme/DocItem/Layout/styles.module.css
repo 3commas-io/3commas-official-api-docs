@@ -1,0 +1,33 @@
+.docItemContainer header + *,
+.docItemContainer article > *:first-child {
+  margin-top: 0;
+}
+@media (min-width: 1261px) {
+  .breadcrumbsContainer {
+    position: fixed;
+    z-index: 10000;
+    top: 16px;
+    left: 316px;
+    transition: all 0.3s ease;
+  }
+}
+@media (min-width: 997px) {
+  .docItemCol {
+    max-width: 75% !important;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: center;
+  margin-top: 4.5rem;
+}
+
+.toc {
+  position: fixed;
+  z-index: 10;
+  right: 0;
+  top: 130px;
+}

@@ -1,0 +1,250 @@
+---
+id: get-trades-of-deal
+title: Get trades of deal
+sidebar_class_name: get
+---
+
+import ApiParam from '@site/src/components/ApiParam';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import Separator from '@site/src/components/Separator';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+
+<Endpoint
+  url="/ver1/deals/:deal_id/market_orders"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="BOTS_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Returns all type of trades for a specific deal.
+
+<Separator />
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Path Parameter
+
+<ApiParam name='deal_id' type='integer' id="deal_id" required>
+  Unique 3Commas ID Deal entity.
+</ApiParam>
+</StickyLayout.Main>
+<StickyLayout.Sticky>
+
+## Example Request
+
+<NoContentEndpoint method="GET" endpoint="/ver1/deals/1234567890/market_orders" />
+
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Response Parameters
+<ApiParam name='order_id' type='integer' id="order_id">
+  Unique 3Commas Trade entity ID.
+</ApiParam>
+<ApiParam name='order_type' type='string' id="order_type">
+  The side of the order to be created by this trade: `Buy` or `Sell`.
+</ApiParam>
+<ApiParam name='deal_order_type' type='string' id="deal_order_type">
+  The type of the order to be created by this trade.
+  <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **Base**;
+      * **Take profit**;
+      * **Stop Loss**;
+      * **Safety**;
+      * **Manual Safety**;
+     </CollapsibleNestedParams>
+</ApiParam>
+<ApiParam name='cancellable' type='boolean' id="cancellable">
+  Indicates whether this trade can be canceled `true` or not `false`.
+</ApiParam>
+
+<CollapseAll>
+<CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
+
+<CollapsibleApiParam name='status_string' type='string' id="status_string">
+  3Commas status for this Trade.
+  <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **Active** - the trade is currently open, waiting to be filled;
+      * **Filled** - the trade has been fully executed;
+      * **Finished** - the trade process is complete;
+      * **Cancelled** - the trade was canceled before it could be fully executed;
+     </CollapsibleNestedParams>
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='created_at' type='string' id="created_at">
+     ISO 8601 datetime string of when this Trade entity was created.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='updated_at' type='string' id="updated_at">
+     ISO 8601 datetime string of when this Trade entity was updated.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='quantity' type='string' id="quantity">
+     Total quantity of the asset in this order.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='quantity_remaining' type='string' id="quantity_remaining">
+     Remaining quantity of the asset left to be filled in this order.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='total' type='string' id="total">
+     Total value of the order based on `quantity` and `rate`.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='rate' type='string' id="rate">
+     Price per unit of the asset in the order.
+</CollapsibleApiParam>
+<CollapsibleApiParam name='average_price' type='string' id="average_price">
+     The weighted average price at which the asset was bought or sold during the execution of the trades.
+</CollapsibleApiParam>
+</CollapseAll>
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+
+## Example Responses
+
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="200" label="200 OK" default>
+
+```json
+[
+  {
+    "order_id": "1110863869",
+    "order_type": "SELL",
+    "deal_order_type": "Manual Safety",
+    "cancellable": false,
+    "status_string": "Inactive",
+    "created_at": "2024-11-11T17:02:50.001Z",
+    "updated_at": "2024-11-11T17:02:50.166Z",
+    "quantity": "0.0",
+    "quantity_remaining": "0.0",
+    "total": "0.0",
+    "rate": "0.297",
+    "average_price": "0.0"
+  },
+  {
+    "order_id": "1110817001",
+    "order_type": "SELL",
+    "deal_order_type": "Manual Safety",
+    "cancellable": false,
+    "status_string": "Inactive",
+    "created_at": "2024-11-11T16:46:59.479Z",
+    "updated_at": "2024-11-11T16:46:59.643Z",
+    "quantity": "0.0",
+    "quantity_remaining": "0.0",
+    "total": "0.0",
+    "rate": "0.297",
+    "average_price": "0.0"
+  },
+  {
+    "order_id": "1110812940",
+    "order_type": "SELL",
+    "deal_order_type": "Manual Safety",
+    "cancellable": false,
+    "status_string": "Inactive",
+    "created_at": "2024-11-11T16:45:38.751Z",
+    "updated_at": "2024-11-11T16:45:38.892Z",
+    "quantity": "0.0",
+    "quantity_remaining": "0.0",
+    "total": "0.0",
+    "rate": "0.297",
+    "average_price": "0.0"
+  },
+  {
+    "order_id": "1110811846",
+    "order_type": "SELL",
+    "deal_order_type": "Manual Safety",
+    "cancellable": false,
+    "status_string": "Inactive",
+    "created_at": "2024-11-11T16:45:21.014Z",
+    "updated_at": "2024-11-11T16:45:21.156Z",
+    "quantity": "0.0",
+    "quantity_remaining": "0.0",
+    "total": "0.0",
+    "rate": "0.2971",
+    "average_price": "0.0"
+  },
+  {
+    "order_id": "1110706583",
+    "order_type": "SELL",
+    "deal_order_type": "Manual Safety",
+    "cancellable": false,
+    "status_string": "Inactive",
+    "created_at": "2024-11-11T16:22:01.176Z",
+    "updated_at": "2024-11-11T16:22:01.391Z",
+    "quantity": "0.0",
+    "quantity_remaining": "0.0",
+    "total": "0.0",
+    "rate": "0.0",
+    "average_price": "0.0"
+  },
+  {
+    "order_id": "1110645798",
+    "order_type": "SELL",
+    "deal_order_type": "Manual Safety",
+    "cancellable": false,
+    "status_string": "Inactive",
+    "created_at": "2024-11-11T16:04:51.619Z",
+    "updated_at": "2024-11-11T16:04:51.750Z",
+    "quantity": "0.0",
+    "quantity_remaining": "0.0",
+    "total": "0.0",
+    "rate": "0.0",
+    "average_price": "0.0"
+  },
+  {
+    "order_id": "1102488856",
+    "order_type": "BUY",
+    "deal_order_type": "Take Profit",
+    "cancellable": true,
+    "status_string": "Active",
+    "created_at": "2024-11-08T20:39:06.340Z",
+    "updated_at": "2024-11-08T21:54:34.204Z",
+    "quantity": "25.9",
+    "quantity_remaining": "25.9",
+    "total": "0.0",
+    "rate": "0.25",
+    "average_price": "0.0"
+  },
+  {
+    "order_id": "1102488858",
+    "order_type": "SELL",
+    "deal_order_type": "Safety",
+    "cancellable": false,
+    "status_string": "Filled",
+    "created_at": "2024-11-08T20:39:06.443Z",
+    "updated_at": "2024-11-08T21:54:33.294Z",
+    "quantity": "15.0",
+    "quantity_remaining": "0.0",
+    "total": "3.894858",
+    "rate": "0.2607",
+    "average_price": "0.2596572"
+  },
+  {
+    "order_id": "1102488849",
+    "order_type": "SELL",
+    "deal_order_type": "Base",
+    "cancellable": false,
+    "status_string": "Filled",
+    "created_at": "2024-11-08T20:39:05.801Z",
+    "updated_at": "2024-11-08T20:39:06.147Z",
+    "quantity": "10.0",
+    "quantity_remaining": "0.0",
+    "total": "2.580424",
+    "rate": "0.2596",
+    "average_price": "0.2580424"
+  }
+]
+```
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>

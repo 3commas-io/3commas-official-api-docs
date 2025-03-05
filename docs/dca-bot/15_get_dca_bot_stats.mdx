@@ -1,0 +1,99 @@
+---
+id: get-dca-bot-stats
+title: Get DCA Bot stats
+sidebar_class_name: get
+---
+
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+
+<Endpoint
+  url="/ver1/bots/stats"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="BOTS_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Returns profit and locked amount data on deals for all DCA Bots or an existing bot or an existing exchange account using their ID.
+
+<Separator />
+
+<StickyLayout.Root>
+   <StickyLayout.Main>
+    ## Query Parameters
+    <ApiParam name='account_id' type='integer' id="account_id">
+      Filters entities linked to the specified 3Commas exchange account.
+      
+      Use the [list of connected exchanges and wallets](/account/5_list_of_connected_exchanges_and_wallets.mdx) endpoint to retrieve the value for the  `account_id` parameter.
+    </ApiParam>
+    <ApiParam name='bot_id' type='integer' id="bot_id">
+      Filters entities linked to the specified DCA Bot.
+    </ApiParam>
+   </StickyLayout.Main>
+    <StickyLayout.Sticky>
+      ## Example request 
+
+      <NoContentEndpoint method='GET' endpoint='/ver1/bots/stats' />
+
+      </StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+  <StickyLayout.Main>
+      ## Response Parameters 
+      <ApiParam name='overall_stats' type='array' id="overall_stats">
+      Shows cumulative profit or loss by currency for all trading activity.
+      </ApiParam>
+      <ApiParam name='today_stats' type='array' id="today_stats">
+      Shows today's profit or loss by currency.
+      </ApiParam>
+      <ApiParam name='profits_in_usd' type='integer' id="profits_in_usd">
+          Contains detailed profit and loss data in USD.
+          <CollapsibleNestedParams>
+            <ApiParam name='overall_usd_profit' type="string" id="overall_usd_profit">
+                Cumulative USD profit or loss from all trading activity.
+            </ApiParam>
+            <ApiParam name='today_usd_profit' type="string" id="today_usd_profit">
+                USD profit or loss accumulated for the current day.
+            </ApiParam> 
+            <ApiParam name='active_deals_usd_profit' type="string" id="active_deals_usd_profit">
+                USD profit or loss from active (unclosed) deals.
+            </ApiParam> 
+        </CollapsibleNestedParams>
+      </ApiParam>
+  </StickyLayout.Main>
+
+  <StickyLayout.Sticky>
+    ## Example Response
+    <ResponseTabs.Root>
+      <ResponseTabs.TabItem value="200" label="200 OK" default>
+            ```json
+            {
+              "overall_stats": {
+                "USDT": "-47.47740906"
+              },
+              "today_stats": {
+                "USDT": "10.98885705"
+              },
+              "profits_in_usd": {
+                "overall_usd_profit": -47.48,
+                "today_usd_profit": 10.99,
+                "active_deals_usd_profit": 1.366505088,
+                "funds_locked_in_active_deals": 300.843218676
+              }
+            }
+            ```
+      </ResponseTabs.TabItem>
+    </ResponseTabs.Root>
+   </StickyLayout.Sticky>
+</StickyLayout.Root>
+

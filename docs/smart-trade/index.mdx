@@ -1,0 +1,95 @@
+---
+id: smart-trade
+sidebar_position: 6
+title: SmartTrade
+sidebar_class_name: hidden
+---
+
+import Endpoint from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+
+# SmartTrade
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+The SmartTrade allows users to open, manage, and close orders on the exchange with predefined conditions.
+
+3Commas provides a set of methods to create and manage SmartTrade entities and their associated trade entities.
+
+A SmartTrade entity holds information, including:
+
+  * Exchange account and trading pair
+  * Position data
+  * Conditions for Take Profit and Stop Loss
+  * Conditions for closing at market
+  * Conditions for reducing funds
+
+The process starts with a SmartTrade entity, where all conditions are configured.
+
+SmartTrade then manages trades, which are automatically created by 3Commas based on the conditions set within the SmartTrade entity.
+
+SmartTrade can include the following trade types:
+
+ * Position trade
+ * Take profit trade
+ * Stop-loss trade
+ * Reduce funds trade
+ * Market close trade
+
+ </StickyLayout.Main>
+
+<StickyLayout.Sticky>
+<Endpoint
+  endpointsList={[
+    {
+      url: "/v2/smart_trades",
+      method: 'POST'
+    },
+    {
+      url: "/v2/smart_trades",
+      method: 'GET'
+    },
+    {
+      url: "/v2/smart_trades/:id/add_funds",
+      method: 'POST'
+    },
+    {
+      url: "/v2/smart_trades/:id/reduce_funds",
+      method: 'POST'
+    },
+    {
+      url: "/v2/smart_trades/:id/close_by_market",
+      method: 'POST'
+    },
+    {
+      url: "/v2/smart_trades/:id/set_note",
+      method: 'POST'
+    },
+    {
+      url: "/v2/smart_trades/:id/force_start",
+      method: 'POST'
+    },
+    {
+      url: "/v2/smart_trades/:id",
+      method: 'PATCH'
+    },
+    {
+      url: "/v2/smart_trades/:id",
+      method: 'GET'
+    },
+    {
+      url: "/v2/smart_trades/:id/reduce_funds_info",
+      method: 'GET'
+    },
+    {
+      url: "/v2/smart_trades/:id",
+      method: 'DELETE'
+    }
+  ]}
+/>
+
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+

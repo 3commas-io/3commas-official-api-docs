@@ -1,0 +1,95 @@
+.steps {
+  --circle-size: 2rem;
+  --step-color: #13a8a1;
+  --step-background-color: #eaf5f5;
+  --step-separator-color: #eaf5f5;
+
+  display: flex;
+  flex-direction: column;
+  counter-reset: step;
+  margin-bottom: 1.75rem;
+}
+
+[data-theme="dark"] .steps {
+  --step-background-color: #13a8a11a;
+  --step-separator-color: #2c2e30;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  counter-increment: step;
+  position: relative;
+}
+
+.stepIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border-radius: 0.25rem;
+  color: var(--step-color);
+  background: var(--step-background-color);
+  font-size: var(--text-size);
+  font-weight: bold;
+  position: relative;
+}
+
+.circle::before {
+  content: counter(step);
+}
+
+.connector {
+  display: none;
+  width: 1px;
+  position: absolute;
+  background: var(--step-background-color);
+  flex: 1;
+  height: calc(100% - var(--circle-size) - 10px - 0.75rem);
+  top: calc(var(--circle-size) + 0.75rem);
+}
+
+.step:not(:last-child) .connector {
+  display: block;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow: auto;
+  font-size: var(--text-size);
+}
+
+.content h3 {
+  font-weight: 600;
+  margin-bottom: 0;
+  font-size: var(--text-size);
+}
+
+.content main {
+  color: var(--text-content-color);
+  padding-bottom: 1.25rem;
+}
+
+.content main *,
+.content main li {
+  margin: 0 0 6px;
+}
+
+.content pre > code {
+  margin: 0;
+}
+
+.content main code {
+  color: var(--ifm-heading-color);
+}

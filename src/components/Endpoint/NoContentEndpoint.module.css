@@ -1,0 +1,65 @@
+.container {
+  position: relative;
+  font: var(--ifm-code-font-size) / var(--ifm-pre-line-height) var(--ifm-font-family-monospace);
+}
+
+.codeBlockTitle {
+  display: flex;
+  overflow-x: auto;
+  align-items: center;
+  font-size: var(--ifm-code-font-size);
+  gap: 0.52rem;
+  padding: 1rem var(--ifm-pre-padding);
+  border-radius: 1rem;
+  background-color: var(--code-background-color);
+  white-space: nowrap;
+}
+
+.codeBlockTitle div {
+  margin-top: 1px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  padding: 0;
+  height: auto;
+  font-weight: 600;
+  font-size: 13px !important;
+  line-height: 1;
+}
+
+.codeBlockTitle span {
+  font-size: 14px !important;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.buttonGroup {
+  display: flex;
+  column-gap: 0.2rem;
+  position: absolute;
+  /* rtl:ignore */
+  right: calc(var(--ifm-pre-padding) / 2);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.buttonGroup button {
+  display: flex;
+  align-items: center;
+  background-color: var(--code-background-color);
+  color: var(--prism-color);
+  border-radius: var(--ifm-global-radius);
+  padding: 0.4rem;
+  line-height: 0;
+  transition: opacity var(--ifm-transition-fast) ease-in-out;
+  opacity: 0;
+}
+
+.buttonGroup button:focus-visible,
+.buttonGroup button:hover {
+  opacity: 1 !important;
+}
+
+.container:hover .codeBlockTitle .buttonGroup button {
+  opacity: 0.4;
+}

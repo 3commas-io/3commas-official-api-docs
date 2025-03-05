@@ -1,0 +1,127 @@
+.toc {
+  top: 0;
+  inset-inline-end: 0;
+  z-index: 10;
+  position: absolute;
+  width: max-content;
+  max-width: 500px;
+  background: white;
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(100%);
+  transition: all 0.2s ease;
+  will-change: transform, opacity;
+  width: 242px;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  margin-right: 10px;
+  background-color: var(--ifm-color-emphasis-0);
+  box-shadow:
+    rgba(15, 15, 15, 0.04) 0px 0px 0px 1px,
+    rgba(15, 15, 15, 0.03) 0px 3px 6px,
+    rgba(15, 15, 15, 0.06) 0px 9px 24px;
+  border: 1px solid var(--ifm-color-emphasis-0);
+  border-radius: 14px;
+  overflow-y: auto;
+
+  .tocLink {
+    color: var(--ifm-menu-color);
+    font-size: var(--text-size);
+    border-radius: 4px;
+    padding: 4px;
+    width: 100%;
+    display: block;
+
+    &:hover {
+      text-decoration: none;
+      transition: color var(--ifm-transition-fast)
+        var(--ifm-transition-timing-default);
+      background: var(--ifm-menu-color-background-hover);
+    }
+  }
+
+  .tocLinkActive {
+    color: var(--ifm-link-color);
+  }
+
+  ul {
+    padding-left: 12px;
+  }
+}
+
+.outline {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  will-change: opacity;
+  overflow: hidden;
+  list-style: none;
+  padding-bottom: 12px;
+  padding-right: 16px;
+
+  .outlineLink {
+    display: block;
+    padding-left: 24px;
+    height: 14px;
+    position: relative;
+    /* Hide text */
+    width: 24px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .outlineLink::after {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0;
+    display: block;
+    background: var(--ifm-color-emphasis-300);
+    height: 2px;
+    width: 16px;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+
+  .activeLink::after {
+    background: var(--ifm-toc-link-color);
+  }
+
+  ul {
+    .outlineLink::after {
+      width: 12px;
+      inset-inline-start: 4px;
+    }
+  }
+}
+
+.root {
+  position: sticky;
+  max-height: calc(100vh - (var(--ifm-navbar-height) + 2rem));
+  top: calc(var(--ifm-navbar-height) + 1rem);
+
+  ul {
+    list-style: none;
+
+    ul {
+      padding-left: 0 !important;
+
+      a {
+        padding-left: 24px !important;
+      }
+    }
+  }
+
+  &:hover {
+    .outline {
+      opacity: 0;
+    }
+
+    .toc {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(0);
+    }
+  }
+}

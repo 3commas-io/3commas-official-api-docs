@@ -1,0 +1,204 @@
+---
+id: trade-entity
+title: Trade entity
+---
+
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout'
+import * as ResponseTabs from '@site/src/components/ResponseTabs'
+
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+<h2 className='entity-heading'>Attributes</h2>
+
+<ApiParam name='id' type='integer' id="id">
+  Unique 3Commas Trade entity ID.
+</ApiParam>
+
+<ApiParam name='average_price' type='string or null' id="average_price">
+  The weighted average price at which the asset was bought or sold during the execution of the trades.
+</ApiParam>
+
+<ApiParam name='follow_price_type' type='string' id="follow_price_type">
+  The type of price to follow for this trade: `bid`, `ask` or `last`.
+</ApiParam>
+
+<ApiParam name='initial_amount' type='string' id="initial_amount">
+  The initial amount for this trade.
+</ApiParam>
+
+<ApiParam name='initial_total' type='string' id="initial_total">
+  The initial total for this trade.
+</ApiParam>
+
+<CollapseAll>
+<CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
+
+<CollapsibleApiParam name='initial_price' type='number' id="initial_price">
+   The initial price for this trade.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='order_price' type='string or null' id="order_price">
+   The limit price for this trade.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='order_side' type='string' id="order_side">
+   The side of the order to be created by this trade: `Buy` or `Sell`.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='order_type' type='string' id="order_type">
+   The type of order used to open the position trade.
+    <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+        * Market
+        * Limit
+        * Conditional
+        </CollapsibleNestedParams>
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='pair' type='string' id="pair">
+   Trading pair in 3Commas format for this trade.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='position_percentage' type='string or null' id="position_percentage">
+   Percentage of the step in Take Profit. 
+   
+   This field is only filled if `trade_purpose` is `take_profit`.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='realised_amount' type='string or null' id="realised_amount">
+   Indicates the realized amount from the trade.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='realised_total' type='string or null' id="realised_total">
+   Indicates the total realized amount from the trade.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='realised_percentage' type='number' id="realised_percentage">
+   Indicates the realized percentage of the total trade amount.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='realised_price' type='number or null' id="realised_price">
+   Indicates the realized price of the trade.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='status' type='string' id="status">
+   3Commas status for this Trade.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='take_profit_percentage' type='string or null' id="take_profit_percentage">
+   The percentage price level for Take Profit for this Trade.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='trade_purpose' type='string' id="trade_purpose">
+   The type of trade.
+    <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+        * position;
+        * take_profit;
+        * stop_loss;
+        * reduce_funds.
+        </CollapsibleNestedParams>
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='trail_percentage' type='string or null' id="trail_percentage">
+   Indicates the percentage deviation from the price for this trade.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='trail_value' type='string or null' id="trail_value">
+   Indicates the deviation from the price calculated by 3Commas for this trade.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='trailing_enabled' type='boolean' id="trailing_enabled">
+   Indicates whether the trailing settings for this trade can be edited.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='trailing_last_price' type='string or null' id="trailing_last_price">
+   Indicates the last price used for trailing.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='trailing_last_price_updated_at' type='number or null' id="trailing_last_price_updated_at">
+   Indicates the timestamp of the last update to the trailing price.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='trigger_condition' type='number or null' id="trigger_condition">
+   Indicates the condition under which the trigger is activated.
+   <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+        * greater;
+        * less;
+        * greater_or_equal;
+        * less_or_equal.
+        </CollapsibleNestedParams>
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='trigger_price' type='string or null' id="trigger_price">
+   Indicates the price at which the trigger is activated.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='trigger_price_percentage' type='string or null' id="trigger_price_percentage">
+   Indicates the percentage for the trigger price.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='trigger_type' type='string' id="trigger_type">
+   Indicates the type of trigger for the trade.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='created_at' type='string' id="created_at">
+   ISO 8601 datetime string of when this Trade entity was created.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='updated_at' type='string' id="updated_at">
+   ISO 8601 datetime string of when this Trade entity was updated.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='cancelable' type='boolean' id="cancelable">
+   Indicates whether this trade can be canceled `true` or not `false`.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='force_processable' type='boolean' id="force_processable">
+   Indicates whether this Trade can be close by market ('true') or not ('false').
+</CollapsibleApiParam>
+</CollapseAll>
+
+</StickyLayout.Main>
+<StickyLayout.Sticky>
+```json
+{
+  "id": 1006258056,
+  "average_price": null,
+  "follow_price_type": "last",
+  "initial_amount": "14.0",
+  "initial_total": "1.4182",
+  "order_price": null,
+  "order_side": "sell",
+  "order_type": "market",
+  "pair": "USDT_DOGE",
+  "position_percentage": "100.0",
+  "realised_amount": "0.0",
+  "realised_total": null,
+  "status": "to_process",
+  "take_profit_percentage": null,
+  "trade_purpose": "stop_loss",
+  "trail_percentage": null,
+  "trail_value": null,
+  "trailing_enabled": false,
+  "trailing_last_price": null,
+  "trailing_last_price_updated_at": null,
+  "trigger_condition": "less_or_equal",
+  "trigger_price": "0.1013",
+  "trigger_price_percentage": null,
+  "trigger_type": "conditional",
+  "created_at": "2024-08-12T16:24:38.461Z",
+  "updated_at": "2024-08-12T16:56:10.850Z",
+  "realised_percentage": "0.0",
+  "initial_price": "0.1013",
+  "realised_price": null,
+  "cancelable": true,
+  "force_processable": true
+}
+``` 
+   </StickyLayout.Sticky>
+</StickyLayout.Root>

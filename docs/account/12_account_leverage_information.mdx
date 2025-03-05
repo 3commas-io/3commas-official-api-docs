@@ -1,0 +1,137 @@
+---
+id: account-leverage-information
+title: Account leverage information
+sidebar_class_name: post
+---
+
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+
+<Endpoint
+  url="/ver1/accounts/:account_id/leverage_data"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="ACCOUNTS_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Returns a list of leverages that the exchange market is using.
+
+<Separator />
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Path Parameter
+
+<ApiParam name='account_id' type='integer' id="account_id" required>
+    Unique 3Commas ID of this exchange account entity.
+</ApiParam>
+
+## Query Parameter
+
+<ApiParam name='page' type='integer' id="page" required>
+   Page number for pagination. 
+   
+  <ParameterRange default={1} />
+</ApiParam>
+
+</StickyLayout.Main>
+<StickyLayout.Sticky>
+
+## Example Request
+
+<NoContentEndpoint method="GET" endpoint="/ver1/accounts/32833910/leverage_data?pair=USDC_DOGE" />
+
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Response Parameters
+
+<ApiParam name="code" type="string" id="code">
+   Unique code identifying the leverage type.
+</ApiParam>
+<ApiParam name="name" type="boolean" id="name">
+   Display name for the leverage type.
+</ApiParam>
+<ApiParam name="can_set_leverage_value" type="boolean" id="can_set_leverage_value">
+   Indicates whether the leverage value can be set by the user.
+</ApiParam>
+
+<ApiParam name="max_leverage" type="string or null" id="max_leverage">
+   Maximum allowable leverage value for this type, or null if there is no limit.
+</ApiParam>
+
+<ApiParam name="available_leverage_values" type="array" id="available_leverage_values">
+   List of specific leverage values available for this type, if any
+</ApiParam>
+
+<ApiParam name="valid" type="object" id="valid">
+ Contains the minimum and maximum allowable leverage values for this type.
+    <CollapsibleNestedParams>
+      <ApiParam name='min' type="string or null" id="min">
+           Minimum allowable leverage value
+      </ApiParam> 
+      <ApiParam name='max' type="string or null" id="max">
+           Maximum allowable leverage value
+      </ApiParam>   
+   </CollapsibleNestedParams>
+</ApiParam>
+
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+
+## Example Response
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="201" label="201 Created " default>
+
+```json
+[
+  {
+    "code": "none",
+    "name": "Not specified",
+    "can_set_leverage_value": false,
+    "max_leverage": null,
+    "available_leverage_values": [],
+    "valid": {}
+  },
+  {
+    "code": "cross",
+    "name": "Cross",
+    "can_set_leverage_value": true,
+    "available_leverage_values": [],
+    "max_leverage": null,
+    "valid": {
+      "min": "1.0",
+      "max": null
+    }
+  },
+  {
+    "code": "isolated",
+    "name": "Isolated",
+    "can_set_leverage_value": true,
+    "available_leverage_values": [],
+    "max_leverage": null,
+    "valid": {
+      "min": "1.0",
+      "max": null
+    }
+  }
+]
+```
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>

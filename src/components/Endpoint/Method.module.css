@@ -1,0 +1,63 @@
+.container {
+  font-weight: 600;
+  font-family:
+    Graphik,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  line-height: 1.2;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.medium {
+  height: 26px;
+  border-radius: 6px;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filled {
+  background-color: var(--accent);
+  color: white;
+}
+
+.text {
+  color: var(--accent);
+}
+
+.right {
+  justify-content: end;
+}
+
+.put {
+  --accent: #ff9800;
+}
+
+.get {
+  --accent: #17b26a;
+}
+
+.post {
+  --accent: #2196f3;
+}
+
+.delete {
+  --accent: #f44336;
+}
+
+.patch {
+  --accent: #9c27b0;
+}
+
+.head {
+  --accent: #607d8b;
+}

@@ -1,0 +1,125 @@
+---
+id: get-dca-bot-profit-data
+title: Get DCA Bot profit data
+sidebar_class_name: get
+---
+
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+
+<Endpoint
+  url="/ver1/bots/:bot_id/profit_by_day"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="BOTS_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Returns daily profit data for a specified DCA Bot, grouped by date and identified by its unique ID.
+
+<Separator />
+
+<StickyLayout.Root>
+   <StickyLayout.Main>
+        ## Path Parameter
+        <ApiParam name='id' type='integer' id="id" required>
+        Unique 3Commas ID for this DCA Bot entity.
+        </ApiParam>
+        ## Query Parameter
+        <ApiParam name='days' type='integer' id="days">
+        Specifies the number of days for which profit data is requested for this bot.
+        
+        <ParameterRange defaultVal={30} />
+        </ApiParam>
+     </StickyLayout.Main>
+    <StickyLayout.Sticky>
+        ## Example Request
+
+        <NoContentEndpoint method="GET" endpoint="/ver1/bots/15565014/profit_by_day" />
+
+    </StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+    <StickyLayout.Main>
+        ## Response Parameters
+        <ApiParam name=' s_date' type='string' id=" s_date">
+        The specific date for which profit data is recorded for the this DCA Bot.
+        </ApiParam>
+        <ApiParam name='unix_timestamp' type='integer' id="unix_timestamp">
+        The date represented as a Unix Timestamp for which profit data is recorded
+        </ApiParam>   
+        <ApiParam name='profit' type='object' id="profit">
+            Contain profit or loss data for the specified day, broken down by currency
+            <CollapsibleNestedParams>
+            <ApiParam name='btc' type="integer" id="btc">
+                BTC profit or loss from deals per day.
+            </ApiParam>
+            <ApiParam name='usd' type="integer" id="usd">
+                USD profit or loss from deals per day.
+            </ApiParam> 
+        </CollapsibleNestedParams>
+        </ApiParam>
+    </StickyLayout.Main>
+    <StickyLayout.Sticky>
+        ## Example Response
+        <ResponseTabs.Root>
+            <ResponseTabs.TabItem value="201" label="201 Created" default>
+        ```json
+        {
+          "data": [
+            {
+              "s_date": "2024-10-28",
+              "unix_timestamp": 1730073600,
+              "profit": {
+                "btc": "0.00002960",
+                "usd": "2.05"
+              }
+            },
+            {
+              "s_date": "2024-10-29",
+              "unix_timestamp": 1730160000,
+              "profit": {
+                "btc": "0.00001436",
+                "usd": "1.02"
+              }
+            },
+            {
+              "s_date": "2024-10-30",
+              "unix_timestamp": 1730246400,
+              "profit": {
+                "btc": "0.00001456",
+                "usd": "1.06"
+              }
+            },
+            {
+              "s_date": "2024-11-06",
+              "unix_timestamp": 1730851200,
+              "profit": {
+                "btc": "0.00002720",
+                "usd": "2.05"
+              }
+            },
+            {
+              "s_date": "2024-11-07",
+              "unix_timestamp": 1730937600,
+              "profit": {
+                "btc": "0.00002823",
+                "usd": "2.13"
+              }
+            }
+          ]
+        }
+        ```
+            </ResponseTabs.TabItem>
+        </ResponseTabs.Root>
+    </StickyLayout.Sticky>
+</StickyLayout.Root>

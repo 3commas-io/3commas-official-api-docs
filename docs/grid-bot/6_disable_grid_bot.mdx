@@ -1,0 +1,132 @@
+---
+id: disable-grid-bot
+title: Disable Grid Bot
+sidebar_class_name: post
+---
+
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout'
+import * as ResponseTabs from '@site/src/components/ResponseTabs'
+
+<Endpoint
+  url="/ver1/grid_bots/:id/disable"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="BOTS_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Stops an existing Grid Bot using its ID.
+
+<Separator />
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Path Parameter 
+<ApiParam name='id' type='integer' id="id" required>
+   Unique 3Commas ID for this Grid Bot entity.
+</ApiParam>
+
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+
+## Example Request 
+
+<NoContentEndpoint method="POST" endpoint="/ver1/grid_bots/2338357/disable" />
+
+  </StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Response Parameters 
+
+If successful, the response includes a copy of the updated [Grid Bot](/grid-bot/0_grid_bot_entity.mdx) entity.
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+
+## Example Response
+
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="201" label="201 Created" default>
+
+```json
+{
+  "id": 2338357,
+  "account_id": 32833909,
+  "account_name": "My Binance",
+  "is_enabled": false,
+  "grids_quantity": "81",
+  "created_at": "2024-10-03T19:53:35.530Z",
+  "updated_at": "2024-10-04T12:56:30.912Z",
+  "strategy_type": "manual",
+  "upper_stop_loss_enabled": false,
+  "lower_stop_loss_enabled": false,
+  "note": null,
+  "editable": false,
+  "lower_price": "0.016352",
+  "lower_stop_loss_price": null,
+  "lower_stop_loss_action": "stop_bot",
+  "upper_price": "0.022503",
+  "upper_stop_loss_price": null,
+  "upper_stop_loss_action": "stop_bot",
+  "quantity_per_grid": "20.0",
+  "leverage_type": "cross",
+  "leverage_custom_value": "10.0",
+  "name": "VETUSDT/BNFCR",
+  "pair": "BNFCR_VETUSDT",
+  "start_price": "0.021968",
+  "grid_price_step": "1.00399920581210916146041542739112586575949572812639182",
+  "current_profit": "1.9739482002440976",
+  "current_profit_usd": "1.9739482002440976",
+  "total_profits_count": "17",
+  "bought_volume": "0.0",
+  "sold_volume": "0.0",
+  "profit_percentage": "0.1234688657622554423137524222839342",
+  "current_price": "0.022341",
+  "max_active_buy_lines": "81",
+  "max_active_sell_lines": "81",
+  "order_currency_type": "quote",
+  "profit_currency_type": "quote",
+  "trailing_up_enabled": "true",
+  "grid_type": "geometric",
+  "investment_base_currency": "0.0",
+  "investment_quote_currency": "0.0",
+  "unrealized_profit_loss": "0.0",
+  "current_profit_loss": null,
+  "current_profit_loss_percent": null,
+  "orderbook_price_currency": "BNFCR",
+  "expansion_down_enabled": "false",
+  "expansion_down_stop_price": null,
+  "grid_lines": [
+    {
+      "id": 256427632,
+      "price": "0.018506",
+      "side": null,
+      "order_placed": false
+    },
+    {
+      "id": 256427679,
+      "price": "0.022325",
+      "side": null,
+      "order_placed": false
+    }
+  ]
+}
+```
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>

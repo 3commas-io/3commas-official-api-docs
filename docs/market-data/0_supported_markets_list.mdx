@@ -1,0 +1,237 @@
+---
+id: supported_markets_list
+title: Supported markets list
+sidebar_class_name: get
+---
+
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+
+<Endpoint
+  url="/ver1/accounts/market_list"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="NONE" />
+      <Permission title="Security" description="NONE" />
+    </>
+  }
+/>
+
+Returns the list of markets supported by 3Commas.
+
+<Separator />
+
+<StickyLayout.Root>
+   <StickyLayout.Main>
+## Request parameters
+
+No parameters.
+
+</StickyLayout.Main>
+<StickyLayout.Sticky>
+## Example Request
+
+    <NoContentEndpoint method="GET" endpoint="/ver1/accounts/market_list" />
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+   <StickyLayout.Main>
+
+## Response parameters
+
+<ApiParam name='market_name' type='string' id="market_name">
+Name of the exchange in the 3Commas system.
+</ApiParam>
+
+<ApiParam name='market_url' type='string' id="market_url">
+The referral link to the exchange website.
+</ApiParam>
+
+<ApiParam name='market_icon' type='string' id="market_icon">
+The URL link to the icon for this exchange.
+</ApiParam>
+
+<ApiParam name='help_link' type='string' id="help_link">
+The public URL to the help page with detailed instructions on connecting the exchange.
+</ApiParam>
+
+<CollapseAll>
+<CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
+
+<CollapsibleApiParam name='form_fields' type='object' id="form_fields">
+    Contains required and optional fields necessary for connecting to the exchange.
+    <CollapsibleNestedParams>
+    <ApiParam name='required' type='array[object]' id="required">
+      Shows required fields necessary for connecting to the exchange.
+        <CollapsibleNestedParams>
+             <ApiParam name='field'type='string' id="field">
+              The parameter needs to connect a new exchange account.
+
+              Example: `api_key`, `secret`
+            </ApiParam>
+             <ApiParam name='localized_name'type='string' id="localized_name">
+              Display name of the field, localized for user convenience.
+            </ApiParam>
+        </CollapsibleNestedParams>
+     </ApiParam>
+    <ApiParam name='optional' type='array[object]' id="optional">
+      Shows optinal fields need for connecting to the exchange.
+        <CollapsibleNestedParams>
+             <ApiParam name='field'type='string' id="field">
+             The parameter needs to connect a new exchange account.
+
+              Example: `api_key`, `secret`
+            </ApiParam>
+             <ApiParam name='localized_name'type='string' id="localized_name">
+              Display name of the field, localized for user convenience.
+            </ApiParam>
+        </CollapsibleNestedParams>
+     </ApiParam>
+  </CollapsibleNestedParams>   
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='available_connection_flows' type='array' id="available_connection_flows">
+Available exchange connection types in 3Commas.
+    <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **form** - connection through a web form option;
+      * **fast_connect** - quick connection option.
+     </CollapsibleNestedParams>
+</CollapsibleApiParam>
+  
+<CollapsibleApiParam name='third_party_allowed' type='boolean' id="third_party_allowed">
+  This exchange provides a service for connecting third-party apps. If `false`, the exchange does not support this functionality.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='trusted_ips' type='array[string]' id="trusted_ips">
+  The list of IP addresses needs to be whitelisted on the exchange's website for 3Commas to work with the exchange.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='trusted_ips_input_type' type='string' id="trusted_ips_input_type">
+  Input type for trusted IP addresses.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='fast_connect_action_name' type='string' id="fast_connect_action_name">
+  Name of the exchange for fast connection option in the 3Commas system.
+</CollapsibleApiParam>   
+</CollapseAll>
+
+</StickyLayout.Main>
+   <StickyLayout.Sticky>
+
+## Example Response
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="200" label="200 OK" default>
+```json
+[
+  {
+    "market_name": "Binance Futures USDT-M (EEA)",
+    "market_url": "https://www.binance.com/en/futures/ref/108190303",
+    "market_icon": "https://3commas.io/img/exchanges/binance.png",
+    "help_link": "https://help.3commas.io/en/articles/3568667",
+    "market_code": "binance_futures_eea",
+    "form_fields": {
+      "required": [
+        {
+          "field": "secret",
+          "localized_name": "API Secret:"
+        },
+        {
+          "field": "api_key",
+          "localized_name": "API Key:"
+        }
+      ],
+      "optional": [
+        
+      ]
+    },
+    "available_connection_flows": [
+      "form"
+    ],
+    "third_party_allowed": false,
+    "trusted_ips": [
+      "103.26.9.7",
+      "103.26.9.15",
+      "103.26.9.23",
+      "103.26.9.31",
+      "103.26.9.39",
+      "103.26.9.47",
+      "103.26.9.55",
+      "103.26.9.63",
+      "103.26.9.71",
+      "103.26.9.79",
+      "103.26.9.87",
+      "103.26.9.95",
+      "103.26.9.103",
+      "103.26.9.111",
+      "103.26.9.119",
+      "103.26.9.127",
+      "103.26.9.135",
+      "103.26.9.143",
+      "103.26.9.151",
+      "103.26.9.159",
+      "103.26.9.167",
+      "103.26.9.175",
+      "103.26.9.183",
+      "103.26.9.191",
+      "103.26.9.199",
+      "103.26.9.207",
+      "103.26.9.215",
+      "103.26.9.223",
+      "103.26.9.231",
+      "103.26.9.239",
+      "103.26.9.247",
+      "103.26.9.255"
+    ],
+    "trusted_ips_input_type": "inline",
+    "fast_connect_action_name": "binance"
+  },
+  {
+    "market_name": "OKX",
+    "market_url": "https://www.okx.com/join/60047333",
+    "market_icon": "https://3commas.io/img/exchanges/okex.png",
+    "help_link": "https://help.3commas.io/en/articles/3109057",
+    "market_code": "okex",
+    "form_fields": {
+      "required": [
+        {
+          "field": "secret",
+          "localized_name": "API Secret:"
+        },
+        {
+          "field": "api_key",
+          "localized_name": "API Key:"
+        },
+        {
+          "field": "passphrase",
+          "localized_name": "Passphrase:"
+        }
+      ],
+      "optional": [
+        
+      ]
+    },
+    "available_connection_flows": [
+      "fast_connect",
+      "form"
+    ],
+    "third_party_allowed": false,
+    "trusted_ips": [
+      "103.26.9.0/24"
+    ],
+    "trusted_ips_input_type": "inline",
+    "fast_connect_action_name": "okex"
+  }
+]
+```
+   </ResponseTabs.TabItem>
+  </ResponseTabs.Root>
+   </StickyLayout.Sticky>
+</StickyLayout.Root>

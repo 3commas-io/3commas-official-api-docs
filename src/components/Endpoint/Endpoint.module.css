@@ -1,0 +1,59 @@
+.root {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  margin-bottom: var(--ifm-heading-margin-bottom);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  padding: 4px 8px 4px 4px;
+  gap: 12px;
+  border-radius: 8px;
+  background: var(--code-background-color);
+  font-style: normal;
+  font-family:
+    JetBrains Mono,
+    monospace;
+  font-size: 14px;
+  word-break: break-word;
+  line-height: 1.5;
+}
+
+.endpointsListContainer {
+  min-width: auto;
+  padding-right: 14px;
+  padding-left: 6px;
+  gap: 4px;
+}
+
+.urlOnly {
+  padding-left: 6px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.permissions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+.url {
+  font-size: var(--text-size);
+  line-height: 1.5;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-style: dashed;
+  }
+}

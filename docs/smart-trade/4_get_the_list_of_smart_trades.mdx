@@ -1,0 +1,224 @@
+---
+id: get-the-list-of-smart-trade
+title: Get the list of SmartTrades
+sidebar_class_name: get
+---
+
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import Separator from '@site/src/components/Separator';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+
+<Endpoint
+  url="/v2/smart_trades"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="SMART_TRADES_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Returns the list of SmartTrade. Use the query parameters to filter the results.
+
+<Separator />
+
+<StickyLayout.Root>
+   <StickyLayout.Main>
+   ## Query Parameters
+        <ApiParam name='account_id' type='integer' id="account_id">
+        Returns entities related to the specified 3Commas exchange account.
+
+        Use endpoint [User connected exchanges and wallets list](/account/5_list_of_connected_exchanges_and_wallets.mdx) to get value for parameter.
+        </ApiParam>
+        <ApiParam name='pair' type='string' id="pair">
+        Name of the trading pair in 3Commas format.
+        </ApiParam>
+        <ApiParam name='type' type='string' id="type">
+        Set a type of SmartTrade what you want to get in response.
+        </ApiParam>
+        <ApiParam name='page' type='integer' id="page">
+        Page number for pagination.
+
+          <ParameterRange defaultVal={1} />
+        </ApiParam>
+
+        <CollapseAll>
+       <CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
+        <CollapsibleApiParam name='per_page' type='integer' id="per_page">
+          Quantity of records on one page. 
+          <ParameterRange min={1} max={100} defaultVal={10} />
+        </CollapsibleApiParam>
+        <CollapsibleApiParam name='status' type='string' id="status">
+        Filters SmartTrades by their status.
+            <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+                * all;
+                * active;
+                * finished;
+                * successfully_finish;
+                * cancelled;
+                * failed.
+                </CollapsibleNestedParams>
+        </CollapsibleApiParam>
+        <CollapsibleApiParam name='order_by' type='string' id="order_by">
+            Specifies the field by which to sort the response. Choose one of value: `created_at`, `updated_at`, `closed_at`, `status`, `profit`, `profit_percentage`. 
+
+          <ParameterRange defaultVal={"status"} />
+        </CollapsibleApiParam>
+        <CollapsibleApiParam name='order_direction' type='string' id="order_direction">
+        Sets the direction of order `ASC` or `DESC`.
+
+        <ParameterRange defaultVal={"DESC"} />
+        </CollapsibleApiParam>
+        <CollapsibleApiParam name='from' type='string' id="from">
+        Parameter for filtering by creation date.
+        </CollapsibleApiParam>
+        <CollapsibleApiParam name='to' type='string' id="to">
+        Parameter for filtering by creation date.
+        </CollapsibleApiParam>
+        <CollapsibleApiParam name='base' type='string' id="base">
+        Base currency.
+        </CollapsibleApiParam>
+        <CollapsibleApiParam name='quote' type='string' id="quote">
+        Quote currency.
+        </CollapsibleApiParam>
+        </CollapseAll>
+</StickyLayout.Main>
+<StickyLayout.Sticky>
+    ## Example Request
+
+    <NoContentEndpoint method="GET" endpoint="/v2/smart_trades?type=smart_trade&order_by=status&from=2022-01-01T00:00:00.000Z&to=2023-01-01T00:00:00.000Z" />
+
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+
+<StickyLayout.Root>
+    <StickyLayout.Main>
+        ## Response Parameters 
+        If successful, the response will contain an array of [SmartTrade](/smart-trade/0_smart_trade_entity.mdx) entities.
+    </StickyLayout.Main>
+    <StickyLayout.Sticky>
+## Example Response
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="200" label="200 OK" default>
+```json
+[
+  {
+    "id": 28934742,
+    "version": 2,
+    "account": {
+      "id": 32435557,
+      "type": "kucoin",
+      "name": "My Kucoin",
+      "market": "Kucoin Spot",
+      "link": "/accounts/32435557"
+    },
+    "pair": "USDT_DOGE",
+    "instant": false,
+    "status": {
+      "type": "failed",
+      "basic_type": "failed",
+      "title": "Failed",
+      "error": "You need to pass KYC on the exchange to trade on this pair"
+    },
+    "leverage": {
+      "enabled": false
+    },
+    "position": {
+      "type": "buy",
+      "editable": false,
+      "units": {
+        "value": "10.0",
+        "editable": false
+      },
+      "price": {
+        "value": "0.1038",
+        "value_without_commission": "0.1038",
+        "editable": true
+      },
+      "total": {
+        "value": "1.7542"
+      },
+      "order_type": "market",
+      "status": {
+        "type": "failed",
+        "basic_type": "failed",
+        "title": "Failed",
+        "error": "You need to pass KYC on the exchange to trade on this pair"
+      }
+    },
+    "take_profit": {
+      "enabled": true,
+      "price_type": "value",
+      "steps": []
+    },
+    "stop_loss": {
+      "enabled": false
+    },
+    "reduce_funds": {
+      "steps": []
+    },
+    "market_close": {},
+    "note": "",
+    "note_raw": null,
+    "skip_enter_step": false,
+    "data": {
+      "editable": false,
+      "current_price": {
+        "bid": "0.10379",
+        "ask": "0.1038",
+        "last": "0.10379",
+        "quote_volume": "4062766.6804568596516",
+        "day_change_percent": "1.2"
+      },
+      "target_price_type": "price",
+      "orderbook_price_currency": "USDT",
+      "base_order_finished": true,
+      "missing_funds_to_close": "0.0",
+      "liquidation_price": null,
+      "average_enter_price": null,
+      "average_close_price": null,
+      "average_enter_price_without_commission": null,
+      "average_close_price_without_commission": null,
+      "panic_sell_available": false,
+      "add_funds_available": false,
+      "reduce_funds_available": false,
+      "force_start_available": false,
+      "force_process_available": false,
+      "cancel_available": false,
+      "finished": false,
+      "base_position_step_finished": true,
+      "entered_amount": "0.0",
+      "entered_total": "0.0",
+      "closed_amount": "0.0",
+      "closed_total": "0.0",
+      "commission": "0.001",
+      "created_at": "2024-04-05T02:53:32.225Z",
+      "updated_at": "2024-04-05T02:54:39.074Z",
+      "closed_at": "2024-04-05T02:54:39.045Z",
+      "type": "smart_trade"
+    },
+    "profit": {
+      "volume": null,
+      "usd": null,
+      "percent": "0.0",
+      "roe": null
+    },
+    "margin": {
+      "amount": null,
+      "total": null
+    },
+    "is_position_not_filled": true
+  }
+]
+```
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>

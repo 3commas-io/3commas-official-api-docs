@@ -1,0 +1,257 @@
+---
+id: cancel-trade
+title: Cancel trade
+sidebar_class_name: delete
+---
+
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import { Informer } from '@site/src/components/Informer/Informer';
+
+<Endpoint
+  url="/v2/smart_trades/:smart_trade_id/trades/:trade_id"
+  method="DELETE"
+  permissions={
+    <>
+      <Permission title="Permission" description="SMART_TRADES_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Cancels a specific trade within a SmartTrade using its ID.
+
+<Informer variant="warning">
+Keep in mind, to avoid canceling the SmartTrade, make sure to leave at least one step in the Take Profit trade and avoid deleting the Stop Loss trade.
+</Informer>
+
+<Separator />
+
+<StickyLayout.Root>
+    <StickyLayout.Main>
+        ## Path Parameters
+        <ApiParam name='smart_trade_id' type='integer' id="smart_trade_id" required>
+        Unique 3Commas ID for this SmartTrade entity.
+        </ApiParam>
+        <ApiParam name='trade_id' type='integer' id="trade_id" required>
+        Unique 3Commas ID for Trade entity.
+        </ApiParam>
+    </StickyLayout.Main>
+    <StickyLayout.Sticky>
+## Example Request
+
+<NoContentEndpoint method="DELETE" endpoint="/v2/smart_trades/30428625/trades/1008300673" />
+
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+## Response Parameters
+If successful response, the response includes a copy of the updated SmartTrade entity. You can find a total description of all attributes on the page about [SmartTrade](/smart-trade/0_smart_trade_entity.mdx).
+</StickyLayout.Main>
+<StickyLayout.Sticky>
+## Example Response
+<ResponseTabs.TabItem value="200" label="200 OK" default>
+```json
+{
+  "id": 30428625,
+  "version": 2,
+  "account": {
+    "id": 32402783,
+    "type": "binance_us",
+    "name": "My Binance US",
+    "market": "Binance US Spot",
+    "link": "/accounts/32402783"
+  },
+  "pair": "USDT_DOGE",
+  "instant": false,
+  "status": {
+    "type": "waiting_targets",
+    "basic_type": "waiting_targets",
+    "title": "Waiting Targets"
+  },
+  "leverage": {
+    "enabled": false
+  },
+  "position": {
+    "type": "buy",
+    "editable": true,
+    "units": {
+      "value": "20.0",
+      "editable": false
+    },
+    "price": {
+      "value": "0.10268",
+      "value_without_commission": null,
+      "editable": true
+    },
+    "total": {
+      "value": "2.0536"
+    },
+    "order_type": "market",
+    "status": {
+      "type": "smart_sell",
+      "basic_type": "smart_sell",
+      "title": "Own funds"
+    }
+  },
+  "take_profit": {
+    "enabled": true,
+    "price_type": "value",
+    "steps": [
+      {
+        "id": 1008300673,
+        "order_type": "limit",
+        "editable": true,
+        "units": {
+          "value": "7.0"
+        },
+        "price": {
+          "type": "last",
+          "value": "0.3",
+          "percent": null
+        },
+        "volume": "35.0",
+        "total": "2.1",
+        "trailing": {
+          "enabled": false,
+          "percent": null
+        },
+        "status": {
+          "type": "order_placed",
+          "basic_type": "order_placed",
+          "title": "Placed"
+        },
+        "data": {
+          "cancelable": true,
+          "panic_sell_available": true
+        },
+        "position": 1
+      },
+      {
+        "id": 1008300674,
+        "order_type": "limit",
+        "editable": true,
+        "units": {
+          "value": "7.0"
+        },
+        "price": {
+          "type": "last",
+          "value": "0.4",
+          "percent": null
+        },
+        "volume": "35.0",
+        "total": "2.8",
+        "trailing": {
+          "enabled": false,
+          "percent": null
+        },
+        "status": {
+          "type": "order_placed",
+          "basic_type": "order_placed",
+          "title": "Placed"
+        },
+        "data": {
+          "cancelable": true,
+          "panic_sell_available": true
+        },
+        "position": 2
+      }
+    ]
+  },
+  "stop_loss": {
+    "enabled": true,
+    "price_type": "value",
+    "breakeven": false,
+    "order_type": "market",
+    "editable": true,
+    "price": {
+      "value": null,
+      "percent": null
+    },
+    "conditional": {
+      "price": {
+        "value": "0.09754",
+        "type": "last",
+        "percent": null
+      },
+      "trailing": {
+        "enabled": false,
+        "percent": null
+      }
+    },
+    "timeout": {
+      "enabled": false,
+      "value": null
+    },
+    "status": {
+      "type": "to_process",
+      "basic_type": "to_process",
+      "title": "Pending"
+    }
+  },
+  "reduce_funds": {
+    "steps": []
+  },
+  "market_close": {},
+  "note": "",
+  "note_raw": null,
+  "skip_enter_step": true,
+  "data": {
+    "editable": true,
+    "current_price": {
+      "day_change_percent": "-2.728",
+      "bid": "0.10257",
+      "ask": "0.1027",
+      "last": "0.10268",
+      "quote_volume": "136509.39725"
+    },
+    "target_price_type": "price",
+    "orderbook_price_currency": "USDT",
+    "base_order_finished": true,
+    "missing_funds_to_close": "0.0",
+    "liquidation_price": null,
+    "average_enter_price": null,
+    "average_close_price": null,
+    "average_enter_price_without_commission": null,
+    "average_close_price_without_commission": null,
+    "panic_sell_available": true,
+    "add_funds_available": true,
+    "reduce_funds_available": true,
+    "force_start_available": false,
+    "force_process_available": true,
+    "cancel_available": true,
+    "finished": false,
+    "base_position_step_finished": true,
+    "entered_amount": "20.0",
+    "entered_total": "2.0536",
+    "closed_amount": "0.0",
+    "closed_total": "0.0",
+    "commission": 0.001,
+    "created_at": "2024-08-14T19:51:43.100Z",
+    "updated_at": "2024-08-14T19:51:43.892Z",
+    "type": "smart_sell"
+  },
+  "profit": {
+    "volume": "-0.0042514",
+    "usd": "-0.0042514",
+    "percent": "-0.21",
+    "roe": null
+  },
+  "margin": {
+    "amount": null,
+    "total": null
+  },
+  "is_position_not_filled": false
+}
+```
+         </ResponseTabs.TabItem>
+    </StickyLayout.Sticky>
+</StickyLayout.Root>

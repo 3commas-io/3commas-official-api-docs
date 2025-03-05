@@ -1,0 +1,196 @@
+---
+id: get-the-list-of-dca-bots
+title: Get the list of DCA Bots
+sidebar_class_name: get
+---
+
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+
+<Endpoint
+  url="/ver1/bots"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="BOTS_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Returns a list of DCA Bots by user. Use the query parameters to filter the results.
+
+<Separator />
+
+<StickyLayout.Root>
+   <StickyLayout.Main>
+
+## Query Parameters 
+
+<ApiParam name='account_id' type='integer' id="account_id">
+  Filters entities linked to the specified 3Commas exchange account.
+
+  Use endpoint [User connected exchanges and wallets list](/account/5_list_of_connected_exchanges_and_wallets.mdx) to get value for parameter.
+</ApiParam>
+
+<ApiParam name="strategy" type="string" id="strategy">
+  Filters bots by trading strategy type: `long` or `short`.
+</ApiParam>
+
+<ApiParam name="order_direction" type="string" id="order_direction">
+  Sets the direction of order `ASC` or `DESC`.
+
+   <ParameterRange defaultVal={"DESC"} />
+</ApiParam>
+
+<CollapseAll>
+<CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
+<CollapsibleApiParam name="limit" type="integer" id="limit">
+  Limits the number of records returned. 
+
+  <ParameterRange max={100} defaultVal={50} />
+</CollapsibleApiParam>
+<CollapsibleApiParam name="offset" type="integer" id="offset">
+  Skips the first N records in the results.
+</CollapsibleApiParam>
+<CollapsibleApiParam name="from" type="integer" id="from">
+  Returns entities created after a specific time.
+</CollapsibleApiParam>
+<CollapsibleApiParam name="scope" type="string" id="scope">
+  Filters bots by their status.
+  
+   <ParameterRange defaultVal={"null"} />
+    <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **enable** - Returns bots where the state is active
+      * **disabled** - Returns bots where the state is stopped
+      * **null** - Returns all bots
+     </CollapsibleNestedParams>
+</CollapsibleApiParam>
+<CollapsibleApiParam name="sort_by" type="string" id="sort_by">
+  Specifies the field used to order the results: `created_at`, `updated_at`, `profit`.
+
+   <ParameterRange defaultVal={"created_at"} />
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="quote" type="string" id="quote">
+  Filters by quote currency.
+</CollapsibleApiParam>
+</CollapseAll>
+   </StickyLayout.Main>
+
+   <StickyLayout.Sticky>
+
+## Example Request
+
+<NoContentEndpoint method="GET" endpoint="/ver1/bots/12345678/show?include_events=true" />
+
+   </StickyLayout.Sticky>
+   </StickyLayout.Root>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Response Parameters 
+ 
+  If successful, the response includes copies of the [DCA Bot](/dca-bot/0_dca_bot_entity.mdx) entity.
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+## Example Response
+
+<ResponseTabs.Root>
+	 <ResponseTabs.TabItem value="200" label="200 OK" default>
+```json
+[
+  {
+    "id": 15565014,
+    "account_id": 32199203,
+    "is_enabled": true,
+    "max_safety_orders": 3,
+    "active_safety_orders_count": 3,
+    "pairs": [
+      "USDT_ETH"
+    ],
+    "strategy_list": [
+      {
+        "options": {},
+        "strategy": "nonstop"
+      }
+    ],
+    "close_strategy_list": [
+      {
+        "options": {
+          "time": "3m",
+          "points": "70",
+          "time_period": "7",
+          "trigger_condition": "greater"
+        },
+        "strategy": "rsi"
+      }
+    ],
+    "safety_strategy_list": [],
+    "max_active_deals": 1,
+    "active_deals_count": 1,
+    "deletable?": false,
+    "created_at": "2024-10-24T21:53:26.994Z",
+    "updated_at": "2024-10-30T06:11:52.685Z",
+    "trailing_enabled": null,
+    "tsl_enabled": false,
+    "deal_start_delay_seconds": null,
+    "stop_loss_timeout_enabled": false,
+    "stop_loss_timeout_in_seconds": 0,
+    "disable_after_deals_count": null,
+    "deals_counter": null,
+    "allowed_deals_on_same_pair": null,
+    "easy_form_supported": false,
+    "close_deals_timeout": null,
+    "url_secret": "...",
+    "take_profit_steps": [],
+    "name": "20 oct number 2",
+    "take_profit": "0.0",
+    "min_profit_percentage": "2.0",
+    "base_order_volume": "50.0",
+    "safety_order_volume": "15.0",
+    "safety_order_step_percentage": "1.0",
+    "take_profit_type": "base",
+    "min_profit_type": "base_order_volume",
+    "type": "Bot::SingleBot",
+    "martingale_volume_coefficient": "1.7",
+    "martingale_step_coefficient": "4.0",
+    "stop_loss_percentage": "0.0",
+    "cooldown": "300",
+    "btc_price_limit": "0.0",
+    "strategy": "long",
+    "min_volume_btc_24h": "0.0",
+    "profit_currency": "quote_currency",
+    "min_price": null,
+    "max_price": null,
+    "stop_loss_type": "stop_loss",
+    "safety_order_volume_type": "quote_currency",
+    "base_order_volume_type": "quote_currency",
+    "account_name": "Paper Account 1251857",
+    "trailing_deviation": "0.2",
+    "finished_deals_profit_usd": "4.12902028",
+    "finished_deals_count": "4",
+    "leverage_type": "not_specified",
+    "leverage_custom_value": null,
+    "start_order_type": "limit",
+    "active_deals_usd_profit": "-7.006519044",
+    "reinvesting_percentage": "100.0",
+    "risk_reduction_percentage": "0.0",
+    "reinvested_volume_usd": null,
+    "min_price_percentage": null,
+    "max_price_percentage": null
+  }
+]
+```
+</ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>

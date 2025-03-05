@@ -1,0 +1,377 @@
+---
+id: dca-bot-entity
+title: DCA Bot entity
+---
+
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout'
+import * as ResponseTabs from '@site/src/components/ResponseTabs'
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+<h2 className='entity-heading'>Attributes</h2>
+
+<ApiParam name='id' type='integer' id="id">
+     Unique 3Commas ID for this DCA Bot entity.
+</ApiParam>
+
+<ApiParam name='account_id' type='integer' id="account_id">
+     Unique 3Commas ID for this exchange account entity.
+</ApiParam>
+
+<ApiParam name='is_enabled' type='boolean' id="is_enabled">
+     Indicates whether DCA Bot is currently enabled `true` or not `false`.
+</ApiParam>
+
+<ApiParam name='pairs' type='string' id="pairs">
+     Trading pair(s) in 3Commas format.
+</ApiParam>
+
+
+<CollapseAll>
+<CollapseAllHeading> More attributes <CollapseAllButton /> </CollapseAllHeading>
+
+<CollapsibleApiParam name='strategy_list' type='array[json]' id="strategy_list">
+     An array of strategies used for opening deals in this DCA Bot.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='close_strategy_list' type='array[json]' id="close_strategy_list">
+     An array of strategies used for closing deals in this DCA Bot.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='safety_strategy_list' type='array[json]' id="safety_strategy_list">
+     Array of strategies specifically for the execution of your safety orders in this DCA Bot.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='max_active_deals' type='integer' id="max_active_deals">
+The maximum number of active deals available for this DCA Bot.
+
+<ParameterRange defaultVal="1" />
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='active_deals_count' type='string' id="active_deals_count">
+The current number of active deals managed by this bot.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='deletable?' type='boolean' id="deletable?">
+     Indicates whether this DCA Bot can be deleted `true` or not `false`.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='created_at' type='string' id="created_at">
+     ISO 8601 datetime string of when this DCA Bot entity was created.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='updated_at' type='string' id="updated_at">
+     ISO 8601 datetime string of when this DCA Bot entity was update last time.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='trailing_enabled' type='boolean' id="trailing_enabled">
+     Indicates whether trailing is enabled for Take Profit of this bot `true` or not `false`.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='trailing_deviation' type='number' id="trailing_deviation">
+     Percentage value of the trailing price, in percent.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='tsl_enabled' type='boolean' id="tsl_enabled">
+     Indicates whether trailing is enabled for Stop Loss `true` or not `false` for this DCA Bot.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name='deal_start_delay_seconds' type='integer or null' id="deal_start_delay_seconds">
+     Delay in seconds before a next deal starts.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="stop_loss_timeout_enabled" type="boolean" id="stop_loss_timeout_enabled">
+     Indicates if the Stop Loss timeout is active `true` or not `false`.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="stop_loss_timeout_in_seconds" type="boolean" id="stop_loss_timeout_in_seconds">
+     Duration of the Stop Loss timeout in seconds.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="disable_after_deals_count" type="integer" id="disable_after_deals_count">
+     The number of deals after that the bot will be switched to disabled (is_enabled: `false`)
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="deals_counter" type="integer" id="deals_counter">
+ Tracks the number of deals executed by the bot for `disable_after_deals_count`.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="allowed_deals_on_same_pair" type="integer or null" id="allowed_deals_on_same_pair">
+ Number of active deals allowed with the same trading pair simultaneously. It worls only for bot where `type` is `Bot::MultiBot`.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="close_deals_timeout" type="integer or null" id="allowed_deals_on_same_pair">
+ The time in seconds after which the deals will close automatically.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="url_secret" type="string" id="url_secret">
+ Unique code this DCA Bot using for copying this bot.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="take_profit_type" type="string" id="take_profit_type">
+ Type of take profit calculation: `base`, `total`.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="take_profit" type="number" id="take_profit">
+ Percentage value for the bot’s Take Profit.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="take_profit_steps" type="object" id="take_profit_steps">
+ Details of the Take Profit and its steps applied to this DCA Bot.
+ <CollapsibleNestedParams>
+     <ApiParam name='id' type="integer" id="id">
+        Step number of Take Profit.
+      </ApiParam>
+     <ApiParam name='amount_percentage' type="string" id="amount_percentage">
+        The percentage of the base order volume to be allocated for this Take Profit step.
+      </ApiParam>
+     <ApiParam name='profit_percentage' type="string" id="profit_percentage">
+        The specific profit percentage applied to the volume of units for this Take Profit step.
+     </ApiParam>
+  </CollapsibleNestedParams>
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="name" type="string" id="name">
+ Name assigned to the bot.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="base_order_volume_type" type="string" id="base_order_volume_type">
+ Volume type for base orders: `quote_currency`, `base_currency`, `percent`.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="base_order_volume" type="number" id="base_order_volume">
+ The volume of the base order for this DCA Bot.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="safety_order_volume_type" type="string" id="safety_order_volume_type">
+ The volume type for the Safety Order in this DCA Bot.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="safety_order_volume" type="string" id="safety_order_volume">
+ The volume of the Safety Order for this DCA Bot.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="safety_order_step_percentage" type="number" id="safety_order_step_percentage">
+ Price deviation in percentage to open Safety Orders.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="max_safety_orders" type="integer" id="max_safety_orders">
+ Maximum number of Safety Orders allowed for per deal.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="active_safety_orders_count" type="integer" id="active_safety_orders_count">
+ The number of active Safety Orders the DCA Bot is allowed to place at one time.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="min_profit_type" type="string or null" id="min_profit_type">
+ The type of minimum profit used as the basis for profit calculation in this DCA Bot, applicable to the close strategy of Take Profit.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="min_profit_percentage" type="string or null" id="min_profit_percentage">
+ The minimum profit percentage which need to reach for this DCA Bot to complete a deal, applicable to the close strategy of Take Profit.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="type" type="string" id="type">
+ The type of DCA Bot, based on the number of pairs. If a single pair is passed, a `Bot::SingleBot` is created_at.
+
+ If two or more pairs are passed, a `Bot::MultiBot` is created.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="martingale_volume_coefficient" type="number" id="martingale_volume_coefficient">
+ Coefficient for increasing *safety order volume* in Martingale strategy.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="martingale_step_coefficient" type="number" id="martingale_step_coefficient">
+ Coefficient for increasing safety order price `safety_order_step_percentage` in Martingale strategy.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="stop_loss_type" type="string" id="stop_loss_type">
+ Specifies the type of action the bot performs when Stop Loss is triggered after closing a deal.
+     <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+      * **stop_loss** - closes the deal without disabling the bot
+      * **stop_loss_and_disable_bot** - closes the deal and disables the bot
+     </CollapsibleNestedParams>
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="stop_loss_percentage" type="number" id="stop_loss_percentage">
+ Stop loss percentage for this bot.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="stop_loss_timeout_enabled" type="boolean" id="stop_loss_timeout_enabled">
+ Indicates if the Stop Loss timeout is active.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="stop_loss_timeout_in_seconds" type="integer" id="stop_loss_timeout_in_seconds">
+ Duration of the Stop Loss timeout in seconds.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="cooldown" type="number" id="cooldown">
+ The waiting time between closing a deal and accepting a signal to create a new deal for the same asset pair (sec.).
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="strategy" type="string" id="strategy">
+ Type of strategy used by the bot: `long`, `short`.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="min_volume_btc_24h" type="number" id="min_volume_btc_24h">
+ The minimum trading volume in BTC over the last 24 hours required to open a deal.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="profit_currency" type="string" id="profit_currency">
+ Currency used for the profit from the trades executed by this bot.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="min_price" type="string or null" id="min_price">
+ Minimum price at which the new deal will open for thi DCA Bot.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="max_price" type="string or null" id="max_price">
+ Maximum price at which the new deal will open for thi DCA Bot.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="account_name" type="string" id="account_name">
+ The name for the exchange account set by the user.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="trailing_deviation" type="number" id="trailing_deviation">
+ Percentage value of the trailing price, in percent.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="finished_deals_profit_usd" type="string" id="finished_deals_profit_usd">
+ Total profit in USD from all deals completed by this DCA Bot.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="finished_deals_count" type="string" id="finished_deals_count">
+ Total number of deals finished by DCA Bot.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="leverage_type" type="string" id="leverage_type">
+  Type of leverage applied for this DCA Bot.
+  <CollapsibleNestedParams openName="Hide allowed values" collapsedName="Show allowed values">
+       * **cross** - uses all available funds in your account as collateral for your trades
+       * **isolated** - the margin is limited to a specific position
+       * **not_specified** - no leverage type specified for this DCA Bot
+  </CollapsibleNestedParams>
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="leverage_custom_value" type="string" id="leverage_custom_value">
+ The leverage value set by the user.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="start_order_type" type="string" id="start_order_type">
+ Type of order to start deals with: `limit`, `market`.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="active_deals_usd_profit" type="string" id="active_deals_usd_profit">
+ Total USD profit from active deals.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="risk_reduction_percentage" type="number" id="risk_reduction_percentage">
+ Percentage of losses reduction applied for this DCA Bot.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="reinvesting_percentage" type="number" id="reinvesting_percentage">
+ The percentage of realized profit to be reinvested into each new deal.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="reinvested_volume_usd" type="number or null" id="reinvested_volume_usd">
+ USD volume reinvested from profit.
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="min_price_percentage" type="string or null" id="min_price_percentage">
+ Minimum price percentage for bot activation (only for Multy bot).
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="max_price_percentage" type="string or null" id="max_price_percentage">
+ Max price percent (only for Multy bot).
+</CollapsibleApiParam>
+
+<CollapsibleApiParam name="active_deals" type="array" id="active_deals">
+  List of active [deals](/dca-bot/deals/index.mdx) managed by this DCA Bot.
+</CollapsibleApiParam>
+</CollapseAll>
+
+</StickyLayout.Main>
+
+<StickyLayout.Sticky>
+
+```json
+{
+  "id": 15564828,
+  "account_id": 32833909,
+  "is_enabled": false,
+  "max_safety_orders": 4,
+  "active_safety_orders_count": 1,
+  "pairs": [
+    "BNFCR_1INCHUSDT"
+  ],
+  "strategy_list": [
+    {
+        "strategy": "nonstop",
+        "options": {}
+    }
+  ],
+  "close_strategy_list": [],
+  "safety_strategy_list": [],
+  "max_active_deals": 1,
+  "active_deals_count": 0,
+  "deletable?": true,
+  "created_at": "2024-10-24T19:57:43.635Z",
+  "updated_at": "2024-10-24T19:57:43.635Z",
+  "trailing_enabled": null,
+  "tsl_enabled": false,
+  "deal_start_delay_seconds": null,
+  "stop_loss_timeout_enabled": false,
+  "stop_loss_timeout_in_seconds": 0,
+  "disable_after_deals_count": null,
+  "deals_counter": null,
+  "allowed_deals_on_same_pair": null,
+  "easy_form_supported": false,
+  "close_deals_timeout": null,
+  "url_secret": "...",
+  "take_profit_steps": [],
+  "name": "test 24 oct",
+  "take_profit": "2.0",
+  "min_profit_percentage": null,
+  "base_order_volume": "15.0",
+  "safety_order_volume": "30.0",
+  "safety_order_step_percentage": "1.0",
+  "take_profit_type": "total",
+  "min_profit_type": null,
+  "type": "Bot::SingleBot",
+  "martingale_volume_coefficient": "2.0",
+  "martingale_step_coefficient": "4.0",
+  "stop_loss_percentage": "0.0",
+  "cooldown": "0",
+  "btc_price_limit": "0.0",
+  "strategy": "long",
+  "min_volume_btc_24h": "0.0",
+  "profit_currency": "quote_currency",
+  "min_price": null,
+  "max_price": null,
+  "stop_loss_type": "stop_loss",
+  "safety_order_volume_type": "quote_currency",
+  "base_order_volume_type": "quote_currency",
+  "account_name": "My Binance",
+  "trailing_deviation": "0.2",
+  "finished_deals_profit_usd": "0.0",
+  "finished_deals_count": "0",
+  "leverage_type": "not_specified",
+  "leverage_custom_value": null,
+  "start_order_type": "limit",
+  "active_deals_usd_profit": "0.0",
+  "reinvesting_percentage": null,
+  "risk_reduction_percentage": null,
+  "reinvested_volume_usd": null,
+  "min_price_percentage": null,
+  "max_price_percentage": null
+}
+```
+
+</StickyLayout.Sticky>
+</StickyLayout.Root>

@@ -1,0 +1,44 @@
+---
+id: limits
+title: Limits
+---
+
+import CodeBlock from '@theme/CodeBlock';
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+
+## General Rules
+
+Our REST API enforces a maximum of **100 requests per minute**.
+
+If the rate limit is exceeded, the API will respond with an HTTP status code `429 Too Many Requests`, and access will be temporarily restricted for a mitigation period of 300 seconds.
+
+## Rate limits for specific endpoints
+
+
+<Endpoint
+  url="/ver1/deals"
+  method="GET"
+/>
+
+120 requests per minute. If the rate limit is exceeded, the API will respond with an HTTP status code `429 Too Many Requests`, and access will be temporarily restricted for a mitigation period of 60 seconds.
+
+---
+<Endpoint
+  url="/ver1/smart_trades"
+  method="GET"
+/>
+
+40 requests per 10 seconds. If the rate limit is exceeded, the API will respond with an HTTP status code `429 Too Many Requests`, and access will be temporarily restricted for a mitigation period of 10 seconds.
+
+---
+<Endpoint
+  url="/ver1/deals/:deal_id/show"
+  method="GET"
+/>
+
+120 requests per minute. If the rate limit is exceeded, the API will respond with an HTTP status code `429 Too Many Requests`, and access will be temporarily restricted for a mitigation period of 60 seconds.
+
+---
+After receiving a `429 Too Many Requests` status code, you must reduce the frequency of your requests. Repeated violations or failure to slow down after a `429` response may result in an automatic IP ban (HTTP status `418`).
+
+IP bans are tracked and increase in duration for repeated violations, ranging from 2 minutes to 3 days.

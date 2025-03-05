@@ -1,0 +1,141 @@
+---
+id: set-a-note-to-grid-bot
+title: Set a note to Grid Bot
+sidebar_class_name: post
+---
+
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import * as StickyLayout from '@site/src/components/StickyLayout'
+import * as ResponseTabs from '@site/src/components/ResponseTabs'
+
+<Endpoint
+  url="/ver1/grid_bots/:id/note"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="BOTS_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Adds a note to an existing Grid Bot.
+
+<Separator />
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Path Parameter
+<ApiParam name='id' type='integer' id="id" required>
+   Unique 3Commas ID for this Grid Bot entity.
+</ApiParam>
+
+## Body Parameter
+<ApiParam name='note' type='string' id="note" required>
+   Short note for this Grid Bot.
+
+   <ParameterRange min={1} max={300} labels={{min: "minlength", max: "maxlength"}} />
+</ApiParam>
+</StickyLayout.Main>
+
+
+<StickyLayout.Sticky>
+
+## Example Request
+
+```json title="POST /ver1/grid_bots/2345678/note"
+{
+  "note": "Welcome to 3Commas"
+}
+```
+</StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+## Response Parameters 
+
+If successful, the response includes a copy of the updated [Grid Bot](/grid-bot/0_grid_bot_entity.mdx) entity.
+
+</StickyLayout.Main>
+<StickyLayout.Sticky>
+
+## Example Response
+<ResponseTabs.Root>
+<ResponseTabs.TabItem value="201" label="201 Created" default>
+
+```json
+{
+  "id": 2345678,
+  "account_id": 12345678,
+  "account_name": "My Gate.io",
+  "is_enabled": true,
+  "grids_quantity": "81",
+  "created_at": "2024-10-07T19:25:19.985Z",
+  "updated_at": "2024-10-09T14:13:39.557Z",
+  "strategy_type": "manual",
+  "upper_stop_loss_enabled": false,
+  "lower_stop_loss_enabled": false,
+  "note": "Welcome to my 3Commas",
+  "editable": true,
+  "lower_price": "0.10666",
+  "lower_stop_loss_price": null,
+  "lower_stop_loss_action": "stop_bot",
+  "upper_price": "0.14684",
+  "upper_stop_loss_price": null,
+  "upper_stop_loss_action": "stop_bot",
+  "quantity_per_grid": "1.525",
+  "leverage_type": "cross",
+  "leverage_custom_value": "2.0",
+  "name": "DOGE_USDT/USDT",
+  "pair": "USDT_DOGE_USDT",
+  "start_price": "0.11039",
+  "grid_price_step": "1.00400421244009637656317025927833165569247348802034686",
+  "current_profit": "0.0525794080425",
+  "current_profit_usd": "0.0525794080425",
+  "total_profits_count": "11",
+  "bought_volume": "0.0",
+  "sold_volume": "0.0",
+  "profit_percentage": "0.0432471845769986214701905266378677861600871",
+  "current_price": "0.10845",
+  "max_active_buy_lines": "81",
+  "max_active_sell_lines": "81",
+  "order_currency_type": "quote",
+  "profit_currency_type": "quote",
+  "trailing_up_enabled": "false",
+  "grid_type": "geometric",
+  "investment_base_currency": "187.866461151707395146189982951",
+  "investment_quote_currency": "6.1",
+  "unrealized_profit_loss": "0.05167074832",
+  "current_profit_loss": "0.1042501563625",
+  "current_profit_loss_percent": "0.0857469857923420859557751844894011126939894",
+  "orderbook_price_currency": "USDT",
+  "expansion_down_enabled": "false",
+  "expansion_down_stop_price": null,
+  "grid_lines": [
+    {
+        "id": 256570088,
+        "price": "0.10972",
+        "side": "sell",
+        "order_placed": false
+    },
+    {
+        "id": 256563805,
+        "price": "0.11283",
+        "side": "sell",
+        "order_placed": true
+    }
+  ]
+}
+```
+  </ResponseTabs.TabItem>
+</ResponseTabs.Root>
+</StickyLayout.Sticky>
+</StickyLayout.Root>
