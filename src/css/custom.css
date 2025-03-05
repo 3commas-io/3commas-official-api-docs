@@ -951,6 +951,10 @@ li.menu__list-item > .category-title-hr.titled {
 }
 
 @media (max-width: 996px) {
+  .theme-doc-markdown header {
+    display: none;
+  }
+
   .navbar {
     height: 68px;
   }
