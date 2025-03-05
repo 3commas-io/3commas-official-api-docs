@@ -3,8 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      # TODO: change me
-      - docusaurus
+      - master
 
 jobs:
   build-deploy:
