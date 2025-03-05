@@ -552,6 +552,11 @@ a {
 code {
   font-size: var(--text-emphasis-size) !important;
   border: none;
+  box-shadow: none !important;
+}
+
+.codeBlockContainer_Ckt0 {
+  box-shadow: none !important;
 }
 
 strong {

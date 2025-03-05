@@ -4,7 +4,6 @@
   cursor: pointer;
   text-decoration: none;
 
-
   &:hover {
     .homePageItemDescription {
       color: var(--ifm-heading-color);

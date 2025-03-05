@@ -16,7 +16,8 @@ const HomePageWrapper = () => {
       <HomePageItem
         data={{
           title: "DCA Bot",
-          description: "Automate trading on the exchange using a Dollar Cost Averaging (DCA) strategy.",
+          description:
+            "Automate trading on the exchange using a Dollar Cost Averaging (DCA) strategy.",
           icon: "dcaBot",
           link: "/dca-bot",
         }}
@@ -32,7 +33,8 @@ const HomePageWrapper = () => {
       <HomePageItem
         data={{
           title: "Grid Bot",
-          description: "Automate trading strategies by executing a series of buy and sell orders within predefined price ranges.",
+          description:
+            "Automate trading strategies by executing a series of buy and sell orders within predefined price ranges.",
           icon: "gridBot",
           link: "/grid-bot",
         }}
@@ -40,7 +42,8 @@ const HomePageWrapper = () => {
       <HomePageItem
         data={{
           title: "Market Data",
-          description: "Essential information about cryptocurrency exchanges, trading pairs, and market rules.",
+          description:
+            "Essential information about cryptocurrency exchanges, trading pairs, and market rules.",
           icon: "marketData",
           link: "/market-data",
         }}
@@ -48,7 +51,8 @@ const HomePageWrapper = () => {
       <HomePageItem
         data={{
           title: "Smart Trade",
-          description: "Open, manage, and close orders on the exchange with predefined conditions.",
+          description:
+            "Open, manage, and close orders on the exchange with predefined conditions.",
           icon: "smartTrade",
           link: "/smart-trade",
         }}
