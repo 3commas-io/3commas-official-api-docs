@@ -58,9 +58,8 @@ const ScrollStylingManager = () => {
           window.innerWidth >= 1261 !== endpointEdge?.desktop)
       ) {
         const rect = endpoint.getBoundingClientRect();
-        const newEdge = rect.top - 15;
         setEndpointEdge({
-          edge: newEdge > 115 ? newEdge : 115,
+          edge: Math.max(rect.top - 15, 115),
           desktop: window.innerWidth >= 1261,
         });
       }
@@ -105,20 +104,18 @@ const ScrollStylingManager = () => {
 
         if (breadcrumbs) breadcrumbs.classList.add("scrolledClass");
       } else {
-        cleanUpElements();
+        const endpointPlaceholder = document.querySelector(
+          "#endpointPlaceholder",
+        );
+        const headingPlaceholder = document.querySelector(
+          "#headingPlaceholder",
+        );
+
+        if (endpointPlaceholder) endpointPlaceholder.remove();
+        if (headingPlaceholder) headingPlaceholder.remove();
 
         if (breadcrumbs) breadcrumbs.classList.remove("scrolledClass");
       }
-    };
-
-    const cleanUpElements = () => {
-      const endpointPlaceholder = document.querySelector(
-        "#endpointPlaceholder",
-      );
-      const headingPlaceholder = document.querySelector("#headingPlaceholder");
-
-      if (endpointPlaceholder) endpointPlaceholder.remove();
-      if (headingPlaceholder) headingPlaceholder.remove();
     };
 
     window.addEventListener("scroll", handleScroll);
