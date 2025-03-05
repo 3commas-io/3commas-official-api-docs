@@ -552,6 +552,11 @@ a {
 code {
   font-size: var(--text-emphasis-size) !important;
   border: none;
+  box-shadow: none !important;
+}
+
+.codeBlockContainer_Ckt0 {
+  box-shadow: none !important;
 }
 
 strong {
@@ -951,6 +956,10 @@ li.menu__list-item > .category-title-hr.titled {
 }
 
 @media (max-width: 996px) {
+  .theme-doc-markdown header {
+    display: none;
+  }
+
   .navbar {
     height: 68px;
   }

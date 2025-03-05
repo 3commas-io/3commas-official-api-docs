@@ -83,7 +83,7 @@ export const SignatureCalculator = () => {
           ? headersObj
           : `No signature generated yet. Please fill out the form and generate one.`}
       </CodeBlock>
-      
+
       <Informer variant="warning">
         You can either pass Search Params or Request Body
       </Informer>
