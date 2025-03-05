@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 const ScrollStylingManager = () => {
   useEffect(() => {
@@ -32,16 +32,16 @@ const ScrollStylingManager = () => {
       const isExcluded = excludedRoutes.includes(window.location.pathname);
 
       const breadcrumbs = document.querySelector(".breadcrumbsContainer_Ar0W");
-      const container = document.querySelector(".container_eK_a");
+      const endpoint = document.querySelector(".container_eK_a");
       const h1 = document.querySelector(".theme-doc-markdown header h1");
       const header = document.querySelector(".theme-doc-markdown header");
 
-      if (window.scrollY >= 140) {
+      if (window.scrollY >= 155) {
         let placeholder = document.querySelector(".placeholder") as HTMLElement;
         if (!placeholder) {
-          placeholder = document.createElement("div");
-          placeholder.className = "placeholder";
-          placeholder.style.height = "60px";
+          placeholder = endpoint.cloneNode(true) as HTMLElement;
+
+          placeholder.classList.add("placeholder");
           header.appendChild(placeholder);
         }
         if (breadcrumbs) breadcrumbs.classList.add("scrolledClass");
@@ -54,8 +54,8 @@ const ScrollStylingManager = () => {
             h1.classList.remove("scrolledClassMain");
           }
         }
-        if (!isExcluded && container) {
-          container.classList.add("scrolledClass");
+        if (!isExcluded && endpoint) {
+          placeholder.classList.add("scrolledClass");
         }
       } else {
         const placeholder = document.querySelector(".placeholder");
@@ -67,7 +67,7 @@ const ScrollStylingManager = () => {
           h1.classList.remove("scrolledClass");
           h1.classList.remove("scrolledClassMain");
         }
-        if (container) container.classList.remove("scrolledClass");
+        if (endpoint) endpoint.classList.remove("scrolledClass");
       }
     };
 
