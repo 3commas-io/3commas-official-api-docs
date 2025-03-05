@@ -14,7 +14,7 @@ Visit the site to explore guides, API references, examples, and more.
 
 - **/docs**: Contains all MDX files used by Docusaurus.
 - **/static**: Holds static assets (images, files, etc.) referenced in the documentation.
-- **docusaurus.config.js**: Configuration file for Docusaurus.
+- **docusaurus.config.ts**: Configuration file for Docusaurus.
 
 ## Getting Started Locally
 
