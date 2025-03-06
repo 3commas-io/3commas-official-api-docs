@@ -1,6 +1,7 @@
 .container {
   position: relative;
-  font: var(--ifm-code-font-size) / var(--ifm-pre-line-height) var(--ifm-font-family-monospace);
+  font: var(--ifm-code-font-size) / var(--ifm-pre-line-height)
+    var(--ifm-font-family-monospace);
 }
 
 .codeBlockTitle {

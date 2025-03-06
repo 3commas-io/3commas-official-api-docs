@@ -56,8 +56,10 @@ export function Endpoint({ url, method, permissions, endpointsList }: Props) {
           onOpenChange={handleOpenChange}
           content={copied ? "Copied!" : "Copy"}
         >
-
-          <span className={clsx(styles.url, method ? "" : styles.urlOnly)} onClick={() => handleCopy(url)}>
+          <span
+            className={clsx(styles.url, method ? "" : styles.urlOnly)}
+            onClick={() => handleCopy(url)}
+          >
             {url}
           </span>
         </Tooltip>
@@ -68,7 +70,10 @@ export function Endpoint({ url, method, permissions, endpointsList }: Props) {
   return (
     <div className={styles.root}>
       <div
-        className={clsx(styles.container, endpointsList && styles.endpointsListContainer)}
+        className={clsx(
+          styles.container,
+          endpointsList && styles.endpointsListContainer,
+        )}
       >
         {endpointContent}
       </div>
