@@ -75,6 +75,12 @@ const config: Config = {
       theme: customLightTheme,
       darkTheme: customDarkTheme,
     },
+    algolia: {
+      // Safe to commit. Scope only allows search in the developers.3commas.io index.
+      appId: "6MVPU5XJH8",
+      apiKey: "2559e4f1b39cf34977491636a20fe300",
+      indexName: "developers_3commas_io",
+    },
   } satisfies Preset.ThemeConfig,
 };
 export default config;
