@@ -122,7 +122,7 @@ const ScrollStylingManager = () => {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [endpointEdge, window.innerWidth]);
+  }, [endpointEdge]);
 
   return null;
 };
