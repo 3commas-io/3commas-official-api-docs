@@ -52,7 +52,7 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: "img/docusaurus-social-card.jpg",
+    image: "img/3commas_api_social_card.jpg",
     navbar: {
       logo: {
         alt: "3Commas API Platform",
