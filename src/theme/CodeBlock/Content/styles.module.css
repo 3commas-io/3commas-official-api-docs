@@ -19,7 +19,8 @@
   white-space: nowrap;
   color: var(--ifm-font-color-base);
   padding: 1rem var(--ifm-pre-padding);
-  font: var(--ifm-code-font-size) / var(--ifm-pre-line-height) var(--ifm-font-family-monospace);
+  font: var(--ifm-code-font-size) / var(--ifm-pre-line-height)
+    var(--ifm-font-family-monospace);
 }
 
 .codeBlockTitle div {
@@ -61,6 +62,7 @@
   float: left;
   min-width: 100%;
   padding: var(--ifm-pre-padding);
+  box-shadow: none !important;
 }
 
 .codeBlockLinesWithNumbering {

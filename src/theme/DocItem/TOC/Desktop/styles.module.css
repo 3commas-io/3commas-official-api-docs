@@ -43,7 +43,7 @@
   }
 
   .tocLinkActive {
-    color: var(--ifm-link-color);
+    color: var(--ifm-link-color) !important;
   }
 
   ul {
