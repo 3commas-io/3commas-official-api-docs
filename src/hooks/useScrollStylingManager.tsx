@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const excludedRoutes = [
   // general-information
@@ -36,31 +36,61 @@ const excludedRoutes = [
   "/smart-trade/trades/trade-entity",
 ];
 
-const ScrollStylingManager = () => {
+const BREADCRUMBS_LAST_BREAKPOINT = 1534; // you can verify this breakpoint here: src/theme/DocItem/Layout/styles.module.css
+
+const useScrollStylingManager = () => {
+  const containerInitialized = useRef<boolean>(false);
+
+  const h1Ref = useRef<HTMLHeadingElement | null>(null);
+  const endpoint = useRef<HTMLElement | null>(null);
   const [endpointEdge, setEndpointEdge] = useState<{
     edge: number;
     desktop: boolean;
   } | null>(null);
 
   useEffect(() => {
+    const endpointEl = document.querySelector(".container_eK_a");
+    const h1El = document.querySelector(".theme-doc-markdown header h1");
+
+    if (endpointEl) {
+      endpoint.current = endpointEl as HTMLElement;
+
+      const rect = endpointEl.getBoundingClientRect();
+      setEndpointEdge({
+        edge: rect.top - 12, // 12 is the approximate bottom space of the headerContentContainer element
+        desktop: window.innerWidth >= BREADCRUMBS_LAST_BREAKPOINT,
+      });
+    }
+
+    h1Ref.current = h1El as HTMLHeadingElement;
+
+    const headerContentContainer = document.createElement("div");
+    headerContentContainer.id = "headerContentContainer";
+    document
+      .querySelector(".theme-doc-markdown header")
+      .appendChild(headerContentContainer);
+
+    containerInitialized.current = true;
+  }, []);
+
+  useEffect(() => {
+    if (!containerInitialized.current || endpointEdge === null) return;
+
     const handleScroll = () => {
       const isExcluded = excludedRoutes.includes(window.location.pathname);
 
       const breadcrumbs = document.querySelector(".breadcrumbsContainer_Ar0W");
-      const endpoint = document.querySelector(".container_eK_a");
-
-      const h1 = document.querySelector(".theme-doc-markdown header h1");
-      const header = document.querySelector(".theme-doc-markdown header");
+      const headerContent = document.querySelector("#headerContentContainer");
 
       if (
-        (endpoint && endpointEdge === null) ||
-        (endpointEdge !== null &&
-          window.innerWidth >= 1261 !== endpointEdge?.desktop)
+        endpointEdge !== null &&
+        window.innerWidth >= BREADCRUMBS_LAST_BREAKPOINT !==
+          endpointEdge?.desktop
       ) {
-        const rect = endpoint.getBoundingClientRect();
+        const rect = endpoint.current.getBoundingClientRect();
         setEndpointEdge({
-          edge: Math.max(rect.top - 15, 115),
-          desktop: window.innerWidth >= 1261,
+          edge: rect.top + window.scrollY, // here we need to add the scrollY because the rect.top is relative to the viewport
+          desktop: window.innerWidth >= BREADCRUMBS_LAST_BREAKPOINT,
         });
       }
 
@@ -81,24 +111,23 @@ const ScrollStylingManager = () => {
           !isExcluded &&
           window.innerWidth > 996
         ) {
-          endpointPlaceholder = endpoint.cloneNode(true) as HTMLElement;
+          endpointPlaceholder = endpoint.current.cloneNode(true) as HTMLElement;
           endpointPlaceholder.id = "endpointPlaceholder";
           endpointPlaceholder.classList.add("scrolledClass");
-          header.appendChild(endpointPlaceholder);
+          headerContent.appendChild(endpointPlaceholder);
         }
 
-        if (!headingPlaceholder && h1 && window.innerWidth > 996) {
+        if (!headingPlaceholder && h1Ref.current && window.innerWidth > 996) {
           headingPlaceholder = document.createElement("h1");
           headingPlaceholder.id = "headingPlaceholder";
-          headingPlaceholder.textContent = h1.textContent || "";
-          headingPlaceholder.dataset.mock = "true";
+          headingPlaceholder.textContent = h1Ref.current.textContent || "";
 
           if (isExcluded) {
             headingPlaceholder.classList.add("scrolledClassMain");
-            header.appendChild(headingPlaceholder);
+            headerContent.appendChild(headingPlaceholder);
           } else if (!isExcluded && window.innerWidth >= 1920) {
             headingPlaceholder.classList.add("scrolledClass");
-            header.appendChild(headingPlaceholder);
+            headerContent.appendChild(headingPlaceholder);
           }
         }
 
@@ -123,8 +152,6 @@ const ScrollStylingManager = () => {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, [endpointEdge]);
-
-  return null;
 };
 
-export default ScrollStylingManager;
+export default useScrollStylingManager;

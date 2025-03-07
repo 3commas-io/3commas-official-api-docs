@@ -50,15 +50,6 @@
 
   @media (min-width: 997px) {
     --ifm-global-spacing: 1.5rem;
-    --url-width: min(525px, max(260px, fit-content(100%)));
-  }
-
-  @media (min-width: 1100px) {
-    --url-width: min(580px, max(260px, fit-content(100%)));
-  }
-
-  @media (min-width: 1261px) {
-    --url-width: clamp(233px, 28vw, 400px);
   }
 }
 
@@ -671,6 +662,18 @@ li.menu__list-item > .category-title-hr.titled {
   }
 }
 
+#headerContentContainer {
+  height: 59px;
+  position: fixed;
+  z-index: 1000;
+  inset: 0 300px auto;
+  padding-left: 1rem;
+  padding-right: 0.125rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
 .menu__link--active {
   color: var(--ifm-menu-color-active) !important;
 }
@@ -813,7 +816,7 @@ li.menu__list-item > .category-title-hr.titled {
 
 @media (min-width: 1261px) {
   .breadcrumbsContainer_Ar0W.scrolledClass {
-    right: 156px !important;
+    right: 300px !important;
     left: auto !important;
   }
 }
@@ -851,10 +854,8 @@ li.menu__list-item > .category-title-hr.titled {
     border-right: 1px solid var(--navigation-border-color) !important;
   }
 
-  .theme-doc-markdown header h1.scrolledClassMain {
-    position: fixed !important;
-    left: 340px;
-    top: 20px;
+  #headingPlaceholder.scrolledClassMain {
+    margin: 0;
     z-index: 10000;
     font-weight: 600;
     font-size: 16px;
@@ -863,11 +864,7 @@ li.menu__list-item > .category-title-hr.titled {
   }
 
   .container_eK_a.scrolledClass {
-    position: fixed !important;
-    left: 316px !important;
-    top: 12px;
     z-index: 10001;
-    width: var(--url-width);
     min-width: 0px;
     padding: 4px;
     text-overflow: ellipsis;
@@ -875,11 +872,6 @@ li.menu__list-item > .category-title-hr.titled {
     display: flex;
     gap: 12px;
     text-overflow: ellipsis;
-    max-width: 630px;
-
-    @media (max-width: 1100px) {
-      max-width: 525px;
-    }
   }
 
   .menu__link,
@@ -904,18 +896,19 @@ li.menu__list-item > .category-title-hr.titled {
   }
 }
 
-@media (min-width: 1920px) {
-  .theme-doc-markdown header h1.scrolledClass {
-    position: fixed !important;
-    left: calc(316px + var(--url-width) + 24px);
-    top: 20px;
-    z-index: 10000;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 20px;
-    letter-spacing: 0.2px;
+#headingPlaceholder.scrolledClass {
+  margin: 0;
+  z-index: 10000;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+
+  @media (max-width: 1920px) {
+    display: none;
   }
 }
+
 @media (min-width: 768px) and (max-width: 996px) {
   .navbar,
   .navbar-sidebar__brand {
@@ -967,11 +960,7 @@ li.menu__list-item > .category-title-hr.titled {
   .navbar__items > .navbar__brand {
     margin-left: auto;
     margin-right: auto;
-    padding-left: 76px;
-  }
-
-  .navbar__item {
-    display: flex;
+    padding-left: 31px;
   }
 
   .navbar-sidebar__close {
