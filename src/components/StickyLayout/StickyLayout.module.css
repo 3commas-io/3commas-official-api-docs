@@ -23,6 +23,12 @@
   }
 }
 
+.sticky.entity {
+  @media (min-width: 997px) {
+    top: 4rem;
+  }
+}
+
 .root {
   display: grid;
   grid-template-columns: 1fr;

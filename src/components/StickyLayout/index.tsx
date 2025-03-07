@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 import styles from "./StickyLayout.module.css";
 
 type Props = {
@@ -8,8 +10,15 @@ export function Root({ children }: Props) {
   return <div className={styles.root}>{children}</div>;
 }
 
-export function Sticky({ children }: Props) {
-  return <div className={styles.sticky}>{children}</div>;
+export function Sticky({
+  children,
+  entity = false,
+}: Props & { entity?: boolean }) {
+  return (
+    <div className={clsx(styles.sticky, entity && styles.entity)}>
+      {children}
+    </div>
+  );
 }
 
 export function Main({ children }: Props) {
