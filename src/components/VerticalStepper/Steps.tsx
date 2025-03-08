@@ -1,12 +1,13 @@
 import React from "react";
+
 import styles from "./Steps.module.css";
 
-type Props = { children: React.ReactNode; restrictedWidth?: number };
+type Props = { children: React.ReactNode; maxWidth?: number };
 
-export const Steps = ({ children, restrictedWidth }: Props) => (
+export const Steps = ({ children, maxWidth }: Props) => (
   <div
     className={styles.steps}
-    style={{ maxWidth: restrictedWidth ? `${restrictedWidth}px` : "none" }}
+    style={{ maxWidth: maxWidth ? `${maxWidth}px` : "none" }}
   >
     {children}
   </div>

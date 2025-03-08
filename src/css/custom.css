@@ -665,9 +665,9 @@ li.menu__list-item > .category-title-hr.titled {
 #headerContentContainer {
   height: 59px;
   position: fixed;
-  z-index: 1000;
+  z-index: var(--ifm-z-index-fixed);
   inset: 0 300px auto;
-  padding-left: 1rem;
+  padding-left: 1.5rem;
   padding-right: 0.125rem;
   display: flex;
   align-items: center;
@@ -814,10 +814,32 @@ li.menu__list-item > .category-title-hr.titled {
   padding: 8px 0 32px !important;
 }
 
-@media (min-width: 1261px) {
-  .breadcrumbsContainer_Ar0W.scrolledClass {
-    right: 300px !important;
-    left: auto !important;
+@media (min-width: 1534px) {
+  #breadcrumbsContainer {
+    position: fixed !important;
+  }
+
+  #breadcrumbsContainer.scrolledClass {
+    position: fixed;
+    right: 300px;
+    left: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  #breadcrumbsContainer.scrolledClass {
+    position: static;
+  }
+
+  #breadcrumbsContainer {
+    position: fixed;
+    z-index: calc(var(--ifm-z-index-fixed) + 1);
+    top: 15px;
+    left: 316px;
+  }
+
+  body.DocSearch--active .breadcrumbsContainer {
+    z-index: var(--ifm-z-index-fixed);
   }
 }
 
@@ -856,7 +878,6 @@ li.menu__list-item > .category-title-hr.titled {
 
   #headingPlaceholder.scrolledClassMain {
     margin: 0;
-    z-index: 10000;
     font-weight: 600;
     font-size: 16px;
     line-height: 20px;
@@ -864,14 +885,7 @@ li.menu__list-item > .category-title-hr.titled {
   }
 
   .container_eK_a.scrolledClass {
-    z-index: 10001;
     min-width: 0px;
-    padding: 4px;
-    text-overflow: ellipsis;
-    height: 36px;
-    display: flex;
-    gap: 12px;
-    text-overflow: ellipsis;
   }
 
   .menu__link,
@@ -880,25 +894,16 @@ li.menu__list-item > .category-title-hr.titled {
     border-radius: 0px;
   }
 
-  .container_eK_a.scrolledClass .container_zQep {
-    height: 24px;
-    font-size: 10px;
-    font-weight: 600;
-  }
-
   .container_eK_a.scrolledClass .url_jqW8 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: var(--text-size);
-    line-height: 20px;
-    font-weight: 400;
   }
 }
 
 #headingPlaceholder.scrolledClass {
   margin: 0;
-  z-index: 10000;
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;
