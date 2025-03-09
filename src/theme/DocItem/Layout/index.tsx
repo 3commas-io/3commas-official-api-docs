@@ -57,11 +57,13 @@ export default function DocItemLayout({ children }: Props): JSX.Element {
     <div className="row">
       <div className={clsx("col")}>
         {!hidePaginationAndBreadcrumb && (
-          <div
-            id="breadcrumbsContainer"
-            className={styles.breadcrumbsContainer}
-          >
-            <DocBreadcrumbs />
+          <div id="breadcrumbsArea">
+            <div
+              id="breadcrumbsContainer"
+              className={styles.breadcrumbsContainer}
+            >
+              <DocBreadcrumbs />
+            </div>
           </div>
         )}
         <ContentVisibility metadata={metadata} />

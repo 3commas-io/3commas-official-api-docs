@@ -36,7 +36,10 @@ const excludedRoutes = [
   "/smart-trade/trades/trade-entity",
 ];
 
-const BREADCRUMBS_LAST_BREAKPOINT = 1200;
+const BREADCRUMBS_BREAKPOINTS = {
+  desktop: 1200,
+  largeDesktop: 1534,
+};
 
 const useScrollStylingManager = () => {
   const containerInitialized = useRef<boolean>(false);
@@ -48,6 +51,7 @@ const useScrollStylingManager = () => {
   const [endpointEdge, setEndpointEdge] = useState<{
     edge: number;
     desktop: boolean;
+    largeDesktop: boolean;
   } | null>(null);
 
   useLayoutEffect(() => {
@@ -64,8 +68,11 @@ const useScrollStylingManager = () => {
 
       const rect = endpointEl.getBoundingClientRect();
       setEndpointEdge({
-        edge: rect.top - 12, // 12 is the approximate bottom space of the headerContentContainer element
-        desktop: window.innerWidth >= BREADCRUMBS_LAST_BREAKPOINT,
+        edge: rect.top - 12.5, // 12.5 is the approximate bottom space of the headerContentContainer element
+        desktop:
+          window.innerWidth >= BREADCRUMBS_BREAKPOINTS.desktop &&
+          window.innerWidth < BREADCRUMBS_BREAKPOINTS.largeDesktop,
+        largeDesktop: window.innerWidth >= BREADCRUMBS_BREAKPOINTS.largeDesktop,
       });
     }
 
@@ -90,28 +97,31 @@ const useScrollStylingManager = () => {
       return;
 
     const handleScroll = () => {
-      let currentEdge = endpointEdge.edge;
-
-      if (window.innerWidth >= 1200 && window.innerWidth < 1534) {
-        currentEdge = currentEdge + 41;
-      }
-
       const headerContent = document.querySelector("#headerContentContainer");
 
-      if (
-        endpointEdge !== null &&
-        window.innerWidth >= BREADCRUMBS_LAST_BREAKPOINT !==
-          endpointEdge?.desktop
-      ) {
-        const rect = endpoint.current.getBoundingClientRect();
-        setEndpointEdge({
-          edge: rect.top + window.scrollY, // here we need to add the scrollY because the rect.top is relative to the viewport
-          desktop: window.innerWidth >= BREADCRUMBS_LAST_BREAKPOINT,
-        });
+      if (endpointEdge !== null) {
+        const isDesktop =
+          window.innerWidth >= BREADCRUMBS_BREAKPOINTS.desktop &&
+          window.innerWidth < BREADCRUMBS_BREAKPOINTS.largeDesktop;
+        const isLargeDesktop =
+          window.innerWidth >= BREADCRUMBS_BREAKPOINTS.largeDesktop;
+
+        if (
+          isDesktop !== endpointEdge.desktop ||
+          isLargeDesktop !== endpointEdge.largeDesktop
+        ) {
+          const rect = endpoint.current.getBoundingClientRect();
+
+          setEndpointEdge({
+            edge: rect.top - 12.5 + window.scrollY, // here we need to also add the scrollY because the rect.top is relative to the viewport
+            desktop: isDesktop,
+            largeDesktop: isLargeDesktop,
+          });
+        }
       }
 
       if (
-        (endpointEdge !== null && window.scrollY >= currentEdge) ||
+        (endpointEdge !== null && window.scrollY >= endpointEdge.edge) ||
         (isExcluded && window.scrollY >= 95)
       ) {
         let endpointPlaceholder = document.querySelector(
