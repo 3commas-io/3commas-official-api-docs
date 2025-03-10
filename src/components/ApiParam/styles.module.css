@@ -11,7 +11,7 @@
   }
 
   @media screen and (min-width: 997px) {
-    &:hover .anchor {
+    .header:hover > a.anchor {
       opacity: 1;
     }
   }
@@ -44,6 +44,9 @@
   opacity: 0;
   padding-right: 0.5rem;
   color: inherit;
+  transition:
+    transform,
+    opacity var(--ifm-transition-fast) ease;
 }
 
 .anchor svg {

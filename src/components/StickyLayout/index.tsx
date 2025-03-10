@@ -1,17 +1,29 @@
+import { FC } from "react";
+import clsx from "clsx";
+
 import styles from "./StickyLayout.module.css";
 
-type Props = {
+type RootProps = {
   children: React.ReactNode;
 };
 
-export function Root({ children }: Props) {
+export function Root({ children }: RootProps) {
   return <div className={styles.root}>{children}</div>;
 }
 
-export function Sticky({ children }: Props) {
-  return <div className={styles.sticky}>{children}</div>;
-}
+type StickyProps = {
+  children: React.ReactNode;
+  entity?: boolean;
+};
 
-export function Main({ children }: Props) {
+export const Sticky: FC<StickyProps> = ({ children, entity = false }) => {
+  return (
+    <div className={clsx(styles.sticky, entity && styles.entity)}>
+      {children}
+    </div>
+  );
+};
+
+export function Main({ children }: RootProps) {
   return <div>{children}</div>;
 }
