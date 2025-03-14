@@ -1,0 +1,178 @@
+div:has(> .searchPageTitle){
+  width: 60%;
+}
+
+.searchPageTitle{
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0.3px;
+  vertical-align: middle;
+  margin-bottom: 16px !important;
+
+}
+.searchQueryInput,
+.searchVersionInput {
+  border-radius: var(--ifm-global-radius);
+  width: 100%;
+  color: var(--docsearch-text-color);
+  margin-bottom: 0.5rem;
+  height: 32px !important;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+  line-height: 20px !important;
+  letter-spacing: 0.25px !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  border: 1px solid var(--search-input-border-color);
+  outline: none;
+  color: var(--sidebar-links-color);
+  font-family: "Open Sans", sans-serif;
+  padding-left: 38px;
+}
+/*.searchLogoColumn svg{*/
+/*  display: none;*/
+/*}*/
+.searchQueryColumn{
+  position: relative;
+}
+.searchQueryColumn::before{
+  width: 20px;
+  height: 20px;
+  content: var(--input-search-svg);
+  position: absolute;
+  top: 6px;
+  left: 36px;
+}
+
+
+.searchQueryInput::placeholder {
+  color: var(--docsearch-muted-color);
+}
+
+.searchResultsColumn {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  vertical-align: middle;
+  margin-bottom: 40px;
+}
+
+.algoliaLogo {
+  max-width: 150px;
+}
+
+.algoliaLogoPathFill {
+  fill: var(--ifm-font-color-base);
+}
+
+.searchResultItem {
+  padding: 12px;
+  position: relative;
+}
+.searchResultItem:hover{
+  background-color: var(--search-hit-background-color) !important;
+  border-radius: 8px;
+}
+.searchResultItem:hover::after{
+  content: '' !important;
+  display: block !important;
+  width: 18px !important;
+  height: 18px !important;
+  top: 25px;
+  right: 24px;
+  background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M4.5%2013.5002L13.5%204.50018%22%20stroke%3D%22%2313A8A1%22%20stroke-width%3D%221.3125%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M6.1875%204.50018H13.5V11.8127%22%20stroke%3D%22%2313A8A1%22%20stroke-width%3D%221.3125%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E");
+  background-repeat: no-repeat !important;
+  position: absolute;
+
+}
+.searchResultItemHeading {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  vertical-align: middle;
+  margin-bottom: 0;
+}
+main a:not(.home-line):not(.breadcrumbs__link):not(.pagination-link):not( .hash-link ):not(.tocLink_wfFo), main a:not(.home-line):not(.breadcrumbs__link):not(.pagination-link):hover:not( .hash-link ):not(.tocLink_wfFo) article h2.searchResultItemHeading a {
+  text-decoration: none !important;
+  -webkit-text-decoration: none !important;
+}
+.search-result-match{
+  color: #00A59A !important;
+  background: transparent !important;
+padding: 0 !important;
+}
+.searchResultItemPath {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  vertical-align: middle;
+  color: var(--sidebar-links-color) !important;
+
+}
+
+.searchResultItemSummary {
+  margin: 0.5rem 0 0;
+  font-style: italic;
+}
+
+@media only screen and (max-width: 996px) {
+  div:has(> .searchPageTitle){
+    width: 100%;
+  }
+  .searchVersionColumn {
+    max-width: 40% !important;
+  }
+
+  .searchResultsColumn {
+    max-width: 60% !important;
+  }
+
+  .searchLogoColumn {
+    max-width: 40% !important;
+    padding-left: 0 !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .searchQueryColumn {
+    max-width: 100% !important;
+  }
+
+  .searchVersionColumn {
+    max-width: 100% !important;
+    padding-left: var(--ifm-spacing-horizontal) !important;
+  }
+  .searchResultsColumn{
+    margin-bottom: 24px;
+  }
+}
+
+.loadingSpinner {
+  width: 3rem;
+  height: 3rem;
+  border: 0.4em solid #eee;
+  border-top-color: var(--ifm-color-primary);
+  border-radius: 50%;
+  animation: loading-spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes loading-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  margin-top: 2rem;
+}
+
+:global(.search-result-match) {
+  color: var(--docsearch-hit-color);
+  background: rgb(255 215 142 / 25%);
+  padding: 0.09em 0;
+}
