@@ -43,7 +43,7 @@ Shows information about the currency and each supported network for deposits and
 
 ##  Query Parameter 
 
-<ApiParam name='purpose' type='integer' id="purpose">
+<ApiParam name='purpose' type='string' id="purpose">
     Filter currencies with `deposit` or `withdraw` enabled.
 </ApiParam>
 
@@ -52,7 +52,7 @@ Shows information about the currency and each supported network for deposits and
 
 ##  Example Request
 
-<NoContentEndpoint method="GET" endpoint="/ver1/accounts/12345678/networks_info" />
+<NoContentEndpoint method="GET" endpoint="/ver1/accounts/12345678/networks_info?purpose=withdraw" />
 
 </StickyLayout.Sticky>
 </StickyLayout.Root>
