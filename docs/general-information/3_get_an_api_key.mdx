@@ -21,14 +21,20 @@ import { Steps, Step } from '@site/src/components/VerticalStepper'
   />
   <Step title="Select a method for generating the API Key." description={
     <>
-    <p>If you choose <strong>Self-generated</strong>, you must provide an <strong>RSA Private Key</strong>.</p> 
-    <p>To learn how to generate an RSA Private Key, see the article <a href="/general-information/how-to-create-an-rsa-key-pair"> How to create an RSA Key pair.</a> </p>
+      <p>Select a Method for Generating the API Key.</p>
+      <p>
+        <strong>Self-generated:</strong> You must provide an RSA Private Key. To learn how to generate an RSA Private Key, see the article <a href="/general-information/how-to-create-an-rsa-key-pair">How to create an RSA Key pair</a>.
+      </p>
+      <p>
+        <strong>System-generated:</strong> In this case, the system will automatically create an API Key and a Secret. Unlike the self-generated method, the Secret (used as your private key) will only be shown once—right after the API Key is created on the 3C app. Make sure to store it securely as it won’t be displayed again.
+      </p>
     </>
     }
   />
    <Step title="Complete the required form fields." description={ 
-    <> 
-    Specify the required parameters, including your RSA Private Key if applicable, and select the necessary permissions for the API Key.
+    <>
+    <p>Specify the required parameters, including your RSA Private Key if applicable, and select the necessary permissions for the API Key.</p>
+    <p>For more details on permission types, refer to the <a href="/general-information/security-and-permission-types"> Security and Permission Types</a> article.</p>
     </>
    }
   />
