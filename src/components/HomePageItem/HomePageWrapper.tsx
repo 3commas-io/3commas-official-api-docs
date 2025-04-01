@@ -10,7 +10,7 @@ const HomePageWrapper = () => {
           title: "Quick Start",
           description: "How to start.",
           icon: "generalInfo",
-          link: "/general-information",
+          link: "/quick-start",
         }}
       />
       <HomePageItem
