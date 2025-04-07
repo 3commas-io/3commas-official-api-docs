@@ -1,0 +1,21 @@
+/*
+Hide color mode toggle in small viewports
+ */
+
+.desktopSearcContainer {
+  display: block;
+}
+.mobileSearcContainer {
+  display: none;
+}
+@media (max-width: 996px) {
+  .colorModeToggle {
+    display: none;
+  }
+  .desktopSearcContainer {
+    display: none;
+  }
+  .mobileSearcContainer {
+    display: block;
+  }
+}

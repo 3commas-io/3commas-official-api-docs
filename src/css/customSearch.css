@@ -1,0 +1,447 @@
+@media (min-width: 769px) {
+  .DocSearch-Container:not(DocSearch-Modal) {
+    background-color: var(--modal-background-color);
+  }
+  .DocSearch-Modal {
+    border-radius: 16px !important;
+    max-width: 400px !important;
+  }
+  .DocSearch-Dropdown {
+    padding: 0 !important;
+    overflow-x: hidden;
+  }
+  .DocSearch-Hit-source {
+    padding-left: 20px !important;
+  }
+  .DocSearch-Hits ul {
+    display: flex !important;
+    gap: 4px !important;
+    flex-direction: column;
+  }
+  .DocSearch-StartScreen {
+    height: 165px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .DocSearch-Logo {
+    margin-top: 12px;
+  }
+  .DocSearch-Footer {
+    height: 82px !important;
+    padding: 12px 0 !important;
+    border-bottom-left-radius: 16px !important;
+    border-bottom-right-radius: 16px !important;
+  }
+  .DocSearch-SearchBar {
+    padding: 16px 16px 0 !important;
+  }
+  .DocSearch-NoResults-Prefill-List p.DocSearch-Help {
+    margin-left: 16px !important;
+  }
+  .DocSearch-Hit[aria-selected="true"] a {
+    border-radius: 0 !important;
+  }
+}
+@media (max-width: 768px) {
+  p.DocSearch-Help {
+    margin-left: 20px !important;
+  }
+  .DocSearch-Hit a {
+    padding-left: 16px !important;
+  }
+  .DocSearch-SearchBar {
+    padding: 16px 20px 0 !important;
+  }
+  .DocSearch-Cancel {
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    line-height: 20px !important;
+    letter-spacing: 0.2px !important;
+    vertical-align: middle !important;
+    color: #00a59a !important;
+    margin-left: 16px !important;
+  }
+  .DocSearch-StartScreen {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .DocSearch-Footer {
+    justify-content: center !important;
+  }
+  .DocSearch-Dropdown {
+    padding: 0 !important;
+  }
+  .DocSearch-Hit-source {
+    padding-left: 0 !important;
+    margin-left: 20px !important;
+  }
+  button.DocSearch-Prefill {
+    padding: 0 20px !important;
+  }
+  .DocSearch-Screen-Icon {
+    margin-left: 20px !important;
+  }
+
+  .DocSearch-Title {
+    margin-left: 20px !important;
+    margin-left: 0 !important;
+  }
+  .DocSearch-Hit-Container {
+    margin-right: -12px;
+  }
+  .DocSearch-Dropdown-Container {
+    overflow-x: hidden;
+  }
+  .DocSearch-Hit a {
+    border-radius: 0 !important;
+  }
+}
+
+.DocSearch-Modal {
+  background-color: var(--search-modal-background-color) !important;
+}
+
+.DocSearch-Footer {
+  background-color: var(--search-footer-background-color) !important;
+  box-shadow: var(--search-footer-box-shadow) !important;
+  flex-direction: column-reverse !important;
+  align-items: center !important;
+  border-top: 1px solid var(--search-footer-border-color);
+}
+.DocSearch-Commands {
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 16px 12px !important;
+  border-bottom: 1px solid var(--search-footer-border-color);
+}
+.DocSearch-Commands-Key {
+  width: 22px !important;
+  height: 22px !important;
+}
+.DocSearch-Form {
+  height: 32px !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  border: 1px solid var(--search-input-border-color);
+  border-radius: 8px !important;
+}
+.DocSearch-Form::before {
+  width: 20px;
+  height: 20px;
+  content: var(--input-search-svg);
+}
+.DocSearch-Input {
+  height: 32px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  letter-spacing: 0.25px !important;
+}
+.DocSearch-Input::placeholder {
+  color: var(--text-content-color) !important;
+}
+.DocSearch-LoadingIndicator {
+  display: none !important;
+}
+.DocSearch-Hit-source {
+  font-weight: 600 !important;
+  font-size: 10px !important;
+  line-height: 20px !important;
+  letter-spacing: 1.25px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  color: var(--search-input-hit-source) !important;
+  padding-top: 0 !important;
+  margin-top: 16px !important;
+  margin-bottom: 4px !important;
+}
+.DocSearch-Hit-Container {
+  height: 44px !important;
+  padding-right: 16px !important;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.DocSearch-Hit {
+  padding-bottom: 0 !important;
+}
+.DocSearch-Hit[aria-selected="true"] a {
+  background-color: var(--search-hit-background-color) !important;
+}
+.DocSearch-Hit-title {
+  font-weight: 600;
+  font-size: 14px !important;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  vertical-align: middle;
+}
+li.DocSearch-Hit[aria-selected="true"] .DocSearch-Hit-Tree,
+li.DocSearch-Hit[aria-selected="true"] .DocSearch-Hit-action,
+li.DocSearch-Hit[aria-selected="true"] .DocSearch-Hit-icon,
+li.DocSearch-Hit[aria-selected="true"] .DocSearch-Hit-path,
+li.DocSearch-Hit[aria-selected="true"] .DocSearch-Hit-text,
+li.DocSearch-Hit[aria-selected="true"] .DocSearch-Hit-title {
+  color: var(--search-hit-text-color) !important;
+}
+section.DocSearch-Hits mark {
+  color: #00a59a !important;
+}
+.DocSearch-Hit-content-wrapper {
+  padding: 4px 0 !important;
+  margin-left: 4px !important;
+}
+.DocSearch-Hit[aria-selected="true"] mark {
+  -webkit-text-decoration: none !important;
+  text-decoration: none !important;
+}
+.DocSearch-Hit-icon,
+.DocSearch-Hit-action .DocSearch-Hit-Select-Icon {
+  display: none !important;
+}
+.DocSearch-Hit[aria-selected="true"] .DocSearch-Hit-action::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background-image: var(--serach-hit-select-icon);
+  background-repeat: no-repeat;
+}
+.DocSearch-Hit-source {
+  background-color: var(--search-modal-background-color) !important;
+}
+.DocSearch-Hit a {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.DocSearch-Logo svg {
+  display: none;
+}
+.DocSearch-Logo .DocSearch-Label {
+  display: flex;
+  align-items: center;
+  font-weight: 500 !important;
+  font-size: 10px !important;
+  line-height: 12px !important;
+  letter-spacing: 0.4px !important;
+  vertical-align: middle !important;
+  text-transform: uppercase !important;
+  color: var(--search-footer-text-color);
+}
+.DocSearch-Logo .DocSearch-Label::after {
+  content: "";
+  display: flex;
+  background-image: var(--search-footer-svg);
+  margin-left: 9px;
+  width: 51px;
+  height: 12px;
+  background-repeat: no-repeat;
+}
+.DocSearch-HitsFooter a {
+  border-bottom: none !important;
+}
+.DocSearch-Commands-Key {
+  background: var(--search-command-keys-background-color) !important;
+  box-shadow: none !important;
+  position: relative;
+}
+.DocSearch-Commands-Key svg {
+  display: none;
+}
+.DocSearch-Commands li:nth-child(3) kbd.DocSearch-Commands-Key:nth-of-type(1) {
+  width: 24px !important;
+}
+.DocSearch-Commands
+  li:nth-child(1)
+  kbd.DocSearch-Commands-Key:nth-of-type(1)::after,
+.DocSearch-Commands
+  li:nth-child(2)
+  kbd.DocSearch-Commands-Key:nth-of-type(1)::after,
+.DocSearch-Commands
+  li:nth-child(2)
+  kbd.DocSearch-Commands-Key:nth-of-type(2)::after,
+.DocSearch-Commands
+  li:nth-child(3)
+  kbd.DocSearch-Commands-Key:nth-of-type(1)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+}
+.DocSearch-Commands
+  li:nth-child(1)
+  kbd.DocSearch-Commands-Key:nth-of-type(1)::after {
+  background-image: var(--search-footer-select-svg);
+}
+.DocSearch-Commands
+  li:nth-child(2)
+  kbd.DocSearch-Commands-Key:nth-of-type(1)::after {
+  background-image: var(--search-footer-key-down-svg);
+}
+
+/* Третій ключ (Arrow up) — другий ключ у другому li */
+.DocSearch-Commands
+  li:nth-child(2)
+  kbd.DocSearch-Commands-Key:nth-of-type(2)::after {
+  background-image: var(--search-footer-key-up-svg);
+}
+
+/* Четвертий ключ (Escape key) */
+.DocSearch-Commands
+  li:nth-child(3)
+  kbd.DocSearch-Commands-Key:nth-of-type(1)::after {
+  width: 16px;
+  height: 9px;
+  background-image: var(--search-footer-key-esc-svg);
+  background-repeat: no-repeat;
+}
+.DocSearch-NoResults {
+  text-align: left !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+.DocSearch-Help {
+  font-weight: 400;
+  font-size: 12px !important;
+  line-height: 16px;
+  letter-spacing: 1.6%;
+  vertical-align: middle;
+  color: var(--search-help-color);
+}
+.DocSearch-NoResults-Prefill-List .DocSearch-Help {
+  margin-top: 24px !important;
+}
+.DocSearch-NoResults-Prefill-List {
+  width: 100%;
+}
+.DocSearch-NoResults-Prefill-List ul {
+  width: 100%;
+}
+.DocSearch-NoResults-Prefill-List ul li {
+  list-style-type: none;
+}
+.DocSearch-Prefill {
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  vertical-align: middle;
+  color: var(--search-hit-text-color) !important;
+  width: 100%;
+  height: 36px;
+  text-align: left;
+  display: flex;
+  padding: 0 16px !important;
+  border-radius: 0 !important;
+}
+.DocSearch-Prefill:focus,
+.DocSearch-Prefill:hover {
+  -webkit-text-decoration: none !important;
+  text-decoration: none !important;
+  background-color: var(--search-hit-background-color) !important;
+  display: flex;
+  align-items: center;
+}
+.DocSearch-Prefill:focus::after,
+.DocSearch-Prefill:hover::after {
+  content: "";
+  width: 14px !important;
+  height: 14px;
+  background-image: var(--serach-hit-select-icon);
+  background-repeat: no-repeat;
+  margin-left: auto;
+}
+.DocSearch-NoResults {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.DocSearch-Screen-Icon {
+  flex: 0 0 auto;
+  padding: 24px 0 !important;
+  margin-left: 16px;
+  border-bottom: 1px solid var(--search-footer-border-color);
+}
+
+.DocSearch-Title {
+  flex: 1 1 auto;
+  padding: 24px 0 !important;
+  margin-right: 16px;
+  border-bottom: 1px solid var(--search-footer-border-color);
+}
+
+.DocSearch-NoResults-Prefill-List {
+  flex-basis: 100%;
+}
+.DocSearch-Screen-Icon svg {
+  display: none;
+}
+.DocSearch-Screen-Icon::before {
+  content: "";
+  display: block;
+  margin-right: 10px;
+  background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cmask%20id%3D%22mask0_711_4506%22%20style%3D%22mask-type%3Aalpha%22%20maskUnits%3D%22userSpaceOnUse%22%20x%3D%222%22%20y%3D%222%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M9.16667%202.5C5.48477%202.5%202.5%205.48477%202.5%209.16667C2.5%2012.8486%205.48477%2015.8333%209.16667%2015.8333C10.7073%2015.8333%2012.1258%2015.3108%2013.2547%2014.4332L15.6607%2016.8393C15.9862%2017.1647%2016.5138%2017.1647%2016.8393%2016.8393C17.1647%2016.5138%2017.1647%2015.9862%2016.8393%2015.6607L14.4332%2013.2547C15.3108%2012.1258%2015.8333%2010.7073%2015.8333%209.16667C15.8333%205.48477%2012.8486%202.5%209.16667%202.5ZM4.16667%209.16667C4.16667%206.40524%206.40524%204.16667%209.16667%204.16667C11.9281%204.16667%2014.1667%206.40524%2014.1667%209.16667C14.1667%2011.9281%2011.9281%2014.1667%209.16667%2014.1667C6.40524%2014.1667%204.16667%2011.9281%204.16667%209.16667Z%22%20fill%3D%22%2319191A%22/%3E%3C/mask%3E%3Cg%20mask%3D%22url(%23mask0_711_4506)%22%3E%3Crect%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22%23E7596A%22/%3E%3C/g%3E%3Cmask%20id%3D%22mask1_711_4506%22%20style%3D%22mask-type%3Aalpha%22%20maskUnits%3D%22userSpaceOnUse%22%20x%3D%226%22%20y%3D%226%22%20width%3D%226%22%20height%3D%226%22%3E%3Cpath%20d%3D%22M7.49739%207.14427C7.39976%207.04664%207.24147%207.04664%207.14384%207.14427C7.04621%207.2419%207.04621%207.40019%207.14384%207.49782L8.64644%209.00042L7.14384%2010.503C7.04621%2010.6007%207.04621%2010.7589%207.14384%2010.8566C7.24147%2010.9542%207.39976%2010.9542%207.4974%2010.8566L9%209.35398L10.5026%2010.8566C10.6002%2010.9542%2010.7585%2010.9542%2010.8562%2010.8566C10.9538%2010.7589%2010.9538%2010.6007%2010.8562%2010.503L9.35355%209.00042L10.8562%207.49782C10.9538%207.40019%2010.9538%207.2419%2010.8562%207.14427C10.7585%207.04664%2010.6002%207.04664%2010.5026%207.14427L9%208.64687L7.49739%207.14427Z%22%20fill%3D%22black%22%20stroke%3D%22black%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/mask%3E%3Cg%20mask%3D%22url(%23mask1_711_4506)%22%3E%3Crect%20x%3D%226%22%20y%3D%226%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23E7596A%22/%3E%3C/g%3E%3C/svg%3E");
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+}
+p.DocSearch-Title {
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  vertical-align: middle;
+  margin-bottom: 0 !important;
+}
+.DocSearch-Reset svg {
+  display: none;
+}
+.DocSearch-Reset {
+  width: 20px !important;
+  height: 20px !important;
+  background-image: var(--search-page-clear-svg) !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  cursor: pointer !important;
+  border: none !important;
+  background-color: transparent !important;
+  outline: none !important;
+}
+.DocSearch-Reset:hover {
+  background-image: var(--search-page-clear-svg-hover) !important;
+}
+.searchResultItem:hover nav ul li {
+  color: var(--search-hit-text-color) !important;
+}
+
+.DocSearch-Hit-Tree {
+  display: none;
+}
+.search-result-match {
+  color: #00a59a !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+main.docMainContainer_TBSr:has(> .searchPageTitle) {
+  background-color: #1a8870 !important;
+}
+.DocSearch-Dropdown {
+  max-height: 75vh !important;
+}
+li.DocSearch-Hit[aria-selected="true"] mark {
+  color: #00a59a !important;
+}
+p.DocSearch-Help {
+  font-size: 14px !important;
+  color: var(--text-content-color);
+}
+span.DocSearch-Label {
+  color: var(--text-content-color);
+  text-transform: capitalize;
+}

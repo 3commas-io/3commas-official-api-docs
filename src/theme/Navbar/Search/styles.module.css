@@ -1,0 +1,7 @@
+/*
+Workaround to avoid rendering empty search container
+See https://github.com/facebook/docusaurus/pull/9385
+*/
+.navbarSearchContainer:empty {
+  display: none;
+}
