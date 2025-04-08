@@ -4,12 +4,9 @@
     overflow: hidden;
     height: calc(100vh - var(--ifm-navbar-height));
     width: var(--doc-sidebar-width);
-    position: relative;
   }
 
   .sidebarPinned {
-    position: sticky;
-    top: var(--ifm-navbar-height);
     z-index: 2;
   }
   .sidebarUnpinned {
@@ -32,7 +29,7 @@
     width: 0;
   }
 
-  .sidebarBase aside {
+  aside {
     margin-top: 0 !important;
     height: 100%;
   }
