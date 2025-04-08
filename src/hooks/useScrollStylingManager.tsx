@@ -1,19 +1,19 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 const excludedRoutes = [
-  // general-information
-  "/general-information",
-  "/general-information/overview",
-  "/general-information/security-and-permission-types",
-  "/general-information/how-to-start",
-  "/general-information/get-an-api-key",
-  "/general-information/how-to-create-an-rsa-key-pair",
-  "/general-information/signing-a-request-using-rsa",
-  "/general-information/signing-a-request-using-hmac-sha256",
-  "/general-information/generating-signature-hmac-sha256",
-  "/general-information/dates-and-times",
-  "/general-information/errors",
-  "/general-information/limits",
+  // quick-start
+  "/quick-start",
+  "/quick-start/overview",
+  "/quick-start/security-and-permission-types",
+  "/quick-start/how-to-start",
+  "/quick-start/get-an-api-key",
+  "/quick-start/how-to-create-an-rsa-key-pair",
+  "/quick-start/signing-a-request-using-rsa",
+  "/quick-start/signing-a-request-using-hmac-sha256",
+  "/quick-start/generating-signature-hmac-sha256",
+  "/quick-start/dates-and-times",
+  "/quick-start/errors",
+  "/quick-start/limits",
   // account
   "/account/",
   "/account/account-entity",

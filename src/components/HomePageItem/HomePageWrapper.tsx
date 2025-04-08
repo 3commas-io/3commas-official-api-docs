@@ -7,10 +7,10 @@ const HomePageWrapper = () => {
     <div className={styles["home_page-wrapper"]}>
       <HomePageItem
         data={{
-          title: "General information",
+          title: "Quick Start",
           description: "How to start.",
           icon: "generalInfo",
-          link: "/general-information",
+          link: "/quick-start",
         }}
       />
       <HomePageItem

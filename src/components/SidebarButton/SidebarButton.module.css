@@ -1,0 +1,38 @@
+.sidebarOpenButton {
+  display: none;
+}
+
+@media (min-width: 997px) and (max-width: 1630px) {
+  .sidebarOpenButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    z-index: 10000;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 3px;
+  }
+  .sidebarOpenButton svg {
+    width: 24px;
+    height: 24px;
+    transition: color 0.15s linear;
+    color: var(--sidebar-button-color);
+  }
+
+  .sidebarOpenButton svg path {
+    transition: color 0.15s linear;
+  }
+  .sidebarOpenButton.sidebarOpenButtonPinned svg path {
+    transition: stroke 0.15s linear;
+  }
+  .sidebarOpenButton:hover svg path {
+    color: var(--sidebar-button-color-hover);
+  }
+  .sidebarOpenButton.sidebarOpenButtonPinned:hover svg path {
+    stroke: var(--sidebar-button-color-hover);
+  }
+}

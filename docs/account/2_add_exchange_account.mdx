@@ -38,18 +38,19 @@ Adds a new exchange account.
 ## Body Parameters
 
 <ApiParam name='type' type='string' id="type" required>
-   3Commas of exchange code entity.
+   This parameter corresponds to the `market_code` field from the <a href="/market-data/supported_markets_list">Supported Market List</a> and must exactly match the required string.
+
 </ApiParam>
 
 <ApiParam name='name' type='string' id="name" required>
    Name of this exchange account.
 </ApiParam>
 
-<ApiParam name='api_key' type="string" id="api_key">
+<ApiParam name='api_key' type="string" id="api_key" required>
    API-key from this exchange account.
 </ApiParam>
 
-<ApiParam name='secret' type='string' id="secret">
+<ApiParam name='secret' type='string' id="secret" required>
    Secret-key from this exchange account.
 </ApiParam>
 
@@ -62,7 +63,7 @@ Adds a new exchange account.
 </ApiParam>
 
 <ApiParam name='passphrase' type='string' id="passphrase">
-   Secret phrase from this exchange account.
+   Secret phrase from this exchange account. Required for OKX.
 </ApiParam>
 
 <ApiParam name='types_to_create' type='array[string]' id="types_to_create" required>

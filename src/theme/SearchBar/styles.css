@@ -1,0 +1,52 @@
+:root {
+  --docsearch-primary-color: var(--ifm-color-primary);
+  --docsearch-text-color: var(--ifm-font-color-base);
+}
+
+.DocSearch-Button {
+  margin: 0;
+  transition: all var(--ifm-transition-fast)
+    var(--ifm-transition-timing-default);
+}
+
+.DocSearch-Container {
+  z-index: calc(var(--ifm-z-index-fixed) + 1);
+}
+.DocSearch.DocSearch-Button > *:not(.DocSearch-Button-Container) {
+  display: none;
+}
+.DocSearch-Button-Container > *:not(svg) {
+  display: none;
+}
+.DocSearch-Button-Container::before {
+  content: "";
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: var(--search-svg);
+  width: 20px;
+  height: 20px;
+}
+.DocSearch.DocSearch-Button:hover .DocSearch-Button-Container::before,
+.DocSearch.DocSearch-Button:focus .DocSearch-Button-Container::before,
+.DocSearch.DocSearch-Button:active .DocSearch-Button-Container::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_711_6737' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='2' y='2' width='16' height='16'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333C10.7073 15.8333 12.1258 15.3108 13.2547 14.4332L15.6607 16.8393C15.9862 17.1647 16.5138 17.1647 16.8393 16.8393C17.1647 16.5138 17.1647 15.9862 16.8393 15.6607L14.4332 13.2547C15.3108 12.1258 15.8333 10.7073 15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5ZM4.16667 9.16667C4.16667 6.40524 6.40524 4.16667 9.16667 4.16667C11.9281 4.16667 14.1667 6.40524 14.1667 9.16667C14.1667 11.9281 11.9281 14.1667 9.16667 14.1667C6.40524 14.1667 4.16667 11.9281 4.16667 9.16667Z' fill='%2319191A'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_711_6737)'%3E%3Crect width='20' height='20' fill='%2313A8A1'/%3E%3C/g%3E%3C/svg%3E");
+}
+.DocSearch.DocSearch-Button {
+  background: none;
+}
+.DocSearch.DocSearch-Button:hover,
+.DocSearch.DocSearch-Button:focus,
+.DocSearch.DocSearch-Button:active {
+  border: none;
+  box-shadow: none;
+}
+.DocSearch-Search-Icon {
+  display: none;
+}
+@media screen and (max-width: 996px) {
+  .DocSearch-Button-Container::before {
+    width: 26px;
+    height: 26px;
+  }
+}

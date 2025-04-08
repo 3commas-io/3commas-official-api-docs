@@ -43,8 +43,10 @@ Shows information about the currency and each supported network for deposits and
 
 ##  Query Parameter 
 
-<ApiParam name='purpose' type='integer' id="purpose">
-    Filter currencies with `deposit` or `withdraw` enabled.
+<ApiParam name='purpose' type='string' id="purpose">
+  <p>Filters currencies that support deposit or withdrawal operations.</p>
+  <p>If the parameter is set to **deposit**, only currencies with `deposit_enabled: true` are returned.</p>
+  <p>If the parameter is set to **withdraw**, only currencies with `withdraw_enabled: true` are returned.</p>
 </ApiParam>
 
 </StickyLayout.Main>
@@ -52,7 +54,7 @@ Shows information about the currency and each supported network for deposits and
 
 ##  Example Request
 
-<NoContentEndpoint method="GET" endpoint="/ver1/accounts/12345678/networks_info" />
+<NoContentEndpoint method="GET" endpoint="/ver1/accounts/12345678/networks_info?purpose=withdraw" />
 
 </StickyLayout.Sticky>
 </StickyLayout.Root>
@@ -81,7 +83,7 @@ Shows information about the currency and each supported network for deposits and
 <ApiParam name="network_list" type="object" id='network_list'>
   Details about available networks for deposits and withdrawals.
   <CollapsibleNestedParams>
-    <ApiParam name='network' type='string' id='network'>
+    <ApiParam name='address_tag' type='string' id='address_tag'>
       The name of the network.
     </ApiParam>
     <ApiParam name='default' type='boolean' id='default'>

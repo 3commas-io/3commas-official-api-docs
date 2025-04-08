@@ -80,6 +80,7 @@ const config: Config = {
       appId: "6MVPU5XJH8",
       apiKey: "2559e4f1b39cf34977491636a20fe300",
       indexName: "developers_3commas_io",
+      searchPagePath: "custom-search",
     },
   } satisfies Preset.ThemeConfig,
 };
