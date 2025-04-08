@@ -1,0 +1,18 @@
+@media (min-width: 997px) and (max-width: 1630px) {
+  .hoverZone {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    background-color: transparent;
+    cursor: pointer;
+    height: 100%;
+    z-index: 100;
+    transition: background-color 0.1s linear;
+  }
+
+  .hoverZone:hover {
+    background-color: var(--navigation-background-color);
+  }
+}
