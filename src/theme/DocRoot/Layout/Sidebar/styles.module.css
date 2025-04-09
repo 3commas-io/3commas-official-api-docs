@@ -7,6 +7,8 @@
   }
 
   .sidebarPinned {
+    position: sticky;
+    top: var(--ifm-navbar-height);
     z-index: 2;
   }
   .sidebarUnpinned {
