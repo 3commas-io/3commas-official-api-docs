@@ -1,4 +1,20 @@
+.sidebarMobile {
+  display: block;
+}
+
+.sidebarDesktop {
+  display: none;
+}
+
 @media (min-width: 997px) {
+  .sidebarMobile {
+    display: none;
+  }
+
+  .sidebarDesktop {
+    display: block;
+  }
+
   .sidebarBase {
     background-color: transparent;
     overflow: hidden;
@@ -12,6 +28,7 @@
     top: var(--ifm-navbar-height);
     z-index: 2;
   }
+
   .sidebarUnpinned {
     position: fixed;
     z-index: 199;
