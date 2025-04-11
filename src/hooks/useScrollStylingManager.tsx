@@ -38,7 +38,7 @@ const excludedRoutes = [
 
 const BREADCRUMBS_BREAKPOINTS = {
   desktop: 1200,
-  largeDesktop: 1534,
+  largeDesktop: 1596,
 };
 
 const useScrollStylingManager = () => {
