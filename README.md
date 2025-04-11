@@ -37,8 +37,7 @@ make run
 
 
 
-### 2. Manualy
-
+### 2. Manually
 **Install dependencies:**
 
 ```bash
