@@ -11,7 +11,26 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-Bobardillo crocadillo
+The Simple Trading API allows user to create, manage, and close orders on the exchange with predefined conditions.
+
+This is a low level Order Management system API, that basically implements a "unified exchange terminal" features for all supported exchanges.
+
+3Commas Order Management System (OMS) can receive commands to create and manage orders in a unified format and handles all necessary details for each exchange, so user does not need to worry about exchange-specific details.
+
+Also, it provides some quality of life features, such as:
+* Ability to create all 3Commas supported type of orders (Absoulte trailing, Relative trailing, Conditional Trailing, Conditional Market, Conditional limit, etc), even if exchange does not support them. They behavior is emulated by 3Commas.
+* OMS will autmatically recreate order on the exchange, if it was cancelled by exchange or by other third party. 
+* OMS will automatically handle cases, whhen size of order is just above the amount of available funds - the size will be slightly reduced to fit the available funds.
+* OMS will handle the lot size (precision) of the order, so user does not need to worry about it.
+
+In 3Commas terminology, the entity of OMS is called **Trade**. **Trade** may contain one or more **Orders**.
+A **Trade** is a logical entity that contains all information about the order, such as:
+* UUID - unique identifier of the trade
+* Exchange account and trading pair
+* Created date
+* Closed (finished) date
+
+
 
  </StickyLayout.Main>
 

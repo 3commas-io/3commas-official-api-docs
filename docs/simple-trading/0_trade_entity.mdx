@@ -1,0 +1,340 @@
+---
+id: simple_test
+title: Trade Entity
+---
+
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import { Informer } from '@site/src/components/Informer/Informer';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+
+{/* <Endpoint
+url="/v2/smart_trades"
+method="POST"
+permissions={
+<>
+<Permission title="Permission" description="SMART_TRADES_WRITE" />
+<Permission title="Security" description="SIGNED" />
+</>
+}
+/> */}
+
+<Separator />
+
+<StickyLayout.Root>
+   <StickyLayout.Main>
+  <h2 className='entity-heading'>Attributes</h2>
+
+  <ApiParam name='uuid' type='string' id="uuid">
+    Unique 3Commas ID for this Trade entity.
+  </ApiParam>
+
+  <ApiParam name='account_id' type='integer' id="account_id">
+    Unique 3Commas ID for this exchange account entity.
+   </ApiParam>
+
+  <ApiParam name='pair' type='string' id="pair">
+    Trading pair in 3Commas format (e.g., BTC_ETH).
+  </ApiParam>
+
+  <ApiParam name='created_at' type='integer' id="created_at">
+    Unix timestamp when this Trade was created. Value: `1727871936`
+  </ApiParam>
+
+  <ApiParam name='closed_at' type='integer' id="closed_at">
+    Unix timestamp when this Trade was closed. Value: `1727871937`
+  </ApiParam>
+
+   <ApiParam name='order' type='object'>
+      Details of the order applied to this Trade.
+      <CollapsibleNestedParams>
+         <ApiParam name='type' type='string'>
+         Type of order: `market`, `limit`
+         </ApiParam>
+         <ApiParam name='side' type='string'>
+         The side of the order: `buy`, `sell`
+         </ApiParam>
+         <ApiParam name='strategy' type='string'>
+         The strategy used for this Trade. Value: `gtc`, `fok`, `ioc`, `post_only`
+         </ApiParam>
+         <ApiParam name='position_side' type='string'>
+         Position side. Value: `both`, `long`, `short`. 
+         </ApiParam>
+         <ApiParam name='reduce_only' type='boolean'>
+         Indicates whether the order is reduce only. Value: `false`
+         </ApiParam>
+      </CollapsibleNestedParams>
+   </ApiParam>
+
+   <ApiParam name='units' type='object' id="units">
+      <CollapsibleNestedParams>
+         <ApiParam name='value' type='string' id="value">
+         Amount of units of BASE currency (ETH in this case) for this Trade. Value: `2.4869`
+         </ApiParam>
+      </CollapsibleNestedParams>
+   </ApiParam>
+
+   <ApiParam name='price' type='object'>
+      <CollapsibleNestedParams>
+         <ApiParam name='value' type='string' id="value">
+         The price of the order. Applied only for limit orders. Value: `null`, `0.04021`
+         </ApiParam>
+      </CollapsibleNestedParams>
+   </ApiParam>
+
+   <ApiParam name='total' type='object' id="total">
+      <CollapsibleNestedParams>
+         <ApiParam name='value' type='string' id="value">
+         Total value of the order. Value: `0.099898773`
+         </ApiParam>
+      </CollapsibleNestedParams>
+   </ApiParam>
+
+   <ApiParam name='conditional' type='object'>
+      Details of the conditional order behavior applied to this Trade.
+      <CollapsibleNestedParams>
+         <ApiParam name='enabled' type='boolean'>
+         Indicates whether the conditional order is enabled. Value: `false`, `true`
+         </ApiParam>
+         <ApiParam name='value' type='string'>
+         Desribes the direction of the comparison. Example: *Execute when `current price` becomes `less` than condition*. Values: `less`, `less_or_equal`, `greater_or_equal`, `greater`
+         </ApiParam>
+         <ApiParam name='price' type='object'>
+         <CollapsibleNestedParams>
+            <ApiParam name='value' type='string'>
+               Conditional trigger price. Value: `1500.00`
+            </ApiParam>
+            <ApiParam name='type' type='string'>
+               Conditional price type. Values: `bid`, `ask`, `last`
+            </ApiParam>
+         </CollapsibleNestedParams>
+         </ApiParam>
+      </CollapsibleNestedParams>
+   </ApiParam>
+
+   <ApiParam name='trailing' type='object'>
+   Configuration of the trailing stop applied to this Trade.
+   <CollapsibleNestedParams>
+      <ApiParam name='enabled' type='boolean'>
+         Specifies whether the trailing stop is active. Possible values: `true`, `false`.
+      </ApiParam>
+      <ApiParam name='value' type='string'>
+         Defines the absolute step size used to follow the price.  
+         Example: *`value="0.01"` means the stop will trail the price by a fixed amount of 0.01.*
+      </ApiParam>
+      <ApiParam name='percent' type='string'>
+         Defines the relative step size (percentage) used to follow the price.  
+         Example: *`percent="0.5"` means the stop will trail the price by 0.5% of the current price.*
+      </ApiParam>
+   </CollapsibleNestedParams>
+   </ApiParam>
+
+   <ApiParam name='timeout' type='object'>
+      Details of the timeout behavior applied to this Trade. Applied for `conditional` trades only. 
+      
+      *If timeout is enabled, after the condition is met, the order will not be placed immediately.
+      Instead, it will wait for the specified timeout period, re-check the condition, and then place the order if the condition is still met.*
+      <CollapsibleNestedParams>
+         <ApiParam name='enabled' type='boolean'>
+         Indicates whether the timeout is enabled. Value: `false`, `true`
+         </ApiParam>
+         <ApiParam name='value' type='string'>
+         Timeout value in seconds. Value: `10`
+         </ApiParam>
+      </CollapsibleNestedParams>
+   </ApiParam>
+
+  {/* <ApiParam name='instant' type='boolean' id="instant">
+    Indicates whether a Simple Buy or Simple Sale of an asset has been executed `true` or not `false`.  
+    Always false for advanced trades like this.
+  </ApiParam>
+
+  <ApiParam name='account' type='object'>
+    Details about user account.
+    <CollapsibleNestedParams>
+      <ApiParam name='id' type='integer'>
+        Unique 3Commas ID for this exchange account entity.
+      </ApiParam>
+    </CollapsibleNestedParams>
+  </ApiParam>
+
+  <CollapsibleApiParam name='status' type='object'>
+    The common status and information about this status for this SmartTrade entity.
+    <CollapsibleNestedParams>
+      <ApiParam name='basic_type' type='string'>
+        3Commas status for this SmartTrade. Value: `finished`
+      </ApiParam>
+      <ApiParam name='error' type='string'>
+        Description of the error for this SmartTrade if it fails. Value: `null`
+      </ApiParam>
+    </CollapsibleNestedParams>
+  </CollapsibleApiParam>
+
+  <CollapsibleApiParam name='leverage' type='object'>
+    Details of the Leverage applied to this SmartTrade.
+    <CollapsibleNestedParams>
+      <ApiParam name='type' type='string'>
+        Shows the leverage type that was set when creating this SmartTrade. Value: `null`
+      </ApiParam>
+    </CollapsibleNestedParams>
+  </CollapsibleApiParam>
+
+  <CollapsibleApiParam name='position' type='object' id="position">
+    Details of the Position applied to this SmartTrade.
+    <CollapsibleNestedParams>
+      <ApiParam name='type' type='string' id="type">
+        The side of the order: `buy`
+      </ApiParam>
+      <ApiParam name='units' type='object' id="units">
+        <CollapsibleNestedParams>
+          <ApiParam name='value' type='string' id="value">
+            Amount of units for position trade. Value: `2.4869`
+          </ApiParam>
+        </CollapsibleNestedParams>
+      </ApiParam>
+      <ApiParam name='price' type='object'>
+        <CollapsibleNestedParams>
+          <ApiParam name='value' type='number' id="value">
+            The price of the position order. Value: `null`
+          </ApiParam>
+        </CollapsibleNestedParams>
+      </ApiParam>
+      <ApiParam name='total' type='number' id="total">
+        Total value of the position: `0.099898773`
+      </ApiParam>
+      <ApiParam name='order_type' type='string' id="order_type">
+        Type of order: `market`
+      </ApiParam>
+      <ApiParam name='status' type='object'>
+        <CollapsibleNestedParams>
+          <ApiParam name='basic_type' type='string' id="basic_type">
+            3Commas status for this Position: `finished`
+          </ApiParam>
+          <ApiParam name='error' type='string' id="error">
+            Error message if any. Value: `null`
+          </ApiParam>
+        </CollapsibleNestedParams>
+      </ApiParam>
+
+      <ApiParam name='conditional' type="object" id="conditional">
+        <CollapsibleNestedParams>
+          <ApiParam name='order_type' type='string' id="order_type">
+            Conditional order type. Value: `null`
+          </ApiParam>
+          <ApiParam name='price' type="object" id="price">
+            <CollapsibleNestedParams>
+              <ApiParam name='type' type='string' id="type">
+                Conditional price type. Value: `null`
+              </ApiParam>
+              <ApiParam name='value' type='number' id="value">
+                Conditional trigger price. Value: `null`
+              </ApiParam>
+            </CollapsibleNestedParams>
+          </ApiParam>
+          <ApiParam name='trailing' type="object" id="trailing">
+            <CollapsibleNestedParams>
+              <ApiParam name='percent' type='number' id="percent">
+                Trailing stop percentage. Value: `null`
+              </ApiParam>
+            </CollapsibleNestedParams>
+          </ApiParam>
+        </CollapsibleNestedParams>
+      </ApiParam>
+    </CollapsibleNestedParams>
+  </CollapsibleApiParam>  
+
+  <CollapsibleApiParam name='filled' type='object'>
+    Final fill information for this SmartTrade.
+    <CollapsibleNestedParams>
+      <ApiParam name='units' type='string'>
+        Filled units. Value: `2.4869`
+      </ApiParam>
+      <ApiParam name='total' type='string'>
+        Total quote filled. Value: `0.099998671773`
+      </ApiParam>
+      <ApiParam name='price' type='string'>
+        Fill price. Value: `0.04021`
+      </ApiParam>
+      <ApiParam name='value' type='string'>
+        Percent of trade filled. Value: `100.0`
+      </ApiParam>
+    </CollapsibleNestedParams>
+  </CollapsibleApiParam>
+
+  <CollapsibleApiParam name='data' type='object' id="data">
+    Available actions applicable to the entire SmartTrade entity.
+    <CollapsibleNestedParams>
+      <ApiParam name='cancelable' type='boolean' id="cancelable">
+        Indicates whether the trade can be canceled. Value: `false`
+      </ApiParam>
+    </CollapsibleNestedParams>
+  </CollapsibleApiParam> */}
+
+</StickyLayout.Main>
+
+<StickyLayout.Sticky entity>
+```json
+{
+   "uuid": "be523b7b-05a0-49b9-89f9-41ae19fff415",
+   "account_id": 32576869,
+   "pair": "BTC_ETH",
+   "created_at": 1727871936,
+   "closed_at": 1727871937,
+   "order": {
+      "type": "market",
+      "side": "buy",
+      "strategy": null,
+      "position_side": "both",
+      "reduce_only": false
+   },
+   "units": {
+      "value": "2.4869"
+   },
+   "price": {
+      "value": null
+   },
+   "total": {
+      "value": "0.099898773"
+   },
+   "conditional": {
+      "enabled": false,
+      "value": null,
+      "price": {
+      "value": null,
+      "type": null
+      }
+   },
+   "trailing": {
+      "enabled": false,
+      "value": null,
+      "percent": null
+   },
+   "timeout": {
+      "enabled": false,
+      "value": null
+   },
+   "leverage": {
+      "type": null
+   },
+   "status": {
+      "value": "finished",
+      "error": null
+   },
+   "filled": {
+      "units": "2.4869",
+      "total": "0.099998671773",
+      "price": "0.04021",
+      "value": "100.0"
+   },
+   "data": {
+      "cancelable": false
+   }
+}
+```
+</StickyLayout.Sticky>
+</StickyLayout.Root>
