@@ -149,6 +149,31 @@ permissions={
       </CollapsibleNestedParams>
    </ApiParam>
 
+   <ApiParam name='leverage' type='object'>
+      Details of the leverage applied to this Trade.
+      <CollapsibleNestedParams>
+         <ApiParam name='type' type='string'>
+         Shows the leverage type that was set when creating this Trade. Value: `null`
+         </ApiParam>
+      </CollapsibleNestedParams>
+   </ApiParam>
+
+    <ApiParam name='status' type='object'>
+      General status information for this Trade entity.
+
+      If the trade finishes with an error, the details will be provided in the `error` field.
+
+      <CollapsibleNestedParams>
+        <ApiParam name='basic_type' type='string'>
+          Current status of the Trade. Possible values:
+          `idle`, `to_process`, `order_placed`, `pending_cancellation`, `cancelled`, `panic_sell_pending`, `panic_sell_order_placed`, `panic_sold`, `trailing_activated`, `finished`, `failed`, `inactive`, `smart_sell`, `need_reset`, `async_order_placement`, `suspended`
+        </ApiParam>
+        <ApiParam name='error' type='string'>
+          Description of the error if the Trade has failed. Value is `null` if there is no error.
+        </ApiParam>
+      </CollapsibleNestedParams>
+    </ApiParam>
+
   {/* <ApiParam name='instant' type='boolean' id="instant">
     Indicates whether a Simple Buy or Simple Sale of an asset has been executed `true` or not `false`.  
     Always false for advanced trades like this.
