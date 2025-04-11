@@ -20,20 +20,39 @@ Visit the site to explore guides, API references, examples, and more.
 
 To run the documentation website locally:
 
-1. **Clone the repository:**
-    ```bash
-    git clone https://github.com/3commas-io/3commas-official-api-docs.git
-    cd 3commas-official-api-docs
-    ```
-2. **Install dependencies:**
-    ```bash
-    npm install
-    ```
-3. **Start the development server:**
-    ```bash
-    npm run start
-    ```
-4. **View locally:**
+**Clone the repository:**
+
+```bash
+git clone https://github.com/3commas-io/3commas-official-api-docs.git
+cd 3commas-official-api-docs
+```
+
+**Run:**
+
+### 1. Using make command and docker:
+
+```bash
+make run
+```
+
+
+
+### 2. Manualy
+
+**Install dependencies:**
+
+```bash
+npm install
+```
+
+**Start the development server:**
+
+```bash
+npm run start
+```
+
+### 3. View locally:
+
    Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## License & Contributions
