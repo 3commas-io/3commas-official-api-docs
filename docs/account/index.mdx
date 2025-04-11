@@ -12,7 +12,7 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
 <StickyLayout.Root>
 <StickyLayout.Main>
 
-Account entities hold information about the cryptocurrency portfolio, their balances, and the set of tools that are available for this account.
+Account entities hold information about the cryptocurrency portfolio, their balances, trading volume, and the set of tools that are available for this account.
 
 Account entities hold information like:
 
@@ -98,6 +98,18 @@ Account entities hold information like:
     },
      {
       url: "/ver1/accounts/:account_id/deposit_data",
+      method: 'GET'
+    },
+    {
+      url: "/ver1/accounts/:account_id/volume/daily",
+      method: 'GET'
+    },
+    {
+      url: "/ver1/accounts/:account_id/volume/monthly",
+      method: 'GET'
+    },
+    {
+      url: "/ver1/accounts/:account_id/volume/total",
       method: 'GET'
     }
   ]}

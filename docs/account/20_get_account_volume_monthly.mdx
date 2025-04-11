@@ -1,0 +1,87 @@
+---
+id: get-volume-monthly
+title: Get monthly trading volume
+sidebar_class_name: get
+---
+
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+
+<Endpoint
+  url="/ver1/accounts/:account_id/volume/monthly"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="ACCOUNTS_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Returns monthly trading volume for the specified account in BTC and USD.
+
+<Separator />
+
+<StickyLayout.Root>
+  <StickyLayout.Main>
+    ## Path Parameters
+
+    <ApiParam name="account_id" type="integer" required>
+      Unique 3Commas ID of this exchange account entity.
+    </ApiParam>
+
+    ## Query Parameters
+
+    <ApiParam name="month" type="string" format="YYYY-MM">
+      Optional. The UTC month for which volume should be returned. If omitted, returns current month's volume.
+    </ApiParam>
+
+    ## Response Parameters
+
+    <ApiParam name="utc_month" type="string" format="YYYY-MM" id="utc_month">
+      The month for which the trading volume is returned (UTC).
+    </ApiParam>
+
+    <ApiParam name="volume_btc" type="string" id="volume_btc">
+      Total trading volume for the account in the specified month, in BTC.
+    </ApiParam>
+
+    <ApiParam name="volume_usd" type="string" id="volume_usd">
+      Total trading volume for the account in the specified month, in USD.
+    </ApiParam>
+  </StickyLayout.Main>
+
+  <StickyLayout.Sticky>
+    ## Example Request
+
+    ```http
+    GET /ver1/accounts/123456/volume/monthly?month=2025-03
+    ```
+
+    ## Example Response
+
+    <ResponseTabs.Root>
+      <ResponseTabs.TabItem value="200" label="200 OK" default>
+        ```json
+        {
+          "utc_month": "2025-03",
+          "volume_btc": "15.7",
+          "volume_usd": "785000.00"
+        }
+        ```
+      </ResponseTabs.TabItem>
+      <ResponseTabs.TabItem value="404" label="404 Not Found">
+        ```json
+        {
+          "error": "Volume data not found",
+          "error_description": "No data available for the requested month",
+          "status_code": 404
+        }
+        ```
+      </ResponseTabs.TabItem>
+    </ResponseTabs.Root>
+  </StickyLayout.Sticky>
+</StickyLayout.Root>
