@@ -35,7 +35,7 @@ const DocSidebarMobileSecondaryMenu: NavbarSecondaryMenuComponent<Props> = ({
           items={sidebar}
           activePath={path}
           onItemClick={(item) => {
-            // Закриваємо мобільне меню, якщо категорія має посилання або це звичайне посилання
+            // Close the mobile menu if the category has a link or it's just a regular link
             if (
               (item.type === "category" && item.href) ||
               item.type === "link"
