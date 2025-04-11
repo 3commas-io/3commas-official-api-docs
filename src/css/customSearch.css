@@ -282,14 +282,14 @@ section.DocSearch-Hits mark {
   background-image: var(--search-footer-key-down-svg);
 }
 
-/* Третій ключ (Arrow up) — другий ключ у другому li */
+/* The third key (Arrow up) is the second key in the second li */
 .DocSearch-Commands
   li:nth-child(2)
   kbd.DocSearch-Commands-Key:nth-of-type(2)::after {
   background-image: var(--search-footer-key-up-svg);
 }
 
-/* Четвертий ключ (Escape key) */
+/* Fourth key (Escape key) */
 .DocSearch-Commands
   li:nth-child(3)
   kbd.DocSearch-Commands-Key:nth-of-type(1)::after {
