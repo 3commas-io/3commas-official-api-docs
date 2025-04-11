@@ -10,6 +10,7 @@ import SearchBar from "@theme/SearchBar";
 import NavbarMobileSidebarToggle from "@theme/Navbar/MobileSidebar/Toggle";
 import NavbarLogo from "@theme/Navbar/Logo";
 import NavbarSearch from "@theme/Navbar/Search";
+import TelegramLink from "@site/src/theme/Navbar/TelegramLink/TelegramLink";
 
 import styles from "./styles.module.css";
 
@@ -34,6 +35,7 @@ ${JSON.stringify(item, null, 2)}`,
           }
         >
           <NavbarItem {...item} />
+          <TelegramLink />
         </ErrorCauseBoundary>
       ))}
     </>
@@ -84,6 +86,7 @@ export default function NavbarContent(): ReactNode {
         // TODO stop hardcoding items?
         // Ask the user to add the respective navbar items => more flexible
         <>
+          <NavbarColorModeToggle className={styles.colorModeToggle} />
           {searchBarItem ? null : (
             <div className={styles.desktopSearcContainer}>
               <NavbarSearch>
@@ -92,7 +95,6 @@ export default function NavbarContent(): ReactNode {
             </div>
           )}
           <NavbarItems items={rightItems} />
-          <NavbarColorModeToggle className={styles.colorModeToggle} />
         </>
       }
     />
