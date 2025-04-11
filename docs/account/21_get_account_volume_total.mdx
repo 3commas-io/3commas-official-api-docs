@@ -1,0 +1,67 @@
+---
+id: get-volume-total
+title: Get all-time trading volume
+sidebar_class_name: get
+---
+
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+
+<Endpoint
+  url="/ver1/accounts/:account_id/volume/total"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="ACCOUNTS_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Returns all-time trading volume for the specified account in BTC and USD.
+
+<Separator />
+
+<StickyLayout.Root>
+  <StickyLayout.Main>
+    ## Path Parameters
+
+    <ApiParam name="account_id" type="integer" required>
+      Unique 3Commas ID of this exchange account entity.
+    </ApiParam>
+
+    ## Response Parameters
+
+    <ApiParam name="volume_btc" type="string" id="volume_btc">
+      Total trading volume for the account since creation, in BTC.
+    </ApiParam>
+
+    <ApiParam name="volume_usd" type="string" id="volume_usd">
+      Total trading volume for the account since creation, in USD.
+    </ApiParam>
+  </StickyLayout.Main>
+
+  <StickyLayout.Sticky>
+    ## Example Request
+
+    ```http
+    GET /ver1/accounts/123456/volume/total
+    ```
+
+    ## Example Response
+
+    <ResponseTabs.Root>
+      <ResponseTabs.TabItem value="200" label="200 OK" default>
+        ```json
+        {
+          "volume_btc": "156.8",
+          "volume_usd": "7840000.00"
+        }
+        ```
+      </ResponseTabs.TabItem>
+    </ResponseTabs.Root>
+  </StickyLayout.Sticky>
+</StickyLayout.Root>
