@@ -1,9 +1,10 @@
-import Link from "@docusaurus/Link";
-import TelegramIcon from "@site/src/icons/TelegramIcon";
-
-import styles from "./TelegramLink.module.css";
-import { FunctionComponent } from "react";
 import clsx from "clsx";
+import Link from "@docusaurus/Link";
+
+import TelegramIcon from "@site/src/icons/TelegramIcon";
+import styles from "./TelegramLink.module.css";
+
+import type { FunctionComponent } from "react";
 
 type Props = {
   labeled?: boolean;

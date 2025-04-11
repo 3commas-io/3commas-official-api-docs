@@ -34,8 +34,8 @@ ${JSON.stringify(item, null, 2)}`,
             )
           }
         >
-          <NavbarItem {...item} />
           <TelegramLink />
+          <NavbarItem {...item} />
         </ErrorCauseBoundary>
       ))}
     </>

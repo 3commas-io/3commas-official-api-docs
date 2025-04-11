@@ -1,6 +1,6 @@
 .options {
   display: flex;
-  margin: 24px 14px;
+  margin: 24px 20px;
   flex-direction: column;
   gap: 20px;
 }
