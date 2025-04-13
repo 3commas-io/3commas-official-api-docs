@@ -1,0 +1,26 @@
+.options {
+  display: flex;
+  margin: 24px 20px;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: var(--text-size);
+
+  & > div {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+button.row {
+  width: fit-content;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}

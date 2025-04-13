@@ -1,0 +1,34 @@
+.link {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  color: var(--ifm-font-color-base);
+
+  &.labeled {
+    gap: 16px;
+    justify-content: start;
+  }
+
+  & span {
+    font-size: var(--text-size);
+  }
+
+  &:hover,
+  &:hover * {
+    color: var(--ifm-link-color);
+  }
+}
+
+.link.labeled {
+  display: flex;
+}
+
+@media (min-width: 997px) {
+  .link.labeled {
+    display: none;
+  }
+
+  .link {
+    display: flex;
+  }
+}
