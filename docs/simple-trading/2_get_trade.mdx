@@ -1,0 +1,152 @@
+---
+id: get-trade
+title: Get Trade
+sidebar_class_name: get
+---
+
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import { Informer } from '@site/src/components/Informer/Informer';
+
+<Endpoint
+  url="/ver1/trades/{uuid}"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="SMART_TRADES_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Returns a single trade by its UUID.
+
+<Informer variant="info">
+  Use this endpoint to retrieve all details of a specific trade, including order type, amount, status, and execution conditions.
+</Informer>
+
+<Separator />
+
+<StickyLayout.Root>
+  <StickyLayout.Main>
+
+## Path Parameters
+
+<ApiParam name="uuid" type="string" id="uuid" required>
+  The unique identifier of the trade to retrieve. Example: <code>f89e3f34-1db1-47f2-81cc-9b4e5c50d7e1</code>
+</ApiParam>
+
+  </StickyLayout.Main>
+  <StickyLayout.Sticky>
+
+## Example Request
+
+<NoContentEndpoint method="GET" endpoint="/ver1/trades/f89e3f34-1db1-47f2-81cc-9b4e5c50d7e1" />
+
+  </StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+  <StickyLayout.Main>
+
+## Response Parameters
+
+If successful, returns the full trade object. See [Trade Entity](/docs/smart-trade/simple_test) for a full list of attributes.
+
+  </StickyLayout.Main>
+  <StickyLayout.Sticky>
+
+## Example Responses
+
+<ResponseTabs.Root>
+  <ResponseTabs.TabItem value="200" label="200 OK" default>
+
+```json
+{
+  "uuid": "be523b7b-05a0-49b9-89f9-41ae19fff415",
+  "account_id": 32576869,
+  "pair": "BTC_ETH",
+  "created_at": 1727871936,
+  "closed_at": 1727871937,
+  "order": {
+    "type": "market",
+    "side": "buy",
+    "strategy": null,
+    "position_side": "both",
+    "reduce_only": false
+  },
+  "units": {
+    "value": "2.4869"
+  },
+  "price": {
+    "value": null
+  },
+  "total": {
+    "value": "0.099898773"
+  },
+  "conditional": {
+    "enabled": false,
+    "value": null,
+    "price": {
+      "value": null,
+      "type": null
+    }
+  },
+  "trailing": {
+    "enabled": false,
+    "value": null,
+    "percent": null
+  },
+  "timeout": {
+    "enabled": false,
+    "value": null
+  },
+  "leverage": {
+    "type": null
+  },
+  "status": {
+    "basic_type": "finished",
+    "error": null
+  },
+  "filled": {
+    "units": "2.4869",
+    "total": "0.099998671773",
+    "price": "0.04021",
+    "value": "100.0"
+  },
+  "data": {
+    "cancelable": false
+  }
+}
+```
+
+  </ResponseTabs.TabItem>
+  <ResponseTabs.TabItem value="404" label="404 Not Found">
+
+```json
+{
+  "error": "not_found",
+  "error_description": "Trade not found for the given UUID."
+}
+```
+
+  </ResponseTabs.TabItem>
+  <ResponseTabs.TabItem value="403" label="403 Forbidden">
+
+```json
+{
+  "error": "Forbidden",
+  "error_description": "You do not have access to this trade."
+}
+```
+
+  </ResponseTabs.TabItem>
+</ResponseTabs.Root>
+
+  </StickyLayout.Sticky>
+</StickyLayout.Root>

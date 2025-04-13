@@ -26,63 +26,39 @@ Additionally, it offers several quality-of-life features:
 
 In 3Commas terminology:
 * A **Trade** is the core entity of the OMS.
-* A **Trade** may consist of one or more **Exhcnage Orders**.
+* A **Trade** may consist of one or more **Exchange Orders**.
 
-
-
- </StickyLayout.Main>
+</StickyLayout.Main>
 
 <StickyLayout.Sticky entity>
 <Endpoint
   endpointsList={[
     {
-      url: "/v2/smart_trades",
-      method: 'POST'
+      url: "/ver1/trades",
+      method: "POST",
+      description: "Create Trade (Permission: SMART_TRADES_WRITE, Security: SIGNED)"
     },
     {
-      url: "/v2/smart_trades",
-      method: 'GET'
+      url: "/ver1/trades",
+      method: "GET",
+      description: "Get Active Trades (Permission: SMART_TRADES_READ, Security: SIGNED)"
     },
     {
-      url: "/v2/smart_trades/:id/add_funds",
-      method: 'POST'
+      url: "/ver1/trades/history",
+      method: "GET",
+      description: "Trades History (Permission: SMART_TRADES_READ, Security: SIGNED)"
     },
     {
-      url: "/v2/smart_trades/:id/reduce_funds",
-      method: 'POST'
+      url: "/ver1/trades/:uuid",
+      method: "GET",
+      description: "Get Trade (Permission: SMART_TRADES_READ, Security: SIGNED)"
     },
     {
-      url: "/v2/smart_trades/:id/close_by_market",
-      method: 'POST'
-    },
-    {
-      url: "/v2/smart_trades/:id/set_note",
-      method: 'POST'
-    },
-    {
-      url: "/v2/smart_trades/:id/force_start",
-      method: 'POST'
-    },
-    {
-      url: "/v2/smart_trades/:id",
-      method: 'PATCH'
-    },
-    {
-      url: "/v2/smart_trades/:id",
-      method: 'GET'
-    },
-    {
-      url: "/v2/smart_trades/:id/reduce_funds_info",
-      method: 'GET'
-    },
-    {
-      url: "/v2/smart_trades/:id",
-      method: 'DELETE'
+      url: "/ver1/trades/:uuid/cancel",
+      method: "POST",
+      description: "Cancel Trade (Permission: SMART_TRADES_WRITE, Security: SIGNED)"
     }
   ]}
 />
-
 </StickyLayout.Sticky>
 </StickyLayout.Root>
-
-
