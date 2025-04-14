@@ -660,7 +660,7 @@ main li > code {
 
 .navbar__items--right {
   display: flex;
-  gap: 12px;
+  gap: 18px;
 
   & > *,
   & > * button {
@@ -987,6 +987,25 @@ li.menu__list-item > .category-title-hr.titled {
   }
 }
 
+.toggle_vylO {
+  max-width: 24px;
+  max-height: 24px;
+
+  & svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.toggleButton_gllP:hover {
+  all: unset !important;
+  cursor: pointer !important;
+}
+
+.navbar-sidebar__brand > :nth-child(3) {
+  gap: 18px;
+}
+
 @media (min-width: 768px) and (max-width: 996px) {
   .navbar,
   .navbar-sidebar__brand {
@@ -1025,6 +1044,11 @@ li.menu__list-item > .category-title-hr.titled {
   .navbar__items.navbar__items--right .toggle_vylO.colorModeToggle_DEke {
     display: none !important;
   }
+}
+
+.navbar-sidebar__close {
+  width: 20px;
+  height: 20px;
 }
 
 @media (max-width: 996px) {

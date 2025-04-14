@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavbarMobileSidebar } from "@docusaurus/theme-common/internal";
 import { translate } from "@docusaurus/Translate";
-import NavbarColorModeToggle from "@theme/Navbar/ColorModeToggle";
 import IconClose from "@theme/Icon/Close";
 import NavbarLogo from "@theme/Navbar/Logo";
-import NavbarNavLink from "@theme/NavbarItem/NavbarNavLink";
+import TelegramLink from "../../TelegramLink/TelegramLink";
+import { GithubLink } from "../../GithubLink/GithubLink";
 
 function CloseButton() {
   const mobileSidebar = useNavbarMobileSidebar();
@@ -23,14 +23,6 @@ function CloseButton() {
     </button>
   );
 }
-const navLinkProps = {
-  className: "navbar__item navbar__link",
-  isDropdownLink: false,
-  href: "https://github.com/3commas-io/3commas-official-api-docs",
-  label: "GitHub",
-  activeClassName: "navbar__link--active",
-};
-
 export default function NavbarMobileSidebarHeader(): JSX.Element {
   return (
     <div className="navbar-sidebar__brand">
@@ -39,8 +31,8 @@ export default function NavbarMobileSidebarHeader(): JSX.Element {
         <NavbarLogo />
       </span>
       <div style={{ display: "flex" }}>
-        <NavbarNavLink {...navLinkProps} />
-        <NavbarColorModeToggle />
+        <TelegramLink />
+        <GithubLink />
       </div>
     </div>
   );

@@ -1,0 +1,29 @@
+/*
+Hide color mode toggle in small viewports
+ */
+.link {
+  --dark: #000;
+  --light: #fff;
+
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--dark);
+
+    &:hover {
+      fill: var(--ifm-link-color) !important;
+    }
+  }
+}
+
+[data-theme="dark"] .link {
+  & svg {
+    fill: var(--light);
+  }
+}
