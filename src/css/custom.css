@@ -921,7 +921,7 @@ li.menu__list-item > .category-title-hr.titled {
     gap: 1.25rem;
   }
   .navbar {
-    padding: 0 16px 12px 0 !important;
+    padding: 0 24px 12px 0 !important;
     box-shadow: none;
     border-bottom: 1px solid var(--navigation-border-header-color);
   }
@@ -1030,7 +1030,7 @@ li.menu__list-item > .category-title-hr.titled {
 @media (max-width: 767px) {
   .navbar,
   .navbar-sidebar__brand {
-    padding: 20px 20px;
+    padding: 16px 20px;
   }
 
   .navbar-sidebar__brand > :nth-child(3) > .toggle_vylO {
