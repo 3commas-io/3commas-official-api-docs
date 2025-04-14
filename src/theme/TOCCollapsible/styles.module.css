@@ -1,0 +1,77 @@
+.tocCollapsible {
+  --color: #707070;
+  --color-active: #242424;
+  --shadow-color: #0000000d;
+  --dash-color: #ececec;
+
+  [data-theme="dark"] & {
+    --color: #848484;
+    --color-active: #fff;
+    --dash-color: #ffffff70;
+    --shadow-color: #fdfdfd04;
+  }
+
+  position: fixed;
+  background: var(--colapsible-background-color);
+  box-shadow: 0 -7px 16px 0 var(--shadow-color);
+  border-top: 1px solid var(--navigation-border-header-color);
+  font-size: var(--text-size);
+  z-index: 100;
+  inset: auto 0 52px;
+}
+
+.tocCollapsibleContent > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 20px;
+  border-left: none;
+}
+
+.tocCollapsibleContent a {
+  display: block;
+}
+
+.tocCollapsibleContent li {
+  margin: auto 0;
+}
+
+.tocCollapsibleContent li > ul {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tocLink {
+  color: var(--color);
+  display: flex;
+
+  &::before {
+    content: " ";
+    display: inline-block;
+    background: var(--dash-color);
+    width: 18px;
+    height: 2px;
+    margin-right: 12px;
+    margin-bottom: 3px;
+    transition: background 0.2s ease;
+  }
+
+  &:hover {
+    color: var(--color-active);
+
+    &::before {
+      background: var(--color-active);
+    }
+  }
+}
+
+.tocLinkActive {
+  font-weight: 600;
+  color: var(--color-active);
+
+  &::before {
+    background: var(--color-active);
+  }
+}

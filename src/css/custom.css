@@ -37,6 +37,7 @@
   --text-emphasis-size: 0.875rem;
   --text-content-color: #707070;
 
+  --colapsible-background-color: #fff;
   --code-separator-color: #ececec;
   --code-background-color: #f8f8f8;
   --pagination-button-color: #f8f8f8;
@@ -101,6 +102,7 @@
   --ifm-background-color: #242526 !important;
   --ifm-navbar-shadow: 0 1px 2px 0 rgba(108, 106, 106, 0.1);
 
+  --colapsible-background-color: #1e1e1f;
   --pagination-button-color: #2c2e30;
   --code-separator-color: #404144;
   --code-background-color: #2c2e30;
@@ -623,11 +625,11 @@ strong {
 main
   a:not(.home-line):not(.breadcrumbs__link):not(.pagination-link):not(
     .hash-link
-  ):not(.tocLink_wfFo),
+  ):not([class*="tocLink_"]),
 main
   a:not(.home-line):not(.breadcrumbs__link):not(.pagination-link):hover:not(
     .hash-link
-  ):not(.tocLink_wfFo) {
+  ):not([class*="tocLink_"]) {
   text-decoration: underline !important;
   color: var(--ifm-heading-color) !important;
   font-weight: inherit;
