@@ -1029,7 +1029,7 @@ li.menu__list-item > .category-title-hr.titled {
 
 @media (max-width: 996px) {
   .navbar {
-    height: auto;
+    height: 68px;
   }
 
   .navbar__items > .navbar__left__content {
