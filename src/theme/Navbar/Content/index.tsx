@@ -6,6 +6,7 @@ import {
 } from "@docusaurus/theme-common/internal";
 import NavbarItem, { type Props as NavbarItemConfig } from "@theme/NavbarItem";
 import NavbarColorModeToggle from "@theme/Navbar/ColorModeToggle";
+import { GithubLink } from "../GithubLink/GithubLink";
 import SearchBar from "@theme/SearchBar";
 import NavbarMobileSidebarToggle from "@theme/Navbar/MobileSidebar/Toggle";
 import NavbarLogo from "@theme/Navbar/Logo";
@@ -34,7 +35,6 @@ ${JSON.stringify(item, null, 2)}`,
             )
           }
         >
-          <TelegramLink />
           <NavbarItem {...item} />
         </ErrorCauseBoundary>
       ))}
@@ -61,7 +61,7 @@ export default function NavbarContent(): ReactNode {
   const mobileSidebar = useNavbarMobileSidebar();
 
   const items = useNavbarItems();
-  const [leftItems, rightItems] = splitNavbarItems(items);
+  const [leftItems] = splitNavbarItems(items);
 
   const searchBarItem = items.find((item) => item.type === "search");
 
@@ -86,7 +86,6 @@ export default function NavbarContent(): ReactNode {
         // TODO stop hardcoding items?
         // Ask the user to add the respective navbar items => more flexible
         <>
-          <NavbarColorModeToggle className={styles.colorModeToggle} />
           {searchBarItem ? null : (
             <div className={styles.desktopSearcContainer}>
               <NavbarSearch>
@@ -94,7 +93,9 @@ export default function NavbarContent(): ReactNode {
               </NavbarSearch>
             </div>
           )}
-          <NavbarItems items={rightItems} />
+          <TelegramLink />
+          <GithubLink />
+          <NavbarColorModeToggle className={styles.colorModeToggle} />
         </>
       }
     />

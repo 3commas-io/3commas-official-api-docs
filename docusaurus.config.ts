@@ -58,13 +58,7 @@ const config: Config = {
         src: "img/logo.svg",
         srcDark: "img/logo@dark.svg",
       },
-      items: [
-        {
-          href: "https://github.com/3commas-io/3commas-official-api-docs",
-          label: "GitHub",
-          position: "right",
-        },
-      ],
+      items: [],
       hideOnScroll: false,
     },
     footer: {

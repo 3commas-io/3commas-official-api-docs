@@ -11,7 +11,6 @@ import DocSidebarItems from "@theme/DocSidebarItems";
 import type { Props } from "@theme/DocSidebar/Mobile";
 import NavbarColorModeToggle from "@theme/Navbar/ColorModeToggle";
 import styles from "./styles.module.css";
-import TelegramLink from "@site/src/theme/Navbar/TelegramLink/TelegramLink";
 
 const DocSidebarMobileSecondaryMenu: NavbarSecondaryMenuComponent<Props> = ({
   sidebar,
@@ -47,7 +46,6 @@ const DocSidebarMobileSecondaryMenu: NavbarSecondaryMenuComponent<Props> = ({
         />
       </ul>
       <div className={styles.options}>
-        <TelegramLink labeled />
         <button className={styles.row} onClick={handleColorModeChange}>
           <NavbarColorModeToggle className="themeChangeButton" />
           <span>{currentTheme}</span>
