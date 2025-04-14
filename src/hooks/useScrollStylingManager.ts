@@ -41,6 +41,8 @@ const BREADCRUMBS_BREAKPOINTS = {
   largeDesktop: 1596,
 };
 
+const HEADER_BOTTOM_SPACE = 12.5; // 12.5 is the approximate bottom space of the headerContentContainer element
+
 const useScrollStylingManager = () => {
   const containerInitialized = useRef<boolean>(false);
 
@@ -68,7 +70,7 @@ const useScrollStylingManager = () => {
 
       const rect = endpointEl.getBoundingClientRect();
       setEndpointEdge({
-        edge: rect.top - 12.5, // 12.5 is the approximate bottom space of the headerContentContainer element
+        edge: rect.top - HEADER_BOTTOM_SPACE + window.scrollY, // here we need to also add the scrollY because the rect.top is relative to the viewport
         desktop:
           window.innerWidth >= BREADCRUMBS_BREAKPOINTS.desktop &&
           window.innerWidth < BREADCRUMBS_BREAKPOINTS.largeDesktop,
@@ -113,7 +115,7 @@ const useScrollStylingManager = () => {
           const rect = endpoint.current.getBoundingClientRect();
 
           setEndpointEdge({
-            edge: rect.top - 12.5 + window.scrollY, // here we need to also add the scrollY because the rect.top is relative to the viewport
+            edge: rect.top - HEADER_BOTTOM_SPACE + window.scrollY,
             desktop: isDesktop,
             largeDesktop: isLargeDesktop,
           });
