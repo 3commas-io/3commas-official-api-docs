@@ -882,24 +882,30 @@ li.menu__list-item > .category-title-hr.titled {
     z-index: var(--ifm-z-index-fixed);
   }
 }
-@media (min-width: 1200px) and (max-width: 1534px) {
-  #breadcrumbsContainer.scrolledClass {
-    display: none;
-  }
-}
-@media (min-width: 1596px) {
+@media (min-width: 1534px) {
   #breadcrumbsContainer {
+    z-index: calc(var(--ifm-z-index-fixed) + 1);
     position: fixed !important;
   }
 
   #breadcrumbsContainer.scrolledClass {
     position: fixed;
-    right: 215px;
+    right: 195px;
     left: auto;
   }
 
   #breadcrumbsArea {
     height: auto;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1534px) {
+  #breadcrumbsContainer {
+    z-index: calc(var(--ifm-z-index-fixed) + 1);
+  }
+
+  #breadcrumbsContainer.scrolledClass {
+    display: none;
   }
 }
 

@@ -38,7 +38,7 @@ const excludedRoutes = [
 
 const BREADCRUMBS_BREAKPOINTS = {
   desktop: 1200,
-  largeDesktop: 1596,
+  largeDesktop: 1534,
 };
 
 const HEADER_BOTTOM_SPACE = 12.5; // 12.5 is the approximate bottom space of the headerContentContainer element
