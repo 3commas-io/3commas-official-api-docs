@@ -110,7 +110,7 @@ If successful, returns the full trade object. See [Trade Entity](/docs/smart-tra
     "type": null
   },
   "status": {
-    "basic_type": "finished",
+    "value": "finished",
     "error": null
   },
   "filled": {
@@ -131,7 +131,7 @@ If successful, returns the full trade object. See [Trade Entity](/docs/smart-tra
 ```json
 {
   "error": "not_found",
-  "error_description": "Trade not found for the given UUID."
+  "error_description": "Not Found"
 }
 ```
 
@@ -141,7 +141,7 @@ If successful, returns the full trade object. See [Trade Entity](/docs/smart-tra
 ```json
 {
   "error": "Forbidden",
-  "error_description": "You do not have access to this trade."
+  "error_description": "Api key not authorized for this action"
 }
 ```
 

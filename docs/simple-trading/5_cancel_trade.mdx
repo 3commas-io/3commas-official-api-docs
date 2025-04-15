@@ -64,64 +64,67 @@ If successful, returns the updated trade object with its cancellation status. Se
 ## Example Responses
 
 <ResponseTabs.Root>
-  <ResponseTabs.TabItem value="200" label="200 OK" default>
+  <ResponseTabs.TabItem value="201" label="201 Created" default>
 
 ```json
 {
-  "uuid": "f89e3f34-1db1-47f2-81cc-9b4e5c50d7e1",
-  "account_id": 32576869,
-  "pair": "BTC_ETH",
-  "created_at": 1727871936,
-  "closed_at": 1727872001,
-  "order": {
-    "type": "limit",
-    "side": "sell",
-    "strategy": "gtc",
-    "position_side": "both",
-    "reduce_only": false
-  },
-  "units": {
-    "value": "1.0000"
-  },
-  "price": {
-    "value": "2100.0"
-  },
-  "total": {
-    "value": "2.1000"
-  },
-  "conditional": {
-    "enabled": false,
-    "value": null,
-    "price": {
-      "value": null,
-      "type": null
+  "trade": 
+    {
+      "uuid": "f89e3f34-1db1-47f2-81cc-9b4e5c50d7e1",
+      "account_id": 32576869,
+      "pair": "BTC_ETH",
+      "created_at": 1727871936,
+      "closed_at": 1727872001,
+      "order": {
+        "type": "limit",
+        "side": "sell",
+        "strategy": "gtc",
+        "position_side": "both",
+        "reduce_only": false
+      },
+      "units": {
+        "value": "1.0000"
+      },
+      "price": {
+        "value": "2100.0"
+      },
+      "total": {
+        "value": "2.1000"
+      },
+      "conditional": {
+        "enabled": false,
+        "value": null,
+        "price": {
+          "value": null,
+          "type": null
+        }
+      },
+      "trailing": {
+        "enabled": false,
+        "value": null,
+        "percent": null
+      },
+      "timeout": {
+        "enabled": false,
+        "value": null
+      },
+      "leverage": {
+        "type": null
+      },
+      "status": {
+        "basic_type": "cancelled",
+        "error": null
+      },
+      "filled": {
+        "units": "0.0000",
+        "total": "0.0000",
+        "price": null,
+        "value": "0.0"
+      },
+      "data": {
+        "cancelable": false
+      }
     }
-  },
-  "trailing": {
-    "enabled": false,
-    "value": null,
-    "percent": null
-  },
-  "timeout": {
-    "enabled": false,
-    "value": null
-  },
-  "leverage": {
-    "type": null
-  },
-  "status": {
-    "basic_type": "cancelled",
-    "error": null
-  },
-  "filled": {
-    "units": "0.0000",
-    "total": "0.0000",
-    "price": null,
-    "value": "0.0"
-  },
-  "data": {
-    "cancelable": false
-  }
 }
 ```
 
@@ -131,7 +134,7 @@ If successful, returns the updated trade object with its cancellation status. Se
 ```json
 {
   "error": "unprocessable_entity",
-  "error_description": "Trade cannot be canceled in its current state."
+  "error_description": "Trade cannot be cancelled"
 }
 ```
 
@@ -141,7 +144,7 @@ If successful, returns the updated trade object with its cancellation status. Se
 ```json
 {
   "error": "Forbidden",
-  "error_description": "You do not have access to this trade."
+  "error_description": "Api key not authorized for this action"
 }
 ```
 

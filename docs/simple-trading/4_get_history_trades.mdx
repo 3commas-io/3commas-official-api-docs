@@ -87,64 +87,69 @@ Returns an array of historical trade entities. See [Trade Entity](/docs/smart-tr
   <ResponseTabs.TabItem value="200" label="200 OK" default>
 
 ```json
-[
-  {
-    "uuid": "be523b7b-05a0-49b9-89f9-41ae19fff415",
-    "account_id": 32576869,
-    "pair": "BTC_ETH",
-    "created_at": 1727871936,
-    "closed_at": 1727871937,
-    "order": {
-      "type": "market",
-      "side": "buy",
-      "strategy": null,
-      "position_side": "both",
-      "reduce_only": false
-    },
-    "units": {
-      "value": "2.4869"
-    },
-    "price": {
-      "value": null
-    },
-    "total": {
-      "value": "0.099898773"
-    },
-    "conditional": {
-      "enabled": false,
-      "value": null,
-      "price": {
-        "value": null,
-        "type": null
-      }
-    },
-    "trailing": {
-      "enabled": false,
-      "value": null,
-      "percent": null
-    },
-    "timeout": {
-      "enabled": false,
-      "value": null
-    },
-    "leverage": {
-      "type": null
-    },
-    "status": {
-      "basic_type": "finished",
-      "error": null
-    },
-    "filled": {
-      "units": "2.4869",
-      "total": "0.099998671773",
-      "price": "0.04021",
-      "value": "100.0"
-    },
-    "data": {
-      "cancelable": false
-    }
+{
+  "response": {
+    "trades": 
+      [
+        {
+          "uuid": "be523b7b-05a0-49b9-89f9-41ae19fff415",
+          "account_id": 32576869,
+          "pair": "BTC_ETH",
+          "created_at": 1727871936,
+          "closed_at": 1727871937,
+          "order": {
+            "type": "market",
+            "side": "buy",
+            "strategy": null,
+            "position_side": "both",
+            "reduce_only": false
+          },
+          "units": {
+            "value": "2.4869"
+          },
+          "price": {
+            "value": null
+          },
+          "total": {
+            "value": "0.099898773"
+          },
+          "conditional": {
+            "enabled": false,
+            "value": null,
+            "price": {
+              "value": null,
+              "type": null
+            }
+          },
+          "trailing": {
+            "enabled": false,
+            "value": null,
+            "percent": null
+          },
+          "timeout": {
+            "enabled": false,
+            "value": null
+          },
+          "leverage": {
+            "type": null
+          },
+          "status": {
+            "value": "finished",
+            "error": null
+          },
+          "filled": {
+            "units": "2.4869",
+            "total": "0.099998671773",
+            "price": "0.04021",
+            "value": "100.0"
+          },
+          "data": {
+            "cancelable": false
+          }
+        }
+      ]
   }
-]
+}
 ```
 
   </ResponseTabs.TabItem>
@@ -153,7 +158,7 @@ Returns an array of historical trade entities. See [Trade Entity](/docs/smart-tr
 ```json
 {
   "error": "Forbidden",
-  "error_description": "You do not have permission to access these trades."
+  "error_description": "Api key not authorized for this action"
 }
 ```
 
