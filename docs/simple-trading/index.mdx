@@ -1,0 +1,64 @@
+---
+title: Simple Trading
+sidebar_class_name: hidden
+---
+
+import Endpoint from '@site/src/components/Endpoint';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+
+# Simple Trading
+
+<StickyLayout.Root>
+<StickyLayout.Main>
+
+The Simple Trading API allows users to create, manage, and close orders on supported exchanges based on predefined conditions.
+
+This is a low-level Order Management System (OMS) API that functions as a "unified exchange terminal" across all supported exchanges.
+
+The 3Commas Order Management System (OMS) accepts commands to create and manage orders in a standardized format, handling all exchange-specific intricacies so users don’t have to.
+
+Additionally, it offers several quality-of-life features:
+
+* Support for all 3Commas order types — such as Absolute Trailing, Relative Trailing, Conditional Trailing, Conditional Market, Conditional Limit, and others — even if the exchange itself doesn’t support them. Their behavior is emulated by 3Commas.
+* Automatic recreation of orders if they are canceled by the exchange or a third party.
+* Automatic adjustment of order size if it slightly exceeds available funds — the system reduces the size to fit the balance.
+* Automatic handling of lot size and precision, so users don’t need to worry about formatting or rounding.
+
+In 3Commas terminology:
+* A **Trade** is the core entity of the OMS.
+* A **Trade** may consist of one or more **Exchange Orders**.
+
+</StickyLayout.Main>
+
+<StickyLayout.Sticky entity>
+<Endpoint
+  endpointsList={[
+    {
+      url: "/ver1/trades",
+      method: "POST",
+      description: "Create Trade (Permission: SMART_TRADES_WRITE, Security: SIGNED)"
+    },
+    {
+      url: "/ver1/trades",
+      method: "GET",
+      description: "Get Active Trades (Permission: SMART_TRADES_READ, Security: SIGNED)"
+    },
+    {
+      url: "/ver1/trades/history",
+      method: "GET",
+      description: "Trades History (Permission: SMART_TRADES_READ, Security: SIGNED)"
+    },
+    {
+      url: "/ver1/trades/:uuid",
+      method: "GET",
+      description: "Get Trade (Permission: SMART_TRADES_READ, Security: SIGNED)"
+    },
+    {
+      url: "/ver1/trades/:uuid/cancel",
+      method: "POST",
+      description: "Cancel Trade (Permission: SMART_TRADES_WRITE, Security: SIGNED)"
+    }
+  ]}
+/>
+</StickyLayout.Sticky>
+</StickyLayout.Root>

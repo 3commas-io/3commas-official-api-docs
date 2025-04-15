@@ -1,0 +1,500 @@
+---
+id: create-trade
+title: Create Trade
+sidebar_class_name: post
+---
+
+import Endpoint, { Permission } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
+import { Informer } from '@site/src/components/Informer/Informer';
+
+<Endpoint
+  url="/ver1/trades"
+  method="POST"
+  permissions={
+    <>
+      <Permission title="Permission" description="SMART_TRADES_WRITE" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Creates a new trade.
+
+<Informer variant="info">
+  This endpoint supports creating market and limit trades, including optional conditional triggers, trailing stops, timeouts, and leverage settings (for OKX Futures).
+</Informer>
+
+<Separator />
+
+<StickyLayout.Root>
+  <StickyLayout.Main>
+
+## Request Parameters
+
+<ApiParam name="account_id" type="integer" id="account_id" required>
+  ID of the exchange account. Use <code>GET /ver1/accounts</code> to retrieve available accounts.
+</ApiParam>
+
+<ApiParam name="pair" type="string" id="pair" required>
+  Trading pair in format like <code>USDT_BTC</code>.
+</ApiParam>
+
+<ApiParam name="order" type="object" id="order" required>
+  Details of the trade order.
+  <CollapsibleNestedParams>
+    <ApiParam name="type" type="string" id="type" required>
+      Order type: <code>market</code> or <code>limit</code>.
+    </ApiParam>
+    <ApiParam name="side" type="string" id="side" required>
+      Order direction: <code>buy</code> or <code>sell</code>.
+    </ApiParam>
+    <ApiParam name="strategy" type="string" id="strategy">
+      Optional time-in-force strategy: <code>gtc</code>, <code>ioc</code>, <code>fok</code>, or <code>post_only</code>. Defaults to <code>gtc</code>.
+    </ApiParam>
+    <ApiParam name="position_side" type="string" id="position_side">
+      Position direction: <code>both</code> (One-Way mode), or <code>long</code>/<code>short</code> (Hedge mode).
+    </ApiParam>
+    <ApiParam name="reduce_only" type="boolean" id="reduce_only">
+      Set to <code>true</code> to only reduce an existing position.
+    </ApiParam>
+  </CollapsibleNestedParams>
+</ApiParam>
+
+<ApiParam name="units" type="object" id="units" required>
+  Amount to buy or sell.
+  <CollapsibleNestedParams>
+    <ApiParam name="value" type="number" id="value" required>
+      Trade quantity.
+    </ApiParam>
+  </CollapsibleNestedParams>
+</ApiParam>
+
+<ApiParam name="price" type="object" id="price">
+  Price settings, required for limit orders.
+  <CollapsibleNestedParams>
+    <ApiParam name="value" type="number" id="value" required>
+      Limit price value.
+    </ApiParam>
+  </CollapsibleNestedParams>
+</ApiParam>
+
+<ApiParam name="conditional" type="object" id="conditional" required>
+  Optional conditional order configuration.
+  <CollapsibleNestedParams>
+    <ApiParam name="enabled" type="boolean" id="enabled" required>
+      Whether the trade uses a conditional trigger.
+    </ApiParam>
+    <ApiParam name="value" type="string" id="value">
+      Trigger condition: <code>less</code>, <code>less_or_equal</code>, <code>greater</code>, or <code>greater_or_equal</code>.
+    </ApiParam>
+    <ApiParam name="price" type="object" id="price">
+      Conditional price trigger.
+      <CollapsibleNestedParams>
+        <ApiParam name="value" type="number" id="value" required>
+          Trigger price value.
+        </ApiParam>
+        <ApiParam name="type" type="string" id="type" required>
+          Price source: <code>bid</code>, <code>ask</code>, or <code>last</code>.
+        </ApiParam>
+      </CollapsibleNestedParams>
+    </ApiParam>
+  </CollapsibleNestedParams>
+</ApiParam>
+
+<ApiParam name="trailing" type="object" id="trailing" required>
+  Optional trailing stop configuration.
+  <CollapsibleNestedParams>
+    <ApiParam name="enabled" type="boolean" id="enabled" required>
+      Whether trailing stop is enabled.
+    </ApiParam>
+    <ApiParam name="value" type="number" id="value">
+      Absolute deviation.
+    </ApiParam>
+    <ApiParam name="percent" type="number" id="percent">
+      Percentage deviation.
+    </ApiParam>
+  </CollapsibleNestedParams>
+</ApiParam>
+
+<ApiParam name="timeout" type="object" id="timeout" required>
+  Optional timeout for conditional trades.
+  <CollapsibleNestedParams>
+    <ApiParam name="enabled" type="boolean" id="enabled" required>
+      Whether timeout is enabled.
+    </ApiParam>
+    <ApiParam name="value" type="integer" id="value">
+      Timeout in seconds.
+    </ApiParam>
+  </CollapsibleNestedParams>
+</ApiParam>
+
+<ApiParam name="leverage" type="object" id="leverage">
+  Optional leverage configuration (OKX Futures only).
+  <CollapsibleNestedParams>
+    <ApiParam name="type" type="string" id="type">
+      Leverage mode: <code>isolated</code> or <code>cross</code>.
+    </ApiParam>
+  </CollapsibleNestedParams>
+</ApiParam>
+
+<Separator />
+
+## Example Trade Types
+
+### Market Buy
+
+```json
+{
+  "account_id": 1,
+  "pair": "USDT_BTC",
+  "order": {
+    "type": "market",
+    "side": "buy"
+  },
+  "units": {
+    "value": "1.0"
+  },
+  "conditional": {
+    "enabled": false
+  },
+  "trailing": {
+    "enabled": false
+  },
+  "timeout": {
+    "enabled": false
+  }
+}
+```
+
+### Market Sell
+
+```json
+{
+  "account_id": 1,
+  "pair": "USDT_BTC",
+  "order": {
+    "type": "market",
+    "side": "sell"
+  },
+  "units": {
+    "value": "1.0"
+  },
+  "conditional": {
+    "enabled": false
+  },
+  "trailing": {
+    "enabled": false
+  },
+  "timeout": {
+    "enabled": false
+  }
+}
+```
+
+### Limit Buy
+
+```json
+{
+  "account_id": 1,
+  "pair": "USDT_BTC",
+  "order": {
+    "type": "limit",
+    "side": "buy"
+  },
+  "units": {
+    "value": "1.0"
+  },
+  "price": {
+    "value": "10000.0"
+  },
+  "conditional": {
+    "enabled": false
+  },
+  "trailing": {
+    "enabled": false
+  },
+  "timeout": {
+    "enabled": false
+  }
+}
+```
+
+### Limit Sell
+
+```json
+{
+  "account_id": 1,
+  "pair": "USDT_BTC",
+  "order": {
+    "type": "limit",
+    "side": "sell"
+  },
+  "units": {
+    "value": "1.0"
+  },
+  "price": {
+    "value": "100000.0"
+  },
+  "conditional": {
+    "enabled": false
+  },
+  "trailing": {
+    "enabled": false
+  },
+  "timeout": {
+    "enabled": false
+  }
+}
+```
+
+### Conditional Market Buy
+
+```json
+{
+  "account_id": 1,
+  "pair": "USDT_BTC",
+  "order": {
+    "type": "market",
+    "side": "buy"
+  },
+  "units": {
+    "value": "1.0"
+  },
+  "conditional": {
+    "enabled": true,
+    "value": "less_or_equal",
+    "price": {
+      "value": "10000.0",
+      "type": "last"
+    }
+  },
+  "trailing": {
+    "enabled": false
+  },
+  "timeout": {
+    "enabled": false
+  }
+}
+```
+
+### Conditional Limit Sell
+
+```json
+{
+  "account_id": 1,
+  "pair": "USDT_BTC",
+  "order": {
+    "type": "limit",
+    "side": "sell"
+  },
+  "units": {
+    "value": "1.0"
+  },
+  "price": {
+    "value": "100000.0"
+  },
+  "conditional": {
+    "enabled": true,
+    "value": "greater_or_equal",
+    "price": {
+      "value": "90000.0",
+      "type": "last"
+    }
+  },
+  "trailing": {
+    "enabled": false
+  },
+  "timeout": {
+    "enabled": false
+  }
+}
+```
+
+### Conditional Trailing Sell
+
+```json
+{
+  "account_id": 1,
+  "pair": "USDT_BTC",
+  "order": {
+    "type": "market",
+    "side": "sell"
+  },
+  "units": {
+    "value": "1.0"
+  },
+  "conditional": {
+    "enabled": true,
+    "value": "greater_or_equal",
+    "price": {
+      "value": "90000.0",
+      "type": "last"
+    }
+  },
+  "trailing": {
+    "enabled": true,
+    "percent": "1.0"
+  },
+  "timeout": {
+    "enabled": false
+  }
+}
+```
+
+### Conditional + Timeout
+
+```json
+{
+  "account_id": 1,
+  "pair": "USDT_BTC",
+  "order": {
+    "type": "market",
+    "side": "sell"
+  },
+  "units": {
+    "value": "1.0"
+  },
+  "conditional": {
+    "enabled": true,
+    "value": "greater_or_equal",
+    "price": {
+      "value": "90000.0",
+      "type": "last"
+    }
+  },
+  "trailing": {
+    "enabled": false
+  },
+  "timeout": {
+    "enabled": true,
+    "value": 300
+  }
+}
+```
+
+  </StickyLayout.Main>
+  <StickyLayout.Sticky>
+
+## Example Request
+
+```json title="POST /ver1/trades"
+{
+  "account_id": 1,
+  "pair": "USDT_BTC",
+  "order": {
+    "type": "market",
+    "side": "buy"
+  },
+  "units": {
+    "value": "1.0"
+  },
+  "conditional": {
+    "enabled": false
+  },
+  "trailing": {
+    "enabled": false
+  },
+  "timeout": {
+    "enabled": false
+  }
+}
+```
+
+  </StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+  <StickyLayout.Main>
+
+## Response Parameters
+
+If successful, the response includes trade ID, current status, and other metadata (not fully documented).
+
+  </StickyLayout.Main>
+  <StickyLayout.Sticky>
+
+## Example Responses
+
+<ResponseTabs.Root>
+  <ResponseTabs.TabItem value="201" label="201 Created" default>
+
+```json
+{
+  "uuid": "a6f1c3d2-9d1a-4db7-9ad4-f7a8e2f98765",
+  "account_id": 1,
+  "pair": "USDT_BTC",
+  "order": {
+    "type": "market",
+    "side": "buy"
+  },
+  "units": {
+    "value": "1.0"
+  },
+    "status": {
+    "value": "to_process",
+    "error": null
+  },
+  "filled": {
+    "units": "0.0",
+    "total": "0.0",
+    "price": null
+  },
+  "created_at": 1727871936,
+  "closed_at": null,
+  "price": {
+    "value": null
+  },
+  "conditional": {
+    "enabled": false,
+    "value": null,
+    "price": {
+      "value": null,
+      "type": null
+    }
+  },
+  "trailing": {
+    "enabled": false,
+    "value": null,
+    "percent": null
+  },
+  "timeout": {
+    "enabled": false,
+    "value": null
+  }
+}
+```
+
+  </ResponseTabs.TabItem>
+  <ResponseTabs.TabItem value="422" label="422 Unprocessable Entity">
+
+```json
+{
+  "error": "invalid_request",
+  "error_description": "Missing or invalid parameters"
+}
+```
+
+  </ResponseTabs.TabItem>
+  <ResponseTabs.TabItem value="403" label="403 Forbidden">
+
+```json
+{
+  "error": "Forbidden",
+  "error_description": "Api key not authorized for this action"
+}
+```
+
+  </ResponseTabs.TabItem>
+</ResponseTabs.Root>
+
+
+
+  </StickyLayout.Sticky>
+</StickyLayout.Root>

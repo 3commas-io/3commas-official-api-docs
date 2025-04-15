@@ -1,0 +1,169 @@
+---
+id: get-trades-history
+title: Trades History
+sidebar_class_name: get
+---
+
+import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
+import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
+import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
+import ApiParam from '@site/src/components/ApiParam';
+import Separator from '@site/src/components/Separator';
+import * as ResponseTabs from '@site/src/components/ResponseTabs';
+import * as StickyLayout from '@site/src/components/StickyLayout';
+import { Informer } from '@site/src/components/Informer/Informer';
+
+<Endpoint
+  url="/ver1/trades/history"
+  method="GET"
+  permissions={
+    <>
+      <Permission title="Permission" description="SMART_TRADES_READ" />
+      <Permission title="Security" description="SIGNED" />
+    </>
+  }
+/>
+
+Returns a list of trades from history (completed, cancelled, or otherwise closed).
+
+<Informer variant="info">
+  This endpoint returns trades that have been completed, cancelled, or otherwise closed. For active trades, use <code>GET /ver1/trades</code>.
+</Informer>
+
+<Separator />
+
+<StickyLayout.Root>
+  <StickyLayout.Main>
+
+## Query Parameters
+
+<ApiParam name="account_id" type="integer" id="account_id">
+  Optional filter for trades on a specific account. You can get IDs via <code>GET /ver1/accounts</code>.
+</ApiParam>
+
+<ApiParam name="pair" type="string" id="pair">
+  Optional filter for trades on a specific trading pair (e.g., <code>USDT_BTC</code>).
+</ApiParam>
+
+<ApiParam name="order_by" type="string" id="order_by">
+  Field to sort results by. Allowed values: <code>pair</code>, <code>created_at</code>, <code>closed_at</code>. Default is <code>created_at</code>.
+</ApiParam>
+
+<ApiParam name="order_direction" type="string" id="order_direction">
+  Sort direction: <code>asc</code> or <code>desc</code>. Default is <code>asc</code>.
+</ApiParam>
+
+<ApiParam name="limit" type="integer" id="limit">
+  Number of records to return. Default is <code>10</code>.
+</ApiParam>
+
+<ApiParam name="offset" type="integer" id="offset">
+  Number of records to skip for pagination. Default is <code>0</code>.
+</ApiParam>
+
+  </StickyLayout.Main>
+  <StickyLayout.Sticky>
+
+## Example Request
+
+<NoContentEndpoint method="GET" endpoint="/ver1/trades/history?account_id=1&amp;limit=5" />
+
+  </StickyLayout.Sticky>
+</StickyLayout.Root>
+
+<StickyLayout.Root>
+  <StickyLayout.Main>
+
+## Response Parameters
+
+Returns an array of historical trade entities. See [Trade Entity](/docs/smart-trade/simple_test) for a full list of attributes.
+
+  </StickyLayout.Main>
+  <StickyLayout.Sticky>
+
+## Example Responses
+
+<ResponseTabs.Root>
+  <ResponseTabs.TabItem value="200" label="200 OK" default>
+
+```json
+{
+  "response": {
+    "trades": 
+      [
+        {
+          "uuid": "be523b7b-05a0-49b9-89f9-41ae19fff415",
+          "account_id": 32576869,
+          "pair": "BTC_ETH",
+          "created_at": 1727871936,
+          "closed_at": 1727871937,
+          "order": {
+            "type": "market",
+            "side": "buy",
+            "strategy": null,
+            "position_side": "both",
+            "reduce_only": false
+          },
+          "units": {
+            "value": "2.4869"
+          },
+          "price": {
+            "value": null
+          },
+          "total": {
+            "value": "0.099898773"
+          },
+          "conditional": {
+            "enabled": false,
+            "value": null,
+            "price": {
+              "value": null,
+              "type": null
+            }
+          },
+          "trailing": {
+            "enabled": false,
+            "value": null,
+            "percent": null
+          },
+          "timeout": {
+            "enabled": false,
+            "value": null
+          },
+          "leverage": {
+            "type": null
+          },
+          "status": {
+            "value": "finished",
+            "error": null
+          },
+          "filled": {
+            "units": "2.4869",
+            "total": "0.099998671773",
+            "price": "0.04021",
+            "value": "100.0"
+          },
+          "data": {
+            "cancelable": false
+          }
+        }
+      ]
+  }
+}
+```
+
+  </ResponseTabs.TabItem>
+  <ResponseTabs.TabItem value="403" label="403 Forbidden">
+
+```json
+{
+  "error": "Forbidden",
+  "error_description": "Api key not authorized for this action"
+}
+```
+
+  </ResponseTabs.TabItem>
+</ResponseTabs.Root>
+
+  </StickyLayout.Sticky>
+</StickyLayout.Root>
