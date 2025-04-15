@@ -24,8 +24,8 @@
   background-repeat: no-repeat;
   background-position: center;
   background-image: var(--search-svg);
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
 }
 .DocSearch.DocSearch-Button:hover .DocSearch-Button-Container::before,
 .DocSearch.DocSearch-Button:focus .DocSearch-Button-Container::before,
