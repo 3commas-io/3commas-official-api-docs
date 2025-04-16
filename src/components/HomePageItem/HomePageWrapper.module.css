@@ -1,13 +1,14 @@
 .home_page-wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 32px 80px;
-  place-content: center;
+  gap: 32px 40px;
   margin-top: 60px;
+  max-width: 1004px;
 }
 
 @media (max-width: 796px) {
   .home_page-wrapper {
-    grid-template-columns: 1fr;
+    grid-template-columns: auto;
+    place-content: center;
   }
 }
