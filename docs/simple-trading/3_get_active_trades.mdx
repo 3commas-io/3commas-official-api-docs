@@ -7,7 +7,7 @@ sidebar_class_name: get
 import Endpoint, { Permission, NoContentEndpoint } from '@site/src/components/Endpoint';
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
 import Separator from '@site/src/components/Separator';
 import * as ResponseTabs from '@site/src/components/ResponseTabs';
 import * as StickyLayout from '@site/src/components/StickyLayout';
@@ -46,19 +46,27 @@ Returns a list of currently active trades.
 </ApiParam>
 
 <ApiParam name="order_by" type="string" id="order_by">
-  Field to sort results by. Allowed values: <code>pair</code>, <code>created_at</code>. Default is <code>created_at</code>.
+  Field to sort results by. Allowed values: <code>pair</code>, <code>created_at</code>.
+  
+  <ParameterRange defaultVal="created_at" />
 </ApiParam>
 
 <ApiParam name="order_direction" type="string" id="order_direction">
-  Sort direction: <code>asc</code> or <code>desc</code>. Default is <code>asc</code>.
+  Sort direction: <code>asc</code> or <code>desc</code>.
+  
+  <ParameterRange defaultVal="asc" />
 </ApiParam>
 
 <ApiParam name="limit" type="integer" id="limit">
-  Number of records to return. Default is <code>10</code>.
+  Number of records to return.
+  
+  <ParameterRange defaultVal={10} />
 </ApiParam>
 
 <ApiParam name="offset" type="integer" id="offset">
-  Number of records to skip for pagination. Default is <code>0</code>.
+  Number of records to skip for pagination.
+
+  <ParameterRange defaultVal={0} />
 </ApiParam>
 
   </StickyLayout.Main>
@@ -76,7 +84,7 @@ Returns a list of currently active trades.
 
 ## Response Parameters
 
-Returns an array of active trade entities. See [Trade Entity](/docs/smart-trade/simple_test) for a full list of attributes.
+Returns an array of active trade entities. See [Trade Entity](/smart-trade/smart-trade-entity) for a full list of attributes.
 
   </StickyLayout.Main>
   <StickyLayout.Sticky>

@@ -3,22 +3,26 @@
   gap: 16px;
   cursor: pointer;
   text-decoration: none;
+  color: #19191a;
+
+  [data-theme="dark"] & {
+    color: white;
+  }
+
+  & > .homePageItemIconWrapper > svg {
+    width: 20px;
+    height: 20px;
+  }
 
   &:hover {
+    color: white;
+
     .homePageItemDescription {
       color: var(--ifm-heading-color);
     }
 
     .homePageItemIconWrapper {
-      background-color: #13a8a1;
-
-      > div > svg > path {
-        stroke: #ffffff;
-      }
-
-      div svg g rect {
-        fill: #ffffff;
-      }
+      background-color: var(--ifm-link-color);
     }
   }
 }
@@ -65,7 +69,7 @@
 }
 
 .homePageItemDescription {
-  max-width: 300px;
+  max-width: 414px;
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;

@@ -19,6 +19,9 @@ const excludedRoutes = [
   "/account/account-entity",
   // market-data
   "/market-data/",
+  // simple-trading
+  "/simple-trading/",
+  "/simple-trading/trade-entity",
   // dca-bot
   "/dca-bot/",
   "/dca-bot/dca-bot-entity",
