@@ -62,6 +62,15 @@ Returns all-time trading volume for the specified account in BTC and USD.
         }
         ```
       </ResponseTabs.TabItem>
+
+      <ResponseTabs.TabItem value="403" label="403 Forbidden">
+        ```json
+        {
+          "error": "Forbidden",
+          "error_description": "Api key not authorized for this action"
+        }
+        ```
+      </ResponseTabs.TabItem>
     </ResponseTabs.Root>
   </StickyLayout.Sticky>
 </StickyLayout.Root>

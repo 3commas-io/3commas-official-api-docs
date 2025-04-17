@@ -74,12 +74,20 @@ Returns daily trading volume for the specified account in BTC and USD.
         ```
       </ResponseTabs.TabItem>
 
+      <ResponseTabs.TabItem value="403" label="403 Forbidden">
+        ```json
+        {
+          "error": "Forbidden",
+          "error_description": "Api key not authorized for this action"
+        }
+        ```
+      </ResponseTabs.TabItem>
+
       <ResponseTabs.TabItem value="404" label="404 Not Found">
         ```json
         {
           "error": "Volume data not found",
-          "error_description": "No data available for the requested date",
-          "status_code": 404
+          "error_description": "No data available for the requested date"
         }
         ```
       </ResponseTabs.TabItem>
