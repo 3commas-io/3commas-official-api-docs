@@ -867,10 +867,6 @@ li.menu__list-item > .category-title-hr.titled {
   font-weight: 500 !important;
 }
 @media (min-width: 1200px) {
-  #breadcrumbsArea {
-    height: 42px;
-  }
-
   #breadcrumbsContainer {
     position: fixed;
     z-index: 200;
@@ -892,10 +888,6 @@ li.menu__list-item > .category-title-hr.titled {
     position: fixed;
     right: 195px;
     left: auto;
-  }
-
-  #breadcrumbsArea {
-    height: auto;
   }
 }
 
