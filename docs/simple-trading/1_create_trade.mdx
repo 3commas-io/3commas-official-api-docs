@@ -427,46 +427,48 @@ If successful, the response includes trade ID, current status, and other metadat
 
 ```json
 {
-  "uuid": "a6f1c3d2-9d1a-4db7-9ad4-f7a8e2f98765",
-  "account_id": 1,
-  "pair": "USDT_BTC",
-  "order": {
-    "type": "market",
-    "side": "buy"
-  },
-  "units": {
-    "value": "1.0"
-  },
+  "trade": {
+    "uuid": "a6f1c3d2-9d1a-4db7-9ad4-f7a8e2f98765",
+    "account_id": 1,
+    "pair": "USDT_BTC",
+    "order": {
+      "type": "market",
+      "side": "buy"
+    },
+    "units": {
+      "value": "1.0"
+    },
     "status": {
-    "value": "to_process",
-    "error": null
-  },
-  "filled": {
-    "units": "0.0",
-    "total": "0.0",
-    "price": null
-  },
-  "created_at": 1727871936,
-  "closed_at": null,
-  "price": {
-    "value": null
-  },
-  "conditional": {
-    "enabled": false,
-    "value": null,
+      "value": "to_process",
+      "error": null
+    },
+    "filled": {
+      "units": "0.0",
+      "total": "0.0",
+      "price": null
+    },
+    "created_at": 1727871936,
+    "closed_at": null,
     "price": {
+      "value": null
+    },
+    "conditional": {
+      "enabled": false,
       "value": null,
-      "type": null
+      "price": {
+        "value": null,
+        "type": null
+      }
+    },
+    "trailing": {
+      "enabled": false,
+      "value": null,
+      "percent": null
+    },
+    "timeout": {
+      "enabled": false,
+      "value": null
     }
-  },
-  "trailing": {
-    "enabled": false,
-    "value": null,
-    "percent": null
-  },
-  "timeout": {
-    "enabled": false,
-    "value": null
   }
 }
 ```
