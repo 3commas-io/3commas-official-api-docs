@@ -94,7 +94,7 @@ export function SidebarProvider({ children }: SidebarProviderProps) {
   useEffect(() => {
     const handleResize = () => {
       if (
-          (window.innerWidth >= 1700 || window.innerWidth <= 996) &&
+          (window.innerWidth >= 1631 || window.innerWidth <= 996) &&
           !isPinned
       ) {
         pinSidebar();
