@@ -21,17 +21,20 @@
     height: calc(100vh - var(--ifm-navbar-height));
     width: var(--doc-sidebar-width);
     position: relative;
+    transition: opacity .3s ease, visibility 0s linear .3s;
   }
 
   .sidebarPinned {
     position: sticky;
     top: var(--ifm-navbar-height);
     z-index: 2;
+    transition: opacity .3s ease, visibility 0s;
   }
 
   .sidebarUnpinned {
     position: fixed;
     z-index: 199;
+    visibility: hidden;
   }
 
   .sidebarAnimated {
@@ -39,6 +42,7 @@
     overflow: hidden;
     transition: width 0.3s ease;
     background-color: var(--navigation-background-color);
+    visibility: visible;
   }
 
   .sidebarAnimatedOpen {
@@ -52,5 +56,11 @@
   .sidebarBase aside {
     margin-top: 0 !important;
     height: 100%;
+  }
+}
+
+@media (min-width: 1631px) {
+  .sidebarUnpinned {
+    visibility: visible;
   }
 }
