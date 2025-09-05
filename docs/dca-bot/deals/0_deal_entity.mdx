@@ -5,7 +5,7 @@ title: Deal entity
 
 import CollapsibleApiParam from '@site/src/components/CollapsibleApiParam';
 import CollapsibleNestedParams from '@site/src/components/CollapsibleNestedParams';
-import ApiParam from '@site/src/components/ApiParam';
+import ApiParam, { ParameterRange } from '@site/src/components/ApiParam';
 import { CollapseAll, CollapseAllButton, CollapseAllHeading } from '@site/src/components/CollapseAll';
 import * as StickyLayout from '@site/src/components/StickyLayout';
 
@@ -260,6 +260,28 @@ import * as StickyLayout from '@site/src/components/StickyLayout';
    Coefficient for increasing the safety order price in the Martingale strategy.
 </CollapsibleApiParam>
 
+<CollapsibleApiParam name='custom_safety_steps' type='array[json]' id="custom_safety_steps">
+   Direct list of custom SO steps (alternative to Martingale coefficients).
+   Each step is JSON object: `{"deviation": "-1.1", "size": 10}`.
+
+  <CollapsibleNestedParams>
+     <ApiParam name='deviation' type="string" id="deviation">
+       Step deviation in percents. Negative means lower than base price, positive is higher.
+
+       <ParameterRange min={-100} max={10000} />
+     </ApiParam>
+
+     <ApiParam name='size' type="number" id="size">
+       Size of averaging order on a given step. Interpretation of depends on `safety_order_volume_type` param.
+     </ApiParam>
+
+     <ApiParam name='editable' type="boolean" id="editable">
+       Indicates if step can be edited. Finished steps are not editable and are expected to be passed as it is while editing.
+     </ApiParam>
+  </CollapsibleNestedParams>
+</CollapsibleApiParam>
+
+
 <CollapsibleApiParam name="stop_loss_percentage" type="number" id="stop_loss_percentage">
    Stop loss percentage for this deal.
 </CollapsibleApiParam>
@@ -330,7 +352,7 @@ Volume type for base orders (e.g., `quote_currency`, `base_currency`, `percent`)
 </CollapsibleApiParam>
   
 <CollapsibleApiParam name="strategy" type="string" id="strategy">
-   Type of strategy used by the bot: `long` or `short`.
+   Type of strategy (called Direction in UI) used by the bot: `long` or `short`.
 </CollapsibleApiParam>
 
 <CollapsibleApiParam name="last_known_position_info" type="string or null" id="last_known_position_info">
