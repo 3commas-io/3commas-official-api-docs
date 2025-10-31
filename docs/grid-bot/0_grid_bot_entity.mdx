@@ -211,6 +211,11 @@ An array of grid line orders associated with this Grid Bot.
     </ApiParam>
     </CollapsibleNestedParams>
 </CollapsibleApiParam>
+
+<CollapsibleApiParam name="mode" type="string" id="mode">
+Grid Mode (Futures only): `long`, `short`, `reversal`
+</CollapsibleApiParam>
+
 </CollapseAll>
 </StickyLayout.Main>
 
@@ -277,7 +282,8 @@ An array of grid line orders associated with this Grid Bot.
       "side": "buy",
       "order_placed": false
     }
-  ]
+  ],
+  "mode": null
 }
 ```
 </StickyLayout.Sticky>
