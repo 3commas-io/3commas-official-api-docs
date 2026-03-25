@@ -37,6 +37,7 @@ export const SearchPageContent = (): ReactNode => {
   const documentsFoundPlural = useDocumentsFoundPlural();
 
   const docsSearchVersionsHelpers = useDocsSearchVersionsHelpers();
+  const titleFormatter = useTitleFormatter();
   const [searchQuery, setSearchQuery] = useSearchQueryString();
   const initialSearchResultState: ResultDispatcherState = {
     items: [],
@@ -261,7 +262,7 @@ export const SearchPageContent = (): ReactNode => {
   return (
     <Layout>
       <Head>
-        <title>{useTitleFormatter(getTitle())}</title>
+        <title>{titleFormatter.format(getTitle())}</title>
         {/*
          We should not index search pages
           See https://github.com/facebook/docusaurus/pull/3233
