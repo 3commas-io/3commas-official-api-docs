@@ -18,8 +18,8 @@
     "format": "prettier --write 'src/**/*.{ts,tsx,css}' 'docusaurus.config.ts' 'sidebars.ts'"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.7.0",
-    "@docusaurus/preset-classic": "^3.7.0",
+    "@docusaurus/core": "^3.9.2",
+    "@docusaurus/preset-classic": "^3.9.2",
     "@mdx-js/react": "^3.0.0",
     "@radix-ui/react-collapsible": "^1.1.2",
     "@radix-ui/react-tooltip": "^1.1.6",
@@ -29,13 +29,16 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.7.0",
-    "@docusaurus/tsconfig": "^3.7.0",
-    "@docusaurus/types": "^3.7.0",
-    "markdownlint": "^0.37.4",
-    "markdownlint-cli2": "^0.17.2",
+    "@docusaurus/module-type-aliases": "^3.9.2",
+    "@docusaurus/tsconfig": "^3.9.2",
+    "@docusaurus/types": "^3.9.2",
+    "markdownlint": "^0.40.0",
+    "markdownlint-cli2": "^0.22.0",
     "prettier": "^3.5.3",
     "typescript": "~5.6.2"
+  },
+  "overrides": {
+    "serialize-javascript": "^7.0.3"
   },
   "browserslist": {
     "production": [

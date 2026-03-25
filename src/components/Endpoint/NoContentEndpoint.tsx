@@ -1,7 +1,7 @@
 import styles from "./NoContentEndpoint.module.css";
 
 import { Method } from "./Method";
-import CopyButton from "@site/src/theme/CodeBlock/CopyButton";
+import CopyButton from "@site/src/components/CopyButton";
 
 interface NoContentEndpointProps {
   method: Method;
