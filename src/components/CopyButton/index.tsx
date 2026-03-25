@@ -16,12 +16,16 @@ export default function CopyButton({ code, className }: Props): JSX.Element {
   const copyTimeout = useRef<number | undefined>(undefined);
 
   const handleCopyCode = useCallback(() => {
-    navigator.clipboard.writeText(code).then(() => {
-      setIsCopied(true);
-      copyTimeout.current = window.setTimeout(() => {
-        setIsCopied(false);
-      }, 1000);
-    });
+    window.clearTimeout(copyTimeout.current);
+    navigator.clipboard
+      .writeText(code)
+      .then(() => {
+        setIsCopied(true);
+        copyTimeout.current = window.setTimeout(() => {
+          setIsCopied(false);
+        }, 1000);
+      })
+      .catch(() => {});
   }, [code]);
 
   useEffect(() => () => window.clearTimeout(copyTimeout.current), []);
