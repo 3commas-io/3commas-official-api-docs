@@ -4,17 +4,19 @@ on:
   push:
     branches:
       - master
+      - devops/ops-943
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    environment: ${{ github.ref_name == 'master' && 'production' || 'test' }}
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: "23.4.0"
 
@@ -33,14 +35,19 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
         run: |
-          wrangler pages deploy ./build --project-name $CLOUDFLARE_PROJECT_NAME --branch main
+          wrangler pages deploy ./build --project-name $CLOUDFLARE_PROJECT_NAME --branch ${{ github.ref_name }}
 
       - name: Purge Cloudflare cache
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
         run: |
+          if [ "${{ github.ref_name }}" = "master" ]; then
+            HOST="developers.3commas.io"
+          else
+            HOST="betadocs.3commas.io"
+          fi
           curl -X POST "https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONE_ID/purge_cache" \
             -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
             -H "Content-Type: application/json" \
-            --data '{"hosts": ["developers.3commas.io"]}'
+            --data "{\"hosts\": [\"$HOST\"]}"
