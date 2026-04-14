@@ -10,7 +10,7 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
     environment: ${{ github.ref_name == 'master' && 'production' || 'test' }}
-
+ 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
