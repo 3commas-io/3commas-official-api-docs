@@ -593,7 +593,20 @@ Available actions applicable to the entire SmartTrade entity.
         ISO 8601 datetime string of when this SmartTrade entity was updated.
     </ApiParam>
      <ApiParam name='type' type="string" id="type">
-        Type of SmartTtade.
+        Type of SmartTrade. Determined by the combination of `instant`, `skip_enter_step`, and `position.type` used when creating the trade.
+
+        Possible values: `simple_buy`, `simple_sell`, `smart_sell`, `smart_buy`, `smart_trade`, `smart_cover`.
+
+<br />
+
+| Value | `instant` | `skip_enter_step` | `position.type` | Description |
+|---|---|---|---|---|
+| `simple_buy` | `true` | `false` | `buy` | Instant buy without TP/SL |
+| `simple_sell` | `true` | `false` | `sell` | Instant sell without TP/SL |
+| `smart_sell` | `false` | `true` | `buy` | Sell existing long position with TP/SL, no new entry |
+| `smart_buy` | `false` | `true` | `sell` | Cover existing short position with TP/SL, no new entry |
+| `smart_trade` | `false` | `false` | `buy` | Full long trade: entry + optional TP/SL |
+| `smart_cover` | `false` | `false` | `sell` | Full short trade: entry + optional TP/SL |
     </ApiParam>
   </CollapsibleNestedParams>
 </CollapsibleApiParam>
