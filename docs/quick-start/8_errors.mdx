@@ -17,7 +17,7 @@ Errors generally return a 4xx response code:
 <Errors>
   <ErrorText code="4XX">Malformed requests (issue is on the sender's side).</ErrorText>
   <ErrorText code="401">Authentication failed. Possible causes: invalid or expired API key, invalid request signature, or request from a non-whitelisted IP address.</ErrorText>
-  <ErrorText code="403">Access denied. Two possible causes: (1) the API key does not have the required permission enabled (e.g. BOTS_READ) — check the key's permission settings in your 3Commas account; (2) the operation is not allowed for this resource in its current state (e.g. deal cannot be cancelled, KYC verification required, or active subscription required).</ErrorText>
+  <ErrorText code="403">Access denied. Two possible causes: (1) the API key does not have the required permission enabled (e.g. BOTS_READ) — check the key's permission settings in your 3Commas account; (2) the operation is not allowed for this resource in its current state (e.g. deal cannot be cancelled, or active subscription required).</ErrorText>
   <ErrorText code="429">Request rate limit exceeded.</ErrorText>
   <ErrorText code="418">IP auto-banned for continuing to send requests after receiving `429` codes.</ErrorText>
   <ErrorText code="5XX">Internal errors (issue is on 3Commas's side).</ErrorText>
